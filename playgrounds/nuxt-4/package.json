@@ -1,0 +1,17 @@
+{
+  "name": "nuxt-4",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "serve": "nuxt preview"
+  },
+  "devDependencies": {
+    "@nuxt/fonts": "^0.10.2",
+    "@shuriken-ui/nuxt": "workspace:*",
+    "@shuriken-ui/tailwind": "workspace:*",
+    "nuxt": "^3.14.159",
+    "tailwindcss": "4.0.0-alpha.31"
+  }
+}

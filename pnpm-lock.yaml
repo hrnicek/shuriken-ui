@@ -63,6 +63,24 @@ importers:
         specifier: 4.0.0-alpha.31
         version: 4.0.0-alpha.31
 
+  playgrounds/nuxt-4:
+    devDependencies:
+      '@nuxt/fonts':
+        specifier: ^0.10.2
+        version: 0.10.2(ioredis@5.4.1)(magicast@0.3.5)(rollup@4.24.4)(vite@5.4.10(@types/node@22.9.0)(lightningcss@1.28.1)(terser@5.36.0))
+      '@shuriken-ui/nuxt':
+        specifier: workspace:*
+        version: link:../../packages/nuxt
+      '@shuriken-ui/tailwind':
+        specifier: workspace:*
+        version: link:../../packages/tailwind
+      nuxt:
+        specifier: ^3.14.159
+        version: 3.14.159(@parcel/watcher@2.5.0)(@types/node@22.9.0)(ioredis@5.4.1)(lightningcss@1.28.1)(magicast@0.3.5)(rollup@4.24.4)(terser@5.36.0)(typescript@5.6.3)(vite@5.4.10(@types/node@22.9.0)(lightningcss@1.28.1)(terser@5.36.0))
+      tailwindcss:
+        specifier: 4.0.0-alpha.31
+        version: 4.0.0-alpha.31
+
   playgrounds/vite:
     devDependencies:
       '@shuriken-ui/tailwind':
