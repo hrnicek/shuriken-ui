@@ -24,8 +24,8 @@ export function useNinjaMark(
 
     const regex = new RegExp(srch, 'gi')
 
-    return txt.replace(regex, (part) => {
+    return txt?.replace(regex, (part) => {
       return `<mark class="${classes.value}">${escapeHtml(part)}</mark>`
-    })
+    }) ?? ''
   })
 }

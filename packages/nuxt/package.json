@@ -23,7 +23,7 @@
     "@headlessui/vue": "^1.7.23",
     "@nuxt/icon": "^1.7.0",
     "@nuxtjs/color-mode": "^3.5.2",
-    "@tailwindcss/vite": "^4.0.0-alpha.31",
+    "@tailwindcss/vite": "catalog:",
     "@vueuse/nuxt": "^11.2.0"
   },
   "peerDependencies": {
