@@ -1,0 +1,9 @@
+{
+  "name": "@shuriken-ui/vue",
+  "author": "Css Ninja <hello@cssninja.io> (https://cssninja.io)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shuriken-ui/tailwind.git",
+    "directory": "packages/vue"
+  }
+}

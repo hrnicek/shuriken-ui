@@ -1,0 +1,11 @@
+@import 'tailwindcss';
+
+@import '@shuriken-ui/tailwind';
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /**
+   * Custom theme values
+   */
+}

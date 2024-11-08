@@ -1,0 +1,43 @@
+{
+  "name": "@shuriken-ui/tailwind",
+  "version": "4.0.0-alpha.3",
+  "license": "MIT",
+  "author": "Css Ninja <hello@cssninja.io> (https://cssninja.io)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shuriken-ui/shuriken-ui.git",
+    "directory": "packages/tailwind"
+  },
+  "bugs": "https://github.com/shuriken-ui/tailwind/issues",
+  "homepage": "https://github.com/shuriken-ui/tailwind",
+  "keywords": [
+    "nuxt",
+    "nuxt3",
+    "ui",
+    "framework",
+    "library",
+    "components",
+    "tailwind",
+    "tailwindcss",
+    "design-system",
+    "module"
+  ],
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.css",
+    "./theme.css": "./lib/theme.css",
+    "./*.css": "./lib/css/*.css"
+  },
+  "files": [
+    "lib/index.css",
+    "lib/theme.css",
+    "lib/css"
+  ],
+  "scripts": {
+    "build": "unbuild"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.15",
+    "tailwindcss": "^4.0.0 || 4.0.0-alpha.31"
+  }
+}

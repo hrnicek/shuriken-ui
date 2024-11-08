@@ -1,0 +1,31 @@
+{
+  "name": "@shuriken-ui/nuxt",
+  "author": "Css Ninja <hello@cssninja.io> (https://cssninja.io)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shuriken-ui/shuriken-ui.git",
+    "directory": "packages/nuxt"
+  },
+  "type": "module",
+  "exports": {
+    ".": "./nuxt.config.ts"
+  },
+  "files": [
+    "app.config.ts",
+    "assets",
+    "components",
+    "composables",
+    "nuxt.config.ts",
+    "nuxt.schema.ts"
+  ],
+  "dependencies": {
+    "@headlessui-float/vue": "^0.15.0",
+    "@headlessui/vue": "^1.7.23",
+    "@nuxt/icon": "^1.7.0",
+    "@nuxtjs/color-mode": "^3.5.2",
+    "@vueuse/nuxt": "^11.2.0"
+  },
+  "peerDependencies": {
+    "@shuriken-ui/tailwind": "workspace:*"
+  }
+}
