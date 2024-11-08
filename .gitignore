@@ -1,1 +1,8 @@
 node_modules
+
+# dev output
+.nuxt
+
+# build output
+.output
+dist

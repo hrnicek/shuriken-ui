@@ -5,4 +5,10 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
   ],
   css: ['~/assets/tailwind.css'],
+
+  vite: {
+    build: {
+      cssMinify: false,
+    },
+  },
 })

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import IconIndeterminate from '~~/../components/icon/IconIndeterminate.vue'
-
 definePageMeta({
   title: 'Icons',
   icon: 'system-uicons:diamond',

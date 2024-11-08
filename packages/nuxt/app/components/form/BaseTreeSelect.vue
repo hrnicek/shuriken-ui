@@ -283,7 +283,7 @@ function getDefaultOpenMap(source?: TreeViewTreeSource) {
 
   for (const index in children) {
     const item = children[index]
-    if ('open' in item && item.open !== undefined) {
+    if (item && 'open' in item && item.open !== undefined) {
       map[index] = item.open
     }
   }
@@ -835,8 +835,8 @@ function toggleChildrenSelection(tree?: TreeViewItemNode[], event?: Event) {
   </ul>
 </template>
 
-<style scoped>
+<!-- <style scoped>
 .treeview:deep(.treeview) {
   @apply ps-6;
 }
-</style>
+</style> -->

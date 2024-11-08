@@ -33,9 +33,6 @@
     "lib/theme.css",
     "lib/css"
   ],
-  "scripts": {
-    "build": "unbuild"
-  },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.15",
     "tailwindcss": "^4.0.0 || 4.0.0-alpha.31"

@@ -25,6 +25,9 @@ importers:
       '@shuriken-ui/tailwind':
         specifier: workspace:*
         version: link:../tailwind
+      '@tailwindcss/vite':
+        specifier: ^4.0.0-alpha.31
+        version: 4.0.0-alpha.31(vite@5.4.10(@types/node@22.9.0)(lightningcss@1.28.1)(terser@5.36.0))
       '@vueuse/nuxt':
         specifier: ^11.2.0
         version: 11.2.0(magicast@0.3.5)(nuxt@3.14.159(@parcel/watcher@2.5.0)(@types/node@22.9.0)(ioredis@5.4.1)(lightningcss@1.28.1)(magicast@0.3.5)(rollup@4.24.4)(terser@5.36.0)(typescript@5.6.3)(vite@5.4.10(@types/node@22.9.0)(lightningcss@1.28.1)(terser@5.36.0)))(rollup@4.24.4)(vue@3.5.12(typescript@5.6.3))
@@ -56,6 +59,9 @@ importers:
       nuxt:
         specifier: ^3.14.159
         version: 3.14.159(@parcel/watcher@2.5.0)(@types/node@22.9.0)(ioredis@5.4.1)(lightningcss@1.28.1)(magicast@0.3.5)(rollup@4.24.4)(terser@5.36.0)(typescript@5.6.3)(vite@5.4.10(@types/node@22.9.0)(lightningcss@1.28.1)(terser@5.36.0))
+      tailwindcss:
+        specifier: 4.0.0-alpha.31
+        version: 4.0.0-alpha.31
 
   playgrounds/vite:
     devDependencies:

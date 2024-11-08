@@ -4,6 +4,9 @@ import tailwindcss from '@tailwindcss/vite'
 const { resolve } = createResolver(import.meta.url)
 
 export default defineNuxtConfig({
+  future: {
+    compatibilityVersion: 4,
+  },
   modules: [
     '@vueuse/nuxt',
     '@nuxtjs/color-mode',
@@ -22,17 +25,17 @@ export default defineNuxtConfig({
   components: [
     {
       prefix: '',
-      path: resolve('./components/base'),
+      path: resolve('./app/components/base'),
       global: false,
     },
     {
       prefix: '',
-      path: resolve('./components/icon'),
+      path: resolve('./app/components/icon'),
       global: false,
     },
     {
       prefix: '',
-      path: resolve('./components/form'),
+      path: resolve('./app/components/form'),
       global: false,
     },
   ],
