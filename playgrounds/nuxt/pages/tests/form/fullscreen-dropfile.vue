@@ -29,7 +29,6 @@ const uploadedFiles = ref<FileList | null>(null)
             v-model="uploadedFiles"
             multiple
           >
-            <!-- Controls -->
             <div class="mb-4 flex items-center gap-2">
               <button
                 type="button"

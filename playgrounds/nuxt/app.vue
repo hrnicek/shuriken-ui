@@ -1,7 +1,7 @@
 <script setup>
 const route = useRoute()
 useHead(() => ({
-  title: route.meta.title,
+  title: route?.meta?.title,
   titleTemplate: (titleChunk) => {
     return titleChunk
       ? `${titleChunk} - @shuriken-ui/nuxt`
