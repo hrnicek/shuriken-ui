@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
-  ssr: false,
+  // ssr: false,
   extends: ['@shuriken-ui/nuxt'],
   modules: [
     '@nuxt/content',
@@ -28,34 +28,6 @@ export default defineNuxtConfig({
     },
     renderer: {
       anchorLinks: true,
-    }
-    // markdown: {
-    //   anchorLinks: true,
-    //   toc: { depth: 4, searchDepth: 4 },
-    // },
-    // highlight: {
-    //   theme: {
-    //     default: 'github-light',
-    //     dark: 'github-dark',
-    //   },
-    // },
-    // experimental: {
-    //   search: {
-    //     indexed: true,
-    //     options: {
-    //       fields: ['title', 'content', 'titles'],
-    //       storeFields: ['title', 'content', 'titles'],
-    //       searchOptions: {
-    //         prefix: true,
-    //         fuzzy: 0.2,
-    //         boost: {
-    //           title: 4,
-    //           content: 2,
-    //           titles: 1,
-    //         },
-    //       },
-    //     },
-    //   },
-    // },
+    },
   },
 })

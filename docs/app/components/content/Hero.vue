@@ -93,7 +93,7 @@
       </div>
 
       <div class="mx-auto w-full max-w-md px-4">
-        <MDCSlot :use="$slots.default" unwrap="p" />
+        <slot />
       </div>
     </div>
 

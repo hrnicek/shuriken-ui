@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 const props = defineProps<{
   hasPreview?: boolean
-  activeTabIndex: number
   tabs: {
     filename?: string
     language?: string
@@ -12,10 +11,12 @@ const props = defineProps<{
 }>()
 
 
-const activeTabIndex = ref()
+// const activeTabIndex = ref()
 
 // @todo
-// const activeTabIndex = useVModel(props, 'activeTabIndex')
+const activeTabIndex = defineModel<number>('activeTabIndex', {
+  default: 0,
+})
 
 const { copy, copied, isSupported } = useClipboard({
   source: () => activeTab.value?.code ?? '',

@@ -17,6 +17,6 @@ const props = defineProps<{
       props.level === '3' && 'ps-12 text-sm before:border-muted-500 dark:before:border-muted-400'
     ]"
   >
-    <MDCSlot :use="$slots.default" />
+    <slot />
   </li>
 </template>

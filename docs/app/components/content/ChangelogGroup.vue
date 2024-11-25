@@ -14,22 +14,22 @@ const props = defineProps<{
       weight="medium"
       class="mb-1"
     >
-      <MDCSlot :use="$slots.title" unwrap="p">
+      <slot name="title">
         {{ props.title }}
-      </MDCSlot>
+      </slot>
     </BaseHeading>
     <BaseParagraph
       v-if="'subtitle' in $slots || props.subtitle"
       size="xs"
       class="tacking-wider mb-4 text-muted-500 dark:text-muted-400"
     >
-      <MDCSlot :use="$slots.subtitle" unwrap="p">
+      <slot name="subtitle">
         {{ props.subtitle }}
-      </MDCSlot>
+      </slot>
     </BaseParagraph>
     <div>
       <ul class="space-y-3">
-        <MDCSlot :use="$slots.default" unwrap="p" />
+        <slot />
       </ul>
     </div>
   </div>

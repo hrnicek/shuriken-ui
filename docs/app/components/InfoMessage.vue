@@ -12,7 +12,7 @@ const props = defineProps<{
       :icon="props.icon ? props.icon : false"
       rounded="md"
     >
-      <MDCSlot :use="$slots.default" unwrap="p" />
+      <slot />
     </BaseMessage>
   </div>
 </template>

@@ -6,6 +6,6 @@ const props = defineProps<{
 
 <template>
   <div class="inline-flex h-10 flex-1 shrink-0 items-center justify-center rounded-md px-3 text-sm" :class="classes">
-    <MDCSlot :use="$slots.default" unwrap="p" />
+    <slot />
   </div>
 </template>

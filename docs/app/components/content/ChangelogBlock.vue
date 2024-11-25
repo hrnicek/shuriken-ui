@@ -40,7 +40,7 @@ const props = defineProps<{
         </div>
         <div class="col-span-12 lg:col-span-8 ltablet:col-span-8">
           <div class="relative">
-            <MDCSlot :use="$slots.default" />
+            <slot />
           </div>
         </div>
       </div>

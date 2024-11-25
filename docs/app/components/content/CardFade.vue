@@ -47,18 +47,18 @@ const props = defineProps<{
         <div class="absolute -top-8 start-0 z-10 h-6 w-full bg-white blur-md dark:hidden" />
         <div class="mt-auto space-y-2">
           <BaseHeading v-if="'title' in $slots || props.title" weight="light">
-            <MDCSlot :use="$slots.title" unwrap="p">
+            <slot name="title">
               {{ props.title }}
-            </MDCSlot>
+            </slot>
           </BaseHeading>
           <BaseParagraph
             v-if="'text' in $slots || props.text"
             size="sm"
             class="text-muted-500 dark:text-muted-400"
           >
-            <MDCSlot :use="$slots.text" unwrap="p">
+            <slot name="text">
               {{ props.text }}
-            </MDCSlot>
+            </slot>
           </BaseParagraph>
         </div>
       </div>
