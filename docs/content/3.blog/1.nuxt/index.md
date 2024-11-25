@@ -1,9 +1,6 @@
 ---
 title: 'Nuxt Blog'
 description: 'Read the latest updates and improvements of Shuriken UI.'
-layout: 'changelog'
-section.icon: 'simple-icons:nuxtdotjs'
-section.title: 'Nuxt'
 ---
 
 # Blog

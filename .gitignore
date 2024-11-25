@@ -2,6 +2,7 @@ node_modules
 
 # dev output
 .nuxt
+.data
 
 # build output
 .output

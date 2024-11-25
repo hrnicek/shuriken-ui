@@ -31,7 +31,7 @@ export default defineCachedEventHandler(async (event) => {
     return {
       packageName,
       version: meta?.['dist-tags']?.latest as string || 'Coming soon',
-      repo: joinURL('https://github.com', appConfig.github.org, repo.name),
+      repo: joinURL('https://github.com', appConfig.github?.org, repo.name),
       ...repo,
     }
   }))

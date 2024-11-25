@@ -1,9 +1,6 @@
 ---
 title: 'Tailwind Blog'
 description: 'Read the latest updates and improvements of Shuriken UI'
-layout: 'changelog'
-section.icon: 'simple-icons:tailwindcss'
-section.title: 'Tailwind'
 ---
 
 # Blog

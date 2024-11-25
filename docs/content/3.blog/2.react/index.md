@@ -1,9 +1,6 @@
 ---
 title: 'React Blog'
 description: 'Read the latest updates and improvements of Shuriken UI'
-layout: 'changelog'
-section.icon: 'akar-icons:react-fill'
-section.title: 'React'
 ---
 
 # Blog
