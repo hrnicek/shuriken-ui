@@ -20,9 +20,20 @@
     }
   }
 
+  &.nui-input-has-icon.nui-input-sm {
+    .nui-input {
+      @apply h-8 py-1 text-xs leading-4 pe-3 ps-8;
+    }
+  }
+
   &:not(.nui-input-has-icon).nui-input-md {
     .nui-input {
       @apply h-10 py-2 text-sm leading-5 px-3;
+    }
+  }
+  &.nui-input-has-icon.nui-input-md {
+    .nui-input {
+      @apply h-10 py-2 text-sm leading-5 pe-4 ps-10;
     }
   }
 
@@ -31,10 +42,20 @@
       @apply h-12 py-2 text-sm leading-5 px-4;
     }
   }
+  &.nui-input-has-icon.nui-input-lg {
+    .nui-input {
+      @apply h-12 py-2 text-sm leading-5 pe-4 ps-11;
+    }
+  }
 
   &:not(.nui-input-has-icon).nui-input-xl {
     .nui-input {
       @apply h-14 py-2 text-base leading-5 px-4;
+    }
+  }
+  &.nui-input-has-icon.nui-input-xl {
+    .nui-input {
+      @apply h-14 py-2 text-base leading-5 pe-4 ps-[3.25rem];
     }
   }
 
@@ -306,26 +327,6 @@
 
   .nui-input-icon {
     @apply !text-danger-500 dark:!text-danger-500;
-  }
-}
-@utility nui-input-has-icon {
-  .nui-input {
-    @apply h-8 py-1 text-xs leading-4 pe-3 ps-8;
-  }
-}
-@utility nui-input-has-icon {
-  .nui-input {
-    @apply h-10 py-2 text-sm leading-5 pe-4 ps-10;
-  }
-}
-@utility nui-input-has-icon {
-  .nui-input {
-    @apply h-12 py-2 text-sm leading-5 pe-4 ps-11;
-  }
-}
-@utility nui-input-has-icon {
-  .nui-input {
-    @apply h-14 py-2 text-base leading-5 pe-4 ps-[3.25rem];
   }
 }
 @utility nui-input-has-action {
