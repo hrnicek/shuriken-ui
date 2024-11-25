@@ -217,7 +217,6 @@ function handleLinkClick(e: MouseEvent, page = 1) {
       :class="[rounded && radiuses[rounded], props.classes?.list]"
     >
       <slot name="before-pagination" />
-      <!-- Link -->
       <li>
         <NuxtLink
           :to="paginatedLink(1)"
@@ -235,7 +234,6 @@ function handleLinkClick(e: MouseEvent, page = 1) {
         </NuxtLink>
       </li>
 
-      <!-- Ellipsis -->
       <li v-if="showLastLink && pages.length > 0 && pages[0] > 2">
         <span
           class="nui-pagination-ellipsis"
@@ -245,7 +243,6 @@ function handleLinkClick(e: MouseEvent, page = 1) {
         </span>
       </li>
 
-      <!-- Link -->
       <li v-for="page in pages" :key="page">
         <NuxtLink
           :to="paginatedLink(page)"
@@ -264,7 +261,6 @@ function handleLinkClick(e: MouseEvent, page = 1) {
         </NuxtLink>
       </li>
 
-      <!-- Ellipsis -->
       <li v-if="showLastLink && pages[pages.length - 1] < lastPage - 1">
         <span
           class="nui-pagination-ellipsis"
@@ -274,7 +270,6 @@ function handleLinkClick(e: MouseEvent, page = 1) {
         </span>
       </li>
 
-      <!-- Link -->
       <li v-if="showLastLink">
         <NuxtLink
           :to="paginatedLink(lastPage)"
@@ -300,7 +295,6 @@ function handleLinkClick(e: MouseEvent, page = 1) {
     >
       <slot name="before-navigation" />
 
-      <!-- Previous -->
       <NuxtLink
         :to="paginatedLink(currentPage - 1)"
         tabindex="0"
@@ -314,7 +308,6 @@ function handleLinkClick(e: MouseEvent, page = 1) {
         </slot>
       </NuxtLink>
 
-      <!-- Next -->
       <NuxtLink
         :to="paginatedLink(currentPage + 1)"
         tabindex="0"

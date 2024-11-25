@@ -149,14 +149,14 @@ const colors = {
 }
 
 const dotColors = {
-  default: 'nui-dot-default',
-  primary: 'nui-dot-primary',
-  info: 'nui-dot-info',
-  success: 'nui-dot-success',
-  warning: 'nui-dot-warning',
-  danger: 'nui-dot-danger',
-  dark: 'nui-dot-dark',
-  black: 'nui-dot-black',
+  default: 'nui-accordion-dot-default',
+  primary: 'nui-accordion-dot-primary',
+  info: 'nui-accordion-dot-info',
+  success: 'nui-accordion-dot-success',
+  warning: 'nui-accordion-dot-warning',
+  danger: 'nui-accordion-dot-danger',
+  dark: 'nui-accordion-dot-dark',
+  black: 'nui-accordion-dot-black',
 }
 
 const radiuses = {
@@ -242,19 +242,19 @@ function toggle(key: number) {
 
                 <div
                   v-if="props.action === 'dot' || action === 'dot'"
-                  class="nui-accordion-dot"
+                  class="nui-accordion-dot-icon"
                 />
                 <div
                   v-else-if="props.action === 'chevron' || action === 'chevron'"
-                  class="nui-icon-outer"
+                  class="nui-accordion-icon-outer"
                 >
-                  <IconChevronDown class="nui-chevron-icon" />
+                  <IconChevronDown class="nui-accordion-chevron-icon" />
                 </div>
                 <div
                   v-else-if="props.action === 'plus' || action === 'plus'"
-                  class="nui-icon-outer"
+                  class="nui-accordion-icon-outer"
                 >
-                  <IconPlus class="nui-plus-icon" />
+                  <IconPlus class="nui-accordion-plus-icon" />
                 </div>
               </div>
             </slot>

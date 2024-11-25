@@ -25,7 +25,7 @@
 @utility nui-avatar-img {
   @apply object-cover;
   @apply h-full max-h-full w-full max-w-full;
-  @apply shadow-sm;
+  @apply shadow-xs;
 }
 @utility nui-avatar-text {
   @apply font-sans font-medium text-center uppercase;
@@ -132,10 +132,10 @@
   }
 
   &.nui-avatar-rounded-sm {
-    @apply rounded-sm;
+    @apply rounded-xs;
 
     .nui-avatar-inner {
-      @apply rounded-sm;
+      @apply rounded-xs;
     }
 
     .nui-avatar-dot {
@@ -144,10 +144,10 @@
   }
 
   &.nui-avatar-rounded-md {
-    @apply rounded;
+    @apply rounded-sm;
 
     .nui-avatar-inner {
-      @apply rounded;
+      @apply rounded-sm;
     }
 
     .nui-avatar-dot {
@@ -201,10 +201,10 @@
   }
 
   &.nui-avatar-rounded-sm {
-    @apply rounded-sm;
+    @apply rounded-xs;
 
     .nui-avatar-inner {
-      @apply rounded-sm;
+      @apply rounded-xs;
     }
 
     .nui-avatar-dot {
@@ -213,10 +213,10 @@
   }
 
   &.nui-avatar-rounded-md {
-    @apply rounded;
+    @apply rounded-sm;
 
     .nui-avatar-inner {
-      @apply rounded;
+      @apply rounded-sm;
     }
 
     .nui-avatar-dot {

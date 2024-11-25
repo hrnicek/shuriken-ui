@@ -41,7 +41,7 @@
   }
 }
 @utility nui-button-close-rounded-sm {
-  @apply rounded;
+  @apply rounded-sm;
 }
 @utility nui-button-close-rounded-md {
   @apply rounded-md;

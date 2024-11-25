@@ -12,7 +12,7 @@
   @apply shrink-0;
 }
 @utility nui-kbd-rounded-sm {
-  @apply rounded-sm;
+  @apply rounded-xs;
 }
 @utility nui-kbd-rounded-md {
   @apply rounded-md;

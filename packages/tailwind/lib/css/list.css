@@ -2,6 +2,7 @@
 /* @utility nui-list */
 
 @utility nui-list {
+  @apply relative;
 }
 @utility nui-list-ul {
   @apply list-disc;

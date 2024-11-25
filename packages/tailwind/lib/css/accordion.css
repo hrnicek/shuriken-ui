@@ -2,20 +2,24 @@
 /* @utility nui-accordion */
 
 @utility nui-accordion {
-  &:not(:last-child) {
-    @apply border-b-0;
-  }
   @apply w-full block overflow-hidden;
   @apply bg-white dark:bg-muted-800;
   @apply hover:bg-muted-50/60 dark:hover:bg-muted-800/60;
   @apply border border-muted-300 dark:border-muted-700;
   @apply transition-colors duration-300;
 
+  &:not(:last-child) {
+    @apply border-b-0;
+  }
+  + .nui-accordion {
+    @apply !border-t-0;
+  }
+
   .nui-accordion-detail[open]:not(:first-child) {
     @apply border-t border-muted-300 dark:border-muted-700;
   }
 
-  .nui-accordion-detail .nui-accordion-dot {
+  .nui-accordion-detail .nui-accordion-dot-icon {
     @apply bg-muted-200 dark:bg-muted-700;
   }
 
@@ -24,11 +28,8 @@
       @apply px-4 py-3;
     }
   }
-
-  + .nui-accordion {
-    @apply !border-t-0;
-  }
 }
+
 @utility nui-accordion-summary {
   @apply cursor-pointer list-none outline-none;
 }
@@ -39,22 +40,22 @@
     @apply text-muted-800 dark:text-white;
   }
 }
-@utility nui-accordion-dot {
+@utility nui-accordion-dot-icon {
   @apply ms-2 h-3 w-3 rounded-full;
   @apply transition-colors duration-300;
 }
-@utility nui-icon-outer {
+@utility nui-accordion-icon-outer {
   @apply ms-2 flex items-center justify-center;
   @apply h-8 w-8 rounded-full;
   @apply border border-transparent dark:border-transparent;
   @apply bg-white dark:bg-muted-700/60;
   @apply transition-all duration-300;
 }
-@utility nui-chevron-icon {
+@utility nui-accordion-chevron-icon {
   @apply text-muted-400 h-4 w-4;
   @apply transition-transform duration-300;
 }
-@utility nui-plus-icon {
+@utility nui-accordion-plus-icon {
   @apply text-muted-400 h-4 w-4;
   @apply transition-transform duration-300;
 }
@@ -82,42 +83,42 @@
   @apply hover:bg-muted-100/60 dark:hover:bg-muted-950/60;
   @apply border border-muted-200 dark:border-muted-800;
 }
-@utility nui-dot-default {
+@utility nui-accordion-dot-default {
   .nui-accordion-detail[open] .nui-accordion-dot {
     @apply bg-muted-400 dark:bg-muted-700;
   }
 }
-@utility nui-dot-primary {
+@utility nui-accordion-dot-primary {
   .nui-accordion-detail[open] .nui-accordion-dot {
     @apply bg-primary-500 dark:bg-primary-500;
   }
 }
-@utility nui-dot-info {
+@utility nui-accordion-dot-info {
   .nui-accordion-detail[open] .nui-accordion-dot {
     @apply bg-info-500 dark:bg-info-500;
   }
 }
-@utility nui-dot-success {
+@utility nui-accordion-dot-success {
   .nui-accordion-detail[open] .nui-accordion-dot {
     @apply bg-success-500 dark:bg-success-500;
   }
 }
-@utility nui-dot-warning {
+@utility nui-accordion-dot-warning {
   .nui-accordion-detail[open] .nui-accordion-dot {
     @apply bg-warning-500 dark:bg-warning-500;
   }
 }
-@utility nui-dot-danger {
+@utility nui-accordion-dot-danger {
   .nui-accordion-detail[open] .nui-accordion-dot {
     @apply bg-danger-500 dark:bg-danger-500;
   }
 }
-@utility nui-dot-dark {
+@utility nui-accordion-dot-dark {
   .nui-accordion-detail[open] .nui-accordion-dot {
     @apply bg-muted-900 dark:bg-muted-100;
   }
 }
-@utility nui-dot-black {
+@utility nui-accordion-dot-black {
   .nui-accordion-detail[open] .nui-accordion-dot {
     @apply bg-black dark:bg-white;
   }

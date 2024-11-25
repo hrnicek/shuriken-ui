@@ -21,7 +21,7 @@
 @utility nui-toast-icon-block {
   @apply h-16 w-16 flex items-center justify-center;
 }
-@utility nui-button-close {
+@utility nui-toast-button-close {
   @apply ms-auto;
 }
 @utility nui-toast-low-contrast {

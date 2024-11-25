@@ -155,7 +155,7 @@ const colors = {
 const icon = computed(() =>
   typeof props.icon === 'string'
     ? props.icon
-    : color.value
+    : color.value && icons.value
       ? icons.value[color.value]
       : '',
 )
@@ -168,7 +168,7 @@ const icon = computed(() =>
       rounded && radiuses[rounded],
       color && colors[color],
       classes?.wrapper,
-      props.icon ? 'nui-has-icon' : 'nui-has-text',
+      props.icon ? 'nui-message-has-icon' : 'nui-message-has-text',
     ]"
   >
     <div
@@ -192,7 +192,7 @@ const icon = computed(() =>
         @click="emit('close')"
       >
         <slot name="close-button">
-          <Icon :name="closeIcon" class="nui-close-icon" />
+          <Icon :name="closeIcon" class="nui-message-close-icon" />
         </slot>
       </button>
     </div>

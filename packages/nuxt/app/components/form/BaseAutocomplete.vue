@@ -785,7 +785,6 @@ const internal = ref<any>(modelValue)
               filteredItems.length > 0 || !hideCreatePrompt,
           }"
         >
-          <!-- Placeholder -->
           <div
             v-if="filteredItems.length === 0 && pending"
             class="nui-autocomplete-results-placeholder"

@@ -1,7 +1,7 @@
 /* generated using "pnpm jiti scripts/generate-utilities.ts" */
 /* @utility nui-progress-circle */
 
-@utility nui-progress-circle {
+/* @utility nui-progress-circle {
   @apply relative inline-flex items-center justify-center;
 
   circle:nth-child(2) {
@@ -15,4 +15,4 @@
   &.nui-progress-contrast circle:first-child {
     @apply text-muted-200 dark:text-muted-200 stroke-current;
   }
-}
+} */

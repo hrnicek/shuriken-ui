@@ -88,7 +88,7 @@ const justify = useNuiDefaultProperty(props, 'BaseTabs', 'justify')
 const type = useNuiDefaultProperty(props, 'BaseTabs', 'type')
 
 onBeforeMount(() => {
-  if (modelValue.value === null) {
+  if (modelValue.value === null && props.tabs[0]?.value) {
     modelValue.value = props.tabs[0]?.value
   }
 })
@@ -101,7 +101,7 @@ const justifies = {
 
 const types = {
   tabs: 'nui-tab-item',
-  box: 'nui-pill-item',
+  box: 'nui-tab-pill-item',
 }
 
 const colors = {
@@ -131,11 +131,11 @@ function toggle(value: string) {
       <a
         v-for="(tab, key) in tabs"
         :key="key"
-        class="nui-tabs"
+        class="nui-tab"
         :class="[
           type && types[type],
-          modelValue === tab.value && 'nui-active',
-          tab.icon && 'nui-has-icon',
+          modelValue === tab.value && 'nui-tab-active',
+          tab.icon && 'nui-tab-has-icon',
           props.classes?.item,
         ]"
         tabindex="0"

@@ -5,7 +5,7 @@
   @apply block;
 }
 @utility nui-fullscreen-dropfile-outer {
-  @apply bg-muted-100/50 dark:bg-muted-800/20 fixed inset-0 z-40 backdrop-blur-sm transition-all hover:backdrop-blur-none;
+  @apply bg-muted-100/50 dark:bg-muted-800/20 fixed inset-0 z-40 backdrop-blur-xs transition-all hover:backdrop-blur-none;
 }
 @utility nui-fullscreen-dropfile-inner {
   @apply fixed inset-0 z-50;
@@ -14,7 +14,7 @@
     @apply flex h-full flex-1 items-center justify-center;
 
     .nui-fullscreen-dropfile-content {
-      @apply h-[230px] w-[500px] mx-auto flex flex-col items-center justify-center gap-6 drop-shadow-sm;
+      @apply h-[230px] w-[500px] mx-auto flex flex-col items-center justify-center gap-6 drop-shadow-xs;
       @apply bg-muted-100 dark:bg-muted-800;
       @apply rounded-md border-2 border-dashed border-muted-200 dark:border-muted-700;
 

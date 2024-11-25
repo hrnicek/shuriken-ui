@@ -11,20 +11,16 @@
     ".": "./nuxt.config.ts"
   },
   "files": [
-    "app.config.ts",
-    "assets",
-    "components",
-    "composables",
-    "nuxt.config.ts",
-    "nuxt.schema.ts"
+    "app",
+    "nuxt.config.ts"
   ],
   "dependencies": {
     "@headlessui-float/vue": "^0.15.0",
     "@headlessui/vue": "^1.7.23",
-    "@nuxt/icon": "^1.7.0",
+    "@nuxt/icon": "^1.8.2",
     "@nuxtjs/color-mode": "^3.5.2",
     "@tailwindcss/vite": "catalog:",
-    "@vueuse/nuxt": "^11.2.0"
+    "@vueuse/nuxt": "^11.3.0"
   },
   "peerDependencies": {
     "@shuriken-ui/tailwind": "workspace:*"

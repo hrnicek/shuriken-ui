@@ -1,7 +1,7 @@
 /* generated using "pnpm jiti scripts/generate-utilities.ts" */
 /* @utility nui-button-icon */
 
-@utility nui-button-icon-icon {
+@utility nui-button-icon {
   @apply nui-focus relative inline-flex items-center justify-center space-x-1 leading-5 no-underline disabled:opacity-60 disabled:cursor-not-allowed hover:shadow-none;
   @apply font-sans text-sm font-normal;
   @apply transition-all duration-300;
@@ -19,7 +19,7 @@
   @apply h-14 w-14 p-4;
 }
 @utility nui-button-icon-rounded-sm {
-  @apply rounded;
+  @apply rounded-sm;
 }
 @utility nui-button-icon-rounded-md {
   @apply rounded-md;

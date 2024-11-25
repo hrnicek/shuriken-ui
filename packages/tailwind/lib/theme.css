@@ -77,4 +77,41 @@
   --color-danger-800: var(--color-rose-800);
   --color-danger-900: var(--color-rose-900);
   --color-danger-950: var(--color-rose-950);
+
+  --animate-nui-placeload: nui-placeload 1s linear infinite forwards;
+  --animate-nui-progress-indeterminate: nui-progress-indeterminate 3s linear infinite forwards;
+  --animate-nui-tooltip-x: nui-tooltip-x 300ms ease-out forwards;
+  --animate-nui-tooltip-y: nui-tooltip-y 300ms ease-out forwards;
+  
+  @keyframes nui-placeload {
+    0% {
+      background-position: -468px 0;
+    }
+    100% {
+      background-position: 468px 0;
+    }
+  }
+  @keyframes nui-progress-indeterminate {
+    0% {
+      margin-left: -100%;
+    }
+    60% {
+      margin-left: 100%;
+    }
+    100% {
+      margin-left: -100%;
+    }
+  }
+  @keyframes nui-tooltip-x {
+    to {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+  }
+  @keyframes nui-tooltip-y {
+    to {
+      opacity: 1;
+      transform: translate(0, -50%);
+    }
+  }
 }

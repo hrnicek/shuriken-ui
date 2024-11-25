@@ -89,17 +89,17 @@ const items = computed(() => {
   const breadcrumbItems: any[] = []
   const indexRoute = router.resolve('/')
 
-  if (indexRoute.meta.breadcrumb === false) {
+  if (indexRoute?.meta?.breadcrumb === false) {
     // skip breadcrumb item
   }
-  else if (indexRoute.meta.breadcrumb) {
+  else if (indexRoute?.meta?.breadcrumb) {
     const breadcrumbItem = indexRoute.meta.breadcrumb
     breadcrumbItems.push({
       to: indexRoute.path,
       ...breadcrumbItem,
     })
   }
-  else if (indexRoute.meta.title) {
+  else if (indexRoute?.meta?.title) {
     breadcrumbItems.push({
       label: indexRoute.meta.title as string,
       to: indexRoute.path,
@@ -107,17 +107,17 @@ const items = computed(() => {
   }
 
   for (const matched of route.matched) {
-    if (matched.meta.breadcrumb === false) {
+    if (matched?.meta?.breadcrumb === false) {
       // skip breadcrumb item
     }
-    else if (matched.meta.breadcrumb) {
+    else if (matched?.meta?.breadcrumb) {
       const breadcrumbItem = matched.meta.breadcrumb
       breadcrumbItems.push({
         to: matched.path,
         ...breadcrumbItem,
       })
     }
-    else if (matched.meta.title) {
+    else if (matched?.meta?.title) {
       breadcrumbItems.push({
         label: matched.meta.title as string,
         to: matched.path,

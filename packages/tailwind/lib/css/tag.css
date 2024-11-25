@@ -13,7 +13,7 @@
   @apply text-xs;
 }
 @utility nui-tag-rounded-sm {
-  @apply rounded;
+  @apply rounded-sm;
 }
 @utility nui-tag-rounded-md {
   @apply rounded-md;

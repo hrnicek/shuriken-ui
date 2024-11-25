@@ -5,7 +5,7 @@
   @apply relative inline-flex items-start gap-1;
 
   &.nui-checkbox-rounded-sm .nui-checkbox-outer, &.nui-checkbox-rounded-sm .nui-checkbox-inner {
-    @apply rounded;
+    @apply rounded-sm;
   }
 
   &.nui-checkbox-rounded-md .nui-checkbox-outer, &.nui-checkbox-rounded-md .nui-checkbox-inner {

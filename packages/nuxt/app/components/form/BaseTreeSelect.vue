@@ -835,8 +835,9 @@ function toggleChildrenSelection(tree?: TreeViewItemNode[], event?: Event) {
   </ul>
 </template>
 
-<!-- <style scoped>
+<style scoped>
+/* @import "tailwindcss/theme" theme(reference);
 .treeview:deep(.treeview) {
   @apply ps-6;
-}
-</style> -->
+} */
+</style>

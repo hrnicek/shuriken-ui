@@ -12,7 +12,7 @@
   @apply h-8 w-8;
 
   &.nui-box-rounded-sm {
-    @apply rounded;
+    @apply rounded-sm;
   }
 
   &.nui-box-rounded-md {
@@ -27,7 +27,7 @@
   @apply h-10 w-10;
 
   &.nui-box-rounded-sm {
-    @apply rounded;
+    @apply rounded-sm;
   }
 
   &.nui-box-rounded-md {

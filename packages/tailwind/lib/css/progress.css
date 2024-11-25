@@ -5,7 +5,7 @@
   @apply relative w-full overflow-hidden;
 
   &.nui-progress-rounded-sm, &.nui-progress-rounded-sm .nui-progress-bar {
-    @apply rounded;
+    @apply rounded-sm;
   }
 
   &.nui-progress-rounded-md, &.nui-progress-rounded-md .nui-progress-bar {

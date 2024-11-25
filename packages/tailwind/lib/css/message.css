@@ -24,15 +24,14 @@
   @apply nui-focus flex cursor-pointer items-center justify-center shrink-0 h-6 w-6 rounded-full;
   @apply text-muted-800 dark:text-muted-800;
   @apply transition-colors duration-200;
-
-  .nui-close-icon {
-    @apply h-4 w-4;
-  }
 }
-@utility nui-has-text {
+@utility nui-message-close-icon {
+  @apply h-4 w-4;
+}
+@utility nui-message-has-text {
   @apply py-2 ps-2 pe-6;
 }
-@utility nui-has-icon {
+@utility nui-message-has-icon {
   @apply py-1 ps-1 pe-6;
 }
 @utility nui-message-rounded-sm {

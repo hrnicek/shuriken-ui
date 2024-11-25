@@ -219,7 +219,7 @@ if (import.meta.dev) {
       props.error && !props.loading && 'nui-input-error',
       props.loading && 'nui-input-loading',
       props.labelFloat && 'nui-input-label-float',
-      props.icon && 'nui-has-icon',
+      props.icon && 'nui-input-has-icon',
       props.colorFocus && 'nui-input-focus',
       props.classes?.wrapper,
     ]"
