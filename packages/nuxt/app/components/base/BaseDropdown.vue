@@ -160,28 +160,28 @@ const size = useNuiDefaultProperty(props, 'BaseDropdown', 'size')
 const variant = useNuiDefaultProperty(props, 'BaseDropdown', 'variant')
 
 const sizes = {
-  md: 'nui-menu-md',
-  lg: 'nui-menu-lg',
+  md: 'nui-dropdown-menu-md',
+  lg: 'nui-dropdown-menu-lg',
 }
 
 const radiuses = {
   none: '',
-  sm: 'nui-menu-rounded-sm',
-  md: 'nui-menu-rounded-md',
-  lg: 'nui-menu-rounded-lg',
-  full: 'nui-menu-rounded-lg',
+  sm: 'nui-dropdown-menu-rounded-sm',
+  md: 'nui-dropdown-menu-rounded-md',
+  lg: 'nui-dropdown-menu-rounded-lg',
+  full: 'nui-dropdown-menu-rounded-lg',
 }
 
 const colors = {
-  'default': 'nui-menu-default',
-  'default-contrast': 'nui-menu-default-contrast',
-  'muted': 'nui-menu-muted',
-  'muted-contrast': 'nui-menu-muted-contrast',
-  'primary': 'nui-menu-primary',
-  'info': 'nui-menu-info',
-  'success': 'nui-menu-success',
-  'warning': 'nui-menu-warning',
-  'danger': 'nui-menu-danger',
+  'default': 'nui-dropdown-menu-default',
+  'default-contrast': 'nui-dropdown-menu-default-contrast',
+  'muted': 'nui-dropdown-menu-muted',
+  'muted-contrast': 'nui-dropdown-menu-muted-contrast',
+  'primary': 'nui-dropdown-menu-primary',
+  'info': 'nui-dropdown-menu-info',
+  'success': 'nui-dropdown-menu-success',
+  'warning': 'nui-dropdown-menu-warning',
+  'danger': 'nui-dropdown-menu-danger',
   'none': '',
 }
 
@@ -207,7 +207,7 @@ const textColors = {
     <Menu
       v-slot="{ open, close }: { open: boolean; close: () => void }"
       as="div"
-      class="nui-menu"
+      class="nui-dropdown-menu"
       :class="props.classes?.menuWrapper"
     >
       <Float
@@ -240,20 +240,20 @@ const textColors = {
               </slot>
               <Icon
                 name="lucide:chevron-down"
-                class="nui-chevron"
+                class="nui-dropdown-chevron"
                 :class="open && 'rotate-180'"
               />
             </BaseButton>
             <button
               v-else-if="props.variant === 'context'"
               type="button"
-              class="nui-context-button nui-focus"
+              class="nui-dropdown-context-button nui-focus"
               :disabled="props.disabled"
             >
-              <span class="nui-context-button-inner">
+              <span class="nui-dropdown-context-button-inner">
                 <Icon
                   name="lucide:more-horizontal"
-                  class="nui-context-icon"
+                  class="nui-dropdown-context-icon"
                   :class="open && 'rotate-90'"
                 />
               </span>
@@ -262,12 +262,12 @@ const textColors = {
               v-else-if="props.variant === 'text'"
               type="button"
               :disabled="props.disabled"
-              class="nui-text-button nui-focus" :class="[
+              class="nui-dropdown-text-button nui-focus" :class="[
                 buttonColor && textColors[buttonColor],
               ]"
             >
               <slot name="label" v-bind="{ open, close }">
-                <span class="nui-text-button-inner">{{ props.label }}</span>
+                <span class="nui-dropdown-text-button-inner">{{ props.label }}</span>
               </slot>
 
               <Icon
@@ -290,16 +290,16 @@ const textColors = {
         >
           <div
             v-if="props.headerLabel"
-            class="nui-menu-header"
+            class="nui-dropdown-menu-header"
             :class="props.classes?.header"
           >
-            <div class="nui-menu-header-inner">
-              <h4 class="nui-menu-header-title">
+            <div class="nui-dropdown-menu-header-inner">
+              <h4 class="nui-dropdown-menu-header-title">
                 {{ props.headerLabel }}
               </h4>
             </div>
           </div>
-          <div class="nui-menu-content" :class="props.classes?.content">
+          <div class="nui-dropdown-menu-content" :class="props.classes?.content">
             <slot v-bind="{ open, close }" />
           </div>
         </MenuItems>

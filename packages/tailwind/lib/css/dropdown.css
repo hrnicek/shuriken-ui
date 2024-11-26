@@ -4,7 +4,7 @@
   @apply text-start;
 
   &:hover {
-    .nui-context-button {
+    .nui-dropdown-context-button {
       @apply ring-offset-4 ring-muted-200 dark:ring-muted-700;
     }
   }
@@ -13,35 +13,35 @@
   @apply absolute z-50 mt-2 focus:outline-none;
   @apply shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20;
 }
-@utility nui-menu {
+@utility nui-dropdown-menu {
   @apply relative inline-block;
 }
-@utility nui-menu-content {
+@utility nui-dropdown-menu-content {
   @apply p-2;
 }
-@utility nui-context-button {
+@utility nui-dropdown-context-button {
   @apply inline-flex items-center justify-center rounded-full;
   @apply h-9 w-9;
   @apply ring-1 ring-transparent ring-offset-white dark:ring-offset-muted-900;
   @apply transition-all duration-300;
 
-  .nui-context-button-inner {
+  .nui-dropdown-context-button-inner {
     @apply flex items-center justify-center rounded-full;
     @apply h-9 w-9;
     @apply bg-white dark:bg-muted-800;
     @apply border border-muted-200 dark:border-muted-700;
   }
 
-  .nui-context-icon {
+  .nui-dropdown-context-icon {
     @apply h-5 w-5;
     @apply text-muted-400 dark:text-muted-400;
     @apply transition-all duration-300;
   }
 }
-@utility nui-text-button {
+@utility nui-dropdown-text-button {
   @apply flex items-center space-x-1;
 }
-@utility nui-chevron {
+@utility nui-dropdown-chevron {
   @apply h-4 w-4;
   @apply transition-transform duration-300;
 }
@@ -55,47 +55,47 @@
     @apply end-0 origin-top-right;
   }
 }
-@utility nui-menu-header {
+@utility nui-dropdown-menu-header {
   @apply px-4 pt-5;
 }
-@utility nui-menu-header-inner {
+@utility nui-dropdown-menu-header-inner {
   @apply relative flex items-center justify-between;
 }
-@utility nui-menu-header-title {
+@utility nui-dropdown-menu-header-title {
   @apply font-sans font-medium text-xs uppercase;
   @apply text-muted-500 dark:text-muted-200;
 }
-@utility nui-menu-content {
+@utility nui-dropdown-menu-content {
   @apply p-2 space-y-1;
 }
-@utility nui-menu-md {
+@utility nui-dropdown-menu-md {
   @apply w-56;
 }
-@utility nui-menu-lg {
+@utility nui-dropdown-menu-lg {
   @apply w-72;
 }
-@utility nui-menu-rounded-sm {
+@utility nui-dropdown-menu-rounded-sm {
   @apply rounded-md;
 }
-@utility nui-menu-rounded-md {
+@utility nui-dropdown-menu-rounded-md {
   @apply rounded-lg;
 }
-@utility nui-menu-rounded-lg {
+@utility nui-dropdown-menu-rounded-lg {
   @apply rounded-xl;
 }
-@utility nui-menu-default {
+@utility nui-dropdown-menu-default {
   @apply border border-muted-200 dark:border-muted-700;
   @apply bg-white dark:bg-muted-800;
 }
-@utility nui-menu-default-contrast {
+@utility nui-dropdown-menu-default-contrast {
   @apply border border-muted-200 dark:border-muted-800;
   @apply bg-white dark:bg-muted-950;
 }
-@utility nui-menu-muted {
+@utility nui-dropdown-menu-muted {
   @apply border border-muted-200 dark:border-muted-700;
   @apply bg-white dark:bg-muted-800;
 }
-@utility nui-menu-muted-contrast {
+@utility nui-dropdown-menu-muted-contrast {
   @apply border border-muted-200 dark:border-muted-800;
   @apply bg-white dark:bg-muted-950;
 }
