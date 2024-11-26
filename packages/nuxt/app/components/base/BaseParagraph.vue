@@ -72,21 +72,21 @@ const sizes = {
 }
 
 const weights = {
-  light: 'nui-weight-light',
-  normal: 'nui-weight-normal',
-  medium: 'nui-weight-medium',
-  semibold: 'nui-weight-semibold',
-  bold: 'nui-weight-bold',
-  extrabold: 'nui-weight-extrabold',
+  light: 'nui-paragraph-weight-light',
+  normal: 'nui-paragraph-weight-normal',
+  medium: 'nui-paragraph-weight-medium',
+  semibold: 'nui-paragraph-weight-semibold',
+  bold: 'nui-paragraph-weight-bold',
+  extrabold: 'nui-paragraph-weight-extrabold',
 }
 
 const leads = {
-  none: 'nui-lead-none',
-  tight: 'nui-lead-tight',
-  snug: 'nui-lead-snug',
-  normal: 'nui-lead-normal',
-  relaxed: 'nui-lead-relaxed',
-  loose: 'nui-lead-loose',
+  none: 'nui-paragraph-lead-none',
+  tight: 'nui-paragraph-lead-tight',
+  snug: 'nui-paragraph-lead-snug',
+  normal: 'nui-paragraph-lead-normal',
+  relaxed: 'nui-paragraph-lead-relaxed',
+  loose: 'nui-paragraph-lead-loose',
 }
 
 const classes = computed(() => [

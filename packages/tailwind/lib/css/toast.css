@@ -7,7 +7,7 @@
   @apply flex items-center grow gap-2 px-4 py-3;
 }
 @utility nui-toast-title {
-  @apply nui-heading nui-heading-sm nui-weight-medium;
+  @apply nui-heading nui-heading-sm nui-heading-weight-medium;
   @apply text-muted-800 dark:text-muted-100;
 }
 @utility nui-toast-subtitle {

@@ -12,6 +12,7 @@
     "@nuxt/content": "3.0.0-alpha.7",
     "@nuxt/fonts": "^0.10.2",
     "@nuxt/image": "^1.2.0",
+    "@nuxtjs/mdc": "^0.9.5",
     "@shuriken-ui/nuxt": "workspace:*",
     "@shuriken-ui/tailwind": "workspace:*",
     "@vueuse/components": "^11.3.0",

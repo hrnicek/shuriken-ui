@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { parseMarkdown } from '@nuxtjs/mdc/runtime'
+import { shades } from '~/utils/bundles/color-switcher'
 import { UseClipboard } from '@vueuse/components'
 const { rounded } = usePlayground()
 
@@ -6,8 +8,11 @@ const isPanelOpen = ref(false)
 const isModalOpen = ref(false)
 const isLoading = ref(false)
 
-const currentPrimary = ref('violet')
-const currentMuted = ref('slate')
+
+const defaultPrimary = 'violet'
+const defaultMuted = 'slate'
+const currentPrimary = ref(defaultPrimary)
+const currentMuted = ref(defaultMuted)
 
 const generate = () => {
   isLoading.value = true
@@ -18,216 +23,238 @@ const generate = () => {
 }
 
 const tailwindConfig = computed(() => {
-  return `
-  import { withShurikenUI } from '@shuriken-ui/tailwind'
-  import colors from 'tailwindcss/colors'
+  let theme = ''
+  let primaryTheme = ''
+  let mutedTheme = ''
+  
+  if (currentPrimary.value !== defaultPrimary) {
+    for (const shade of shades) {
+      primaryTheme += `  --color-primary-${shade}: var(--color-${currentPrimary.value}-${shade});\n`;
+    }
+  }
+  if (currentMuted.value !== defaultMuted) {
+    for (const shade of shades) {
+      mutedTheme += `  --color-muted-${shade}: var(--color-${currentMuted.value}-${shade});\n`;
+    }
+  }
 
-  export default withShurikenUI({
-    content: [],
-    theme: {
-      extend: {
-        colors: {
-          'primary-invert': colors.white,
-          primary: colors.${currentPrimary.value},
-          muted: colors.${currentMuted.value},
-          info: colors.sky,
-          success: colors.teal,
-          warning: colors.amber,
-          danger: colors.rose,
-        },
-      },
-    },
-  })`
+  if (primaryTheme || mutedTheme) {
+    theme += '\n@theme {\n'
+    theme += [
+      primaryTheme,
+      mutedTheme,
+    ].filter(Boolean).join('\n')
+    theme += '}\n'
+  }
+
+  return `@import 'tailwindcss';
+@import '@shuriken-ui/tailwind';
+
+@variant dark (&:where(.dark, .dark *));
+${theme}`
+})
+const { data: tailwindAst } = useAsyncData('tw-markdown', () => parseMarkdown([
+  '```css',
+  tailwindConfig.value,
+  '```',
+].join('\n')), {
+  watch: [tailwindConfig],
 })
 
 const appConfig = computed(() => {
-  return `
-    export default defineAppConfig({
-      nui: {
-        BaseAccordion: {
-          color: 'default',
-          rounded: '${rounded.value}',
-          action: 'dot',
-          dotColor: 'primary',
-        },
-        BaseAutocomplete: {
-          rounded: '${rounded.value}',
-          size: 'md',
-          contrast: 'default',
-        },
-        BaseAutocompleteItem: {
-          rounded: '${rounded.value}',
-        },
-        BaseAvatar: {
-          size: 'sm',
-          rounded: '${rounded.value}',
-          color: 'muted',
-        },
-        BaseAvatarGroup: {
-          limit: 4,
-          size: 'sm',
-        },
-        BaseBreadcrumb: {
-          color: 'primary',
-        },
-        BaseButton: {
-          variant: 'solid',
-          rounded: '${rounded.value}',
-          color: 'default',
-          size: 'md',
-        },
-        BaseButtonAction: {
-          rounded: '${rounded.value}',
-          color: 'default',
-        },
-        BaseButtonClose: {
-          rounded: '${rounded.value}',
-        },
-        BaseButtonIcon: {
-          rounded: '${rounded.value}',
-          color: 'default',
-          size: 'md',
-        },
-        BaseCard: {
-          rounded: '${rounded.value}',
-          color: 'default',
-        },
-        BaseCheckbox: {
-          rounded: '${rounded.value}',
-          color: 'default',
-        },
-        BaseCheckboxAnimated: {
-          color: 'primary',
-        },
-        BaseDropdown: {
-          variant: 'button',
-          buttonColor: 'default',
-          color: 'default',
-          rounded: '${rounded.value}',
-          size: 'md',
-        },
-        BaseDropdownItem: {
-          rounded: '${rounded.value}',
-          contrast: 'default',
-          color: 'primary',
-        },
-        BaseFullscreenDropfile: {
-          color: 'primary',
-        },
-        BaseHeading: {
-          as: 'p',
-          size: 'xl',
-          weight: 'semibold',
-          lead: 'normal',
-        },
-        BaseIconBox: {
-          variant: 'solid',
-          color: 'default',
-          size: 'xs',
-          rounded: '${rounded.value}',
-        },
-        BaseInput: {
-          rounded: '${rounded.value}',
-          size: 'md',
-          contrast: 'default',
-        },
-        BaseInputFile: {
-          rounded: '${rounded.value}',
-          size: 'md',
-          contrast: 'default',
-        },
-        BaseInputNumber: {
-          inputmode: 'numeric',
-          rounded: '${rounded.value}',
-          size: 'md',
-          contrast: 'default',
-        },
-        BaseListbox: {
-          rounded: '${rounded.value}',
-          size: 'md',
-          contrast: 'default',
-        },
-        BaseMessage: {
-          color: 'success',
-          rounded: '${rounded.value}',
-          closable: false,
-        },
-        BasePagination: {
-          color: 'primary',
-          rounded: '${rounded.value}',
-        },
-        BaseParagraph: {
-          as: 'p',
-          size: 'md',
-          weight: 'normal',
-          lead: 'normal',
-        },
-        BasePlaceholderPage: {
-          imageSize: 'xs',
-        },
-        BaseProgress: {
-          size: 'sm',
-          contrast: 'default',
-          color: 'primary',
-          rounded: '${rounded.value}',
-        },
-        BaseProgressCircle: {
-          color: 'primary',
-        },
-        BaseProse: {
-          rounded: '${rounded.value}',
-        },
-        BaseRadio: {
-          color: 'default',
-        },
-        BaseSelect: {
-          rounded: '${rounded.value}',
-          size: 'md',
-          contrast: 'default',
-        },
-        BaseSnack: {
-          size: 'md',
-          color: 'muted',
-        },
-        BaseSwitchBall: {
-          color: 'primary',
-        },
-        BaseSwitchThin: {
-          color: 'primary',
-        },
-        BaseTabs: {
-          type: 'tabs',
-          justify: 'start',
-          color: 'primary',
-        },
-        BaseTabSlider: {
-          color: 'primary',
-          justify: 'start',
-          size: 'md',
-          rounded: '${rounded.value}',
-        },
-        BaseTag: {
-          variant: 'solid',
-          color: 'default',
-          size: 'md',
-          rounded: '${rounded.value}',
-        },
-        BaseText: {
-          size: 'md',
-          weight: 'normal',
-          lead: 'normal',
-        },
-        BaseTextarea: {
-          rounded: '${rounded.value}',
-          size: 'md',
-          contrast: 'default',
-        },
-        BaseTreeSelectItem: {
-          rounded: '${rounded.value}',
-        },
-      },
-    })
-  `
+  return `export default defineAppConfig({
+  nui: {
+    BaseAccordion: {
+      color: 'default',
+      rounded: '${rounded.value}',
+      action: 'dot',
+      dotColor: 'primary',
+    },
+    BaseAutocomplete: {
+      rounded: '${rounded.value}',
+      size: 'md',
+      contrast: 'default',
+    },
+    BaseAutocompleteItem: {
+      rounded: '${rounded.value}',
+    },
+    BaseAvatar: {
+      size: 'sm',
+      rounded: '${rounded.value}',
+      color: 'muted',
+    },
+    BaseAvatarGroup: {
+      limit: 4,
+      size: 'sm',
+    },
+    BaseBreadcrumb: {
+      color: 'primary',
+    },
+    BaseButton: {
+      variant: 'solid',
+      rounded: '${rounded.value}',
+      color: 'default',
+      size: 'md',
+    },
+    BaseButtonAction: {
+      rounded: '${rounded.value}',
+      color: 'default',
+    },
+    BaseButtonClose: {
+      rounded: '${rounded.value}',
+    },
+    BaseButtonIcon: {
+      rounded: '${rounded.value}',
+      color: 'default',
+      size: 'md',
+    },
+    BaseCard: {
+      rounded: '${rounded.value}',
+      color: 'default',
+    },
+    BaseCheckbox: {
+      rounded: '${rounded.value}',
+      color: 'default',
+    },
+    BaseCheckboxAnimated: {
+      color: 'primary',
+    },
+    BaseDropdown: {
+      variant: 'button',
+      buttonColor: 'default',
+      color: 'default',
+      rounded: '${rounded.value}',
+      size: 'md',
+    },
+    BaseDropdownItem: {
+      rounded: '${rounded.value}',
+      contrast: 'default',
+      color: 'primary',
+    },
+    BaseFullscreenDropfile: {
+      color: 'primary',
+    },
+    BaseHeading: {
+      as: 'p',
+      size: 'xl',
+      weight: 'semibold',
+      lead: 'normal',
+    },
+    BaseIconBox: {
+      variant: 'solid',
+      color: 'default',
+      size: 'xs',
+      rounded: '${rounded.value}',
+    },
+    BaseInput: {
+      rounded: '${rounded.value}',
+      size: 'md',
+      contrast: 'default',
+    },
+    BaseInputFile: {
+      rounded: '${rounded.value}',
+      size: 'md',
+      contrast: 'default',
+    },
+    BaseInputNumber: {
+      inputmode: 'numeric',
+      rounded: '${rounded.value}',
+      size: 'md',
+      contrast: 'default',
+    },
+    BaseListbox: {
+      rounded: '${rounded.value}',
+      size: 'md',
+      contrast: 'default',
+    },
+    BaseMessage: {
+      color: 'success',
+      rounded: '${rounded.value}',
+      closable: false,
+    },
+    BasePagination: {
+      color: 'primary',
+      rounded: '${rounded.value}',
+    },
+    BaseParagraph: {
+      as: 'p',
+      size: 'md',
+      weight: 'normal',
+      lead: 'normal',
+    },
+    BasePlaceholderPage: {
+      imageSize: 'xs',
+    },
+    BaseProgress: {
+      size: 'sm',
+      contrast: 'default',
+      color: 'primary',
+      rounded: '${rounded.value}',
+    },
+    BaseProgressCircle: {
+      color: 'primary',
+    },
+    BaseProse: {
+      rounded: '${rounded.value}',
+    },
+    BaseRadio: {
+      color: 'default',
+    },
+    BaseSelect: {
+      rounded: '${rounded.value}',
+      size: 'md',
+      contrast: 'default',
+    },
+    BaseSnack: {
+      size: 'md',
+      color: 'muted',
+    },
+    BaseSwitchBall: {
+      color: 'primary',
+    },
+    BaseSwitchThin: {
+      color: 'primary',
+    },
+    BaseTabs: {
+      type: 'tabs',
+      justify: 'start',
+      color: 'primary',
+    },
+    BaseTabSlider: {
+      color: 'primary',
+      justify: 'start',
+      size: 'md',
+      rounded: '${rounded.value}',
+    },
+    BaseTag: {
+      variant: 'solid',
+      color: 'default',
+      size: 'md',
+      rounded: '${rounded.value}',
+    },
+    BaseText: {
+      size: 'md',
+      weight: 'normal',
+      lead: 'normal',
+    },
+    BaseTextarea: {
+      rounded: '${rounded.value}',
+      size: 'md',
+      contrast: 'default',
+    },
+    BaseTreeSelectItem: {
+      rounded: '${rounded.value}',
+    },
+  },
+})`
+})
+
+const { data: appAst } = useAsyncData('app-markdown', () => parseMarkdown([
+  '```ts',
+  appConfig.value,
+  '```',
+].join('\n')), {
+  watch: [appConfig],
 })
 </script>
 
@@ -654,15 +681,13 @@ const appConfig = computed(() => {
         <BaseTabs
           model-value="tailwind"
           :tabs="[
-            { label: 'tailwind.config.ts', value: 'tailwind' },
+            { label: 'tailwind.css', value: 'tailwind' },
             { label: 'app.config.ts', value: 'config' },
           ]"
         >
           <template #tab="{ activeValue }">
             <div v-if="activeValue === 'tailwind'" class="relative font-mono text-sm text-muted-500 dark:text-muted-400">
-              <pre class="rounded-xl bg-muted-100 px-6 dark:bg-muted-950">
-                {{ tailwindConfig }}
-              </pre>
+              <ContentRenderer v-if="tailwindAst" :value="tailwindAst" class="rounded-xl bg-muted-100 px-6 py-3 dark:bg-muted-950" />
               <div class="absolute end-3 top-3">
                 <UseClipboard v-slot="{ copy, copied }" :source="tailwindConfig">
                   <BaseButtonIcon
@@ -689,9 +714,7 @@ const appConfig = computed(() => {
             </div>
 
             <div v-else-if="activeValue === 'config'" class="relative font-mono text-sm text-muted-500 dark:text-muted-400">
-              <pre class="rounded-xl bg-muted-100 px-6 dark:bg-muted-950">
-                {{ appConfig }}
-              </pre>
+              <ContentRenderer v-if="appAst" :value="appAst" class="rounded-xl bg-muted-100 px-6 py-3 dark:bg-muted-950" />
               <div class="absolute end-3 top-3">
                 <UseClipboard v-slot="{ copy, copied }" :source="appConfig">
                   <BaseButtonIcon

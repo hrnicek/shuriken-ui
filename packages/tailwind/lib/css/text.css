@@ -3,75 +3,75 @@
 @utility nui-text {
   @apply font-sans;
 }
-@utility nui-content-xs {
+@utility nui-text-content-xs {
   @apply text-xs;
 }
-@utility nui-content-sm {
+@utility nui-text-content-sm {
   @apply text-sm;
 }
-@utility nui-content-md {
+@utility nui-text-content-md {
   @apply text-base;
 }
-@utility nui-content-lg {
+@utility nui-text-content-lg {
   @apply text-lg;
 }
-@utility nui-content-xl {
+@utility nui-text-content-xl {
   @apply text-xl;
 }
-@utility nui-content-2xl {
+@utility nui-text-content-2xl {
   @apply text-2xl;
 }
-@utility nui-content-3xl {
+@utility nui-text-content-3xl {
   @apply text-3xl;
 }
-@utility nui-content-4xl {
+@utility nui-text-content-4xl {
   @apply text-4xl;
 }
-@utility nui-content-5xl {
+@utility nui-text-content-5xl {
   @apply text-5xl;
 }
-@utility nui-content-6xl {
+@utility nui-text-content-6xl {
   @apply text-6xl;
 }
-@utility nui-content-7xl {
+@utility nui-text-content-7xl {
   @apply text-7xl;
 }
-@utility nui-content-8xl {
+@utility nui-text-content-8xl {
   @apply text-8xl;
 }
-@utility nui-content-9xl {
+@utility nui-text-content-9xl {
   @apply text-9xl;
 }
-@utility nui-weight-light {
+@utility nui-text-weight-light {
   @apply font-light;
 }
-@utility nui-weight-normal {
+@utility nui-text-weight-normal {
   @apply font-normal;
 }
-@utility nui-weight-medium {
+@utility nui-text-weight-medium {
   @apply font-medium;
 }
-@utility nui-weight-semibold {
+@utility nui-text-weight-semibold {
   @apply font-semibold;
 }
-@utility nui-weight-bold {
+@utility nui-text-weight-bold {
   @apply font-bold;
 }
-@utility nui-weight-extrabold {
+@utility nui-text-weight-extrabold {
   @apply font-extrabold;
 }
-@utility nui-lead-none {
+@utility nui-text-lead-none {
   @apply leading-none;
 }
-@utility nui-lead-normal {
+@utility nui-text-lead-normal {
   @apply leading-normal;
 }
-@utility nui-lead-tight {
+@utility nui-text-lead-tight {
   @apply leading-tight;
 }
-@utility nui-lead-snug {
+@utility nui-text-lead-snug {
   @apply leading-snug;
 }
-@utility nui-lead-loose {
+@utility nui-text-lead-loose {
   @apply leading-loose;
 }

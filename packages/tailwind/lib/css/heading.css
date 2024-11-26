@@ -42,36 +42,36 @@
 @utility nui-heading-9xl {
   @apply text-9xl;
 }
-@utility nui-weight-light {
+@utility nui-heading-weight-light {
   @apply font-light;
 }
-@utility nui-weight-normal {
+@utility nui-heading-weight-normal {
   @apply font-normal;
 }
-@utility nui-weight-medium {
+@utility nui-heading-weight-medium {
   @apply font-medium;
 }
-@utility nui-weight-semibold {
+@utility nui-heading-weight-semibold {
   @apply font-semibold;
 }
-@utility nui-weight-bold {
+@utility nui-heading-weight-bold {
   @apply font-bold;
 }
-@utility nui-weight-extrabold {
+@utility nui-heading-weight-extrabold {
   @apply font-extrabold;
 }
-@utility nui-lead-none {
+@utility nui-heading-lead-none {
   @apply leading-none;
 }
-@utility nui-lead-normal {
+@utility nui-heading-lead-normal {
   @apply leading-normal;
 }
-@utility nui-lead-tight {
+@utility nui-heading-lead-tight {
   @apply leading-tight;
 }
-@utility nui-lead-snug {
+@utility nui-heading-lead-snug {
   @apply leading-snug;
 }
-@utility nui-lead-loose {
+@utility nui-heading-lead-loose {
   @apply leading-loose;
 }

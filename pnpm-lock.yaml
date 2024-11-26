@@ -31,6 +31,9 @@ importers:
       '@nuxt/image':
         specifier: ^1.2.0
         version: 1.8.1(ioredis@5.4.1)(magicast@0.3.5)(rollup@4.27.4)
+      '@nuxtjs/mdc':
+        specifier: ^0.9.5
+        version: 0.9.5(magicast@0.3.5)(rollup@4.27.4)
       '@shuriken-ui/nuxt':
         specifier: workspace:*
         version: link:../packages/nuxt

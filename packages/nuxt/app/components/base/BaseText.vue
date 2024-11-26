@@ -47,37 +47,37 @@ const size = useNuiDefaultProperty(props, 'BaseText', 'size')
 const weight = useNuiDefaultProperty(props, 'BaseText', 'weight')
 
 const sizes = {
-  'xs': 'nui-content-xs',
-  'sm': 'nui-content-sm',
-  'md': 'nui-content-md',
-  'lg': 'nui-content-lg',
-  'xl': 'nui-content-xl',
-  '2xl': 'nui-content-2xl',
-  '3xl': 'nui-content-3xl',
-  '4xl': 'nui-content-4xl',
-  '5xl': 'nui-content-5xl',
-  '6xl': 'nui-content-6xl',
-  '7xl': 'nui-content-7xl',
-  '8xl': 'nui-content-8xl',
-  '9xl': 'nui-content-9xl',
+  'xs': 'nui-text-content-xs',
+  'sm': 'nui-text-content-sm',
+  'md': 'nui-text-content-md',
+  'lg': 'nui-text-content-lg',
+  'xl': 'nui-text-content-xl',
+  '2xl': 'nui-text-content-2xl',
+  '3xl': 'nui-text-content-3xl',
+  '4xl': 'nui-text-content-4xl',
+  '5xl': 'nui-text-content-5xl',
+  '6xl': 'nui-text-content-6xl',
+  '7xl': 'nui-text-content-7xl',
+  '8xl': 'nui-text-content-8xl',
+  '9xl': 'nui-text-content-9xl',
 }
 
 const weights = {
-  light: 'nui-weight-light',
-  normal: 'nui-weight-normal',
-  medium: 'nui-weight-medium',
-  semibold: 'nui-weight-semibold',
-  bold: 'nui-weight-bold',
-  extrabold: 'nui-weight-extrabold',
+  light: 'nui-text-weight-light',
+  normal: 'nui-text-weight-normal',
+  medium: 'nui-text-weight-medium',
+  semibold: 'nui-text-weight-semibold',
+  bold: 'nui-text-weight-bold',
+  extrabold: 'nui-text-weight-extrabold',
 }
 
 const leads = {
-  none: 'nui-lead-none',
-  tight: 'nui-lead-tight',
-  snug: 'nui-lead-snug',
-  normal: 'nui-lead-normal',
-  relaxed: 'nui-lead-relaxed',
-  loose: 'nui-lead-loose',
+  none: 'nui-text-lead-none',
+  tight: 'nui-text-lead-tight',
+  snug: 'nui-text-lead-snug',
+  normal: 'nui-text-lead-normal',
+  relaxed: 'nui-text-lead-relaxed',
+  loose: 'nui-text-lead-loose',
 }
 
 const classes = computed(() => [

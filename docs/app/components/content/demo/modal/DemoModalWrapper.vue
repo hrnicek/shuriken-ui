@@ -13,7 +13,7 @@
               <div class="nui-modal-content-panel">
                 <div class="nui-card nui-card-default nui-card-rounded-sm" shape="smooth">
                   <div class="flex items-center justify-between p-4 md:p-6">
-                    <h3 class="nui-heading nui-heading-lg nui-weight-medium nui-lead-normal text-muted-900 dark:text-white">
+                    <h3 class="nui-heading nui-heading-lg nui-heading-weight-medium nui-heading-lead-normal text-muted-900 dark:text-white">
                       Invitation
                     </h3>
 
@@ -46,7 +46,7 @@
                         </div>
                       </div>
 
-                      <h3 class="nui-heading nui-heading-lg nui-weight-medium nui-lead-normal text-muted-900 dark:text-white">
+                      <h3 class="nui-heading nui-heading-lg nui-heading-weight-medium nui-heading-lead-normal text-muted-900 dark:text-white">
                         New Invite
                       </h3>
 
