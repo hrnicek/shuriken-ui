@@ -71,41 +71,41 @@ const variant = useNuiDefaultProperty(props, 'BaseIconBox', 'variant')
 
 const radiuses = {
   none: '',
-  sm: 'nui-box-rounded-sm',
-  md: 'nui-box-rounded-md',
-  lg: 'nui-box-rounded-lg',
-  full: 'nui-box-rounded-full',
+  sm: 'nui-icon-box-rounded-sm',
+  md: 'nui-icon-box-rounded-md',
+  lg: 'nui-icon-box-rounded-lg',
+  full: 'nui-icon-box-rounded-full',
 }
 
 const sizes = {
-  'xs': 'nui-box-xs',
-  'sm': 'nui-box-sm',
-  'md': 'nui-box-md',
-  'lg': 'nui-box-lg',
-  'xl': 'nui-box-xl',
-  '2xl': 'nui-box-2xl',
+  'xs': 'nui-icon-box-xs',
+  'sm': 'nui-icon-box-sm',
+  'md': 'nui-icon-box-md',
+  'lg': 'nui-icon-box-lg',
+  'xl': 'nui-icon-box-xl',
+  '2xl': 'nui-icon-box-2xl',
 }
 
 const variants = {
-  solid: 'nui-box-solid',
-  pastel: 'nui-box-pastel',
-  outline: 'nui-box-outline',
+  solid: 'nui-icon-box-solid',
+  pastel: 'nui-icon-box-pastel',
+  outline: 'nui-icon-box-outline',
 }
 
 const colors = {
   'none': '',
-  'default': 'nui-box-default',
-  'default-contrast': 'nui-box-default-contrast',
-  'muted': 'nui-box-muted',
-  'muted-contrast': 'nui-box-muted-contrast',
-  'light': 'nui-box-light',
-  'dark': 'nui-box-dark',
-  'black': 'nui-box-black',
-  'primary': 'nui-box-primary',
-  'info': 'nui-box-info',
-  'success': 'nui-box-success',
-  'warning': 'nui-box-warning',
-  'danger': 'nui-box-danger',
+  'default': 'nui-icon-box-default',
+  'default-contrast': 'nui-icon-box-default-contrast',
+  'muted': 'nui-icon-box-muted',
+  'muted-contrast': 'nui-icon-box-muted-contrast',
+  'light': 'nui-icon-box-light',
+  'dark': 'nui-icon-box-dark',
+  'black': 'nui-icon-box-black',
+  'primary': 'nui-icon-box-primary',
+  'info': 'nui-icon-box-info',
+  'success': 'nui-icon-box-success',
+  'warning': 'nui-icon-box-warning',
+  'danger': 'nui-icon-box-danger',
 }
 
 const masks = {
@@ -118,7 +118,7 @@ const masks = {
 
 const classes = computed(() => [
   'nui-icon-box',
-  props.bordered && 'nui-box-bordered',
+  props.bordered && 'nui-icon-box-bordered',
   rounded.value && radiuses[rounded.value],
   size.value && sizes[size.value],
   variant.value && variants[variant.value],
