@@ -624,7 +624,7 @@ const internal = ref<any>(modelValue)
       size && sizes[size],
       contrast && contrasts[contrast],
       rounded && radiuses[rounded],
-      props.icon && 'nui-has-icon',
+      props.icon && 'nui-autocomplete-has-icon',
       props.labelFloat && 'nui-autocomplete-label-float',
       props.loading && 'nui-autocomplete-loading',
       props.colorFocus && 'nui-autocomplete-focus',
@@ -709,7 +709,7 @@ const internal = ref<any>(modelValue)
               ('label' in $slots && props.labelFloat)
                 || (props.label && props.labelFloat)
             "
-            class="nui-label-float"
+            class="nui-autocomplete-label-float"
             :class="props.classes?.label"
           >
             <slot
