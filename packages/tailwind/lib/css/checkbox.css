@@ -27,12 +27,12 @@
   @apply bg-white dark:bg-muted-700;
   @apply border-2 border-muted-400 dark:border-muted-700;
 }
-@utility nui-icon-check {
+@utility nui-checkbox-icon-check {
   @apply pointer-events-none absolute z-10 fill-current translate-y-6 opacity-0;
   @apply h-2.5 w-2.5;
   @apply transition-all duration-300;
 }
-@utility nui-icon-indeterminate {
+@utility nui-checkbox-icon-indeterminate {
   @apply pointer-events-none absolute z-10 fill-current translate-y-6 opacity-0;
   @apply h-2.5 w-2.5;
   @apply transition-all duration-300;
@@ -44,15 +44,15 @@
     @apply border-current dark:border-current;
   }
 
-  &:checked ~ .nui-icon-check {
+  &:checked ~ .nui-checkbox-icon-check {
     @apply translate-y-0 opacity-100;
   }
 
-  &:indeterminate ~ .nui-icon-check {
+  &:indeterminate ~ .nui-checkbox-icon-check {
     @apply !translate-y-6;
   }
 
-  &:indeterminate ~ .nui-icon-indeterminate {
+  &:indeterminate ~ .nui-checkbox-icon-indeterminate {
     @apply !translate-y-0 !opacity-100;
   }
 }

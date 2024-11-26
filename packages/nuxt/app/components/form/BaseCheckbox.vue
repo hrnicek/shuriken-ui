@@ -180,8 +180,8 @@ defineExpose({
         type="checkbox"
       >
       <div class="nui-checkbox-inner" />
-      <IconCheck class="nui-icon-check" />
-      <IconIndeterminate class="nui-icon-indeterminate" />
+      <IconCheck class="nui-checkbox-icon-check" />
+      <IconIndeterminate class="nui-checkbox-icon-indeterminate" />
     </div>
     <div class="nui-checkbox-label-wrapper">
       <label
