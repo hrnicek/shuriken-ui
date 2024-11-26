@@ -92,7 +92,7 @@ const avatarDisplay = computed(() => {
       <div
         v-for="avatar in avatarDisplay"
         :key="typeof avatar === 'string' ? avatar : avatar.src"
-        class="nui-avatar-outer"
+        class="nui-avatar-group-outer"
         :class="props.classes?.outer"
       >
         <BaseAvatar
@@ -105,11 +105,11 @@ const avatarDisplay = computed(() => {
       </div>
       <div
         v-if="limit !== undefined && avatars.length > limit"
-        class="nui-avatar-count"
+        class="nui-avatar-group-count"
         :class="props.classes?.count"
       >
-        <div class="nui-avatar-count-inner">
-          <span class="nui-avatar-count-text">
+        <div class="nui-avatar-group-count-inner">
+          <span class="nui-avatar-group-count-text">
             +{{ avatars.length - limit + 1 }}
           </span>
         </div>

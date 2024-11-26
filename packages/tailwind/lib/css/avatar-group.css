@@ -3,7 +3,7 @@
 @utility nui-avatar-group {
   @apply flex;
 }
-@utility nui-avatar-outer {
+@utility nui-avatar-group-outer {
   @apply relative flex shrink-0 items-center justify-center rounded-full;
   @apply bg-white dark:bg-muted-800;
   @apply transition-all duration-100 ease-in;
@@ -12,26 +12,26 @@
     @apply bg-primary-500/20 text-primary-500/20 !scale-90;
   }
 }
-@utility nui-avatar-count {
+@utility nui-avatar-group-count {
   @apply relative shrink-0 rounded-full;
   @apply bg-white dark:bg-muted-800;
   @apply transition-all duration-100 ease-in;
 
-  .nui-avatar-count-inner {
+  .nui-avatar-group-count-inner {
     @apply relative scale-90 inline-flex items-center justify-center rounded-full;
     @apply h-full w-full;
     @apply bg-muted-200 dark:bg-muted-700;
     @apply border border-white dark:border-muted-800;
   }
 
-  .nui-avatar-count-text {
+  .nui-avatar-group-count-text {
     @apply -ms-1 uppercase;
     @apply font-sans font-medium;
     @apply text-muted-500 dark:text-muted-300;
   }
 }
 @utility nui-avatar-group-xxs {
-  .nui-avatar-outer {
+  .nui-avatar-group-outer {
     @apply h-6 w-6;
 
     &:first-child {
@@ -43,16 +43,16 @@
     }
   }
 
-  .nui-avatar-count {
+  .nui-avatar-group-count {
     @apply -ms-2 h-6 w-6;
 
-    .nui-avatar-count-text {
+    .nui-avatar-group-count-text {
       @apply text-xs;
     }
   }
 }
 @utility nui-avatar-group-xs {
-  .nui-avatar-outer {
+  .nui-avatar-group-outer {
     @apply h-8 w-8;
 
     &:first-child {
@@ -64,16 +64,16 @@
     }
   }
 
-  .nui-avatar-count {
+  .nui-avatar-group-count {
     @apply -ms-2 h-8 w-8;
 
-    .nui-avatar-count-text {
+    .nui-avatar-group-count-text {
       @apply text-sm;
     }
   }
 }
 @utility nui-avatar-group-sm {
-  .nui-avatar-outer {
+  .nui-avatar-group-outer {
     @apply h-10 w-10;
 
     &:first-child {
@@ -85,16 +85,16 @@
     }
   }
 
-  .nui-avatar-count {
+  .nui-avatar-group-count {
     @apply -ms-3 h-10 w-10;
 
-    .nui-avatar-count-text {
+    .nui-avatar-group-count-text {
       @apply text-sm;
     }
   }
 }
 @utility nui-avatar-group-md {
-  .nui-avatar-outer {
+  .nui-avatar-group-outer {
     @apply h-12 w-12;
 
     &:first-child {
@@ -106,16 +106,16 @@
     }
   }
 
-  .nui-avatar-count {
+  .nui-avatar-group-count {
     @apply -ms-4 h-12 w-12;
 
-    .nui-avatar-count-text {
+    .nui-avatar-group-count-text {
       @apply text-lg;
     }
   }
 }
 @utility nui-avatar-group-lg {
-  .nui-avatar-outer {
+  .nui-avatar-group-outer {
     @apply h-16 w-16;
 
     &:first-child {
@@ -127,10 +127,10 @@
     }
   }
 
-  .nui-avatar-count {
+  .nui-avatar-group-count {
     @apply -ms-5 h-16 w-16;
 
-    .nui-avatar-count-text {
+    .nui-avatar-group-count-text {
       @apply text-xl;
     }
   }
