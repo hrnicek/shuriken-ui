@@ -33,35 +33,35 @@
   @apply absolute block;
   @apply border border-white dark:border-muted-800 rounded-full;
 
-  &.nui-dot-primary {
+  &.nui-avatar-dot-primary {
     @apply bg-primary-500;
   }
 
-  &.nui-dot-info {
+  &.nui-avatar-dot-info {
     @apply bg-info-500;
   }
 
-  &.nui-dot-success {
+  &.nui-avatar-dot-success {
     @apply bg-success-500;
   }
 
-  &.nui-dot-warning {
+  &.nui-avatar-dot-warning {
     @apply bg-warning-500;
   }
 
-  &.nui-dot-danger {
+  &.nui-avatar-dot-danger {
     @apply bg-danger-500;
   }
 
-  &.nui-dot-yellow {
+  &.nui-avatar-dot-yellow {
     @apply bg-yellow-400;
   }
 
-  &.nui-dot-pink {
+  &.nui-avatar-dot-pink {
     @apply bg-pink-500;
   }
 
-  &.nui-dot-indigo {
+  &.nui-avatar-dot-indigo {
     @apply bg-indigo-500;
   }
 }
@@ -71,35 +71,35 @@
     @apply ring-offset-2 ring-offset-white dark:ring-offset-muted-800;
   }
 
-  &.nui-ring-primary {
+  &.nui-avatar-ring-primary {
     @apply bg-primary-500;
   }
 
-  &.nui-ring-info {
+  &.nui-avatar-ring-info {
     @apply bg-info-500;
   }
 
-  &.nui-ring-success {
+  &.nui-avatar-ring-success {
     @apply bg-success-500;
   }
 
-  &.nui-ring-warning {
+  &.nui-avatar-ring-warning {
     @apply bg-warning-500;
   }
 
-  &.nui-ring-danger {
+  &.nui-avatar-ring-danger {
     @apply bg-danger-500;
   }
 
-  &.nui-ring-yellow {
+  &.nui-avatar-ring-yellow {
     @apply bg-yellow-400;
   }
 
-  &.nui-ring-pink {
+  &.nui-avatar-ring-pink {
     @apply bg-pink-500;
   }
 
-  &.nui-ring-indigo {
+  &.nui-avatar-ring-indigo {
     @apply bg-indigo-500;
   }
 }

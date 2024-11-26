@@ -158,23 +158,23 @@ const colors = {
 }
 
 const dots = {
-  success: 'nui-dot-success',
-  primary: 'nui-dot-primary',
-  info: 'nui-dot-info',
-  warning: 'nui-dot-warning',
-  danger: 'nui-dot-danger',
-  pink: 'nui-dot-pink',
-  yellow: 'nui-dot-yellow',
+  success: 'nui-avatar-dot-success',
+  primary: 'nui-avatar-dot-primary',
+  info: 'nui-avatar-dot-info',
+  warning: 'nui-avatar-dot-warning',
+  danger: 'nui-avatar-dot-danger',
+  pink: 'nui-avatar-dot-pink',
+  yellow: 'nui-avatar-dot-yellow',
 }
 
 const rings = {
-  success: 'nui-ring-success',
-  primary: 'nui-ring-primary',
-  info: 'nui-ring-info',
-  warning: 'nui-ring-warning',
-  danger: 'nui-ring-danger',
-  pink: 'nui-ring-pink',
-  yellow: 'nui-ring-yellow',
+  success: 'nui-avatar-ring-success',
+  primary: 'nui-avatar-ring-primary',
+  info: 'nui-avatar-ring-info',
+  warning: 'nui-avatar-ring-warning',
+  danger: 'nui-avatar-ring-danger',
+  pink: 'nui-avatar-ring-pink',
+  yellow: 'nui-avatar-ring-yellow',
 }
 
 const sizes = {
