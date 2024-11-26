@@ -154,22 +154,22 @@ function defaultTextValue(fileList?: FileList | null) {
 
 const radiuses = {
   none: '',
-  sm: 'nui-input-rounded-sm',
-  md: 'nui-input-rounded-md',
-  lg: 'nui-input-rounded-lg',
-  full: 'nui-input-rounded-full',
+  sm: 'nui-input-file-regular-rounded-sm',
+  md: 'nui-input-file-regular-rounded-md',
+  lg: 'nui-input-file-regular-rounded-lg',
+  full: 'nui-input-file-regular-rounded-full',
 }
 
 const sizes = {
-  sm: 'nui-input-sm',
-  md: 'nui-input-md',
-  lg: 'nui-input-lg',
-  xl: 'nui-input-xl',
+  sm: 'nui-input-file-regular-sm',
+  md: 'nui-input-file-regular-md',
+  lg: 'nui-input-file-regular-lg',
+  xl: 'nui-input-file-regular-xl',
 }
 
 const contrasts = {
-  'default': 'nui-input-default',
-  'default-contrast': 'nui-input-default-contrast',
+  'default': 'nui-input-file-regular-default',
+  'default-contrast': 'nui-input-file-regular-default-contrast',
 }
 
 const textValue = computed(() => {
@@ -200,31 +200,31 @@ defineExpose({
       contrast && contrasts[contrast],
       size && sizes[size],
       rounded && radiuses[rounded],
-      props.error && !props.loading && 'nui-input-file-error',
-      props.loading && 'nui-input-file-loading',
-      props.icon && 'nui-has-icon',
-      props.colorFocus && 'nui-input-file-color-focus',
+      props.error && !props.loading && 'nui-input-file-regular-error',
+      props.loading && 'nui-input-file-regular-loading',
+      props.icon && 'nui-input-file-regular-has-icon',
+      props.colorFocus && 'nui-input-file-regular-color-focus',
       props.classes?.wrapper,
     ]"
   >
     <label
       v-if="'label' in $slots || props.label"
-      class="nui-input-file-label"
+      class="nui-input-file-regular-label"
       :for="id"
       :class="props.classes?.label"
     >
       <slot name="label">{{ props.label }}</slot>
     </label>
-    <div class="nui-input-file-outer">
+    <div class="nui-input-file-regular-outer">
       <label
         tabindex="0"
-        class="nui-input-file-inner"
+        class="nui-input-file-regular-inner"
         :for="id"
         :class="[props.classes?.input]"
       >
         <div
           v-if="props.placeholder || props.icon || 'icon' in $slots"
-          class="nui-input-file-addon"
+          class="nui-input-file-regular-addon"
           :class="props.classes?.text"
         >
           <span v-if="props.placeholder" class="text-xs">
@@ -239,7 +239,7 @@ defineExpose({
           </slot>
         </div>
 
-        <div class="nui-input-file-text">
+        <div class="nui-input-file-regular-text">
           {{ textValue }}
         </div>
         <input
@@ -254,7 +254,7 @@ defineExpose({
         >
       </label>
 
-      <div v-if="props.loading" class="nui-input-file-placeload">
+      <div v-if="props.loading" class="nui-input-file-regular-placeload">
         <BasePlaceload class="nui-placeload" />
       </div>
       <BaseInputHelpText
