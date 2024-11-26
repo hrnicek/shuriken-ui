@@ -117,24 +117,24 @@ const rounded = useNuiDefaultProperty(props, 'BaseDropdownItem', 'rounded')
 
 const radiuses = {
   none: '',
-  sm: 'nui-item-rounded-sm',
-  md: 'nui-item-rounded-md',
-  lg: 'nui-item-rounded-lg',
+  sm: 'nui-dropdown-item-rounded-sm',
+  md: 'nui-dropdown-item-rounded-md',
+  lg: 'nui-dropdown-item-rounded-lg',
 }
 
 const contrasts = {
-  default: 'nui-item-default',
-  contrast: 'nui-item-contrast',
+  default: 'nui-dropdown-item-default',
+  contrast: 'nui-dropdown-item-contrast',
 }
 
 const colors = {
-  primary: 'nui-item-primary',
-  info: 'nui-item-info',
-  success: 'nui-item-success',
-  warning: 'nui-item-warning',
-  danger: 'nui-item-danger',
-  dark: 'nui-item-dark',
-  black: 'nui-item-black',
+  primary: 'nui-dropdown-item-primary',
+  info: 'nui-dropdown-item-info',
+  success: 'nui-dropdown-item-success',
+  warning: 'nui-dropdown-item-warning',
+  danger: 'nui-dropdown-item-danger',
+  dark: 'nui-dropdown-item-dark',
+  black: 'nui-dropdown-item-black',
 }
 
 const { is, attributes } = useNinjaButton(props)
@@ -154,13 +154,13 @@ const { is, attributes } = useNinjaButton(props)
         rounded && radiuses[rounded],
         contrast && contrasts[contrast],
         color && colors[color],
-        props.disabled && 'nui-item-disabled',
+        props.disabled && 'nui-dropdown-item-disabled',
         props.classes?.wrapper,
       ]"
       @click.passive="close"
     >
       <slot name="start" />
-      <div class="nui-item-content">
+      <div class="nui-dropdown-item-content">
         <div :class="props.classes?.title">
           <slot v-bind="{ active, close }">
             {{ props.title }}

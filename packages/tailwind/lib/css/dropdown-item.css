@@ -9,53 +9,53 @@
     @apply text-muted-500 dark:text-muted-500;
   }
 }
-@utility nui-item-content {
+@utility nui-dropdown-item-content {
   @apply grow;
 }
-@utility nui-item-disabled {
+@utility nui-dropdown-item-disabled {
   @apply opacity-50 pointer-events-none;
 }
-@utility nui-item-default {
+@utility nui-dropdown-item-default {
   @apply hover:bg-muted-100 dark:hover:bg-muted-700;
 
   &.nui-active {
     @apply bg-muted-100 dark:bg-muted-700;
   }
 }
-@utility nui-item-contrast {
+@utility nui-dropdown-item-contrast {
   @apply hover:bg-muted-100 dark:hover:bg-muted-900;
 
   &.nui-active {
     @apply bg-muted-100 dark:bg-muted-900;
   }
 }
-@utility nui-item-primary {
+@utility nui-dropdown-item-primary {
   @apply hover:text-primary-500 dark:hover:text-primary-500;
 }
-@utility nui-item-info {
+@utility nui-dropdown-item-info {
   @apply hover:text-info-500 dark:hover:text-info-500;
 }
-@utility nui-item-success {
+@utility nui-dropdown-item-success {
   @apply hover:text-success-500 dark:hover:text-success-500;
 }
-@utility nui-item-warning {
+@utility nui-dropdown-item-warning {
   @apply hover:text-info-500 dark:hover:text-info-500;
 }
-@utility nui-item-danger {
+@utility nui-dropdown-item-danger {
   @apply hover:text-info-500 dark:hover:text-info-500;
 }
-@utility nui-item-dark {
+@utility nui-dropdown-item-dark {
   @apply hover:text-muted-900 dark:hover:text-muted-100;
 }
-@utility nui-item-black {
+@utility nui-dropdown-item-black {
   @apply hover:text-black dark:hover:text-white;
 }
-@utility nui-item-rounded-sm {
+@utility nui-dropdown-item-rounded-sm {
   @apply rounded-md;
 }
-@utility nui-item-rounded-md {
+@utility nui-dropdown-item-rounded-md {
   @apply rounded-lg;
 }
-@utility nui-item-rounded-lg {
+@utility nui-dropdown-item-rounded-lg {
   @apply rounded-xl;
 }
