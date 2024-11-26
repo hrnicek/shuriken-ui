@@ -4,7 +4,7 @@
   @apply w-full relative;
 
   .nui-autocomplete-label, .nui-autocomplete-label-float {
-    @apply nui-autocomplete-label;
+    @apply nui-label;
   }
 
   &:not(.nui-autocomplete-loading) {
