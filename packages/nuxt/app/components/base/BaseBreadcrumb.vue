@@ -168,14 +168,14 @@ const colors = {
           <slot name="link" v-bind="{ item, index }">
             <NuxtLink
               :to="item.to"
-              class="nui-item-inner"
+              class="nui-breadcrumb-item-inner"
               :class="[item.to && 'nui-has-link']"
             >
               <slot name="icon" v-bind="{ item, index }">
                 <Icon
                   v-if="item.icon"
                   :name="item.icon"
-                  class="nui-item-icon"
+                  class="nui-breadcrumb-item-icon"
                   :class="item.iconClasses"
                 />
               </slot>
@@ -188,8 +188,8 @@ const colors = {
           </slot>
         </li>
         <li class="nui-breadcrumb-item">
-          <div class="nui-item-inner">
-            <span v-if="index < items.length - 1" class="nui-item-text">
+          <div class="nui-breadcrumb-item-inner">
+            <span v-if="index < items.length - 1" class="nui-breadcrumb-item-text">
               <slot>·</slot>
             </span>
           </div>
