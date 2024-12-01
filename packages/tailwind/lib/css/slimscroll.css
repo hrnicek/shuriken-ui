@@ -22,10 +22,11 @@
     @apply w-[6px] h-[6px];
   }
 
+  &::-webkit-scrollbar-thumb {
+    @apply rounded-lg bg-transparent duration-300 transition-all;
+  }
+
   &:hover::-webkit-scrollbar-thumb {
     @apply bg-black/20 dark:bg-white/20;
   }
-}
-@utility undefined {
-  @apply rounded-lg bg-transparent duration-300 transition-all;
 }
