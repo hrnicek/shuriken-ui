@@ -51,7 +51,7 @@
   @apply bg-muted-100 dark:bg-muted-700;
   @apply border border-muted-200 dark:border-muted-600;
 
-  &:not(.nui-active) {
+  &:not(.nui-pagination-active) {
     @apply text-muted-500 dark:text-muted-400;
     @apply hover:text-muted-700 dark:hover:text-muted-400;
     @apply bg-white dark:bg-muted-800;
@@ -60,7 +60,7 @@
   }
 }
 @utility nui-pagination-primary {
-  .nui-pagination-link.nui-active {
+  .nui-pagination-link.nui-pagination-active {
     @apply text-primary-invert dark:text-primary-invert;
     @apply bg-primary-500 dark:bg-primary-500;
     @apply border-primary-500 dark:border-primary-500;
@@ -68,7 +68,7 @@
   }
 }
 @utility nui-pagination-dark {
-  .nui-pagination-link.nui-active {
+  .nui-pagination-link.nui-pagination-active {
     @apply text-muted-100 dark:text-muted-900;
     @apply bg-muted-900 dark:bg-muted-100;
     @apply border-muted-900 dark:border-muted-100;
@@ -76,7 +76,7 @@
   }
 }
 @utility nui-pagination-black {
-  .nui-pagination-link.nui-active {
+  .nui-pagination-link.nui-pagination-active {
     @apply text-white dark:text-black;
     @apply bg-black dark:bg-white;
     @apply border-black dark:border-white;

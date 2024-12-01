@@ -223,7 +223,7 @@ function handleLinkClick(e: MouseEvent, page = 1) {
           tabindex="0"
           class="nui-pagination-link"
           :class="[
-            currentPage === 1 && 'nui-active',
+            currentPage === 1 && 'nui-pagination-active',
             rounded && radiuses[rounded],
             props.classes?.link,
           ]"
@@ -250,7 +250,7 @@ function handleLinkClick(e: MouseEvent, page = 1) {
           :aria-current="currentPage === page ? 'page' : undefined"
           class="nui-pagination-link"
           :class="[
-            currentPage === page && 'nui-active',
+            currentPage === page && 'nui-pagination-active',
             rounded && radiuses[rounded],
             props.classes?.link,
           ]"
@@ -276,7 +276,7 @@ function handleLinkClick(e: MouseEvent, page = 1) {
           tabindex="0"
           class="nui-pagination-link"
           :class="[
-            currentPage === lastPage && 'nui-active',
+            currentPage === lastPage && 'nui-pagination-active',
             rounded && radiuses[rounded],
             props.classes?.link,
           ]"
