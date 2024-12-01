@@ -58,8 +58,8 @@ const isDark = computed({
       type="checkbox"
     >
     <span class="nui-theme-switch-inner">
-      <IconSun class="nui-sun" />
-      <IconMoon class="nui-moon" />
+      <IconSun class="nui-theme-switch-sun" />
+      <IconMoon class="nui-theme-switch-moon" />
     </span>
   </label>
 </template>

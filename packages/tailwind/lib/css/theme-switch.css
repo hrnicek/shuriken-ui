@@ -8,19 +8,19 @@
     @apply ms-[45%] rotate-[360deg];
   }
 
-  .nui-theme-switch-input:not(:checked) ~ .nui-theme-switch-inner .nui-sun {
+  .nui-theme-switch-input:not(:checked) ~ .nui-theme-switch-inner .nui-theme-switch-sun {
     @apply block;
   }
 
-  .nui-theme-switch-input:checked ~ .nui-theme-switch-inner .nui-sun {
+  .nui-theme-switch-input:checked ~ .nui-theme-switch-inner .nui-theme-switch-sun {
     @apply hidden;
   }
 
-  .nui-theme-switch-input:not(:checked) ~ .nui-theme-switch-inner .nui-moon {
+  .nui-theme-switch-input:not(:checked) ~ .nui-theme-switch-inner .nui-theme-switch-moon {
     @apply hidden;
   }
 
-  .nui-theme-switch-input:checked ~ .nui-theme-switch-inner .nui-moon {
+  .nui-theme-switch-input:checked ~ .nui-theme-switch-inner .nui-theme-switch-moon {
     @apply block;
   }
 
@@ -43,13 +43,13 @@
   @apply border border-muted-200 dark:border-muted-800;
   @apply transition-all duration-300;
 }
-@utility nui-sun {
+@utility nui-theme-switch-sun {
   @apply pointer-events-none;
   @apply text-yellow-400 dark:text-yellow-400;
   @apply h-6 w-6;
   @apply transition-all duration-300;
 }
-@utility nui-moon {
+@utility nui-theme-switch-moon {
   @apply pointer-events-none;
   @apply text-yellow-400 dark:text-yellow-400;
   @apply h-6 w-6;
