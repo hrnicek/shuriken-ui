@@ -190,7 +190,7 @@ const placeholder = computed(() => {
       props.error && !props.loading && 'nui-select-error',
       props.loading && 'nui-select-loading',
       props.labelFloat && 'nui-select-label-float',
-      props.icon && 'nui-has-icon',
+      props.icon && 'nui-select-has-icon',
       props.colorFocus && 'nui-select-focus',
       props.classes?.wrapper,
     ]"
@@ -227,13 +227,13 @@ const placeholder = computed(() => {
             || (props.label && props.labelFloat)
         "
         :for="id"
-        class="nui-label-float"
+        class="nui-select-label-float"
         :class="props.classes?.label"
       >
         <slot name="label">{{ props.label }}</slot>
       </label>
-      <div v-if="props.loading" class="nui-select-placeload">
-        <BasePlaceload class="nui-placeload" />
+      <div v-if="props.loading" class="nui-select-placeload-wrapper">
+        <BasePlaceload class="nui-select-placeload" />
       </div>
       <div
         v-if="props.icon"
