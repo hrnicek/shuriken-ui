@@ -236,7 +236,7 @@ defineExpose({
       props.loading && 'nui-textarea-loading',
       props.labelFloat && 'nui-textarea-label-float',
       !props.resize && 'nui-textarea-not-resize',
-      props.addon && 'nui-has-addon',
+      props.addon && 'nui-textarea-has-addon',
       props.colorFocus && 'nui-textarea-focus',
       props.classes?.wrapper,
     ]"
@@ -283,16 +283,16 @@ defineExpose({
       />
       <label
         v-if="props.label && props.labelFloat"
-        class="nui-label-float"
+        class="nui-textarea-label-float"
         :for="id"
         :class="props.classes?.label"
       >
         <slot name="label">{{ props.label }}</slot>
       </label>
-      <div v-if="props.loading" class="nui-textarea-placeload">
-        <BasePlaceload class="nui-placeload" />
-        <BasePlaceload class="nui-placeload" />
-        <BasePlaceload class="nui-placeload" />
+      <div v-if="props.loading" class="nui-textarea-placeload-wrapper">
+        <BasePlaceload class="nui-textarea-placeload" />
+        <BasePlaceload class="nui-textarea-placeload" />
+        <BasePlaceload class="nui-textarea-placeload" />
       </div>
       <div
         v-if="props.addon"

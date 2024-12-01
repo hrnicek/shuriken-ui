@@ -3,23 +3,23 @@
 @utility nui-textarea-wrapper {
   @apply relative;
 
-  .nui-textarea-label, .nui-label-float {
+  .nui-textarea-label, .nui-textarea-label-float {
     @apply nui-label;
   }
 
   &:not(.nui-textarea-loading) {
-    .nui-textarea:placeholder-shown ~ .nui-label-float {
+    .nui-textarea:placeholder-shown ~ .nui-textarea-label-float {
       @apply text-muted-300 dark:text-muted-600;
     }
   }
 
-  &:not(.nui-has-addon) {
+  &:not(.nui-textarea-has-addon) {
     .nui-textarea {
       @apply p-2;
     }
   }
 }
-@utility nui-label-float {
+@utility nui-textarea-label-float {
   @apply h-5 absolute inline-flex items-center select-none pointer-events-none;
   @apply font-sans text-primary-500 leading-none;
   @apply transition-all duration-300;
@@ -30,7 +30,7 @@
 @utility nui-textarea {
   @apply nui-focus w-full enabled:cursor-text cursor-not-allowed;
 
-  &:focus-visible ~ .nui-label-float {
+  &:focus-visible ~ .nui-textarea-label-float {
     @apply !text-primary-500 dark:!text-primary-500;
   }
 
@@ -39,10 +39,10 @@
     @apply transition-colors duration-300;
   }
 }
-@utility nui-textarea-placeload {
+@utility nui-textarea-placeload-wrapper {
   @apply absolute start-0 top-4 flex h-full w-full flex-col space-y-2 px-3;
 
-  .nui-placeload {
+  .nui-textarea-placeload {
     @apply h-3 w-full rounded;
 
     &:first-child {
@@ -126,7 +126,7 @@
     @apply !text-transparent placeholder:!text-transparent dark:placeholder:!text-transparent;
   }
 
-  .nui-textarea:placeholder-shown ~ .nui-label-float {
+  .nui-textarea:placeholder-shown ~ .nui-textarea-label-float {
     @apply text-transparent;
   }
 }
@@ -166,7 +166,7 @@
     @apply pb-1 text-sm;
   }
 }
-@utility nui-has-addon {
+@utility nui-textarea-has-addon {
   .nui-textarea {
     @apply px-2 pb-14 pt-2;
   }
@@ -187,41 +187,41 @@
   }
 }
 @utility nui-textarea-label-float {
-  .nui-label-float {
+  .nui-textarea-label-float {
     @apply start-3 -ms-3 -mt-7 text-xs;
   }
 
-  .nui-textarea:focus-visible ~ .nui-label-float {
+  .nui-textarea:focus-visible ~ .nui-textarea-label-float {
     @apply !-ms-3 !-mt-6;
   }
 
-  .nui-textarea:placeholder-shown ~ .nui-label-float {
+  .nui-textarea:placeholder-shown ~ .nui-textarea-label-float {
     @apply ms-0 mt-[0.35rem];
   }
 }
 @utility nui-textarea-label-float {
-  .nui-label-float {
+  .nui-textarea-label-float {
     @apply start-3 -ms-3 -mt-8 text-xs;
   }
 
-  .nui-textarea:focus-visible ~ .nui-label-float {
+  .nui-textarea:focus-visible ~ .nui-textarea-label-float {
     @apply !-ms-3 !-mt-7 !text-xs;
   }
 
-  .nui-textarea:placeholder-shown ~ .nui-label-float {
+  .nui-textarea:placeholder-shown ~ .nui-textarea-label-float {
     @apply ms-0 mt-2.5 text-[0.825rem];
   }
 }
 @utility nui-textarea-label-float {
-  .nui-label-float {
+  .nui-textarea-label-float {
     @apply start-3 -ms-3 -mt-8 text-xs;
   }
 
-  .nui-textarea:focus-visible ~ .nui-label-float {
+  .nui-textarea:focus-visible ~ .nui-textarea-label-float {
     @apply !-ms-3 !-mt-7 !text-xs;
   }
 
-  .nui-textarea:placeholder-shown ~ .nui-label-float {
+  .nui-textarea:placeholder-shown ~ .nui-textarea-label-float {
     @apply ms-0 mt-3 text-[0.825rem];
   }
 }
