@@ -324,7 +324,7 @@ const activeFramework = ref('Nuxt')
           <Icon name="ri:twitter-x-fill" class="h-4 w-4" />
         </NuxtLink>
         <div class="ms-auto scale-90">
-          <BaseThemeSwitch />
+          <BaseThemeSwitch disable-transitions />
         </div>
       </div>
       <div class="p-6">

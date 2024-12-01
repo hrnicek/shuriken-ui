@@ -58,3 +58,7 @@
 @import './css/theme-toggle.css';
 @import './css/toast.css';
 @import './css/tooltip.css';
+
+.dark {
+  color-scheme: dark;
+}
