@@ -4,7 +4,7 @@
   @apply relative w-full;
 
   .nui-listbox-label, .nui-listbox-label-float {
-    @apply nui-listbox-label;
+    @apply nui-label;
   }
 
   &:not(.nui-listbox-loading) {
