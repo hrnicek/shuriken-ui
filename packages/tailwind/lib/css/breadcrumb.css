@@ -26,7 +26,7 @@
     .nui-breadcrumb-item-icon {
       @apply flex items-center justify-center h-4 w-4 shrink-0;
 
-      &.nui-has-dot {
+      &.nui-breadcrumb-has-dot {
         @apply text-xl;
       }
     }
@@ -38,7 +38,7 @@
 }
 @utility nui-breadcrumb-primary {
   .nui-breadcrumb-item-inner {
-    &.nui-has-link {
+    &.nui-breadcrumb-has-link {
       @apply hover:text-primary-500 focus:text-primary-500;
       @apply dark:hover:text-primary-500 dark:focus:text-primary-500;
     }
@@ -46,7 +46,7 @@
 }
 @utility nui-breadcrumb-dark {
   .nui-breadcrumb-item-inner {
-    &.nui-has-link {
+    &.nui-breadcrumb-has-link {
       @apply hover:text-muted-900 focus:text-muted-900;
       @apply dark:hover:text-muted-100 dark:focus:text-muted-100;
     }
@@ -54,7 +54,7 @@
 }
 @utility nui-breadcrumb-black {
   .nui-breadcrumb-item-inner {
-    &.nui-has-link {
+    &.nui-breadcrumb-has-link {
       @apply hover:text-black focus:text-black;
       @apply dark:hover:text-white dark:focus:text-white;
     }
