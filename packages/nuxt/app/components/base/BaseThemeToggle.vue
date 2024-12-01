@@ -66,8 +66,8 @@ const isDark = computed({
       class="nui-theme-toggle-input"
     >
     <span class="nui-theme-toggle-inner">
-      <IconSun class="nui-sun" />
-      <IconMoon class="nui-moon" />
+      <IconSun class="nui-theme-toggle-sun" />
+      <IconMoon class="nui-theme-toggle-moon" />
     </span>
   </label>
 </template>
