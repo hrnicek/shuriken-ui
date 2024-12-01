@@ -97,7 +97,7 @@ const colors = {
     :class="[
       size && sizes[size],
       color && colors[color],
-      props.icon || props.image ? 'nui-has-media' : '',
+      props.icon || props.image ? 'nui-snack-has-media' : '',
       props.classes?.wrapper,
     ]"
   >

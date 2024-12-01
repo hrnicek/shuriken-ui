@@ -19,7 +19,7 @@
   @apply text-muted-600 dark:text-muted-300;
 }
 @utility nui-snack-xs {
-  &:not(.nui-has-media) {
+  &:not(.nui-snack-has-media) {
     @apply !ps-2;
   }
 
@@ -41,7 +41,7 @@
   }
 }
 @utility nui-snack-sm {
-  &:not(.nui-has-media) {
+  &:not(.nui-snack-has-media) {
     @apply !ps-3;
   }
 
@@ -63,7 +63,7 @@
   }
 }
 @utility nui-snack-md {
-  &:not(.nui-has-media) {
+  &:not(.nui-snack-has-media) {
     @apply !ps-4;
   }
 
