@@ -338,7 +338,7 @@ const internal = ref<any>(modelValue)
       props.error && !props.loading && 'nui-listbox-error',
       props.loading && 'nui-listbox-loading',
       props.labelFloat && 'nui-listbox-label-float',
-      props.icon && 'nui-has-icon',
+      props.icon && 'nui-listbox-has-icon',
       props.colorFocus && 'nui-listbox-focus',
       props.classes?.wrapper,
     ]"
@@ -391,11 +391,11 @@ const internal = ref<any>(modelValue)
                       size="xs"
                       rounded="sm"
                       color="none"
-                      class="nui-icon-box"
+                      class="nui-listbox-icon-box"
                       :class="props.classes?.icon"
                     >
                       <slot name="icon">
-                        <Icon :name="props.icon" class="nui-icon-box-inner" />
+                        <Icon :name="props.icon" class="nui-listbox-icon-box-inner" />
                       </slot>
                     </BaseIconBox>
 
@@ -473,7 +473,7 @@ const internal = ref<any>(modelValue)
                       </div>
                     </template>
 
-                    <span class="nui-listbox-chevron nui-chevron">
+                    <span class="nui-listbox-chevron nui-listbox-chevron">
                       <Icon
                         name="lucide:chevron-down"
                         class="nui-listbox-chevron-inner"
@@ -488,8 +488,8 @@ const internal = ref<any>(modelValue)
                   ('label' in $slots && props.labelFloat)
                     || (props.label && props.labelFloat)
                 "
-                class="nui-label-float"
-                :class="open ? 'nui-label-float-active' : ''"
+                class="nui-listbox-label-float"
+                :class="open ? 'nui-listbox-label-float-active' : ''"
               >
                 <slot name="label">
                   {{ props.label }}
@@ -518,7 +518,7 @@ const internal = ref<any>(modelValue)
                     : '',
                 ]"
               >
-                <BasePlaceload class="nui-placeload !w-[70%]" />
+                <BasePlaceload class="nui-listbox-placeload !w-[70%]" />
               </div>
             </div>
           </FloatReference>
@@ -593,10 +593,3 @@ const internal = ref<any>(modelValue)
     </Listbox>
   </div>
 </template>
-
-<style scoped>
-.nui-listbox .nui-listbox-options {
-  position: unset;
-  margin-top: unset;
-}
-</style>
