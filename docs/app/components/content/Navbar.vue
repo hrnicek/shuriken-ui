@@ -146,7 +146,7 @@ const { x, y } = useWindowScroll()
             <div class="relative flex h-[24px] w-[24px] items-center justify-center overflow-hidden transition-all duration-200">
               <div class="flex h-4 w-[24px] origin-center flex-col justify-between overflow-hidden transition-all duration-300">
                 <div class="h-[2px] w-7 origin-left bg-muted-500 transition-all duration-300" :class="mobileOpen ? 'translate-x-10' : ''" />
-                <div class="h-[2px] w-7 rounded bg-muted-500 transition-all delay-75 duration-300" :class="mobileOpen ? 'translate-x-10' : ''" />
+                <div class="h-[2px] w-7 rounded-sm bg-muted-500 transition-all delay-75 duration-300" :class="mobileOpen ? 'translate-x-10' : ''" />
                 <div class="h-[2px] w-7 origin-left bg-muted-500 transition-all delay-150 duration-300" :class="mobileOpen ? 'translate-x-10' : ''" />
 
                 <div class="absolute top-3 flex scale-105 items-center justify-between transition-all duration-500" :class="[mobileOpen ? 'w-12 translate-x-1' : 'w-0 -translate-x-10']">

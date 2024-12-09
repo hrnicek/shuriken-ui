@@ -46,7 +46,7 @@ const typefaces = [
                 <code
                   v-for="value in typeface.values"
                   :key="value"
-                  class="rounded bg-muted-100 px-1 text-muted-600 dark:bg-muted-950 dark:text-muted-100"
+                  class="rounded-sm bg-muted-100 px-1 text-muted-600 dark:bg-muted-950 dark:text-muted-100"
                 >
                   {{ value }}{{ typeface.values.length > 1 && value !== typeface.values[typeface.values.length - 1] ? ',' : '' }}
                 </code>

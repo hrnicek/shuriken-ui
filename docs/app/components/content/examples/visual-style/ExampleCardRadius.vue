@@ -8,7 +8,7 @@
       <div class="flex flex-col divide-y divide-dashed divide-muted-300 dark:divide-muted-800">
         <div class="flex w-full flex-col gap-6 p-4 md:flex-row md:items-center md:p-6">
           <div class="w-40">
-            <code class="rounded bg-primary-500/10 px-1 py-0.5 text-sm text-primary-600">rounded="none"</code>
+            <code class="rounded-sm bg-primary-500/10 px-1 py-0.5 text-sm text-primary-600">rounded="none"</code>
           </div>
           <BaseCard
             color="default-contrast"
@@ -50,7 +50,7 @@
 
         <div class="flex w-full flex-col gap-6 p-4 md:flex-row md:items-center md:p-6">
           <div class="w-40">
-            <code class="rounded bg-primary-500/10 px-1 py-0.5 text-sm text-primary-600">rounded="sm"</code>
+            <code class="rounded-sm bg-primary-500/10 px-1 py-0.5 text-sm text-primary-600">rounded="sm"</code>
           </div>
           <BaseCard
             color="default-contrast"
@@ -92,7 +92,7 @@
 
         <div class="flex w-full flex-col gap-6 p-4 md:flex-row md:items-center md:p-6">
           <div class="w-40">
-            <code class="rounded bg-primary-500/10 px-1 py-0.5 text-sm text-primary-600">rounded="md"</code>
+            <code class="rounded-sm bg-primary-500/10 px-1 py-0.5 text-sm text-primary-600">rounded="md"</code>
           </div>
           <BaseCard
             color="default-contrast"
@@ -134,7 +134,7 @@
 
         <div class="flex w-full flex-col gap-6 p-4 md:flex-row md:items-center md:p-6">
           <div class="w-40">
-            <code class="rounded bg-primary-500/10 px-1 py-0.5 text-sm text-primary-600">rounded="lg"</code>
+            <code class="rounded-sm bg-primary-500/10 px-1 py-0.5 text-sm text-primary-600">rounded="lg"</code>
           </div>
           <BaseCard
             color="default-contrast"
@@ -176,7 +176,7 @@
 
         <div class="flex w-full flex-col gap-6 p-4 md:flex-row md:items-center md:p-6">
           <div class="w-40">
-            <code class="rounded bg-primary-500/10 px-1 py-0.5 text-sm text-primary-600">rounded="full"</code>
+            <code class="rounded-sm bg-primary-500/10 px-1 py-0.5 text-sm text-primary-600">rounded="full"</code>
           </div>
           <BaseCard
             color="default-contrast"

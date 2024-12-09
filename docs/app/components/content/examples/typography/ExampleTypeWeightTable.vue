@@ -55,7 +55,7 @@ const weights = [
             </td>
             <td class="px-4 py-3">
               <div class="flex items-center gap-1">
-                <code class="rounded bg-muted-100 px-1 text-muted-600 dark:bg-muted-950 dark:text-muted-100">{{ weight.value }}</code>
+                <code class="rounded-sm bg-muted-100 px-1 text-muted-600 dark:bg-muted-950 dark:text-muted-100">{{ weight.value }}</code>
               </div>
             </td>
           </tr>

@@ -115,17 +115,17 @@ const scales = [
             </td>
             <td class="px-4 py-3">
               <div class="flex items-center gap-1">
-                <code class="rounded bg-muted-100 px-1 text-muted-600 dark:bg-muted-950 dark:text-muted-100">{{ scale.size }}</code>
+                <code class="rounded-sm bg-muted-100 px-1 text-muted-600 dark:bg-muted-950 dark:text-muted-100">{{ scale.size }}</code>
               </div>
             </td>
             <td class="px-4 py-3">
               <div class="flex items-center gap-1">
-                <code class="rounded bg-muted-100 px-1 text-muted-600 dark:bg-muted-950 dark:text-muted-100">{{ scale.letterSpacing }}</code>
+                <code class="rounded-sm bg-muted-100 px-1 text-muted-600 dark:bg-muted-950 dark:text-muted-100">{{ scale.letterSpacing }}</code>
               </div>
             </td>
             <td class="px-4 py-3">
               <div class="flex items-center gap-1">
-                <code class="rounded bg-muted-100 px-1 text-muted-600 dark:bg-muted-950 dark:text-muted-100">{{ scale.lineHeight }}</code>
+                <code class="rounded-sm bg-muted-100 px-1 text-muted-600 dark:bg-muted-950 dark:text-muted-100">{{ scale.lineHeight }}</code>
               </div>
             </td>
           </tr>

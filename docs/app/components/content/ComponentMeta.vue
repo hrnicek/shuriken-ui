@@ -53,7 +53,7 @@ function wrapExternalLinks(string: string) {
               <tr class="border-t border-muted-300 text-sm dark:border-muted-800">
                 <td class="px-4 py-3">
                   <div class="flex items-center gap-1">
-                    <code class="rounded bg-primary-500/20 px-1 text-[0.8rem] font-medium text-primary-600">{{ kebabCase(docs.model.name) }}</code>
+                    <code class="rounded-sm bg-primary-500/20 px-1 text-[0.8rem] font-medium text-primary-600">{{ kebabCase(docs.model.name) }}</code>
                     <div v-if="docs.model.description">
                       <BaseDropdown
                         color="default-contrast"
@@ -132,7 +132,7 @@ function wrapExternalLinks(string: string) {
               >
                 <td class="px-4 py-3">
                   <div class="flex items-center gap-1">
-                    <code class="rounded bg-primary-500/20 px-1 text-[0.8rem] font-medium text-primary-600">{{ kebabCase(prop.name) }}</code>
+                    <code class="rounded-sm bg-primary-500/20 px-1 text-[0.8rem] font-medium text-primary-600">{{ kebabCase(prop.name) }}</code>
                     <div v-if="prop.description">
                       <BaseDropdown
                         color="default-contrast"
@@ -229,7 +229,7 @@ function wrapExternalLinks(string: string) {
               >
                 <td class="px-4 py-3">
                   <div class="flex items-center gap-1">
-                    <code class="rounded bg-primary-500/20 px-1 text-[0.8rem] font-medium text-primary-600">{{ kebabCase(event.name) }}</code>
+                    <code class="rounded-sm bg-primary-500/20 px-1 text-[0.8rem] font-medium text-primary-600">{{ kebabCase(event.name) }}</code>
                     <div v-if="event.description">
                       <BaseDropdown
                         color="default-contrast"
@@ -284,7 +284,7 @@ function wrapExternalLinks(string: string) {
               >
                 <td class="px-4 py-3">
                   <div class="flex items-center gap-1">
-                    <code class="rounded bg-primary-500/20 px-1 text-[0.8rem] font-medium text-primary-600">#{{ slot.name }}</code>
+                    <code class="rounded-sm bg-primary-500/20 px-1 text-[0.8rem] font-medium text-primary-600">#{{ slot.name }}</code>
                   </div>
                 </td>
                 <td class="px-4 py-3">
@@ -320,7 +320,7 @@ function wrapExternalLinks(string: string) {
                 >
                   <td class="px-4 py-3">
                     <div class="flex items-center gap-1">
-                      <code class="rounded bg-primary-500/20 px-1 text-[0.8rem] font-medium text-primary-600">{{ kebabCase(exposed.name) }}</code>
+                      <code class="rounded-sm bg-primary-500/20 px-1 text-[0.8rem] font-medium text-primary-600">{{ kebabCase(exposed.name) }}</code>
                       <div v-if="exposed.description">
                         <BaseDropdown
                           color="default-contrast"
