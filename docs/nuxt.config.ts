@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/fonts',
     '@vueuse/nuxt',
+    'nuxt-component-meta',
   ],
   css: ['~/assets/tailwind.css'],
   content: {
@@ -29,5 +30,12 @@ export default defineNuxtConfig({
     renderer: {
       anchorLinks: true,
     },
+  },
+  componentMeta: {
+    metaSources: ['@shuriken-ui/nuxt-component-meta'],
+    exclude: [
+      // Disable parsing components in the project, only use static ones.
+      () => true,
+    ],
   },
 })

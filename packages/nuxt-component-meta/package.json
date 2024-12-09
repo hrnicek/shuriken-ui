@@ -1,0 +1,34 @@
+{
+  "name": "@shuriken-ui/nuxt-component-meta",
+  "version": "4.0.0-alpha.6",
+  "author": "Css Ninja <hello@cssninja.io> (https://cssninja.io)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shuriken-ui/shuriken-ui.git",
+    "directory": "packages/nuxt-component-meta"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./component-meta/component-meta.d.ts",
+      "import": "./component-meta/component-meta.mjs",
+      "require": "./component-meta/component-meta.cjs"
+    }
+  },
+  "files": [
+    "component-meta"
+  ],
+  "scripts": {
+    "prepare": "nuxt prepare",
+    "prepack": "nuxt-component-meta --no-schema --outputDir='./component-meta' .",
+    "nuxt": "nuxt"
+  },
+  "devDependencies": {
+    "@shuriken-ui/nuxt": "workspace:*",
+    "@shuriken-ui/tailwind": "workspace:*",
+    "nuxt": "catalog:",
+    "nuxt-component-meta": "^0.9.0",
+    "pathe": "^1.1.2",
+    "tailwindcss": "catalog:"
+  }
+}

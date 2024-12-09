@@ -1,11 +1,11 @@
 // import type { MaybeRefOrGetter } from 'vue'
 import { kebabCase, upperFirst } from 'scule'
-// import type { ComponentMeta } from 'vue-component-meta'
+import type { ComponentMeta } from 'vue-component-meta'
 // @ts-ignore - might be not defined if documentation is disabled
-// import type { NuxtComponentMetaNames } from '#nuxt-component-meta/types'
+import type { NuxtComponentMetaNames } from '#nuxt-component-meta/types'
 
-type NuxtComponentMetaNames = any
-type ComponentMeta = any
+// type NuxtComponentMetaNames = any
+// type ComponentMeta = any
 
 const excludedProps = ['modelValue', 'modelModifiers']
 
@@ -14,8 +14,8 @@ export async function useDocumentationMeta(
 ) {
   const name = toRef(_name)
 
-  const meta = ref<any>()
-  // const meta = await useComponentMeta(name)
+  // const meta = ref<any>()
+  const meta = await useComponentMeta(name)
 
   const model = computed(
     () => meta.value?.meta?.props?.find((prop: any) => prop.name === 'modelValue'),
