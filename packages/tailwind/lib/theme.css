@@ -1,8 +1,8 @@
 @theme {
-  /* --font-family-sans: 'Titillium Web', sans-serif; */
-  /* --font-family-mono: 'Titillium Web', sans-serif; */
-  --font-family-alt: var(--font-family-sans);
-  --font-family-heading: var(--font-family-sans);
+  /* --font-sans: 'Titillium Web', sans-serif; */
+  /* --font-mono: 'Titillium Web', sans-serif; */
+  --font-alt: var(--font-sans);
+  --font-heading: var(--font-sans);
   
   /** Colors */
   --color-muted-50: var(--color-gray-50);

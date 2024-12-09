@@ -52,6 +52,33 @@ const fifth = ref<FileList | null>(null)
           />
         </div>
       </NuiPreview>
+      <NuiPreview title="Loading" description="File inputs loading">
+        <div class="grid gap-6 md:max-w-4xl md:grid-cols-3">
+          <BaseInputFile
+            v-model="first"
+            rounded="none"
+            placeholder="Choose file"
+            label="Rounded: none"
+            color-focus
+            loading
+          />
+          <BaseInputFile
+            v-model="second"
+            rounded="sm"
+            label="Rounded: sm"
+            icon="heroicons:document-text"
+            color-focus
+            loading
+          />
+          <BaseInputFile
+            v-model="third"
+            rounded="md"
+            label="Rounded: md"
+            color-focus
+            loading
+          />
+        </div>
+      </NuiPreview>
     </NuiPreviewContainer>
   </div>
 </template>

@@ -27,32 +27,18 @@ const value = ref('')
             label="Rounded: none"
             rounded="none"
             placeholder="Write a message..."
-            rows="3"
-            autogrow
           />
           <BaseTextarea
             v-model="fields.second"
             label="Rounded: sm"
             rounded="sm"
             placeholder="Write a message..."
-            rows="3"
-            autogrow
           />
           <BaseTextarea
             v-model="fields.third"
             label="Rounded: md"
             rounded="md"
             placeholder="Write a message..."
-            rows="3"
-            autogrow
-          />
-          <BaseTextarea
-            v-model="fields.fourth"
-            label="Rounded: lg"
-            rounded="lg"
-            placeholder="Write a message..."
-            rows="3"
-            autogrow
           />
         </div>
       </NuiPreview>
@@ -67,17 +53,21 @@ const value = ref('')
             contrast="default-contrast"
             size="sm"
             label="Message"
-            rounded="md"
             placeholder="Write a message..."
-            color-focus
           />
           <BaseTextarea
             v-model="value"
             contrast="default-contrast"
             label="Message"
-            rounded="md"
+            size="md"
             placeholder="Write a message..."
-            color-focus
+          />
+          <BaseTextarea
+            v-model="value"
+            contrast="default-contrast"
+            label="Message"
+            size="lg"
+            placeholder="Write a message..."
           />
         </div>
       </NuiPreview>
@@ -92,17 +82,21 @@ const value = ref('')
             contrast="muted"
             size="sm"
             label="Message"
-            rounded="md"
             placeholder="Write a message..."
-            color-focus
           />
           <BaseTextarea
             v-model="value"
             contrast="muted"
+            size="md"
             label="Message"
-            rounded="md"
             placeholder="Write a message..."
-            color-focus
+          />
+          <BaseTextarea
+            v-model="value"
+            size="lg"
+            contrast="muted"
+            label="Message"
+            placeholder="Write a message..."
           />
         </div>
       </NuiPreview>
@@ -115,19 +109,23 @@ const value = ref('')
           <BaseTextarea
             v-model="value"
             contrast="muted-contrast"
-            size="sm"
             label="Message"
-            rounded="md"
+            size="sm"
             placeholder="Write a message..."
-            color-focus
           />
           <BaseTextarea
             v-model="value"
             contrast="muted-contrast"
             label="Message"
-            rounded="md"
+            size="md"
             placeholder="Write a message..."
-            color-focus
+          />
+          <BaseTextarea
+            v-model="value"
+            contrast="muted-contrast"
+            label="Message"
+            size="lg"
+            placeholder="Write a message..."
           />
         </div>
       </NuiPreview>
@@ -139,16 +137,22 @@ const value = ref('')
         <div class="grid gap-6 md:max-w-4xl md:grid-cols-3 mt-10">
           <BaseTextarea
             v-model="value"
-            size="sm"
             label="Message"
-            rounded="md"
+            size="sm"
             placeholder="Write a message..."
             label-float
           />
           <BaseTextarea
             v-model="value"
             label="Message"
-            rounded="md"
+            size="md"
+            placeholder="Write a message..."
+            label-float
+          />
+          <BaseTextarea
+            v-model="value"
+            label="Message"
+            size="lg"
             placeholder="Write a message..."
             label-float
           />
@@ -159,16 +163,22 @@ const value = ref('')
         <div class="grid gap-6 md:max-w-4xl md:grid-cols-3 mt-10">
           <BaseTextarea
             v-model="value"
-            size="sm"
             label="Message"
-            rounded="md"
+            size="md"
             placeholder="Write a message..."
             color-focus
           />
           <BaseTextarea
             v-model="value"
             label="Message"
-            rounded="md"
+            size="md"
+            placeholder="Write a message..."
+            color-focus
+          />
+          <BaseTextarea
+            v-model="value"
+            label="Message"
+            size="lg"
             placeholder="Write a message..."
             color-focus
           />
@@ -181,14 +191,20 @@ const value = ref('')
             v-model="value"
             size="sm"
             label="Message"
-            rounded="md"
             placeholder="Write a message..."
             error="Please enter a message"
           />
           <BaseTextarea
             v-model="value"
             label="Message"
-            rounded="md"
+            size="md"
+            placeholder="Write a message..."
+            error="Please enter a message"
+          />
+          <BaseTextarea
+            v-model="value"
+            label="Message"
+            size="lg"
             placeholder="Write a message..."
             error="Please enter a message"
           />
@@ -204,14 +220,20 @@ const value = ref('')
             v-model="value"
             size="sm"
             label="Message"
-            rounded="md"
             placeholder="Write a message..."
             loading
           />
           <BaseTextarea
             v-model="value"
             label="Message"
-            rounded="md"
+            size="md"
+            placeholder="Write a message..."
+            loading
+          />
+          <BaseTextarea
+            v-model="value"
+            label="Message"
+            size="lg"
             placeholder="Write a message..."
             loading
           />
@@ -227,16 +249,51 @@ const value = ref('')
             v-model="value"
             size="sm"
             label="Message"
-            rounded="md"
             placeholder="Write a message..."
             disabled
           />
           <BaseTextarea
             v-model="value"
             label="Message"
-            rounded="md"
+            size="md"
             placeholder="Write a message..."
             disabled
+          />
+          <BaseTextarea
+            v-model="value"
+            label="Message"
+            size="lg"
+            placeholder="Write a message..."
+            disabled
+          />
+        </div>
+      </NuiPreview>
+
+      <NuiPreview
+        title="Autogrow"
+        description="Resize textarea component automatically"
+      >
+        <div class="grid gap-6 md:max-w-4xl md:grid-cols-3 mt-10">
+          <BaseTextarea
+            v-model="value"
+            size="sm"
+            label="Message"
+            placeholder="Write a message..."
+            autogrow
+          />
+          <BaseTextarea
+            v-model="value"
+            label="Message"
+            size="md"
+            placeholder="Write a message..."
+            autogrow
+          />
+          <BaseTextarea
+            v-model="value"
+            label="Message"
+            size="lg"
+            placeholder="Write a message..."
+            autogrow
           />
         </div>
       </NuiPreview>

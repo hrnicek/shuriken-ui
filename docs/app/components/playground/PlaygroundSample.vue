@@ -14,7 +14,7 @@ const props = defineProps<{
         as="h3"
         size="xl"
         lead="none"
-        class="tracking-wide text-muted-800 dark:text-muted-100"
+        class="tracking-wide text-muted-800 dark:text-muted-100 font-heading!"
       >
         {{ props.title }}
       </BaseHeading>

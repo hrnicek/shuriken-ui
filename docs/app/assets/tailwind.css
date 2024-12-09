@@ -6,8 +6,8 @@
 @theme {
   --font-sans: Inter, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace,;
-  /* --font-family-alt: Karla, sans-serif; */
-  --font-heading: var(--font-sans);
+  /* --font-alt: Karla, sans-serif; */
+  --font-heading: var(--font-mono);
  
   --color-primary-50: var(--color-violet-50);
   --color-primary-100: var(--color-violet-100);

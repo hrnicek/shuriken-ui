@@ -176,7 +176,7 @@ watchEffect(() => {
 <template>
   <div
     ref="element"
-    class="nui-focus block focus-within:outline-current"
+    class="nui-focus block outline-offset-2 focus-within:outline-1"
     :class="[
       isChecked ? 'is-checked' : '',
       isUnchecked ? 'is-unchecked' : '',

@@ -227,7 +227,7 @@ const placeholder = computed(() => {
             || (props.label && props.labelFloat)
         "
         :for="id"
-        class="nui-select-label-float"
+        class="nui-select-label-float-label"
         :class="props.classes?.label"
       >
         <slot name="label">{{ props.label }}</slot>

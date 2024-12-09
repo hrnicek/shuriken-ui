@@ -254,8 +254,8 @@ defineExpose({
         >
       </label>
 
-      <div v-if="props.loading" class="nui-input-file-regular-placeload">
-        <BasePlaceload class="nui-placeload" />
+      <div v-if="props.loading" class="nui-input-file-regular-placeload-wrapper">
+        <BasePlaceload class="nui-input-file-regular-placeload" />
       </div>
       <BaseInputHelpText
         v-if="props.error && typeof props.error === 'string'"

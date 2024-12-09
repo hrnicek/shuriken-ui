@@ -425,16 +425,19 @@ const internal = ref<any>(modelValue)
                     </template>
 
                     <template v-else-if="modelValue">
-                      <BaseAvatar
+                      <div
                         v-if="
                           props.properties.media
                             && (modelValue as any)[props.properties.media]
                         "
-                        :src="(modelValue as any)[props.properties.media]"
-                        :size="size === 'sm' ? 'xxs' : 'xs'"
-                        class="me-2"
+                        class="me-2 flex items-center justify-center"
                         :class="size === 'sm' ? '-ms-1' : '-ms-2'"
-                      />
+                      >
+                        <BaseAvatar
+                          :src="(modelValue as any)[props.properties.media]"
+                          :size="size === 'sm' ? 'xxs' : 'xs'"
+                        />
+                      </div>
                       <BaseIconBox
                         v-else-if="
                           props.properties.icon
@@ -488,7 +491,7 @@ const internal = ref<any>(modelValue)
                   ('label' in $slots && props.labelFloat)
                     || (props.label && props.labelFloat)
                 "
-                class="nui-listbox-label-float"
+                class="nui-listbox-label-float-label"
                 :class="open ? 'nui-listbox-label-float-active' : ''"
               >
                 <slot name="label">
@@ -498,7 +501,7 @@ const internal = ref<any>(modelValue)
 
               <div
                 v-if="props.loading"
-                class="nui-listbox-placeload nui-loading-placeload"
+                class="nui-listbox-placeload-wrapper"
                 :class="[
                   (properties.media && size === 'sm')
                     || (properties.icon && size === 'sm')

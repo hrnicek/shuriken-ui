@@ -407,7 +407,7 @@ if (import.meta.dev) {
             ('label' in $slots && props.labelFloat)
               || (props.label && props.labelFloat)
           "
-          class="nui-input-number-label-float"
+          class="nui-input-number-label-float-label"
           :for="id"
           :class="props.classes?.label"
         >

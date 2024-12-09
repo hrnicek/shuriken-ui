@@ -83,42 +83,42 @@
   @apply border border-muted-200 dark:border-muted-800;
 }
 @utility nui-accordion-dot-default {
-  .nui-accordion-detail[open] .nui-accordion-dot {
+  .nui-accordion-detail[open] .nui-accordion-dot-icon {
     @apply bg-muted-400 dark:bg-muted-700;
   }
 }
 @utility nui-accordion-dot-primary {
-  .nui-accordion-detail[open] .nui-accordion-dot {
+  .nui-accordion-detail[open] .nui-accordion-dot-icon {
     @apply bg-primary-500 dark:bg-primary-500;
   }
 }
 @utility nui-accordion-dot-info {
-  .nui-accordion-detail[open] .nui-accordion-dot {
+  .nui-accordion-detail[open] .nui-accordion-dot-icon {
     @apply bg-info-500 dark:bg-info-500;
   }
 }
 @utility nui-accordion-dot-success {
-  .nui-accordion-detail[open] .nui-accordion-dot {
+  .nui-accordion-detail[open] .nui-accordion-dot-icon {
     @apply bg-success-500 dark:bg-success-500;
   }
 }
 @utility nui-accordion-dot-warning {
-  .nui-accordion-detail[open] .nui-accordion-dot {
+  .nui-accordion-detail[open] .nui-accordion-dot-icon {
     @apply bg-warning-500 dark:bg-warning-500;
   }
 }
 @utility nui-accordion-dot-danger {
-  .nui-accordion-detail[open] .nui-accordion-dot {
+  .nui-accordion-detail[open] .nui-accordion-dot-icon {
     @apply bg-danger-500 dark:bg-danger-500;
   }
 }
 @utility nui-accordion-dot-dark {
-  .nui-accordion-detail[open] .nui-accordion-dot {
+  .nui-accordion-detail[open] .nui-accordion-dot-icon {
     @apply bg-muted-900 dark:bg-muted-100;
   }
 }
 @utility nui-accordion-dot-black {
-  .nui-accordion-detail[open] .nui-accordion-dot {
+  .nui-accordion-detail[open] .nui-accordion-dot-icon {
     @apply bg-black dark:bg-white;
   }
 }

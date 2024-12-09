@@ -72,7 +72,7 @@ const uploadedFiles = ref<FileList | null>(null)
                 <div class="p-5 text-center">
                   <Icon
                     name="mdi-light:cloud-upload"
-                    class="text-muted-400 group-hover:text-primary-500 group-focus:text-primary-500 mb-2 h-10 w-10 transition-colors duration-300"
+                    class="text-muted-400 group-hover:text-primary-500 group-focus:text-primary-500 mb-2 h-10 w-10 transition-colors duration-300 mx-auto"
                   />
 
                   <h4 class="text-muted-400 font-sans text-sm">

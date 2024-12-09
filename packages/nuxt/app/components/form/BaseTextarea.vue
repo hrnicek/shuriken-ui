@@ -181,32 +181,6 @@ const contrasts = {
   'muted-contrast': 'nui-textarea-muted-contrast',
 }
 
-function fitSize() {
-  if (!textareaRef.value) {
-    return
-  }
-
-  if (props.autogrow) {
-    textareaRef.value.style.height = 'auto'
-    textareaRef.value.style.height
-      = `${Math.min(
-        props.maxHeight ?? Number.POSITIVE_INFINITY,
-        1 + textareaRef.value.scrollHeight,
-      )}px`
-  }
-}
-
-watch(
-  [() => props.autogrow, () => props.maxHeight, textareaRef, modelValue],
-  async () => {
-    await nextTick()
-    fitSize()
-  },
-  {
-    immediate: true,
-  },
-)
-
 defineExpose({
   /**
    * The underlying HTMLTextAreaElement element.
@@ -217,11 +191,6 @@ defineExpose({
    * The internal id of the radio input.
    */
   id,
-
-  /**
-   * A method to resize the textarea to fit its content.
-   */
-  fitSize,
 })
 </script>
 
@@ -256,8 +225,12 @@ defineExpose({
         ref="textareaRef"
         v-model.lazy="modelValue"
         v-bind="$attrs"
-        class="nui-textarea"
-        :class="[props.classes?.textarea]"
+        class="nui-textarea nui-slimscroll"
+        :class="[
+          props.autogrow && 'field-sizing-content',
+          props.colorFocus && 'nui-textarea-focus',
+          props.classes?.textarea,
+        ]"
         :name="props.name"
         :placeholder="props.placeholder"
         :readonly="props.readonly"
@@ -270,8 +243,9 @@ defineExpose({
         ref="textareaRef"
         v-model="modelValue"
         v-bind="$attrs"
-        class="nui-textarea"
+        class="nui-textarea nui-slimscroll"
         :class="[
+          props.autogrow && 'field-sizing-content',
           props.colorFocus && 'nui-textarea-focus',
           props.classes?.textarea,
         ]"
@@ -283,7 +257,7 @@ defineExpose({
       />
       <label
         v-if="props.label && props.labelFloat"
-        class="nui-textarea-label-float"
+        class="nui-textarea-label-float-label"
         :for="id"
         :class="props.classes?.label"
       >

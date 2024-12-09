@@ -836,7 +836,10 @@ function toggleChildrenSelection(tree?: TreeViewItemNode[], event?: Event) {
 </template>
 
 <style scoped>
+@import "tailwindcss/theme" theme(reference);
+@import "@shuriken-ui/tailwind/theme.css" theme(reference);
+
 .treeview:deep(.treeview) {
-  padding-inline-start: 1.25rem;
+  @apply ps-3;
 }
 </style>

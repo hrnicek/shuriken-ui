@@ -1,4 +1,5 @@
 <script setup lang="ts" generic="T extends unknown = string">
+import { refDebounced } from '@vueuse/core'
 import {
   Combobox,
   ComboboxButton,
@@ -709,7 +710,7 @@ const internal = ref<any>(modelValue)
               ('label' in $slots && props.labelFloat)
                 || (props.label && props.labelFloat)
             "
-            class="nui-autocomplete-label-float"
+            class="nui-autocomplete-label-float-label"
             :class="props.classes?.label"
           >
             <slot
@@ -757,9 +758,9 @@ const internal = ref<any>(modelValue)
             </slot>
           </ComboboxButton>
 
-          <div v-if="props.loading" class="nui-autocomplete-placeload">
+          <div v-if="props.loading" class="nui-autocomplete-placeload-wrapper">
             <BasePlaceload
-              class="nui-placeload"
+              class="nui-autocomplete-placeload"
               :class="[
                 props.icon && size === 'sm' && 'ms-4',
                 props.icon && size === 'md' && 'ms-6',

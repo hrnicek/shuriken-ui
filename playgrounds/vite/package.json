@@ -11,6 +11,6 @@
     "@shuriken-ui/tailwind": "workspace:*",
     "@tailwindcss/vite": "catalog:",
     "tailwindcss": "catalog:",
-    "vite": "^5.4.11"
+    "vite": "^6.0.3"
   }
 }

@@ -4,6 +4,6 @@ packages:
   - playgrounds/*
 
 catalog:
-  "@tailwindcss/vite": "4.0.0-beta.2"
-  "tailwindcss": "4.0.0-beta.2"
+  "@tailwindcss/vite": "4.0.0-beta.6"
+  "tailwindcss": "4.0.0-beta.6"
   "nuxt": "3.14.1592"

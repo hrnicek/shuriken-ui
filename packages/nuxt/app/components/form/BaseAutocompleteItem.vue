@@ -147,34 +147,34 @@ const markedSublabel = useNinjaMark(() => sublabel.value, query, mark)
       rounded && radiuses[rounded],
     ]"
   >
-    <BaseAvatar v-if="media && !icon" :src="media" size="xs" class="me-3" />
-    <BaseIconBox
+    <div v-if="media && !icon" class="me-3 shrink-0 flex items-center justify-center">
+      <BaseAvatar  :src="media" size="xs" />
+    </div>
+    <div
       v-else-if="icon && !media"
-      size="sm"
-      rounded="sm"
-      color="none"
-      class="me-1"
+      class="me-3 shrink-0 flex items-center justify-center"
     >
       <Icon
         :name="icon"
         class="size-4"
         :class="[props.selected ? 'text-primary-500' : 'text-muted-500']"
       />
-    </BaseIconBox>
+    </div>
     <div>
       <BaseHeading
         as="h4"
         :weight="props.selected ? 'semibold' : 'normal'"
         size="sm"
+        lead="snug"
         class="text-muted-800 dark:text-white"
       >
         <!-- eslint-disable-next-line vue/no-v-html -->
         <span v-html="markedLabel" />
       </BaseHeading>
-      <BaseText v-if="sublabel" size="xs" class="text-muted-400">
+      <BaseParagraph v-if="sublabel" size="xs" lead="none" class="text-muted-400">
         <!-- eslint-disable-next-line vue/no-v-html -->
         <span v-html="markedSublabel" />
-      </BaseText>
+      </BaseParagraph>
     </div>
     <div
       v-show="props.selected"

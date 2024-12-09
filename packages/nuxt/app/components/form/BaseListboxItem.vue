@@ -54,31 +54,32 @@ const props = withDefaults(
 </script>
 
 <template>
-  <BaseAvatar v-if="props.value.media" :src="props.value.media" size="xs" />
-  <BaseIconBox
+  <div v-if="props.value.media" class="me-3">
+    <BaseAvatar :src="props.value.media" size="xs" />
+  </div>
+  <div
     v-else-if="props.value.icon"
-    size="sm"
-    rounded="sm"
-    class="!me-0 !bg-transparent"
+    class="me-3 shrink-0 flex items-center justify-center"
   >
     <Icon
       :name="props.value.icon"
       class="text-muted-400 group-hover/nui-listbox-option:text-primary-500 size-5 transition-colors duration-200"
     />
-  </BaseIconBox>
+  </div>
 
   <div class="nui-listbox-option-inner">
     <BaseHeading
       as="h4"
       :weight="selected ? 'semibold' : 'normal'"
       size="sm"
+      lead="snug"
       class="nui-listbox-heading"
     >
       {{ props.value.label ? props.value.label : props.value.value }}
     </BaseHeading>
-    <BaseText v-if="props.value.sublabel" size="xs" class="nui-listbox-text">
+    <BaseParagraph v-if="props.value.sublabel" lead="none" size="xs" class="nui-listbox-text">
       {{ props.value.sublabel }}
-    </BaseText>
+    </BaseParagraph>
   </div>
   <span v-if="selected" class="nui-listbox-selected-icon">
     <Icon :name="selectedIcon" class="nui-listbobx-selected-icon-inner" />

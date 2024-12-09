@@ -3,12 +3,12 @@
 @utility nui-input-wrapper {
   @apply relative;
 
-  .nui-input-label, .nui-label-float {
+  .nui-input-label, .nui-input-label-float-label {
     @apply nui-label;
   }
 
   &:not(.nui-input-loading) {
-    .nui-input:placeholder-shown ~ .nui-label-float {
+    .nui-input:placeholder-shown ~ .nui-input-label-float-label {
       @apply text-muted-300 dark:text-muted-600;
     }
   }
@@ -57,64 +57,8 @@
       @apply h-14 py-2 text-base leading-5 pe-4 ps-[3.25rem];
     }
   }
-
-  &.nui-input-label-float:not(.nui-input-has-icon).nui-input-sm {
-    .nui-label-float {
-      @apply start-3 -ms-3 -mt-7 text-xs;
-    }
-
-    .nui-input:focus-visible ~ .nui-label-float {
-      @apply !-ms-3 !-mt-7;
-    }
-
-    .nui-input:placeholder-shown ~ .nui-label-float {
-      @apply ms-0 mt-0;
-    }
-  }
-
-  &.nui-input-label-float:not(.nui-input-has-icon).nui-input-md {
-    .nui-label-float {
-      @apply start-3 -ms-3 -mt-8 text-xs;
-    }
-
-    .nui-input:focus-visible ~ .nui-label-float {
-      @apply !-ms-3 !-mt-8 !text-xs;
-    }
-
-    .nui-input:placeholder-shown ~ .nui-label-float {
-      @apply ms-0 mt-0 text-[0.825rem];
-    }
-  }
-
-  &.nui-input-label-float:not(.nui-input-has-icon).nui-input-lg {
-    .nui-label-float {
-      @apply start-3 -ms-3 -mt-9 text-xs;
-    }
-
-    .nui-input:focus-visible ~ .nui-label-float {
-      @apply !-ms-3 !-mt-9 !text-xs;
-    }
-
-    .nui-input:placeholder-shown ~ .nui-label-float {
-      @apply ms-0 mt-0 text-[0.825rem];
-    }
-  }
-
-  &.nui-input-label-float:not(.nui-input-has-icon).nui-input-xl {
-    .nui-label-float {
-      @apply start-3 -ms-3 -mt-10 text-xs;
-    }
-
-    .nui-input:focus-visible ~ .nui-label-float {
-      @apply !-ms-3 !-mt-10 !text-xs;
-    }
-
-    .nui-input:placeholder-shown ~ .nui-label-float {
-      @apply ms-0 mt-0 text-[0.825rem];
-    }
-  }
 }
-@utility nui-label-float {
+@utility nui-input-label-float-label {
   @apply h-5 absolute inline-flex items-center select-none pointer-events-none;
   @apply font-sans text-primary-500 leading-none;
   @apply transition-all duration-300;
@@ -129,9 +73,9 @@
 }
 @utility nui-input {
   @apply nui-focus w-full font-sans disabled:cursor-not-allowed disabled:opacity-75;
-  @apply transition-all duration-300;
+  @apply transition-all duration-300 text-ellipsis;
 
-  &:focus-visible ~ .nui-label-float {
+  &:focus-visible ~ .nui-input-label-float-label {
     @apply !text-primary-500 dark:!text-primary-500;
   }
 
@@ -143,10 +87,10 @@
     @apply cursor-not-allowed opacity-75;
   }
 }
-@utility nui-input-placeload {
+@utility nui-input-placeload-wrapper {
   @apply absolute start-0 top-0 flex w-full items-center px-4;
 
-  .nui-placeload {
+  .nui-input-placeload {
     @apply h-3 w-full max-w-[75%] rounded;
   }
 }
@@ -180,7 +124,7 @@
     @apply pb-1 text-xs;
   }
 
-  .nui-label-float {
+  .nui-input-label-float-label {
     @apply top-1.5;
   }
 
@@ -192,7 +136,7 @@
     }
   }
 
-  .nui-input-placeload {
+  .nui-input-placeload-wrapper {
     @apply h-8;
   }
 }
@@ -201,7 +145,7 @@
     @apply pb-1 text-[0.825rem];
   }
 
-  .nui-label-float {
+  .nui-input-label-float-label {
     @apply top-2.5;
   }
 
@@ -213,7 +157,7 @@
     }
   }
 
-  .nui-input-placeload {
+  .nui-input-placeload-wrapper {
     @apply h-10;
   }
 }
@@ -222,7 +166,7 @@
     @apply pb-1 text-sm;
   }
 
-  .nui-label-float {
+  .nui-input-label-float-label {
     @apply top-3.5;
   }
 
@@ -234,7 +178,7 @@
     }
   }
 
-  .nui-input-placeload {
+  .nui-input-placeload-wrapper {
     @apply h-12;
   }
 }
@@ -243,7 +187,7 @@
     @apply pb-1 text-sm;
   }
 
-  .nui-label-float {
+  .nui-input-label-float-label {
     @apply top-[1.1rem];
   }
 
@@ -255,7 +199,7 @@
     }
   }
 
-  .nui-input-placeload {
+  .nui-input-placeload-wrapper {
     @apply h-14;
   }
 }
@@ -306,7 +250,7 @@
     @apply !text-transparent placeholder:!text-transparent dark:placeholder:!text-transparent;
   }
 
-  .nui-input:placeholder-shown ~ .nui-label-float {
+  .nui-input:placeholder-shown ~ .nui-input-label-float-label {
     @apply text-transparent;
   }
 
@@ -329,74 +273,136 @@
   }
 }
 @utility nui-input-has-action {
-  .nui-input {
-    @apply pe-8;
+  &.nui-input-sm {
+    .nui-input {
+      @apply pe-8!;
+    }
   }
-}
-@utility nui-input-has-action {
-  .nui-input {
-    @apply pe-10;
+  &.nui-input-md {
+    .nui-input {
+      @apply pe-10!;
+    }
   }
-}
-@utility nui-input-has-action {
-  .nui-input {
-    @apply pe-12;
+  &.nui-input-lg {
+    .nui-input {
+      @apply pe-12!;
+    }
   }
-}
-@utility nui-input-has-action {
-  .nui-input {
-    @apply pe-14;
-  }
-}
-@utility nui-input-label-float {
-  .nui-label-float {
-    @apply start-8 -ms-8 -mt-7 text-xs;
-  }
-
-  .nui-input:focus-visible ~ .nui-label-float {
-    @apply !-ms-8 !-mt-7;
-  }
-
-  .nui-input:placeholder-shown ~ .nui-label-float {
-    @apply ms-0 mt-0;
+  &.nui-input-xl {
+    .nui-input {
+      @apply pe-14!;
+    }
   }
 }
 @utility nui-input-label-float {
-  .nui-label-float {
-    @apply start-10 -ms-10 -mt-8 text-xs;
+  &.nui-input-has-icon.nui-input-sm {
+    .nui-input-label-float-label {
+      @apply start-8 -ms-8 -mt-6 text-xs;
+    }
+
+    .nui-input:focus-visible ~ .nui-input-label-float-label {
+      @apply !-ms-8 !-mt-6;
+    }
+
+    .nui-input:placeholder-shown ~ .nui-input-label-float-label {
+      @apply ms-0 mt-1;
+    }
+  }
+  &.nui-input-has-icon.nui-input-md {
+    .nui-input-label-float-label {
+      @apply start-10 -ms-10 -mt-7 text-xs;
+    }
+
+    .nui-input:focus-visible ~ .nui-input-label-float-label {
+      @apply !-ms-10 !-mt-7 !text-xs;
+    }
+
+    .nui-input:placeholder-shown ~ .nui-input-label-float-label {
+      @apply ms-0 mt-1 text-[0.825rem];
+    }
+  }
+  &.nui-input-has-icon.nui-input-lg {
+    .nui-input-label-float-label {
+      @apply start-11 -ms-9 -mt-8 text-xs;
+    }
+
+    .nui-input:focus-visible ~ .nui-input-label-float-label {
+      @apply !-ms-11 !-mt-8 !text-xs;
+    }
+
+    .nui-input:placeholder-shown ~ .nui-input-label-float-label {
+      @apply ms-0 mt-1 text-[0.825rem];
+    }
+  }
+  &.nui-input-has-icon.nui-input-xl {
+    .nui-input-label-float-label {
+      @apply start-[3.25rem] ms-[-3.25rem] -mt-9 text-xs;
+    }
+
+    .nui-input:focus-visible ~ .nui-input-label-float-label {
+      @apply !ms-[-3.25rem] !-mt-9 !text-xs;
+    }
+
+    .nui-input:placeholder-shown ~ .nui-input-label-float-label {
+      @apply ms-0 mt-1 text-[0.825rem];
+    }
   }
 
-  .nui-input:focus-visible ~ .nui-label-float {
-    @apply !-ms-10 !-mt-8 !text-xs;
+  
+
+  &:not(.nui-input-has-icon).nui-input-sm {
+    .nui-input-label-float-label {
+      @apply start-3 -ms-3 -mt-6 text-xs;
+    }
+
+    .nui-input:focus-visible ~ .nui-input-label-float-label {
+      @apply !-ms-3 !-mt-6;
+    }
+
+    .nui-input:placeholder-shown ~ .nui-input-label-float-label {
+      @apply ms-0 mt-1;
+    }
   }
 
-  .nui-input:placeholder-shown ~ .nui-label-float {
-    @apply ms-0 mt-0 text-[0.825rem];
-  }
-}
-@utility nui-input-label-float {
-  .nui-label-float {
-    @apply start-11 -ms-9 -mt-10 text-xs;
+  &:not(.nui-input-has-icon).nui-input-md {
+    .nui-input-label-float-label {
+      @apply start-3 -ms-3 -mt-7 text-xs;
+    }
+
+    .nui-input:focus-visible ~ .nui-input-label-float-label {
+      @apply !-ms-3 !-mt-7 !text-xs;
+    }
+
+    .nui-input:placeholder-shown ~ .nui-input-label-float-label {
+      @apply ms-0 mt-1 text-[0.825rem];
+    }
   }
 
-  .nui-input:focus-visible ~ .nui-label-float {
-    @apply !-ms-10 !-mt-9 !text-xs;
+  &:not(.nui-input-has-icon).nui-input-lg {
+    .nui-input-label-float-label {
+      @apply start-3 -ms-3 -mt-8 text-xs;
+    }
+
+    .nui-input:focus-visible ~ .nui-input-label-float-label {
+      @apply !-ms-3 !-mt-8 !text-xs;
+    }
+
+    .nui-input:placeholder-shown ~ .nui-input-label-float-label {
+      @apply ms-0 mt-1 text-[0.825rem];
+    }
   }
 
-  .nui-input:placeholder-shown ~ .nui-label-float {
-    @apply ms-0 mt-0 text-[0.825rem];
-  }
-}
-@utility nui-input-label-float {
-  .nui-label-float {
-    @apply start-[3.25rem] ms-[-3.25rem] -mt-8 text-xs;
-  }
+  &:not(.nui-input-has-icon).nui-input-xl {
+    .nui-input-label-float-label {
+      @apply start-3 -ms-3 -mt-9 text-xs;
+    }
 
-  .nui-input:focus-visible ~ .nui-label-float {
-    @apply !ms-[-3.25rem] !-mt-10 !text-xs;
-  }
+    .nui-input:focus-visible ~ .nui-input-label-float-label {
+      @apply !-ms-3 !-mt-9 !text-xs;
+    }
 
-  .nui-input:placeholder-shown ~ .nui-label-float {
-    @apply ms-0 mt-0 text-[0.825rem];
+    .nui-input:placeholder-shown ~ .nui-input-label-float-label {
+      @apply ms-0 mt-1 text-[0.825rem];
+    }
   }
 }

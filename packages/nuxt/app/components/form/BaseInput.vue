@@ -221,6 +221,7 @@ if (import.meta.dev) {
       props.labelFloat && 'nui-input-label-float',
       props.icon && 'nui-input-has-icon',
       props.colorFocus && 'nui-input-focus',
+      'action' in $slots && 'nui-input-has-action',
       props.classes?.wrapper,
     ]"
   >
@@ -264,14 +265,14 @@ if (import.meta.dev) {
             ('label' in $slots && props.labelFloat)
               || (props.label && props.labelFloat)
           "
-          class="nui-label-float"
+          class="nui-input-label-float-label"
           :for="id"
           :class="props.classes?.label"
         >
           <slot name="label">{{ props.label }}</slot>
         </label>
-        <div v-if="props.loading" class="nui-input-placeload">
-          <BasePlaceload class="nui-placeload" />
+        <div v-if="props.loading" class="nui-input-placeload-wrapper">
+          <BasePlaceload class="nui-input-placeload" />
         </div>
         <div
           v-if="props.icon"

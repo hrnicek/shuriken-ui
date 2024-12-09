@@ -45,7 +45,7 @@ const customValue = ref('not-checked')
             <BaseCheckboxAnimated
               v-model="options"
               value="Option 2"
-              :classes="{ label: '!text-lime-500' }"
+              :classes="{ label: '!text-lime-500', wrapper: 'focus-within:outline-lime-500' }"
             />
             <BaseCheckboxAnimated
               v-model="options"

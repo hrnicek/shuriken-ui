@@ -8,7 +8,7 @@
     "serve": "nuxt preview"
   },
   "devDependencies": {
-    "@nuxt/fonts": "^0.10.2",
+    "@nuxt/fonts": "^0.10.3",
     "@shuriken-ui/nuxt": "workspace:*",
     "@shuriken-ui/tailwind": "workspace:*",
     "nuxt": "catalog:",
