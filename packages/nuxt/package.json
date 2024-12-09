@@ -15,6 +15,10 @@
     "app",
     "nuxt.config.ts"
   ],
+  "scripts": {
+    "prepare": "nuxt prepare",
+    "nuxt": "nuxt"
+  },
   "dependencies": {
     "@headlessui-float/vue": "^0.15.0",
     "@headlessui/vue": "^1.7.23",
@@ -26,6 +30,7 @@
   },
   "peerDependencies": {
     "@shuriken-ui/tailwind": "workspace:*",
-    "tailwindcss": "catalog:"
+    "tailwindcss": "catalog:",
+    "nuxt": "catalog:"
   }
 }
