@@ -1,7 +1,7 @@
 /* @utility nui-accordion */
 
 @utility nui-accordion {
-  @apply w-full block overflow-hidden;
+  @apply w-full block;
   @apply bg-white dark:bg-muted-800;
   @apply hover:bg-muted-50/60 dark:hover:bg-muted-800/60;
   @apply border border-muted-300 dark:border-muted-700;
@@ -14,7 +14,7 @@
     @apply !border-t-0;
   }
 
-  .nui-accordion-detail[open]:not(:first-child) {
+  &[data-state=open]:not(:first-child) {
     @apply border-t border-muted-300 dark:border-muted-700;
   }
 
@@ -33,7 +33,8 @@
   @apply cursor-pointer list-none outline-none;
 }
 @utility nui-accordion-header {
-  @apply flex items-center justify-between;
+  @apply flex items-center justify-between w-full cursor-pointer;
+  @apply nui-focus;
 
   .nui-accordion-header-inner {
     @apply text-muted-800 dark:text-white;
@@ -83,42 +84,42 @@
   @apply border border-muted-200 dark:border-muted-800;
 }
 @utility nui-accordion-dot-default {
-  .nui-accordion-detail[open] .nui-accordion-dot-icon {
+  &[data-state=open] .nui-accordion-dot-icon {
     @apply bg-muted-400 dark:bg-muted-700;
   }
 }
 @utility nui-accordion-dot-primary {
-  .nui-accordion-detail[open] .nui-accordion-dot-icon {
+  &[data-state=open] .nui-accordion-dot-icon {
     @apply bg-primary-500 dark:bg-primary-500;
   }
 }
 @utility nui-accordion-dot-info {
-  .nui-accordion-detail[open] .nui-accordion-dot-icon {
+  &[data-state=open] .nui-accordion-dot-icon {
     @apply bg-info-500 dark:bg-info-500;
   }
 }
 @utility nui-accordion-dot-success {
-  .nui-accordion-detail[open] .nui-accordion-dot-icon {
+  &[data-state=open] .nui-accordion-dot-icon {
     @apply bg-success-500 dark:bg-success-500;
   }
 }
 @utility nui-accordion-dot-warning {
-  .nui-accordion-detail[open] .nui-accordion-dot-icon {
+  &[data-state=open] .nui-accordion-dot-icon {
     @apply bg-warning-500 dark:bg-warning-500;
   }
 }
 @utility nui-accordion-dot-danger {
-  .nui-accordion-detail[open] .nui-accordion-dot-icon {
+  &[data-state=open] .nui-accordion-dot-icon {
     @apply bg-danger-500 dark:bg-danger-500;
   }
 }
 @utility nui-accordion-dot-dark {
-  .nui-accordion-detail[open] .nui-accordion-dot-icon {
+  &[data-state=open] .nui-accordion-dot-icon {
     @apply bg-muted-900 dark:bg-muted-100;
   }
 }
 @utility nui-accordion-dot-black {
-  .nui-accordion-detail[open] .nui-accordion-dot-icon {
+  &[data-state=open] .nui-accordion-dot-icon {
     @apply bg-black dark:bg-white;
   }
 }
@@ -128,12 +129,12 @@
   }
 }
 @utility nui-accordion-chevron {
-  .nui-accordion-detail[open] .nui-icon-outer {
+  &[data-state=open] .nui-icon-outer {
     @apply rotate-180;
   }
 }
 @utility nui-accordion-plus {
-  .nui-accordion-detail[open] .nui-icon-outer {
+  &[data-state=open] .nui-icon-outer {
     @apply rotate-45;
   }
 }
@@ -145,6 +146,10 @@
   &.nui-accordion:last-child {
     @apply rounded-b-none;
   }
+
+  .nui-accordion-header {
+    @apply rounded-none;
+  }
 }
 @utility nui-accordion-rounded-sm {
   &.nui-accordion:first-child {
@@ -153,6 +158,10 @@
 
   &.nui-accordion:last-child {
     @apply rounded-b-md;
+  }
+
+  .nui-accordion-header {
+    @apply rounded-md;
   }
 }
 @utility nui-accordion-rounded-md {
@@ -163,6 +172,10 @@
   &.nui-accordion:last-child {
     @apply rounded-b-lg;
   }
+
+  .nui-accordion-header {
+    @apply rounded-lg;
+  }
 }
 @utility nui-accordion-rounded-lg {
   &.nui-accordion:first-child {
@@ -171,5 +184,9 @@
 
   &.nui-accordion:last-child {
     @apply rounded-b-xl;
+  }
+
+  .nui-accordion-header {
+    @apply rounded-xl;
   }
 }

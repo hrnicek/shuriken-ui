@@ -172,34 +172,38 @@ const actions = {
   plus: 'nui-accordion-plus',
 }
 
-const internalOpenItems = ref(props.openItems)
-function toggle(key: number) {
-  const wasOpen = internalOpenItems.value.includes(key)
+const internalOpenItems = ref(props.exclusive ? props.openItems?.[0] ?? 0 : props.openItems)
+// function toggle(key: number) {
+//   const wasOpen = internalOpenItems.value.includes(key)
 
-  if (props.exclusive) {
-    internalOpenItems.value.splice(0, internalOpenItems.value.length)
+//   if (props.exclusive) {
+//     internalOpenItems.value.splice(0, internalOpenItems.value.length)
 
-    if (!wasOpen) {
-      emits('open', props.items[key])
-      internalOpenItems.value.push(key)
-    }
+//     if (!wasOpen) {
+//       emits('open', props.items[key])
+//       internalOpenItems.value.push(key)
+//     }
 
-    return
-  }
+//     return
+//   }
 
-  if (wasOpen) {
-    internalOpenItems.value.splice(internalOpenItems.value.indexOf(key), 1)
-  }
-  else {
-    emits('open', props.items[key])
-    internalOpenItems.value.push(key)
-  }
-}
+//   if (wasOpen) {
+//     internalOpenItems.value.splice(internalOpenItems.value.indexOf(key), 1)
+//   }
+//   else {
+//     emits('open', props.items[key])
+//     internalOpenItems.value.push(key)
+//   }
+// }
 </script>
 
 <template>
-  <BaseFocusLoop>
-    <div
+  <AccordionRoot
+    v-model="internalOpenItems"
+    :type="props.exclusive ? 'single' : 'multiple'"
+    collapsible
+  >
+    <AccordionItem
       v-for="(item, key) in items"
       :key="key"
       class="nui-accordion"
@@ -210,18 +214,16 @@ function toggle(key: number) {
         action && actions[action],
         props.classes?.wrapper,
       ]"
+      :value="key"
     >
-      <details
-        :open="internalOpenItems?.includes(key) ?? undefined"
+      <div
         class="nui-accordion-detail"
         :class="props.classes?.details"
       >
         <slot name="accordion-item" :item="item" :index="key" :toggle="toggle">
-          <summary
+          <AccordionHeader
             class="nui-accordion-summary"
             :class="props.classes?.summary"
-            tabindex="0"
-            @click.prevent="() => toggle(key)"
           >
             <slot
               name="accordion-item-summary"
@@ -229,7 +231,10 @@ function toggle(key: number) {
               :index="key"
               :toggle="toggle"
             >
-              <div class="nui-accordion-header" :class="props.classes?.header">
+              <AccordionTrigger
+                class="nui-accordion-header"
+                :class="props.classes?.header" 
+              >
                 <BaseHeading
                   as="h4"
                   size="sm"
@@ -256,10 +261,10 @@ function toggle(key: number) {
                 >
                   <IconPlus class="nui-accordion-plus-icon" />
                 </div>
-              </div>
+              </AccordionTrigger>
             </slot>
-          </summary>
-          <div class="nui-accordion-content" :class="props.classes?.content">
+          </AccordionHeader>
+          <AccordionContent class="nui-accordion-content" :class="props.classes?.content">
             <slot
               name="accordion-item-content"
               :item="item"
@@ -270,9 +275,9 @@ function toggle(key: number) {
                 {{ item.content }}
               </BaseParagraph>
             </slot>
-          </div>
+          </AccordionContent>
         </slot>
-      </details>
-    </div>
-  </BaseFocusLoop>
+      </div>
+    </AccordionItem>
+  </AccordionRoot>
 </template>

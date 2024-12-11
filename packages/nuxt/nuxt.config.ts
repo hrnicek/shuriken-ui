@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
   modules: [
+    'reka-ui/nuxt',
     '@vueuse/nuxt',
     '@nuxtjs/color-mode',
     '@nuxt/icon',
