@@ -1,29 +1,39 @@
 /* @utility nui-switch-ball */
 
 @utility nui-switch-ball {
-  @apply flex cursor-pointer items-center;
+  @apply flex items-center;
 
-  &.nui-switch-ball-primary .nui-switch-ball-input:checked ~ .nui-switch-ball-track {
-    @apply bg-primary-400 dark:bg-primary-400;
+  .nui-switch-ball-outer[data-state=checked] {
+    .nui-switch-ball-handle {
+      @apply -translate-y-1/2 translate-x-full rtl:-translate-x-full;
+    }
+  
+    .nui-switch-ball-icon {
+      @apply -translate-y-1/2 opacity-100;
+    }
   }
 
-  &.nui-switch-ball-info .nui-switch-ball-input:checked ~ .nui-switch-ball-track {
+  &.nui-switch-ball-primary .nui-switch-ball-outer[data-state=checked] .nui-switch-ball-track {
+    @apply bg-primary-400! dark:bg-primary-400!;
+  }
+
+  &.nui-switch-ball-info .nui-switch-ball-outer[data-state=checked] .nui-switch-ball-track {
     @apply bg-info-400 dark:bg-info-400;
   }
 
-  &.nui-switch-ball-success .nui-switch-ball-input:checked ~ .nui-switch-ball-track {
+  &.nui-switch-ball-success .nui-switch-ball-outer[data-state=checked] .nui-switch-ball-track {
     @apply bg-success-400 dark:bg-success-400;
   }
 
-  &.nui-switch-ball-warning .nui-switch-ball-input:checked ~ .nui-switch-ball-track {
+  &.nui-switch-ball-warning .nui-switch-ball-outer[data-state=checked] .nui-switch-ball-track {
     @apply bg-warning-400 dark:bg-warning-400;
   }
 
-  &.nui-switch-ball-danger .nui-switch-ball-input:checked ~ .nui-switch-ball-track {
+  &.nui-switch-ball-danger .nui-switch-ball-outer[data-state=checked] .nui-switch-ball-track {
     @apply bg-danger-400 dark:bg-danger-400;
   }
 
-  &.nui-switch-ball-dark .nui-switch-ball-input:checked ~ .nui-switch-ball-track {
+  &.nui-switch-ball-dark .nui-switch-ball-outer[data-state=checked] .nui-switch-ball-track {
     @apply bg-muted-900 dark:bg-muted-100;
   }
 
@@ -31,7 +41,7 @@
     @apply text-muted-100 dark:text-muted-900;
   }
 
-  &.nui-switch-ball-black .nui-switch-ball-input:checked ~ .nui-switch-ball-track {
+  &.nui-switch-ball-black .nui-switch-ball-outer[data-state=checked] .nui-switch-ball-track {
     @apply bg-black dark:bg-white;
   }
 
@@ -41,6 +51,7 @@
 }
 @utility nui-switch-ball-outer {
   @apply nui-focus relative block rounded-full;
+  @apply cursor-pointer;
 }
 @utility nui-switch-ball-handle {
   @apply absolute start-0.5 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center rounded-full shadow focus:w-6;
@@ -66,28 +77,17 @@
   @apply text-muted-400 dark:text-muted-400;
 }
 @utility nui-switch-ball-dual-label {
-  @apply ms-3;
+  @apply ms-3 select-none;
 
   .nui-switch-ball-label {
-    @apply block;
+    @apply block cursor-pointer;
     @apply font-sans text-sm;
     @apply text-muted-800 dark:text-white;
   }
 
   .nui-switch-ball-sublabel {
-    @apply block;
+    @apply block cursor-pointer;
     @apply font-sans text-xs;
     @apply text-muted-400 dark:text-muted-400;
-  }
-}
-@utility nui-switch-ball-input {
-  @apply absolute z-0 h-full w-full cursor-pointer opacity-0;
-
-  &:checked ~ .nui-switch-ball-handle {
-    @apply -translate-y-1/2 translate-x-full rtl:-translate-x-full;
-  }
-
-  &:checked ~ .nui-switch-ball-icon {
-    @apply -translate-y-1/2 opacity-100;
   }
 }
