@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { RouteLocationRaw } from 'vue-router'
-
 const props = withDefaults(
   defineProps<{
     /**
@@ -12,11 +10,6 @@ const props = withDefaults(
      * The total number of items.
      */
     totalItems: number
-
-    /**
-     * The current page number.
-     */
-    currentPage?: number
 
     /**
      * The maximum number of links to display.
@@ -102,7 +95,6 @@ const props = withDefaults(
   {
     rounded: undefined,
     color: undefined,
-    currentPage: 1,
     maxLinksDisplayed: 3,
     routerQueryKey: 'page',
     previousIcon: 'lucide:chevron-left',
@@ -111,12 +103,15 @@ const props = withDefaults(
     classes: () => ({}),
   },
 )
-const emits = defineEmits<{
-  'update:currentPage': [currentPage: number]
-}>()
 
 const color = useNuiDefaultProperty(props, 'BasePagination', 'color')
 const rounded = useNuiDefaultProperty(props, 'BasePagination', 'rounded')
+
+
+const currentPage = defineModel('currentPage', {
+  type: Number,
+  default: 4,
+})
 
 const radiuses = {
   none: '',
@@ -131,196 +126,102 @@ const colors = {
   dark: 'nui-pagination-dark',
   black: 'nui-pagination-black',
 }
-
-const route = useRoute()
-const lastPage = computed(
-  () => Math.ceil(props.totalItems / props.itemPerPage) || 1,
-)
-const totalPageDisplayed = computed(() =>
-  lastPage.value > props.maxLinksDisplayed + 2
-    ? props.maxLinksDisplayed + 2
-    : lastPage.value,
-)
-const pages = computed(() => {
-  const _pages = []
-  let firstButton = props.currentPage - Math.floor(totalPageDisplayed.value / 2)
-  let lastButton
-    = firstButton
-    + (totalPageDisplayed.value - Math.ceil(totalPageDisplayed.value % 2))
-
-  if (firstButton < 1) {
-    firstButton = 1
-    lastButton = firstButton + (totalPageDisplayed.value - 1)
-  }
-
-  if (lastButton > lastPage.value) {
-    lastButton = lastPage.value
-    firstButton = lastButton - (totalPageDisplayed.value - 1)
-  }
-
-  for (let page = firstButton; page <= lastButton; page += 1) {
-    if (page === firstButton || page === lastButton) {
-      continue
-    }
-
-    _pages.push(page)
-  }
-
-  return _pages
-})
-
-const showLastLink = computed(() => lastPage.value > 1)
-
-function paginatedLink(page = 1) {
-  if (props.noRouter) {
-    return {}
-  }
-
-  const _page = Math.max(1, Math.min(page, lastPage.value))
-  const query: any = {
-    ...route.query,
-  }
-
-  if (props.routerQueryKey) {
-    query[props.routerQueryKey] = _page <= 1 ? undefined : _page
-  }
-
-  return {
-    query,
-  } satisfies RouteLocationRaw
-}
-function handleLinkClick(e: MouseEvent, page = 1) {
-  const _page = Math.max(1, Math.min(page, lastPage.value))
-  emits('update:currentPage', _page)
-
-  if (props.noRouter) {
-    e.preventDefault()
-    e.stopPropagation()
-
-    return false
-  }
-}
 </script>
 
 <template>
-  <div
-    class="nui-pagination"
-    :class="[
-      rounded && radiuses[rounded],
-      color && colors[color],
-      props.classes?.wrapper,
-    ]"
+  <PaginationRoot
+    v-model:page="currentPage"
+    :total="props.totalItems"
+    :items-per-page="props.itemPerPage"
+    :sibling-count="Math.round((props.maxLinksDisplayed - 1) / 2)"
+    show-edges
   >
-    <BaseFocusLoop
-      as="ul"
-      class="nui-pagination-list"
-      :class="[rounded && radiuses[rounded], props.classes?.list]"
+    <PaginationList
+      v-slot="{ items }" 
+      class="nui-pagination"
+      :class="[
+        rounded && radiuses[rounded],
+        color && colors[color],
+        props.classes?.wrapper,
+      ]"
     >
-      <slot name="before-pagination" />
-      <li>
-        <NuxtLink
-          :to="paginatedLink(1)"
-          tabindex="0"
-          class="nui-pagination-link"
-          :class="[
-            currentPage === 1 && 'nui-pagination-active',
-            rounded && radiuses[rounded],
-            props.classes?.link,
-          ]"
-          @keydown.space="(e: any) => (e.target as HTMLAnchorElement).click()"
-          @click="(e: any) => handleLinkClick(e, 1)"
-        >
-          1
-        </NuxtLink>
-      </li>
-
-      <li v-if="showLastLink && pages.length > 0 && pages[0] > 2">
-        <span
-          class="nui-pagination-ellipsis"
-          :class="[rounded && radiuses[rounded], props.classes?.ellipsis]"
-        >
-          {{ props.ellipsis }}
-        </span>
-      </li>
-
-      <li v-for="page in pages" :key="page">
-        <NuxtLink
-          :to="paginatedLink(page)"
-          tabindex="0"
-          :aria-current="currentPage === page ? 'page' : undefined"
-          class="nui-pagination-link"
-          :class="[
-            currentPage === page && 'nui-pagination-active',
-            rounded && radiuses[rounded],
-            props.classes?.link,
-          ]"
-          @keydown.space="(e: any) => (e.target as HTMLAnchorElement).click()"
-          @click="(e: any) => handleLinkClick(e, page)"
-        >
-          {{ page }}
-        </NuxtLink>
-      </li>
-
-      <li v-if="showLastLink && pages[pages.length - 1] < lastPage - 1">
-        <span
-          class="nui-pagination-ellipsis"
-          :class="[rounded && radiuses[rounded], props.classes?.ellipsis]"
-        >
-          {{ props.ellipsis }}
-        </span>
-      </li>
-
-      <li v-if="showLastLink">
-        <NuxtLink
-          :to="paginatedLink(lastPage)"
-          tabindex="0"
-          class="nui-pagination-link"
-          :class="[
-            currentPage === lastPage && 'nui-pagination-active',
-            rounded && radiuses[rounded],
-            props.classes?.link,
-          ]"
-          @keydown.space="(e: any) => (e.target as HTMLAnchorElement).click()"
-          @click="(e: any) => handleLinkClick(e, lastPage)"
-        >
-          {{ lastPage }}
-        </NuxtLink>
-      </li>
-      <slot name="after-pagination" />
-    </BaseFocusLoop>
-
-    <BaseFocusLoop
-      class="nui-pagination-buttons"
-      :class="[rounded && radiuses[rounded], props.classes?.buttons]"
-    >
-      <slot name="before-navigation" />
-
-      <NuxtLink
-        :to="paginatedLink(currentPage - 1)"
-        tabindex="0"
-        class="nui-pagination-button"
-        :class="props.classes?.button"
-        @keydown.space="(e: any) => (e.target as HTMLAnchorElement).click()"
-        @click="(e: any) => handleLinkClick(e, currentPage - 1)"
+      <ul
+        class="nui-pagination-list"
+        :class="[rounded && radiuses[rounded], props.classes?.list]"
       >
-        <slot name="previous-icon">
-          <Icon :name="previousIcon" class="pagination-button-icon" />
-        </slot>
-      </NuxtLink>
+        <slot name="before-pagination" />
 
-      <NuxtLink
-        :to="paginatedLink(currentPage + 1)"
-        tabindex="0"
-        class="nui-pagination-button"
-        :class="props.classes?.button"
-        @keydown.space="(e: any) => (e.target as HTMLAnchorElement).click()"
-        @click="(e: any) => handleLinkClick(e, currentPage + 1)"
+        <template v-for="(page, index) in items">
+          <PaginationListItem
+            v-if="page.type === 'page'"
+            :key="index"
+            :value="page.value"
+            class="nui-pagination-link"
+            :class="[
+              currentPage === page && 'nui-pagination-active',
+              rounded && radiuses[rounded],
+              props.classes?.link,
+            ]"
+          >
+            {{ page.value }}
+          </PaginationListItem>
+          <PaginationEllipsis
+            v-else
+            :key="page.type"
+            :index="index"
+            class="nui-pagination-ellipsis"
+          >
+            &#8230;
+          </PaginationEllipsis>
+        </template>
+
+        <slot name="after-pagination" />
+      </ul>
+
+      <div
+        class="nui-pagination-buttons"
+        :class="[rounded && radiuses[rounded], props.classes?.buttons]"
       >
-        <slot name="next-icon">
-          <Icon :name="nextIcon" class="pagination-button-icon" />
-        </slot>
-      </NuxtLink>
-      <slot name="after-navigation" />
-    </BaseFocusLoop>
-  </div>
+        <slot name="before-navigation" />
+
+        <PaginationPrev class="nui-pagination-button">
+          <slot name="previous-icon">
+            <Icon :name="previousIcon" class="pagination-button-icon" />
+          </slot>
+        </PaginationPrev>
+
+        <PaginationNext class="nui-pagination-button">
+          <slot name="next-icon">
+            <Icon :name="nextIcon" class="pagination-button-icon" />
+          </slot>
+        </PaginationNext>
+        <!-- <NuxtLink
+          :to="paginatedLink(currentPage - 1)"
+          tabindex="0"
+          class="nui-pagination-button"
+          :class="props.classes?.button"
+          @keydown.space="(e: any) => (e.target as HTMLAnchorElement).click()"
+          @click="(e: any) => handleLinkClick(e, currentPage - 1)"
+        >
+          <slot name="previous-icon">
+            <Icon :name="previousIcon" class="pagination-button-icon" />
+          </slot>
+        </NuxtLink>
+
+        <NuxtLink
+          :to="paginatedLink(currentPage + 1)"
+          tabindex="0"
+          class="nui-pagination-button"
+          :class="props.classes?.button"
+          @keydown.space="(e: any) => (e.target as HTMLAnchorElement).click()"
+          @click="(e: any) => handleLinkClick(e, currentPage + 1)"
+        >
+          <slot name="next-icon">
+            <Icon :name="nextIcon" class="pagination-button-icon" />
+          </slot>
+        </NuxtLink> -->
+        <slot name="after-navigation" />
+      </div>
+    </PaginationList>
+  </PaginationRoot>
 </template>

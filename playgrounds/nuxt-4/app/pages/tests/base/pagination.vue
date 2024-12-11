@@ -7,13 +7,16 @@ definePageMeta({
 })
 
 const route = useRoute()
-const currentPage = computed(() => {
-  try {
-    return Number.parseInt(route.query.page as string) || 1
-  }
-  catch {}
-  return 1
+const router = useRouter()
+const currentPage = computed({
+  get() {
+    return Number(route.query.page) || 1
+  },
+  set(value: number) {
+    router.push({ query: { ...route.query, page: value } })
+  },
 })
+
 </script>
 
 <template>
@@ -26,7 +29,7 @@ const currentPage = computed(() => {
         <BasePagination
           :item-per-page="8"
           :total-items="512"
-          :current-page="currentPage"
+          v-model:current-page="currentPage"
           :max-links-displayed="5"
           rounded="none"
         />
@@ -39,7 +42,7 @@ const currentPage = computed(() => {
         <BasePagination
           :item-per-page="8"
           :total-items="512"
-          :current-page="currentPage"
+          v-model:current-page="currentPage"
           :max-links-displayed="5"
           rounded="sm"
           color="dark"
@@ -53,7 +56,7 @@ const currentPage = computed(() => {
         <BasePagination
           :item-per-page="8"
           :total-items="512"
-          :current-page="currentPage"
+          v-model:current-page="currentPage"
           :max-links-displayed="5"
           rounded="md"
           color="black"
@@ -67,7 +70,7 @@ const currentPage = computed(() => {
         <BasePagination
           :item-per-page="8"
           :total-items="512"
-          :current-page="currentPage"
+          v-model:current-page="currentPage"
           :max-links-displayed="5"
           rounded="lg"
         />
@@ -80,7 +83,7 @@ const currentPage = computed(() => {
         <BasePagination
           :item-per-page="8"
           :total-items="1000000"
-          :current-page="currentPage"
+          v-model:current-page="currentPage"
           :max-links-displayed="5"
           rounded="full"
         />
