@@ -210,14 +210,14 @@ defineExpose({
       props.classes?.wrapper,
     ]"
   >
-    <label
+    <Label
       v-if="props.label && !props.labelFloat"
       :for="id"
       class="nui-textarea-label"
       :class="props.classes?.label"
     >
       {{ props.label }}
-    </label>
+    </Label>
     <div class="nui-textarea-outer">
       <textarea
         v-if="modelModifiers.lazy"

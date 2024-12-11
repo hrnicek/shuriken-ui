@@ -63,13 +63,13 @@ defineExpose({
 
 <template>
   <div class="group/nui-checkbox-headless relative">
-    <label
+    <Label
       v-if="props.label"
       :for="id"
       class="text-muted-400 mb-1 inline-block cursor-pointer select-none font-sans text-sm"
     >
       {{ props.label }}
-    </label>
+    </Label>
     <div class="relative">
       <input
         :id="id"

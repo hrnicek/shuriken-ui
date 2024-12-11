@@ -184,14 +184,14 @@ defineExpose({
       <IconIndeterminate class="nui-checkbox-icon-indeterminate" />
     </div>
     <div class="nui-checkbox-label-wrapper">
-      <label
+      <Label
         v-if="props.label || 'default' in $slots"
         :for="id"
         class="nui-checkbox-label-text"
         :class="props.classes?.label"
       >
         <slot>{{ props.label }}</slot>
-      </label>
+      </Label>
       <div
         v-if="props.error && typeof props.error === 'string'"
         class="nui-checkbox-error"

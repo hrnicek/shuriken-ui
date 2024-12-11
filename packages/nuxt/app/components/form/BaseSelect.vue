@@ -195,7 +195,7 @@ const placeholder = computed(() => {
       props.classes?.wrapper,
     ]"
   >
-    <label
+    <Label
       v-if="
         ('label' in $slots && !props.labelFloat)
           || (props.label && !props.labelFloat)
@@ -205,7 +205,7 @@ const placeholder = computed(() => {
       :class="props.classes?.label"
     >
       <slot name="label">{{ props.label }}</slot>
-    </label>
+    </Label>
     <div class="nui-select-outer" :class="props.classes?.outer">
       <select
         :id="id"
@@ -221,7 +221,7 @@ const placeholder = computed(() => {
         </option>
         <slot />
       </select>
-      <label
+      <Label
         v-if="
           ('label' in $slots && props.labelFloat)
             || (props.label && props.labelFloat)
@@ -231,7 +231,7 @@ const placeholder = computed(() => {
         :class="props.classes?.label"
       >
         <slot name="label">{{ props.label }}</slot>
-      </label>
+      </Label>
       <div v-if="props.loading" class="nui-select-placeload-wrapper">
         <BasePlaceload class="nui-select-placeload" />
       </div>

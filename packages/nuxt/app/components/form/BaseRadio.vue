@@ -132,14 +132,14 @@ defineExpose({
       <div :class="props.classes?.inputDot" class="nui-radio-dot" />
     </div>
     <div class="nui-radio-label-wrapper">
-      <label
+      <Label
         v-if="props.label || 'default' in $slots"
         :for="id"
         :class="props.classes?.label"
         class="nui-radio-label-text"
       >
         <slot>{{ props.label }}</slot>
-      </label>
+      </Label>
       <div
         v-if="props.error && typeof props.error === 'string'"
         class="nui-radio-error"

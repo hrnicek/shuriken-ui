@@ -207,14 +207,14 @@ defineExpose({
       props.classes?.wrapper,
     ]"
   >
-    <label
+    <Label
       v-if="'label' in $slots || props.label"
       class="nui-input-file-regular-label"
       :for="id"
       :class="props.classes?.label"
     >
       <slot name="label">{{ props.label }}</slot>
-    </label>
+    </Label>
     <div class="nui-input-file-regular-outer">
       <label
         tabindex="0"
@@ -249,7 +249,7 @@ defineExpose({
           v-bind="$attrs"
           class="hidden"
           @change="
-            (event) => (modelValue = (event.target as HTMLInputElement).files)
+            (event: any) => (modelValue = (event.target as HTMLInputElement).files)
           "
         >
       </label>

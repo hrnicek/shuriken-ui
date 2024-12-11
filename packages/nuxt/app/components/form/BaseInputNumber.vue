@@ -363,7 +363,7 @@ if (import.meta.dev) {
       props.classes?.wrapper,
     ]"
   >
-    <label
+    <Label
       v-if="
         ('label' in $slots && !props.labelFloat)
           || (props.label && !props.labelFloat)
@@ -373,7 +373,7 @@ if (import.meta.dev) {
       :class="props.classes?.label"
     >
       <slot name="label">{{ props.label }}</slot>
-    </label>
+    </Label>
     <div class="nui-input-number-outer" :class="props.classes?.outer">
       <div>
         <input
