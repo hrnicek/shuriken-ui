@@ -49,11 +49,6 @@ const props = withDefaults(
       outer?: string | string[]
 
       /**
-       * CSS classes to apply to the input element.
-       */
-      input?: string | string[]
-
-      /**
        * CSS classes to apply to the handle element.
        */
       handle?: string | string[]
@@ -104,13 +99,12 @@ defineExpose({
 </script>
 
 <template>
-  <label
-    :for="id"
+  <span
     class="nui-switch-thin"
     :class="[color && colors[color], props.classes?.wrapper]"
   >
-    <span class="nui-switch-thin-outer" :class="props.classes?.outer">
-      <input
+    <SwitchRoot v-model="modelValue" :id="id" ref="inputRef" class="nui-switch-thin-outer" :class="props.classes?.outer">
+      <!-- <input
         :id="id"
         ref="inputRef"
         :checked="modelValue"
@@ -119,23 +113,23 @@ defineExpose({
         class="nui-switch-thin-input peer"
         :class="props.classes?.input"
         @change="modelValue = !modelValue"
-      >
-      <span
+      > -->
+      <SwitchThumb
         class="nui-switch-thin-handle"
         :class="props.classes?.handle"
       />
       <span class="nui-switch-thin-track" :class="props.classes?.track" />
-    </span>
-    <span v-if="!props.sublabel" class="nui-switch-thin-single-label">
+    </SwitchRoot>
+    <Label :for="id" v-if="!props.sublabel" class="nui-switch-thin-single-label">
       {{ props.label }}
-    </span>
-    <span v-else class="nui-switch-thin-dual-label">
+    </Label>
+    <Label :for="id" v-else class="nui-switch-thin-dual-label">
       <span class="nui-switch-thin-label">
         {{ props.label }}
       </span>
       <span class="nui-switch-thin-sublabel">
         {{ props.sublabel }}
       </span>
-    </span>
-  </label>
+    </Label>
+  </span>
 </template>
