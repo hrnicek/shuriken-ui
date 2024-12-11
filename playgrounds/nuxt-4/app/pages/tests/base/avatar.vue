@@ -56,6 +56,11 @@ definePageMeta({
             size="4xl"
             rounded="full"
           />
+          <BaseAvatar
+            src="https://tairo.cssninja.io/img/avatars/1azeaze0.svg"
+            size="4xl"
+            rounded="full"
+          />
         </div>
       </NuiPreview>
 

@@ -207,7 +207,7 @@ const masks = {
 </script>
 
 <template>
-  <div
+  <AvatarRoot
     class="nui-avatar"
     :class="[
       size && sizes[size],
@@ -225,7 +225,7 @@ const masks = {
   >
     <div class="nui-avatar-inner" :class="props.classes?.inner">
       <slot>
-        <img
+        <AvatarImage
           v-if="props.src"
           v-bind="$attrs"
           :src="props.src"
@@ -235,19 +235,19 @@ const masks = {
             props.srcDark ? 'dark:hidden' : '',
             props.classes?.img,
           ]"
-        >
+        />
 
-        <img
+        <AvatarImage
           v-if="props.src && props.srcDark"
           v-bind="$attrs"
           :src="props.srcDark"
           class="nui-avatar-img hidden dark:block"
           :class="[rounded && radiuses[rounded], props.classes?.img]"
-        >
+        />
 
-        <span v-if="!props.src" class="nui-avatar-text">
+        <AvatarFallback delay-ms="200" class="nui-avatar-text">
           {{ props.text }}
-        </span>
+        </AvatarFallback>
       </slot>
     </div>
 
@@ -274,5 +274,5 @@ const masks = {
         props.classes?.dot,
       ]"
     />
-  </div>
+  </AvatarRoot>
 </template>
