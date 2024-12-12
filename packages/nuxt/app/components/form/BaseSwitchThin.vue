@@ -104,16 +104,6 @@ defineExpose({
     :class="[color && colors[color], props.classes?.wrapper]"
   >
     <SwitchRoot v-model="modelValue" :id="id" ref="inputRef" class="nui-switch-thin-outer" :class="props.classes?.outer">
-      <!-- <input
-        :id="id"
-        ref="inputRef"
-        :checked="modelValue"
-        v-bind="$attrs"
-        type="checkbox"
-        class="nui-switch-thin-input peer"
-        :class="props.classes?.input"
-        @change="modelValue = !modelValue"
-      > -->
       <SwitchThumb
         class="nui-switch-thin-handle"
         :class="props.classes?.handle"
