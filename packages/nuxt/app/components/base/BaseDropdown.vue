@@ -207,7 +207,7 @@ const textColors = {
     <Menu
       v-slot="{ open, close }: { open: boolean; close: () => void }"
       as="div"
-      class="nui-dropdown-menu"
+      class="nui-menu"
       :class="props.classes?.menuWrapper"
     >
       <Float
@@ -272,7 +272,7 @@ const textColors = {
 
               <Icon
                 name="lucide:chevron-down"
-                class="nui-chevron"
+                class="nui-chevron nui-dropdown-chevron"
                 :class="open && 'rotate-180'"
               />
             </button>

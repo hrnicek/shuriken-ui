@@ -3,7 +3,7 @@
 @utility nui-button-group {
   @apply flex;
 
-  > .nui-button:not(:only-child), > .nui-button-action:not(:only-child), > .nui-button-icon:not(:only-child) {
+  > [data-group-role="button"]:not(:only-child) {
     @apply !border-e-0;
 
     &:focus {
@@ -174,7 +174,7 @@
   }
 
   .nui-dropdown:not(:first-child):not(:last-child) {
-    .nui-button {
+    [data-group-role="button"] {
       @apply !border-e-0 !rounded-none;
 
       &:focus {
@@ -184,7 +184,7 @@
   }
 
   .nui-dropdown:first-child:not(:last-child) {
-    .nui-button {
+    [data-group-role="button"] {
       @apply !border-e-0 !rounded-e-none;
 
       &:focus {
@@ -194,7 +194,7 @@
   }
 
   .nui-dropdown:last-child:not(:first-child) {
-    .nui-button {
+    [data-group-role="button"] {
       @apply !border-e !rounded-s-none;
 
       &:focus {
