@@ -18,12 +18,6 @@ const props = withDefaults(
     /** The type of the button. */
     type?: 'button' | 'submit' | 'reset'
 
-    /** The button badge indicator */
-    badge?: boolean
-
-    /** Add a pulse animation on the badge */
-    badgePulse?: boolean
-
     /** Whether the button is in a loading state. */
     loading?: boolean
 
@@ -114,12 +108,5 @@ const { attributes, is } = useNinjaButton(props)
   <component :is="is" v-bind="attributes" :class="classes" data-group-role="button">
     <slot v-if="!props.loading" />
     <BasePlaceload v-else class="h-4 w-12 rounded" :class="variants[variant] === 'dark' && 'filter-invert'"/>
-    <span
-      v-if="props.badge"
-      class="nui-button-badge"
-    >
-      <span v-if="props.badgePulse" class="nui-button-badge-pulse" />
-      <span class="nui-button-badge-inner" />
-    </span>
   </component>
 </template>
