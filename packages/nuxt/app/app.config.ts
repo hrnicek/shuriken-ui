@@ -146,11 +146,11 @@ export default defineAppConfig({
     },
     BaseCard: {
       /**
-       * Default color for the BaseCard component
+       * Default variant for the BaseCard component
        *
-       * @type {'default' | 'default-contrast' | 'muted' | 'muted-contrast' | 'dark' | 'black' | 'primary' | 'info' | 'success' | 'warning' | 'danger' | 'none'}
+       * @type {'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'custom'}
        */
-      color: 'default',
+      variant: 'default-low',
       /**
        * Default rounded for the BaseCard component
        *

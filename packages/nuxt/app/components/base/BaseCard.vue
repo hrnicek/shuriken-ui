@@ -2,28 +2,21 @@
 const props = withDefaults(
   defineProps<{
     /**
-     * Adds a flat or a on hover shadow to the card.
+     * Adds a static or a on hover shadow to the card.
      */
-    shadow?: 'flat' | 'hover'
+    shadow?: 'static' | 'hover'
 
     /**
-     * The color of the card.
+     * The variant of the card.
      *
      * @default 'default'
      */
-    color?:
-      | 'default'
-      | 'default-contrast'
-      | 'muted'
-      | 'muted-contrast'
-      | 'dark'
-      | 'black'
-      | 'primary'
-      | 'info'
-      | 'success'
-      | 'warning'
-      | 'danger'
-      | 'none'
+     variant?:
+      | 'default-low'
+      | 'default-high'
+      | 'muted-low'
+      | 'muted-high'
+      | 'custom'
 
     /**
      * The radius of the card.
@@ -36,44 +29,37 @@ const props = withDefaults(
   {
     rounded: undefined,
     shadow: undefined,
-    color: undefined,
+    variant: undefined,
   },
 )
 
-const color = useNuiDefaultProperty(props, 'BaseCard', 'color')
+const variant = useNuiDefaultProperty(props, 'BaseCard', 'variant')
 const rounded = useNuiDefaultProperty(props, 'BaseCard', 'rounded')
 
 const radiuses = {
   none: '',
-  sm: 'nui-card-rounded-sm',
-  md: 'nui-card-rounded-md',
-  lg: 'nui-card-rounded-lg',
+  sm: 'rounded-md',
+  md: 'rounded-lg',
+  lg: 'rounded-xl',
 }
 
-const colors = {
-  'default': 'nui-card-default',
-  'default-contrast': 'nui-card-default-contrast',
-  'muted': 'nui-card-muted',
-  'muted-contrast': 'nui-card-muted-contrast',
-  'dark': 'nui-card-dark',
-  'black': 'nui-card-black',
-  'primary': 'nui-card-primary',
-  'info': 'nui-card-info',
-  'success': 'nui-card-success',
-  'warning': 'nui-card-warning',
-  'danger': 'nui-card-danger',
-  'none': '',
+const variants = {
+  'default-low': 'border border-muted-200 dark:border-muted-700 bg-white dark:bg-muted-800',
+  'default-high': 'border border-muted-300 dark:border-muted-800 bg-white dark:bg-muted-950',
+  'muted-low': 'border border-muted-200 dark:border-muted-700 bg-muted-100 dark:bg-muted-800',
+  'muted-high': 'border border-muted-200 dark:border-muted-800 bg-muted-100 dark:bg-muted-950',
+  'custom': '',
 }
 
 const shadows = {
-  flat: 'nui-card-shadow',
-  hover: 'nui-card-shadow-hover',
+  static: 'shadow-muted-300/30 dark:shadow-muted-800/30 shadow-xl',
+  hover: 'hover:shadow-muted-300/30 dark:hover:shadow-muted-800/30 hover:shadow-xl',
 }
 
 const classes = computed(() => [
-  'nui-card',
+  'relative w-full transition-all duration-300',
   rounded.value && radiuses[rounded.value],
-  color.value && colors[color.value],
+  variant.value && variants[variant.value],
   props.shadow && shadows[props.shadow],
 ])
 </script>
