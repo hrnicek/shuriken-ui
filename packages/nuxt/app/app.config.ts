@@ -71,12 +71,6 @@ export default defineAppConfig({
     },
     BaseButton: {
       /**
-       * Default color for the BaseButton component
-       *
-       * @type {'default' | 'default-contrast' | 'muted' | 'muted-contrast' | 'light' | 'dark' | 'primary' | 'info' | 'success' | 'warning' | 'danger' | 'none'}
-       */
-      color: 'default',
-      /**
        * Default rounded for the BaseButton component
        *
        * @type {'none' | 'sm' | 'md' | 'lg' | 'full'}
@@ -91,9 +85,9 @@ export default defineAppConfig({
       /**
        * Default variant for the BaseButton component
        *
-       * @type {'solid' | 'pastel' | 'outline'}
+       * @type {'default-low' | 'default-high' | 'muted-low' | 'ghost-low' | 'ghost-high' | 'muted-high' | 'primary' | 'destructive' | 'dark' | 'link' | 'custom'}
        */
-      variant: 'solid',
+      variant: 'default-low',
     },
     BaseButtonAction: {
       /**
@@ -152,11 +146,11 @@ export default defineAppConfig({
     },
     BaseCard: {
       /**
-       * Default color for the BaseCard component
+       * Default variant for the BaseCard component
        *
-       * @type {'default' | 'default-contrast' | 'muted' | 'muted-contrast' | 'dark' | 'black' | 'primary' | 'info' | 'success' | 'warning' | 'danger' | 'none'}
+       * @type {'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'custom'}
        */
-      color: 'default',
+      variant: 'default-low',
       /**
        * Default rounded for the BaseCard component
        *

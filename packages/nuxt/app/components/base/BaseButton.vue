@@ -18,42 +18,23 @@ const props = withDefaults(
     /** The type of the button. */
     type?: 'button' | 'submit' | 'reset'
 
-    /**
-     * Adds a flat or a on hover shadow to the button.
-     */
-    shadow?: 'flat' | 'hover'
-
-    /** The button badge indicator */
-    badge?: boolean
-
-    /** Add a pulse animation on the badge */
-    badgePulse?: boolean
-
     /** Whether the button is in a loading state. */
     loading?: boolean
 
-    /** Whether the button should be disabled. */
-    disabled?: boolean
-
     /**
-     * The color of the button.
+     * The variant of the button..
      *
+     * @since 2.0.0
      * @default 'default'
      */
-    color?:
-      | 'default'
-      | 'default-contrast'
-      | 'muted'
-      | 'muted-contrast'
-      | 'light'
-      | 'dark'
-      | 'black'
-      | 'primary'
-      | 'info'
-      | 'success'
-      | 'warning'
-      | 'danger'
-      | 'none'
+    variant?: 'default-low' | 'default-high' |'muted-low' | 'muted-high' | 'ghost-low' | 'ghost-high' | 'primary' | 'destructive' | 'dark' | 'link' | 'custom'
+
+    /**
+     * The size of the button
+     *
+     * @default 'md'
+     */
+    size?: 'sm' | 'icon-sm' | 'md' | 'icon-md' | 'lg' | 'icon-lg' | 'xl' | 'icon-xl'
 
     /**
      * The radius of the button.
@@ -62,21 +43,6 @@ const props = withDefaults(
      * @default 'sm'
      */
     rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
-
-    /**
-     * The size of the button
-     *
-     * @default 'md'
-     */
-    size?: 'sm' | 'md' | 'lg' | 'xl'
-
-    /**
-     * The variant of the button..
-     *
-     * @since 2.0.0
-     * @default 'solid'
-     */
-    variant?: 'solid' | 'outline' | 'pastel'
   }>(),
   {
     to: undefined,
@@ -84,101 +50,63 @@ const props = withDefaults(
     rel: '',
     target: '',
     type: undefined,
-    size: undefined,
     variant: undefined,
-    color: undefined,
+    size: undefined,
     rounded: undefined,
-    shadow: undefined,
   },
 )
 
-const color = useNuiDefaultProperty(props, 'BaseButton', 'color')
-const rounded = useNuiDefaultProperty(props, 'BaseButton', 'rounded')
-const size = useNuiDefaultProperty(props, 'BaseButton', 'size')
 const variant = useNuiDefaultProperty(props, 'BaseButton', 'variant')
-
-const badgeColors = {
-  'primary': 'nui-badge-primary',
-  'info': 'nui-badge-info',
-  'success': 'nui-badge-success',
-  'warning': 'nui-badge-warning',
-  'danger': 'nui-badge-danger',
-  'none': '',
-  'default': '',
-  'default-contrast': '',
-  'light': '',
-  'dark': '',
-  'black': '',
-  'muted': '',
-  'muted-contrast': '',
-}
+const size = useNuiDefaultProperty(props, 'BaseButton', 'size')
+const rounded = useNuiDefaultProperty(props, 'BaseButton', 'rounded')
 
 const sizes = {
-  sm: 'nui-button-sm',
-  md: 'nui-button-md',
-  lg: 'nui-button-lg',
-  xl: 'nui-button-xl',
+  'sm': 'h-8 px-3 py-1 text-sm',
+  'md': 'h-10 px-4 py-2 text-sm',
+  'lg': 'h-12 px-6 py-2 text-base',
+  'xl': 'h-14 px-10 py-4 text-base',
+  'icon-sm': 'size-8 text-sm',
+  'icon-md': 'size-10 text-sm',
+  'icon-lg': 'size-12 text-base',
+  'icon-xl': 'size-14 text-base',
 }
 
 const radiuses = {
   none: '',
-  sm: 'nui-button-rounded-sm',
-  md: 'nui-button-rounded-md',
-  lg: 'nui-button-rounded-lg',
-  full: 'nui-button-rounded-full',
+  sm: 'rounded-md',
+  md: 'rounded-lg',
+  lg: 'rounded-xl',
+  full: 'rounded-full',
 }
 
 const variants = {
-  solid: 'nui-button-solid',
-  pastel: 'nui-button-pastel',
-  outline: 'nui-button-outline',
-}
-
-const colors = {
-  'none': '',
-  'default': 'nui-button-default',
-  'default-contrast': 'nui-button-default-contrast',
-  'primary': 'nui-button-primary',
-  'info': 'nui-button-info',
-  'success': 'nui-button-success',
-  'warning': 'nui-button-warning',
-  'danger': 'nui-button-danger',
-  'muted': 'nui-button-muted',
-  'muted-contrast': 'nui-button-muted-contrast',
-  'light': 'nui-button-light',
-  'dark': 'nui-button-dark',
-  'black': 'nui-button-black',
-}
-
-const shadows = {
-  flat: 'nui-button-shadow',
-  hover: 'nui-button-shadow-hover',
+  'default-low': 'border border-muted-300 dark:border-muted-600 hover:enabled:border-muted-200 dark:hover:enabled:border-muted-500 text-muted-700 dark:text-muted-100 bg-white dark:bg-muted-700 hover:enabled:bg-muted-50 dark:hover:enabled:bg-muted-600 active:enabled:bg-white dark:active:enabled:bg-muted-700 focus-visible:bg-muted-50 dark:focus-visible:bg-muted-600 ',
+  'default-high': 'border border-muted-300 dark:border-muted-800 hover:enabled:border-muted-200 dark:hover:enabled:border-muted-700 text-muted-800 dark:text-muted-100 bg-white dark:bg-muted-950 hover:enabled:bg-muted-50 dark:hover:enabled:bg-muted-900 active:enabled:bg-white dark:active:enabled:bg-muted-950 focus-visible:bg-muted-50 dark:focus-visible:bg-muted-900',
+  'muted-low': 'border border-muted-100 dark:border-muted-700 text-muted-500 dark:text-muted-100 bg-muted-100 dark:bg-muted-700 hover:enabled:bg-muted-50 dark:hover:enabled:bg-muted-600 active:enabled:bg-muted-100 dark:active:enabled:bg-muted-700 focus-visible:bg-muted-50 dark:focus-visible:bg-muted-600',
+  'muted-high': 'border border-muted-100 dark:border-muted-800 text-muted-500 dark:text-muted-100 bg-muted-100 dark:bg-muted-800 hover:enabled:bg-muted-50 dark:hover:enabled:bg-muted-700 active:enabled:bg-muted-100 dark:active:enabled:bg-muted-600 focus-visible:bg-muted-50 dark:focus-visible:bg-muted-700',
+  'ghost-low': 'text-muted-600 dark:text-muted-100 hover:enabled:bg-muted-100 dark:hover:enabled:bg-muted-700 active:enabled:bg-muted-50 dark:active:enabled:bg-muted-600 focus-visible:bg-muted-100 dark:focus-visible:bg-muted-600',
+  'ghost-high': 'text-muted-600 dark:text-muted-100 hover:enabled:bg-muted-100 dark:hover:enabled:bg-muted-800 active:enabled:bg-muted-50 dark:active:enabled:bg-muted-700 focus-visible:bg-muted-100 dark:focus-visible:bg-muted-800',
+  'primary': 'text-primary-invert dark:text-primary-invert bg-primary-500 dark:bg-primary-500 hover:enabled:bg-primary-400 dark:hover:enabled:bg-primary-400 active:enabled:bg-primary-500 dark:active:enabled:bg-primary-500 focus-visible:bg-primary-400 dark:focus-visible:bg-primary-400',
+  'destructive': 'text-white bg-red-600 dark:bg-red-600 hover:enabled:bg-red-500 dark:hover:enabled:bg-red-500 active:enabled:bg-red-600 dark:active:enabled:bg-red-600 focus-visible:bg-red-500 dark:focus-visible:bg-red-500',
+  'dark': 'text-muted-100 dark:text-muted-900 bg-muted-900 dark:bg-muted-100 hover:enabled:bg-muted-700 dark:hover:enabled:bg-muted-100 active:enabled:bg-muted-900 dark:active:enabled:bg-muted-50 focus-visible:bg-muted-800 dark:focus-visible:bg-muted-50 border border-muted-900 dark:border-muted-100 border-muted-800 dark:border-muted-50',
+  'link': 'text-muted-600 dark:text-muted-100 hover:text-primary-500 dark:hover:text-primary-500 focus-visible:text-primary-500 dark:focus-visible:text-primary-500 hover:underline underline-offset-4',
+  'custom': '',
 }
 
 const classes = computed(() => [
-  'nui-button',
-  props.loading && 'nui-button-loading',
+  'relative inline-flex justify-center items-center space-x-1 font-sans font-normal leading-5 no-underline transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed hover:shadow-none',
+  props.loading && '!text-transparent',
+  variant.value && variants[variant.value],
   size.value && sizes[size.value],
   rounded.value && radiuses[rounded.value],
-  variant.value && variants[variant.value],
-  color.value && colors[color.value],
-  props.shadow && shadows[props.shadow],
 ])
 
 const { attributes, is } = useNinjaButton(props)
 </script>
 
 <template>
-  <component :is="is" v-bind="attributes" :class="classes">
+  <component :is="is" v-bind="attributes" :class="classes" data-group-role="button">
     <slot v-if="!props.loading" />
-    <BasePlaceload v-else class="h-4 w-12 rounded" />
-    <span
-      v-if="props.badge"
-      class="nui-button-badge"
-      :class="badgeColors[color]"
-    >
-      <span v-if="props.badgePulse" class="nui-button-badge-pulse" />
-      <span class="nui-button-badge-inner" />
-    </span>
+    <BasePlaceload v-else class="h-4 w-12 rounded" :class="variant === 'dark' && 'invert'"/>
   </component>
 </template>
