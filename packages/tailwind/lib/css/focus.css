@@ -4,7 +4,7 @@
   @apply outline-2 outline-dashed outline-offset-2;
   @apply outline-transparent;
 
-  &:focus-within {
+  &:has(:focus-visible), &:focus-visible {
     @apply outline-muted-300 dark:outline-muted-600;
     @apply outline-dashed ring-0;
   }

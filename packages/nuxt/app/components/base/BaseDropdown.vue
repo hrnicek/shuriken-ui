@@ -1,163 +1,111 @@
-<script setup lang="ts">
-import { Menu, MenuButton, MenuItems } from '@headlessui/vue'
-import { Float, type FloatProps } from '@headlessui-float/vue'
+<script lang="ts">
+import type {
+  DropdownMenuRootProps,
+  DropdownMenuRootEmits,
+  DropdownMenuContentProps,
+  DropdownMenuTriggerProps,
+  DropdownMenuPortalProps,
+} from 'reka-ui'
 
-const props = withDefaults(
-  defineProps<{
-    /**
-     * The label to display for the dropdown.
-     */
-    label?: string
+interface BaseDropdownProps extends DropdownMenuRootProps {
+  /**
+   * The label to display for the dropdown.
+   */
+  label?: string
 
-    /**
-     * The header label to display for the dropdown.
-     */
-    headerLabel?: string
+  /**
+   * Disables the dropdown.
+   */
+  disabled?: boolean
 
-    /**
-     * Used a fixed strategy to float the component
-     */
-    fixed?: boolean
+  /**
+   * Show an arrow on the dropdown.
+   */
+  arrow?: boolean
 
-    /**
-     * Used a fixed strategy to float the component
-     */
-    disabled?: boolean
+  /**
+   * The color of the dropdown.buttonSize
+   *
+   * @default 'default'
+   */
+  color?: 'default' | 'default-contrast' | 'muted' | 'muted-contrast' | 'none'
 
-    /**
-     * The color of the button.
-     *
-     * @default 'default'
-     */
-    buttonColor?:
-      | 'default'
-      | 'default-contrast'
-      | 'muted'
-      | 'muted-contrast'
-      | 'light'
-      | 'dark'
-      | 'black'
-      | 'primary'
-      | 'info'
-      | 'success'
-      | 'warning'
-      | 'danger'
-      | 'none'
+  /**
+   * The radius of the dropdown button.
+   *
+   * @default 'sm'
+   */
+  rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
 
-    /**
-     * The size of the button.
-     *
-     * @default 'md'
-     */
-    buttonSize?: 'sm' | 'md' | 'lg' | 'xl'
+  /**
+   * The size of the dropdown.
+   *
+   * @default 'md'
+   */
+  size?: 'md' | 'lg'
 
+  /**
+   * Optional CSS classes to apply to the component inner elements.
+   */
+  classes?: {
     /**
-     * The color of the dropdown.buttonSize
-     *
-     * @default 'default'
+     * CSS classes to apply to the wrapper element.
      */
-    color?: 'default' | 'default-contrast' | 'muted' | 'muted-contrast' | 'none'
+    wrapper?: string | string[]
 
     /**
-     * The placement of the dropdown via floating-ui.
-     *
-     * @default 'bottom-start'
+     * CSS classes to apply to the headless ui menu element.
      */
-    placement?:
-      | 'top'
-      | 'top-start'
-      | 'top-end'
-      | 'right'
-      | 'right-start'
-      | 'right-end'
-      | 'bottom'
-      | 'bottom-start'
-      | 'bottom-end'
-      | 'left'
-      | 'left-start'
-      | 'left-end'
+    menuWrapper?: string | string[]
 
     /**
-     * The radius of the dropdown button.
-     *
-     * @since 2.0.0
-     * @default 'sm'
+     * CSS classes to apply to the dropdown menu element.
      */
-    rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
+    menu?: string | string[]
 
     /**
-     * The size of the dropdown.
-     *
-     * @default 'md'
+     * CSS classes to apply to the header element.
      */
-    size?: 'md' | 'lg'
+    header?: string | string[]
 
     /**
-     * The variant of the dropdown.
-     *
-     * @since 2.0.0
-     * @default 'button'
+     * CSS classes to apply to the content element.
      */
-    variant?: 'button' | 'context' | 'text'
-
-    /**
-     * Optional CSS classes to apply to the component inner elements.
-     */
-    classes?: {
-      /**
-       * CSS classes to apply to the wrapper element.
-       */
-      wrapper?: string | string[]
-
-      /**
-       * CSS classes to apply to the headless ui menu element.
-       */
-      menuWrapper?: string | string[]
-
-      /**
-       * CSS classes to apply to the dropdown menu element.
-       */
-      menu?: string | string[]
-
-      /**
-       * CSS classes to apply to the header element.
-       */
-      header?: string | string[]
-
-      /**
-       * CSS classes to apply to the content element.
-       */
-      content?: string | string[]
-    }
-    /**
-     * Optional options for the underlying float component.
-     */
-    floatOptions?: FloatProps
-  }>(),
-  {
-    variant: undefined,
-    buttonColor: undefined,
-    buttonSize: undefined,
-    color: undefined,
-    rounded: undefined,
-    orientation: undefined,
-    placement: undefined,
-    size: undefined,
-    label: '',
-    headerLabel: undefined,
-    fixed: false,
-    classes: () => ({}),
-    floatOptions: () => ({}),
+    content?: string | string[]
   },
-)
 
-const buttonColor = useNuiDefaultProperty(props, 'BaseDropdown', 'buttonColor')
-const buttonSize = useNuiDefaultProperty(props, 'BaseDropdown', 'buttonSize')
+  /**
+   * Optional bindings to pass to the inner components.
+   */
+  bindings?: {
+    content?: DropdownMenuContentProps,
+    trigger?: DropdownMenuTriggerProps,
+    portal?: DropdownMenuPortalProps,
+  },
+}
+interface BaseDropdownEmits extends DropdownMenuRootEmits {}
+</script>
+
+<script setup lang="ts">
+import { reactiveOmit } from '@vueuse/core'
+import { useForwardPropsEmits } from 'reka-ui'
+
+const props = withDefaults(defineProps<BaseDropdownProps>(), {
+  color: undefined,
+  rounded: undefined,
+  size: undefined,
+  label: '',
+  modal: undefined,
+  open: undefined,
+  defaultOpen: undefined,
+  classes: () => ({}),
+  bindings: () => ({}),
+})
+const emits = defineEmits<BaseDropdownEmits>()
+
 const color = useNuiDefaultProperty(props, 'BaseDropdown', 'color')
-const placement = useNuiDefaultProperty(props, 'BaseDropdown', 'placement')
 const rounded = useNuiDefaultProperty(props, 'BaseDropdown', 'rounded')
 const size = useNuiDefaultProperty(props, 'BaseDropdown', 'size')
-const variant = useNuiDefaultProperty(props, 'BaseDropdown', 'variant')
 
 const sizes = {
   md: 'nui-dropdown-menu-md',
@@ -185,132 +133,69 @@ const colors = {
   'none': '',
 }
 
-const textColors = {
-  'default': 'text-inherit',
-  'default-contrast': 'text-inherit',
-  'muted': 'text-muted-500',
-  'muted-contrast': 'text-muted-500',
-  'primary': 'text-primary-500',
-  'info': 'text-info-500',
-  'success': 'text-success-500',
-  'warning': 'text-warning-500',
-  'danger': 'text-danger-500',
-  'light': 'text-muted-100',
-  'dark': 'text-muted-900 dark:text-muted-100',
-  'black': 'text-black dark:text-white',
-  'none': '',
-}
+const root = useForwardPropsEmits(reactiveOmit(props, ['label', 'disabled', 'arrow', 'color', 'rounded', 'size', 'classes', 'bindings']), emits)
 </script>
 
 <template>
-  <div class="nui-dropdown" :class="props.classes?.wrapper">
-    <Menu
-      v-slot="{ open, close }: { open: boolean; close: () => void }"
-      as="div"
-      class="nui-dropdown-menu"
-      :class="props.classes?.menuWrapper"
-    >
-      <Float
-        enter="transition duration-100 ease-out"
-        enter-from="transform scale-95 opacity-0"
-        enter-to="transform scale-100 opacity-100"
-        leave="transition duration-75 ease-in"
-        leave-from="transform scale-100 opacity-100"
-        leave-to="transform scale-95 opacity-0"
-        flip
-        :offset="props.variant === 'context' ? 6 : 4"
-        :strategy="props.fixed ? 'fixed' : 'absolute'"
-        :placement="placement"
-        :adaptive-width="props.fixed"
-        :z-index="20"
-        v-bind="floatOptions"
+  <DropdownMenuRoot v-bind="root">
+    <div class="nui-dropdown" :class="props.classes?.wrapper">
+      <div
+        class="nui-dropdown-menu-wrapper"
+        :class="props.classes?.menuWrapper"
       >
-        <MenuButton as="template" :disabled="props.disabled">
-          <slot name="button" v-bind="{ open, close }">
-            <BaseButton
-              v-if="variant === 'button' || props.variant === 'button'"
-              :size="props.buttonSize ? props.buttonSize : buttonSize"
-              :color="props.buttonColor ? props.buttonColor : buttonColor"
-              :rounded="props.rounded ? props.rounded : rounded"
-              :disabled="props.disabled"
-              class="!pe-3 !ps-4"
-            >
-              <slot name="label" v-bind="{ open, close }">
-                <span>{{ props.label }}</span>
-              </slot>
-              <Icon
-                name="lucide:chevron-down"
-                class="nui-dropdown-chevron"
-                :class="open && 'rotate-180'"
-              />
-            </BaseButton>
-            <button
-              v-else-if="props.variant === 'context'"
-              type="button"
-              class="nui-dropdown-context-button nui-focus"
-              :disabled="props.disabled"
-            >
-              <span class="nui-dropdown-context-button-inner">
-                <Icon
-                  name="lucide:more-horizontal"
-                  class="nui-dropdown-context-icon"
-                  :class="open && 'rotate-90'"
-                />
-              </span>
-            </button>
-            <button
-              v-else-if="props.variant === 'text'"
-              type="button"
-              :disabled="props.disabled"
-              class="nui-dropdown-text-button nui-focus" :class="[
-                buttonColor && textColors[buttonColor],
-              ]"
-            >
-              <slot name="label" v-bind="{ open, close }">
-                <span class="nui-dropdown-text-button-inner">{{ props.label }}</span>
-              </slot>
-
-              <Icon
-                name="lucide:chevron-down"
-                class="nui-chevron"
-                :class="open && 'rotate-180'"
-              />
-            </button>
-          </slot>
-        </MenuButton>
-
-        <MenuItems
-          class="nui-dropdown-menu"
-          :class="[
-            size && sizes[size],
-            rounded && radiuses[rounded],
-            color && colors[color],
-            props.classes?.menu,
-          ]"
-        >
-          <div
-            v-if="props.headerLabel"
-            class="nui-dropdown-menu-header"
-            :class="props.classes?.header"
+          <DropdownMenuTrigger 
+            v-bind="{
+              asChild: true,
+              disabled: props.disabled,
+              ...(props.bindings?.trigger || {}),
+            }"
           >
-            <div class="nui-dropdown-menu-header-inner">
-              <h4 class="nui-dropdown-menu-header-title">
-                {{ props.headerLabel }}
-              </h4>
-            </div>
-          </div>
-          <div class="nui-dropdown-menu-content" :class="props.classes?.content">
-            <slot v-bind="{ open, close }" />
-          </div>
-        </MenuItems>
-      </Float>
-    </Menu>
-  </div>
+            <slot name="button">
+              <BaseButton
+                :rounded="props.rounded ? props.rounded : rounded"
+                :disabled="props.disabled"
+                class="group"
+              >
+                <slot name="label">
+                  <span>{{ props.label }}</span>
+                </slot>
+                <Icon
+                  name="lucide:chevron-down"
+                  class="nui-dropdown-chevron group-data-[state=open]:rotate-180"
+                />
+              </BaseButton>
+            </slot>
+          </DropdownMenuTrigger>
+          <DropdownMenuPortal v-bind="props.bindings?.portal">
+            <Transition
+              enter-active-class="transition-opacity duration-100 ease-out"
+              enter-from-class="opacity-0"
+              enter-to-class=" opacity-100"
+              leave-active-class="transition-opacity duration-75 ease-in"
+              leave-from-class="opacity-100"
+              leave-to-class="opacity-0"
+            >
+              <DropdownMenuContent
+                class="nui-dropdown-menu"
+                v-bind="{
+                  align: 'start',
+                  ...(props.bindings?.content || {}),
+                }"
+                :class="[
+                  size && sizes[size],
+                  rounded && radiuses[rounded],
+                  color && colors[color],
+                  props.classes?.menu,
+                ]"
+              >
+                <div class="nui-dropdown-menu-content" :class="props.classes?.content">
+                  <slot />
+                  <BaseDropdownArrow v-if="arrow" />
+                </div>
+              </DropdownMenuContent>
+            </Transition>
+          </DropdownMenuPortal>
+      </div>
+    </div>
+  </DropdownMenuRoot>
 </template>
-
-<style scoped>
-.nui-dropdown .nui-dropdown-menu {
-  position: unset;
-  margin-top: unset;
-}
-</style>

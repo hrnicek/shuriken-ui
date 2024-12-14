@@ -195,31 +195,6 @@ const colors = {
             <Icon :name="nextIcon" class="pagination-button-icon" />
           </slot>
         </PaginationNext>
-        <!-- <NuxtLink
-          :to="paginatedLink(currentPage - 1)"
-          tabindex="0"
-          class="nui-pagination-button"
-          :class="props.classes?.button"
-          @keydown.space="(e: any) => (e.target as HTMLAnchorElement).click()"
-          @click="(e: any) => handleLinkClick(e, currentPage - 1)"
-        >
-          <slot name="previous-icon">
-            <Icon :name="previousIcon" class="pagination-button-icon" />
-          </slot>
-        </NuxtLink>
-
-        <NuxtLink
-          :to="paginatedLink(currentPage + 1)"
-          tabindex="0"
-          class="nui-pagination-button"
-          :class="props.classes?.button"
-          @keydown.space="(e: any) => (e.target as HTMLAnchorElement).click()"
-          @click="(e: any) => handleLinkClick(e, currentPage + 1)"
-        >
-          <slot name="next-icon">
-            <Icon :name="nextIcon" class="pagination-button-icon" />
-          </slot>
-        </NuxtLink> -->
         <slot name="after-navigation" />
       </div>
     </PaginationList>

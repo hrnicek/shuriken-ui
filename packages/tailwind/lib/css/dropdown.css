@@ -10,10 +10,10 @@
   }
 }
 @utility nui-dropdown-menu {
-  @apply absolute z-50 mt-2 focus:outline-none;
+  @apply focus:outline-none;
   @apply shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20;
 }
-@utility nui-dropdown-menu {
+@utility nui-dropdown-menu-wrapper {
   @apply relative inline-block;
 }
 @utility nui-dropdown-menu-content {
@@ -45,7 +45,7 @@
   @apply h-4 w-4;
   @apply transition-transform duration-300;
 }
-@utility nui-dropdown-start {
+/* @utility nui-dropdown-start {
   .nui-dropdown-menu {
     @apply start-0 origin-top-left;
   }
@@ -54,9 +54,9 @@
   .nui-dropdown-menu {
     @apply end-0 origin-top-right;
   }
-}
+} */
 @utility nui-dropdown-menu-header {
-  @apply px-4 pt-5;
+  @apply px-3 pt-1;
 }
 @utility nui-dropdown-menu-header-inner {
   @apply relative flex items-center justify-between;
