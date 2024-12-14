@@ -107,6 +107,6 @@ const { attributes, is } = useNinjaButton(props)
 <template>
   <component :is="is" v-bind="attributes" :class="classes" data-group-role="button">
     <slot v-if="!props.loading" />
-    <BasePlaceload v-else class="h-4 w-12 rounded" :class="variants[variant] === 'dark' && 'filter-invert'"/>
+    <BasePlaceload v-else class="h-4 w-12 rounded" :class="variant === 'dark' && 'invert'"/>
   </component>
 </template>
