@@ -2,7 +2,7 @@
 const props = withDefaults(
   defineProps<{
     /**
-     * Adds a static or a on hover shadow to the card.
+     * Adds a static or a hover shadow to the card.
      */
     shadow?: 'static' | 'hover'
 
