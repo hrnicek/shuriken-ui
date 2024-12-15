@@ -80,6 +80,8 @@ const id = useNinjaId(() => props.id)
 
 const color = useNuiDefaultProperty(props, 'BaseSwitchBall', 'color')
 
+const iconCheck = useNuiDefaultIcon('check')
+
 const colors = {
   primary: 'nui-switch-ball-primary',
   info: 'nui-switch-ball-info',
@@ -114,7 +116,7 @@ defineExpose({
         :class="props.classes?.handle"
       />
       <span class="nui-switch-ball-track" :class="props.classes?.track" />
-      <IconCheck class="nui-switch-ball-icon" :class="props.classes?.icon" />
+      <Icon :name="iconCheck" class="nui-switch-ball-icon" :class="props.classes?.icon" />
     </SwitchRoot>
     <Label :for="id" v-if="!props.sublabel" class="nui-switch-ball-single-label">
       {{ props.label }}

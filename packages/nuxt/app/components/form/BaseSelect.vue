@@ -131,6 +131,8 @@ const contrast = useNuiDefaultProperty(props, 'BaseSelect', 'contrast')
 const rounded = useNuiDefaultProperty(props, 'BaseSelect', 'rounded')
 const size = useNuiDefaultProperty(props, 'BaseSelect', 'size')
 
+const iconChevronDown = useNuiDefaultIcon('chevronDown')
+
 const selectRef = ref<HTMLSelectElement>()
 const id = useNinjaId(() => props.id)
 
@@ -248,7 +250,7 @@ const placeholder = computed(() => {
         class="nui-select-chevron nui-chevron"
         :class="props.classes?.chevron"
       >
-        <IconChevronDown class="nui-select-chevron-inner" />
+        <Icon :name="iconChevronDown" class="nui-select-chevron-inner" />
       </div>
       <BaseInputHelpText
         v-if="props.error && typeof props.error === 'string'"

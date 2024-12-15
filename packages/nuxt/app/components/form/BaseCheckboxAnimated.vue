@@ -202,7 +202,10 @@ watchEffect(() => {
       :class="[color && colors[color], props.classes?.label]"
     >
       <div ref="innerElement" :class="[isOpaque ? 'is-opaque' : '']" />
-      <IconCheckCircle />
+      <svg viewBox="0 0 52 52">
+        <circle cx="26" cy="26" r="25" fill="none" stroke="currentColor" />
+        <path fill="none" stroke="currentColor" d="m14.1 27.2 7.1 7.2 16.7-16.8" />
+      </svg>
     </label>
   </div>
 </template>

@@ -1,5 +1,19 @@
 export default defineAppConfig({
   nui: {
+    icons: {
+      sun: 'nui-icon:sun',
+      moon: 'nui-icon:moon',
+      spiner: 'nui-icon:spiner',
+      close: 'lucide:x',
+      check: 'lucide:check',
+      plus: 'lucide:plus',
+      minus: 'lucide:minus',
+      chevronDown: 'lucide:chevron-down',
+      chevronLeft: 'lucide:chevron-left',
+      chevronRight: 'lucide:chevron-right',
+      empty: '',
+    },
+
     // #region base
     BaseAccordion: {
       /**
@@ -142,29 +156,11 @@ export default defineAppConfig({
     },
     BaseDropdown: {
       /**
-       * The color of the dropdown button.
-       *
-       * @type {'default' | 'default-contrast' | 'muted' | 'muted-contrast' | 'light' | 'dark' | 'black' | 'primary' | 'info' | 'success' | 'warning' | 'danger' | 'none'}
-       */
-      buttonColor: 'default',
-      /**
-       * The size of the dropdown button.
-       *
-       * @type {'sm' | 'md' | 'lg' | 'xl'}
-       */
-      buttonSize: 'md',
-      /**
        * The color of the dropdown.
        *
        * @type {'default' | 'default-contrast' | 'muted' | 'muted-contrast' | 'none'}
        */
       color: 'default',
-      /**
-       * The placement of the dropdown via floating-ui
-       *
-       * @type {'top' | 'top-start' | 'top-end' | 'right' | 'right-start' | 'right-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'left-start' | 'left-end'}
-       */
-      placement: 'bottom-start',
       /**
        * Default rounded for the BaseDropdown component
        *
@@ -177,12 +173,6 @@ export default defineAppConfig({
        * @type {'md' | 'lg'}
        */
       size: 'md',
-      /**
-       * The variant of the dropdown.
-       *
-       * @type {'button' | 'context' | 'text'}
-       */
-      variant: 'button',
     },
     BaseDropdownDivider: {},
     BaseDropdownItem: {

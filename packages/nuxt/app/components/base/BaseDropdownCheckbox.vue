@@ -1,10 +1,11 @@
 <script lang="ts">
 import type {
-  DropdownMenuItemProps,
-  DropdownMenuItemEmits,
+  DropdownMenuCheckboxItemProps,
+  DropdownMenuCheckboxItemEmits,
+  DropdownMenuItemIndicatorProps,
 } from 'reka-ui';
 
-interface BaseDropdownItemProps extends DropdownMenuItemProps {
+interface BaseDropdownCheckboxProps extends DropdownMenuCheckboxItemProps {
   /**
    * The title to display for the dropdown item.
    */
@@ -20,7 +21,7 @@ interface BaseDropdownItemProps extends DropdownMenuItemProps {
    *
    * @default 'primary'
    */
-  color?:
+   color?:
     | 'primary'
     | 'info'
     | 'success'
@@ -44,6 +45,10 @@ interface BaseDropdownItemProps extends DropdownMenuItemProps {
    */
   rounded?: 'none' | 'sm' | 'md' | 'lg'
 
+  bindings?: {
+    indicator?: DropdownMenuItemIndicatorProps,
+  }
+
   /**
    * Optional CSS classes to apply to the wrapper and inner elements.
    */
@@ -64,35 +69,40 @@ interface BaseDropdownItemProps extends DropdownMenuItemProps {
     text?: string | string[]
   }
 }
-interface BaseDropdownItemEmits extends DropdownMenuItemEmits {}
+interface BaseDropdownCheckboxEmits extends DropdownMenuCheckboxItemEmits {}
 </script>
 
 <script setup lang="ts">
-import {
+import { 
   useForwardPropsEmits,
 } from 'reka-ui'
 import { 
   reactiveOmit,
 } from '@vueuse/core'
 
-const props = withDefaults(defineProps<BaseDropdownItemProps>(), {
+const props = withDefaults(defineProps<BaseDropdownCheckboxProps>(), {
   rounded: undefined,
   contrast: undefined,
   color: undefined,
-  title: '',
-  text: '',
+  disabled: undefined,
+  modelValue: undefined,
+  text: undefined,
+  textValue: undefined,
+  title: undefined,
+  bindings: () => ({}),
   classes: () => ({
     title:
       'font-heading text-muted-800 text-xs font-semibold leading-tight dark:text-white',
     text: 'text-muted-400 font-sans text-xs',
   }),
 })
-
-const emit = defineEmits<BaseDropdownItemEmits>()
+const emit = defineEmits<BaseDropdownCheckboxEmits>()
 
 const color = useNuiDefaultProperty(props, 'BaseDropdownItem', 'color')
 const contrast = useNuiDefaultProperty(props, 'BaseDropdownItem', 'contrast')
 const rounded = useNuiDefaultProperty(props, 'BaseDropdownItem', 'rounded')
+
+const iconCheck = useNuiDefaultIcon('check')
 
 const radiuses = {
   none: '',
@@ -116,23 +126,25 @@ const colors = {
   black: 'nui-dropdown-item-black',
 }
 
-const root = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'color', 'contrast', 'rounded', 'classes']), emit)
+const root = useForwardPropsEmits(reactiveOmit(props, ['bindings']), emit)
 </script>
 
 <template>
-  <DropdownMenuItem
+  <DropdownMenuCheckboxItem 
     v-bind="root"
-    class="nui-dropdown-item"
+    class="nui-dropdown-item group/menu-checkbox-item"
     :class="[
       rounded && radiuses[rounded],
       contrast && contrasts[contrast],
       color && colors[color],
       props.disabled && 'nui-dropdown-item-disabled',
-      props.classes?.wrapper,
     ]"
   >
-    <slot name="start" />
-    <div class="nui-dropdown-item-content">
+    <DropdownMenuItemIndicator v-bind="props.bindings?.indicator">
+      <Icon :name="iconCheck" class="size-4" />
+    </DropdownMenuItemIndicator>
+
+    <div class="nui-dropdown-item-content group-data-[state=unchecked]/menu-checkbox-item:ps-6!">
       <div :class="props.classes?.title">
         <slot>
           {{ props.title }}
@@ -148,6 +160,5 @@ const root = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'color',
         </slot>
       </p>
     </div>
-    <slot name="end" />
-  </DropdownMenuItem>
+  </DropdownMenuCheckboxItem>
 </template>

@@ -44,6 +44,8 @@ const color = useNuiDefaultProperty(props, 'BaseButtonClose', 'color')
 const rounded = useNuiDefaultProperty(props, 'BaseButtonClose', 'rounded')
 const size = useNuiDefaultProperty(props, 'BaseButtonClose', 'size')
 
+const iconClose = useNuiDefaultIcon('close')
+
 const sizes = {
   xs: 'nui-button-close-xs',
   sm: 'nui-button-close-sm',
@@ -84,7 +86,7 @@ const classes = computed(() => [
 <template>
   <button type="button" :class="classes">
     <slot>
-      <IconClose class="nui-button-close-icon" />
+      <Icon :name="iconClose" class="nui-button-close-icon" />
     </slot>
   </button>
 </template>

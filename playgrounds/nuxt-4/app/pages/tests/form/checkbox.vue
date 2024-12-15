@@ -45,6 +45,7 @@ function reset() {
             v-model="options.first"
             label="Default"
             rounded="none"
+            indeterminate
           />
           <BaseCheckbox
             v-model="options.second"

@@ -119,7 +119,7 @@ const props = withDefaults(
     rounded: undefined,
     message: '',
     icon: false,
-    closeIcon: 'lucide:x',
+    closeIcon: undefined,
     classes: () => ({}),
     defaultIcons: undefined,
   },
@@ -131,6 +131,8 @@ const emit = defineEmits<{
 const color = useNuiDefaultProperty(props, 'BaseMessage', 'color')
 const rounded = useNuiDefaultProperty(props, 'BaseMessage', 'rounded')
 const icons = useNuiDefaultProperty(props, 'BaseMessage', 'defaultIcons')
+
+const iconClose = useNuiDefaultIcon('close', () => props.closeIcon)
 
 const radiuses = {
   none: '',
@@ -192,7 +194,7 @@ const icon = computed(() =>
         @click="emit('close')"
       >
         <slot name="close-button">
-          <Icon :name="closeIcon" class="nui-message-close-icon" />
+          <Icon :name="iconClose" class="nui-message-close-icon" />
         </slot>
       </button>
     </div>
