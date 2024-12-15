@@ -1,6 +1,6 @@
 @theme {
   /* --font-sans: 'Titillium Web', sans-serif; */
-  /* --font-mono: 'Titillium Web', sans-serif; */
+  /* --font-monospace: 'Titillium Web', sans-serif; */
   --font-alt: var(--font-sans);
   --font-heading: var(--font-sans);
   

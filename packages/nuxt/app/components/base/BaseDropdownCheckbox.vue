@@ -102,6 +102,8 @@ const color = useNuiDefaultProperty(props, 'BaseDropdownItem', 'color')
 const contrast = useNuiDefaultProperty(props, 'BaseDropdownItem', 'contrast')
 const rounded = useNuiDefaultProperty(props, 'BaseDropdownItem', 'rounded')
 
+const iconCheck = useNuiDefaultIcon('check')
+
 const radiuses = {
   none: '',
   sm: 'nui-dropdown-item-rounded-sm',
@@ -139,7 +141,7 @@ const root = useForwardPropsEmits(reactiveOmit(props, ['bindings']), emit)
     ]"
   >
     <DropdownMenuItemIndicator v-bind="props.bindings?.indicator">
-      <Icon name="ph:check" class="size-4" />
+      <Icon :name="iconCheck" class="size-4" />
     </DropdownMenuItemIndicator>
 
     <div class="nui-dropdown-item-content group-data-[state=unchecked]/menu-checkbox-item:ps-6!">

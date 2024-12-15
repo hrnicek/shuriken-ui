@@ -103,9 +103,17 @@ const props = withDefaults(defineProps<BaseDropdownProps>(), {
 })
 const emits = defineEmits<BaseDropdownEmits>()
 
+defineOptions({
+  inheritAttrs: false,
+})
+
+const attrs = useAttrs()
+
 const color = useNuiDefaultProperty(props, 'BaseDropdown', 'color')
 const rounded = useNuiDefaultProperty(props, 'BaseDropdown', 'rounded')
 const size = useNuiDefaultProperty(props, 'BaseDropdown', 'size')
+
+const iconChevronDown = useNuiDefaultIcon('chevronDown')
 
 const sizes = {
   md: 'nui-dropdown-menu-md',
@@ -138,7 +146,7 @@ const root = useForwardPropsEmits(reactiveOmit(props, ['label', 'disabled', 'arr
 
 <template>
   <DropdownMenuRoot v-bind="root">
-    <div class="nui-dropdown" :class="props.classes?.wrapper">
+    <div class="nui-dropdown" v-bind="attrs" :class="props.classes?.wrapper">
       <div
         class="nui-dropdown-menu-wrapper"
         :class="props.classes?.menuWrapper"
@@ -160,7 +168,7 @@ const root = useForwardPropsEmits(reactiveOmit(props, ['label', 'disabled', 'arr
                   <span>{{ props.label }}</span>
                 </slot>
                 <Icon
-                  name="lucide:chevron-down"
+                  :name="iconChevronDown"
                   class="nui-dropdown-chevron group-data-[state=open]:rotate-180"
                 />
               </BaseButton>

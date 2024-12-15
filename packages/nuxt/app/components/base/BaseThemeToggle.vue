@@ -30,6 +30,9 @@ const disableTransitions = useNuiDefaultProperty(
   'disableTransitions',
 )
 
+const iconSun = useNuiDefaultIcon('sun')
+const iconMoon = useNuiDefaultIcon('moon')
+
 const colorMode = useColorMode()
 const isDark = computed({
   get() {
@@ -66,8 +69,8 @@ const isDark = computed({
       class="nui-theme-toggle-input"
     >
     <span class="nui-theme-toggle-inner">
-      <IconSun class="nui-theme-toggle-sun" />
-      <IconMoon class="nui-theme-toggle-moon" />
+      <Icon :name="iconSun" class="nui-theme-toggle-sun" />
+      <Icon :name="iconMoon" class="nui-theme-toggle-moon" />
     </span>
   </label>
 </template>

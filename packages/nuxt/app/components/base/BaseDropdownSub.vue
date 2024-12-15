@@ -62,6 +62,8 @@ const color = useNuiDefaultProperty(props, 'BaseDropdown', 'color')
 const rounded = useNuiDefaultProperty(props, 'BaseDropdown', 'rounded')
 const size = useNuiDefaultProperty(props, 'BaseDropdown', 'size')
 
+const iconChevronRight = useNuiDefaultIcon('chevronRight')
+
 const sizes = {
   md: 'nui-dropdown-menu-md',
   lg: 'nui-dropdown-menu-lg',
@@ -113,7 +115,7 @@ const root = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'color',
             </slot>
           </p>
         </div>
-        <Icon name="radix-icons:chevron-right" />
+        <Icon :name="iconChevronRight" />
       </div>
     </DropdownMenuSubTrigger>
     <DropdownMenuPortal v-bind="props.bindings?.portal">

@@ -1,5 +1,19 @@
 export default defineAppConfig({
   nui: {
+    icons: {
+      sun: 'nui-icon:sun',
+      moon: 'nui-icon:moon',
+      spiner: 'nui-icon:spiner',
+      close: 'lucide:x',
+      check: 'lucide:check',
+      plus: 'lucide:plus',
+      minus: 'lucide:minus',
+      chevronDown: 'lucide:chevron-down',
+      chevronLeft: 'lucide:chevron-left',
+      chevronRight: 'lucide:chevron-right',
+      empty: '',
+    },
+
     // #region base
     BaseAccordion: {
       /**

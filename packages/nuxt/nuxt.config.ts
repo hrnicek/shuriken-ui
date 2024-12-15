@@ -14,6 +14,15 @@ export default defineNuxtConfig({
     '@nuxt/icon',
   ],
 
+  icon: {
+    customCollections: [
+      {
+        prefix: 'nui-icon',
+        dir: resolve('./app/icons'),
+      },
+    ],
+  },
+
   vite: {
     plugins: [tailwindcss()],
   },
@@ -26,11 +35,6 @@ export default defineNuxtConfig({
     {
       prefix: '',
       path: resolve('./app/components/base'),
-      global: false,
-    },
-    {
-      prefix: '',
-      path: resolve('./app/components/icon'),
       global: false,
     },
     {

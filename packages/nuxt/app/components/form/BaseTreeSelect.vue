@@ -95,13 +95,7 @@ const props = withDefaults(
     parent?: any
   }>(),
   {
-    icons: () => ({
-      open: 'lucide:minus',
-      closed: 'lucide:plus',
-      item: '',
-      pending: '',
-      empty: '',
-    }),
+    icons: () => ({}),
     classes: () => ({
       pendingIcon: '',
       emptyIcon: '',
@@ -125,22 +119,11 @@ const props = withDefaults(
 
 const [modelValue] = defineModel<any[]>()
 
-const defaultIcons = {
-  open: 'lucide:minus',
-  closed: 'lucide:plus',
-  item: '',
-  empty: '',
-  pending: '',
-} as const
-
-const icons = computed(() => {
-  if (!props.icons)
-    return defaultIcons
-  return {
-    ...defaultIcons,
-    ...props.icons,
-  }
-})
+const iconOpen = useNuiDefaultIcon('minus', () => props.icons?.open)
+const iconClosed = useNuiDefaultIcon('plus', () => props.icons?.closed)
+const iconItem = useNuiDefaultIcon('empty', () => props.icons?.item)
+const iconEmpty = useNuiDefaultIcon('empty', () => props.icons?.empty)
+const iconPending = useNuiDefaultIcon('empty', () => props.icons?.pending)
 
 const defaultTreeline = {
   offset: '0.625rem',
@@ -582,8 +565,8 @@ function toggleChildrenSelection(tree?: TreeViewItemNode[], event?: Event) {
               class="text-muted-400 flex size-5 items-center justify-center"
             >
               <Icon
-                v-if="icons.pending"
-                :name="icons.pending"
+                v-if="iconPending"
+                :name="iconPending"
                 class="size-4"
                 :class="props.classes?.pendingIcon"
               />
@@ -623,8 +606,8 @@ function toggleChildrenSelection(tree?: TreeViewItemNode[], event?: Event) {
               class="text-muted-400 flex size-5 items-center justify-center"
             >
               <Icon
-                v-if="icons.empty"
-                :name="icons.empty"
+                v-if="iconEmpty"
+                :name="iconEmpty"
                 :class="props.classes?.emptyIcon"
                 class="size-4"
               />
@@ -664,14 +647,14 @@ function toggleChildrenSelection(tree?: TreeViewItemNode[], event?: Event) {
               @click="openMap[index] = !openMap[index]"
             >
               <Icon
-                v-if="openMap[index] && icons.open"
-                :name="icons.open"
+                v-if="openMap[index] && iconOpen"
+                :name="iconOpen"
                 class="size-4"
                 :class="props.classes?.treeIcon"
               />
               <Icon
-                v-else-if="!openMap[index] && icons.closed"
-                :name="icons.closed"
+                v-else-if="!openMap[index] && iconClosed"
+                :name="iconClosed"
                 class="size-4"
                 :class="props.classes?.treeIcon"
               />
@@ -698,8 +681,8 @@ function toggleChildrenSelection(tree?: TreeViewItemNode[], event?: Event) {
                 class="text-muted-400 me-1 flex size-5 items-center justify-center"
               >
                 <Icon
-                  v-if="icons.item"
-                  :name="icons.item"
+                  v-if="iconItem"
+                  :name="iconItem"
                   :class="props.classes?.itemIcon"
                   class="size-4"
                 />

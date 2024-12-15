@@ -47,10 +47,12 @@ const props = withDefaults(
     selected?: boolean
   }>(),
   {
-    selectedIcon: 'lucide:check',
+    selectedIcon: undefined,
     value: () => ({}),
   },
 )
+
+const iconSelected = useNuiDefaultIcon('check', () => props.selectedIcon)
 </script>
 
 <template>
@@ -82,6 +84,6 @@ const props = withDefaults(
     </BaseParagraph>
   </div>
   <span v-if="selected" class="nui-listbox-selected-icon">
-    <Icon :name="selectedIcon" class="nui-listbobx-selected-icon-inner" />
+    <Icon :name="iconSelected" class="nui-listbobx-selected-icon-inner" />
   </span>
 </template>

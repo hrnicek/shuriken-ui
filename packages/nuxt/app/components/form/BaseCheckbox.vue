@@ -112,6 +112,9 @@ const [modelValue] = defineModel<T | T[]>()
 const color = useNuiDefaultProperty(props, 'BaseCheckbox', 'color')
 const rounded = useNuiDefaultProperty(props, 'BaseCheckbox', 'rounded')
 
+const iconCheck = useNuiDefaultIcon('check')
+const iconIndeterminate = useNuiDefaultIcon('minus')
+
 const inputRef = ref<HTMLInputElement>()
 const id = useNinjaId(() => props.id)
 
@@ -180,8 +183,8 @@ defineExpose({
         type="checkbox"
       >
       <div class="nui-checkbox-inner" />
-      <IconCheck class="nui-checkbox-icon-check" />
-      <IconIndeterminate class="nui-checkbox-icon-indeterminate" />
+      <Icon :name="iconCheck" class="nui-checkbox-icon-check" />
+      <Icon :name="iconIndeterminate" class="nui-checkbox-icon-indeterminate" />
     </div>
     <div class="nui-checkbox-label-wrapper">
       <Label

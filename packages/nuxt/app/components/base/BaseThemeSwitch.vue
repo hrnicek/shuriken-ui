@@ -25,6 +25,8 @@ const disableTransitions = useNuiDefaultProperty(
   'BaseThemeSwitch',
   'disableTransitions',
 )
+const iconSun = useNuiDefaultIcon('sun')
+const iconMoon = useNuiDefaultIcon('moon')
 
 const colorMode = useColorMode()
 const isDark = computed({
@@ -58,8 +60,8 @@ const isDark = computed({
       type="checkbox"
     >
     <span class="nui-theme-switch-inner">
-      <IconSun class="nui-theme-switch-sun" />
-      <IconMoon class="nui-theme-switch-moon" />
+      <Icon :name="iconSun" class="nui-theme-switch-sun" />
+      <Icon :name="iconMoon" class="nui-theme-switch-moon" />
     </span>
   </label>
 </template>

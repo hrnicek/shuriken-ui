@@ -63,7 +63,7 @@ const props = withDefaults(
     item: undefined,
     rounded: undefined,
     mark: 'nui-mark',
-    selectedIcon: 'lucide:check',
+    selectedIcon: undefined,
     properties: () =>
       ({
         label: 'label',
@@ -79,6 +79,8 @@ defineSlots<{
 }>()
 
 const rounded = useNuiDefaultProperty(props, 'BaseAutocompleteItem', 'rounded')
+
+const iconSelected = useNuiDefaultIcon('check', () => props.selectedIcon)
 
 const radiuses = {
   none: '',
@@ -182,7 +184,7 @@ const markedSublabel = useNinjaMark(() => sublabel.value, query, mark)
       :class="[media && 'size-8', icon && 'size-8']"
     >
       <slot name="selected-icon">
-        <Icon :name="selectedIcon" class="text-success-500 block size-4" />
+        <Icon :name="iconSelected" class="text-success-500 block size-4" />
       </slot>
     </div>
   </div>

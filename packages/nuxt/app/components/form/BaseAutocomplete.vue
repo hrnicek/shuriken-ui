@@ -257,9 +257,9 @@ const props = withDefaults(
     clearable: false,
     colorFocus: false,
     clearValue: undefined,
-    clearIcon: 'lucide:x',
-    chipClearIcon: 'lucide:x',
-    dropdownIcon: 'lucide:chevron-down',
+    clearIcon: undefined,
+    chipClearIcon: undefined,
+    dropdownIcon: undefined,
     dropdown: false,
     multiple: false,
     displayValue: undefined,
@@ -377,6 +377,10 @@ const contrast = useNuiDefaultProperty(props, 'BaseAutocomplete', 'contrast')
 const i18n = useNuiDefaultProperty(props, 'BaseAutocomplete', 'i18n')
 const rounded = useNuiDefaultProperty(props, 'BaseAutocomplete', 'rounded')
 const size = useNuiDefaultProperty(props, 'BaseAutocomplete', 'size')
+
+const iconClear = useNuiDefaultIcon('close', () => props.clearIcon)
+const iconChipClear = useNuiDefaultIcon('close', () => props.chipClearIcon)
+const iconDropdown = useNuiDefaultIcon('chevronDown', () => props.dropdownIcon)
 
 const items = shallowRef(props.items)
 
@@ -678,7 +682,7 @@ const internal = ref<any>(modelValue)
                 {{ displayValueResolved(item) }}
                 <button type="button" @click="removeItem(item)">
                   <Icon
-                    :name="chipClearIcon"
+                    :name="iconChipClear"
                     class="nui-autocomplete-multiple-list-item-icon"
                   />
                 </button>
@@ -739,7 +743,7 @@ const internal = ref<any>(modelValue)
           >
             <slot name="clear-icon">
               <Icon
-                :name="props.clearIcon"
+                :name="iconClear"
                 class="nui-autocomplete-clear-inner"
               />
             </slot>
@@ -751,7 +755,7 @@ const internal = ref<any>(modelValue)
           >
             <slot name="dropdown-icon">
               <Icon
-                :name="props.dropdownIcon"
+                :name="iconDropdown"
                 class="nui-autocomplete-clear-inner transition-transform duration-300"
                 :class="[props.classes?.icon, open && 'rotate-180']"
               />

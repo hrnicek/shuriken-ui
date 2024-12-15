@@ -10,17 +10,13 @@ definePageMeta({
 <template>
   <div>
     <NuiPreviewContainer title="Icons">
-      <NuiPreview title="Nui Icons" description="Svg icons used in Nui">
+      <NuiPreview title="Nui Icons" description="Custom iconify icons set">
         <div class="flex flex-wrap items-end gap-4">
-          <IconCheck class="w-8 h-8" />
-          <IconIndeterminate class="w-8 h-8" />
-          <IconCheckCircle class="w-8 h-8" />
-          <IconChevronDown class="w-8 h-8" />
-          <IconClose class="w-8 h-8" />
-          <IconMoon class="w-8 h-8" />
-          <IconPlus class="w-8 h-8" />
-          <IconMinus class="w-8 h-8" />
-          <IconSun class="w-8 h-8" />
+          <Icon name="nui-icon:spiner-thin" class="text-2xl text-primary-500" />
+          <Icon name="nui-icon:spiner" class="text-2xl text-primary-500" />
+          <Icon name="nui-icon:spiner-bold" class="text-2xl text-primary-500" />
+          <Icon name="nui-icon:sun" class="text-2xl text-amber-500" />
+          <Icon name="nui-icon:moon" class="text-2xl text-amber-500" />
         </div>
       </NuiPreview>
     </NuiPreviewContainer>

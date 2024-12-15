@@ -198,7 +198,7 @@ const props = withDefaults(
     contrast: undefined,
     label: '',
     icon: '',
-    selectedIcon: 'lucide:check',
+    selectedIcon: undefined,
     placeholder: '',
     error: false,
     multipleLabel: undefined,
@@ -256,6 +256,9 @@ const contrast = useNuiDefaultProperty(props, 'BaseListbox', 'contrast')
 const placement = useNuiDefaultProperty(props, 'BaseListbox', 'placement')
 const rounded = useNuiDefaultProperty(props, 'BaseListbox', 'rounded')
 const size = useNuiDefaultProperty(props, 'BaseListbox', 'size')
+
+const iconSelected = useNuiDefaultIcon('check', () => props.selectedIcon)
+const iconChevronDown = useNuiDefaultIcon('chevronDown')
 
 const radiuses = {
   none: '',
@@ -478,7 +481,7 @@ const internal = ref<any>(modelValue)
 
                     <span class="nui-listbox-chevron nui-listbox-chevron">
                       <Icon
-                        name="lucide:chevron-down"
+                        :name="iconChevronDown"
                         class="nui-listbox-chevron-inner"
                         :class="[open && 'rotate-180']"
                       />
@@ -574,7 +577,7 @@ const internal = ref<any>(modelValue)
                           props.properties.icon
                           && (item as any)[props.properties.icon],
                       }"
-                      :selected-icon="props.selectedIcon"
+                      :selected-icon="iconSelected"
                       :active="active"
                       :selected="selected"
                     />

@@ -166,8 +166,8 @@ const props = withDefaults(
     icon: undefined,
     placeholder: undefined,
     error: false,
-    iconDecrement: 'lucide:minus',
-    iconIncrement: 'lucide:plus',
+    iconDecrement: undefined,
+    iconIncrement: undefined,
     classes: () => ({}),
   },
 )
@@ -190,6 +190,9 @@ const [modelValue, modelModifiers] = defineModel<number, 'lazy' | 'raw'>({
 const contrast = useNuiDefaultProperty(props, 'BaseInputNumber', 'contrast')
 const rounded = useNuiDefaultProperty(props, 'BaseInputNumber', 'rounded')
 const size = useNuiDefaultProperty(props, 'BaseInputNumber', 'size')
+
+const iconIncrement = useNuiDefaultIcon('plus', () => props.iconIncrement)
+const iconDecrement = useNuiDefaultIcon('minus', () => props.iconDecrement)
 
 const radiuses = {
   none: '',
@@ -434,7 +437,7 @@ if (import.meta.dev) {
             @pointerout="stopDecrement"
             @pointerup="stopDecrement"
           >
-            <Icon :name="props.iconDecrement" />
+            <Icon :name="iconDecrement" />
           </button>
           <button
             type="button"
@@ -444,7 +447,7 @@ if (import.meta.dev) {
             @pointerout="stopIncrement"
             @pointerup="stopIncrement"
           >
-            <Icon :name="props.iconIncrement" />
+            <Icon :name="iconIncrement" />
           </button>
         </div>
       </div>

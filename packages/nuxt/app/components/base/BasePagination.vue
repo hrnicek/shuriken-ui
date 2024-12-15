@@ -97,8 +97,8 @@ const props = withDefaults(
     color: undefined,
     maxLinksDisplayed: 3,
     routerQueryKey: 'page',
-    previousIcon: 'lucide:chevron-left',
-    nextIcon: 'lucide:chevron-right',
+    previousIcon: undefined,
+    nextIcon: undefined,
     ellipsis: '…',
     classes: () => ({}),
   },
@@ -107,6 +107,8 @@ const props = withDefaults(
 const color = useNuiDefaultProperty(props, 'BasePagination', 'color')
 const rounded = useNuiDefaultProperty(props, 'BasePagination', 'rounded')
 
+const iconPrevious = useNuiDefaultIcon('chevronLeft', () => props.previousIcon)
+const iconNext = useNuiDefaultIcon('chevronRight', () => props.nextIcon)
 
 const currentPage = defineModel('currentPage', {
   type: Number,
@@ -186,13 +188,13 @@ const colors = {
 
         <PaginationPrev class="nui-pagination-button">
           <slot name="previous-icon">
-            <Icon :name="previousIcon" class="pagination-button-icon" />
+            <Icon :name="iconPrevious" class="pagination-button-icon" />
           </slot>
         </PaginationPrev>
 
         <PaginationNext class="nui-pagination-button">
           <slot name="next-icon">
-            <Icon :name="nextIcon" class="pagination-button-icon" />
+            <Icon :name="iconNext" class="pagination-button-icon" />
           </slot>
         </PaginationNext>
         <slot name="after-navigation" />
