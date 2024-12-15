@@ -360,6 +360,36 @@ definePageMeta({
           </BaseButton>
         </BaseButtonGroup>
       </NuiPreview>
+
+
+
+      <NuiPreview
+        title="Group"
+        description="Button component inside a button group"
+      >
+        <BaseButton variant="default-low" rounded="none" class="border-e-0 rounded-s-md">
+          <span>Edit</span>
+        </BaseButton>
+        <BaseButton variant="default-low" rounded="none" class="border-e-0">
+          <span>View</span>
+        </BaseButton>
+        <BaseButton variant="primary" rounded="none" class="border-e-0">
+          <span>Stash</span>
+        </BaseButton>
+
+        <BaseDropdown :classes="{ wrapper: 'inline-block' }" arrow>
+          <template #button>
+            <BaseButton variant="default-low" rounded="none" class="border-e-0">
+              <span>Share</span>
+            </BaseButton>
+          </template>
+          <BaseDropdownItem>test</BaseDropdownItem>
+        </BaseDropdown>
+
+        <BaseButton variant="default-low" rounded="none" class="rounded-e-md">
+          <span>Share</span>
+        </BaseButton>
+      </NuiPreview>
     </NuiPreviewContainer>
   </div>
 </template>
