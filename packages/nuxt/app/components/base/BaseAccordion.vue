@@ -33,38 +33,6 @@ const props = withDefaults(
     action?: 'dot' | 'chevron' | 'plus'
 
     /**
-     * Defines the color of the accordion
-     *
-     * @since 3.0.0
-     * @default 'default'
-     */
-    color?: 'default' | 'default-contrast' | 'muted' | 'muted-contrast'
-
-    /**
-     * Defines the color of the accordion dot
-     *
-     * @since 3.0.0
-     * @default 'primary'
-     */
-    dotColor?:
-      | 'default'
-      | 'primary'
-      | 'info'
-      | 'success'
-      | 'warning'
-      | 'danger'
-      | 'dark'
-      | 'black'
-
-    /**
-     * Defines the radius of the accordion
-     *
-     * @since 2.0.0
-     * @default 'sm'
-     */
-    rounded?: 'none' | 'sm' | 'md' | 'lg'
-
-    /**
      * Optional CSS classes to apply to the wrapper, label, input, addon, error, and icon elements.
      */
     classes?: {
@@ -95,11 +63,8 @@ const props = withDefaults(
     }
   }>(),
   {
-    openItems: () => [],
-    rounded: undefined,
-    color: undefined,
-    dotColor: undefined,
     action: 'dot',
+    openItems: () => [],
     classes: () => ({}),
   },
 )
@@ -137,64 +102,9 @@ defineSlots<{
   }) => any
 }>()
 const action = useNuiDefaultProperty(props, 'BaseAccordion', 'action')
-const color = useNuiDefaultProperty(props, 'BaseAccordion', 'color')
-const dotColor = useNuiDefaultProperty(props, 'BaseAccordion', 'dotColor')
-const rounded = useNuiDefaultProperty(props, 'BaseAccordion', 'rounded')
 
-const colors = {
-  'default': 'nui-accordion-default',
-  'default-contrast': 'nui-accordion-default-contrast',
-  'muted': 'nui-accordion-muted',
-  'muted-contrast': 'nui-accordion-muted-contrast',
-}
-
-const dotColors = {
-  default: 'nui-accordion-dot-default',
-  primary: 'nui-accordion-dot-primary',
-  info: 'nui-accordion-dot-info',
-  success: 'nui-accordion-dot-success',
-  warning: 'nui-accordion-dot-warning',
-  danger: 'nui-accordion-dot-danger',
-  dark: 'nui-accordion-dot-dark',
-  black: 'nui-accordion-dot-black',
-}
-
-const radiuses = {
-  none: '',
-  sm: 'nui-accordion-rounded-sm',
-  md: 'nui-accordion-rounded-md',
-  lg: 'nui-accordion-rounded-lg',
-}
-
-const actions = {
-  dot: 'nui-accordion-dot',
-  chevron: 'nui-accordion-chevron',
-  plus: 'nui-accordion-plus',
-}
 
 const internalOpenItems = ref(props.exclusive ? props.openItems?.[0] ?? 0 : props.openItems)
-// function toggle(key: number) {
-//   const wasOpen = internalOpenItems.value.includes(key)
-
-//   if (props.exclusive) {
-//     internalOpenItems.value.splice(0, internalOpenItems.value.length)
-
-//     if (!wasOpen) {
-//       emits('open', props.items[key])
-//       internalOpenItems.value.push(key)
-//     }
-
-//     return
-//   }
-
-//   if (wasOpen) {
-//     internalOpenItems.value.splice(internalOpenItems.value.indexOf(key), 1)
-//   }
-//   else {
-//     emits('open', props.items[key])
-//     internalOpenItems.value.push(key)
-//   }
-// }
 </script>
 
 <template>
@@ -206,23 +116,19 @@ const internalOpenItems = ref(props.exclusive ? props.openItems?.[0] ?? 0 : prop
     <AccordionItem
       v-for="(item, key) in items"
       :key="key"
-      class="nui-accordion"
+      class="w-full block transition-colors duration-300"
       :class="[
-        rounded && radiuses[rounded],
-        color && colors[color],
-        dotColor && dotColors[dotColor],
-        action && actions[action],
         props.classes?.wrapper,
       ]"
       :value="key"
     >
       <div
-        class="nui-accordion-detail"
+        class="relative"
         :class="props.classes?.details"
       >
         <slot name="accordion-item" :item="item" :index="key" :toggle="toggle">
           <AccordionHeader
-            class="nui-accordion-summary"
+            class="cursor-pointer list-none outline-none"
             :class="props.classes?.summary"
           >
             <slot
@@ -232,7 +138,7 @@ const internalOpenItems = ref(props.exclusive ? props.openItems?.[0] ?? 0 : prop
               :toggle="toggle"
             >
               <AccordionTrigger
-                class="nui-accordion-header"
+                class="flex items-center justify-between w-full py-3 rounded-md hover:bg-muted-50 dark:hover:bg-muted-700 px-4 cursor-pointer nui-focus"
                 :class="props.classes?.header" 
               >
                 <BaseHeading
@@ -240,41 +146,50 @@ const internalOpenItems = ref(props.exclusive ? props.openItems?.[0] ?? 0 : prop
                   size="sm"
                   weight="medium"
                   lead="none"
-                  class="nui-accordion-header-inner"
+                  class="text-muted-800 dark:text-white"
                 >
                   {{ item.title }}
                 </BaseHeading>
 
                 <div
                   v-if="props.action === 'dot' || action === 'dot'"
-                  class="nui-accordion-dot-icon"
-                />
+                  class="ms-2"
+                > 
+                  <BaseChip
+                    position="static"
+                    size="md"
+                    :color="toggle ? 'primary' : 'muted'"
+                  />
+                </div>
+
                 <div
                   v-else-if="props.action === 'chevron' || action === 'chevron'"
-                  class="nui-accordion-icon-outer"
+                  class="ms-2 flex items-center justify-center size-8 rounded-full border border-transparent dark:border-transparent bg-white dark:bg-muted-700/60 transition-all duration-300"
                 >
                   <IconChevronDown class="nui-accordion-chevron-icon" />
                 </div>
                 <div
                   v-else-if="props.action === 'plus' || action === 'plus'"
-                  class="nui-accordion-icon-outer"
+                  class="ms-2 flex items-center justify-center size-8 rounded-full border border-transparent dark:border-transparent bg-white dark:bg-muted-700/60 transition-all duration-300"
                 >
                   <IconPlus class="nui-accordion-plus-icon" />
                 </div>
               </AccordionTrigger>
             </slot>
           </AccordionHeader>
-          <AccordionContent class="nui-accordion-content" :class="props.classes?.content">
-            <slot
-              name="accordion-item-content"
-              :item="item"
-              :index="key"
-              :toggle="toggle"
-            >
-              <BaseParagraph size="sm" lead="tight">
-                {{ item.content }}
-              </BaseParagraph>
-            </slot>
+          <AccordionContent class="px-4 pb-4 font-sans text-sm text-muted-500 dark:text-muted-400" :class="props.classes?.content">
+            <div class="mt-3">
+              <slot
+                name="accordion-item-content"
+                :item="item"
+                :index="key"
+                :toggle="toggle"
+              >
+                <BaseParagraph size="sm" lead="tight">
+                  {{ item.content }}
+                </BaseParagraph>
+              </slot>
+            </div>
           </AccordionContent>
         </slot>
       </div>

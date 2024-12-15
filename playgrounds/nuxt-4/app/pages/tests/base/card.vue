@@ -88,7 +88,7 @@ definePageMeta({
               lead="tight"
               class="text-muted-800 mb-2 dark:text-white"
             >
-              Iam a card
+              Default low
             </BaseHeading>
 
             <BaseParagraph size="sm" lead="tight" class="text-muted-400">
@@ -104,7 +104,7 @@ definePageMeta({
               lead="tight"
               class="text-muted-800 mb-2 dark:text-white"
             >
-              Iam a card
+              Default high
             </BaseHeading>
 
             <BaseParagraph size="sm" lead="tight" class="text-muted-400">
@@ -120,7 +120,7 @@ definePageMeta({
               lead="tight"
               class="text-muted-800 mb-2 dark:text-white"
             >
-              Iam a card
+              Muted low
             </BaseHeading>
 
             <BaseParagraph size="sm" lead="tight" class="text-muted-400">
@@ -136,10 +136,42 @@ definePageMeta({
               lead="tight"
               class="text-muted-800 mb-2 dark:text-white"
             >
-              Iam a card
+              Muted high
             </BaseHeading>
 
             <BaseParagraph size="sm" lead="tight" class="text-muted-400">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </BaseParagraph>
+          </BaseCard>
+
+          <BaseCard variant="custom" rounded="md" class="p-6 bg-primary-600/10 border-2 border-primary-600">
+            <BaseHeading
+              as="h4"
+              size="sm"
+              weight="semibold"
+              lead="tight"
+              class="text-primary-600 mb-2 dark:text-primary-200"
+            >
+              Custom
+            </BaseHeading>
+
+            <BaseParagraph size="sm" lead="tight" class="text-primary-600">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </BaseParagraph>
+          </BaseCard>
+
+          <BaseCard variant="custom" rounded="md" class="p-6 bg-muted-950 dark:bg-white">
+            <BaseHeading
+              as="h4"
+              size="sm"
+              weight="semibold"
+              lead="tight"
+              class="text-white mb-2 dark:text-muted-900"
+            >
+              Custom
+            </BaseHeading>
+
+            <BaseParagraph size="sm" lead="tight" class="text-white dark:text-muted-900">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </BaseParagraph>
           </BaseCard>

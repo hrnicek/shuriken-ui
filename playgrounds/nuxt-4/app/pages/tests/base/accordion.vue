@@ -41,11 +41,10 @@ const accordion = ref([
       </NuiPreview>
 
       <NuiPreview title="Rounded" description="Accordion radius options">
-        <div class="grid gap-4 md:grid-cols-2 max-w-4xl">
-          <BaseAccordion :items="accordion" exclusive rounded="none" />
-          <BaseAccordion :items="accordion" exclusive rounded="sm" />
-          <BaseAccordion :items="accordion" exclusive rounded="md" />
-          <BaseAccordion :items="accordion" exclusive rounded="lg" />
+        <div class="md:max-w-lg">
+          <BaseCard variant="default-low" rounded="md" class="p-6">
+            <BaseAccordion :items="accordion" exclusive />
+          </BaseCard>
         </div>
       </NuiPreview>
 

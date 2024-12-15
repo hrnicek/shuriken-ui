@@ -8,24 +8,6 @@ export default defineAppConfig({
        * @type {'dot' | 'chevron' | 'plus'}
        */
       action: 'dot',
-      /**
-       * Default color for the accordion dot
-       *
-       * @type {'default' | 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'dark' | 'black'}
-       */
-      dotColor: 'primary',
-      /**
-       * The color of the accordion.
-       *
-       * @type {'default' | 'default-contrast' | 'muted' | 'muted-contrast'}
-       */
-      color: 'default',
-      /**
-       * The radius of the accordion.
-       *
-       * @type {'none' | 'sm' | 'md' | 'lg'}
-       */
-      rounded: 'sm',
     },
     BaseAvatar: {
       /**
