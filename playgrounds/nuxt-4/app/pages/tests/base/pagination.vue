@@ -23,21 +23,21 @@ const currentPage = computed({
   <div>
     <NuiPreviewContainer title="BasePagination">
       <NuiPreview
-        title="Rounded: none"
-        description="Pagination component radius none"
+        title="Pagination size"
+        description="Pagination component size example"
       >
         <BasePagination
           :item-per-page="8"
           :total-items="512"
           v-model:current-page="currentPage"
           :max-links-displayed="5"
-          rounded="none"
+          size="sm"
         />
       </NuiPreview>
 
       <NuiPreview
-        title="Rounded: sm"
-        description="Pagination component radius sm"
+        title="Pagination radius"
+        description="Pagination component radius example"
       >
         <BasePagination
           :item-per-page="8"
@@ -45,13 +45,12 @@ const currentPage = computed({
           v-model:current-page="currentPage"
           :max-links-displayed="5"
           rounded="sm"
-          color="dark"
         />
       </NuiPreview>
 
       <NuiPreview
-        title="Rounded: md"
-        description="Pagination component radius md"
+        title="Pagination unwrapped"
+        description="Pagination component radius example"
       >
         <BasePagination
           :item-per-page="8"
@@ -59,13 +58,14 @@ const currentPage = computed({
           v-model:current-page="currentPage"
           :max-links-displayed="5"
           rounded="md"
-          color="black"
+          size="sm"
+          :wrapped="false"
         />
       </NuiPreview>
 
       <NuiPreview
-        title="Rounded: lg"
-        description="Pagination component radius lg"
+        title="Variant: primary low"
+        description="Pagination component primary low variant"
       >
         <BasePagination
           :item-per-page="8"
@@ -73,12 +73,43 @@ const currentPage = computed({
           v-model:current-page="currentPage"
           :max-links-displayed="5"
           rounded="lg"
+          variant="primary-low"
+          size="sm"
         />
       </NuiPreview>
 
       <NuiPreview
-        title="Rounded: full"
-        description="Pagination component radius full"
+        title="Variant: primary high"
+        description="Pagination component primary high variant"
+      >
+        <BasePagination
+          :item-per-page="8"
+          :total-items="512"
+          v-model:current-page="currentPage"
+          :max-links-displayed="5"
+          rounded="full"
+          variant="primary-high"
+        />
+      </NuiPreview>
+
+      <NuiPreview
+        title="Variant: dark low"
+        description="Pagination component dark variant"
+      >
+        <BasePagination
+          :item-per-page="8"
+          :total-items="1000000"
+          v-model:current-page="currentPage"
+          :max-links-displayed="5"
+          rounded="lg"
+          variant="dark-low"
+          size="sm"
+        />
+      </NuiPreview>
+
+      <NuiPreview
+        title="Variant: dark high"
+        description="Pagination component dark variant"
       >
         <BasePagination
           :item-per-page="8"
@@ -86,6 +117,7 @@ const currentPage = computed({
           v-model:current-page="currentPage"
           :max-links-displayed="5"
           rounded="full"
+          variant="dark-high"
         />
       </NuiPreview>
     </NuiPreviewContainer>

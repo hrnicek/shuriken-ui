@@ -318,17 +318,29 @@ export default defineAppConfig({
     },
     BasePagination: {
       /**
-       * The color of the pagination.
+       * The variant of the pagination.
        *
-       * @type {'primary' | 'dark' | 'black'}
+       * @type {'primary-low' | 'primary-high' | 'dark-low' | 'dark-high'}
        */
-      color: 'primary',
+      variant: 'primary-low',
+      /**
+       * The size of the pagination.
+       *
+       * @type {'sm' | 'md' | 'lg'}
+       */
+      size: 'md',
       /**
        * The radius of the pagination.
        *
        * @type {'none' | 'sm' | 'md' | 'lg' | 'full'}
        */
       rounded: 'sm',
+      /**
+       * Wether the pagination is wrapped.
+       *
+       * @type {boolean}
+       */
+      wrapped: true,
     },
     BaseParagraph: {
       /**
