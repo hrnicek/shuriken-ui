@@ -4,23 +4,21 @@ const props = withDefaults(
     /**
      * The variant of the tag.
      *
-     * @since 2.0.0
-     * @default 'solid'
+     * @default 'default-low'
      */
      variant?: 'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'primary' | 'custom'
 
     /**
      * The size of the tag.
      *
-     * @default 'md'
+     * @default 'sm'
      */
     size?: 'sm' | 'md' | 'lg'
 
     /**
      * The radius of the tag.
      *
-     * @since 2.0.0
-     * @default 'lg'
+     * @default 'full'
      */
      rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
 
@@ -44,6 +42,7 @@ const variants = {
   'muted-low': 'bg-muted-400/10 dark:bg-muted-200/10 text-muted-400 dark:text-muted-200 ring-1 ring-inset ring-muted-400/20 dark:ring-muted-200/20',
   'muted-high': 'bg-muted-400/10 dark:bg-muted-950/10 text-muted-400 dark:text-muted-200 ring-1 ring-inset ring-muted-400/20 dark:ring-muted-200/20',
   'primary': 'bg-primary-400/10 text-primary-400 ring-1 ring-inset ring-primary-400/20',
+  'custom': ''
 }
 
 const radiuses = {

@@ -473,13 +473,13 @@ export default defineAppConfig({
        *
        * @type {'sm' | 'md'}
        */
-      size: 'md',
+      size: 'sm',
       /**
        * The radius of the tag.
        *
        * @type {'none' | 'sm' | 'md' | 'lg' | 'full'}
        */
-      rounded: 'lg',
+      rounded: 'full',
     },
     BaseText: {
       /**
