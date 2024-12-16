@@ -5,6 +5,8 @@ definePageMeta({
   description: 'Button component',
   section: 'base',
 })
+
+const loading = ref(true)
 </script>
 
 <template>
@@ -294,23 +296,27 @@ definePageMeta({
         description="Button component in a loading state"
       >
         <div class="flex flex-wrap items-end gap-4">
-          <BaseButton loading variant="default-low">
-            Button
+          <BaseSwitchBall v-model="loading" />
+          <BaseButton :loading="loading" variant="default-low">
+            Loading
           </BaseButton>
-          <BaseButton loading variant="muted-low">
-            Button
+          <BaseButton :loading="loading" variant="muted-low">
+            Loading
           </BaseButton>
-          <BaseButton loading variant="ghost-low">
-            Button
+          <BaseButton :loading="loading" variant="ghost-low">
+            Loading
           </BaseButton>
-          <BaseButton loading variant="link">
-            Button
+          <BaseButton :loading="loading" variant="link">
+            Loading
           </BaseButton>
-          <BaseButton loading variant="primary">
-            Button
+          <BaseButton :loading="loading" variant="primary">
+            Loading
           </BaseButton>
-          <BaseButton loading variant="dark">
-            Button
+          <BaseButton :loading="loading" variant="dark">
+            Loading
+          </BaseButton>
+          <BaseButton :loading="loading" variant="custom" class="bg-lime-500 font-medium text-muted-900">
+            Loading
           </BaseButton>
         </div>
       </NuiPreview>
@@ -341,27 +347,25 @@ definePageMeta({
         </div>
       </NuiPreview>
 
-      <NuiPreview
-        title="Group"
-        description="Button component inside a button group"
-      >
-        <BaseButtonGroup>
-          <BaseButton variant="default-low">
-            <span>Edit</span>
+      <NuiPreview title="Close button" description="Buttons with a close icon">
+        <div class="flex flex-wrap items-end gap-2">
+          <BaseButton variant="default-low" size="icon-md"  rounded="none">
+            <Icon name="lucide:x" class="text-base" />
           </BaseButton>
-          <BaseButton variant="default-low">
-            <span>View</span>
+          <BaseButton variant="default-low" size="icon-md"  rounded="sm">
+            <Icon name="lucide:x" class="text-base" />
           </BaseButton>
-          <BaseButton variant="primary">
-            <span>Stash</span>
+          <BaseButton variant="default-low" size="icon-md"  rounded="md">
+            <Icon name="lucide:x" class="text-base" />
           </BaseButton>
-          <BaseButton  variant="default-low">
-            <span>Share</span>
+          <BaseButton variant="default-low" size="icon-md"  rounded="lg">
+            <Icon name="lucide:x" class="text-base" />
           </BaseButton>
-        </BaseButtonGroup>
+          <BaseButton variant="default-low" size="icon-md"  rounded="full">
+            <Icon name="lucide:x" class="text-base" />
+          </BaseButton>
+        </div>
       </NuiPreview>
-
-
 
       <NuiPreview
         title="Group"

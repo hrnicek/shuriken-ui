@@ -78,6 +78,16 @@
   --color-danger-900: var(--color-rose-900);
   --color-danger-950: var(--color-rose-950);
 
+  /** Primary button variables */
+  --primary-text-base: var(--color-white);
+  --primary-bg-base: var(--color-primary-500);
+  --primary-bg-hocus: var(--color-primary-400);
+
+  /** Destructive button variables */
+  --destructive-text-base: var(--color-white);
+  --destructive-bg-base: var(--color-danger-600);
+  --destructive-bg-hocus: var(--color-danger-500);
+
   --animate-nui-placeload: nui-placeload 1s linear infinite forwards;
   --animate-nui-progress-indeterminate: nui-progress-indeterminate 3s linear infinite forwards;
   --animate-nui-tooltip-x: nui-tooltip-x 300ms ease-out forwards;
