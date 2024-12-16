@@ -211,7 +211,7 @@ const root = useForwardPropsEmits(reactiveOmit(props, ['label', 'disabled', 'col
                 props.classes?.menu,
               ]"
             >
-              <div class="nui-dropdown-menu-content" :class="props.classes?.content">
+              <div class="nui-dropdown-menu-content max-h-[var(--reka-popper-available-height)] overflow-y-scroll nui-slimscroll" :class="props.classes?.content">
                 <slot />
               </div>
             </DropdownMenuContent>

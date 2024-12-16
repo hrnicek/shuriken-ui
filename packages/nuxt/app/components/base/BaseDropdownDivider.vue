@@ -3,7 +3,7 @@ import type {
   DropdownMenuSeparatorProps,
 } from 'reka-ui';
 
-interface BaseDropdownItemProps extends DropdownMenuSeparatorProps {}
+export interface BaseDropdownItemProps extends DropdownMenuSeparatorProps {}
 </script>
 
 <script setup lang="ts">
@@ -14,9 +14,9 @@ import {
 const props = withDefaults(defineProps<BaseDropdownItemProps>(), {
 
 })
-const root = useForwardProps(props);
+const forward = useForwardProps(props);
 </script>
 
 <template>
-  <DropdownMenuSeparator v-bind="root" class="nui-dropdown-divider" />
+  <DropdownMenuSeparator v-bind="forward" class="nui-dropdown-divider" />
 </template>

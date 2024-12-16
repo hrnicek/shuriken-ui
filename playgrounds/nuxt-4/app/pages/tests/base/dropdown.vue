@@ -10,6 +10,7 @@ definePageMeta({
 
 const checked = ref(false)
 const checked2 = ref(false)
+const selection = ref('first')
 </script>
 
 <template>
@@ -18,22 +19,130 @@ const checked2 = ref(false)
       <NuiPreview title="Size" description="Dropdown menu sizes">
         <div class="flex justify-start gap-8 w-full">
           <BaseDropdown label="Dropdown">
-            <BaseDropdownItem
-              to="#"
-              :as="NuxtLink"
-            >
-              Profile
-            </BaseDropdownItem>
             <BaseDropdownItem>Projects</BaseDropdownItem>
             <BaseDropdownItem>Team</BaseDropdownItem>
             <BaseDropdownItem>
               Settings
               <template #end>
-                <span class="text-xs">⇧⌘P</span>
+                <span class="text-xs font-mono">⇧⌘P</span>
               </template>
             </BaseDropdownItem>
           </BaseDropdown>
-          <BaseDropdown label="Dropdown" size="lg">
+          <BaseDropdown label="Large" size="lg">
+            <BaseDropdownItem>Profile</BaseDropdownItem> 
+            <BaseDropdownItem>Projects</BaseDropdownItem> 
+            <BaseDropdownItem>Team</BaseDropdownItem> 
+            <BaseDropdownItem>
+              Settings
+              <template #end>
+                <span class="text-xs font-mono">⇧⌘P</span>
+              </template>
+            </BaseDropdownItem> 
+          </BaseDropdown>
+          <BaseDropdown label="Disabled" disabled>
+            <BaseDropdownItem>Profile</BaseDropdownItem> 
+            <BaseDropdownItem>Projects</BaseDropdownItem> 
+            <BaseDropdownItem>Team</BaseDropdownItem> 
+            <BaseDropdownItem>
+              Settings
+              <template #end>
+                <span class="text-xs font-mono">⇧⌘P</span>
+              </template>
+            </BaseDropdownItem> 
+          </BaseDropdown>
+        </div>
+      </NuiPreview>
+
+      <NuiPreview title="Color" description="Dropdown menu sizes">
+        <div class="flex justify-start gap-8 w-full">
+          <BaseDropdown label="default" color="default">
+            <BaseDropdownLabel>Label</BaseDropdownLabel> 
+            <BaseDropdownItem>Profile</BaseDropdownItem> 
+            <BaseDropdownItem>Projects</BaseDropdownItem>
+            <BaseDropdownItem>Team</BaseDropdownItem>
+            <BaseDropdownSub>
+              <template #title>
+                Settings
+              </template>
+              <BaseDropdownLabel>Label</BaseDropdownLabel> 
+              <BaseDropdownItem>Profile</BaseDropdownItem> 
+              <BaseDropdownItem>Projects</BaseDropdownItem> 
+              <BaseDropdownItem>Team</BaseDropdownItem> 
+              <BaseDropdownItem>Settings</BaseDropdownItem> 
+            </BaseDropdownSub>
+            <BaseDropdownArrow />
+          </BaseDropdown>
+          <BaseDropdown label="default-contrast" color="default-contrast">
+            <BaseDropdownLabel>Label</BaseDropdownLabel> 
+            <BaseDropdownItem>Profile</BaseDropdownItem> 
+            <BaseDropdownItem>Projects</BaseDropdownItem> 
+            <BaseDropdownItem>Team</BaseDropdownItem> 
+            <BaseDropdownSub>
+              <template #title>
+                Settings
+              </template>
+              <BaseDropdownLabel>Label</BaseDropdownLabel> 
+              <BaseDropdownItem>Profile</BaseDropdownItem> 
+              <BaseDropdownItem>Projects</BaseDropdownItem> 
+              <BaseDropdownItem>Team</BaseDropdownItem> 
+              <BaseDropdownItem>Settings</BaseDropdownItem> 
+            </BaseDropdownSub>
+            <BaseDropdownArrow />
+          </BaseDropdown>
+          <BaseDropdown label="muted" color="muted">
+            <BaseDropdownLabel>Label</BaseDropdownLabel> 
+            <BaseDropdownItem>Profile</BaseDropdownItem> 
+            <BaseDropdownItem>Projects</BaseDropdownItem> 
+            <BaseDropdownItem>Team</BaseDropdownItem> 
+            <BaseDropdownSub>
+              <template #title>
+                Settings
+              </template>
+              <BaseDropdownLabel>Label</BaseDropdownLabel> 
+              <BaseDropdownItem>Profile</BaseDropdownItem> 
+              <BaseDropdownItem>Projects</BaseDropdownItem> 
+              <BaseDropdownItem>Team</BaseDropdownItem> 
+              <BaseDropdownItem>Settings</BaseDropdownItem> 
+            </BaseDropdownSub>
+            <BaseDropdownArrow />
+          </BaseDropdown>
+          <BaseDropdown label="muted-contrast" color="muted-contrast">
+            <BaseDropdownLabel>Label</BaseDropdownLabel> 
+            <BaseDropdownItem>Profile</BaseDropdownItem> 
+            <BaseDropdownItem>Projects</BaseDropdownItem> 
+            <BaseDropdownItem>Team</BaseDropdownItem> 
+            <BaseDropdownSub>
+              <template #title>
+                Settings
+              </template>
+              <BaseDropdownLabel>Label</BaseDropdownLabel> 
+              <BaseDropdownItem>Profile</BaseDropdownItem> 
+              <BaseDropdownItem>Projects</BaseDropdownItem> 
+              <BaseDropdownItem>Team</BaseDropdownItem> 
+              <BaseDropdownItem>Settings</BaseDropdownItem> 
+            </BaseDropdownSub>
+            <BaseDropdownArrow />
+          </BaseDropdown>
+        </div>
+      </NuiPreview>
+
+      
+      <NuiPreview title="Arrow and spacing example">
+        <div class="flex justify-start gap-8 w-full">
+          <BaseDropdown label="Default" size="lg">
+            <BaseDropdownItem>Profile</BaseDropdownItem> 
+            <BaseDropdownItem>Projects</BaseDropdownItem> 
+            <BaseDropdownItem>Team</BaseDropdownItem> 
+            <BaseDropdownItem>Settings</BaseDropdownItem> 
+          </BaseDropdown>
+          <BaseDropdown label="With arrow" size="lg">
+            <BaseDropdownItem>Profile</BaseDropdownItem> 
+            <BaseDropdownItem>Projects</BaseDropdownItem> 
+            <BaseDropdownItem>Team</BaseDropdownItem> 
+            <BaseDropdownItem>Settings</BaseDropdownItem> 
+            <BaseDropdownArrow />
+          </BaseDropdown>
+          <BaseDropdown label="With spacing" size="lg" :bindings="{ content: { sideOffset: 10 } }">
             <BaseDropdownItem>Profile</BaseDropdownItem> 
             <BaseDropdownItem>Projects</BaseDropdownItem> 
             <BaseDropdownItem>Team</BaseDropdownItem> 
@@ -47,35 +156,34 @@ const checked2 = ref(false)
           <BaseDropdown
             label="Dropdown"
             contrast="default"
-            arrow
           >
-            <BaseDropdownLabel>
-              Header
-            </BaseDropdownLabel>  
+            <BaseDropdownLabel>Label</BaseDropdownLabel>  
             <BaseDropdownItem
               title="Profile"
               text="View your profile"
+              to="#"
+              :as="NuxtLink"
             />
             <BaseDropdownItem
               title="Projects"
               text="View your projects"
+              to="#"
+              :as="NuxtLink"
             />
             <BaseDropdownItem
               title="Team"
               text="Manage your team"
+              to="#"
+              :as="NuxtLink"
             />
 
             <BaseDropdownDivider />
-            <BaseDropdownLabel>
-              Header
-            </BaseDropdownLabel>  
+            <BaseDropdownLabel>Label</BaseDropdownLabel>  
             <BaseDropdownSub
-              title="More Tools"
+              title="Checkbox"
               text="View more tools"
             >
-              <BaseDropdownLabel>
-                Header
-              </BaseDropdownLabel>  
+              <BaseDropdownLabel>Label</BaseDropdownLabel>  
               <BaseDropdownCheckbox
                 v-model="checked"
                 title="Profile"
@@ -92,24 +200,67 @@ const checked2 = ref(false)
                 text="Manage your team"
               />
             </BaseDropdownSub>
+            <BaseDropdownSub
+              title="Radio"
+              text="View more tools"
+            >
+              <BaseDropdownLabel>Label</BaseDropdownLabel>  
+              <BaseDropdownRadioGroup v-model="selection">
+                <BaseDropdownRadioItem value="first">
+                  First
+                  <template #end>
+                    <div class="flex gap-0.5">
+                      <BaseKbd variant="muted-high" size="sm">alt</BaseKbd>
+                      <BaseKbd variant="muted-high" size="sm">1</BaseKbd>
+                    </div>
+                  </template>
+                </BaseDropdownRadioItem>
+                <BaseDropdownRadioItem value="second">
+                  Second
+                  <template #end>
+                    <div class="flex gap-0.5">
+                      <BaseKbd variant="muted-high" size="sm">alt</BaseKbd>
+                      <BaseKbd variant="muted-high" size="sm">2</BaseKbd>
+                    </div>
+                  </template>
+                </BaseDropdownRadioItem>
+                <BaseDropdownRadioItem value="third">
+                  Third
+                  <template #end>
+                    <div class="flex gap-0.5">
+                      <BaseKbd variant="muted-high" size="sm">alt</BaseKbd>
+                      <BaseKbd variant="muted-high" size="sm">3</BaseKbd>
+                    </div>
+                  </template>
+                </BaseDropdownRadioItem>
+              </BaseDropdownRadioGroup>
+            </BaseDropdownSub>
             <BaseDropdownItem
               title="Settings"
               text="Set your preferences"
             >
               <template #end>
                 <div class="flex gap-0.5">
-                  <BaseKbd size="xs">ctrl</BaseKbd>
-                  <BaseKbd size="xs">N</BaseKbd>
+                  <BaseKbd variant="muted-high" size="sm">ctrl</BaseKbd>
+                  <BaseKbd variant="muted-high" size="sm">k</BaseKbd>
                 </div>
               </template>
             </BaseDropdownItem>
+          </BaseDropdown>
+          
+          <BaseDropdown
+            label="Scrollable"
+            contrast="default"
+          >
+            <BaseDropdownLabel>Label</BaseDropdownLabel>  
+            <BaseDropdownItem v-for="i in 50">Item {{ i }} ...</BaseDropdownItem> 
           </BaseDropdown>
         </div>
       </NuiPreview>
 
       <NuiPreview title="Button slot" description="Use any button component as a trigger">
         <div class="flex justify-start gap-8 w-full">
-          <BaseDropdown arrow>
+          <BaseDropdown>
             <template #button>
               <BaseButton
                 variant="primary"
@@ -126,13 +277,10 @@ const checked2 = ref(false)
             <BaseDropdownItem>Team</BaseDropdownItem> 
             <BaseDropdownItem>Settings</BaseDropdownItem> 
 
-            <BaseDropdownArrow :width="6" :height="6" />
+            <BaseDropdownArrow :width="16" :height="8" />
           </BaseDropdown>
 
-          <BaseDropdown
-            label="Dropdown"
-            arrow
-          >
+          <BaseDropdown>
             <template #button>
               <BaseButton
                 variant="ghost-high"
@@ -152,185 +300,140 @@ const checked2 = ref(false)
       </NuiPreview>
 
       <NuiPreview
-        title="Button: start"
+        title="Content: align"
         description="Dropdown button start position"
       >
-        <div class="flex justify-start w-full">
-          <BaseDropdown variant="button" label="Dropdown" :bindings="{
+        <div class="flex justify-start gap-8 w-full">
+          <BaseDropdown label="Start" :bindings="{
             content: {
               align: 'start',
             }
           }">
-            <BaseDropdownItem
-              title="Profile"
-              text="View your profile"
-            />
-            <BaseDropdownItem
-              title="Projects"
-              text="View your projects"
-            />
-            <BaseDropdownItem
-              title="Team"
-              text="Manage your team"
-            />
-            <BaseDropdownItem
-              title="Settings"
-              text="Set your preferences"
-            />
+            <BaseDropdownItem>Profile</BaseDropdownItem> 
+            <BaseDropdownItem>Projects</BaseDropdownItem> 
+            <BaseDropdownItem>Team</BaseDropdownItem> 
+            <BaseDropdownItem>Settings</BaseDropdownItem> 
+            <BaseDropdownArrow />
           </BaseDropdown>
-        </div>
-      </NuiPreview>
-
-      <NuiPreview
-        title="Button: end"
-        description="Dropdown button end position"
-      >
-        <div class="flex justify-end w-full">
-          <BaseDropdown variant="button" label="Dropdown" :bindings="{
+          <BaseDropdown label="Center" :bindings="{
+            content: {
+              align: 'center',
+            }
+          }">
+            <BaseDropdownItem>Profile</BaseDropdownItem> 
+            <BaseDropdownItem>Projects</BaseDropdownItem> 
+            <BaseDropdownItem>Team</BaseDropdownItem> 
+            <BaseDropdownItem>Settings</BaseDropdownItem> 
+            <BaseDropdownArrow />
+          </BaseDropdown>
+          <BaseDropdown label="End" :bindings="{
             content: {
               align: 'end',
             }
           }">
-            <BaseDropdownItem
-              title="Profile"
-              text="View your profile"
-            />
-            <BaseDropdownItem
-              title="Projects"
-              text="View your projects"
-            />
-            <BaseDropdownItem
-              title="Team"
-              text="Manage your team"
-            />
-            <BaseDropdownItem
-              title="Settings"
-              text="Set your preferences"
-            />
+            <BaseDropdownItem>Profile</BaseDropdownItem> 
+            <BaseDropdownItem>Projects</BaseDropdownItem> 
+            <BaseDropdownItem>Team</BaseDropdownItem> 
+            <BaseDropdownItem>Settings</BaseDropdownItem> 
+            <BaseDropdownArrow />
           </BaseDropdown>
         </div>
       </NuiPreview>
+
 
       <NuiPreview
-        title="Context: start"
-        description="Dropdown context start position"
+        title="Content: side"
+        description="Dropdown button start position"
       >
-        <div class="flex justify-start w-full">
-          <BaseDropdown variant="context" label="Dropdown" orientation="start">
-            <BaseDropdownItem
-              title="Profile"
-              text="View your profile"
-            />
-            <BaseDropdownItem
-              title="Projects"
-              text="View your projects"
-            />
-            <BaseDropdownItem
-              title="Team"
-              text="Manage your team"
-            />
-            <BaseDropdownItem
-              title="Settings"
-              text="Set your preferences"
-            />
-          </BaseDropdown>
-        </div>
-      </NuiPreview>
+        <div class="flex justify-start gap-8 w-full">
+          <BaseDropdown :bindings="{
+            content: {
+              side: 'top',
+              disableUpdateOnLayoutShift: true,
+            }
+          }">
+            <template #button>
+              <BaseButton
+                size="icon-md"
+                class="group"
+              >
+                <Icon name="lucide:arrow-up" class="size-4 block mx-auto transition-transform group-data-[state=open]:hidden" />
+                <Icon name="lucide:x" class="size-4 hidden mx-auto transition-transform group-data-[state=open]:block" />
+              </BaseButton>
+            </template>
 
-      <NuiPreview
-        title="Context: end"
-        description="Dropdown context end position"
-      >
-        <div class="flex justify-end w-full">
-          <BaseDropdown variant="context" label="Dropdown" orientation="end">
-            <BaseDropdownItem
-              title="Profile"
-              text="View your profile"
-            />
-            <BaseDropdownItem
-              title="Projects"
-              text="View your projects"
-            />
-            <BaseDropdownItem
-              title="Team"
-              text="Manage your team"
-            />
-            <BaseDropdownItem
-              title="Settings"
-              text="Set your preferences"
-            />
+            <BaseDropdownItem>Profile</BaseDropdownItem> 
+            <BaseDropdownItem>Projects</BaseDropdownItem> 
+            <BaseDropdownItem>Team</BaseDropdownItem> 
+            <BaseDropdownItem>Settings</BaseDropdownItem> 
+            <BaseDropdownArrow />
           </BaseDropdown>
-        </div>
-      </NuiPreview>
-
-      <NuiPreview
-        title="Text: start"
-        description="Dropdown text start position"
-      >
-        <div class="flex justify-start w-full gap-8">
-          <BaseDropdown variant="text" label="Dropdown" orientation="start">
-            <BaseDropdownItem
-              title="Profile"
-              text="View your profile"
-            />
-            <BaseDropdownItem
-              title="Projects"
-              text="View your projects"
-            />
-            <BaseDropdownItem to="#" title="Team" text="Manage your team" />
-            <BaseDropdownItem
-              title="Settings"
-              text="Set your preferences"
-            />
+          <BaseDropdown :bindings="{
+            content: {
+              side: 'right',
+            }
+          }">
+            <template #button>
+              <BaseButton
+                size="icon-md"
+                class="group"
+              >
+                <Icon name="lucide:arrow-right" class="size-4 block mx-auto transition-transform group-data-[state=open]:hidden" />
+                <Icon name="lucide:x" class="size-4 hidden mx-auto transition-transform group-data-[state=open]:block" />
+              </BaseButton>
+            </template>
+            <BaseDropdownItem>Profile</BaseDropdownItem> 
+            <BaseDropdownItem>Projects</BaseDropdownItem> 
+            <BaseDropdownItem>Team</BaseDropdownItem> 
+            <BaseDropdownItem>Settings</BaseDropdownItem> 
+            <BaseDropdownArrow />
           </BaseDropdown>
-          <BaseDropdown
-            variant="text"
-            button-color="info"
-            label="Dropdown"
-          >
-            <BaseDropdownItem
-              title="Profile"
-              text="View your profile"
-            />
-            <BaseDropdownItem
-              title="Projects"
-              text="View your projects"
-            />
-            <BaseDropdownItem to="#" title="Team" text="Manage your team" />
-            <BaseDropdownItem
-              title="Settings"
-              text="Set your preferences"
-            />
+          <BaseDropdown :bindings="{
+            content: {
+              side: 'bottom',
+            }
+          }">
+            <template #button>
+              <BaseButton
+                size="icon-md"
+                class="group"
+              >
+                <Icon name="lucide:arrow-down" class="size-4 block mx-auto transition-transform group-data-[state=open]:hidden" />
+                <Icon name="lucide:x" class="size-4 hidden mx-auto transition-transform group-data-[state=open]:block" />
+              </BaseButton>
+            </template>
+            <BaseDropdownItem>Profile</BaseDropdownItem> 
+            <BaseDropdownItem>Projects</BaseDropdownItem> 
+            <BaseDropdownItem>Team</BaseDropdownItem> 
+            <BaseDropdownItem>Settings</BaseDropdownItem> 
+            <BaseDropdownArrow />
           </BaseDropdown>
-        </div>
-      </NuiPreview>
-
-      <NuiPreview title="Text: end" description="Dropdown text end position">
-        <div class="flex justify-end w-full">
-          <BaseDropdown variant="text" label="Dropdown" orientation="end">
-            <BaseDropdownItem
-              title="Profile"
-              text="View your profile"
-            />
-            <BaseDropdownItem
-              title="Projects"
-              text="View your projects"
-            />
-            <BaseDropdownItem
-              title="Team"
-              text="Manage your team"
-            />
-            <BaseDropdownItem
-              title="Settings"
-              text="Set your preferences"
-            />
+          <BaseDropdown :bindings="{
+            content: {
+              side: 'left',
+            }
+          }">
+            <template #button>
+              <BaseButton
+                size="icon-md"
+                class="group"
+              >
+                <Icon name="lucide:arrow-left" class="size-4 block mx-auto transition-transform group-data-[state=open]:hidden" />
+                <Icon name="lucide:x" class="size-4 hidden mx-auto transition-transform group-data-[state=open]:block" />
+              </BaseButton>
+            </template>
+            <BaseDropdownItem>Profile</BaseDropdownItem> 
+            <BaseDropdownItem>Projects</BaseDropdownItem> 
+            <BaseDropdownItem>Team</BaseDropdownItem> 
+            <BaseDropdownItem>Settings</BaseDropdownItem> 
+            <BaseDropdownArrow />
           </BaseDropdown>
         </div>
       </NuiPreview>
 
       <NuiPreview title="Slot: icon" description="Dropdown icon slot">
         <div class="flex justify-start gap-6 w-full">
-          <BaseDropdown variant="button" label="Dropdown" orientation="start">
+          <BaseDropdown label="Dropdown">
             <BaseDropdownItem
               title="Profile"
               text="View your profile"
@@ -366,7 +469,7 @@ const checked2 = ref(false)
             </BaseDropdownItem>
           </BaseDropdown>
 
-          <BaseDropdown variant="button" label="Dropdown" orientation="start">
+          <BaseDropdown label="Dropdown">
             <BaseDropdownItem
               title="Profile"
               text="View your profile"
@@ -418,7 +521,7 @@ const checked2 = ref(false)
 
       <NuiPreview title="Slot: avatar" description="Dropdown avatar slot">
         <div class="flex justify-start w-full">
-          <BaseDropdown variant="button" label="Dropdown" orientation="start">
+          <BaseDropdown label="Dropdown">
             <BaseDropdownItem
               title="Lana Jensen"
               text="Software Engineer"
@@ -532,63 +635,37 @@ const checked2 = ref(false)
       </NuiPreview>
 
       <NuiPreview
-        title="Menu in portal mode"
-        description="Menu is teleported to the body instead of the parent element"
+        title="Disable portal mode"
+        description="Content is not teleported to the body"
       >
-        <div class="flex w-full justify-start">
-          <BaseDropdown
-            label="Dropdown"
-            :float-options="{ portal: true }"
-          >
-            <BaseDropdownItem
-              title="Lana Jensen"
-              text="Software Engineer"
-            >
-              <template #start>
-                <BaseAvatar
-                  src="https://tairo.cssninja.io/img/avatars/4.svg"
-                  size="xs"
-                />
-              </template>
-            </BaseDropdownItem>
-
-            <BaseDropdownItem
-              title="Shawn Miller"
-              text="Product Manager"
-            >
-              <template #start>
-                <BaseAvatar
-                  src="https://tairo.cssninja.io/img/avatars/3.svg"
-                  size="xs"
-                />
-              </template>
-            </BaseDropdownItem>
-
-            <BaseDropdownItem
-              title="John Marynski"
-              text="Sales Manager"
-            >
-              <template #start>
-                <BaseAvatar
-                  src="https://tairo.cssninja.io/img/avatars/18.svg"
-                  size="xs"
-                />
-              </template>
-            </BaseDropdownItem>
-
-            <BaseDropdownDivider />
-
-            <BaseDropdownItem
-              title="Garry Porter"
-              text="CEO - Founder"
-            >
-              <template #start>
-                <BaseAvatar
-                  src="https://tairo.cssninja.io/img/avatars/6.svg"
-                  size="xs"
-                />
-              </template>
-            </BaseDropdownItem>
+        <div class="flex w-full justify-start gap-8">
+          <BaseDropdown label="Fixed position" :bindings="{
+            portal: {
+              disabled: true,
+            },
+            content: {
+              positionStrategy: 'fixed',
+            }
+          }">
+            <BaseDropdownItem>Profile</BaseDropdownItem> 
+            <BaseDropdownItem>Projects</BaseDropdownItem> 
+            <BaseDropdownItem>Team</BaseDropdownItem> 
+            <BaseDropdownItem>Settings</BaseDropdownItem> 
+            <BaseDropdownArrow />
+          </BaseDropdown>
+          <BaseDropdown label="Absolute position" :bindings="{
+            portal: {
+              disabled: true,
+            },
+            content: {
+              positionStrategy: 'absolute',
+            }
+          }">
+            <BaseDropdownItem>Profile</BaseDropdownItem> 
+            <BaseDropdownItem>Projects</BaseDropdownItem> 
+            <BaseDropdownItem>Team</BaseDropdownItem> 
+            <BaseDropdownItem>Settings</BaseDropdownItem> 
+            <BaseDropdownArrow />
           </BaseDropdown>
         </div>
       </NuiPreview>

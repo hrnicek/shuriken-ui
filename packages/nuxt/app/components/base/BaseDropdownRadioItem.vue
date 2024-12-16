@@ -1,11 +1,11 @@
 <script lang="ts">
 import type {
-  DropdownMenuCheckboxItemProps,
-  DropdownMenuCheckboxItemEmits,
+  DropdownMenuRadioItemProps,
+  DropdownMenuRadioItemEmits,
   DropdownMenuItemIndicatorProps,
 } from 'reka-ui';
 
-export interface BaseDropdownCheckboxProps extends DropdownMenuCheckboxItemProps {
+export interface BaseDropdownRadioItemProps extends DropdownMenuRadioItemProps {
   /**
    * The title to display for the dropdown item.
    */
@@ -69,7 +69,7 @@ export interface BaseDropdownCheckboxProps extends DropdownMenuCheckboxItemProps
     text?: string | string[]
   }
 }
-export interface BaseDropdownCheckboxEmits extends DropdownMenuCheckboxItemEmits {}
+export interface BaseDropdownRadioItemEmits extends DropdownMenuRadioItemEmits {}
 </script>
 
 <script setup lang="ts">
@@ -80,12 +80,11 @@ import {
   reactiveOmit,
 } from '@vueuse/core'
 
-const props = withDefaults(defineProps<BaseDropdownCheckboxProps>(), {
+const props = withDefaults(defineProps<BaseDropdownRadioItemProps>(), {
   rounded: undefined,
   contrast: undefined,
   color: undefined,
   disabled: undefined,
-  modelValue: undefined,
   text: undefined,
   textValue: undefined,
   title: undefined,
@@ -96,13 +95,13 @@ const props = withDefaults(defineProps<BaseDropdownCheckboxProps>(), {
     text: 'text-muted-400 font-sans text-xs',
   }),
 })
-const emits = defineEmits<BaseDropdownCheckboxEmits>()
+const emits = defineEmits<BaseDropdownRadioItemEmits>()
 
 const color = useNuiDefaultProperty(props, 'BaseDropdownItem', 'color')
 const contrast = useNuiDefaultProperty(props, 'BaseDropdownItem', 'contrast')
 const rounded = useNuiDefaultProperty(props, 'BaseDropdownItem', 'rounded')
 
-const iconCheck = useNuiDefaultIcon('checkSquare')
+const iconCheck = useNuiDefaultIcon('checkCircle')
 
 const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'color', 'contrast', 'rounded', 'bindings', 'classes']), emits)
 
@@ -130,9 +129,9 @@ const colors = {
 </script>
 
 <template>
-  <DropdownMenuCheckboxItem 
+  <DropdownMenuRadioItem 
     v-bind="forward"
-    class="nui-dropdown-item group/menu-checkbox-item"
+    class="nui-dropdown-item group/menu-radio-item"
     :class="[
       rounded && radiuses[rounded],
       contrast && contrasts[contrast],
@@ -144,7 +143,7 @@ const colors = {
       <Icon :name="iconCheck" class="size-4" />
     </DropdownMenuItemIndicator>
 
-    <div class="nui-dropdown-item-content group-data-[state=unchecked]/menu-checkbox-item:ps-6!">
+    <div class="nui-dropdown-item-content group-data-[state=unchecked]/menu-radio-item:ps-6!">
       <div :class="props.classes?.title">
         <slot>
           {{ props.title }}
@@ -161,5 +160,5 @@ const colors = {
       </p>
     </div>
     <slot name="end" />
-  </DropdownMenuCheckboxItem>
+  </DropdownMenuRadioItem>
 </template>

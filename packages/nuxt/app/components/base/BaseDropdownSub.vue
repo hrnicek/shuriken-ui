@@ -7,7 +7,7 @@ import type {
   DropdownMenuPortalProps,
 } from 'reka-ui'
 
-interface BaseDropdownSubProps extends DropdownMenuSubProps {
+export interface BaseDropdownSubProps extends DropdownMenuSubProps {
   /**
    * The title to display for the dropdown item.
    */
@@ -18,36 +18,17 @@ interface BaseDropdownSubProps extends DropdownMenuSubProps {
    */
   text?: string
 
-  /**
-   * The color of the dropdown.buttonSize
-   *
-   * @default 'default'
-   */
-  color?: 'default' | 'default-contrast' | 'muted' | 'muted-contrast' | 'none'
-
-  /**
-   * The radius of the dropdown button.
-   *
-   * @default 'sm'
-   */
-  rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
-
-  /**
-   * The size of the dropdown.
-   *
-   * @default 'md'
-   */
-  size?: 'md' | 'lg'
-
   bindings?: {
     trigger?: DropdownMenuSubTriggerProps,
     content?: DropdownMenuSubContentProps,
     portal?: DropdownMenuPortalProps,
   }
 }
+export interface BaseDropdownSubEmits extends DropdownMenuSubEmits {}
 </script>
 
 <script setup lang="ts">
+import { injectBaseDropdownContext } from './BaseDropdown.vue'
 import { 
   useForwardPropsEmits,
 } from 'reka-ui'
@@ -56,13 +37,13 @@ import {
 } from '@vueuse/core'
 
 const props = defineProps<BaseDropdownSubProps>()
-const emit = defineEmits<DropdownMenuSubEmits>()
+const emits = defineEmits<BaseDropdownSubEmits>()
 
-const color = useNuiDefaultProperty(props, 'BaseDropdown', 'color')
-const rounded = useNuiDefaultProperty(props, 'BaseDropdown', 'rounded')
-const size = useNuiDefaultProperty(props, 'BaseDropdown', 'size')
+const { color, rounded, size } = injectBaseDropdownContext()
 
 const iconChevronRight = useNuiDefaultIcon('chevronRight')
+
+const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'bindings']), emits)
 
 const sizes = {
   md: 'nui-dropdown-menu-md',
@@ -89,12 +70,10 @@ const colors = {
   'danger': 'nui-dropdown-menu-danger',
   'none': '',
 }
-
-const root = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'color', 'rounded', 'size', 'bindings']), emit)
 </script>
 
 <template>
-  <DropdownMenuSub v-bind="root">
+  <DropdownMenuSub v-bind="forward">
     <DropdownMenuSubTrigger
       v-bind="props.bindings?.trigger"
       class="nui-dropdown-item nui-dropdown-item-rounded-sm nui-dropdown-item-default nui-dropdown-item-primary"

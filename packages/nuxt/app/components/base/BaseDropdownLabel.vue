@@ -1,7 +1,7 @@
 <script lang="ts">
 import type { DropdownMenuLabelProps } from 'reka-ui'
 
-interface BaseDropdownLabelProps extends DropdownMenuLabelProps {
+export interface BaseDropdownLabelProps extends DropdownMenuLabelProps {
   /**
    * The label to display for the dropdown.
    */
@@ -21,12 +21,12 @@ import {
 const props = withDefaults(defineProps<BaseDropdownLabelProps>(), {
   label: '',
 })
-const root = useForwardProps(reactiveOmit(props, ['label']));
+const forward = useForwardProps(reactiveOmit(props, ['label']));
 </script>
 
 <template>
   <DropdownMenuLabel
-    v-bind="root"
+    v-bind="forward"
     class="nui-dropdown-menu-header"
   >
     <div class="nui-dropdown-menu-header-inner">

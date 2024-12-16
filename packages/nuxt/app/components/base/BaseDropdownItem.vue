@@ -4,9 +4,7 @@ import type {
   DropdownMenuItemEmits,
 } from 'reka-ui';
 
-import { injectBaseDropdownContext } from './BaseDropdown.vue'
-
-interface BaseDropdownItemProps extends DropdownMenuItemProps {
+export interface BaseDropdownItemProps extends DropdownMenuItemProps {
   /**
    * The title to display for the dropdown item.
    */
@@ -66,7 +64,7 @@ interface BaseDropdownItemProps extends DropdownMenuItemProps {
     text?: string | string[]
   }
 }
-interface BaseDropdownItemEmits extends DropdownMenuItemEmits {}
+export interface BaseDropdownItemEmits extends DropdownMenuItemEmits {}
 </script>
 
 <script setup lang="ts">
@@ -90,13 +88,13 @@ const props = withDefaults(defineProps<BaseDropdownItemProps>(), {
   }),
 })
 
-const emit = defineEmits<BaseDropdownItemEmits>()
-
-const { size } = injectBaseDropdownContext()
+const emits = defineEmits<BaseDropdownItemEmits>()
 
 const color = useNuiDefaultProperty(props, 'BaseDropdownItem', 'color')
 const contrast = useNuiDefaultProperty(props, 'BaseDropdownItem', 'contrast')
 const rounded = useNuiDefaultProperty(props, 'BaseDropdownItem', 'rounded')
+
+const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'color', 'contrast', 'rounded', 'classes']), emits)
 
 const radiuses = {
   none: '',
@@ -120,12 +118,11 @@ const colors = {
   black: 'nui-dropdown-item-black',
 }
 
-const root = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'color', 'contrast', 'rounded', 'classes']), emit)
 </script>
 
 <template>
   <DropdownMenuItem
-    v-bind="root"
+    v-bind="forward"
     class="nui-dropdown-item"
     :class="[
       rounded && radiuses[rounded],

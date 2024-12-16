@@ -6,6 +6,8 @@ export default defineAppConfig({
       spiner: 'nui-icon:spiner',
       close: 'lucide:x',
       check: 'lucide:check',
+      checkSquare: 'lucide:square-check',
+      checkCircle: 'lucide:circle-check',
       plus: 'lucide:plus',
       minus: 'lucide:minus',
       chevronDown: 'lucide:chevron-down',
@@ -146,7 +148,7 @@ export default defineAppConfig({
        *
        * @type {'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'custom'}
        */
-      variant: 'default-low',
+      variant: 'default-high',
       /**
        * Default rounded for the BaseCard component
        *
