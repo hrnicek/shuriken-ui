@@ -538,6 +538,12 @@ export default defineAppConfig({
        * @type {boolean}
        */
       disableTransitions: false,
+      /**
+       * The variant of the switch.
+       *
+       * @type {'default-low' | 'default-high'}
+       */
+      variant: 'default-low',
     },
     BaseThemeToggle: {
       /**
@@ -546,6 +552,12 @@ export default defineAppConfig({
        * @type {boolean}
        */
       disableTransitions: false,
+      /**
+       * The variant of the toggle.
+       *
+       * @type {'default-low' | 'default-high'}
+       */
+      variant: 'default-low',
     },
     // #endregion
 

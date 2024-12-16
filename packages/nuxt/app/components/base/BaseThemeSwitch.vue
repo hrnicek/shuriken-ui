@@ -12,10 +12,17 @@ const props = withDefaults(
      * @default false
      */
     disableTransitions?: boolean
+    /**
+     * The variant of the toggle.
+     *
+     * @default 'default-low'
+     */
+     variant?: 'default-low' | 'default-high'
   }>(),
   {
     id: undefined,
     disableTransitions: undefined,
+    variant: undefined,
   },
 )
 
@@ -25,8 +32,14 @@ const disableTransitions = useNuiDefaultProperty(
   'BaseThemeSwitch',
   'disableTransitions',
 )
+const variant = useNuiDefaultProperty(props, 'BaseThemeSwitch', 'variant')
 const iconSun = useNuiDefaultIcon('sun')
 const iconMoon = useNuiDefaultIcon('moon')
+
+const variants = {
+  'default-low': 'bg-white dark:bg-muted-800 border border-muted-300 dark:border-muted-700',
+  'default-high': 'bg-white dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
+}
 
 const colorMode = useColorMode()
 const isDark = computed({
@@ -52,16 +65,20 @@ const isDark = computed({
 </script>
 
 <template>
-  <label class="nui-theme-switch" :for="id">
+  <label :for="id" class="relative block h-6 w-14 scale-[0.8] rounded-full" 
+    :class="[
+      variant === 'default-low' && 'bg-muted-200 dark:bg-muted-700',
+      variant === 'default-high' && 'bg-muted-200 dark:bg-muted-800',
+    ]">
     <input
       :id="id"
       v-model="isDark"
-      class="nui-theme-switch-input"
+      class="peer absolute start-0 top-0 z-10 h-full w-full cursor-pointer opacity-0"
       type="checkbox"
     >
-    <span class="nui-theme-switch-inner">
-      <Icon :name="iconSun" class="nui-theme-switch-sun" />
-      <Icon :name="iconMoon" class="nui-theme-switch-moon" />
+    <span class="absolute -start-1 -top-2 -ms-1 flex items-center justify-center peer-checked:ms-[45%] peer-checked:rotate-[360deg] h-10 w-10 rounded-full transition-all duration-300 peer-checked:[&>.sun]:hidden peer-not-checked:[&>.moon]:hidden peer-checked:[&>.moon]:block peer-not-checked:[&>.sun]:block" :class="variants[variant]">
+      <Icon :name="iconSun" class="sun pointer-events-none text-yellow-400 dark:text-yellow-400 h-6 w-6 transition-all duration-300" />
+      <Icon :name="iconMoon" class="moon pointer-events-none text-yellow-400 dark:text-yellow-400 h-6 w-6 transition-all duration-300" />
     </span>
   </label>
 </template>
