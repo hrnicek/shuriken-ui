@@ -229,17 +229,11 @@ export default defineAppConfig({
     },
     BaseIconBox: {
       /**
-       * The color of the icon box.
+       * The variant of the icon box.
        *
-       * @type {'default' | 'default-contrast' | 'muted' | 'muted-contrast' | 'dark' | 'light' | 'black' | 'primary' | 'info' | 'success' | 'warning' | 'danger' | 'none'}
+       * @type {'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'primary' | 'dark' | 'custom'}
        */
-      color: 'default',
-      /**
-       * The radius of the icon box.
-       *
-       * @type {'none' | 'sm' | 'md' | 'lg' | 'full'}
-       */
-      rounded: 'sm',
+      variant: 'default-low',
       /**
        * The size of the icon box.
        *
@@ -247,11 +241,11 @@ export default defineAppConfig({
        */
       size: 'xs',
       /**
-       * The variant of the icon box.
+       * The radius of the icon box.
        *
-       * @type {'solid' | 'outline' | 'pastel'}
+       * @type {'none' | 'sm' | 'md' | 'lg' | 'full'}
        */
-      variant: 'solid',
+      rounded: 'sm',
     },
     BaseKbd: {
       /**

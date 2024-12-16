@@ -2,42 +2,11 @@
 const props = withDefaults(
   defineProps<{
     /**
-     * Applies an svg mask from the available presets. (needs rounded to be set to `none`).
-     */
-    mask?: 'hex' | 'hexed' | 'deca' | 'blob' | 'diamond'
-
-    /**
-     * Whether the icon is bordered.
-     */
-    bordered?: boolean
-
-    /**
-     * The color of the box.
+     * The variant of the box.
      *
-     * @default 'default'
+     * @default 'default-low'
      */
-    color?:
-      | 'default'
-      | 'default-contrast'
-      | 'muted'
-      | 'muted-contrast'
-      | 'dark'
-      | 'black'
-      | 'light'
-      | 'primary'
-      | 'info'
-      | 'success'
-      | 'warning'
-      | 'danger'
-      | 'none'
-
-    /**
-     * The radius of the icon.
-     *
-     * @since 2.0.0
-     * @default 'sm'
-     */
-    rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
+    variant?: 'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'primary' | 'dark' | 'custom'
 
     /**
      * The size of the icon.
@@ -46,66 +15,56 @@ const props = withDefaults(
      */
     size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
 
-    /**
-     * The variant of the box.
+     /**
+     * The radius of the icon.
      *
      * @since 2.0.0
-     * @default 'solid'
+     * @default 'sm'
      */
-    variant?: 'solid' | 'outline' | 'pastel'
+    rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
+
+    /**
+     * Applies an svg mask from the available presets. (needs rounded to be set to `none`).
+     */
+    mask?: 'hex' | 'hexed' | 'deca' | 'blob' | 'diamond'
   }>(),
   {
     variant: undefined,
-    color: undefined,
     size: undefined,
     rounded: undefined,
     mask: undefined,
-    bordered: false,
   },
 )
 
-const color = useNuiDefaultProperty(props, 'BaseIconBox', 'color')
-const rounded = useNuiDefaultProperty(props, 'BaseIconBox', 'rounded')
-const size = useNuiDefaultProperty(props, 'BaseIconBox', 'size')
 const variant = useNuiDefaultProperty(props, 'BaseIconBox', 'variant')
+const size = useNuiDefaultProperty(props, 'BaseIconBox', 'size')
+const rounded = useNuiDefaultProperty(props, 'BaseIconBox', 'rounded')
 
-const radiuses = {
-  none: '',
-  sm: 'nui-icon-box-rounded-sm',
-  md: 'nui-icon-box-rounded-md',
-  lg: 'nui-icon-box-rounded-lg',
-  full: 'nui-icon-box-rounded-full',
+const variants = {
+  'default-low': 'text-muted-600 dark:text-muted-200 bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
+  'default-high': 'text-muted-600 dark:text-muted-200 bg-white dark:bg-muted-800 border border-muted-300 dark:border-muted-700',
+  'muted-low': 'text-muted-600 dark:text-muted-200 bg-muted-100 dark:bg-muted-700 border border-muted-100 dark:border-muted-700',
+  'muted-high': 'text-muted-600 dark:text-muted-200 bg-muted-100 dark:bg-muted-800 border border-muted-100 dark:border-muted-800',
+  'primary': 'text-[var(--primary-text-base)] bg-[var(--primary-bg-base)]',
+  'dark': 'text-white bg-muted-900 dark:bg-white dark:text-muted-900',
+  'custom': '',
 }
 
 const sizes = {
-  'xs': 'nui-icon-box-xs',
-  'sm': 'nui-icon-box-sm',
-  'md': 'nui-icon-box-md',
-  'lg': 'nui-icon-box-lg',
-  'xl': 'nui-icon-box-xl',
-  '2xl': 'nui-icon-box-2xl',
+  'xs': 'size-8',
+  'sm': 'size-10',
+  'md': 'size-12',
+  'lg': 'size-16',
+  'xl': 'size-20',
+  '2xl': 'size-24',
 }
 
-const variants = {
-  solid: 'nui-icon-box-solid',
-  pastel: 'nui-icon-box-pastel',
-  outline: 'nui-icon-box-outline',
-}
-
-const colors = {
-  'none': '',
-  'default': 'nui-icon-box-default',
-  'default-contrast': 'nui-icon-box-default-contrast',
-  'muted': 'nui-icon-box-muted',
-  'muted-contrast': 'nui-icon-box-muted-contrast',
-  'light': 'nui-icon-box-light',
-  'dark': 'nui-icon-box-dark',
-  'black': 'nui-icon-box-black',
-  'primary': 'nui-icon-box-primary',
-  'info': 'nui-icon-box-info',
-  'success': 'nui-icon-box-success',
-  'warning': 'nui-icon-box-warning',
-  'danger': 'nui-icon-box-danger',
+const radiuses = {
+  none: '',
+  sm: 'rounded-sm',
+  md: 'rounded-md',
+  lg: 'rounded-lg',
+  full: 'rounded-full',
 }
 
 const masks = {
@@ -117,12 +76,10 @@ const masks = {
 }
 
 const classes = computed(() => [
-  'nui-icon-box',
-  props.bordered && 'nui-icon-box-bordered',
-  rounded.value && radiuses[rounded.value],
-  size.value && sizes[size.value],
+  'relative inline-flex shrink-0 items-center justify-center',
   variant.value && variants[variant.value],
-  color.value && colors[color.value],
+  size.value && sizes[size.value],
+  rounded.value && radiuses[rounded.value],
   rounded.value === 'none' && props.mask && masks[props.mask],
 ])
 </script>
@@ -132,3 +89,31 @@ const classes = computed(() => [
     <slot />
   </div>
 </template>
+
+<style scoped>
+.nui-mask {
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+.nui-mask-hex {
+  mask-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjE4MiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNNjQuNzg2IDE4MS40Yy05LjE5NiAwLTIwLjA2My02LjY4Ny0yNS4wNzktMTQuMjFMMy43NjIgMTA1LjMzYy01LjAxNi04LjM2LTUuMDE2LTIwLjkgMC0yOS4yNTlsMzUuOTQ1LTYxLjg2QzQ0LjcyMyA1Ljg1MSA1NS41OSAwIDY0Ljc4NiAwaDcxLjA1NWM5LjE5NiAwIDIwLjA2MyA2LjY4OCAyNS4wNzkgMTQuMjExbDM1Ljk0NSA2MS44NmM0LjE4IDguMzYgNC4xOCAyMC44OTkgMCAyOS4yNThsLTM1Ljk0NSA2MS44NmMtNC4xOCA4LjM2LTE1Ljg4MyAxNC4yMTEtMjUuMDc5IDE0LjIxMUg2NC43ODZ6Ii8+PC9zdmc+');
+}
+
+.nui-mask-hexed {
+  mask-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgyIiBoZWlnaHQ9IjIwMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNLjMgNjUuNDg2YzAtOS4xOTYgNi42ODctMjAuMDYzIDE0LjIxMS0yNS4wNzhsNjEuODYtMzUuOTQ2YzguMzYtNS4wMTYgMjAuODk5LTUuMDE2IDI5LjI1OCAwbDYxLjg2IDM1Ljk0NmM4LjM2IDUuMDE1IDE0LjIxMSAxNS44ODIgMTQuMjExIDI1LjA3OHY3MS4wNTVjMCA5LjE5Ni02LjY4NyAyMC4wNjMtMTQuMjExIDI1LjA3OWwtNjEuODYgMzUuOTQ1Yy04LjM2IDQuMTgtMjAuODk5IDQuMTgtMjkuMjU4IDBsLTYxLjg2LTM1Ljk0NUM2LjE1MSAxNTcuNDQuMyAxNDUuNzM3LjMgMTM2LjU0VjY1LjQ4NnoiLz48L3N2Zz4=');
+}
+
+.nui-mask-deca {
+  mask-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNOTYgMGw1OC43NzkgMTkuMDk4IDM2LjMyNyA1MHY2MS44MDRsLTM2LjMyNyA1MEw5NiAyMDBsLTU4Ljc3OS0xOS4wOTgtMzYuMzI3LTUwVjY5LjA5OGwzNi4zMjctNTB6IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=');
+}
+
+.nui-mask-blob {
+  mask-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTAwIDBDMjAgMCAwIDIwIDAgMTAwczIwIDEwMCAxMDAgMTAwIDEwMC0yMCAxMDAtMTAwUzE4MCAwIDEwMCAweiIvPjwvc3ZnPg==');
+}
+
+.nui-mask-diamond {
+  mask-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTAwIDBsMTAwIDEwMC0xMDAgMTAwTDAgMTAweiIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+');
+}
+</style>
