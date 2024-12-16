@@ -48,7 +48,7 @@ const routes = computed(() =>
                     :to="(route as RouteRecordNormalized).path"
                   >
                     <span class="flex gap-4 items-center">
-                      <Icon
+                      <!--Icon
                         v-if="
                           typeof (route as RouteRecordNormalized).meta?.icon
                             === 'string'
@@ -58,14 +58,14 @@ const routes = computed(() =>
                         :name="
                           (route as RouteRecordNormalized).meta?.icon as string
                         "
-                      />
+                      /-->
                       <span class="block">
                         <span
                           class="block text-sm font-sans text-muted-800 dark:text-muted-100"
                         >
                           {{ (route as RouteRecordNormalized).meta?.title }}
                         </span>
-                        <span
+                        <!--span
                           v-if="
                             (route as RouteRecordNormalized).meta?.description
                           "
@@ -74,7 +74,7 @@ const routes = computed(() =>
                           {{
                             (route as RouteRecordNormalized).meta?.description
                           }}
-                        </span>
+                        </span-->
                       </span>
                     </span>
                   </NuxtLink>
