@@ -11,13 +11,24 @@ definePageMeta({
   <div>
     <NuiPreviewContainer title="BaseThemeToggle">
       <NuiPreview
-        title="Variations"
-        description="Theme toggle component variations"
+        title="Toggle"
+        description="Theme toggle component variants"
       >
         <div class="flex items-center gap-10">
-          <BaseThemeToggle />
+          <BaseThemeToggle variant="default-low" />
 
-          <BaseThemeSwitch />
+          <BaseThemeToggle variant="default-high" />
+        </div>
+      </NuiPreview>
+
+      <NuiPreview
+        title="Switch"
+        description="Theme toggle component variants"
+      >
+        <div class="flex items-center gap-10">
+          <BaseThemeSwitch variant="default-low" />
+
+          <BaseThemeSwitch variant="default-high" />
         </div>
       </NuiPreview>
     </NuiPreviewContainer>

@@ -2,112 +2,68 @@
 const props = withDefaults(
   defineProps<{
     /**
-     * Determines when the tag should have a shadow.
-     */
-    shadow?: 'flat' | 'hover'
-
-    /**
-     * The color of the tag.
+     * The variant of the tag.
      *
-     * @default 'default'
+     * @default 'default-low'
      */
-    color?:
-      | 'default'
-      | 'default-contrast'
-      | 'muted'
-      | 'muted-contrast'
-      | 'light'
-      | 'dark'
-      | 'black'
-      | 'primary'
-      | 'info'
-      | 'success'
-      | 'warning'
-      | 'danger'
-
-    /**
-     * The radius of the tag.
-     *
-     * @since 2.0.0
-     * @default 'lg'
-     */
-    rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
+     variant?: 'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'primary' | 'custom'
 
     /**
      * The size of the tag.
      *
-     * @default 'md'
+     * @default 'sm'
      */
-    size?: 'sm' | 'md'
+    size?: 'sm' | 'md' | 'lg'
 
     /**
-     * The variant of the tag.
+     * The radius of the tag.
      *
-     * @since 2.0.0
-     * @default 'solid'
+     * @default 'full'
      */
-    variant?: 'solid' | 'outline' | 'pastel'
+     rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
+
+    
   }>(),
   {
     variant: undefined,
     color: undefined,
     rounded: undefined,
     size: undefined,
-    shadow: undefined,
   },
 )
 
-const color = useNuiDefaultProperty(props, 'BaseTag', 'color')
 const rounded = useNuiDefaultProperty(props, 'BaseTag', 'rounded')
 const size = useNuiDefaultProperty(props, 'BaseTag', 'size')
 const variant = useNuiDefaultProperty(props, 'BaseTag', 'variant')
 
 const variants = {
-  solid: 'nui-tag-solid',
-  pastel: 'nui-tag-pastel',
-  outline: 'nui-tag-outline',
+  'default-low': 'bg-white/10 dark:bg-muted-200/10 text-muted-400 dark:text-muted-200 ring-1 ring-inset ring-muted-400/30 dark:ring-muted-200/20',
+  'default-high': 'bg-white/10 dark:bg-muted-950/10 text-muted-400 dark:text-muted-200 ring-1 ring-inset ring-muted-400/20 dark:ring-muted-200/20',
+  'muted-low': 'bg-muted-400/10 dark:bg-muted-200/10 text-muted-400 dark:text-muted-200 ring-1 ring-inset ring-muted-400/20 dark:ring-muted-200/20',
+  'muted-high': 'bg-muted-400/10 dark:bg-muted-950/10 text-muted-400 dark:text-muted-200 ring-1 ring-inset ring-muted-400/20 dark:ring-muted-200/20',
+  'primary': 'bg-primary-400/10 text-primary-400 ring-1 ring-inset ring-primary-400/20',
+  'custom': ''
 }
 
 const radiuses = {
   none: '',
-  sm: 'nui-tag-rounded-sm',
-  md: 'nui-tag-rounded-md',
-  lg: 'nui-tag-rounded-lg',
-  full: 'nui-tag-rounded-full',
-}
-
-const colors = {
-  'default': 'nui-tag-default',
-  'default-contrast': 'nui-tag-default-contrast',
-  'muted': 'nui-tag-muted',
-  'muted-contrast': 'nui-tag-muted-contrast',
-  'light': 'nui-tag-light',
-  'dark': 'nui-tag-dark',
-  'black': 'nui-tag-black',
-  'primary': 'nui-tag-primary',
-  'info': 'nui-tag-info',
-  'success': 'nui-tag-success',
-  'warning': 'nui-tag-warning',
-  'danger': 'nui-tag-danger',
+  sm: 'rounded-sm',
+  md: 'rounded-md',
+  lg: 'rounded-lg',
+  full: 'rounded-full',
 }
 
 const sizes = {
-  sm: 'nui-tag-sm',
-  md: 'nui-tag-md',
-}
-
-const shadows = {
-  flat: 'nui-tag-shadow',
-  hover: 'nui-tag-shadow-hover',
+  sm: 'px-2 py-1',
+  md: 'px-3 py-1.5',
+  lg: 'px-3.5 py-2',
 }
 
 const classes = computed(() => [
-  'nui-tag',
+  'flex-none text-xs font-medium',
   size.value && sizes[size.value],
   rounded.value && radiuses[rounded.value],
   variant.value && variants[variant.value],
-  color.value && colors[color.value],
-  props.shadow && shadows[props.shadow],
 ])
 </script>
 

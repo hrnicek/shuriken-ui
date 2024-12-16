@@ -11,49 +11,43 @@ definePageMeta({
   <div>
     <NuiPreviewContainer title="BaseIconBox">
       <NuiPreview
-        title="Rounded: full"
-        description="Icon box component full radiuses"
+        title="Sizes"
+        description="Icon box component sizes"
       >
         <div class="flex flex-wrap items-end gap-2">
           <BaseIconBox
             size="xs"
             rounded="full"
-            class="bg-muted-200 text-muted-500 dark:bg-muted-800"
           >
             <Icon name="ph:nut-duotone" class="h-3 w-3" />
           </BaseIconBox>
           <BaseIconBox
             size="sm"
             rounded="full"
-            class="bg-muted-200 text-muted-500 dark:bg-muted-800"
           >
             <Icon name="ph:nut-duotone" class="h-4 w-4" />
           </BaseIconBox>
           <BaseIconBox
             size="md"
             rounded="full"
-            class="bg-muted-200 text-muted-500 dark:bg-muted-800"
           >
-            <Icon name="ph:nut-duotone" class="h-5 w-5" />
+            <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
           <BaseIconBox
             size="lg"
             rounded="full"
-            class="bg-muted-200 text-muted-500 dark:bg-muted-800"
           >
             <Icon name="ph:nut-duotone" class="h-6 w-6" />
           </BaseIconBox>
           <BaseIconBox
             size="xl"
             rounded="full"
-            class="bg-muted-200 text-muted-500 dark:bg-muted-800"
           >
             <Icon name="ph:nut-duotone" class="h-7 w-7" />
           </BaseIconBox>
           <BaseIconBox
             size="2xl"
             rounded="full"
-            class="bg-muted-200 text-muted-500 dark:bg-muted-800"
           >
             <Icon name="ph:nut-duotone" class="h-8 w-8" />
           </BaseIconBox>
@@ -61,652 +55,307 @@ definePageMeta({
       </NuiPreview>
 
       <NuiPreview
-        title="Rounded: lg"
-        description="Icon box component lg radiuses"
+        title="Variant: default-low"
+        description="Icon box component default low contrast variant"
       >
         <div class="flex flex-wrap items-end gap-2">
-          <BaseIconBox
-            size="xs"
-            rounded="lg"
-            class="bg-muted-200 text-muted-500 dark:bg-muted-800"
-          >
-            <Icon name="ph:nut-duotone" class="h-3 w-3" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="sm"
-            rounded="lg"
-            class="bg-muted-200 text-muted-500 dark:bg-muted-800"
-          >
-            <Icon name="ph:nut-duotone" class="h-4 w-4" />
-          </BaseIconBox>
           <BaseIconBox
             size="md"
-            rounded="lg"
-            class="bg-muted-200 text-muted-500 dark:bg-muted-800"
+            rounded="none"
           >
-            <Icon name="ph:nut-duotone" class="h-5 w-5" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="lg"
-            rounded="lg"
-            class="bg-muted-200 text-muted-500 dark:bg-muted-800"
-          >
-            <Icon name="ph:nut-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="xl"
-            rounded="lg"
-            class="bg-muted-200 text-muted-500 dark:bg-muted-800"
-          >
-            <Icon name="ph:nut-duotone" class="h-7 w-7" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="2xl"
-            rounded="lg"
-            class="bg-muted-200 text-muted-500 dark:bg-muted-800"
-          >
-            <Icon name="ph:nut-duotone" class="h-8 w-8" />
-          </BaseIconBox>
-        </div>
-      </NuiPreview>
-
-      <NuiPreview
-        title="Rounded: md"
-        description="Icon box component md radiuses"
-      >
-        <div class="flex flex-wrap items-end gap-2">
-          <BaseIconBox
-            size="xs"
-            rounded="md"
-            class="bg-muted-200 text-muted-500 dark:bg-muted-800"
-          >
-            <Icon name="ph:nut-duotone" class="h-3 w-3" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="sm"
-            rounded="md"
-            class="bg-muted-200 text-muted-500 dark:bg-muted-800"
-          >
-            <Icon name="ph:nut-duotone" class="h-4 w-4" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="md"
-            rounded="md"
-            class="bg-muted-200 text-muted-500 dark:bg-muted-800"
-          >
-            <Icon name="ph:nut-duotone" class="h-5 w-5" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="lg"
-            rounded="md"
-            class="bg-muted-200 text-muted-500 dark:bg-muted-800"
-          >
-            <Icon name="ph:nut-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="xl"
-            rounded="md"
-            class="bg-muted-200 text-muted-500 dark:bg-muted-800"
-          >
-            <Icon name="ph:nut-duotone" class="h-7 w-7" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="2xl"
-            rounded="md"
-            class="bg-muted-200 text-muted-500 dark:bg-muted-800"
-          >
-            <Icon name="ph:nut-duotone" class="h-8 w-8" />
-          </BaseIconBox>
-        </div>
-      </NuiPreview>
-
-      <NuiPreview
-        title="Rounded: sm"
-        description="Icon box component sm radiuses"
-      >
-        <div class="flex flex-wrap items-end gap-2">
-          <BaseIconBox
-            size="xs"
-            rounded="sm"
-            class="bg-muted-200 text-muted-500 dark:bg-muted-800"
-          >
-            <Icon name="ph:nut-duotone" class="h-3 w-3" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="sm"
-            rounded="sm"
-            class="bg-muted-200 text-muted-500 dark:bg-muted-800"
-          >
-            <Icon name="ph:nut-duotone" class="h-4 w-4" />
+            <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
           <BaseIconBox
             size="md"
             rounded="sm"
-            class="bg-muted-200 text-muted-500 dark:bg-muted-800"
           >
-            <Icon name="ph:nut-duotone" class="h-5 w-5" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="lg"
-            rounded="sm"
-            class="bg-muted-200 text-muted-500 dark:bg-muted-800"
-          >
-            <Icon name="ph:nut-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="xl"
-            rounded="sm"
-            class="bg-muted-200 text-muted-500 dark:bg-muted-800"
-          >
-            <Icon name="ph:nut-duotone" class="h-7 w-7" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="2xl"
-            rounded="sm"
-            class="bg-muted-200 text-muted-500 dark:bg-muted-800"
-          >
-            <Icon name="ph:nut-duotone" class="h-8 w-8" />
-          </BaseIconBox>
-        </div>
-      </NuiPreview>
-
-      <NuiPreview
-        title="Rounded: none"
-        description="Icon box component none radiuses"
-      >
-        <div class="flex flex-wrap items-end gap-2">
-          <BaseIconBox
-            size="xs"
-            rounded="none"
-            class="bg-muted-200 text-muted-500 dark:bg-muted-800"
-          >
-            <Icon name="ph:nut-duotone" class="h-3 w-3" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="sm"
-            rounded="none"
-            class="bg-muted-200 text-muted-500 dark:bg-muted-800"
-          >
-            <Icon name="ph:nut-duotone" class="h-4 w-4" />
+            <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
           <BaseIconBox
             size="md"
-            rounded="none"
-            class="bg-muted-200 text-muted-500 dark:bg-muted-800"
+            rounded="md"
           >
-            <Icon name="ph:nut-duotone" class="h-5 w-5" />
+            <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
           <BaseIconBox
-            size="lg"
-            rounded="none"
-            class="bg-muted-200 text-muted-500 dark:bg-muted-800"
+            size="md"
+            rounded="lg"
           >
-            <Icon name="ph:nut-duotone" class="h-6 w-6" />
+            <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
           <BaseIconBox
-            size="xl"
-            rounded="none"
-            class="bg-muted-200 text-muted-500 dark:bg-muted-800"
+            size="md"
+            rounded="full"
           >
-            <Icon name="ph:nut-duotone" class="h-7 w-7" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="2xl"
-            rounded="none"
-            class="bg-muted-200 text-muted-500 dark:bg-muted-800"
-          >
-            <Icon name="ph:nut-duotone" class="h-8 w-8" />
+            <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
         </div>
       </NuiPreview>
 
       <NuiPreview
-        title="Variant: solid"
-        description="Icon box component solid variant"
+        title="Variant: default-high"
+        description="Icon box component default high contrast variant"
       >
-        <div class="flex flex-wrap items-end gap-4">
-          <BaseIconBox size="lg" rounded="full" variant="solid" color="default">
-            <Icon name="ph:skull-duotone" class="h-6 w-6" />
+        <div class="flex flex-wrap items-end gap-2">
+          <BaseIconBox
+            variant="default-high"
+            size="md"
+            rounded="none"
+          >
+            <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
-          <BaseIconBox size="lg" rounded="full" variant="solid" color="primary">
-            <Icon name="ph:armchair-duotone" class="h-6 w-6" />
+          <BaseIconBox
+            variant="default-high"
+            size="md"
+            rounded="sm"
+          >
+            <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
-          <BaseIconBox size="lg" rounded="full" variant="solid" color="info">
-            <Icon name="ph:confetti-duotone" class="h-6 w-6" />
+          <BaseIconBox
+            variant="default-high"
+            size="md"
+            rounded="md"
+          >
+            <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
-          <BaseIconBox size="lg" rounded="full" variant="solid" color="success">
-            <Icon name="ph:check-circle-duotone" class="h-6 w-6" />
+          <BaseIconBox
+            variant="default-high"
+            size="md"
+            rounded="lg"
+          >
+            <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
-          <BaseIconBox size="lg" rounded="full" variant="solid" color="warning">
-            <Icon name="ph:lightbulb-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox size="lg" rounded="full" variant="solid" color="danger">
-            <Icon name="ph:cookie-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox size="lg" rounded="full" variant="solid" color="light">
-            <Icon name="ph:cactus-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox size="lg" rounded="full" variant="solid" color="dark">
-            <Icon name="ph:shield-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox size="lg" rounded="full" variant="solid" color="black">
-            <Icon name="ph:robot-duotone" class="h-6 w-6" />
+          <BaseIconBox
+            variant="default-high"
+            size="md"
+            rounded="full"
+          >
+            <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
         </div>
       </NuiPreview>
 
       <NuiPreview
-        title="Variant: pastel"
-        description="Icon box component pastel variant"
+        title="Variant: muted-low"
+        description="Icon box component muted low contrast variant"
       >
-        <div class="flex flex-wrap items-end gap-4">
+        <div class="flex flex-wrap items-end gap-2">
           <BaseIconBox
-            size="lg"
-            rounded="full"
-            variant="pastel"
-            color="default"
+            variant="muted-low"
+            size="md"
+            rounded="none"
           >
-            <Icon name="ph:skull-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="lg"
-            rounded="full"
-            variant="pastel"
-            color="primary"
-          >
-            <Icon name="ph:armchair-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox size="lg" rounded="full" variant="pastel" color="info">
-            <Icon name="ph:confetti-duotone" class="h-6 w-6" />
+            <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
           <BaseIconBox
-            size="lg"
-            rounded="full"
-            variant="pastel"
-            color="success"
+            variant="muted-low"
+            size="md"
+            rounded="sm"
           >
-            <Icon name="ph:check-circle-duotone" class="h-6 w-6" />
+            <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
           <BaseIconBox
-            size="lg"
-            rounded="full"
-            variant="pastel"
-            color="warning"
+            variant="muted-low"
+            size="md"
+            rounded="md"
           >
-            <Icon name="ph:lightbulb-duotone" class="h-6 w-6" />
+            <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
-          <BaseIconBox size="lg" rounded="full" variant="pastel" color="danger">
-            <Icon name="ph:cookie-duotone" class="h-6 w-6" />
+          <BaseIconBox
+            variant="muted-low"
+            size="md"
+            rounded="lg"
+          >
+            <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
-          <BaseIconBox size="lg" rounded="full" variant="pastel" color="light">
-            <Icon name="ph:cactus-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox size="lg" rounded="full" variant="pastel" color="dark">
-            <Icon name="ph:shield-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox size="lg" rounded="full" variant="pastel" color="black">
-            <Icon name="ph:robot-duotone" class="h-6 w-6" />
+          <BaseIconBox
+            variant="muted-low"
+            size="md"
+            rounded="full"
+          >
+            <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
         </div>
       </NuiPreview>
 
       <NuiPreview
-        title="Variant: outline"
-        description="Icon box component outline variant"
+        title="Variant: muted-high"
+        description="Icon box component muted high contrast variant"
       >
-        <div class="flex flex-wrap items-end gap-4">
+        <div class="flex flex-wrap items-end gap-2">
           <BaseIconBox
-            size="lg"
+            variant="muted-high"
+            size="md"
+            rounded="none"
+          >
+            <Icon name="ph:nut-duotone" class="text-lg" />
+          </BaseIconBox>
+          <BaseIconBox
+            variant="muted-high"
+            size="md"
+            rounded="sm"
+          >
+            <Icon name="ph:nut-duotone" class="text-lg" />
+          </BaseIconBox>
+          <BaseIconBox
+            variant="muted-high"
+            size="md"
+            rounded="md"
+          >
+            <Icon name="ph:nut-duotone" class="text-lg" />
+          </BaseIconBox>
+          <BaseIconBox
+            variant="muted-high"
+            size="md"
+            rounded="lg"
+          >
+            <Icon name="ph:nut-duotone" class="text-lg" />
+          </BaseIconBox>
+          <BaseIconBox
+            variant="muted-high"
+            size="md"
             rounded="full"
-            variant="outline"
-            color="default"
           >
-            <Icon name="ph:skull-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="lg"
-            rounded="full"
-            variant="outline"
-            color="primary"
-          >
-            <Icon name="ph:armchair-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox size="lg" rounded="full" variant="outline" color="info">
-            <Icon name="ph:confetti-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="lg"
-            rounded="full"
-            variant="outline"
-            color="success"
-          >
-            <Icon name="ph:check-circle-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="lg"
-            rounded="full"
-            variant="outline"
-            color="warning"
-          >
-            <Icon name="ph:lightbulb-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="lg"
-            rounded="full"
-            variant="outline"
-            color="danger"
-          >
-            <Icon name="ph:cookie-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox size="lg" rounded="full" variant="outline" color="light">
-            <Icon name="ph:cactus-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox size="lg" rounded="full" variant="outline" color="dark">
-            <Icon name="ph:shield-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox size="lg" rounded="full" variant="outline" color="black">
-            <Icon name="ph:robot-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-        </div>
-      </NuiPreview>
-
-      <NuiPreview title="Mask: hex" description="Icon box component hex mask">
-        <div class="flex flex-wrap items-end gap-4">
-          <BaseIconBox
-            size="lg"
-            rounded="none"
-            variant="solid"
-            mask="hex"
-            color="default"
-          >
-            <Icon name="ph:skull-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="lg"
-            rounded="none"
-            variant="solid"
-            mask="hex"
-            color="primary"
-          >
-            <Icon name="ph:armchair-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="lg"
-            rounded="none"
-            variant="solid"
-            mask="hex"
-            color="info"
-          >
-            <Icon name="ph:confetti-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="lg"
-            rounded="none"
-            variant="solid"
-            mask="hex"
-            color="success"
-          >
-            <Icon name="ph:check-circle-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="lg"
-            rounded="none"
-            variant="solid"
-            mask="hex"
-            color="warning"
-          >
-            <Icon name="ph:lightbulb-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="lg"
-            rounded="none"
-            variant="solid"
-            mask="hex"
-            color="danger"
-          >
-            <Icon name="ph:cookie-duotone" class="h-6 w-6" />
+            <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
         </div>
       </NuiPreview>
 
       <NuiPreview
-        title="Mask: hexed"
-        description="Icon box component hexed mask"
+        title="Variant: primary"
+        description="Icon box component primary variant"
       >
-        <div class="flex flex-wrap items-end gap-4">
+        <div class="flex flex-wrap items-end gap-2">
           <BaseIconBox
-            size="lg"
+            variant="primary"
+            size="md"
             rounded="none"
-            variant="solid"
-            mask="hexed"
-            color="default"
           >
-            <Icon name="ph:skull-duotone" class="h-6 w-6" />
+            <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
           <BaseIconBox
-            size="lg"
-            rounded="none"
-            variant="solid"
-            mask="hexed"
-            color="primary"
+            variant="primary"
+            size="md"
+            rounded="sm"
           >
-            <Icon name="ph:armchair-duotone" class="h-6 w-6" />
+            <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
           <BaseIconBox
-            size="lg"
-            rounded="none"
-            variant="solid"
-            mask="hexed"
-            color="info"
+            variant="primary"
+            size="md"
+            rounded="md"
           >
-            <Icon name="ph:confetti-duotone" class="h-6 w-6" />
+            <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
           <BaseIconBox
-            size="lg"
-            rounded="none"
-            variant="solid"
-            mask="hexed"
-            color="success"
+            variant="primary"
+            size="md"
+            rounded="lg"
           >
-            <Icon name="ph:check-circle-duotone" class="h-6 w-6" />
+            <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
           <BaseIconBox
-            size="lg"
-            rounded="none"
-            variant="solid"
-            mask="hexed"
-            color="warning"
+            variant="primary"
+            size="md"
+            rounded="full"
           >
-            <Icon name="ph:lightbulb-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="lg"
-            rounded="none"
-            variant="solid"
-            mask="hexed"
-            color="danger"
-          >
-            <Icon name="ph:cookie-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-        </div>
-      </NuiPreview>
-
-      <NuiPreview title="Mask: blob" description="Icon box component blob mask">
-        <div class="flex flex-wrap items-end gap-4">
-          <BaseIconBox
-            size="lg"
-            rounded="none"
-            variant="solid"
-            mask="blob"
-            color="default"
-          >
-            <Icon name="ph:skull-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="lg"
-            rounded="none"
-            variant="solid"
-            mask="blob"
-            color="primary"
-          >
-            <Icon name="ph:armchair-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="lg"
-            rounded="none"
-            variant="solid"
-            mask="blob"
-            color="info"
-          >
-            <Icon name="ph:confetti-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="lg"
-            rounded="none"
-            variant="solid"
-            mask="blob"
-            color="success"
-          >
-            <Icon name="ph:check-circle-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="lg"
-            rounded="none"
-            variant="solid"
-            mask="blob"
-            color="warning"
-          >
-            <Icon name="ph:lightbulb-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="lg"
-            rounded="none"
-            variant="solid"
-            mask="blob"
-            color="danger"
-          >
-            <Icon name="ph:cookie-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-        </div>
-      </NuiPreview>
-
-      <NuiPreview title="Mask: deca" description="Icon box component deca mask">
-        <div class="flex flex-wrap items-end gap-4">
-          <BaseIconBox
-            size="lg"
-            rounded="none"
-            variant="solid"
-            mask="deca"
-            color="default"
-          >
-            <Icon name="ph:skull-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="lg"
-            rounded="none"
-            variant="solid"
-            mask="deca"
-            color="primary"
-          >
-            <Icon name="ph:armchair-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="lg"
-            rounded="none"
-            variant="solid"
-            mask="deca"
-            color="info"
-          >
-            <Icon name="ph:confetti-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="lg"
-            rounded="none"
-            variant="solid"
-            mask="deca"
-            color="success"
-          >
-            <Icon name="ph:check-circle-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="lg"
-            rounded="none"
-            variant="solid"
-            mask="deca"
-            color="warning"
-          >
-            <Icon name="ph:lightbulb-duotone" class="h-6 w-6" />
-          </BaseIconBox>
-          <BaseIconBox
-            size="lg"
-            rounded="none"
-            variant="solid"
-            mask="deca"
-            color="danger"
-          >
-            <Icon name="ph:cookie-duotone" class="h-6 w-6" />
+            <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
         </div>
       </NuiPreview>
 
       <NuiPreview
-        title="Mask: diamond"
-        description="Icon box component diamond mask"
+        title="Variant: dark"
+        description="Icon box component dark variant"
       >
-        <div class="flex flex-wrap items-end gap-4">
+        <div class="flex flex-wrap items-end gap-2">
           <BaseIconBox
-            size="lg"
+            variant="dark"
+            size="md"
             rounded="none"
-            variant="solid"
-            mask="diamond"
-            color="default"
           >
-            <Icon name="ph:skull-duotone" class="h-6 w-6" />
+            <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
           <BaseIconBox
-            size="lg"
-            rounded="none"
-            variant="solid"
-            mask="diamond"
-            color="primary"
+            variant="dark"
+            size="md"
+            rounded="sm"
           >
-            <Icon name="ph:armchair-duotone" class="h-6 w-6" />
+            <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
           <BaseIconBox
-            size="lg"
-            rounded="none"
-            variant="solid"
-            mask="diamond"
-            color="info"
+            variant="dark"
+            size="md"
+            rounded="md"
           >
-            <Icon name="ph:confetti-duotone" class="h-6 w-6" />
+            <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
           <BaseIconBox
-            size="lg"
-            rounded="none"
-            variant="solid"
-            mask="diamond"
-            color="success"
+            variant="dark"
+            size="md"
+            rounded="lg"
           >
-            <Icon name="ph:check-circle-duotone" class="h-6 w-6" />
+            <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
           <BaseIconBox
-            size="lg"
-            rounded="none"
-            variant="solid"
-            mask="diamond"
-            color="warning"
+            variant="dark"
+            size="md"
+            rounded="full"
           >
-            <Icon name="ph:lightbulb-duotone" class="h-6 w-6" />
+            <Icon name="ph:nut-duotone" class="text-lg" />
+          </BaseIconBox>
+        </div>
+      </NuiPreview>
+
+      <NuiPreview
+        title="Masks"
+        description="Icon box component masks"
+      >
+        <div class="flex flex-wrap items-end gap-2">
+          <BaseIconBox
+            variant="custom"
+            size="md"
+            rounded="none"
+            mask="hex"
+            class="bg-violet-500/20 text-violet-600"
+          >
+            <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
           <BaseIconBox
-            size="lg"
+            variant="custom"
+            size="md"
             rounded="none"
-            variant="solid"
-            mask="diamond"
-            color="danger"
+            mask="hexed"
+            class="bg-sky-500/20 text-sky-600"
           >
-            <Icon name="ph:cookie-duotone" class="h-6 w-6" />
+            <Icon name="ph:nut-duotone" class="text-lg" />
+          </BaseIconBox>
+          <BaseIconBox
+            variant="custom"
+            size="md"
+            rounded="none"
+            mask="deca"
+            class="bg-yellow-400/20 text-yellow-600"
+          >
+            <Icon name="ph:nut-duotone" class="text-lg" />
+          </BaseIconBox>
+          <BaseIconBox
+            variant="custom"
+            size="md"
+            rounded="none"
+            mask="diamond"
+            class="bg-rose-500/20 text-rose-600"
+          >
+            <Icon name="ph:nut-duotone" class="text-lg" />
+          </BaseIconBox>
+          <BaseIconBox
+            variant="custom"
+            size="md"
+            rounded="none"
+            mask="blob"
+            class="bg-green-500/20 text-green-600"
+          >
+            <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
         </div>
       </NuiPreview>

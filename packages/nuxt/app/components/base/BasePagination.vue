@@ -27,16 +27,6 @@ const props = withDefaults(
     routerQueryKey?: string
 
     /**
-     * The icon to show for the previous button.
-     */
-    previousIcon?: string
-
-    /**
-     * The icon to show for the next button.
-     */
-    nextIcon?: string
-
-    /**
      * The ellipsis to show when there are too many links.
      */
     ellipsis?: string
@@ -44,18 +34,30 @@ const props = withDefaults(
     /**
      * The color of the pagination active button.
      *
-     * @since 3.0.0
      * @default 'primary'
      */
-    color?: 'primary' | 'dark' | 'black'
+    variant?: 'primary-low' | 'primary-high' | 'dark-low' | 'dark-high'
+
+    /**
+     * The size of the pagination buttons.
+     *
+     * @default 'md'
+     */
+    size?: 'sm' | 'md' | 'lg'
 
     /**
      * The radius of the pagination.
      *
-     * @since 2.0.0
      * @default 'sm'
      */
     rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
+
+    /**
+     * Wether the pagination is wrapped.
+     *
+     * @default 'true'
+     */
+     wrapped?: boolean
 
     /**
      * Optional CSS classes to apply to the component inner elements.
@@ -93,40 +95,48 @@ const props = withDefaults(
     }
   }>(),
   {
+    variant: undefined,
+    size: undefined,
     rounded: undefined,
-    color: undefined,
     maxLinksDisplayed: 3,
     routerQueryKey: 'page',
-    previousIcon: undefined,
-    nextIcon: undefined,
     ellipsis: '…',
+    wrapped: undefined,
     classes: () => ({}),
   },
 )
 
-const color = useNuiDefaultProperty(props, 'BasePagination', 'color')
+const variant = useNuiDefaultProperty(props, 'BasePagination', 'variant')
+const size = useNuiDefaultProperty(props, 'BasePagination', 'size')
 const rounded = useNuiDefaultProperty(props, 'BasePagination', 'rounded')
+const wrapped = useNuiDefaultProperty(props, 'BasePagination', 'wrapped')
 
-const iconPrevious = useNuiDefaultIcon('chevronLeft', () => props.previousIcon)
-const iconNext = useNuiDefaultIcon('chevronRight', () => props.nextIcon)
+const iconPrevious = useNuiDefaultIcon('chevronLeft')
+const iconNext = useNuiDefaultIcon('chevronRight')
 
 const currentPage = defineModel('currentPage', {
   type: Number,
   default: 4,
 })
 
-const radiuses = {
-  none: '',
-  sm: 'nui-pagination-rounded-sm',
-  md: 'nui-pagination-rounded-md',
-  lg: 'nui-pagination-rounded-lg',
-  full: 'nui-pagination-rounded-full',
+const sizes = {
+  sm: 'size-8',
+  md: 'size-10',
+  lg: 'size-12',
 }
 
-const colors = {
-  primary: 'nui-pagination-primary',
-  dark: 'nui-pagination-dark',
-  black: 'nui-pagination-black',
+const heights = {
+  sm: 'h-8 px-3',
+  md: 'h-10 px-4',
+  lg: 'h-12 px-5',
+}
+
+const radiuses = {
+  none: '',
+  sm: 'rounded-sm',
+  md: 'rounded-md',
+  lg: 'rounded-lg',
+  full: 'rounded-lg sm:rounded-full',
 }
 </script>
 
@@ -140,16 +150,22 @@ const colors = {
   >
     <PaginationList
       v-slot="{ items }" 
-      class="nui-pagination"
+      class="inline-flex w-full flex-col md:flex-row md:justify-between"
       :class="[
         rounded && radiuses[rounded],
-        color && colors[color],
         props.classes?.wrapper,
       ]"
     >
       <ul
-        class="nui-pagination-list"
-        :class="[rounded && radiuses[rounded], props.classes?.list]"
+        class="inline-flex flex-wrap gap-2 md:gap-1 mb-4 md:mb-0"
+        :class="[
+          variant === 'primary-low' && wrapped && 'p-1 bg-muted-100 dark:bg-muted-700 border border-muted-200 dark:border-muted-600',
+          variant === 'primary-high' && wrapped && 'p-1 bg-muted-100 dark:bg-muted-950 border border-muted-200 dark:border-muted-800',
+          variant === 'dark-low' && wrapped && 'p-1 bg-muted-100 dark:bg-muted-700 border border-muted-200 dark:border-muted-600',
+          variant === 'dark-high' && wrapped && 'p-1 bg-muted-100 dark:bg-muted-950 border border-muted-200 dark:border-muted-800',
+          rounded && radiuses[rounded], 
+          props.classes?.list
+        ]"
       >
         <slot name="before-pagination" />
 
@@ -158,10 +174,14 @@ const colors = {
             v-if="page.type === 'page'"
             :key="index"
             :value="page.value"
-            class="nui-pagination-link"
+            class="outline-none focus-visible:ring focus-visible:!ring-primary-500 flex items-center justify-center mb-0 inline-flex flex-wrap gap-2 md:gap-1 font-sans text-sm border enabled:cursor-pointer"
             :class="[
-              currentPage === page && 'nui-pagination-active',
+              variant === 'primary-low' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-800 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-600 data-selected:!bg-[var(--primary-bg-base)] data-selected:!text-[var(--primary-text-base)]',
+              variant === 'primary-high' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-900 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-800 data-selected:!bg-[var(--primary-bg-base)] data-selected:!text-[var(--primary-text-base)]',
+              variant === 'dark-low' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-800 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-700 data-selected:!bg-muted-900 data-selected:!text-white dark:data-selected:!bg-white dark:data-selected:!text-muted-900',
+              variant === 'dark-high' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-900 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-700 data-selected:!bg-muted-900 data-selected:!text-white dark:data-selected:!bg-white dark:data-selected:!text-muted-900',
               rounded && radiuses[rounded],
+              size && heights[size],
               props.classes?.link,
             ]"
           >
@@ -171,7 +191,15 @@ const colors = {
             v-else
             :key="page.type"
             :index="index"
-            class="nui-pagination-ellipsis"
+            class="select-none flex items-center justify-center font-sans text-sm"
+            :class="[
+              variant === 'primary-low' && 'bg-white dark:bg-muted-800 border border-muted-200 dark:border-muted-600',
+              variant === 'primary-high' && 'bg-white dark:bg-muted-900 border border-muted-200 dark:border-muted-800',
+              variant === 'dark-low' && 'bg-white hover:bg-muted-50 dark:bg-muted-800 border border-muted-200 dark:border-muted-700',
+              variant === 'dark-high' && 'bg-white hover:bg-muted-50 dark:bg-muted-900 border border-muted-200 dark:border-muted-700',
+              rounded && radiuses[rounded],
+              size && sizes[size],
+            ]"
           >
             &#8230;
           </PaginationEllipsis>
@@ -181,20 +209,39 @@ const colors = {
       </ul>
 
       <div
-        class="nui-pagination-buttons"
-        :class="[rounded && radiuses[rounded], props.classes?.buttons]"
+        class="flex items-center justify-end gap-1 enabled:cursor-pointer"
+        :class="[
+          variant === 'primary-low' && wrapped && 'p-1 border bg-muted-100 dark:bg-muted-700 border-muted-200 dark:border-muted-600',
+          variant === 'primary-high' && wrapped && 'p-1 border bg-muted-100 dark:bg-muted-950 border-muted-200 dark:border-muted-800',
+          variant === 'dark-low' && wrapped && 'p-1 border bg-muted-100 dark:bg-muted-700 border-muted-200 dark:border-muted-600',
+          variant === 'dark-high' && wrapped && 'p-1 border bg-muted-100 dark:bg-muted-950 border-muted-200 dark:border-muted-800',
+          rounded && radiuses[rounded], 
+          props.classes?.buttons
+        ]"
       >
         <slot name="before-navigation" />
 
-        <PaginationPrev class="nui-pagination-button">
+        <PaginationPrev class="outline-none focus-visible:ring focus-visible:!ring-primary-500 flex w-full items-center justify-center font-sans text-sm enabled:cursor-pointer transition-all duration-300 disabled:opacity-50" 
+          :class="[
+            variant === 'primary-low' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-800 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-600',
+            variant === 'primary-high' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-900 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-800',
+            variant === 'dark-low' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-800 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-700',
+            variant === 'dark-high' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-900 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-700',
+            rounded && radiuses[rounded], 
+            size && heights[size],
+          ]">
           <slot name="previous-icon">
-            <Icon :name="iconPrevious" class="pagination-button-icon" />
+            <Icon :name="iconPrevious" class="text-lg" />
           </slot>
         </PaginationPrev>
 
-        <PaginationNext class="nui-pagination-button">
+        <PaginationNext class="outline-none focus-visible:ring focus-visible:!ring-primary-500 flex w-full items-center justify-center font-sans text-sm text-muted-500 dark:text-muted-400 enabled:hover:text-muted-700 enabled:dark:hover:text-muted-400 enabled:cursor-pointer bg-white dark:bg-muted-800 enabled:hover:bg-muted-100 enabled:dark:hover:bg-muted-900 border-muted-200 dark:border-muted-700 transition-all duration-300 disabled:opacity-50" 
+          :class="[
+            rounded && radiuses[rounded], 
+            size && heights[size],
+          ]">
           <slot name="next-icon">
-            <Icon :name="iconNext" class="pagination-button-icon" />
+            <Icon :name="iconNext" class="text-lg" />
           </slot>
         </PaginationNext>
         <slot name="after-navigation" />

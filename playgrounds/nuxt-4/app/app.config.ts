@@ -4,8 +4,8 @@ export default defineAppConfig({
   },
   nui: {
     icons: {
-      sun: 'material-symbols:wb-sunny-outline-rounded',
-      moon: 'material-symbols-light:dark-mode-outline-rounded',
+      // sun: 'material-symbols:wb-sunny-outline-rounded',
+      // moon: 'material-symbols-light:dark-mode-outline-rounded',
     },
   },
 })

@@ -2,13 +2,6 @@
 const props = withDefaults(
   defineProps<{
     /**
-     * The lead of the text.
-     *
-     * @default 'normal'
-     */
-    lead?: 'none' | 'tight' | 'snug' | 'normal' | 'relaxed' | 'loose'
-
-    /**
      * The size of the text.
      *
      * @default 'md'
@@ -27,6 +20,13 @@ const props = withDefaults(
       | '7xl'
       | '8xl'
       | '9xl'
+    
+    /**
+     * The lead of the text.
+     *
+     * @default 'normal'
+     */
+    lead?: 'none' | 'tight' | 'snug' | 'normal' | 'relaxed' | 'loose'
 
     /**
      * The weight of the text.
@@ -34,57 +34,76 @@ const props = withDefaults(
      * @default 'normal'
      */
     weight?: 'light' | 'normal' | 'medium' | 'semibold' | 'bold' | 'extrabold'
+
+    /**
+     * The letter spacing of the paragraph.
+     *
+     * @default 'normal'
+     */
+     tracking?: 'tighter' | 'tight' | 'normal' | 'wide' | 'wider' | 'widest'
   }>(),
   {
     size: undefined,
-    weight: undefined,
     lead: undefined,
+    weight: undefined,
+    tracking: undefined,
   },
 )
 
-const lead = useNuiDefaultProperty(props, 'BaseText', 'lead')
 const size = useNuiDefaultProperty(props, 'BaseText', 'size')
+const lead = useNuiDefaultProperty(props, 'BaseText', 'lead')
 const weight = useNuiDefaultProperty(props, 'BaseText', 'weight')
+const tracking = useNuiDefaultProperty(props, 'BaseText', 'tracking')
 
 const sizes = {
-  'xs': 'nui-text-content-xs',
-  'sm': 'nui-text-content-sm',
-  'md': 'nui-text-content-md',
-  'lg': 'nui-text-content-lg',
-  'xl': 'nui-text-content-xl',
-  '2xl': 'nui-text-content-2xl',
-  '3xl': 'nui-text-content-3xl',
-  '4xl': 'nui-text-content-4xl',
-  '5xl': 'nui-text-content-5xl',
-  '6xl': 'nui-text-content-6xl',
-  '7xl': 'nui-text-content-7xl',
-  '8xl': 'nui-text-content-8xl',
-  '9xl': 'nui-text-content-9xl',
-}
-
-const weights = {
-  light: 'nui-text-weight-light',
-  normal: 'nui-text-weight-normal',
-  medium: 'nui-text-weight-medium',
-  semibold: 'nui-text-weight-semibold',
-  bold: 'nui-text-weight-bold',
-  extrabold: 'nui-text-weight-extrabold',
+  'xs': 'text-xs',
+  'sm': 'text-sm',
+  'md': 'text-base',
+  'lg': 'text-lg',
+  'xl': 'text-xl',
+  '2xl': 'text-2xl',
+  '3xl': 'text-3xl',
+  '4xl': 'text-4xl',
+  '5xl': 'text-5xl',
+  '6xl': 'text-6xl',
+  '7xl': 'text-7xl',
+  '8xl': 'text-8xl',
+  '9xl': 'text-9xl',
 }
 
 const leads = {
-  none: 'nui-text-lead-none',
-  tight: 'nui-text-lead-tight',
-  snug: 'nui-text-lead-snug',
-  normal: 'nui-text-lead-normal',
-  relaxed: 'nui-text-lead-relaxed',
-  loose: 'nui-text-lead-loose',
+  none: 'leading-none',
+  tight: 'leading-tight',
+  snug: 'leading-snug',
+  normal: 'leading-normal',
+  relaxed: 'leading-relaxed',
+  loose: 'leading-loose',
+}
+
+const weights = {
+  light: 'font-light',
+  normal: 'font-normal',
+  medium: 'font-medium',
+  semibold: 'font-semibold',
+  bold: 'font-bold',
+  extrabold: 'font-extrabold',
+}
+
+const trackings = {
+  tighter: 'tracking-tighter',
+  tight: 'tracking-tight',
+  normal: 'tracking-normal',
+  wide: 'tracking-wide',
+  wider: 'tracking-wider',
+  widest: 'tracking-widest',
 }
 
 const classes = computed(() => [
-  'nui-text',
+  'font-sans',
   size.value && sizes[size.value],
-  weight.value && weights[weight.value],
   lead.value && leads[lead.value],
+  weight.value && weights[weight.value],
+  tracking.value && trackings[tracking.value],
 ])
 </script>
 

@@ -207,33 +207,33 @@ export default defineAppConfig({
        *
        * @type {'none' | 'tight' | 'snug' | 'normal' | 'relaxed' | 'loose'}
        */
-      lead: 'normal',
-      /**
-       * The size of the heading.
-       *
-       * @type {'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl' | '9xl'}
-       */
       size: 'xl',
       /**
        * The weight of the heading.
        *
        * @type {'light' | 'normal' | 'medium' | 'semibold' | 'bold' | 'extrabold'}
        */
+      lead: 'normal',
+      /**
+       * The size of the heading.
+       *
+       * @type {'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl' | '9xl'}
+       */
       weight: 'semibold',
+      /**
+       * The size of the heading.
+       *
+       * @type {'tighter' | 'tight' | 'normal' | 'wide' | 'wider' | 'widest'}
+       */
+      tracking: 'normal',
     },
     BaseIconBox: {
       /**
-       * The color of the icon box.
+       * The variant of the icon box.
        *
-       * @type {'default' | 'default-contrast' | 'muted' | 'muted-contrast' | 'dark' | 'light' | 'black' | 'primary' | 'info' | 'success' | 'warning' | 'danger' | 'none'}
+       * @type {'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'primary' | 'dark' | 'custom'}
        */
-      color: 'default',
-      /**
-       * The radius of the icon box.
-       *
-       * @type {'none' | 'sm' | 'md' | 'lg' | 'full'}
-       */
-      rounded: 'sm',
+      variant: 'default-low',
       /**
        * The size of the icon box.
        *
@@ -241,31 +241,25 @@ export default defineAppConfig({
        */
       size: 'xs',
       /**
-       * The variant of the icon box.
-       *
-       * @type {'solid' | 'outline' | 'pastel'}
-       */
-      variant: 'solid',
-    },
-    BaseKbd: {
-      /**
-       * The color of the kbd.
-       *
-       * @type {'default' | 'muted' | 'none'}
-       */
-      color: 'default',
-      /**
-       * The radius of the kbd.
+       * The radius of the icon box.
        *
        * @type {'none' | 'sm' | 'md' | 'lg' | 'full'}
        */
       rounded: 'sm',
+    },
+    BaseKbd: {
+      /**
+       * The variant of the kbd.
+       *
+       * @type {'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'custom'}
+       */
+      variant: 'default',
       /**
        * The size of the kbd.
        *
-       * @type {'xs' | 'sm' | 'md' | 'lg'}
+       * @type {'sm' | 'md' | 'lg'}
        */
-      size: 'sm',
+      size: 'md',
     },
     BaseLink: {},
     BaseList: {},
@@ -312,17 +306,29 @@ export default defineAppConfig({
     },
     BasePagination: {
       /**
-       * The color of the pagination.
+       * The variant of the pagination.
        *
-       * @type {'primary' | 'dark' | 'black'}
+       * @type {'primary-low' | 'primary-high' | 'dark-low' | 'dark-high'}
        */
-      color: 'primary',
+      variant: 'primary-low',
+      /**
+       * The size of the pagination.
+       *
+       * @type {'sm' | 'md' | 'lg'}
+       */
+      size: 'md',
       /**
        * The radius of the pagination.
        *
        * @type {'none' | 'sm' | 'md' | 'lg' | 'full'}
        */
       rounded: 'sm',
+      /**
+       * Wether the pagination is wrapped.
+       *
+       * @type {boolean}
+       */
+      wrapped: true,
     },
     BaseParagraph: {
       /**
@@ -336,19 +342,25 @@ export default defineAppConfig({
        *
        * @type {'none' | 'tight' | 'snug' | 'normal' | 'relaxed' | 'loose'}
        */
-      lead: 'normal',
-      /**
-       * The size of the paragraph.
-       *
-       * @type {'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl' | '9xl'}
-       */
       size: 'md',
       /**
        * The weight of the paragraph.
        *
        * @type {'light' | 'normal' | 'medium' | 'semibold' | 'bold' | 'extrabold'}
        */
+      lead: 'normal',
+      /**
+       * The size of the paragraph.
+       *
+       * @type {'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl' | '9xl'}
+       */
       weight: 'normal',
+      /**
+       * The size of the paragraph.
+       *
+       * @type {'tighter' | 'tight' | 'normal' | 'wide' | 'wider' | 'widest'}
+       */
+      tracking: 'normal',
     },
     BasePlaceholderPage: {
       /**
@@ -463,49 +475,49 @@ export default defineAppConfig({
     },
     BaseTag: {
       /**
-       * The color of the tag.
+       * The variant of the tag.
        *
-       * @type {'default' | 'default-contrast' | 'muted' | 'muted-contrast' | 'light' | 'dark' | 'black' | 'primary' | 'info' | 'success' | 'warning' | 'danger'}
+       * @type {'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'primary' | 'custom'}
        */
-      color: 'default',
-      /**
-       * The radius of the tag.
-       *
-       * @type {'none' | 'sm' | 'md' | 'lg' | 'full'}
-       */
-      rounded: 'lg',
+      variant: 'default-low',
       /**
        * The size of the tag.
        *
        * @type {'sm' | 'md'}
        */
-      size: 'md',
+      size: 'sm',
       /**
-       * The variant of the tag.
+       * The radius of the tag.
        *
-       * @type {'solid' | 'pastel' | 'outline'}
+       * @type {'none' | 'sm' | 'md' | 'lg' | 'full'}
        */
-      variant: 'solid',
+      rounded: 'full',
     },
     BaseText: {
       /**
-       * The lead of the text span.
+       * The lead of the span.
        *
        * @type {'none' | 'tight' | 'snug' | 'normal' | 'relaxed' | 'loose'}
        */
-      lead: 'normal',
-      /**
-       * The size of the text span.
-       *
-       * @type {'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl' | '9xl'}
-       */
       size: 'md',
       /**
-       * The weight of the text span.
+       * The weight of the span.
        *
        * @type {'light' | 'normal' | 'medium' | 'semibold' | 'bold' | 'extrabold'}
        */
+      lead: 'normal',
+      /**
+       * The size of the span.
+       *
+       * @type {'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl' | '9xl'}
+       */
       weight: 'normal',
+      /**
+       * The size of the span.
+       *
+       * @type {'tighter' | 'tight' | 'normal' | 'wide' | 'wider' | 'widest'}
+       */
+      tracking: 'normal',
     },
     BaseThemeSwitch: {
       /**
@@ -514,6 +526,12 @@ export default defineAppConfig({
        * @type {boolean}
        */
       disableTransitions: false,
+      /**
+       * The variant of the switch.
+       *
+       * @type {'default-low' | 'default-high'}
+       */
+      variant: 'default-low',
     },
     BaseThemeToggle: {
       /**
@@ -522,6 +540,12 @@ export default defineAppConfig({
        * @type {boolean}
        */
       disableTransitions: false,
+      /**
+       * The variant of the toggle.
+       *
+       * @type {'default-low' | 'default-high'}
+       */
+      variant: 'default-low',
     },
     // #endregion
 

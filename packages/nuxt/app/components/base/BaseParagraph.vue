@@ -9,18 +9,11 @@ const props = withDefaults(
     as?: string
 
     /**
-     * The lead of the paragraph.
-     *
-     * @default 'normal'
-     */
-    lead?: 'none' | 'tight' | 'snug' | 'normal' | 'relaxed' | 'loose'
-
-    /**
      * The size of the paragraph.
      *
      * @default 'md'
      */
-    size?:
+     size?:
       | 'xs'
       | 'sm'
       | 'md'
@@ -36,64 +29,90 @@ const props = withDefaults(
       | '9xl'
 
     /**
+     * The lead of the paragraph.
+     *
+     * @default 'normal'
+     */
+    lead?: 'none' | 'tight' | 'snug' | 'normal' | 'relaxed' | 'loose'
+
+    /**
      * The weight of the paragraph.
      *
      * @default 'normal'
      */
     weight?: 'light' | 'normal' | 'medium' | 'semibold' | 'bold' | 'extrabold'
+
+    /**
+     * The letter spacing of the paragraph.
+     *
+     * @default 'normal'
+     */
+     tracking?: 'tighter' | 'tight' | 'normal' | 'wide' | 'wider' | 'widest'
   }>(),
   {
     as: undefined,
     size: undefined,
-    weight: undefined,
     lead: undefined,
+    weight: undefined,
+    tracking: undefined,
   },
 )
 
 const as = useNuiDefaultProperty(props, 'BaseParagraph', 'as')
-const lead = useNuiDefaultProperty(props, 'BaseParagraph', 'lead')
 const size = useNuiDefaultProperty(props, 'BaseParagraph', 'size')
+const lead = useNuiDefaultProperty(props, 'BaseParagraph', 'lead')
 const weight = useNuiDefaultProperty(props, 'BaseParagraph', 'weight')
+const tracking = useNuiDefaultProperty(props, 'BaseParagraph', 'tracking')
 
 const sizes = {
-  'xs': 'nui-paragraph-xs',
-  'sm': 'nui-paragraph-sm',
-  'md': 'nui-paragraph-md',
-  'lg': 'nui-paragraph-lg',
-  'xl': 'nui-paragraph-xl',
-  '2xl': 'nui-paragraph-2xl',
-  '3xl': 'nui-paragraph-3xl',
-  '4xl': 'nui-paragraph-4xl',
-  '5xl': 'nui-paragraph-5xl',
-  '6xl': 'nui-paragraph-6xl',
-  '7xl': 'nui-paragraph-7xl',
-  '8xl': 'nui-paragraph-8xl',
-  '9xl': 'nui-paragraph-9xl',
-}
-
-const weights = {
-  light: 'nui-paragraph-weight-light',
-  normal: 'nui-paragraph-weight-normal',
-  medium: 'nui-paragraph-weight-medium',
-  semibold: 'nui-paragraph-weight-semibold',
-  bold: 'nui-paragraph-weight-bold',
-  extrabold: 'nui-paragraph-weight-extrabold',
+  'xs': 'text-xs',
+  'sm': 'text-sm',
+  'md': 'text-base',
+  'lg': 'text-lg',
+  'xl': 'text-xl',
+  '2xl': 'text-2xl',
+  '3xl': 'text-3xl',
+  '4xl': 'text-4xl',
+  '5xl': 'text-5xl',
+  '6xl': 'text-6xl',
+  '7xl': 'text-7xl',
+  '8xl': 'text-8xl',
+  '9xl': 'text-9xl',
 }
 
 const leads = {
-  none: 'nui-paragraph-lead-none',
-  tight: 'nui-paragraph-lead-tight',
-  snug: 'nui-paragraph-lead-snug',
-  normal: 'nui-paragraph-lead-normal',
-  relaxed: 'nui-paragraph-lead-relaxed',
-  loose: 'nui-paragraph-lead-loose',
+  none: 'leading-none',
+  tight: 'leading-tight',
+  snug: 'leading-snug',
+  normal: 'leading-normal',
+  relaxed: 'leading-relaxed',
+  loose: 'leading-loose',
+}
+
+const weights = {
+  light: 'font-light',
+  normal: 'font-normal',
+  medium: 'font-medium',
+  semibold: 'font-semibold',
+  bold: 'font-bold',
+  extrabold: 'font-extrabold',
+}
+
+const trackings = {
+  tighter: 'tracking-tighter',
+  tight: 'tracking-tight',
+  normal: 'tracking-normal',
+  wide: 'tracking-wide',
+  wider: 'tracking-wider',
+  widest: 'tracking-widest',
 }
 
 const classes = computed(() => [
-  'nui-paragraph',
+  'font-sans',
   size.value && sizes[size.value],
-  weight.value && weights[weight.value],
   lead.value && leads[lead.value],
+  weight.value && weights[weight.value],
+  tracking.value && trackings[tracking.value],
 ])
 </script>
 

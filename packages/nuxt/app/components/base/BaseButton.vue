@@ -85,8 +85,8 @@ const variants = {
   'muted-high': 'border border-muted-100 dark:border-muted-800 text-muted-500 dark:text-muted-100 bg-muted-100 dark:bg-muted-800 hover:enabled:bg-muted-50 dark:hover:enabled:bg-muted-700 active:enabled:bg-muted-100 dark:active:enabled:bg-muted-600 focus-visible:bg-muted-50 dark:focus-visible:bg-muted-700',
   'ghost-low': 'text-muted-600 dark:text-muted-100 hover:enabled:bg-muted-100 dark:hover:enabled:bg-muted-700 active:enabled:bg-muted-50 dark:active:enabled:bg-muted-600 focus-visible:bg-muted-100 dark:focus-visible:bg-muted-600',
   'ghost-high': 'text-muted-600 dark:text-muted-100 hover:enabled:bg-muted-100 dark:hover:enabled:bg-muted-800 active:enabled:bg-muted-50 dark:active:enabled:bg-muted-700 focus-visible:bg-muted-100 dark:focus-visible:bg-muted-800',
-  'primary': 'text-primary-invert dark:text-primary-invert bg-primary-500 dark:bg-primary-500 hover:enabled:bg-primary-400 dark:hover:enabled:bg-primary-400 active:enabled:bg-primary-500 dark:active:enabled:bg-primary-500 focus-visible:bg-primary-400 dark:focus-visible:bg-primary-400',
-  'destructive': 'text-white bg-red-600 dark:bg-red-600 hover:enabled:bg-red-500 dark:hover:enabled:bg-red-500 active:enabled:bg-red-600 dark:active:enabled:bg-red-600 focus-visible:bg-red-500 dark:focus-visible:bg-red-500',
+  'primary': 'text-[var(--primary-text-base)] dark:text-[var(--primary-text-base)] bg-[var(--primary-bg-base)] dark:bg-[var(--primary-bg-base)] hover:enabled:bg-[var(--primary-bg-hocus)] dark:hover:enabled:bg-[var(--primary-bg-hocus)] active:enabled:bg-[var(--primary-bg-base)] dark:active:enabled:bg-[var(--primary-bg-base)] focus-visible:bg-[var(--primary-bg-hocus)] dark:focus-visible:bg-[var(--primary-bg-hocus)]',
+  'destructive': 'text-[var(--destructive-text-base)] dark:text-[var(--destructive-text-base)] bg-[var(--destructive-bg-base)] dark:bg-[var(--destructive-bg-base)] hover:enabled:bg-[var(--destructive-bg-hocus)] dark:hover:enabled:bg-[var(--destructive-bg-hocus)] active:enabled:bg-[var(--destructive-bg-base)] dark:active:enabled:bg-[var(--destructive-bg-base)] focus-visible:bg-[var(--destructive-bg-hocus)] dark:focus-visible:bg-[var(--destructive-bg-hocus)]',
   'dark': 'text-muted-100 dark:text-muted-900 bg-muted-900 dark:bg-muted-100 hover:enabled:bg-muted-700 dark:hover:enabled:bg-muted-100 active:enabled:bg-muted-900 dark:active:enabled:bg-muted-50 focus-visible:bg-muted-800 dark:focus-visible:bg-muted-50 border border-muted-900 dark:border-muted-100 border-muted-800 dark:border-muted-50',
   'link': 'text-muted-600 dark:text-muted-100 hover:text-primary-500 dark:hover:text-primary-500 focus-visible:text-primary-500 dark:focus-visible:text-primary-500 hover:underline underline-offset-4',
   'custom': '',
@@ -94,7 +94,7 @@ const variants = {
 
 const classes = computed(() => [
   'relative inline-flex justify-center items-center space-x-1 font-sans font-normal leading-5 no-underline transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed hover:shadow-none',
-  props.loading && '!text-transparent',
+  props.loading && '',
   variant.value && variants[variant.value],
   size.value && sizes[size.value],
   rounded.value && radiuses[rounded.value],
@@ -105,7 +105,9 @@ const { attributes, is } = useNinjaButton(props)
 
 <template>
   <component :is="is" v-bind="attributes" :class="classes" data-group-role="button">
-    <slot v-if="!props.loading" />
-    <BasePlaceload v-else class="h-4 w-12 rounded" :class="variant === 'dark' && 'invert'"/>
+    <span v-if="loading" class="me-2 flex justify-center items-center size-4 shrink-0">
+      <Icon name="nui-icon:spiner-bold" class="text-base text-current" />
+    </span>
+    <slot />
   </component>
 </template>
