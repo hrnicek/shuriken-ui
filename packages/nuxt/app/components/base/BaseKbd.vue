@@ -2,82 +2,52 @@
 const props = withDefaults(
   defineProps<{
     /**
-     * The icon to display for the kbd.
-     */
-    icon?: string
-
-    /**
-     * The color of the kbd.
+     * The variant of the kbd.
      *
      * @default 'default'
      */
-    color?: 'default' | 'default-contrast' | 'muted' | 'muted-contrast' | 'none'
+    variant?: 'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'custom'
 
     /**
-     * The radius of the kbd.
+     * The size of the kbd.
      *
-     * @since 2.0.0
      * @default 'sm'
      */
-    rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
-
-    /**
-     * The radius of the kbd.
-     *
-     * @since 2.0.0
-     * @default 'sm'
-     */
-    size?: 'xs' | 'sm' | 'md' | 'lg'
+     size?: 'sm' | 'md' | 'lg'
   }>(),
   {
+    variant: undefined,
     rounded: undefined,
     size: undefined,
-    color: undefined,
-    icon: undefined,
   },
 )
 
-const color = useNuiDefaultProperty(props, 'BaseKbd', 'color')
-const rounded = useNuiDefaultProperty(props, 'BaseKbd', 'rounded')
+const variant = useNuiDefaultProperty(props, 'BaseKbd', 'variant')
 const size = useNuiDefaultProperty(props, 'BaseKbd', 'size')
 
-const radiuses = {
-  none: '',
-  sm: 'nui-kbd-rounded-sm',
-  md: 'nui-kbd-rounded-md',
-  lg: 'nui-kbd-rounded-lg',
-  full: 'nui-kbd-rounded-full',
-}
-
 const sizes = {
-  xs: 'nui-kbd-xs',
-  sm: 'nui-kbd-sm',
-  md: 'nui-kbd-md',
-  lg: 'nui-kbd-lg',
+  sm: 'min-h-[18px] px-1 text-xs',
+  md: 'min-h-[30px] py-1 px-1.5 text-sm',
+  lg: 'min-h-[42px] py-1.5 px-2 text-lg',
 }
 
-const colors = {
-  'none': '',
-  'default': 'nui-kbd-default',
-  'default-contrast': 'nui-kbd-default-contrast',
-  'muted': 'nui-kbd-muted',
-  'muted-contrast': 'nui-kbd-muted-contrast',
+const variants = {
+  'default-low': 'bg-white border border-muted-200 text-muted-800 shadow-[0px_2px_0px_0px_rgba(0,0,0,0.08)] dark:bg-muted-700 dark:border-muted-600 dark:text-muted-200 dark:shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)]',
+  'default-high': 'bg-white border border-muted-200 text-muted-800 shadow-[0px_2px_0px_0px_rgba(0,0,0,0.08)] dark:bg-muted-900 dark:border-muted-700 dark:text-muted-200 dark:shadow-[0px_2px_0px_0px_rgba(255,255,255,0.2)]',
+  'muted-low': 'bg-muted-200 border border-transparent text-muted-800 dark:bg-muted-700 dark:text-muted-200',
+  'muted-high': 'bg-muted-200 border border-transparent text-muted-800 dark:bg-muted-900 dark:text-muted-200',
+  'custom': '',
 }
 </script>
 
 <template>
   <kbd
-    class="nui-kbd"
+    class="font-mono inline-flex justify-center items-center rounded-md"
     :class="[
-      color && colors[color],
+      variant && variants[variant],
       size && sizes[size],
-      rounded && radiuses[rounded],
     ]"
   >
-    <slot>
-      <span v-if="props.icon" class="nui-kbd-icon-outer">
-        <Icon :name="props.icon" class="nui-kbd-icon-inner" />
-      </span>
-    </slot>
+    <slot />
   </kbd>
 </template>

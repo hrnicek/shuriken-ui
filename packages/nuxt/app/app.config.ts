@@ -249,23 +249,17 @@ export default defineAppConfig({
     },
     BaseKbd: {
       /**
-       * The color of the kbd.
+       * The variant of the kbd.
        *
-       * @type {'default' | 'muted' | 'none'}
+       * @type {'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'custom'}
        */
-      color: 'default',
-      /**
-       * The radius of the kbd.
-       *
-       * @type {'none' | 'sm' | 'md' | 'lg' | 'full'}
-       */
-      rounded: 'sm',
+      variant: 'default',
       /**
        * The size of the kbd.
        *
-       * @type {'xs' | 'sm' | 'md' | 'lg'}
+       * @type {'sm' | 'md' | 'lg'}
        */
-      size: 'sm',
+      size: 'md',
     },
     BaseLink: {},
     BaseList: {},
