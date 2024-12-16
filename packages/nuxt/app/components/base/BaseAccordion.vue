@@ -138,7 +138,7 @@ const internalOpenItems = ref(props.exclusive ? props.openItems?.[0] ?? 0 : prop
               :toggle="toggle"
             >
               <AccordionTrigger
-                class="flex items-center justify-between w-full py-3 rounded-md hover:bg-muted-50 dark:hover:bg-muted-700 px-4 cursor-pointer nui-focus"
+                class="flex group/trigger items-center justify-between w-full py-3 rounded-md hover:bg-muted-50 dark:hover:bg-muted-700 px-4 cursor-pointer nui-focus"
                 :class="props.classes?.header" 
               >
                 <BaseHeading
@@ -158,7 +158,8 @@ const internalOpenItems = ref(props.exclusive ? props.openItems?.[0] ?? 0 : prop
                   <BaseChip
                     position="static"
                     size="md"
-                    :color="toggle ? 'primary' : 'muted'"
+                    color="current"
+                    class="text-muted-200 dark:text-muted-600 group-data-[state=open]/trigger:text-primary-500"
                   />
                 </div>
 

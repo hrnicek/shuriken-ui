@@ -8,7 +8,7 @@ const props = withDefaults(
     placement?: 'top-start' | 'top-end' | 'bottom-start' | 'bottom-end'
 
     /** The color of the chip */
-    color?: 'primary' | 'red' | 'yellow' | 'green' | 'blue' | 'indigo' | 'purple' | 'pink' | 'muted'
+    color?: 'primary' | 'red' | 'yellow' | 'green' | 'blue' | 'indigo' | 'purple' | 'pink' | 'muted' | 'current'
 
     /** The size of the chip */
     size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
@@ -49,6 +49,7 @@ const props = withDefaults(
         props.color === 'purple' ? 'bg-purple-500' : '',
         props.color === 'pink' ? 'bg-pink-500' : '',
         props.color === 'muted' ? 'bg-muted-400 dark:bg-muted-700' : '',
+        props.color === 'current' ? 'bg-current dark:bg-current' : '',
       ]" />
       <span class="relative inline-flex rounded-full" :class="[
         props.color === 'primary' ? 'bg-primary-500' : '',
@@ -60,6 +61,7 @@ const props = withDefaults(
         props.color === 'purple' ? 'bg-purple-500' : '',
         props.color === 'pink' ? 'bg-pink-500' : '',
         props.color === 'muted' ? 'bg-muted-200 dark:bg-muted-700' : '',
+        props.color === 'current' ? 'bg-current dark:bg-current' : '',
         props.size === 'xs' ? 'size-1.5' : '',
         props.size === 'sm' ? 'size-2' : '',
         props.size === 'md' ? 'size-2.5' : '',
