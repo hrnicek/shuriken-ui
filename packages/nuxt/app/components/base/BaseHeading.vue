@@ -41,59 +41,78 @@ const props = withDefaults(
      * @default 'semibold'
      */
     weight?: 'light' | 'normal' | 'medium' | 'semibold' | 'bold' | 'extrabold'
+
+    /**
+     * The letter spacing of the heading.
+     *
+     * @default 'normal'
+     */
+     tracking?: 'tighter' | 'tight' | 'normal' | 'wide' | 'wider' | 'widest'
   }>(),
   {
     as: undefined,
     size: undefined,
-    weight: undefined,
     lead: undefined,
+    weight: undefined,
+    tracking: undefined,
   },
 )
 
 const as = useNuiDefaultProperty(props, 'BaseHeading', 'as')
-const lead = useNuiDefaultProperty(props, 'BaseHeading', 'lead')
 const size = useNuiDefaultProperty(props, 'BaseHeading', 'size')
+const lead = useNuiDefaultProperty(props, 'BaseHeading', 'lead')
 const weight = useNuiDefaultProperty(props, 'BaseHeading', 'weight')
+const tracking = useNuiDefaultProperty(props, 'BaseHeading', 'tracking')
 
 const sizes = {
-  'xs': 'nui-heading-xs',
-  'sm': 'nui-heading-sm',
-  'md': 'nui-heading-md',
-  'lg': 'nui-heading-lg',
-  'xl': 'nui-heading-xl',
-  '2xl': 'nui-heading-2xl',
-  '3xl': 'nui-heading-3xl',
-  '4xl': 'nui-heading-4xl',
-  '5xl': 'nui-heading-5xl',
-  '6xl': 'nui-heading-6xl',
-  '7xl': 'nui-heading-7xl',
-  '8xl': 'nui-heading-8xl',
-  '9xl': 'nui-heading-9xl',
+  'xs': 'text-xs',
+  'sm': 'text-sm',
+  'md': 'text-base',
+  'lg': 'text-lg',
+  'xl': 'text-xl',
+  '2xl': 'text-2xl',
+  '3xl': 'text-3xl',
+  '4xl': 'text-4xl',
+  '5xl': 'text-5xl',
+  '6xl': 'text-6xl',
+  '7xl': 'text-7xl',
+  '8xl': 'text-8xl',
+  '9xl': 'text-9xl',
+}
+const leads = {
+  none: 'leading-none',
+  tight: 'leading-tight',
+  snug: 'leading-snug',
+  normal: 'leading-normal',
+  relaxed: 'leading-relaxed',
+  loose: 'leading-loose',
 }
 
 const weights = {
-  light: 'nui-heading-weight-light',
-  normal: 'nui-heading-weight-normal',
-  medium: 'nui-heading-weight-medium',
-  semibold: 'nui-heading-weight-semibold',
-  bold: 'nui-heading-weight-bold',
-  extrabold: 'nui-heading-weight-extrabold',
+  light: 'font-light',
+  normal: 'font-normal',
+  medium: 'font-medium',
+  semibold: 'font-semibold',
+  bold: 'font-bold',
+  extrabold: 'font-extrabold',
 }
 
-const leads = {
-  none: 'nui-heading-lead-none',
-  tight: 'nui-heading-lead-tight',
-  snug: 'nui-heading-lead-snug',
-  normal: 'nui-heading-lead-normal',
-  relaxed: 'nui-heading-lead-relaxed',
-  loose: 'nui-heading-lead-loose',
+const trackings = {
+  tighter: 'tracking-tighter',
+  tight: 'tracking-tight',
+  normal: 'tracking-normal',
+  wide: 'tracking-wide',
+  wider: 'tracking-wider',
+  widest: 'tracking-widest',
 }
+
 
 const classes = computed(() => [
-  'nui-heading',
+  'font-sans',
   size.value && sizes[size.value],
-  weight.value && weights[weight.value],
   lead.value && leads[lead.value],
+  weight.value && weights[weight.value],
+  tracking.value && trackings[tracking.value],
 ])
 </script>
 

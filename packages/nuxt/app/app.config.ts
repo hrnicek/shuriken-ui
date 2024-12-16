@@ -207,19 +207,25 @@ export default defineAppConfig({
        *
        * @type {'none' | 'tight' | 'snug' | 'normal' | 'relaxed' | 'loose'}
        */
-      lead: 'normal',
-      /**
-       * The size of the heading.
-       *
-       * @type {'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl' | '9xl'}
-       */
       size: 'xl',
       /**
        * The weight of the heading.
        *
        * @type {'light' | 'normal' | 'medium' | 'semibold' | 'bold' | 'extrabold'}
        */
+      lead: 'normal',
+      /**
+       * The size of the heading.
+       *
+       * @type {'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl' | '9xl'}
+       */
       weight: 'semibold',
+      /**
+       * The size of the heading.
+       *
+       * @type {'tighter' | 'tight' | 'normal' | 'wide' | 'wider' | 'widest'}
+       */
+      tracking: 'normal',
     },
     BaseIconBox: {
       /**
@@ -336,19 +342,25 @@ export default defineAppConfig({
        *
        * @type {'none' | 'tight' | 'snug' | 'normal' | 'relaxed' | 'loose'}
        */
-      lead: 'normal',
-      /**
-       * The size of the paragraph.
-       *
-       * @type {'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl' | '9xl'}
-       */
       size: 'md',
       /**
        * The weight of the paragraph.
        *
        * @type {'light' | 'normal' | 'medium' | 'semibold' | 'bold' | 'extrabold'}
        */
+      lead: 'normal',
+      /**
+       * The size of the paragraph.
+       *
+       * @type {'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl' | '9xl'}
+       */
       weight: 'normal',
+      /**
+       * The size of the paragraph.
+       *
+       * @type {'tighter' | 'tight' | 'normal' | 'wide' | 'wider' | 'widest'}
+       */
+      tracking: 'normal',
     },
     BasePlaceholderPage: {
       /**
@@ -483,23 +495,29 @@ export default defineAppConfig({
     },
     BaseText: {
       /**
-       * The lead of the text span.
+       * The lead of the span.
        *
        * @type {'none' | 'tight' | 'snug' | 'normal' | 'relaxed' | 'loose'}
        */
-      lead: 'normal',
-      /**
-       * The size of the text span.
-       *
-       * @type {'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl' | '9xl'}
-       */
       size: 'md',
       /**
-       * The weight of the text span.
+       * The weight of the span.
        *
        * @type {'light' | 'normal' | 'medium' | 'semibold' | 'bold' | 'extrabold'}
        */
+      lead: 'normal',
+      /**
+       * The size of the span.
+       *
+       * @type {'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl' | '9xl'}
+       */
       weight: 'normal',
+      /**
+       * The size of the span.
+       *
+       * @type {'tighter' | 'tight' | 'normal' | 'wide' | 'wider' | 'widest'}
+       */
+      tracking: 'normal',
     },
     BaseThemeSwitch: {
       /**
