@@ -9,6 +9,7 @@ definePageMeta({
 })
 
 const checked = ref(false)
+const checked2 = ref(false)
 </script>
 
 <template>
@@ -16,52 +17,32 @@ const checked = ref(false)
     <NuiPreviewContainer title="BaseDropdown">
       <NuiPreview title="Size" description="Dropdown menu sizes">
         <div class="flex justify-start gap-8 w-full">
-          <BaseDropdown
-            label="Dropdown"
-          >
+          <BaseDropdown label="Dropdown">
             <BaseDropdownItem
               to="#"
-              title="Profile"
               :as="NuxtLink"
-            />
-            <BaseDropdownItem
-              title="Projects"
-            />
-            <BaseDropdownItem
-              title="Team"
-            />
-            <BaseDropdownItem
-              title="Settings"
             >
+              Profile
+            </BaseDropdownItem>
+            <BaseDropdownItem>Projects</BaseDropdownItem>
+            <BaseDropdownItem>Team</BaseDropdownItem>
+            <BaseDropdownItem>
+              Settings
               <template #end>
-                <div class="flex gap-0.5">
-                  <BaseKbd size="xs">ctrl</BaseKbd>
-                  <BaseKbd size="xs">N</BaseKbd>
-                </div>
+                <span class="text-xs">⇧⌘P</span>
               </template>
             </BaseDropdownItem>
           </BaseDropdown>
-          <BaseDropdown
-            label="Dropdown"
-            size="lg"
-          >
-            <BaseDropdownItem
-              title="Profile"
-            />
-            <BaseDropdownItem
-              title="Projects"
-            />
-            <BaseDropdownItem
-              title="Team"
-            />
-            <BaseDropdownItem
-              title="Settings"
-            />
+          <BaseDropdown label="Dropdown" size="lg">
+            <BaseDropdownItem>Profile</BaseDropdownItem> 
+            <BaseDropdownItem>Projects</BaseDropdownItem> 
+            <BaseDropdownItem>Team</BaseDropdownItem> 
+            <BaseDropdownItem>Settings</BaseDropdownItem> 
           </BaseDropdown>
         </div>
       </NuiPreview>
 
-      <NuiPreview title="Menu color" description="Dropdown menu colors">
+      <NuiPreview title="Composition example" description="Combine dropdown with items, labels, checkboxes, and submenus">
         <div class="flex justify-start gap-8 w-full">
           <BaseDropdown
             label="Dropdown"
@@ -92,13 +73,23 @@ const checked = ref(false)
               title="More Tools"
               text="View more tools"
             >
-              <BaseDropdownItem
-                title="Settings"
-                text="Set your preferences"
+              <BaseDropdownLabel>
+                Header
+              </BaseDropdownLabel>  
+              <BaseDropdownCheckbox
+                v-model="checked"
+                title="Profile"
+                text="View your profile"
               />
-              <BaseDropdownItem
-                title="Settings"
-                text="Set your preferences"
+              <BaseDropdownCheckbox
+                title="Projects"
+                text="View your projects"
+                disabled
+              />
+              <BaseDropdownCheckbox
+                v-model="checked2"
+                title="Team"
+                text="Manage your team"
               />
             </BaseDropdownSub>
             <BaseDropdownItem
@@ -116,54 +107,26 @@ const checked = ref(false)
         </div>
       </NuiPreview>
 
-      <NuiPreview title="Button color" description="Dropdown button colors">
+      <NuiPreview title="Button slot" description="Use any button component as a trigger">
         <div class="flex justify-start gap-8 w-full">
-          <BaseDropdown
-            label="Dropdown"
-            arrow
-          >
-            <BaseDropdownCheckbox
-              v-model="checked"
-              title="Profile"
-              text="View your profile"
-            />
-            <BaseDropdownCheckbox
-              title="Projects"
-              text="View your projects"
-              disabled
-            />
-            <BaseDropdownCheckbox
-              title="Team"
-              text="Manage your team"
-            />
-          </BaseDropdown>
-
           <BaseDropdown arrow>
             <template #button>
               <BaseButton
-                color="primary"
-                rounded="md"
+                variant="primary"
+                size="icon-md"
+                rounded="full"
+                class="group"
               >
-                Dropdown
+                <Icon name="ph:plus" class="block h-5 w-5 transition-transform group-data-[state=open]:rotate-45" />
               </BaseButton>
             </template>
 
-            <BaseDropdownItem
-              title="Profile"
-              text="View your profile"
-            />
-            <BaseDropdownItem
-              title="Projects"
-              text="View your projects"
-            />
-            <BaseDropdownItem
-              title="Team"
-              text="Manage your team"
-            />
-            <BaseDropdownItem
-              title="Settings"
-              text="Set your preferences"
-            />
+            <BaseDropdownItem>Profile</BaseDropdownItem> 
+            <BaseDropdownItem>Projects</BaseDropdownItem> 
+            <BaseDropdownItem>Team</BaseDropdownItem> 
+            <BaseDropdownItem>Settings</BaseDropdownItem> 
+
+            <BaseDropdownArrow :width="6" :height="6" />
           </BaseDropdown>
 
           <BaseDropdown
@@ -172,29 +135,18 @@ const checked = ref(false)
           >
             <template #button>
               <BaseButton
-                color="primary"
+                variant="ghost-high"
                 size="sm"
                 class="group"
               >
                 Dropdown <Icon name="lucide:plus" class="block h-4 w-4 ms-2 transition-transform group-data-[state=open]:rotate-45" />
               </BaseButton>
             </template>
-            <BaseDropdownItem
-              title="Profile"
-              text="View your profile"
-            />
-            <BaseDropdownItem
-              title="Projects"
-              text="View your projects"
-            />
-            <BaseDropdownItem
-              title="Team"
-              text="Manage your team"
-            />
-            <BaseDropdownItem
-              title="Settings"
-              text="Set your preferences"
-            />
+            
+            <BaseDropdownItem>Profile</BaseDropdownItem> 
+            <BaseDropdownItem>Projects</BaseDropdownItem> 
+            <BaseDropdownItem>Team</BaseDropdownItem> 
+            <BaseDropdownItem>Settings</BaseDropdownItem> 
           </BaseDropdown>
         </div>
       </NuiPreview>

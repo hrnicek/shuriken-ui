@@ -6,8 +6,11 @@ import type {
   DropdownMenuTriggerProps,
   DropdownMenuPortalProps,
 } from 'reka-ui'
+import {
+  createContext,
+} from 'reka-ui'
 
-interface BaseDropdownProps extends DropdownMenuRootProps {
+export interface BaseDropdownProps extends DropdownMenuRootProps {
   /**
    * The label to display for the dropdown.
    */
@@ -17,11 +20,6 @@ interface BaseDropdownProps extends DropdownMenuRootProps {
    * Disables the dropdown.
    */
   disabled?: boolean
-
-  /**
-   * Show an arrow on the dropdown.
-   */
-  arrow?: boolean
 
   /**
    * The color of the dropdown.buttonSize
@@ -83,7 +81,18 @@ interface BaseDropdownProps extends DropdownMenuRootProps {
     portal?: DropdownMenuPortalProps,
   },
 }
-interface BaseDropdownEmits extends DropdownMenuRootEmits {}
+export interface BaseDropdownEmits extends DropdownMenuRootEmits {}
+
+export interface BaseDropdownContext {
+  color: ComputedRef<NonNullable<BaseDropdownProps['color']>>
+  rounded: ComputedRef<NonNullable<BaseDropdownProps['rounded']>>
+  size: ComputedRef<NonNullable<BaseDropdownProps['size']>>
+}
+
+export const [
+  injectBaseDropdownContext,
+  provideBaseDropdownContext,
+] = createContext<BaseDropdownContext>('BaseDropdownContext')
 </script>
 
 <script setup lang="ts">
@@ -113,6 +122,12 @@ const color = useNuiDefaultProperty(props, 'BaseDropdown', 'color')
 const rounded = useNuiDefaultProperty(props, 'BaseDropdown', 'rounded')
 const size = useNuiDefaultProperty(props, 'BaseDropdown', 'size')
 
+provideBaseDropdownContext({
+  color,
+  rounded,
+  size,
+})
+
 const iconChevronDown = useNuiDefaultIcon('chevronDown')
 
 const sizes = {
@@ -141,7 +156,7 @@ const colors = {
   'none': '',
 }
 
-const root = useForwardPropsEmits(reactiveOmit(props, ['label', 'disabled', 'arrow', 'color', 'rounded', 'size', 'classes', 'bindings']), emits)
+const root = useForwardPropsEmits(reactiveOmit(props, ['label', 'disabled', 'color', 'rounded', 'size', 'classes', 'bindings']), emits)
 </script>
 
 <template>
@@ -151,58 +166,57 @@ const root = useForwardPropsEmits(reactiveOmit(props, ['label', 'disabled', 'arr
         class="nui-dropdown-menu-wrapper"
         :class="props.classes?.menuWrapper"
       >
-          <DropdownMenuTrigger 
-            v-bind="{
-              asChild: true,
-              disabled: props.disabled,
-              ...(props.bindings?.trigger || {}),
-            }"
-          >
-            <slot name="button">
-              <BaseButton
-                :rounded="props.rounded ? props.rounded : rounded"
-                :disabled="props.disabled"
-                class="group"
-              >
-                <slot name="label">
-                  <span>{{ props.label }}</span>
-                </slot>
-                <Icon
-                  :name="iconChevronDown"
-                  class="nui-dropdown-chevron group-data-[state=open]:rotate-180"
-                />
-              </BaseButton>
-            </slot>
-          </DropdownMenuTrigger>
-          <DropdownMenuPortal v-bind="props.bindings?.portal">
-            <Transition
-              enter-active-class="transition-opacity duration-100 ease-out"
-              enter-from-class="opacity-0"
-              enter-to-class=" opacity-100"
-              leave-active-class="transition-opacity duration-75 ease-in"
-              leave-from-class="opacity-100"
-              leave-to-class="opacity-0"
+        <DropdownMenuTrigger 
+          v-bind="{
+            asChild: true,
+            disabled: props.disabled,
+            ...(props.bindings?.trigger || {}),
+          }"
+        >
+          <slot name="button">
+            <BaseButton
+              :rounded="props.rounded ? props.rounded : rounded"
+              :disabled="props.disabled"
+              class="group"
             >
-              <DropdownMenuContent
-                class="nui-dropdown-menu"
-                v-bind="{
-                  align: 'start',
-                  ...(props.bindings?.content || {}),
-                }"
-                :class="[
-                  size && sizes[size],
-                  rounded && radiuses[rounded],
-                  color && colors[color],
-                  props.classes?.menu,
-                ]"
-              >
-                <div class="nui-dropdown-menu-content" :class="props.classes?.content">
-                  <slot />
-                  <BaseDropdownArrow v-if="arrow" />
-                </div>
-              </DropdownMenuContent>
-            </Transition>
-          </DropdownMenuPortal>
+              <slot name="label">
+                <span>{{ props.label }}</span>
+              </slot>
+              <Icon
+                :name="iconChevronDown"
+                class="nui-dropdown-chevron group-data-[state=open]:rotate-180"
+              />
+            </BaseButton>
+          </slot>
+        </DropdownMenuTrigger>
+        <DropdownMenuPortal v-bind="props.bindings?.portal">
+          <Transition
+            enter-active-class="transition-opacity duration-100 ease-out"
+            enter-from-class="opacity-0"
+            enter-to-class=" opacity-100"
+            leave-active-class="transition-opacity duration-75 ease-in"
+            leave-from-class="opacity-100"
+            leave-to-class="opacity-0"
+          >
+            <DropdownMenuContent
+              class="nui-dropdown-menu"
+              v-bind="{
+                align: 'start',
+                ...(props.bindings?.content || {}),
+              }"
+              :class="[
+                size && sizes[size],
+                rounded && radiuses[rounded],
+                color && colors[color],
+                props.classes?.menu,
+              ]"
+            >
+              <div class="nui-dropdown-menu-content" :class="props.classes?.content">
+                <slot />
+              </div>
+            </DropdownMenuContent>
+          </Transition>
+        </DropdownMenuPortal>
       </div>
     </div>
   </DropdownMenuRoot>

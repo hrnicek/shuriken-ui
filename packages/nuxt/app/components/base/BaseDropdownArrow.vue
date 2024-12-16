@@ -11,11 +11,7 @@ import {
   useForwardProps,
 } from 'reka-ui';
 
-const props = withDefaults(defineProps<BaseDropdownArrowProps>(), {
-  rounded: undefined,
-  height: undefined,
-  width: undefined,
-})
+const props = withDefaults(defineProps<BaseDropdownArrowProps>(), {})
 const root = useForwardProps(props);
 </script>
 

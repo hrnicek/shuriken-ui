@@ -4,6 +4,8 @@ import type {
   DropdownMenuItemEmits,
 } from 'reka-ui';
 
+import { injectBaseDropdownContext } from './BaseDropdown.vue'
+
 interface BaseDropdownItemProps extends DropdownMenuItemProps {
   /**
    * The title to display for the dropdown item.
@@ -89,6 +91,8 @@ const props = withDefaults(defineProps<BaseDropdownItemProps>(), {
 })
 
 const emit = defineEmits<BaseDropdownItemEmits>()
+
+const { size } = injectBaseDropdownContext()
 
 const color = useNuiDefaultProperty(props, 'BaseDropdownItem', 'color')
 const contrast = useNuiDefaultProperty(props, 'BaseDropdownItem', 'contrast')
