@@ -18,6 +18,9 @@ definePageMeta({
           <BaseTag rounded="md" size="md">
             Label
           </BaseTag>
+          <BaseTag rounded="md" size="lg">
+            Label
+          </BaseTag>
         </div>
       </NuiPreview>
 
@@ -42,169 +45,85 @@ definePageMeta({
       </NuiPreview>
 
       <NuiPreview
-        title="Variant: solid"
-        description="Tag component solid colors"
+        title="Variant: default high"
+        description="Tag default high contrast"
       >
         <div class="flex flex-wrap items-end gap-3">
-          <BaseTag rounded="md" variant="solid" color="default">
+          <BaseTag variant="default-high" rounded="full" size="sm">
             Label
           </BaseTag>
-          <BaseTag rounded="md" variant="solid" color="muted">
+          <BaseTag variant="default-high" rounded="full" size="md">
             Label
           </BaseTag>
-          <BaseTag rounded="md" variant="solid" color="primary">
-            Label
-          </BaseTag>
-          <BaseTag rounded="md" variant="solid" color="success">
-            Label
-          </BaseTag>
-          <BaseTag rounded="md" variant="solid" color="info">
-            Label
-          </BaseTag>
-          <BaseTag rounded="md" variant="solid" color="warning">
-            Label
-          </BaseTag>
-          <BaseTag rounded="md" variant="solid" color="danger">
-            Label
-          </BaseTag>
-          <BaseTag rounded="md" variant="solid" color="light">
-            Label
-          </BaseTag>
-          <BaseTag rounded="md" variant="solid" color="dark">
-            Label
-          </BaseTag>
-          <BaseTag rounded="md" variant="solid" color="black">
+          <BaseTag variant="default-high" rounded="full" size="lg">
             Label
           </BaseTag>
         </div>
       </NuiPreview>
 
       <NuiPreview
-        title="Variant: pastel"
-        description="Tag component pastel colors"
+        title="Variant: muted low"
+        description="Tag muted low contrast"
       >
         <div class="flex flex-wrap items-end gap-3">
-          <BaseTag rounded="md" variant="pastel" color="default">
+          <BaseTag variant="muted-low" rounded="full" size="sm">
             Label
           </BaseTag>
-          <BaseTag rounded="md" variant="pastel" color="muted">
+          <BaseTag variant="muted-low" rounded="full" size="md">
             Label
           </BaseTag>
-          <BaseTag rounded="md" variant="pastel" color="primary">
-            Label
-          </BaseTag>
-          <BaseTag rounded="md" variant="pastel" color="success">
-            Label
-          </BaseTag>
-          <BaseTag rounded="md" variant="pastel" color="info">
-            Label
-          </BaseTag>
-          <BaseTag rounded="md" variant="pastel" color="warning">
-            Label
-          </BaseTag>
-          <BaseTag rounded="md" variant="pastel" color="danger">
-            Label
-          </BaseTag>
-          <BaseTag rounded="md" variant="pastel" color="light">
-            Label
-          </BaseTag>
-          <BaseTag rounded="md" variant="pastel" color="dark">
-            Label
-          </BaseTag>
-          <BaseTag rounded="md" variant="pastel" color="black">
+          <BaseTag variant="muted-low" rounded="full" size="lg">
             Label
           </BaseTag>
         </div>
       </NuiPreview>
 
       <NuiPreview
-        title="Variant: outline"
-        description="Tag component outline colors"
+        title="Variant: muted high"
+        description="Tag muted high contrast"
       >
         <div class="flex flex-wrap items-end gap-3">
-          <BaseTag rounded="md" variant="outline" color="default">
+          <BaseTag variant="muted-high" rounded="full" size="sm">
             Label
           </BaseTag>
-          <BaseTag rounded="md" variant="outline" color="muted">
+          <BaseTag variant="muted-high" rounded="full" size="md">
             Label
           </BaseTag>
-          <BaseTag rounded="md" variant="outline" color="primary">
-            Label
-          </BaseTag>
-          <BaseTag rounded="md" variant="outline" color="success">
-            Label
-          </BaseTag>
-          <BaseTag rounded="md" variant="outline" color="info">
-            Label
-          </BaseTag>
-          <BaseTag rounded="md" variant="outline" color="warning">
-            Label
-          </BaseTag>
-          <BaseTag rounded="md" variant="outline" color="danger">
-            Label
-          </BaseTag>
-          <BaseTag rounded="md" variant="outline" color="light">
-            Label
-          </BaseTag>
-          <BaseTag rounded="md" variant="outline" color="dark">
-            Label
-          </BaseTag>
-          <BaseTag rounded="md" variant="outline" color="black">
-            Label
-          </BaseTag>
-        </div>
-      </NuiPreview>
-
-      <NuiPreview title="Shadow: flat" description="Tag component flat shadows">
-        <div class="flex flex-wrap items-end gap-3">
-          <BaseTag rounded="md" shadow="flat" color="default">
-            Label
-          </BaseTag>
-          <BaseTag rounded="md" shadow="flat" color="muted">
-            Label
-          </BaseTag>
-          <BaseTag rounded="md" shadow="flat" color="primary">
-            Label
-          </BaseTag>
-          <BaseTag rounded="md" shadow="flat" color="success">
-            Label
-          </BaseTag>
-          <BaseTag rounded="md" shadow="flat" color="info">
-            Label
-          </BaseTag>
-          <BaseTag rounded="md" shadow="flat" color="warning">
-            Label
-          </BaseTag>
-          <BaseTag rounded="md" shadow="flat" color="danger">
+          <BaseTag variant="muted-high" rounded="full" size="lg">
             Label
           </BaseTag>
         </div>
       </NuiPreview>
 
       <NuiPreview
-        title="Shadow: hover"
-        description="Tag component hover shadows"
+        title="Variant: primary"
+        description="Tag primary variant"
       >
         <div class="flex flex-wrap items-end gap-3">
-          <BaseTag rounded="md" shadow="hover" color="default">
+          <BaseTag variant="primary" rounded="full" size="sm">
             Label
           </BaseTag>
-          <BaseTag rounded="md" shadow="hover" color="muted">
+          <BaseTag variant="primary" rounded="full" size="md">
             Label
           </BaseTag>
-          <BaseTag rounded="md" shadow="hover" color="primary">
+          <BaseTag variant="primary" rounded="full" size="lg">
             Label
           </BaseTag>
-          <BaseTag rounded="md" shadow="hover" color="success">
+        </div>
+      </NuiPreview>
+
+      <NuiPreview
+        title="Variant: custom"
+        description="Tag custom variant"
+      >
+        <div class="flex flex-wrap items-end gap-3">
+          <BaseTag variant="custom" class="bg-yellow-400/20 text-yellow-400 ring-1 ring-inset ring-yellow-400/30" rounded="full" size="sm">
             Label
           </BaseTag>
-          <BaseTag rounded="md" shadow="hover" color="info">
+          <BaseTag variant="custom" class="bg-yellow-400/20 text-yellow-400 ring-1 ring-inset ring-yellow-400/30" rounded="full" size="md">
             Label
           </BaseTag>
-          <BaseTag rounded="md" shadow="hover" color="warning">
-            Label
-          </BaseTag>
-          <BaseTag rounded="md" shadow="hover" color="danger">
+          <BaseTag variant="custom" class="bg-yellow-400/20 text-yellow-400 ring-1 ring-inset ring-yellow-400/30" rounded="full" size="lg">
             Label
           </BaseTag>
         </div>

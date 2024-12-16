@@ -463,17 +463,11 @@ export default defineAppConfig({
     },
     BaseTag: {
       /**
-       * The color of the tag.
+       * The variant of the tag.
        *
-       * @type {'default' | 'default-contrast' | 'muted' | 'muted-contrast' | 'light' | 'dark' | 'black' | 'primary' | 'info' | 'success' | 'warning' | 'danger'}
+       * @type {'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'primary' | 'custom'}
        */
-      color: 'default',
-      /**
-       * The radius of the tag.
-       *
-       * @type {'none' | 'sm' | 'md' | 'lg' | 'full'}
-       */
-      rounded: 'lg',
+      variant: 'default-low',
       /**
        * The size of the tag.
        *
@@ -481,11 +475,11 @@ export default defineAppConfig({
        */
       size: 'md',
       /**
-       * The variant of the tag.
+       * The radius of the tag.
        *
-       * @type {'solid' | 'pastel' | 'outline'}
+       * @type {'none' | 'sm' | 'md' | 'lg' | 'full'}
        */
-      variant: 'solid',
+      rounded: 'lg',
     },
     BaseText: {
       /**
