@@ -19,6 +19,12 @@ export default defineAppConfig({
     // #region base
     BaseAccordion: {
       /**
+       * Default variant for the accordion
+       *
+       * @type {'default-low' | 'default-high'}
+       */
+      variant: 'default-high',
+      /**
        * The action icon of the accordion.
        *
        * @type {'dot' | 'chevron' | 'plus'}

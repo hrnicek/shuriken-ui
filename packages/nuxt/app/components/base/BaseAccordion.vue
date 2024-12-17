@@ -26,6 +26,13 @@ const props = withDefaults(
     exclusive?: boolean
 
     /**
+     * The variant of the accordion.
+     *
+     * @default 'default-high'
+     */
+     variant?: 'default-low' | 'default-high'
+
+    /**
      * Defines the icon used for accordion item toggle action
      *
      * @default 'dot'
@@ -101,7 +108,12 @@ defineSlots<{
     toggle: (index: number) => void
   }) => any
 }>()
+
+const variant = useNuiDefaultProperty(props, 'BaseAccordion', 'variant')
 const action = useNuiDefaultProperty(props, 'BaseAccordion', 'action')
+
+const iconChevron = useNuiDefaultIcon('chevronDown')
+const iconPlus = useNuiDefaultIcon('plus')
 
 
 const internalOpenItems = ref(props.exclusive ? props.openItems?.[0] ?? 0 : props.openItems)
@@ -138,8 +150,12 @@ const internalOpenItems = ref(props.exclusive ? props.openItems?.[0] ?? 0 : prop
               :toggle="toggle"
             >
               <AccordionTrigger
-                class="flex group/trigger items-center justify-between w-full py-3 rounded-md hover:bg-muted-50 dark:hover:bg-muted-700 px-4 cursor-pointer nui-focus"
-                :class="props.classes?.header" 
+                class="flex group/trigger items-center justify-between w-full py-3 rounded-md px-4 cursor-pointer nui-focus"
+                :class="[
+                  props.classes?.header,
+                  variant === 'default-low' && 'hover:bg-muted-50 dark:hover:bg-muted-700',
+                  variant === 'default-high' && 'hover:bg-muted-50 dark:hover:bg-muted-800',
+                ]" 
               >
                 <BaseHeading
                   as="h4"
@@ -165,15 +181,15 @@ const internalOpenItems = ref(props.exclusive ? props.openItems?.[0] ?? 0 : prop
 
                 <div
                   v-else-if="props.action === 'chevron' || action === 'chevron'"
-                  class="ms-2 flex items-center justify-center size-8 rounded-full border border-transparent dark:border-transparent bg-white dark:bg-muted-700/60 transition-all duration-300"
+                  class="ms-2 text-muted-500 dark:text-muted-300 flex items-center justify-center size-5 group-data-[state=open]/trigger:rotate-180 transition-all duration-300"
                 >
-                  <IconChevronDown class="nui-accordion-chevron-icon" />
+                  <Icon :name="iconChevron" class="text-base" />
                 </div>
                 <div
                   v-else-if="props.action === 'plus' || action === 'plus'"
-                  class="ms-2 flex items-center justify-center size-8 rounded-full border border-transparent dark:border-transparent bg-white dark:bg-muted-700/60 transition-all duration-300"
+                  class="ms-2 text-muted-500 dark:text-muted-300 flex items-center justify-center size-5 group-data-[state=open]/trigger:rotate-45 transition-all duration-300"
                 >
-                  <IconPlus class="nui-accordion-plus-icon" />
+                  <Icon :name="iconPlus" class="text-base" />
                 </div>
               </AccordionTrigger>
             </slot>
