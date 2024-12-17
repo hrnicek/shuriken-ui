@@ -174,7 +174,7 @@ const internalOpenItems = ref(props.exclusive ? props.openItems?.[0] ?? 0 : prop
                   <BaseChip
                     position="static"
                     size="md"
-                    color="current"
+                    color="custom"
                     class="text-muted-200 dark:text-muted-600 group-data-[state=open]/trigger:text-primary-500"
                   />
                 </div>
