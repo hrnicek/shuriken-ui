@@ -19,9 +19,6 @@
     @apply rounded-full;
   }
 }
-@utility nui-checkbox-outer {
-  @apply nui-focus relative flex items-center justify-center h-5 w-5 shrink-0 cursor-pointer disabled:cursor-not-allowed overflow-hidden;
-}
 @utility nui-checkbox-inner {
   @apply absolute start-0 top-0 z-0 h-full w-full;
   @apply bg-white dark:bg-muted-700;
@@ -37,22 +34,23 @@
   @apply h-2.5 w-2.5;
   @apply transition-all duration-300;
 }
-@utility nui-checkbox-input {
-  @apply absolute z-20 h-5 w-5 cursor-pointer disabled:cursor-not-allowed opacity-0;
+@utility nui-checkbox-outer {
+  @apply nui-focus relative flex items-center justify-center h-5 w-5 shrink-0 cursor-pointer disabled:cursor-not-allowed overflow-hidden;
 
-  &:checked ~ .nui-checkbox-inner, &:indeterminate ~ .nui-checkbox-inner {
+  &[data-state=checked] .nui-checkbox-inner,
+  &[data-state=indeterminate] .nui-checkbox-inner {
     @apply border-current dark:border-current;
   }
 
-  &:checked ~ .nui-checkbox-icon-check {
+  &[data-state=checked] .nui-checkbox-icon-check {
     @apply translate-y-0 opacity-100;
   }
 
-  &:indeterminate ~ .nui-checkbox-icon-check {
+  &[data-state=indeterminate] .nui-checkbox-icon-check {
     @apply !translate-y-6;
   }
 
-  &:indeterminate ~ .nui-checkbox-icon-indeterminate {
+  &[data-state=indeterminate] .nui-checkbox-icon-indeterminate {
     @apply !translate-y-0 !opacity-100;
   }
 }

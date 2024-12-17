@@ -7,14 +7,14 @@ definePageMeta({
 })
 
 const options = reactive({
-  first: true,
+  first: 'indeterminate' as 'indeterminate' | boolean,
   second: true,
-  third: true,
+  third: false,
   fourth: true,
-  fifth: true,
+  fifth: 'indeterminate' as 'indeterminate' | boolean,
   sixth: true,
   seventh: true,
-  eighth: true,
+  eighth: false,
   nineth: true,
   tenth: true,
   eleventh: true,
@@ -45,7 +45,7 @@ function reset() {
             v-model="options.first"
             label="Default"
             rounded="none"
-            indeterminate
+            data-testid="checkbox-1"
           />
           <BaseCheckbox
             v-model="options.second"

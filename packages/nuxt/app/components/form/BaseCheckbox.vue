@@ -1,122 +1,66 @@
-<script setup lang="ts" generic="T extends unknown = boolean">
-defineOptions({
-  inheritAttrs: false,
-})
+<script lang="ts">
+import type {
+  CheckboxRootProps,
+  CheckboxRootEmits,
+} from 'reka-ui'
 
-const props = withDefaults(
-  defineProps<{
-    /**
-     * Defines the value of the checkbox when it's checked.
-     */
-    value?: T
+export interface BaseCheckboxProps extends CheckboxRootProps {
+  /**
+   * The label to display for the checkbox.
+   */
+  label?: string
 
-    /**
-     * The value to set when the checkbox is checked.
-     */
-    trueValue?: T
+  /**
+   * An error message to display below the checkbox label.
+   */
+  error?: string | boolean
 
-    /**
-     * The value to set when the checkbox is unchecked.
-     */
-    falseValue?: T
+  /**
+   * The color of the checkbox.
+   *
+   * @default 'default'
+   */
+  color?:
+    | 'default'
+    | 'muted'
+    | 'light'
+    | 'dark'
+    | 'black'
+    | 'primary'
+    | 'info'
+    | 'success'
+    | 'warning'
+    | 'danger'
 
-    /**
-     * The form input identifier.
-     */
-    id?: string
+  /**
+   * The radius of the checkbox.
+   *
+   * @since 2.0.0
+   * @default 'sm'
+   */
+  rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
 
+  /**
+   * Optional CSS classes to apply to the wrapper, label, and input elements.
+   */
+  classes?: {
     /**
-     * The label to display for the checkbox.
+     * CSS classes to apply to the wrapper element.
      */
-    label?: string
-
-    /**
-     * An error message to display below the checkbox label.
-     */
-    error?: string | boolean
-
-    /**
-     * Whether the checkbox is disabled.
-     */
-    disabled?: boolean
-
-    /**
-     * Whether the checkbox is in indeterminate state.
-     */
-    indeterminate?: boolean
-
-    /**
-     * The color of the checkbox.
-     *
-     * @default 'default'
-     */
-    color?:
-      | 'default'
-      | 'muted'
-      | 'light'
-      | 'dark'
-      | 'black'
-      | 'primary'
-      | 'info'
-      | 'success'
-      | 'warning'
-      | 'danger'
+    wrapper?: string | string[]
 
     /**
-     * The radius of the checkbox.
-     *
-     * @since 2.0.0
-     * @default 'sm'
+     * CSS classes to apply to the label element.
      */
-    rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
+    label?: string | string[]
 
     /**
-     * Optional CSS classes to apply to the wrapper, label, and input elements.
+     * CSS classes to apply to the input element.
      */
-    classes?: {
-      /**
-       * CSS classes to apply to the wrapper element.
-       */
-      wrapper?: string | string[]
-
-      /**
-       * CSS classes to apply to the label element.
-       */
-      label?: string | string[]
-
-      /**
-       * CSS classes to apply to the input element.
-       */
-      input?: string | string[]
-    }
-  }>(),
-  {
-    value: undefined,
-    trueValue: true as any,
-    falseValue: false as any,
-    id: undefined,
-    label: undefined,
-    error: '',
-    rounded: undefined,
-    color: undefined,
-    classes: () => ({}),
-  },
-)
-
-defineSlots<{
-  default: () => any
-}>()
-
-const [modelValue] = defineModel<T | T[]>()
-
-const color = useNuiDefaultProperty(props, 'BaseCheckbox', 'color')
-const rounded = useNuiDefaultProperty(props, 'BaseCheckbox', 'rounded')
-
-const iconCheck = useNuiDefaultIcon('check')
-const iconIndeterminate = useNuiDefaultIcon('minus')
-
-const inputRef = ref<HTMLInputElement>()
-const id = useNinjaId(() => props.id)
+    input?: string | string[]
+  }
+}
+export interface BaseCheckboxEmits extends CheckboxRootEmits {}
 
 const radiuses = {
   none: '',
@@ -124,7 +68,7 @@ const radiuses = {
   md: 'nui-checkbox-rounded-md',
   lg: 'nui-checkbox-rounded-lg',
   full: 'nui-checkbox-rounded-full',
-}
+} as const
 
 const colors = {
   default: 'nui-checkbox-default',
@@ -137,25 +81,40 @@ const colors = {
   success: 'nui-checkbox-success',
   warning: 'nui-checkbox-warning',
   danger: 'nui-checkbox-danger',
-}
+} as const
+</script>
 
-watchEffect(() => {
-  if (inputRef.value) {
-    inputRef.value.indeterminate = props.indeterminate ?? false
-  }
+
+<script setup lang="ts">
+import { useForwardPropsEmits } from 'reka-ui'
+import { reactiveOmit } from '@vueuse/core'
+
+defineOptions({
+  inheritAttrs: false,
 })
 
-defineExpose({
-  /**
-   * The underlying HTMLInputElement element.
-   */
-  el: inputRef,
-
-  /**
-   * The internal id of the radio input.
-   */
-  id,
+const props = withDefaults(defineProps<BaseCheckboxProps>(), {
+  label: undefined,
+  error: false,
+  rounded: undefined,
+  color: undefined,
+  classes: () => ({}),
 })
+const emits = defineEmits<BaseCheckboxEmits>()
+
+const slots = defineSlots<{
+  default(): any
+  error(): any
+}>()
+
+const attrs = useAttrs()
+const id = useNinjaId(() => props.id)
+const color = useNuiDefaultProperty(props, 'BaseCheckbox', 'color')
+const rounded = useNuiDefaultProperty(props, 'BaseCheckbox', 'rounded')
+
+const iconCheck = useNuiDefaultIcon('check')
+const iconIndeterminate = useNuiDefaultIcon('minus')
+const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'error', 'color', 'rounded', 'classes']), emits)
 </script>
 
 <template>
@@ -168,24 +127,13 @@ defineExpose({
       props.classes?.wrapper,
     ]"
   >
-    <div class="nui-checkbox-outer">
-      <input
-        :id="id"
-        ref="inputRef"
-        v-model="modelValue"
-        :value="props.value"
-        :true-value="props.trueValue"
-        :false-value="props.falseValue"
-        :class="props.classes?.input"
-        :disabled="props.disabled"
-        v-bind="$attrs"
-        class="nui-checkbox-input"
-        type="checkbox"
-      >
-      <div class="nui-checkbox-inner" />
-      <Icon :name="iconCheck" class="nui-checkbox-icon-check" />
-      <Icon :name="iconIndeterminate" class="nui-checkbox-icon-indeterminate" />
-    </div>
+    <CheckboxRoot :id v-bind="{ ...forward, ...attrs }" class="nui-checkbox-outer">
+      <div class="nui-checkbox-inner"></div>
+      <CheckboxIndicator class="nui-checkbox-inner group">
+        <Icon :name="iconCheck" class="hidden group-data-[state=checked]:block size-4" />
+        <Icon :name="iconIndeterminate" class="hidden group-data-[state=indeterminate]:block size-4" />
+      </CheckboxIndicator>
+    </CheckboxRoot>
     <div class="nui-checkbox-label-wrapper">
       <Label
         v-if="props.label || 'default' in $slots"
@@ -195,14 +143,17 @@ defineExpose({
       >
         <slot>{{ props.label }}</slot>
       </Label>
-      <div
-        v-if="props.error && typeof props.error === 'string'"
+      <Label
+        v-if="props.error && typeof props.error === 'string' || 'error' in slots"
         class="nui-checkbox-error"
+        as-child
       >
-        <BaseInputHelpText color="danger">
-          {{ props.error }}
-        </BaseInputHelpText>
-      </div>
+        <slot name="error">
+          <BaseInputHelpText color="danger">
+            {{ props.error }}
+          </BaseInputHelpText>
+        </slot>
+      </Label>
     </div>
   </div>
 </template>
