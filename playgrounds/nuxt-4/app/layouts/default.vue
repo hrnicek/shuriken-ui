@@ -90,15 +90,15 @@ const routes = computed(() =>
     </div>
     <div class="fixed top-0 end-0 pr-6 pt-6 z-50">
       <BaseSelect v-model="color.preference" size="sm">
-        <option value="system">
+        <BaseSelectItem value="system">
           system
-        </option>
-        <option value="light">
+        </BaseSelectItem>
+        <BaseSelectItem value="light">
           light
-        </option>
-        <option value="dark">
+        </BaseSelectItem>
+        <BaseSelectItem value="dark">
           dark
-        </option>
+        </BaseSelectItem>
       </BaseSelect>
     </div>
   </div>

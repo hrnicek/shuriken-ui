@@ -177,7 +177,7 @@ const selection = ref('first')
               :as="NuxtLink"
             />
 
-            <BaseDropdownDivider />
+            <BaseDropdownSeparator />
             <BaseDropdownLabel>Label</BaseDropdownLabel>  
             <BaseDropdownSub
               title="Checkbox"
@@ -458,7 +458,7 @@ const selection = ref('first')
                 <Icon name="ph:users-four-duotone" class="me-2 block h-5 w-5" />
               </template>
             </BaseDropdownItem>
-            <BaseDropdownDivider />
+            <BaseDropdownSeparator />
             <BaseDropdownItem
               title="Settings"
               text="Set your preferences"
@@ -503,7 +503,7 @@ const selection = ref('first')
                 <Icon name="ph:users-four-duotone" class="me-2 block h-5 w-5" />
               </template>
             </BaseDropdownItem>
-            <BaseDropdownDivider />
+            <BaseDropdownSeparator />
             <BaseDropdownItem
               title="Settings"
               text="Set your preferences"
@@ -558,7 +558,7 @@ const selection = ref('first')
               </template>
             </BaseDropdownItem>
 
-            <BaseDropdownDivider />
+            <BaseDropdownSeparator />
 
             <BaseDropdownItem
               title="Garry Porter"
@@ -617,7 +617,7 @@ const selection = ref('first')
               </template>
             </BaseDropdownItem>
 
-            <BaseDropdownDivider />
+            <BaseDropdownSeparator />
 
             <BaseDropdownItem
               title="Garry Porter"

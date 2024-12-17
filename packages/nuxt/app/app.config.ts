@@ -10,6 +10,7 @@ export default defineAppConfig({
       checkCircle: 'lucide:circle-check',
       plus: 'lucide:plus',
       minus: 'lucide:minus',
+      chevronUp: 'lucide:chevron-up',
       chevronDown: 'lucide:chevron-down',
       chevronLeft: 'lucide:chevron-left',
       chevronRight: 'lucide:chevron-right',
@@ -176,7 +177,7 @@ export default defineAppConfig({
        */
       size: 'md',
     },
-    BaseDropdownDivider: {},
+    BaseDropdownSeparator: {},
     BaseDropdownItem: {
       /**
        * The hover color of the dropdown item inner elements.

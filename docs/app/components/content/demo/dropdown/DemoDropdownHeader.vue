@@ -43,7 +43,7 @@
                 <BaseAvatar src="/img/avatars/18.svg" size="xs" />
               </template>
             </BaseDropdownItem>
-            <BaseDropdownDivider />
+            <BaseDropdownSeparator />
             <BaseDropdownItem
               to="#"
               title="Garry Porter"
