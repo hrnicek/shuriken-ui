@@ -73,12 +73,13 @@ export interface BaseDropdownRadioItemEmits extends DropdownMenuRadioItemEmits {
 </script>
 
 <script setup lang="ts">
-import { 
-  useForwardPropsEmits,
-} from 'reka-ui'
-import { 
-  reactiveOmit,
-} from '@vueuse/core'
+import { useForwardPropsEmits } from 'reka-ui'
+import { reactiveOmit } from '@vueuse/core'
+import {
+  colors,
+  contrasts,
+  radiuses,
+} from './BaseDropdownItem.vue'
 
 const props = withDefaults(defineProps<BaseDropdownRadioItemProps>(), {
   rounded: undefined,
@@ -96,36 +97,17 @@ const props = withDefaults(defineProps<BaseDropdownRadioItemProps>(), {
   }),
 })
 const emits = defineEmits<BaseDropdownRadioItemEmits>()
+const slots = defineSlots<{
+  default(): any
+  text(): any
+  end(): any
+}>()
 
 const color = useNuiDefaultProperty(props, 'BaseDropdownItem', 'color')
 const contrast = useNuiDefaultProperty(props, 'BaseDropdownItem', 'contrast')
 const rounded = useNuiDefaultProperty(props, 'BaseDropdownItem', 'rounded')
-
 const iconCheck = useNuiDefaultIcon('checkCircle')
-
 const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'color', 'contrast', 'rounded', 'bindings', 'classes']), emits)
-
-const radiuses = {
-  none: '',
-  sm: 'nui-dropdown-item-rounded-sm',
-  md: 'nui-dropdown-item-rounded-md',
-  lg: 'nui-dropdown-item-rounded-lg',
-}
-
-const contrasts = {
-  default: 'nui-dropdown-item-default',
-  contrast: 'nui-dropdown-item-contrast',
-}
-
-const colors = {
-  primary: 'nui-dropdown-item-primary',
-  info: 'nui-dropdown-item-info',
-  success: 'nui-dropdown-item-success',
-  warning: 'nui-dropdown-item-warning',
-  danger: 'nui-dropdown-item-danger',
-  dark: 'nui-dropdown-item-dark',
-  black: 'nui-dropdown-item-black',
-}
 </script>
 
 <template>

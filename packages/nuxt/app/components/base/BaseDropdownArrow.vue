@@ -7,9 +7,7 @@ export interface BaseDropdownArrowProps extends DropdownMenuArrowProps {}
 </script>
 
 <script setup lang="ts">
-import {
-  useForwardProps,
-} from 'reka-ui';
+import { useForwardProps } from 'reka-ui';
 
 const props = withDefaults(defineProps<BaseDropdownArrowProps>(), {})
 const forward = useForwardProps(props);

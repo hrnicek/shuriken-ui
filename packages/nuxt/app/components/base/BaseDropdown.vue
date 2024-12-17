@@ -89,6 +89,32 @@ export interface BaseDropdownContext {
   size: ComputedRef<NonNullable<BaseDropdownProps['size']>>
 }
 
+export const sizes = {
+  md: 'nui-dropdown-menu-md',
+  lg: 'nui-dropdown-menu-lg',
+} as const
+
+export const radiuses = {
+  none: '',
+  sm: 'nui-dropdown-menu-rounded-sm',
+  md: 'nui-dropdown-menu-rounded-md',
+  lg: 'nui-dropdown-menu-rounded-lg',
+  full: 'nui-dropdown-menu-rounded-lg',
+} as const
+
+export const colors = {
+  'default': 'nui-dropdown-menu-default',
+  'default-contrast': 'nui-dropdown-menu-default-contrast',
+  'muted': 'nui-dropdown-menu-muted',
+  'muted-contrast': 'nui-dropdown-menu-muted-contrast',
+  'primary': 'nui-dropdown-menu-primary',
+  'info': 'nui-dropdown-menu-info',
+  'success': 'nui-dropdown-menu-success',
+  'warning': 'nui-dropdown-menu-warning',
+  'danger': 'nui-dropdown-menu-danger',
+  'none': '',
+} as const
+
 export const [
   injectBaseDropdownContext,
   provideBaseDropdownContext,
@@ -98,6 +124,10 @@ export const [
 <script setup lang="ts">
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardPropsEmits } from 'reka-ui'
+
+defineOptions({
+  inheritAttrs: false,
+})
 
 const props = withDefaults(defineProps<BaseDropdownProps>(), {
   color: undefined,
@@ -112,55 +142,29 @@ const props = withDefaults(defineProps<BaseDropdownProps>(), {
 })
 const emits = defineEmits<BaseDropdownEmits>()
 
-defineOptions({
-  inheritAttrs: false,
-})
+const slots = defineSlots<{
+  default(): any
+  button(): any
+  label(): any
+}>()
 
 const attrs = useAttrs()
 
 const color = useNuiDefaultProperty(props, 'BaseDropdown', 'color')
 const rounded = useNuiDefaultProperty(props, 'BaseDropdown', 'rounded')
 const size = useNuiDefaultProperty(props, 'BaseDropdown', 'size')
+const iconChevronDown = useNuiDefaultIcon('chevronDown')
+const forward = useForwardPropsEmits(reactiveOmit(props, ['label', 'disabled', 'color', 'rounded', 'size', 'classes', 'bindings']), emits)
 
 provideBaseDropdownContext({
   color,
   rounded,
   size,
 })
-
-const iconChevronDown = useNuiDefaultIcon('chevronDown')
-
-const sizes = {
-  md: 'nui-dropdown-menu-md',
-  lg: 'nui-dropdown-menu-lg',
-}
-
-const radiuses = {
-  none: '',
-  sm: 'nui-dropdown-menu-rounded-sm',
-  md: 'nui-dropdown-menu-rounded-md',
-  lg: 'nui-dropdown-menu-rounded-lg',
-  full: 'nui-dropdown-menu-rounded-lg',
-}
-
-const colors = {
-  'default': 'nui-dropdown-menu-default',
-  'default-contrast': 'nui-dropdown-menu-default-contrast',
-  'muted': 'nui-dropdown-menu-muted',
-  'muted-contrast': 'nui-dropdown-menu-muted-contrast',
-  'primary': 'nui-dropdown-menu-primary',
-  'info': 'nui-dropdown-menu-info',
-  'success': 'nui-dropdown-menu-success',
-  'warning': 'nui-dropdown-menu-warning',
-  'danger': 'nui-dropdown-menu-danger',
-  'none': '',
-}
-
-const root = useForwardPropsEmits(reactiveOmit(props, ['label', 'disabled', 'color', 'rounded', 'size', 'classes', 'bindings']), emits)
 </script>
 
 <template>
-  <DropdownMenuRoot v-bind="root">
+  <DropdownMenuRoot v-bind="forward">
     <div class="nui-dropdown" v-bind="attrs" :class="props.classes?.wrapper">
       <div
         class="nui-dropdown-menu-wrapper"
@@ -213,7 +217,7 @@ const root = useForwardPropsEmits(reactiveOmit(props, ['label', 'disabled', 'col
             >
               <div class="nui-dropdown-menu-content max-h-[var(--reka-popper-available-height)] overflow-y-scroll nui-slimscroll" :class="props.classes?.content">
                 <slot />
-                
+
               </div>
             </DropdownMenuContent>
           </Transition>

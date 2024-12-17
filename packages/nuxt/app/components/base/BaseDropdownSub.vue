@@ -28,48 +28,22 @@ export interface BaseDropdownSubEmits extends DropdownMenuSubEmits {}
 </script>
 
 <script setup lang="ts">
-import { injectBaseDropdownContext } from './BaseDropdown.vue'
-import { 
-  useForwardPropsEmits,
-} from 'reka-ui'
-import { 
-  reactiveOmit,
-} from '@vueuse/core'
+import { injectBaseDropdownContext, colors, radiuses, sizes } from './BaseDropdown.vue'
+import { useForwardPropsEmits } from 'reka-ui'
+import { reactiveOmit } from '@vueuse/core'
 
 const props = defineProps<BaseDropdownSubProps>()
 const emits = defineEmits<BaseDropdownSubEmits>()
+const slots = defineSlots<{
+  default(): any
+  title(): any
+  text(): any
+}>()
 
 const { color, rounded, size } = injectBaseDropdownContext()
 
 const iconChevronRight = useNuiDefaultIcon('chevronRight')
-
 const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'bindings']), emits)
-
-const sizes = {
-  md: 'nui-dropdown-menu-md',
-  lg: 'nui-dropdown-menu-lg',
-}
-
-const radiuses = {
-  none: '',
-  sm: 'nui-dropdown-menu-rounded-sm',
-  md: 'nui-dropdown-menu-rounded-md',
-  lg: 'nui-dropdown-menu-rounded-lg',
-  full: 'nui-dropdown-menu-rounded-lg',
-}
-
-const colors = {
-  'default': 'nui-dropdown-menu-default',
-  'default-contrast': 'nui-dropdown-menu-default-contrast',
-  'muted': 'nui-dropdown-menu-muted',
-  'muted-contrast': 'nui-dropdown-menu-muted-contrast',
-  'primary': 'nui-dropdown-menu-primary',
-  'info': 'nui-dropdown-menu-info',
-  'success': 'nui-dropdown-menu-success',
-  'warning': 'nui-dropdown-menu-warning',
-  'danger': 'nui-dropdown-menu-danger',
-  'none': '',
-}
 </script>
 
 <template>

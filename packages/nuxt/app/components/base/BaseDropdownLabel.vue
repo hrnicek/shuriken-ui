@@ -11,16 +11,16 @@ export interface BaseDropdownLabelProps extends DropdownMenuLabelProps {
 
 
 <script setup lang="ts">
-import {
-  useForwardProps,
-} from 'reka-ui';
-import { 
-  reactiveOmit,
-} from '@vueuse/core'
+import { useForwardProps } from 'reka-ui';
+import { reactiveOmit } from '@vueuse/core'
 
 const props = withDefaults(defineProps<BaseDropdownLabelProps>(), {
   label: '',
 })
+const slots = defineSlots<{
+  default(): any
+}>()
+
 const forward = useForwardProps(reactiveOmit(props, ['label']));
 </script>
 

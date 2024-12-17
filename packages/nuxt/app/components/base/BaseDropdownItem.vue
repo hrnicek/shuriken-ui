@@ -65,15 +65,33 @@ export interface BaseDropdownItemProps extends DropdownMenuItemProps {
   }
 }
 export interface BaseDropdownItemEmits extends DropdownMenuItemEmits {}
+
+export const radiuses = {
+  none: '',
+  sm: 'nui-dropdown-item-rounded-sm',
+  md: 'nui-dropdown-item-rounded-md',
+  lg: 'nui-dropdown-item-rounded-lg',
+} as const
+
+export const contrasts = {
+  default: 'nui-dropdown-item-default',
+  contrast: 'nui-dropdown-item-contrast',
+} as const
+
+export const colors = {
+  primary: 'nui-dropdown-item-primary',
+  info: 'nui-dropdown-item-info',
+  success: 'nui-dropdown-item-success',
+  warning: 'nui-dropdown-item-warning',
+  danger: 'nui-dropdown-item-danger',
+  dark: 'nui-dropdown-item-dark',
+  black: 'nui-dropdown-item-black',
+} as const
 </script>
 
 <script setup lang="ts">
-import {
-  useForwardPropsEmits,
-} from 'reka-ui'
-import { 
-  reactiveOmit,
-} from '@vueuse/core'
+import { useForwardPropsEmits } from 'reka-ui'
+import { reactiveOmit } from '@vueuse/core'
 
 const props = withDefaults(defineProps<BaseDropdownItemProps>(), {
   rounded: undefined,
@@ -90,34 +108,17 @@ const props = withDefaults(defineProps<BaseDropdownItemProps>(), {
 
 const emits = defineEmits<BaseDropdownItemEmits>()
 
+const slots = defineSlots<{
+  default(): any
+  text(): any
+  start(): any
+  end(): any
+}>()
+
 const color = useNuiDefaultProperty(props, 'BaseDropdownItem', 'color')
 const contrast = useNuiDefaultProperty(props, 'BaseDropdownItem', 'contrast')
 const rounded = useNuiDefaultProperty(props, 'BaseDropdownItem', 'rounded')
-
 const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'color', 'contrast', 'rounded', 'classes']), emits)
-
-const radiuses = {
-  none: '',
-  sm: 'nui-dropdown-item-rounded-sm',
-  md: 'nui-dropdown-item-rounded-md',
-  lg: 'nui-dropdown-item-rounded-lg',
-}
-
-const contrasts = {
-  default: 'nui-dropdown-item-default',
-  contrast: 'nui-dropdown-item-contrast',
-}
-
-const colors = {
-  primary: 'nui-dropdown-item-primary',
-  info: 'nui-dropdown-item-info',
-  success: 'nui-dropdown-item-success',
-  warning: 'nui-dropdown-item-warning',
-  danger: 'nui-dropdown-item-danger',
-  dark: 'nui-dropdown-item-dark',
-  black: 'nui-dropdown-item-black',
-}
-
 </script>
 
 <template>
