@@ -11,8 +11,8 @@ definePageMeta({
   <div>
     <NuiPreviewContainer title="BaseAvatar">
       <NuiPreview
-        title="Rounded: full"
-        description="Avatar component full radius"
+        title="Avatars sizes"
+        description="Avatar component sizes"
       >
         <div class="flex flex-wrap items-end gap-4">
           <BaseAvatar
@@ -60,334 +60,46 @@ definePageMeta({
             src="https://tairo.cssninja.io/img/avatars/1azeaze0.svg"
             size="4xl"
             rounded="full"
+            :classes="{
+              wrapper: 'bg-primary-500/20 text-primary-500',
+            }"
           />
         </div>
       </NuiPreview>
 
-      <NuiPreview title="Rounded: lg" description="Avatar component lg radius">
+      <NuiPreview title="Border radius" description="Avatar component radiuses">
         <div class="flex flex-wrap items-end gap-4">
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/20.svg"
-            size="xxs"
-            rounded="lg"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/1.svg"
-            size="xs"
-            rounded="lg"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/5.svg"
-            rounded="lg"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/4.svg"
-            size="md"
-            rounded="lg"
-          />
           <BaseAvatar
             src="https://tairo.cssninja.io/img/avatars/3.svg"
             size="lg"
-            rounded="lg"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/8.svg"
-            size="xl"
-            rounded="lg"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/16.svg"
-            size="2xl"
-            rounded="lg"
+            rounded="none"
           />
           <BaseAvatar
             src="https://tairo.cssninja.io/img/avatars/2.svg"
-            size="3xl"
-            rounded="lg"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/10.svg"
-            size="4xl"
-            rounded="lg"
-          />
-        </div>
-      </NuiPreview>
-
-      <NuiPreview title="Rounded: md" description="Avatar component md radius">
-        <div class="flex flex-wrap items-end gap-4">
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/20.svg"
-            size="xxs"
-            rounded="md"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/1.svg"
-            size="xs"
-            rounded="md"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/5.svg"
-            rounded="md"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/4.svg"
-            size="md"
-            rounded="md"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/3.svg"
-            size="lg"
-            rounded="md"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/8.svg"
-            size="xl"
-            rounded="md"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/16.svg"
-            size="2xl"
-            rounded="md"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/2.svg"
-            size="3xl"
-            rounded="md"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/10.svg"
-            size="4xl"
-            rounded="md"
-          />
-        </div>
-      </NuiPreview>
-
-      <NuiPreview title="Rounded: sm" description="Avatar component sm radius">
-        <div class="flex flex-wrap items-end gap-4">
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/20.svg"
-            size="xxs"
-            rounded="sm"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/1.svg"
-            size="xs"
-            rounded="sm"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/5.svg"
-            rounded="sm"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/4.svg"
-            size="md"
-            rounded="sm"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/3.svg"
             size="lg"
             rounded="sm"
           />
           <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/8.svg"
-            size="xl"
-            rounded="sm"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/16.svg"
-            size="2xl"
-            rounded="sm"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/2.svg"
-            size="3xl"
-            rounded="sm"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/10.svg"
-            size="4xl"
-            rounded="sm"
-          />
-        </div>
-      </NuiPreview>
-
-      <NuiPreview
-        title="Rounded: none"
-        description="Avatar component none radius"
-      >
-        <div class="flex flex-wrap items-end gap-4">
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/20.svg"
-            size="xxs"
-            rounded="none"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/1.svg"
-            size="xs"
-            rounded="none"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/5.svg"
-            rounded="none"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/4.svg"
-            size="md"
-            rounded="none"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/3.svg"
+            src="https://tairo.cssninja.io/img/avatars/11.svg"
             size="lg"
-            rounded="none"
+            rounded="md"
           />
           <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/8.svg"
-            size="xl"
-            rounded="none"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/16.svg"
-            size="2xl"
-            rounded="none"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/2.svg"
-            size="3xl"
-            rounded="none"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/10.svg"
-            size="4xl"
-            rounded="none"
-          />
-        </div>
-      </NuiPreview>
-
-      <NuiPreview
-        title="Dot: rounded: full"
-        description="Avatar component dot with full radius"
-      >
-        <div class="flex flex-wrap items-end gap-4">
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/20.svg"
-            rounded="full"
-            size="xxs"
-            dot="success"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/1.svg"
-            rounded="full"
-            size="xs"
-            dot="success"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/5.svg"
-            rounded="full"
-            dot="info"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/4.svg"
-            rounded="full"
-            size="md"
-            dot="warning"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/3.svg"
-            rounded="full"
+            src="https://tairo.cssninja.io/img/avatars/24.svg"
             size="lg"
-            dot="pink"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/8.svg"
-            rounded="full"
-            size="xl"
-            dot="danger"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/16.svg"
-            rounded="full"
-            size="2xl"
-            dot="yellow"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/2.svg"
-            rounded="full"
-            size="3xl"
-            dot="info"
+            rounded="lg"
           />
           <BaseAvatar
             src="https://tairo.cssninja.io/img/avatars/10.svg"
-            rounded="full"
-            size="4xl"
-            dot="success"
-          />
-        </div>
-      </NuiPreview>
-
-      <NuiPreview
-        title="Dot: rounded: none | sm | md | lg"
-        description="Avatar component dot with other radiuses"
-      >
-        <div class="flex flex-wrap items-end gap-4">
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/20.svg"
-            rounded="lg"
-            size="xxs"
-            dot="success"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/1.svg"
-            rounded="lg"
-            size="xs"
-            dot="success"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/5.svg"
-            rounded="lg"
-            dot="info"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/4.svg"
-            rounded="lg"
-            size="md"
-            dot="warning"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/3.svg"
-            rounded="lg"
             size="lg"
-            dot="pink"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/8.svg"
-            rounded="lg"
-            size="xl"
-            dot="danger"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/16.svg"
-            rounded="lg"
-            size="2xl"
-            dot="yellow"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/2.svg"
-            rounded="lg"
-            size="3xl"
-            dot="info"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/10.svg"
-            rounded="lg"
-            size="4xl"
-            dot="success"
+            rounded="full"
           />
         </div>
       </NuiPreview>
 
       <NuiPreview
-        title="Badge: rounded: full"
-        description="Avatar component badge with full radius"
+        title="Avatar badge"
+        description="Avatar component badge sizes and positions"
       >
         <div class="flex flex-wrap items-end gap-4">
           <BaseAvatar
@@ -446,604 +158,170 @@ definePageMeta({
         </div>
       </NuiPreview>
 
-      <NuiPreview
-        title="Badge: rounded: none | sm | md | lg"
-        description="Avatar component badge with other radiuses"
-      >
+      <NuiPreview title="Fallback" description="Avatar component fallback">
         <div class="flex flex-wrap items-end gap-4">
           <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/20.svg"
-            rounded="lg"
-            size="xxs"
-            badge-src="https://tairo.cssninja.io/img/icons/flags/united-states-of-america.svg"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/1.svg"
-            rounded="lg"
-            size="xs"
-            badge-src="https://tairo.cssninja.io/img/icons/flags/united-states-of-america.svg"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/5.svg"
-            rounded="lg"
-            badge-src="https://tairo.cssninja.io/img/icons/flags/united-states-of-america.svg"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/4.svg"
-            rounded="lg"
-            size="md"
-            badge-src="https://tairo.cssninja.io/img/icons/flags/united-states-of-america.svg"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/3.svg"
-            rounded="lg"
+            src="https://tairo.cssninja.io/img/avatars/hth3.svg"
             size="lg"
-            badge-src="https://tairo.cssninja.io/img/icons/flags/united-states-of-america.svg"
+            text="ER"
+            :classes="{
+              wrapper: 'bg-yellow-400/20 text-yellow-500',
+            }"
           />
           <BaseAvatar
-            rounded="lg"
-            src="https://tairo.cssninja.io/img/avatars/8.svg"
-            size="xl"
-            badge-src="https://tairo.cssninja.io/img/icons/flags/united-states-of-america.svg"
+            src="https://tairo.cssninja.io/img/avatars/2trht.svg"
+            size="lg"
+            text="FG"
+            :classes="{
+              wrapper: 'bg-green-500/20 text-green-500',
+            }"
           />
           <BaseAvatar
-            rounded="lg"
-            src="https://tairo.cssninja.io/img/avatars/16.svg"
-            size="2xl"
-            badge-src="https://tairo.cssninja.io/img/icons/flags/united-states-of-america.svg"
+            src="https://tairo.cssninja.io/img/avatars/1thrh1.svg"
+            size="lg"
+            text="GT"
+            :classes="{
+              wrapper: 'bg-sky-500/20 text-sky-500',
+            }"
           />
           <BaseAvatar
-            rounded="lg"
-            src="https://tairo.cssninja.io/img/avatars/2.svg"
-            size="3xl"
-            badge-src="https://tairo.cssninja.io/img/icons/flags/united-states-of-america.svg"
+            src="https://tairo.cssninja.io/img/avatars/2htrh4.svg"
+            size="lg"
+            text="MB"
+            :classes="{
+              wrapper: 'bg-violet-500/20 text-violet-500',
+            }"
           />
           <BaseAvatar
-            rounded="lg"
-            src="https://tairo.cssninja.io/img/avatars/10.svg"
-            size="4xl"
-            badge-src="https://tairo.cssninja.io/img/icons/flags/united-states-of-america.svg"
+            src="https://tairo.cssninja.io/img/avatars/1thr0.svg"
+            size="lg"
+            text="FY"
+            :classes="{
+              wrapper: 'bg-lime-500/20 text-lime-500',
+            }"
           />
         </div>
       </NuiPreview>
 
-      <NuiPreview
-        title="Fake: Rounded: full"
-        description="Avatar component fake full radius"
-      >
+      <NuiPreview title="Masks" description="Avatar component masks">
         <div class="flex flex-wrap items-end gap-4">
           <BaseAvatar
-            text="H"
-            size="xxs"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-          <BaseAvatar
-            text="H"
-            size="xs"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-          <BaseAvatar
-            text="H"
-            size="sm"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-          <BaseAvatar
-            text="H"
-            size="md"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-          <BaseAvatar
-            text="H"
+            src="https://tairo.cssninja.io/img/avatars/hth3.svg"
             size="lg"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-          <BaseAvatar
-            text="H"
-            size="xl"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-          <BaseAvatar
-            text="H"
-            size="2xl"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-          <BaseAvatar
-            text="H"
-            size="3xl"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-          <BaseAvatar
-            text="H"
-            size="4xl"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-        </div>
-      </NuiPreview>
-
-      <NuiPreview
-        title="Fake: Rounded: none | sm | md | lg"
-        description="Avatar component fake other radiuses"
-      >
-        <div class="flex flex-wrap items-end gap-4">
-          <BaseAvatar
-            text="H"
-            size="xxs"
-            rounded="lg"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-          <BaseAvatar
-            text="H"
-            size="xs"
-            rounded="lg"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-          <BaseAvatar
-            text="H"
-            size="sm"
-            rounded="lg"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-          <BaseAvatar
-            text="H"
-            size="md"
-            rounded="lg"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-          <BaseAvatar
-            text="H"
-            size="lg"
-            rounded="lg"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-          <BaseAvatar
-            text="H"
-            size="xl"
-            rounded="lg"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-          <BaseAvatar
-            text="H"
-            size="2xl"
-            rounded="lg"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-          <BaseAvatar
-            text="H"
-            size="3xl"
-            rounded="lg"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-          <BaseAvatar
-            text="H"
-            size="4xl"
-            rounded="lg"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-        </div>
-      </NuiPreview>
-
-      <NuiPreview
-        title="Fake: Badge: full"
-        description="Avatar component fake badge full radius"
-      >
-        <div class="flex flex-wrap items-end gap-4">
-          <BaseAvatar
-            text="H"
-            size="xxs"
-            badge-src="https://tairo.cssninja.io/img/icons/flags/united-states-of-america.svg"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-          <BaseAvatar
-            text="H"
-            size="xs"
-            badge-src="https://tairo.cssninja.io/img/icons/flags/united-states-of-america.svg"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-          <BaseAvatar
-            text="H"
-            size="sm"
-            badge-src="https://tairo.cssninja.io/img/icons/flags/united-states-of-america.svg"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-          <BaseAvatar
-            text="H"
-            size="md"
-            badge-src="https://tairo.cssninja.io/img/icons/flags/united-states-of-america.svg"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-          <BaseAvatar
-            text="H"
-            size="lg"
-            badge-src="https://tairo.cssninja.io/img/icons/flags/united-states-of-america.svg"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-          <BaseAvatar
-            text="H"
-            size="xl"
-            badge-src="https://tairo.cssninja.io/img/icons/flags/united-states-of-america.svg"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-          <BaseAvatar
-            text="H"
-            size="2xl"
-            badge-src="https://tairo.cssninja.io/img/icons/flags/united-states-of-america.svg"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-          <BaseAvatar
-            text="H"
-            size="3xl"
-            badge-src="https://tairo.cssninja.io/img/icons/flags/united-states-of-america.svg"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-          <BaseAvatar
-            text="H"
-            size="4xl"
-            badge-src="https://tairo.cssninja.io/img/icons/flags/united-states-of-america.svg"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-        </div>
-      </NuiPreview>
-
-      <NuiPreview
-        title="Fake: Badge: none | sm | md | lg"
-        description="Avatar component fake badge other radiuses"
-      >
-        <div class="flex flex-wrap items-end gap-4">
-          <BaseAvatar
-            text="H"
-            size="xxs"
-            rounded="lg"
-            badge-src="https://tairo.cssninja.io/img/icons/flags/united-states-of-america.svg"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-          <BaseAvatar
-            text="H"
-            size="xs"
-            rounded="lg"
-            badge-src="https://tairo.cssninja.io/img/icons/flags/united-states-of-america.svg"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-          <BaseAvatar
-            text="H"
-            size="sm"
-            rounded="lg"
-            badge-src="https://tairo.cssninja.io/img/icons/flags/united-states-of-america.svg"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-          <BaseAvatar
-            text="H"
-            size="md"
-            rounded="lg"
-            badge-src="https://tairo.cssninja.io/img/icons/flags/united-states-of-america.svg"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-          <BaseAvatar
-            text="H"
-            size="lg"
-            rounded="lg"
-            badge-src="https://tairo.cssninja.io/img/icons/flags/united-states-of-america.svg"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-          <BaseAvatar
-            text="H"
-            size="xl"
-            rounded="lg"
-            badge-src="https://tairo.cssninja.io/img/icons/flags/united-states-of-america.svg"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-          <BaseAvatar
-            text="H"
-            size="2xl"
-            badge-src="https://tairo.cssninja.io/img/icons/flags/united-states-of-america.svg"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-          <BaseAvatar
-            text="H"
-            size="3xl"
-            rounded="lg"
-            badge-src="https://tairo.cssninja.io/img/icons/flags/united-states-of-america.svg"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-          <BaseAvatar
-            text="H"
-            size="4xl"
-            rounded="lg"
-            badge-src="https://tairo.cssninja.io/img/icons/flags/united-states-of-america.svg"
-            class="bg-muted-200 text-muted-800 dark:bg-muted-600 dark:text-muted-300"
-          />
-        </div>
-      </NuiPreview>
-
-      <NuiPreview title="Mask: hex" description="Avatar component hex mask">
-        <div class="flex flex-wrap items-end gap-4">
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/20.svg"
-            size="xxs"
+            text="ER"
             rounded="none"
             mask="hex"
+            :classes="{
+              wrapper: 'bg-yellow-400/20 text-yellow-500',
+            }"
           />
           <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/1.svg"
-            size="xs"
+            src="https://tairo.cssninja.io/img/avatars/15.svg"
+            size="lg"
+            text="FG"
             rounded="none"
-            mask="hex"
+            mask="hexed"
+            :classes="{
+              wrapper: 'bg-green-500/20 text-green-500',
+            }"
           />
           <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/5.svg"
+            src="https://tairo.cssninja.io/img/avatars/1thrh1.svg"
+            size="lg"
+            text="GT"
             rounded="none"
-            mask="hex"
+            mask="deca"
+            :classes="{
+              wrapper: 'bg-sky-500/20 text-sky-500',
+            }"
           />
           <BaseAvatar
             src="https://tairo.cssninja.io/img/avatars/4.svg"
-            size="md"
-            rounded="none"
-            mask="hex"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/3.svg"
             size="lg"
+            text="MB"
             rounded="none"
-            mask="hex"
+            mask="blob"
+            :classes="{
+              wrapper: 'bg-violet-500/20 text-violet-500',
+            }"
           />
           <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/8.svg"
-            size="xl"
-            rounded="none"
-            mask="hex"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/16.svg"
-            size="2xl"
-            rounded="none"
-            mask="hex"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/2.svg"
-            size="3xl"
-            rounded="none"
-            mask="hex"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/10.svg"
-            size="4xl"
-            rounded="none"
-            mask="hex"
-          />
-        </div>
-      </NuiPreview>
-
-      <NuiPreview title="Mask: hexed" description="Avatar component hexed mask">
-        <div class="flex flex-wrap items-end gap-4">
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/20.svg"
-            size="xxs"
-            rounded="none"
-            mask="hexed"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/1.svg"
-            size="xs"
-            rounded="none"
-            mask="hexed"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/5.svg"
-            rounded="none"
-            mask="hexed"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/4.svg"
-            size="md"
-            rounded="none"
-            mask="hexed"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/3.svg"
+            src="https://tairo.cssninja.io/img/avatars/1thr0.svg"
             size="lg"
+            text="FY"
             rounded="none"
-            mask="hexed"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/8.svg"
-            size="xl"
-            rounded="none"
-            mask="hexed"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/16.svg"
-            size="2xl"
-            rounded="none"
-            mask="hexed"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/2.svg"
-            size="3xl"
-            rounded="none"
-            mask="hexed"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/10.svg"
-            size="4xl"
-            rounded="none"
-            mask="hexed"
-          />
-        </div>
-      </NuiPreview>
-
-      <NuiPreview title="Mask: blob" description="Avatar component blob mask">
-        <div class="flex flex-wrap items-end gap-4">
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/20.svg"
-            size="xxs"
-            rounded="none"
-            mask="blob"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/1.svg"
-            size="xs"
-            rounded="none"
-            mask="blob"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/5.svg"
-            rounded="none"
-            mask="blob"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/4.svg"
-            size="md"
-            rounded="none"
-            mask="blob"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/3.svg"
-            size="lg"
-            rounded="none"
-            mask="blob"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/8.svg"
-            size="xl"
-            rounded="none"
-            mask="blob"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/16.svg"
-            size="2xl"
-            rounded="none"
-            mask="blob"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/2.svg"
-            size="3xl"
-            rounded="none"
-            mask="blob"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/10.svg"
-            size="4xl"
-            rounded="none"
-            mask="blob"
-          />
-        </div>
-      </NuiPreview>
-
-      <NuiPreview title="Mask: deca" description="Avatar component deca mask">
-        <div class="flex flex-wrap items-end gap-4">
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/20.svg"
-            size="xxs"
-            rounded="none"
-            mask="deca"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/1.svg"
-            size="xs"
-            rounded="none"
-            mask="deca"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/5.svg"
-            rounded="none"
-            mask="deca"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/4.svg"
-            size="md"
-            rounded="none"
-            mask="deca"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/3.svg"
-            size="lg"
-            rounded="none"
-            mask="deca"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/8.svg"
-            size="xl"
-            rounded="none"
-            mask="deca"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/16.svg"
-            size="2xl"
-            rounded="none"
-            mask="deca"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/2.svg"
-            size="3xl"
-            rounded="none"
-            mask="deca"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/10.svg"
-            size="4xl"
-            rounded="none"
-            mask="deca"
+            mask="diamond"
+            :classes="{
+              wrapper: 'bg-lime-500/20 text-lime-500',
+            }"
           />
         </div>
       </NuiPreview>
 
       <NuiPreview
-        title="Mask: diamond"
-        description="Avatar component diamond mask"
+        title="Avatars chips"
+        description="Avatar component indicators"
       >
         <div class="flex flex-wrap items-end gap-4">
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/20.svg"
-            size="xxs"
-            rounded="none"
-            mask="diamond"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/1.svg"
-            size="xs"
-            rounded="none"
-            mask="diamond"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/5.svg"
-            rounded="none"
-            mask="diamond"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/4.svg"
-            size="md"
-            rounded="none"
-            mask="diamond"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/3.svg"
-            size="lg"
-            rounded="none"
-            mask="diamond"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/8.svg"
-            size="xl"
-            rounded="none"
-            mask="diamond"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/16.svg"
-            size="2xl"
-            rounded="none"
-            mask="diamond"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/2.svg"
-            size="3xl"
-            rounded="none"
-            mask="diamond"
-          />
-          <BaseAvatar
-            src="https://tairo.cssninja.io/img/avatars/10.svg"
-            size="4xl"
-            rounded="none"
-            mask="diamond"
-          />
+          <BaseChip size="xs" placement="top-end" :offset="1" color="red">
+            <BaseAvatar
+              src="https://tairo.cssninja.io/img/avatars/20.svg"
+              size="xxs"
+              rounded="full"
+            />
+          </BaseChip>
+          <BaseChip size="xs" placement="top-end" :offset="1.5" color="green">
+            <BaseAvatar
+              src="https://tairo.cssninja.io/img/avatars/1.svg"
+              size="xs"
+              rounded="full"
+            />
+          </BaseChip>
+          <BaseChip size="sm" placement="top-end" :offset="2" color="yellow">
+            <BaseAvatar src="https://tairo.cssninja.io/img/avatars/5.svg" />
+          </BaseChip>
+          <BaseChip size="sm" placement="top-end" :offset="3" color="primary">
+            <BaseAvatar
+              src="https://tairo.cssninja.io/img/avatars/4.svg"
+              size="md"
+              rounded="full"
+            />
+          </BaseChip>
+          <BaseChip size="md" placement="top-end" :offset="5" color="red">
+            <BaseAvatar
+              src="https://tairo.cssninja.io/img/avatars/3.svg"
+              size="lg"
+              rounded="full"
+            />
+          </BaseChip>
+          <BaseChip size="md" placement="top-end" :offset="7" color="pink">
+            <BaseAvatar
+              src="https://tairo.cssninja.io/img/avatars/8.svg"
+              size="xl"
+              rounded="full"
+            />
+          </BaseChip>
+          <BaseChip size="lg" placement="top-end" :offset="8" color="yellow">
+            <BaseAvatar
+              src="https://tairo.cssninja.io/img/avatars/16.svg"
+              size="2xl"
+              rounded="full"
+            />
+          </BaseChip>
+          <BaseChip size="lg" placement="top-end" :offset="10" color="green">
+            <BaseAvatar
+              src="https://tairo.cssninja.io/img/avatars/2.svg"
+              size="3xl"
+              rounded="full"
+            />
+          </BaseChip>
+          <BaseChip size="lg" placement="top-end" :offset="13" color="red">
+            <BaseAvatar
+              src="https://tairo.cssninja.io/img/avatars/10.svg"
+              size="4xl"
+              rounded="full"
+            />
+          </BaseChip>
         </div>
       </NuiPreview>
     </NuiPreviewContainer>

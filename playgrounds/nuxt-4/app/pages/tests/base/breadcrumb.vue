@@ -23,67 +23,20 @@ const demoBreadcrumb = [
     to: '#',
   },
 ]
-
-const demoBreadcrumbOne = [
-  {
-    label: 'Home',
-    hideLabel: false,
-    icon: 'lucide:home',
-    to: '#',
-  },
-  {
-    label: 'Products',
-    hideLabel: false,
-    to: '#',
-  },
-  {
-    label: 'Laptops',
-    hideLabel: false,
-    to: '#',
-  },
-]
-
-const demoBreadcrumbTwo = [
-  {
-    label: 'Home',
-    hideLabel: false,
-    icon: 'lucide:home',
-    to: '#',
-  },
-  {
-    label: 'Products',
-    hideLabel: false,
-    icon: 'lucide:layout-grid',
-    to: '#',
-  },
-  {
-    label: 'Laptops',
-    hideLabel: false,
-    icon: 'lucide:laptop',
-    to: '#',
-  },
-]
 </script>
 
 <template>
   <div>
     <NuiPreviewContainer title="BaseBreadcrumb">
-      <NuiPreview title="Colors" description="Breadcrumb component colors">
+      <NuiPreview title="Variant: primary" description="Breadcrumb component primary variant">
         <div class="flex flex-col gap-4 pt-4">
-          <BaseBreadcrumb :items="demoBreadcrumb" color="dark" />
-
-          <BaseBreadcrumb :items="demoBreadcrumb" color="black" />
+          <BaseBreadcrumb :items="demoBreadcrumb" variant="primary" />
         </div>
       </NuiPreview>
 
-      <NuiPreview
-        title="Separator: dot"
-        description="Breadcrumb component with dot separator"
-      >
+      <NuiPreview title="Variant: dark" description="Breadcrumb component dark variant">
         <div class="flex flex-col gap-4 pt-4">
-          <BaseBreadcrumb :items="demoBreadcrumbOne" />
-
-          <BaseBreadcrumb :items="demoBreadcrumbTwo" />
+          <BaseBreadcrumb :items="demoBreadcrumb" variant="dark" />
         </div>
       </NuiPreview>
 
@@ -92,11 +45,7 @@ const demoBreadcrumbTwo = [
         description="Breadcrumb component with slash separator"
       >
         <div class="flex flex-col gap-4 pt-4">
-          <BaseBreadcrumb :items="demoBreadcrumbOne" separator="slash">
-            /
-          </BaseBreadcrumb>
-
-          <BaseBreadcrumb :items="demoBreadcrumbTwo" separator="slash">
+          <BaseBreadcrumb :items="demoBreadcrumb">
             /
           </BaseBreadcrumb>
         </div>
@@ -107,11 +56,7 @@ const demoBreadcrumbTwo = [
         description="Breadcrumb component with chevron separator"
       >
         <div class="flex flex-col gap-4 pt-4">
-          <BaseBreadcrumb :items="demoBreadcrumbOne" separator="chevron">
-            <Icon name="lucide:chevron-right" class="w-4 h-4" />
-          </BaseBreadcrumb>
-
-          <BaseBreadcrumb :items="demoBreadcrumbTwo" separator="chevron">
+          <BaseBreadcrumb :items="demoBreadcrumb">
             <Icon name="lucide:chevron-right" class="w-4 h-4" />
           </BaseBreadcrumb>
         </div>
@@ -122,11 +67,7 @@ const demoBreadcrumbTwo = [
         description="Breadcrumb component with arrow separator"
       >
         <div class="flex flex-col gap-4 pt-4">
-          <BaseBreadcrumb :items="demoBreadcrumbOne" separator="arrow">
-            <Icon name="lucide:arrow-right" class="w-4 h-4" />
-          </BaseBreadcrumb>
-
-          <BaseBreadcrumb :items="demoBreadcrumbTwo" separator="arrow">
+          <BaseBreadcrumb :items="demoBreadcrumb">
             <Icon name="lucide:arrow-right" class="w-4 h-4" />
           </BaseBreadcrumb>
         </div>

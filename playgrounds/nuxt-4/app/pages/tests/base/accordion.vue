@@ -40,20 +40,16 @@ const accordion = ref([
         </div>
       </NuiPreview>
 
-      <NuiPreview title="Rounded" description="Accordion radius options">
-        <div class="md:max-w-lg">
-          <BaseCard variant="default-low" rounded="md" class="p-6">
-            <BaseAccordion :items="accordion" exclusive />
-          </BaseCard>
-        </div>
-      </NuiPreview>
-
-      <NuiPreview title="Dot color" description="Accordion dot color options">
-        <div class="grid gap-4 md:grid-cols-2 max-w-4xl">
-          <BaseAccordion :items="accordion" exclusive dot-color="primary" />
-          <BaseAccordion :items="accordion" exclusive dot-color="success" />
-          <BaseAccordion :items="accordion" exclusive dot-color="info" />
-          <BaseAccordion :items="accordion" exclusive dot-color="dark" />
+      <NuiPreview title="Wrapped" description="Accordion wrapped in a card">
+        <div class="md:max-w-5xl">
+          <div class="grid md:grid-cols-2 gap-6">
+            <BaseCard variant="default-low" rounded="md" class="p-6">
+              <BaseAccordion variant="default-low" :items="accordion" exclusive />
+            </BaseCard>
+            <BaseCard variant="default-high" rounded="md" class="p-6">
+              <BaseAccordion :items="accordion" exclusive />
+            </BaseCard>
+          </div>
         </div>
       </NuiPreview>
 

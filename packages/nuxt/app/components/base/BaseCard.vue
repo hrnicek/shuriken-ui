@@ -9,7 +9,7 @@ const props = withDefaults(
     /**
      * The variant of the card.
      *
-     * @default 'default'
+     * @default 'default-high'
      */
      variant?:
       | 'default-low'

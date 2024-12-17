@@ -19,6 +19,12 @@ export default defineAppConfig({
     // #region base
     BaseAccordion: {
       /**
+       * Default variant for the accordion
+       *
+       * @type {'default-low' | 'default-high'}
+       */
+      variant: 'default-high',
+      /**
        * The action icon of the accordion.
        *
        * @type {'dot' | 'chevron' | 'plus'}
@@ -26,12 +32,6 @@ export default defineAppConfig({
       action: 'dot',
     },
     BaseAvatar: {
-      /**
-       * Default color for the avatar
-       *
-       * @type {'white' | 'muted' | 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'pink' | 'yellow' | 'indigo' | 'violet'}
-       */
-      color: 'muted',
       /**
        * The radius of the avatar.
        *
@@ -63,9 +63,9 @@ export default defineAppConfig({
       /**
        * Defines the hover color of the breadcrumb links
        *
-       * @type {'primary' | 'dark' | 'black'}
+       * @type {'primary' | 'dark'}
        */
-      color: 'primary',
+      variant: 'primary',
     },
     BaseButton: {
       /**
