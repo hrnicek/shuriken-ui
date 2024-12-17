@@ -55,6 +55,10 @@ export interface BaseSwitchThinProps extends SwitchRootProps {
   }
 }
 export interface BaseSwitchThinEmits extends SwitchRootEmits {}
+export type BaseSwitchThinSlots = {
+  default(): any
+  sublabel(): any
+}
 </script>
 
 
@@ -78,11 +82,7 @@ const props = withDefaults(defineProps<BaseSwitchThinProps>(), {
   classes: () => ({}),
 })
 const emits = defineEmits<BaseSwitchThinEmits>()
-
-const slots = defineSlots<{
-  default(): any
-  sublabel(): any
-}>()
+const slots = defineSlots<BaseSwitchThinSlots>()
 
 const id = useNinjaId(() => props.id)
 const color = useNuiDefaultProperty(props, 'BaseSwitchThin', 'color')

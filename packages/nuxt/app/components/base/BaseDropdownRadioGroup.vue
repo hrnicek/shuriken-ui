@@ -6,6 +6,9 @@ import type {
 
 export interface BaseDropdownRadioGroupProps extends DropdownMenuRadioGroupProps {}
 export interface BaseDropdownRadioGroupEmits extends DropdownMenuRadioGroupEmits {}
+export type BaseDropdownRadioGroupSlots = {
+  default(): any
+}
 </script>
 
 <script setup lang="ts">
@@ -15,9 +18,7 @@ const props = withDefaults(defineProps<BaseDropdownRadioGroupProps>(), {
   modelValue: undefined,
 })
 const emits = defineEmits<BaseDropdownRadioGroupEmits>()
-const slots = defineSlots<{
-  default(): any
-}>()
+const slots = defineSlots<BaseDropdownRadioGroupSlots>()
 const forward = useForwardPropsEmits(props, emits);
 </script>
 

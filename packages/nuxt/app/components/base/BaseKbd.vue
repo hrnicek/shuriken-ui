@@ -16,6 +16,9 @@ export interface BaseKbdProps extends PrimitiveProps {
    */
   size?: 'sm' | 'md' | 'lg'
 }
+export type BaseKbdSlots = {
+  default(): any
+}
 
 export const sizes = {
   sm: 'min-h-[18px] px-1 text-xs',
@@ -42,9 +45,7 @@ const props = withDefaults(defineProps<BaseKbdProps>(), {
   rounded: undefined,
   size: undefined,
 })
-const slots = defineSlots<{
-  default(): any
-}>()
+const slots = defineSlots<BaseKbdSlots>()
 
 const variant = useNuiDefaultProperty(props, 'BaseKbd', 'variant')
 const size = useNuiDefaultProperty(props, 'BaseKbd', 'size')

@@ -3,13 +3,13 @@ import type {
   DropdownMenuSeparatorProps,
 } from 'reka-ui';
 
-export interface BaseDropdownItemProps extends DropdownMenuSeparatorProps {}
+export interface BaseDropdownSeparatorProps extends DropdownMenuSeparatorProps {}
 </script>
 
 <script setup lang="ts">
 import { useForwardProps } from 'reka-ui';
 
-const props = withDefaults(defineProps<BaseDropdownItemProps>(), {})
+const props = withDefaults(defineProps<BaseDropdownSeparatorProps>(), {})
 const forward = useForwardProps(props);
 </script>
 

@@ -65,6 +65,12 @@ export interface BaseDropdownItemProps extends DropdownMenuItemProps {
   }
 }
 export interface BaseDropdownItemEmits extends DropdownMenuItemEmits {}
+export type BaseDropdownItemSlots = {
+  default(): any
+  text(): any
+  start(): any
+  end(): any
+}
 
 export const radiuses = {
   none: '',
@@ -107,13 +113,7 @@ const props = withDefaults(defineProps<BaseDropdownItemProps>(), {
 })
 
 const emits = defineEmits<BaseDropdownItemEmits>()
-
-const slots = defineSlots<{
-  default(): any
-  text(): any
-  start(): any
-  end(): any
-}>()
+const slots = defineSlots<BaseDropdownItemSlots>()
 
 const color = useNuiDefaultProperty(props, 'BaseDropdownItem', 'color')
 const contrast = useNuiDefaultProperty(props, 'BaseDropdownItem', 'contrast')

@@ -335,7 +335,7 @@ const { rounded } = usePlayground()
                     <Icon name="ph:users-four-duotone" class="me-2 block h-5 w-5" />
                   </template>
                 </BaseDropdownItem>
-                <BaseDropdownDivider />
+                <BaseDropdownSeparator />
                 <BaseDropdownItem
                   to="#"
                   title="Settings"
@@ -387,7 +387,7 @@ const { rounded } = usePlayground()
                     <Icon name="ph:users-four-duotone" class="me-2 block h-5 w-5" />
                   </template>
                 </BaseDropdownItem>
-                <BaseDropdownDivider />
+                <BaseDropdownSeparator />
                 <BaseDropdownItem
                   to="#"
                   title="Settings"
@@ -447,7 +447,7 @@ const { rounded } = usePlayground()
                     <BaseAvatar src="/img/avatars/18.svg" size="xs" />
                   </template>
                 </BaseDropdownItem>
-                <BaseDropdownDivider />
+                <BaseDropdownSeparator />
                 <BaseDropdownItem
                   to="#"
                   title="Garry Porter"
@@ -499,7 +499,7 @@ const { rounded } = usePlayground()
                     <BaseAvatar src="/img/avatars/18.svg" size="xs" />
                   </template>
                 </BaseDropdownItem>
-                <BaseDropdownDivider />
+                <BaseDropdownSeparator />
                 <BaseDropdownItem
                   to="#"
                   title="Garry Porter"

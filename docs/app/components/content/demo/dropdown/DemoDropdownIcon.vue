@@ -41,7 +41,7 @@
                 <Icon name="ph:users-four-duotone" class="me-2 block h-5 w-5" />
               </template>
             </BaseDropdownItem>
-            <BaseDropdownDivider />
+            <BaseDropdownSeparator />
             <BaseDropdownItem
               to="#"
               title="Settings"

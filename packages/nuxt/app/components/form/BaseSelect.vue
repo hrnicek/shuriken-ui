@@ -1,185 +1,200 @@
-<script setup lang="ts">
-defineOptions({
-  inheritAttrs: false,
-})
+<script lang="ts">
+import type { 
+  SelectRootProps,
+  SelectRootEmits,
+  SelectTriggerProps,
+  SelectPortalProps,
+  SelectContentProps,
+  SelectViewportProps,
+} from 'reka-ui'
 
-const props = withDefaults(
-  defineProps<{
+export interface BaseSelectProps extends SelectRootProps {
+  /**
+   * The form input identifier.
+   */
+  id?: string
+
+  /**
+   * The label text for the select input.
+   */
+  label?: string
+
+  /**
+   * If the label should be floating.
+   */
+  labelFloat?: boolean
+
+  /**
+   * An icon to display in the select input.
+   */
+  icon?: string
+
+  /**
+   * The placeholder to display for the select input.
+   */
+  placeholder?: string
+
+  /**
+   * Whether the select input is in a loading state.
+   */
+  loading?: boolean
+
+  /**
+   * Whether the color of the input should change when it is focused.
+   */
+  colorFocus?: boolean
+
+  /**
+   * An error message to display, or a boolean indicating whether there is an error.
+   */
+  error?: string | boolean
+
+  /**
+   * The contrast of the select input.
+   *
+   * @default 'default'
+   */
+  contrast?: 'default' | 'default-contrast' | 'muted' | 'muted-contrast'
+
+  /**
+   * The radius of the select input.
+   *
+   * @since 2.0.0
+   * @default 'sm'
+   */
+  rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
+
+  /**
+   * The size of the select input.
+   *
+   * @default 'md'
+   */
+  size?: 'sm' | 'md' | 'lg' | 'xl'
+
+  /**
+   * Classes to apply to the select input.
+   */
+  classes?: {
     /**
-     * The form input identifier.
+     * A class or classes to apply to the wrapper element.
      */
-    id?: string
+    wrapper?: string | string[]
 
     /**
-     * The label text for the select input.
+     * A class or classes to apply to the outer element.
      */
-    label?: string
+    outer?: string | string[]
 
     /**
-     * If the label should be floating.
+     * A class or classes to apply to the label element.
      */
-    labelFloat?: boolean
+    label?: string | string[]
 
     /**
-     * An icon to display in the select input.
+     * A class or classes to apply to the select element.
      */
-    icon?: string
+    select?: string | string[]
 
     /**
-     * The placeholder to display for the select input.
+     * A class or classes to apply to the chevron element.
      */
-    placeholder?: string
+    chevron?: string | string[]
 
     /**
-     * Whether the select input is in a loading state.
+     * A class or classes to apply to the icon element.
      */
-    loading?: boolean
+    icon?: string | string[]
 
     /**
-     * Whether the select input is disabled.
+     * A class or classes to apply to the error element.
      */
-    disabled?: boolean
+    error?: string | string[]
+  }
 
-    /**
-     * Whether the color of the input should change when it is focused.
-     */
-    colorFocus?: boolean
-
-    /**
-     * An error message to display, or a boolean indicating whether there is an error.
-     */
-    error?: string | boolean
-
-    /**
-     * The contrast of the select input.
-     *
-     * @default 'default'
-     */
-    contrast?: 'default' | 'default-contrast' | 'muted' | 'muted-contrast'
-
-    /**
-     * The radius of the select input.
-     *
-     * @since 2.0.0
-     * @default 'sm'
-     */
-    rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
-
-    /**
-     * The size of the select input.
-     *
-     * @default 'md'
-     */
-    size?: 'sm' | 'md' | 'lg' | 'xl'
-
-    /**
-     * Classes to apply to the select input.
-     */
-    classes?: {
-      /**
-       * A class or classes to apply to the wrapper element.
-       */
-      wrapper?: string | string[]
-
-      /**
-       * A class or classes to apply to the outer element.
-       */
-      outer?: string | string[]
-
-      /**
-       * A class or classes to apply to the label element.
-       */
-      label?: string | string[]
-
-      /**
-       * A class or classes to apply to the select element.
-       */
-      select?: string | string[]
-
-      /**
-       * A class or classes to apply to the chevron element.
-       */
-      chevron?: string | string[]
-
-      /**
-       * A class or classes to apply to the icon element.
-       */
-      icon?: string | string[]
-
-      /**
-       * A class or classes to apply to the error element.
-       */
-      error?: string | string[]
-    }
-  }>(),
-  {
-    id: undefined,
-    rounded: undefined,
-    size: undefined,
-    contrast: undefined,
-    label: '',
-    icon: undefined,
-    placeholder: '',
-    error: false,
-    classes: () => ({}),
+  /**
+   * Optional bindings to pass to the inner components.
+   */
+  bindings?: {
+    trigger?: SelectTriggerProps,
+    portal?: SelectPortalProps,
+    content?: SelectContentProps,
+    viewport?: SelectViewportProps,
   },
-)
+}
+export interface BaseSelectEmits extends SelectRootEmits {}
+export type BaseSelectSlots = {
+  default(): any
+  label(): any
+}
 
-const [modelValue] = defineModel<any>()
-
-const contrast = useNuiDefaultProperty(props, 'BaseSelect', 'contrast')
-const rounded = useNuiDefaultProperty(props, 'BaseSelect', 'rounded')
-const size = useNuiDefaultProperty(props, 'BaseSelect', 'size')
-
-const iconChevronDown = useNuiDefaultIcon('chevronDown')
-
-const selectRef = ref<HTMLSelectElement>()
-const id = useNinjaId(() => props.id)
-
-const radiuses = {
+export const radiuses = {
   none: '',
   sm: 'nui-select-rounded-sm',
   md: 'nui-select-rounded-md',
   lg: 'nui-select-rounded-lg',
   full: 'nui-select-rounded-full',
-}
+} as const
 
-const sizes = {
+export const sizes = {
   sm: 'nui-select-sm',
   md: 'nui-select-md',
   lg: 'nui-select-lg',
   xl: 'nui-select-xl',
-}
+} as const
 
-const contrasts = {
+export const contrasts = {
   'default': 'nui-select-default',
   'default-contrast': 'nui-select-default-contrast',
   'muted': 'nui-select-muted',
   'muted-contrast': 'nui-select-muted-contrast',
-}
+} as const
+</script>
 
-defineExpose({
-  /**
-   * The underlying HTMLInputElement element.
-   */
-  el: selectRef,
+<script setup lang="ts">
+import { reactiveOmit } from '@vueuse/core'
+import { useForwardPropsEmits } from 'reka-ui'
 
-  /**
-   * The internal id of the radio input.
-   */
-  id,
+defineOptions({
+  inheritAttrs: false,
 })
 
-const placeholder = computed(() => {
-  if (props.loading) {
-    return
-  }
-  if (props.labelFloat) {
-    return props.label
-  }
+const props = withDefaults(defineProps<BaseSelectProps>(), {
+  id: undefined,
+  rounded: undefined,
+  size: undefined,
+  contrast: undefined,
+  label: '',
+  icon: undefined,
+  placeholder: '',
+  error: false,
+  
+  autocomplete: undefined,
+  name: undefined,
+  by: undefined,
+  defaultValue: undefined,
+  modelValue: undefined,
+  dir: undefined,
 
-  return props.placeholder
+  bindings: () => ({}),
+  classes: () => ({}),
 })
+const emits = defineEmits<BaseSelectEmits>()
+const slots = defineSlots<BaseSelectSlots>()
+
+const id = useNinjaId(() => props.id)
+const contrast = useNuiDefaultProperty(props, 'BaseSelect', 'contrast')
+const rounded = useNuiDefaultProperty(props, 'BaseSelect', 'rounded')
+const size = useNuiDefaultProperty(props, 'BaseSelect', 'size')
+
+const iconChevronDown = useNuiDefaultIcon('chevronDown')
+const iconChevronUp = useNuiDefaultIcon('chevronUp')
+
+const forward = useForwardPropsEmits(reactiveOmit(props, [
+  'id', 'label', 'labelFloat', 'icon', 
+  'placeholder', 'loading','disabled', 
+  'colorFocus', 'error','contrast', 
+  'rounded', 'size', 'classes', 'bindings'
+]), emits)
 </script>
 
 <template>
@@ -202,56 +217,42 @@ const placeholder = computed(() => {
         ('label' in $slots && !props.labelFloat)
           || (props.label && !props.labelFloat)
       "
-      class="nui-select-label"
       :for="id"
       :class="props.classes?.label"
     >
       <slot name="label">{{ props.label }}</slot>
     </Label>
-    <div class="nui-select-outer" :class="props.classes?.outer">
-      <select
-        :id="id"
-        ref="selectRef"
-        v-model="modelValue"
-        v-bind="$attrs"
-        :disabled="props.disabled"
-        class="nui-select"
-        :class="props.classes?.select"
+    <SelectRoot :id v-bind="forward" :class="props.classes?.outer">
+      <SelectTrigger
+        class="nui-focus flex min-w-[160px] items-center justify-between rounded-lg px-[15px] text-xs leading-none h-[35px] gap-[5px] bg-white border  text-primary-500 data-[placeholder]:text-muted-500 outline-none"
+        aria-label="Customise options"
+        v-bind="props.bindings?.trigger"
       >
-        <option v-if="placeholder" value="" disabled hidden>
-          {{ placeholder }}
-        </option>
-        <slot />
-      </select>
-      <Label
-        v-if="
-          ('label' in $slots && props.labelFloat)
-            || (props.label && props.labelFloat)
-        "
-        :for="id"
-        class="nui-select-label-float-label"
-        :class="props.classes?.label"
-      >
-        <slot name="label">{{ props.label }}</slot>
-      </Label>
-      <div v-if="props.loading" class="nui-select-placeload-wrapper">
-        <BasePlaceload class="nui-select-placeload" />
-      </div>
-      <div
-        v-if="props.icon"
-        class="nui-select-icon"
-        :class="props.classes?.icon"
-      >
-        <slot name="icon">
-          <Icon class="nui-select-icon-inner" :name="props.icon" />
-        </slot>
-      </div>
-      <div
-        class="nui-select-chevron nui-chevron"
-        :class="props.classes?.chevron"
-      >
-        <Icon :name="iconChevronDown" class="nui-select-chevron-inner" />
-      </div>
+        <SelectValue :placeholder="props.placeholder" />
+        <Icon :name="iconChevronDown" class="size-4" />
+      </SelectTrigger>
+
+      <SelectPortal v-bind="props.bindings?.portal">
+        <SelectContent
+          class="min-w-[160px] bg-white rounded-lg border shadow-sm will-change-[opacity,transform] data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade z-[100]"
+          v-bind="{
+            sideOffset: 5,
+            ...(props.bindings?.content || {}),
+          }"
+        >
+          <SelectScrollUpButton class="flex items-center justify-center h-[25px] bg-white text-violet11 cursor-default">
+            <Icon :name="iconChevronUp" />
+          </SelectScrollUpButton>
+
+          <SelectViewport v-bind="props.bindings?.viewport" class="p-[5px]">
+            <slot />
+          </SelectViewport> 
+
+          <SelectScrollDownButton class="flex items-center justify-center h-[25px] bg-white text-violet11 cursor-default">
+            <Icon :name="iconChevronDown" />
+          </SelectScrollDownButton>
+        </SelectContent>
+      </SelectPortal>
       <BaseInputHelpText
         v-if="props.error && typeof props.error === 'string'"
         color="danger"
@@ -259,6 +260,6 @@ const placeholder = computed(() => {
       >
         {{ props.error }}
       </BaseInputHelpText>
-    </div>
+    </SelectRoot>
   </div>
 </template>

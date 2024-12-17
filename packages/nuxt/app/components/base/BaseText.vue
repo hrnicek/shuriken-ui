@@ -43,6 +43,9 @@ export interface BaseTextProps extends PrimitiveProps {
    */
   tracking?: 'tighter' | 'tight' | 'normal' | 'wide' | 'wider' | 'widest'
 }
+export type BaseTextSlots = {
+  default(): any
+}
 
 export const sizes = {
   'xs': 'text-xs',
@@ -100,9 +103,7 @@ const props = withDefaults(defineProps<BaseTextProps>(), {
   weight: undefined,
   tracking: undefined,
 })
-const slots = defineSlots<{
-  default(): any
-}>()
+const slots = defineSlots<BaseTextSlots>()
 
 const size = useNuiDefaultProperty(props, 'BaseText', 'size')
 const lead = useNuiDefaultProperty(props, 'BaseText', 'lead')

@@ -60,6 +60,10 @@ export interface BaseCheckboxProps extends RadioGroupItemProps {
 export interface BaseCheckboxEmits /*extends RadioGroupItemEmits*/ {
   select: [event: any]
 }
+export type BaseCheckboxSlots = {
+  default(): any
+  error(): any
+}
 
 const colors = {
   default: 'nui-radio-default',
@@ -95,10 +99,7 @@ const props = withDefaults(defineProps<BaseCheckboxProps>(), {
   classes: () => ({}),
 })
 const emits = defineEmits<BaseCheckboxEmits>()
-const slots = defineSlots<{
-  default(): any
-  error(): any
-}>()
+const slots = defineSlots<BaseCheckboxSlots>()
 
 const attrs = useAttrs()
 const id = useNinjaId(() => props.id)

@@ -60,6 +60,10 @@ export interface BaseSwitchBallProps extends SwitchRootProps {
   }
 }
 export interface BaseSwitchBallEmits extends SwitchRootEmits {}
+export type BaseSwitchBallSlots = {
+  default(): any
+  sublabel(): any
+}
 </script>
 
 <script setup lang="ts">
@@ -82,11 +86,7 @@ const props = withDefaults(defineProps<BaseSwitchBallProps>(), {
   classes: () => ({}),
 })
 const emits = defineEmits<BaseSwitchBallEmits>()
-
-const slots = defineSlots<{
-  default(): any
-  sublabel(): any
-}>()
+const slots = defineSlots<BaseSwitchBallSlots>()
 
 const id = useNinjaId(() => props.id)
 const color = useNuiDefaultProperty(props, 'BaseSwitchBall', 'color')

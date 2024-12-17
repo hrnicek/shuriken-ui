@@ -8,15 +8,16 @@ definePageMeta({
 
 const route = useRoute()
 const router = useRouter()
-const currentPage = computed({
+const page = computed({
   get() {
     return Number(route.query.page) || 1
   },
   set(value: number) {
-    router.push({ query: { ...route.query, page: value } })
+    router.replace({ query: { ...route.query, page: value } })
   },
 })
 
+const formatter = new Intl.NumberFormat('en-US', { style: 'decimal' })
 </script>
 
 <template>
@@ -27,10 +28,10 @@ const currentPage = computed({
         description="Pagination component size example"
       >
         <BasePagination
-          :item-per-page="8"
-          :total-items="512"
-          v-model:current-page="currentPage"
-          :max-links-displayed="5"
+          :items-per-page="8"
+          :total="512"
+          v-model:page="page"
+          :sibling-count="2"
           size="sm"
         />
       </NuiPreview>
@@ -40,10 +41,10 @@ const currentPage = computed({
         description="Pagination component radius example"
       >
         <BasePagination
-          :item-per-page="8"
-          :total-items="512"
-          v-model:current-page="currentPage"
-          :max-links-displayed="5"
+          :items-per-page="8"
+          :total="512"
+          v-model:page="page"
+          :sibling-count="3"
           rounded="sm"
         />
       </NuiPreview>
@@ -53,10 +54,10 @@ const currentPage = computed({
         description="Pagination component radius example"
       >
         <BasePagination
-          :item-per-page="8"
-          :total-items="512"
-          v-model:current-page="currentPage"
-          :max-links-displayed="5"
+          :items-per-page="8"
+          :total="512"
+          v-model:page="page"
+          :sibling-count="1"
           rounded="md"
           size="sm"
           :wrapped="false"
@@ -68,10 +69,10 @@ const currentPage = computed({
         description="Pagination component primary low variant"
       >
         <BasePagination
-          :item-per-page="8"
-          :total-items="512"
-          v-model:current-page="currentPage"
-          :max-links-displayed="5"
+          :items-per-page="8"
+          :total="512"
+          v-model:page="page"
+          :sibling-count="1"
           rounded="lg"
           variant="primary-low"
           size="sm"
@@ -83,10 +84,10 @@ const currentPage = computed({
         description="Pagination component primary high variant"
       >
         <BasePagination
-          :item-per-page="8"
-          :total-items="512"
-          v-model:current-page="currentPage"
-          :max-links-displayed="5"
+          :items-per-page="8"
+          :total="512"
+          v-model:page="page"
+          :sibling-count="1"
           rounded="full"
           variant="primary-high"
         />
@@ -97,10 +98,10 @@ const currentPage = computed({
         description="Pagination component dark variant"
       >
         <BasePagination
-          :item-per-page="8"
-          :total-items="1000000"
-          v-model:current-page="currentPage"
-          :max-links-displayed="5"
+          :items-per-page="8"
+          :total="1_000_000"
+          v-model:page="page"
+          :sibling-count="1"
           rounded="lg"
           variant="dark-low"
           size="sm"
@@ -112,13 +113,20 @@ const currentPage = computed({
         description="Pagination component dark variant"
       >
         <BasePagination
-          :item-per-page="8"
-          :total-items="1000000"
-          v-model:current-page="currentPage"
-          :max-links-displayed="5"
+          :items-per-page="8"
+          :total="1_000_000"
+          v-model:page="page"
+          :sibling-count="1"
           rounded="full"
           variant="dark-high"
-        />
+        >
+          <template #page="{ page }">
+            {{ formatter.format(page) }}
+          </template>
+          <template #ellipsis>
+            <Icon name="lucide:ellipsis" />
+          </template>
+        </BasePagination> 
       </NuiPreview>
     </NuiPreviewContainer>
   </div>

@@ -7,6 +7,9 @@ export interface BaseDropdownLabelProps extends DropdownMenuLabelProps {
    */
   label?: string
 }
+export type BaseDropdownLabelSlots = {
+  default(): any
+}
 </script>
 
 
@@ -17,9 +20,7 @@ import { reactiveOmit } from '@vueuse/core'
 const props = withDefaults(defineProps<BaseDropdownLabelProps>(), {
   label: '',
 })
-const slots = defineSlots<{
-  default(): any
-}>()
+const slots = defineSlots<BaseDropdownLabelSlots>()
 
 const forward = useForwardProps(reactiveOmit(props, ['label']));
 </script>
