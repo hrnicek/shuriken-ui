@@ -1,4 +1,4 @@
-<script setup lang="ts" generic="T extends unknown">
+<script setup lang="ts">
 const props = withDefaults(
   defineProps<{
     /**
@@ -12,7 +12,7 @@ const props = withDefaults(
       /**
        * The content of the accordion item.
        */
-      content: T
+      content: string
     }[]
 
     /**
@@ -86,7 +86,7 @@ const emits = defineEmits<{
       /**
        * The content of the accordion item.
        */
-      content: T
+      content: string
     },
   ): void
 }>()
@@ -94,18 +94,15 @@ const emits = defineEmits<{
 defineSlots<{
   'accordion-item': (props: {
     index: number
-    item: { title: string, content: T }
-    toggle: (index: number) => void
+    item: { title: string, content: string }
   }) => any
   'accordion-item-summary': (props: {
     index: number
-    item: { title: string, content: T }
-    toggle: (index: number) => void
+    item: { title: string, content: string }
   }) => any
   'accordion-item-content': (props: {
     index: number
-    item: { title: string, content: T }
-    toggle: (index: number) => void
+    item: { title: string, content: string }
   }) => any
 }>()
 
@@ -132,13 +129,13 @@ const internalOpenItems = ref(props.exclusive ? props.openItems?.[0] ?? 0 : prop
       :class="[
         props.classes?.wrapper,
       ]"
-      :value="key"
+      :value="item.content"
     >
       <div
         class="relative"
         :class="props.classes?.details"
       >
-        <slot name="accordion-item" :item="item" :index="key" :toggle="toggle">
+        <slot name="accordion-item" :item="item" :index="key">
           <AccordionHeader
             class="cursor-pointer list-none outline-none"
             :class="props.classes?.summary"
@@ -147,7 +144,6 @@ const internalOpenItems = ref(props.exclusive ? props.openItems?.[0] ?? 0 : prop
               name="accordion-item-summary"
               :item="item"
               :index="key"
-              :toggle="toggle"
             >
               <AccordionTrigger
                 class="flex group/trigger items-center justify-between w-full py-3 rounded-md px-4 cursor-pointer nui-focus"
@@ -174,7 +170,7 @@ const internalOpenItems = ref(props.exclusive ? props.openItems?.[0] ?? 0 : prop
                   <BaseChip
                     position="static"
                     size="md"
-                    color="current"
+                    color="custom"
                     class="text-muted-200 dark:text-muted-600 group-data-[state=open]/trigger:text-primary-500"
                   />
                 </div>
@@ -200,7 +196,6 @@ const internalOpenItems = ref(props.exclusive ? props.openItems?.[0] ?? 0 : prop
                 name="accordion-item-content"
                 :item="item"
                 :index="key"
-                :toggle="toggle"
               >
                 <BaseParagraph size="sm" lead="tight">
                   {{ item.content }}
