@@ -21,8 +21,8 @@ const options = reactive({
 })
 
 const disabledValue = ref(true)
-const customValue = ref('not-checked')
-const multipleValue = ref(['Option 1', 'Option 2'])
+const customValue = ref(false)
+const multipleValue = ref(['Option 1', 'Option 4'])
 
 const value = ref([])
 
@@ -382,10 +382,7 @@ function reset() {
         <BaseCheckbox
           v-model="customValue"
           name="true-false"
-          :label="customValue"
           rounded="full"
-          true-value="checked"
-          false-value="not-checked"
           color="muted"
         />
       </NuiPreview>
@@ -394,20 +391,15 @@ function reset() {
         title="Value: multiple"
         description="Checkbox component multiple values"
       >
-        <BaseFocusLoop
-          class="grid grid-cols-2 gap-6 md:max-w-lg md:grid-cols-4"
-        >
+        <BaseCheckboxGroup v-model="multipleValue" class="grid grid-cols-2 gap-6 md:max-w-lg md:grid-cols-4">
           <BaseCheckbox
-            v-model="multipleValue"
             name="multiple-demo-1"
             label="Option 1"
             value="Option 1"
             rounded="lg"
-            color="muted"
           />
 
           <BaseCheckbox
-            v-model="multipleValue"
             name="multiple-demo-2"
             label="Option 2"
             value="Option 2"
@@ -416,32 +408,29 @@ function reset() {
           />
 
           <BaseCheckbox
-            v-model="multipleValue"
             name="multiple-demo-3"
             label="Option 3"
             value="Option 3"
             rounded="lg"
-            color="muted"
+            color="primary"
           />
 
           <BaseCheckbox
-            v-model="multipleValue"
             name="multiple-demo-4"
             label="Option 4"
             value="Option 4"
             rounded="lg"
-            color="muted"
+            color="success"
           />
 
           <BaseCheckbox
-            v-model="multipleValue"
             name="multiple-demo-5"
             label="Option 5"
             value="Option 5"
             rounded="lg"
-            color="muted"
+            color="danger"
           />
-        </BaseFocusLoop>
+        </BaseCheckboxGroup>
       </NuiPreview>
 
       <NuiPreview

@@ -94,6 +94,12 @@ defineOptions({
 })
 
 const props = withDefaults(defineProps<BaseCheckboxProps>(), {
+  id: undefined,
+  disabled: undefined,
+  defaultValue: undefined,
+  name: undefined,
+  value: undefined,
+  modelValue: undefined,
   label: undefined,
   error: false,
   rounded: undefined,
