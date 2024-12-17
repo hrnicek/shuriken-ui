@@ -1,29 +1,36 @@
+<script lang="ts">
+export interface BaseThemeToggleProps {
+  /**
+   * The form input identifier.
+   */
+  id?: string
+
+  /**
+   * Disables transitions when toggling between light and dark mode.
+   *
+   * @default false
+   */
+  disableTransitions?: boolean
+  /**
+   * The variant of the toggle.
+   *
+   * @default 'default-low'
+   */
+  variant?: 'default-low' | 'default-high'
+}
+
+export const variants = {
+  'default-low': 'bg-white dark:bg-muted-800 border border-muted-300 dark:border-muted-700',
+  'default-high': 'bg-white dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
+}
+</script>
+
 <script setup lang="ts">
-const props = withDefaults(
-  defineProps<{
-    /**
-     * The form input identifier.
-     */
-    id?: string
-    /**
-     * Disables transitions when toggling between light and dark mode.
-     *
-     * @default false
-     */
-    disableTransitions?: boolean
-    /**
-     * The variant of the toggle.
-     *
-     * @default 'default-low'
-     */
-     variant?: 'default-low' | 'default-high'
-  }>(),
-  {
-    id: undefined,
-    disableTransitions: undefined,
-    variant: undefined,
-  },
-)
+const props = withDefaults(defineProps<BaseThemeToggleProps>(), {
+  id: undefined,
+  disableTransitions: undefined,
+  variant: undefined,
+})
 
 const id = useNinjaId(() => props.id)
 const disableTransitions = useNuiDefaultProperty(
@@ -35,11 +42,6 @@ const disableTransitions = useNuiDefaultProperty(
 const variant = useNuiDefaultProperty(props, 'BaseThemeToggle', 'variant')
 const iconSun = useNuiDefaultIcon('sun')
 const iconMoon = useNuiDefaultIcon('moon')
-
-const variants = {
-  'default-low': 'bg-white dark:bg-muted-800 border border-muted-300 dark:border-muted-700',
-  'default-high': 'bg-white dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
-}
 
 const colorMode = useColorMode()
 const isDark = computed({
@@ -65,27 +67,15 @@ const isDark = computed({
 </script>
 
 <template>
-  <label
+  <SwitchRoot 
+    :id 
+    v-model="isDark" 
     class="nui-focus relative block shrink-0 overflow-hidden rounded-full size-9 focus-visible:outline-2 ring-2 ring-transparent ring-offset-muted-200 dark:ring-offset-muted-900 transition-all duration-300"
-    :for="id"
   >
-    <input
-      :id="id"
-      v-model="isDark"
-      type="checkbox"
-      class="peer absolute start-0 top-0 z-[2] h-full w-full cursor-pointer opacity-0"
-    >
-    <span class="relative block rounded-full size-9 peer-checked:[&>.sun]:translate-y-[-150%] peer-checked:[&>.sun]:opacity-0 peer-checked:[&>.moon]:-translate-y-1/2 opacity-100 peer-checked:[&>.moon]:-translate-y-1/2 peer-checked:[&>.moon]:opacity-100 peer-not-checked:[&>.moon]:translate-y-[-150%] peer-not-checked:[&>.moon]:opacity-0"
+    <SwitchThumb class="relative block rounded-full size-9 data-[state=checked]:[&>.sun]:translate-y-[-150%] data-[state=checked]:[&>.sun]:opacity-0 data-[state=checked]:[&>.moon]:-translate-y-1/2 opacity-100 data-[state=checked]:[&>.moon]:-translate-y-1/2 data-[state=checked]:[&>.moon]:opacity-100 data-[state=unchecked]:[&>.moon]:translate-y-[-150%] data-[state=unchecked]:[&>.moon]:opacity-0"
       :class="variants[variant]">
       <Icon :name="iconSun" class="sun pointer-events-none absolute start-1/2 top-1/2 block -translate-y-1/2 translate-x-[-50%] rtl:translate-x-[50%] h-5 w-5 text-yellow-400 dark:text-yellow-400 transition-all duration-300" />
       <Icon :name="iconMoon" class="moon pointer-events-none absolute start-1/2 top-1/2 block translate-x-[-50%] rtl:translate-x-[45%] h-5 w-5 text-yellow-400 dark:text-yellow-400 transition-all duration-300" />
     </span>
-  </label>
+  </SwitchRoot>
 </template>
-
-<style>
-.nui-no-transition * {
-  transition-property: none !important;
-  transition-duration: 0 !important;
-}
-</style>
