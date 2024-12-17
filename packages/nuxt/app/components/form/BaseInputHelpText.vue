@@ -22,6 +22,9 @@ export interface BaseInputHelpTextProps extends PrimitiveProps {
     | 'danger'
     | 'none'
 }
+export type BaseInputHelpTextSlots = {
+  default(): any
+}
 
 export const colors = {
   'default': 'text-inherit',
@@ -48,9 +51,7 @@ import { reactiveOmit } from '@vueuse/core'
 const props = withDefaults(defineProps<BaseInputHelpTextProps>(), {
   color: undefined,
 })
-const slots = defineSlots<{
-  default(): any
-}>()
+const slots = defineSlots<BaseInputHelpTextSlots>()
 
 const color = useNuiDefaultProperty(props, 'BaseInputHelpText', 'color')
 const forward = useForwardProps(reactiveOmit(props, ['color']))

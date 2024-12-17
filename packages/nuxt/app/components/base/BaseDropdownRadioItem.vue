@@ -70,6 +70,11 @@ export interface BaseDropdownRadioItemProps extends DropdownMenuRadioItemProps {
   }
 }
 export interface BaseDropdownRadioItemEmits extends DropdownMenuRadioItemEmits {}
+export type BaseDropdownRadioItemSlots = {
+  default(): any
+  text(): any
+  end(): any
+}
 </script>
 
 <script setup lang="ts">
@@ -97,11 +102,7 @@ const props = withDefaults(defineProps<BaseDropdownRadioItemProps>(), {
   }),
 })
 const emits = defineEmits<BaseDropdownRadioItemEmits>()
-const slots = defineSlots<{
-  default(): any
-  text(): any
-  end(): any
-}>()
+const slots = defineSlots<BaseDropdownRadioItemSlots>()
 
 const color = useNuiDefaultProperty(props, 'BaseDropdownItem', 'color')
 const contrast = useNuiDefaultProperty(props, 'BaseDropdownItem', 'contrast')

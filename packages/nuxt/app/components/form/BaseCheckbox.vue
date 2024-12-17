@@ -61,6 +61,10 @@ export interface BaseCheckboxProps extends CheckboxRootProps {
   }
 }
 export interface BaseCheckboxEmits extends CheckboxRootEmits {}
+export type BaseCheckboxSlots = {
+  default(): any
+  error(): any
+}
 
 const radiuses = {
   none: '',
@@ -108,10 +112,7 @@ const props = withDefaults(defineProps<BaseCheckboxProps>(), {
 })
 const emits = defineEmits<BaseCheckboxEmits>()
 
-const slots = defineSlots<{
-  default(): any
-  error(): any
-}>()
+const slots = defineSlots<BaseCheckboxSlots>()
 
 const attrs = useAttrs()
 const id = useNinjaId(() => props.id)

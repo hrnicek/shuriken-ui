@@ -6,6 +6,9 @@ import type {
 
 export interface BaseCheckboxGroupProps extends RadioGroupRootProps {}
 export interface BaseCheckboxGroupEmits extends RadioGroupRootEmits {}
+export type BaseCheckboxGroupSlots = {
+  default(): any
+}
 </script>
 
 <script setup lang="ts">
@@ -17,9 +20,7 @@ const props = withDefaults(defineProps<BaseCheckboxGroupProps>(), {
   orientation: undefined,
 })
 const emits = defineEmits<BaseCheckboxGroupEmits>()
-const slots = defineSlots<{
-  default(): any
-}>()
+const slots = defineSlots<BaseCheckboxGroupSlots>()
 
 const forward = useForwardPropsEmits(props, emits)
 </script>

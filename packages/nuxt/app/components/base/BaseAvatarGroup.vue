@@ -48,7 +48,9 @@ export interface BaseAvatarGroupProps extends PrimitiveProps {
     count?: string | string[]
   }
 }
-
+export type BaseAvatarGroupSlots = {
+  default(): any
+}
 export const spacings = {
   'xxs': '-ms-2 hover:-ms-3 hover:me-2 focus:-ms-3 focus:me-2 first:hover:-ms-3 first:hover:me-2 first:focus:-ms-3 first:focus:me-2',
   'xs': '-ms-2 hover:-ms-4 hover:me-2 focus:-ms-4 focus:me-2 first:hover:-ms-2 first:hover:me-2 first:focus:-ms-2 first:focus:me-2',
@@ -85,9 +87,7 @@ const props = withDefaults(defineProps<BaseAvatarGroupProps>(), {
   rounded: 'full',
   classes: () => ({}),
 })
-const slots = defineSlots<{
-  default(): any
-}>()
+const slots = defineSlots<BaseAvatarGroupSlots>()
 
 const size = useNuiDefaultProperty(props, 'BaseAvatarGroup', 'size')
 const limit = useNuiDefaultProperty(props, 'BaseAvatarGroup', 'limit')

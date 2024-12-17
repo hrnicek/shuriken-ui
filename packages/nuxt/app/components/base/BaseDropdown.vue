@@ -88,6 +88,11 @@ export interface BaseDropdownContext {
   rounded: ComputedRef<NonNullable<BaseDropdownProps['rounded']>>
   size: ComputedRef<NonNullable<BaseDropdownProps['size']>>
 }
+export type BaseDropdownSlots = {
+  default(): any
+  button(): any
+  label(): any
+}
 
 export const sizes = {
   md: 'nui-dropdown-menu-md',
@@ -141,12 +146,7 @@ const props = withDefaults(defineProps<BaseDropdownProps>(), {
   bindings: () => ({}),
 })
 const emits = defineEmits<BaseDropdownEmits>()
-
-const slots = defineSlots<{
-  default(): any
-  button(): any
-  label(): any
-}>()
+const slots = defineSlots<BaseDropdownSlots>()
 
 const attrs = useAttrs()
 

@@ -7,6 +7,9 @@ export interface BaseSelectLabelProps extends SelectLabelProps {
    */
   label?: string
 }
+export type BaseSelectLabelSlots = {
+  default(): any
+}
 </script>
 
 
@@ -17,9 +20,7 @@ import { reactiveOmit } from '@vueuse/core'
 const props = withDefaults(defineProps<BaseSelectLabelProps>(), {
   label: '',
 })
-const slots = defineSlots<{
-  default(): any
-}>()
+const slots = defineSlots<BaseSelectLabelSlots>()
 
 const forward = useForwardProps(reactiveOmit(props, ['label']));
 </script>

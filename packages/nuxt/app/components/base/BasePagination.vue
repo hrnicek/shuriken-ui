@@ -91,6 +91,15 @@ export interface BasePaginationProps extends PaginationRootProps {
   }
 }
 export interface BasePaginationEmits extends PaginationRootEmits {}
+export type BasePaginationSlots = {
+  default(): any
+  'before-pagination'(): any
+  'after-pagination'(): any
+  'before-navigation'(): any
+  'after-navigation'(): any
+  'previous-icon'(): any
+  'next-icon'(): any
+}
 
 export const sizes = {
   sm: 'size-8',
@@ -128,15 +137,7 @@ const props = withDefaults(defineProps<BasePaginationProps>(), {
   bindings: () => ({}),
 })
 const emits = defineEmits<BasePaginationEmits>()
-const slots = defineSlots<{
-  default(): any
-  'before-pagination'(): any
-  'after-pagination'(): any
-  'before-navigation'(): any
-  'after-navigation'(): any
-  'previous-icon'(): any
-  'next-icon'(): any
-}>()
+const slots = defineSlots<BasePaginationSlots>()
 
 const variant = useNuiDefaultProperty(props, 'BasePagination', 'variant')
 const size = useNuiDefaultProperty(props, 'BasePagination', 'size')

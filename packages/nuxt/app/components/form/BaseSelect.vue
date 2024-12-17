@@ -122,6 +122,10 @@ export interface BaseSelectProps extends SelectRootProps {
   },
 }
 export interface BaseSelectEmits extends SelectRootEmits {}
+export type BaseSelectSlots = {
+  default(): any
+  label(): any
+}
 
 export const radiuses = {
   none: '',
@@ -175,10 +179,7 @@ const props = withDefaults(defineProps<BaseSelectProps>(), {
   classes: () => ({}),
 })
 const emits = defineEmits<BaseSelectEmits>()
-const slots = defineSlots<{
-  default(): any
-  label(): any
-}>()
+const slots = defineSlots<BaseSelectSlots>()
 
 const id = useNinjaId(() => props.id)
 const contrast = useNuiDefaultProperty(props, 'BaseSelect', 'contrast')

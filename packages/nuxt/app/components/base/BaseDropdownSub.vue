@@ -25,6 +25,11 @@ export interface BaseDropdownSubProps extends DropdownMenuSubProps {
   }
 }
 export interface BaseDropdownSubEmits extends DropdownMenuSubEmits {}
+export type BaseDropdownSubSlots = {
+  default(): any
+  title(): any
+  text(): any
+}
 </script>
 
 <script setup lang="ts">
@@ -34,11 +39,7 @@ import { reactiveOmit } from '@vueuse/core'
 
 const props = defineProps<BaseDropdownSubProps>()
 const emits = defineEmits<BaseDropdownSubEmits>()
-const slots = defineSlots<{
-  default(): any
-  title(): any
-  text(): any
-}>()
+const slots = defineSlots<BaseDropdownSubSlots>()
 
 const { color, rounded, size } = injectBaseDropdownContext()
 

@@ -23,6 +23,9 @@ export interface BaseTagProps extends PrimitiveProps {
    */
   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
 }
+export type BaseTagSlots = {
+  default(): any
+}
 
 export const variants = {
   'default-low': 'bg-white/10 dark:bg-muted-200/10 text-muted-400 dark:text-muted-200 ring-1 ring-inset ring-muted-400/30 dark:ring-muted-200/20',
@@ -58,9 +61,7 @@ const props = withDefaults(defineProps<BaseTagProps>(), {
   rounded: undefined,
   size: undefined,
 })
-const slots = defineSlots<{
-  default(): any
-}>()
+const slots = defineSlots<BaseTagSlots>()
 
 const rounded = useNuiDefaultProperty(props, 'BaseTag', 'rounded')
 const size = useNuiDefaultProperty(props, 'BaseTag', 'size')

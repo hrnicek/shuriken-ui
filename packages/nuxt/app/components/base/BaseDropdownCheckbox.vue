@@ -70,6 +70,11 @@ export interface BaseDropdownCheckboxProps extends DropdownMenuCheckboxItemProps
   }
 }
 export interface BaseDropdownCheckboxEmits extends DropdownMenuCheckboxItemEmits {}
+export type BaseDropdownCheckboxSlots = {
+  default(): any
+  text(): any
+  end(): any
+}
 </script>
 
 <script setup lang="ts">
@@ -99,11 +104,7 @@ const props = withDefaults(defineProps<BaseDropdownCheckboxProps>(), {
 })
 const emits = defineEmits<BaseDropdownCheckboxEmits>()
 
-const slots = defineSlots<{
-  default(): any
-  text(): any
-  end(): any
-}>()
+const slots = defineSlots<BaseDropdownCheckboxSlots>()
 
 const color = useNuiDefaultProperty(props, 'BaseDropdownItem', 'color')
 const contrast = useNuiDefaultProperty(props, 'BaseDropdownItem', 'contrast')

@@ -2,6 +2,9 @@
 import type { BaseTextProps } from './BaseText.vue'
 
 export interface BaseParagraphProps extends BaseTextProps {}
+export type BaseParagraphSlots = {
+  default(): any
+}
 </script>
 
 <script setup lang="ts">
@@ -16,9 +19,7 @@ const props = withDefaults(defineProps<BaseParagraphProps>(), {
   weight: undefined,
   tracking: undefined,
 })
-const slots = defineSlots<{
-  default(): any
-}>()
+const slots = defineSlots<BaseParagraphSlots>()
 
 const size = useNuiDefaultProperty(props, 'BaseParagraph', 'size')
 const lead = useNuiDefaultProperty(props, 'BaseParagraph', 'lead')

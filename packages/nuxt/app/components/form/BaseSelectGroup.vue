@@ -2,6 +2,9 @@
 import type { SelectGroupProps } from 'reka-ui'
 
 export interface BaseSelectGroupProps extends SelectGroupProps {}
+export type BaseSelectGroupSlots = {
+  default(): any
+}
 </script>
 
 
@@ -9,9 +12,7 @@ export interface BaseSelectGroupProps extends SelectGroupProps {}
 import { useForwardProps } from 'reka-ui';
 
 const props = withDefaults(defineProps<BaseSelectGroupProps>(), {})
-const slots = defineSlots<{
-  default(): any
-}>()
+const slots = defineSlots<BaseSelectGroupSlots>()
 
 const forward = useForwardProps(props);
 </script>

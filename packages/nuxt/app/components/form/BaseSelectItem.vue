@@ -4,6 +4,9 @@ import type {
 } from 'reka-ui'
 
 export interface BaseSelectItemProps extends SelectItemProps {}
+export type BaseSelectItemSlots = {
+  default(): any
+}
 </script>
 
 <script setup lang="ts">
@@ -13,9 +16,8 @@ const props = withDefaults(defineProps<BaseSelectItemProps>(), {
   textValue: undefined,
   value: undefined,
 })
-const slots = defineSlots<{
-  default(): any
-}>()
+const slots = defineSlots<BaseSelectItemSlots>()
+
 const iconCheck = useNuiDefaultIcon('check')
 const forward = useForwardProps(props)
 </script>

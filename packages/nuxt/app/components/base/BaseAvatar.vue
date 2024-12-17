@@ -92,6 +92,10 @@ export interface BaseAvatarProps extends AvatarRootProps {
     fallback?: AvatarFallbackProps
   }
 }
+export type BaseAvatarSlots = {
+  default(): any
+  badge(): any
+}
 
 export const sizes = {
   'xxs': 'size-6',
@@ -165,10 +169,7 @@ const props = withDefaults(defineProps<BaseAvatarProps>(), {
   mask: undefined,
   classes: () => ({}),
 })
-const slots = defineSlots<{
-  default(): any
-  badge(): any
-}>()
+const slots = defineSlots<BaseAvatarSlots>()
 
 const attrs = useAttrs()
 
