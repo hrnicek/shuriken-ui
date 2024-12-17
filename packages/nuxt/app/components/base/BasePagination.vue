@@ -1,110 +1,142 @@
+<script lang="ts">
+import type {
+  PaginationRootProps,
+  PaginationRootEmits,
+  PaginationListProps,
+  PaginationListItemProps,
+  PaginationEllipsisProps,
+  PaginationNextProps,
+  PaginationPrevProps,
+} from 'reka-ui'
+
+
+export interface BasePaginationProps extends PaginationRootProps {
+  /**
+   * The ellipsis to show when there are too many links.
+   */
+  ellipsis?: string
+
+  /**
+   * The color of the pagination active button.
+   *
+   * @default 'primary'
+   */
+  variant?: 'primary-low' | 'primary-high' | 'dark-low' | 'dark-high'
+
+  /**
+   * The size of the pagination buttons.
+   *
+   * @default 'md'
+   */
+  size?: 'sm' | 'md' | 'lg'
+
+  /**
+   * The radius of the pagination.
+   *
+   * @default 'sm'
+   */
+  rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
+
+  /**
+   * Wether the pagination is wrapped.
+   *
+   * @default 'true'
+   */
+  wrapped?: boolean
+
+  /**
+   * Optional CSS classes to apply to the component inner elements.
+   */
+  classes?: {
+    /**
+     * CSS classes to apply to the wrapper element.
+     */
+    wrapper?: string | string[]
+
+    /**
+     * CSS classes to apply to the list element.
+     */
+    list?: string | string[]
+
+    /**
+     * CSS classes to apply to the link element.
+     */
+    link?: string | string[]
+
+    /**
+     * CSS classes to apply to the ellipsis element.
+     */
+    ellipsis?: string | string[]
+
+    /**
+     * CSS classes to apply to the buttons element.
+     */
+    buttons?: string | string[]
+
+    /**
+     * CSS classes to apply to the button element.
+     */
+    button?: string | string[]
+  }
+
+  /**
+   * Optional bindings to pass to the inner components.
+   */
+  bindings?: {
+    list?: PaginationListProps
+    item?: PaginationListItemProps
+    ellipsis?: PaginationEllipsisProps
+    prev?: PaginationPrevProps
+    next?: PaginationNextProps
+  }
+}
+export interface BasePaginationEmits extends PaginationRootEmits {}
+
+export const sizes = {
+  sm: 'size-8',
+  md: 'size-10',
+  lg: 'size-12',
+} as const
+
+export const heights = {
+  sm: 'h-8 px-3',
+  md: 'h-10 px-4',
+  lg: 'h-12 px-5',
+} as const
+
+export const radiuses = {
+  none: '',
+  sm: 'rounded-sm',
+  md: 'rounded-md',
+  lg: 'rounded-lg',
+  full: 'rounded-lg sm:rounded-full',
+} as const
+</script>
+
 <script setup lang="ts">
-const props = withDefaults(
-  defineProps<{
-    /**
-     * The number of items to display per page.
-     */
-    itemPerPage: number
+import { useForwardPropsEmits } from 'reka-ui'
+import { reactiveOmit } from '@vueuse/core'
 
-    /**
-     * The total number of items.
-     */
-    totalItems: number
-
-    /**
-     * The maximum number of links to display.
-     */
-    maxLinksDisplayed?: number
-
-    /**
-     * Whether to disable routing.
-     */
-    noRouter?: boolean
-
-    /**
-     * The query key to use for routing.
-     */
-    routerQueryKey?: string
-
-    /**
-     * The ellipsis to show when there are too many links.
-     */
-    ellipsis?: string
-
-    /**
-     * The color of the pagination active button.
-     *
-     * @default 'primary'
-     */
-    variant?: 'primary-low' | 'primary-high' | 'dark-low' | 'dark-high'
-
-    /**
-     * The size of the pagination buttons.
-     *
-     * @default 'md'
-     */
-    size?: 'sm' | 'md' | 'lg'
-
-    /**
-     * The radius of the pagination.
-     *
-     * @default 'sm'
-     */
-    rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
-
-    /**
-     * Wether the pagination is wrapped.
-     *
-     * @default 'true'
-     */
-     wrapped?: boolean
-
-    /**
-     * Optional CSS classes to apply to the component inner elements.
-     */
-    classes?: {
-      /**
-       * CSS classes to apply to the wrapper element.
-       */
-      wrapper?: string | string[]
-
-      /**
-       * CSS classes to apply to the list element.
-       */
-      list?: string | string[]
-
-      /**
-       * CSS classes to apply to the link element.
-       */
-      link?: string | string[]
-
-      /**
-       * CSS classes to apply to the ellipsis element.
-       */
-      ellipsis?: string | string[]
-
-      /**
-       * CSS classes to apply to the buttons element.
-       */
-      buttons?: string | string[]
-
-      /**
-       * CSS classes to apply to the button element.
-       */
-      button?: string | string[]
-    }
-  }>(),
-  {
-    variant: undefined,
-    size: undefined,
-    rounded: undefined,
-    maxLinksDisplayed: 3,
-    routerQueryKey: 'page',
-    ellipsis: '…',
-    wrapped: undefined,
-    classes: () => ({}),
-  },
-)
+const props = withDefaults(defineProps<BasePaginationProps>(), {
+  variant: undefined,
+  size: undefined,
+  rounded: undefined,
+  ellipsis: '…',
+  showEdges: true,
+  wrapped: undefined,
+  classes: () => ({}),
+  bindings: () => ({}),
+})
+const emits = defineEmits<BasePaginationEmits>()
+const slots = defineSlots<{
+  default(): any
+  'before-pagination'(): any
+  'after-pagination'(): any
+  'before-navigation'(): any
+  'after-navigation'(): any
+  'previous-icon'(): any
+  'next-icon'(): any
+}>()
 
 const variant = useNuiDefaultProperty(props, 'BasePagination', 'variant')
 const size = useNuiDefaultProperty(props, 'BasePagination', 'size')
@@ -114,42 +146,16 @@ const wrapped = useNuiDefaultProperty(props, 'BasePagination', 'wrapped')
 const iconPrevious = useNuiDefaultIcon('chevronLeft')
 const iconNext = useNuiDefaultIcon('chevronRight')
 
-const currentPage = defineModel('currentPage', {
-  type: Number,
-  default: 4,
-})
-
-const sizes = {
-  sm: 'size-8',
-  md: 'size-10',
-  lg: 'size-12',
-}
-
-const heights = {
-  sm: 'h-8 px-3',
-  md: 'h-10 px-4',
-  lg: 'h-12 px-5',
-}
-
-const radiuses = {
-  none: '',
-  sm: 'rounded-sm',
-  md: 'rounded-md',
-  lg: 'rounded-lg',
-  full: 'rounded-lg sm:rounded-full',
-}
+const forward = useForwardPropsEmits(reactiveOmit(props, ['ellipsis', 'variant', 'size', 'rounded', 'wrapped', 'classes', 'bindings']), emits)
 </script>
 
 <template>
   <PaginationRoot
-    v-model:page="currentPage"
-    :total="props.totalItems"
-    :items-per-page="props.itemPerPage"
-    :sibling-count="Math.round((props.maxLinksDisplayed - 1) / 2)"
-    show-edges
+    v-bind="forward"
   >
     <PaginationList
-      v-slot="{ items }" 
+      v-slot="{ items }"
+      v-bind="props.bindings.list"
       class="inline-flex w-full flex-col md:flex-row md:justify-between"
       :class="[
         rounded && radiuses[rounded],
@@ -172,6 +178,7 @@ const radiuses = {
         <template v-for="(page, index) in items">
           <PaginationListItem
             v-if="page.type === 'page'"
+            v-bind="props.bindings.item"
             :key="index"
             :value="page.value"
             class="outline-none focus-visible:ring focus-visible:!ring-primary-500 flex items-center justify-center mb-0 inline-flex flex-wrap gap-2 md:gap-1 font-sans text-sm border enabled:cursor-pointer"
@@ -189,6 +196,7 @@ const radiuses = {
           </PaginationListItem>
           <PaginationEllipsis
             v-else
+            v-bind="props.bindings.ellipsis"
             :key="page.type"
             :index="index"
             class="select-none flex items-center justify-center font-sans text-sm"
@@ -221,7 +229,9 @@ const radiuses = {
       >
         <slot name="before-navigation" />
 
-        <PaginationPrev class="outline-none focus-visible:ring focus-visible:!ring-primary-500 flex w-full items-center justify-center font-sans text-sm enabled:cursor-pointer transition-all duration-300 disabled:opacity-50" 
+        <PaginationPrev
+          v-bind="props.bindings.prev"
+          class="outline-none focus-visible:ring focus-visible:!ring-primary-500 flex w-full items-center justify-center font-sans text-sm enabled:cursor-pointer transition-all duration-300 disabled:opacity-50" 
           :class="[
             variant === 'primary-low' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-800 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-600',
             variant === 'primary-high' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-900 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-800',
@@ -235,7 +245,9 @@ const radiuses = {
           </slot>
         </PaginationPrev>
 
-        <PaginationNext class="outline-none focus-visible:ring focus-visible:!ring-primary-500 flex w-full items-center justify-center font-sans text-sm text-muted-500 dark:text-muted-400 enabled:hover:text-muted-700 enabled:dark:hover:text-muted-400 enabled:cursor-pointer bg-white dark:bg-muted-800 enabled:hover:bg-muted-100 enabled:dark:hover:bg-muted-900 border-muted-200 dark:border-muted-700 transition-all duration-300 disabled:opacity-50" 
+        <PaginationNext
+          v-bind="props.bindings.next"
+          class="outline-none focus-visible:ring focus-visible:!ring-primary-500 flex w-full items-center justify-center font-sans text-sm text-muted-500 dark:text-muted-400 enabled:hover:text-muted-700 enabled:dark:hover:text-muted-400 enabled:cursor-pointer bg-white dark:bg-muted-800 enabled:hover:bg-muted-100 enabled:dark:hover:bg-muted-900 border-muted-200 dark:border-muted-700 transition-all duration-300 disabled:opacity-50" 
           :class="[
             rounded && radiuses[rounded], 
             size && heights[size],
