@@ -6,7 +6,7 @@ const value = ref('Option 1')
   <div class="relative pb-4">
     <div class="space-y-4">
       <PlaygroundSampleRow label="Colors" label-align="start">
-        <div class="flex max-w-sm flex-wrap items-center gap-6">
+        <BaseRadioGroup v-model="value" class="flex max-w-sm flex-wrap items-center gap-6">
           <BaseRadio
             v-model="value"
             name="radio_base"
@@ -70,7 +70,7 @@ const value = ref('Option 1')
             label="Option 9"
             color="black"
           />
-        </div>
+        </BaseRadioGroup>
       </PlaygroundSampleRow>
     </div>
   </div>

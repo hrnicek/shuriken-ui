@@ -14,84 +14,62 @@ const customValue = ref('pink')
   <div>
     <NuiPreviewContainer title="BaseRadio">
       <NuiPreview title="Color" description="Radio component colors">
-        <div class="grid grid-cols-2 gap-6 md:max-w-lg md:grid-cols-4">
+        <BaseRadioGroup v-model="value" name="checkbox_base" class="grid grid-cols-2 gap-6 md:max-w-lg md:grid-cols-4">
           <BaseRadio
-            v-model="value"
-            name="checkbox_base"
             label="default"
             value="default"
           />
           <BaseRadio
-            v-model="value"
-            name="checkbox_base"
             label="primary"
             value="primary"
             color="primary"
           />
           <BaseRadio
-            v-model="value"
-            name="checkbox_base"
             value="muted"
             label="muted"
             color="muted"
           />
           <BaseRadio
-            v-model="value"
-            name="checkbox_base"
             value="info"
             label="info"
             color="info"
           />
           <BaseRadio
-            v-model="value"
-            name="checkbox_base"
             value="success"
             label="success"
             color="success"
           />
           <BaseRadio
-            v-model="value"
-            name="checkbox_base"
             value="warning"
             label="warning"
             color="warning"
           />
           <BaseRadio
-            v-model="value"
-            name="checkbox_base"
             value="danger"
             label="danger"
             color="danger"
           />
           <BaseRadio
-            v-model="value"
-            name="checkbox_base"
             value="light"
             label="light"
             color="light"
           />
           <BaseRadio
-            v-model="value"
-            name="checkbox_base"
             value="dark"
             label="dark"
             color="dark"
           />
           <BaseRadio
-            v-model="value"
-            name="checkbox_base"
             value="black"
             label="black"
             color="black"
           />
-        </div>
+        </BaseRadioGroup >
       </NuiPreview>
 
       <NuiPreview title="Custom" description="Radio component custom colors">
-        <div class="grid grid-cols-2 gap-6 md:max-w-lg md:grid-cols-4">
+        <BaseRadioGroup v-model="customValue" name="checkbox_colors" class="grid grid-cols-2 gap-6 md:max-w-lg md:grid-cols-4">
           <BaseRadio
-            v-model="customValue"
-            name="checkbox_colors"
             label="indigo"
             value="indigo"
             :classes="{
@@ -99,57 +77,41 @@ const customValue = ref('pink')
             }"
           />
           <BaseRadio
-            v-model="customValue"
-            name="checkbox_colors"
             label="lime"
             value="lime"
             :classes="{ wrapper: '!text-lime-500' }"
           />
           <BaseRadio
-            v-model="customValue"
-            name="checkbox_colors"
             label="pink"
             value="pink"
             :classes="{ wrapper: '!text-pink-500' }"
           />
           <BaseRadio
-            v-model="customValue"
-            name="checkbox_colors"
             label="sky"
             value="sky"
             :classes="{ wrapper: '!text-sky-500' }"
           />
           <BaseRadio
-            v-model="customValue"
-            name="checkbox_colors"
             label="yellow"
             value="yellow"
             :classes="{ wrapper: '!text-yellow-500' }"
           />
           <BaseRadio
-            v-model="customValue"
-            name="checkbox_colors"
             label="purple"
             value="purple"
             :classes="{ wrapper: '!text-purple-500' }"
           />
           <BaseRadio
-            v-model="customValue"
-            name="checkbox_colors"
             label="green"
             value="green"
             :classes="{ wrapper: '!text-green-500' }"
           />
           <BaseRadio
-            v-model="customValue"
-            name="checkbox_colors"
             label="fuchsia"
             value="fuchsia"
             :classes="{ wrapper: '!text-fuchsia-500' }"
           />
           <BaseRadio
-            v-model="customValue"
-            name="checkbox_colors"
             label="rose"
             value="rose"
             :classes="{
@@ -157,8 +119,6 @@ const customValue = ref('pink')
             }"
           />
           <BaseRadio
-            v-model="customValue"
-            name="checkbox_colors"
             label="blue"
             value="blue"
             :classes="{
@@ -166,15 +126,13 @@ const customValue = ref('pink')
             }"
           />
           <BaseRadio
-            v-model="customValue"
-            name="checkbox_colors"
             label="orange"
             value="orange"
             :classes="{
               wrapper: '!text-orange-500',
             }"
           />
-        </div>
+        </BaseRadioGroup>
       </NuiPreview>
 
       <NuiPreview title="Headless" description="Radio component headless">

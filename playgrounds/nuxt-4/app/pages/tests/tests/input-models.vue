@@ -13,11 +13,11 @@ const autocomplete4 = ref<string[]>()
 const autocomplete5 = ref<any[]>()
 const autocomplete6 = ref<string[]>()
 const checkbox1 = ref<boolean>()
-const checkbox2 = ref<{ checked: boolean }>()
+const checkbox2 = ref<boolean | 'indeterminate'>()
 const checkbox3 = ref<string[]>([])
-const radio1 = ref<boolean>()
+const radio1 = ref<string>()
 const radio2 = ref<string>()
-const radio3 = ref<{ [key: string]: number }>()
+const radio3 = ref<string>()
 const checkboxCustom1 = ref()
 const radioCustom1 = ref<'yes' | 'no'>()
 const animatedCheckbox1 = ref<boolean>()
@@ -275,8 +275,10 @@ autocomplete6: {{ autocomplete6 }}({{ typeof autocomplete6 }})</pre>
     >
       <div class="grid grid-cols-4 gap-6">
         <div class="col-span-2">
-          <BaseRadio v-model="radio1" :value="true" />
-          <BaseRadio v-model="radio1" :value="false" />
+          <BaseRadioGroup v-model="radio1">
+            <BaseRadio value="yes" />
+            <BaseRadio value="no" />
+          </BaseRadioGroup>
         </div>
         <BaseCard class="col-span-2 p-2">
           <pre>radio1: {{ radio1 }}({{ typeof radio1 }})</pre>
@@ -290,9 +292,11 @@ autocomplete6: {{ autocomplete6 }}({{ typeof autocomplete6 }})</pre>
     <NuiPreview title="BaseRadio (string)" description="BaseRadio with string">
       <div class="grid grid-cols-4 gap-6">
         <div class="col-span-2">
-          <BaseRadio v-model="radio2" value="yes" />
-          <BaseRadio v-model="radio2" value="no" />
-          <BaseRadio v-model="radio2" value="maybe" />
+          <BaseRadioGroup v-model="radio2">
+            <BaseRadio value="yes" />
+            <BaseRadio value="no" />
+            <BaseRadio value="maybe" />
+          </BaseRadioGroup>
         </div>
         <BaseCard class="col-span-2 p-2">
           <pre>radio2: {{ radio2 }}({{ typeof radio2 }})</pre>
@@ -306,9 +310,11 @@ autocomplete6: {{ autocomplete6 }}({{ typeof autocomplete6 }})</pre>
     <NuiPreview title="BaseRadio (object)" description="BaseRadio with object">
       <div class="grid grid-cols-4 gap-6">
         <div class="col-span-2">
-          <BaseRadio v-model="radio3" :value="{ foo: 42 }" />
-          <BaseRadio v-model="radio3" :value="{ bar: 42 }" />
-          <BaseRadio v-model="radio3" :value="{ baz: 42 }" />
+          <BaseRadioGroup v-model="radio3">
+            <BaseRadio value="foo" />
+            <BaseRadio value="bar" />
+            <BaseRadio value="baz" />
+          </BaseRadioGroup> 
         </div>
         <BaseCard class="col-span-2 p-2">
           <pre>radio3: {{ radio3 }}({{ typeof radio3 }})</pre>
@@ -342,11 +348,7 @@ autocomplete6: {{ autocomplete6 }}({{ typeof autocomplete6 }})</pre>
     >
       <div class="grid grid-cols-4 gap-6">
         <div class="col-span-2">
-          <BaseCheckbox
-            v-model="checkbox2"
-            :true-value="{ checked: true }"
-            :false-value="{ checked: false }"
-          />
+          <BaseCheckbox v-model="checkbox2" />
         </div>
         <BaseCard class="col-span-2 p-2">
           <pre>checkbox2: {{ checkbox2 }}({{ typeof checkbox2 }})</pre>
@@ -363,9 +365,11 @@ autocomplete6: {{ autocomplete6 }}({{ typeof autocomplete6 }})</pre>
     >
       <div class="grid grid-cols-4 gap-6">
         <div class="col-span-2">
-          <BaseCheckbox v-model="checkbox3" value="foo" />
-          <BaseCheckbox v-model="checkbox3" value="bar" />
-          <BaseCheckbox v-model="checkbox3" value="baz" />
+          <BaseCheckboxGroup v-model="checkbox3">
+            <BaseCheckbox value="foo" />
+            <BaseCheckbox value="bar" />
+            <BaseCheckbox value="baz" />
+          </BaseCheckboxGroup>
         </div>
         <BaseCard class="col-span-2 p-2">
           <pre>checkbox3: {{ checkbox3 }}({{ typeof checkbox3 }})</pre>
