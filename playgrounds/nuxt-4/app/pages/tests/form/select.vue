@@ -164,6 +164,38 @@ const options = reactive({
           </BaseSelect>
         </div>
       </NuiPreview>
+
+      
+      <NuiPreview title="Multiple" description="Multiple select">
+        <div class="grid gap-6 md:max-w-4xl md:grid-cols-3">
+          <BaseSelect
+            v-model="options.fourth"
+            rounded="none"
+            placeholder="Select a hero"
+            label="Multiple"
+            multiple
+          >
+            <BaseSelectLabel>
+              Marvel
+            </BaseSelectLabel>
+            <BaseSelectItem value="Superman">
+              Superman
+            </BaseSelectItem>
+            <BaseSelectItem value="Batman">
+              Batman
+            </BaseSelectItem>
+            <BaseSelectLabel>
+              DC
+            </BaseSelectLabel>
+            <BaseSelectItem value="Magneto">
+              Magneto
+            </BaseSelectItem>
+            <BaseSelectItem value="Cyclops">
+              Cyclops
+            </BaseSelectItem>
+          </BaseSelect>
+        </div>
+      </NuiPreview>
     </NuiPreviewContainer>
   </div>
 </template>
