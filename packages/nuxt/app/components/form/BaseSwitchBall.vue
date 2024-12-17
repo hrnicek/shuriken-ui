@@ -1,86 +1,97 @@
+<script lang="ts">
+import type{
+  SwitchRootProps,
+  SwitchRootEmits,
+} from 'reka-ui'
+
+export interface BaseSwitchBallProps extends SwitchRootProps {
+  /**
+   * Accessible label for the switch.
+   */
+  label?: string
+
+  /**
+   * The sublabel of the switch.
+   */
+  sublabel?: string
+
+  /**
+   * Main color of the switch.
+   *
+   * @default 'primary'
+   */
+  color?:
+    | 'primary'
+    | 'info'
+    | 'success'
+    | 'warning'
+    | 'danger'
+    | 'dark'
+    | 'black'
+
+  /**
+   * Optional CSS classes to apply to the component inner elements.
+   */
+  classes?: {
+    /**
+     * CSS classes to apply to the wrapper element.
+     */
+    wrapper?: string | string[]
+
+    /**
+     * CSS classes to apply to the outer element.
+     */
+    outer?: string | string[]
+
+    /**
+     * CSS classes to apply to the handle element.
+     */
+    handle?: string | string[]
+
+    /**
+     * CSS classes to apply to the track element.
+     */
+    track?: string | string[]
+
+    /**
+     * CSS classes to apply to the icon element.
+     */
+    icon?: string | string[]
+  }
+}
+export interface BaseSwitchBallEmits extends SwitchRootEmits {}
+</script>
+
 <script setup lang="ts">
+import { reactiveOmit } from '@vueuse/core'
+import { useForwardPropsEmits } from 'reka-ui'
+
 defineOptions({
   inheritAttrs: false,
 })
 
-const props = withDefaults(
-  defineProps<{
-    /**
-     * The form input identifier.
-     */
-    id?: string
+const props = withDefaults(defineProps<BaseSwitchBallProps>(), {
+  id: undefined,
+  label: undefined,
+  sublabel: undefined,
+  color: undefined,
+  defaultValue: undefined,
+  modelValue: undefined,
+  name: undefined,
+  value: undefined,
+  classes: () => ({}),
+})
+const emits = defineEmits<BaseSwitchBallEmits>()
 
-    /**
-     * Accessible label for the switch.
-     */
-    label?: string
+const slots = defineSlots<{
+  default(): any
+  sublabel(): any
+}>()
 
-    /**
-     * The sublabel of the switch.
-     */
-    sublabel?: string
-
-    /**
-     * Main color of the switch.
-     *
-     * @default 'primary'
-     */
-    color?:
-      | 'primary'
-      | 'info'
-      | 'success'
-      | 'warning'
-      | 'danger'
-      | 'dark'
-      | 'black'
-
-    /**
-     * Optional CSS classes to apply to the component inner elements.
-     */
-    classes?: {
-      /**
-       * CSS classes to apply to the wrapper element.
-       */
-      wrapper?: string | string[]
-
-      /**
-       * CSS classes to apply to the outer element.
-       */
-      outer?: string | string[]
-
-      /**
-       * CSS classes to apply to the handle element.
-       */
-      handle?: string | string[]
-
-      /**
-       * CSS classes to apply to the track element.
-       */
-      track?: string | string[]
-
-      /**
-       * CSS classes to apply to the icon element.
-       */
-      icon?: string | string[]
-    }
-  }>(),
-  {
-    id: undefined,
-    label: undefined,
-    sublabel: undefined,
-    color: undefined,
-    classes: () => ({}),
-  },
-)
-
-const [modelValue] = defineModel<boolean>()
-
-const inputRef = ref<HTMLInputElement>()
 const id = useNinjaId(() => props.id)
-
 const color = useNuiDefaultProperty(props, 'BaseSwitchBall', 'color')
-
 const iconCheck = useNuiDefaultIcon('check')
+const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'sublabel', 'color', 'classes']), emits)
 
 const colors = {
   primary: 'nui-switch-ball-primary',
@@ -91,18 +102,6 @@ const colors = {
   dark: 'nui-switch-ball-dark',
   black: 'nui-switch-ball-black',
 }
-
-defineExpose({
-  /**
-   * The underlying HTMLInputElement element.
-   */
-  el: inputRef,
-
-  /**
-   * The internal id of the radio input.
-   */
-  id,
-})
 </script>
 
 <template>
@@ -110,7 +109,7 @@ defineExpose({
     class="nui-switch-ball"
     :class="[color && colors[color], props.classes?.wrapper]"
   >
-    <SwitchRoot v-model="modelValue" :id="id" ref="inputRef" class="nui-switch-ball-outer" :class="props.classes?.outer">
+    <SwitchRoot :id v-bind="forward" class="nui-switch-ball-outer" :class="props.classes?.outer">
       <SwitchThumb
         class="nui-switch-ball-handle"
         :class="props.classes?.handle"
@@ -118,16 +117,16 @@ defineExpose({
       <span class="nui-switch-ball-track" :class="props.classes?.track" />
       <Icon :name="iconCheck" class="nui-switch-ball-icon" :class="props.classes?.icon" />
     </SwitchRoot>
-    <Label :for="id" v-if="!props.sublabel" class="nui-switch-ball-single-label">
-      {{ props.label }}
-    </Label>
-    <Label :for="id" v-else class="nui-switch-ball-dual-label">
+    <Label :for="id" v-if="props.sublabel || 'sublabel' in slots" class="nui-switch-ball-dual-label">
       <span class="nui-switch-ball-label">
-        {{ props.label }}
+        <slot>{{ props.label }}</slot>
       </span>
       <span class="nui-switch-ball-sublabel">
-        {{ props.sublabel }}
+        <slot name="sublabel">{{ props.sublabel }}</slot>
       </span>
+    </Label>
+    <Label :for="id" v-else class="nui-switch-ball-single-label">
+      <slot>{{ props.label }}</slot>
     </Label>
   </span>
 </template>

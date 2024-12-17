@@ -39,31 +39,38 @@ const ballSublabelValue = ref(true)
         >
           <BaseSwitchThin
             v-model="thinValues.primary"
-            label="Primary"
             color="primary"
-          />
-          <BaseSwitchThin v-model="thinValues.info" label="Info" color="info" />
+          >
+            Primary
+          </BaseSwitchThin>
+          <BaseSwitchThin v-model="thinValues.info"  color="info">
+            Info
+          </BaseSwitchThin>
           <BaseSwitchThin
             v-model="thinValues.success"
-            label="Success"
             color="success"
-          />
+          >
+            Success
+          </BaseSwitchThin>
           <BaseSwitchThin
             v-model="thinValues.warning"
-            label="Warning"
             color="warning"
-          />
+          >
+            Warning
+          </BaseSwitchThin>
           <BaseSwitchThin
             v-model="thinValues.danger"
-            label="Danger"
             color="danger"
-          />
+          >
+            Danger
+          </BaseSwitchThin>
           <BaseSwitchThin v-model="thinValues.dark" label="Dark" color="dark" />
           <BaseSwitchThin
             v-model="thinValues.black"
-            label="Black"
             color="black"
-          />
+          >
+            Black
+          </BaseSwitchThin>
         </BaseFocusLoop>
       </NuiPreview>
 
@@ -71,10 +78,14 @@ const ballSublabelValue = ref(true)
         <div class="grid gap-6 md:max-w-lg md:grid-cols-2">
           <BaseSwitchThin
             v-model="thinSublabelValue"
-            label="Primary"
-            sublabel="This is a primary switch"
             color="primary"
-          />
+          >
+            Primary
+
+            <template #sublabel>
+              This is a primary switch 
+            </template>
+          </BaseSwitchThin>
         </div>
       </NuiPreview>
 
@@ -84,35 +95,44 @@ const ballSublabelValue = ref(true)
         >
           <BaseSwitchBall
             v-model="ballValues.primary"
-            label="Primary"
             color="primary"
-          />
-          <BaseSwitchBall v-model="ballValues.info" label="Info" color="info" />
+          >
+            Primary
+          </BaseSwitchBall> 
+          <BaseSwitchBall v-model="ballValues.info" label="Info" color="info">
+            Info
+          </BaseSwitchBall>
           <BaseSwitchBall
             v-model="ballValues.success"
-            label="Success"
             color="success"
-          />
+          >
+            Success
+          </BaseSwitchBall>
           <BaseSwitchBall
             v-model="ballValues.warning"
-            label="Warning"
             color="warning"
-          />
+          >
+            Warning
+          </BaseSwitchBall>
           <BaseSwitchBall
             v-model="ballValues.danger"
-            label="Danger"
             color="danger"
-          />
+          >
+            Danger
+          </BaseSwitchBall>
           <BaseSwitchBall
             v-model="ballValues.dark"
-            label="Darning"
+            id="dark"
             color="dark"
-          />
+          >
+            Dark
+          </BaseSwitchBall>
           <BaseSwitchBall
             v-model="ballValues.black"
-            label="Black"
             color="black"
-          />
+          >
+            Black
+          </BaseSwitchBall>
         </BaseFocusLoop>
       </NuiPreview>
 
@@ -121,9 +141,13 @@ const ballSublabelValue = ref(true)
           <BaseSwitchBall
             v-model="ballSublabelValue"
             label="Primary"
-            sublabel="This is a primary switch"
-            color="primary"
-          />
+          >
+            Primary
+
+            <template #sublabel>
+              This is a primary switch 
+            </template>
+          </BaseSwitchBall>
         </div>
       </NuiPreview>
     </NuiPreviewContainer>
