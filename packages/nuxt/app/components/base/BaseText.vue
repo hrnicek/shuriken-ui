@@ -1,61 +1,50 @@
-<script setup lang="ts">
-const props = withDefaults(
-  defineProps<{
-    /**
-     * The size of the text.
-     *
-     * @default 'md'
-     */
-    size?:
-      | 'xs'
-      | 'sm'
-      | 'md'
-      | 'lg'
-      | 'xl'
-      | '2xl'
-      | '3xl'
-      | '4xl'
-      | '5xl'
-      | '6xl'
-      | '7xl'
-      | '8xl'
-      | '9xl'
-    
-    /**
-     * The lead of the text.
-     *
-     * @default 'normal'
-     */
-    lead?: 'none' | 'tight' | 'snug' | 'normal' | 'relaxed' | 'loose'
+<script lang="ts">
+import type { PrimitiveProps } from 'reka-ui'
 
-    /**
-     * The weight of the text.
-     *
-     * @default 'normal'
-     */
-    weight?: 'light' | 'normal' | 'medium' | 'semibold' | 'bold' | 'extrabold'
+export interface BaseTextProps extends PrimitiveProps {
+  /**
+   * The size of the text.
+   *
+   * @default 'md'
+   */
+  size?:
+    | 'xs'
+    | 'sm'
+    | 'md'
+    | 'lg'
+    | 'xl'
+    | '2xl'
+    | '3xl'
+    | '4xl'
+    | '5xl'
+    | '6xl'
+    | '7xl'
+    | '8xl'
+    | '9xl'
 
-    /**
-     * The letter spacing of the paragraph.
-     *
-     * @default 'normal'
-     */
-     tracking?: 'tighter' | 'tight' | 'normal' | 'wide' | 'wider' | 'widest'
-  }>(),
-  {
-    size: undefined,
-    lead: undefined,
-    weight: undefined,
-    tracking: undefined,
-  },
-)
+  /**
+   * The lead of the text.
+   *
+   * @default 'normal'
+   */
+  lead?: 'none' | 'tight' | 'snug' | 'normal' | 'relaxed' | 'loose'
 
-const size = useNuiDefaultProperty(props, 'BaseText', 'size')
-const lead = useNuiDefaultProperty(props, 'BaseText', 'lead')
-const weight = useNuiDefaultProperty(props, 'BaseText', 'weight')
-const tracking = useNuiDefaultProperty(props, 'BaseText', 'tracking')
+  /**
+   * The weight of the text.
+   *
+   * @default 'normal'
+   */
+  weight?: 'light' | 'normal' | 'medium' | 'semibold' | 'bold' | 'extrabold'
 
-const sizes = {
+  /**
+   * The letter spacing of the paragraph.
+   *
+   * @default 'normal'
+   */
+  tracking?: 'tighter' | 'tight' | 'normal' | 'wide' | 'wider' | 'widest'
+}
+
+export const sizes = {
   'xs': 'text-xs',
   'sm': 'text-sm',
   'md': 'text-base',
@@ -69,46 +58,70 @@ const sizes = {
   '7xl': 'text-7xl',
   '8xl': 'text-8xl',
   '9xl': 'text-9xl',
-}
+} as const
 
-const leads = {
+export const leads = {
   none: 'leading-none',
   tight: 'leading-tight',
   snug: 'leading-snug',
   normal: 'leading-normal',
   relaxed: 'leading-relaxed',
   loose: 'leading-loose',
-}
+} as const
 
-const weights = {
+export  const weights = {
   light: 'font-light',
   normal: 'font-normal',
   medium: 'font-medium',
   semibold: 'font-semibold',
   bold: 'font-bold',
   extrabold: 'font-extrabold',
-}
+} as const
 
-const trackings = {
+export const trackings = {
   tighter: 'tracking-tighter',
   tight: 'tracking-tight',
   normal: 'tracking-normal',
   wide: 'tracking-wide',
   wider: 'tracking-wider',
   widest: 'tracking-widest',
-}
+} as const
+</script>
 
-const classes = computed(() => [
-  'font-sans',
-  size.value && sizes[size.value],
-  lead.value && leads[lead.value],
-  weight.value && weights[weight.value],
-  tracking.value && trackings[tracking.value],
-])
+
+<script setup lang="ts">
+import { useForwardProps } from 'reka-ui'
+import { reactiveOmit } from '@vueuse/core'
+
+const props = withDefaults(defineProps<BaseTextProps>(), {
+  as: 'span',
+  size: undefined,
+  lead: undefined,
+  weight: undefined,
+  tracking: undefined,
+})
+const slots = defineSlots<{
+  default(): any
+}>()
+
+const size = useNuiDefaultProperty(props, 'BaseText', 'size')
+const lead = useNuiDefaultProperty(props, 'BaseText', 'lead')
+const weight = useNuiDefaultProperty(props, 'BaseText', 'weight')
+const tracking = useNuiDefaultProperty(props, 'BaseText', 'tracking')
+const forward = useForwardProps(reactiveOmit(props, ['size', 'lead', 'weight', 'tracking']))
 </script>
 
 <template>
-  <span :class="classes">
+  <Primitive 
+    v-bind="forward"
+    class="font-sans"
+    :class="[
+      size && sizes[size],
+      lead && leads[lead],
+      weight && weights[weight],
+      tracking && trackings[tracking],
+    ]"
+  >
     <slot />
-  </span>
+  </Primitive>
 </template>

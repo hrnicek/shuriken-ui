@@ -84,6 +84,12 @@ definePageMeta({
             <BaseText size="xs" weight="medium" class="text-success-500">
               Any text can have a different color
             </BaseText>
+
+            <BaseText size="xs" weight="medium" as-child>
+              <BaseLink to="#">
+                Can be used to apply to first child instead rendering a new element
+              </BaseLink>
+            </BaseText>
           </div>
         </div>
       </NuiPreview>
