@@ -8,15 +8,16 @@ definePageMeta({
 
 const route = useRoute()
 const router = useRouter()
-const currentPage = computed({
+const page = computed({
   get() {
     return Number(route.query.page) || 1
   },
   set(value: number) {
-    router.push({ query: { ...route.query, page: value } })
+    router.replace({ query: { ...route.query, page: value } })
   },
 })
 
+const formatter = new Intl.NumberFormat('en-US', { style: 'decimal' })
 </script>
 
 <template>
@@ -29,7 +30,7 @@ const currentPage = computed({
         <BasePagination
           :items-per-page="8"
           :total="512"
-          v-model:page="currentPage"
+          v-model:page="page"
           :sibling-count="2"
           size="sm"
         />
@@ -42,7 +43,7 @@ const currentPage = computed({
         <BasePagination
           :items-per-page="8"
           :total="512"
-          v-model:page="currentPage"
+          v-model:page="page"
           :sibling-count="3"
           rounded="sm"
         />
@@ -55,7 +56,7 @@ const currentPage = computed({
         <BasePagination
           :items-per-page="8"
           :total="512"
-          v-model:page="currentPage"
+          v-model:page="page"
           :sibling-count="1"
           rounded="md"
           size="sm"
@@ -70,7 +71,7 @@ const currentPage = computed({
         <BasePagination
           :items-per-page="8"
           :total="512"
-          v-model:page="currentPage"
+          v-model:page="page"
           :sibling-count="1"
           rounded="lg"
           variant="primary-low"
@@ -85,7 +86,7 @@ const currentPage = computed({
         <BasePagination
           :items-per-page="8"
           :total="512"
-          v-model:page="currentPage"
+          v-model:page="page"
           :sibling-count="1"
           rounded="full"
           variant="primary-high"
@@ -98,8 +99,8 @@ const currentPage = computed({
       >
         <BasePagination
           :items-per-page="8"
-          :total="1000000"
-          v-model:page="currentPage"
+          :total="1_000_000"
+          v-model:page="page"
           :sibling-count="1"
           rounded="lg"
           variant="dark-low"
@@ -113,12 +114,19 @@ const currentPage = computed({
       >
         <BasePagination
           :items-per-page="8"
-          :total="1000000"
-          v-model:page="currentPage"
+          :total="1_000_000"
+          v-model:page="page"
           :sibling-count="1"
           rounded="full"
           variant="dark-high"
-        />
+        >
+          <template #page="{ page }">
+            {{ formatter.format(page) }}
+          </template>
+          <template #ellipsis>
+            <Icon name="lucide:ellipsis" />
+          </template>
+        </BasePagination> 
       </NuiPreview>
     </NuiPreviewContainer>
   </div>

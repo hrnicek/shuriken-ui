@@ -9,7 +9,6 @@ import type {
   PaginationPrevProps,
 } from 'reka-ui'
 
-
 export interface BasePaginationProps extends PaginationRootProps {
   /**
    * The ellipsis to show when there are too many links.
@@ -93,6 +92,8 @@ export interface BasePaginationProps extends PaginationRootProps {
 export interface BasePaginationEmits extends PaginationRootEmits {}
 export type BasePaginationSlots = {
   default(): any
+  ellipsis(): any
+  page(props: { page: number }): any
   'before-pagination'(): any
   'after-pagination'(): any
   'before-navigation'(): any
@@ -193,7 +194,9 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['ellipsis', 'variant',
               props.classes?.link,
             ]"
           >
-            {{ page.value }}
+            <slot name="page" :page="page.value">
+              {{ page.value }}
+            </slot>
           </PaginationListItem>
           <PaginationEllipsis
             v-else
@@ -210,7 +213,9 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['ellipsis', 'variant',
               size && sizes[size],
             ]"
           >
-            &#8230;
+            <slot name="ellipsis">
+              &#8230;
+            </slot>
           </PaginationEllipsis>
         </template>
 
