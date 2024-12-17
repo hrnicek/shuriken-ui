@@ -26,11 +26,6 @@ const props = withDefaults(
       hideLabel?: boolean
 
       /**
-       * An icon to display for the item.
-       */
-      icon?: string
-
-      /**
        * CSS classes to apply to the icon.
        */
       iconClasses?: string | string[]
@@ -39,10 +34,9 @@ const props = withDefaults(
     /**
      * Defines the hover color of the breadcrumb links
      *
-     * @since 3.0.0
      * @default 'primary'
      */
-    color?: 'primary' | 'dark' | 'black'
+    variant?: 'primary' | 'dark'
 
     /**
      * Optional CSS classes to apply to the component inner elements.
@@ -76,7 +70,7 @@ const props = withDefaults(
   },
 )
 
-const color = useNuiDefaultProperty(props, 'BaseBreadcrumb', 'color')
+const variant = useNuiDefaultProperty(props, 'BaseBreadcrumb', 'variant')
 
 const route = useRoute()
 const router = useRouter()
@@ -127,21 +121,15 @@ const items = computed(() => {
 
   return breadcrumbItems
 })
-
-const colors = {
-  primary: 'nui-breadcrumb-primary',
-  dark: 'nui-breadcrumb-dark',
-  black: 'nui-breadcrumb-black',
-}
 </script>
 
 <template>
   <nav
-    class="nui-breadcrumb"
-    :class="[color && colors[color], props.classes?.wrapper]"
+    class="block"
+    :class="[props.classes?.wrapper]"
   >
-    <ul class="nui-breadcrumb-list" :class="props.classes?.list">
-      <li class="nui-breadcrumb-item-mobile">
+    <ul class="mb-6 flex items-center font-sans text-[0.85rem]" :class="props.classes?.list">
+      <li class="me-3 sm:hidden">
         <BaseDropdown
           variant="context"
           size="md"
@@ -159,7 +147,7 @@ const colors = {
       </li>
       <template v-for="(item, index) in items" :key="index">
         <li
-          class="nui-breadcrumb-item"
+          class="not-last:hidden not-last:sm:flex last:flex last:text-muted-500 dark:last:text-muted-400"
           :class="[
             index !== items.length - 1 ? 'hidden sm:flex' : 'flex',
             props.classes?.item,
@@ -168,17 +156,12 @@ const colors = {
           <slot name="link" v-bind="{ item, index }">
             <NuxtLink
               :to="item.to"
-              class="nui-breadcrumb-item-inner"
-              :class="[item.to && 'nui-breadcrumb-has-link']"
+              class="hover:underline underline-offset-4 text-[0.85rem] flex items-center gap-x-1 text-muted-500 dark:text-muted-400 transition-colors duration-300"
+              :class="[
+                item.to && variant === 'primary' && 'hover:text-primary-500 focus:text-primary-500 dark:hover:text-primary-500 dark:focus:text-primary-500',
+                item.to && variant === 'dark' && 'hover:text-muted-900 focus:text-muted-900 dark:hover:text-muted-100 dark:focus:text-muted-100',
+              ]"
             >
-              <slot name="icon" v-bind="{ item, index }">
-                <Icon
-                  v-if="item.icon"
-                  :name="item.icon"
-                  class="nui-breadcrumb-item-icon"
-                  :class="item.iconClasses"
-                />
-              </slot>
               <slot name="label" v-bind="{ item, index }">
                 <span :class="[item.hideLabel && 'sr-only']">
                   {{ item.label }}
@@ -187,9 +170,9 @@ const colors = {
             </NuxtLink>
           </slot>
         </li>
-        <li class="nui-breadcrumb-item">
-          <div class="nui-breadcrumb-item-inner">
-            <span v-if="index < items.length - 1" class="nui-breadcrumb-item-text">
+        <li class="not-last:hidden not-last:sm:flex last:flex last:text-muted-500 dark:last:text-muted-400">
+          <div class="text-[0.85rem] flex items-center gap-x-1 text-muted-500 dark:text-muted-400 transition-colors duration-300">
+            <span v-if="index < items.length - 1" class="text-muted-500 dark:text-muted-400 px-2">
               <slot>·</slot>
             </span>
           </div>

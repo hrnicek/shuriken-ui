@@ -63,9 +63,9 @@ export default defineAppConfig({
       /**
        * Defines the hover color of the breadcrumb links
        *
-       * @type {'primary' | 'dark' | 'black'}
+       * @type {'primary' | 'dark'}
        */
-      color: 'primary',
+      variant: 'primary',
     },
     BaseButton: {
       /**
