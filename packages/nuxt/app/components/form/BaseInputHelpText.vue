@@ -1,34 +1,29 @@
-<script setup lang="ts">
-const props = withDefaults(
-  defineProps<{
-    /**
-     * The color of the button.
-     *
-     * @default 'default'
-     */
-    color?:
-      | 'default'
-      | 'default-contrast'
-      | 'muted'
-      | 'muted-contrast'
-      | 'light'
-      | 'dark'
-      | 'black'
-      | 'primary'
-      | 'info'
-      | 'success'
-      | 'warning'
-      | 'danger'
-      | 'none'
-  }>(),
-  {
-    color: undefined,
-  },
-)
+<script lang="ts">
+import type { PrimitiveProps } from 'reka-ui'
 
-const color = useNuiDefaultProperty(props, 'BaseInputHelpText', 'color')
+export interface BaseInputHelpTextProps extends PrimitiveProps {
+  /**
+   * The color of the button.
+   *
+   * @default 'default'
+   */
+  color?:
+    | 'default'
+    | 'default-contrast'
+    | 'muted'
+    | 'muted-contrast'
+    | 'light'
+    | 'dark'
+    | 'black'
+    | 'primary'
+    | 'info'
+    | 'success'
+    | 'warning'
+    | 'danger'
+    | 'none'
+}
 
-const colors = {
+export const colors = {
   'default': 'text-inherit',
   'default-contrast': 'text-inherit',
   'muted': 'text-muted-500 dark:text-muted-400',
@@ -42,11 +37,31 @@ const colors = {
   'dark': 'text-muted-900 dark:text-muted-100',
   'black': 'text-black dark:text-white',
   'none': '',
-}
+} as const
+</script>
+
+
+<script setup lang="ts">
+import { useForwardProps } from 'reka-ui'
+import { reactiveOmit } from '@vueuse/core'
+
+const props = withDefaults(defineProps<BaseInputHelpTextProps>(), {
+  color: undefined,
+})
+const slots = defineSlots<{
+  default(): any
+}>()
+
+const color = useNuiDefaultProperty(props, 'BaseInputHelpText', 'color')
+const forward = useForwardProps(reactiveOmit(props, ['color']))
 </script>
 
 <template>
-  <div class="nui-input-help-text" :class="[color && colors[color]]">
+  <Primitive
+    v-bind="forward"
+    class="nui-input-help-text"
+    :class="[color && colors[color]]"
+  >
     <slot />
-  </div>
+  </Primitive>
 </template>
