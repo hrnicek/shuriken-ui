@@ -11,19 +11,19 @@ const props = withDefaults(
     src?: string
 
     /**
-     * The alt text of the image.
-     */
-    alt?: string
-
-    /**
      * The URL of a dark version of the image to display when the component is in dark mode.
      */
-    srcDark?: string
+     srcDark?: string
 
-    /**
+     /**
      * The URL of a badge to display on top of the image.
      */
     badgeSrc?: string
+
+    /**
+     * The alt text of the image.
+     */
+    alt?: string
 
     /**
      * The text to display below the image.
@@ -31,54 +31,11 @@ const props = withDefaults(
     text?: string
 
     /**
-     * Applies an svg mask from the available presets. (needs rounded to be set to `none`).
-     */
-    mask?: 'hex' | 'hexed' | 'deca' | 'blob' | 'diamond'
-
-    /**
-     * Whether to display a dot on top of the image, or the color of the dot.
-     */
-    dot?:
-      | boolean
-      | 'primary'
-      | 'success'
-      | 'info'
-      | 'warning'
-      | 'danger'
-      | 'pink'
-      | 'yellow'
-
-    /**
-     * Whether to display a ring around the image .
-     */
-    ring?:
-      | boolean
-      | 'primary'
-      | 'success'
-      | 'info'
-      | 'warning'
-      | 'danger'
-      | 'pink'
-      | 'yellow'
-
-    /**
-     * Defines the color of the avatar
+     * The size of the image.
      *
-     * @since 3.0.0
-     * @default 'muted'
+     * @default 'sm'
      */
-    color?:
-      | 'white'
-      | 'muted'
-      | 'primary'
-      | 'success'
-      | 'info'
-      | 'warning'
-      | 'danger'
-      | 'pink'
-      | 'yellow'
-      | 'indigo'
-      | 'violet'
+     size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl'
 
     /**
      * The radius of the image.
@@ -88,11 +45,9 @@ const props = withDefaults(
     rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
 
     /**
-     * The size of the image.
-     *
-     * @default 'sm'
+     * Applies an svg mask from the available presets. (needs rounded to be set to `none`).
      */
-    size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl'
+     mask?: 'hex' | 'hexed' | 'deca' | 'blob' | 'diamond'
 
     /**
      * Optional CSS classes to apply to the component inner elements.
@@ -130,72 +85,46 @@ const props = withDefaults(
     badgeSrc: undefined,
     text: '?',
     size: undefined,
-    color: undefined,
     rounded: undefined,
     mask: undefined,
-    dot: false,
-    ring: false,
     classes: () => ({}),
   },
 )
 
-const color = useNuiDefaultProperty(props, 'BaseAvatar', 'color')
 const rounded = useNuiDefaultProperty(props, 'BaseAvatar', 'rounded')
 const size = useNuiDefaultProperty(props, 'BaseAvatar', 'size')
 
-const colors = {
-  white: 'bg-white dark:bg-muted-800 text-muted-600 dark:text-muted-200',
-  muted: 'bg-muted-100 dark:bg-muted-800 text-muted-600 dark:text-muted-200',
-  primary: 'bg-primary-500/20 text-primary-500',
-  info: 'bg-info-500/20 text-info-500',
-  success: 'bg-success-500/20 text-success-500',
-  warning: 'bg-warning-500/20 text-warning-500',
-  danger: 'bg-danger-500/20 text-danger-500',
-  yellow: 'bg-yellow-500/20 text-yellow-400',
-  pink: 'bg-pink-500/20 text-pink-400',
-  indigo: 'bg-indigo-500/20 text-indigo-500',
-  violet: 'bg-violet-500/20 text-violet-500',
-}
-
-const dots = {
-  success: 'nui-avatar-dot-success',
-  primary: 'nui-avatar-dot-primary',
-  info: 'nui-avatar-dot-info',
-  warning: 'nui-avatar-dot-warning',
-  danger: 'nui-avatar-dot-danger',
-  pink: 'nui-avatar-dot-pink',
-  yellow: 'nui-avatar-dot-yellow',
-}
-
-const rings = {
-  success: 'nui-avatar-ring-success',
-  primary: 'nui-avatar-ring-primary',
-  info: 'nui-avatar-ring-info',
-  warning: 'nui-avatar-ring-warning',
-  danger: 'nui-avatar-ring-danger',
-  pink: 'nui-avatar-ring-pink',
-  yellow: 'nui-avatar-ring-yellow',
-}
-
 const sizes = {
-  'xxs': 'nui-avatar-xxs',
-  'xs': 'nui-avatar-xs',
-  'sm': 'nui-avatar-sm',
-  'md': 'nui-avatar-md',
-  'lg': 'nui-avatar-lg',
-  'xl': 'nui-avatar-xl',
-  '2xl': 'nui-avatar-2xl',
-  '3xl': 'nui-avatar-3xl',
-  '4xl': 'nui-avatar-4xl',
-}
+  'xxs': 'size-6',
+  'xs': 'size-8',
+  'sm': 'size-10',
+  'md': 'size-12',
+  'lg': 'size-16',
+  'xl': 'size-20',
+  '2xl': 'size-24',
+  '3xl': 'size-28',
+  '4xl': 'size-32',
+} as const
+
+const textSizes = {
+  xxs: 'text-xs',
+  xs: 'text-sm',
+  sm: 'text-sm',
+  md: 'text-sm',
+  lg: 'text-base',
+  xl: 'text-base',
+  '2xl': 'text-xl',
+  '3xl': 'text-2xl',
+  '4xl': 'text-3xl',
+} as const
 
 const radiuses = {
-  none: 'nui-avatar-rounded-none',
-  sm: 'nui-avatar-rounded-sm',
-  md: 'nui-avatar-rounded-md',
-  lg: 'nui-avatar-rounded-lg',
-  full: 'nui-avatar-rounded-full',
-}
+  none: '',
+  sm: 'rounded-sm',
+  md: 'rounded-lg',
+  lg: 'rounded-xl',
+  full: 'rounded-full',
+} as const
 
 const masks = {
   hex: 'nui-mask-hex',
@@ -203,33 +132,51 @@ const masks = {
   deca: 'nui-mask-deca',
   blob: 'nui-mask-blob',
   diamond: 'nui-mask-diamond',
-}
+} as const
+
+const badgeSize = {
+  xxs: 'h-3 w-3',
+  xs: 'h-4 w-4',
+  sm: 'h-5 w-5',
+  md: 'h-5 w-5',
+  lg: 'h-6 w-6',
+  xl: 'h-8 w-8',
+  '2xl': 'h-10 w-10',
+  '3xl': 'h-10 w-10',
+  '4xl': 'h-12 w-12',
+} as const
+
+const badgePosition = computed(() => {
+  let result = ''
+
+  if (size.value === '4xl') result = '-bottom-2 -end-2'
+  if (['2xl', '3xl'].includes(size.value)) result = '-bottom-1.5 -end-1.5'
+  if (['xs', 'sm', 'md', 'lg', 'xl'].includes(size.value))
+  result = '-bottom-1 -end-1'
+
+  return rounded.value === 'full' ? 'bottom-0 end-0' : result
+})
 </script>
 
 <template>
   <AvatarRoot
-    class="nui-avatar"
+    class="relative inline-flex shrink-0 items-center justify-center outline-none"
     :class="[
       size && sizes[size],
       rounded && radiuses[rounded],
-      !props.src && color && colors[color],
       props.mask
         && (props.rounded === 'none' || rounded === 'none')
-        && `nui-avatar-mask ${masks[props.mask]}`,
-      props.ring
-        && (props.ring === true
-          ? `nui-avatar-ring ${rings.primary}`
-          : `nui-avatar-ring ${rings[props.ring]}`),
+        && `nui-mask ${masks[props.mask]}`,
       props.classes?.wrapper,
     ]"
   >
-    <div class="nui-avatar-inner" :class="props.classes?.inner">
+    <div class="relative flex items-center justify-center overflow-hidden text-center h-full w-full transition-all duration-300" :class="props.classes?.inner">
       <slot>
         <AvatarImage
           v-if="props.src"
           v-bind="$attrs"
           :src="props.src"
-          class="nui-avatar-img"
+          class="object-cover h-full max-h-full w-full max-w-full shadow-xs"
           :class="[
             rounded && radiuses[rounded],
             props.srcDark ? 'dark:hidden' : '',
@@ -241,11 +188,13 @@ const masks = {
           v-if="props.src && props.srcDark"
           v-bind="$attrs"
           :src="props.srcDark"
-          class="nui-avatar-img hidden dark:block"
+          class="bject-cover h-full max-h-full w-full max-w-full shadow-xs hidden dark:block"
           :class="[rounded && radiuses[rounded], props.classes?.img]"
         />
 
-        <AvatarFallback delay-ms="200" class="nui-avatar-text">
+        <AvatarFallback :delay-ms="200" class="font-sans font-medium text-center uppercase" :class="[
+          textSizes[size]
+        ]">
           {{ props.text }}
         </AvatarFallback>
       </slot>
@@ -253,26 +202,49 @@ const masks = {
 
     <div
       v-if="'badge' in $slots || props.badgeSrc"
-      class="nui-avatar-badge"
-      :class="props.classes?.badge"
+      class="absolute z-10 block overflow-hidden rounded-full bg-white dark:bg-muted-800"
+      :class="[
+        props.classes?.badge,
+        badgeSize[size],
+        badgePosition,
+      ]"
     >
       <slot name="badge">
         <img
           v-if="props.badgeSrc"
           :src="props.badgeSrc"
-          class="nui-badge-img"
+          class="relative scale-90 object-cover h-full w-full rounded-full"
           alt=""
         >
       </slot>
     </div>
-
-    <span
-      v-if="props.dot"
-      class="nui-avatar-dot"
-      :class="[
-        props.dot === true ? dots.primary : dots[props.dot],
-        props.classes?.dot,
-      ]"
-    />
   </AvatarRoot>
 </template>
+
+<style scoped>
+.nui-mask {
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+.nui-mask-hex {
+  mask-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjE4MiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNNjQuNzg2IDE4MS40Yy05LjE5NiAwLTIwLjA2My02LjY4Ny0yNS4wNzktMTQuMjFMMy43NjIgMTA1LjMzYy01LjAxNi04LjM2LTUuMDE2LTIwLjkgMC0yOS4yNTlsMzUuOTQ1LTYxLjg2QzQ0LjcyMyA1Ljg1MSA1NS41OSAwIDY0Ljc4NiAwaDcxLjA1NWM5LjE5NiAwIDIwLjA2MyA2LjY4OCAyNS4wNzkgMTQuMjExbDM1Ljk0NSA2MS44NmM0LjE4IDguMzYgNC4xOCAyMC44OTkgMCAyOS4yNThsLTM1Ljk0NSA2MS44NmMtNC4xOCA4LjM2LTE1Ljg4MyAxNC4yMTEtMjUuMDc5IDE0LjIxMUg2NC43ODZ6Ii8+PC9zdmc+');
+}
+
+.nui-mask-hexed {
+  mask-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgyIiBoZWlnaHQ9IjIwMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNLjMgNjUuNDg2YzAtOS4xOTYgNi42ODctMjAuMDYzIDE0LjIxMS0yNS4wNzhsNjEuODYtMzUuOTQ2YzguMzYtNS4wMTYgMjAuODk5LTUuMDE2IDI5LjI1OCAwbDYxLjg2IDM1Ljk0NmM4LjM2IDUuMDE1IDE0LjIxMSAxNS44ODIgMTQuMjExIDI1LjA3OHY3MS4wNTVjMCA5LjE5Ni02LjY4NyAyMC4wNjMtMTQuMjExIDI1LjA3OWwtNjEuODYgMzUuOTQ1Yy04LjM2IDQuMTgtMjAuODk5IDQuMTgtMjkuMjU4IDBsLTYxLjg2LTM1Ljk0NUM2LjE1MSAxNTcuNDQuMyAxNDUuNzM3LjMgMTM2LjU0VjY1LjQ4NnoiLz48L3N2Zz4=');
+}
+
+.nui-mask-deca {
+  mask-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNOTYgMGw1OC43NzkgMTkuMDk4IDM2LjMyNyA1MHY2MS44MDRsLTM2LjMyNyA1MEw5NiAyMDBsLTU4Ljc3OS0xOS4wOTgtMzYuMzI3LTUwVjY5LjA5OGwzNi4zMjctNTB6IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=');
+}
+
+.nui-mask-blob {
+  mask-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTAwIDBDMjAgMCAwIDIwIDAgMTAwczIwIDEwMCAxMDAgMTAwIDEwMC0yMCAxMDAtMTAwUzE4MCAwIDEwMCAweiIvPjwvc3ZnPg==');
+}
+
+.nui-mask-diamond {
+  mask-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTAwIDBsMTAwIDEwMC0xMDAgMTAwTDAgMTAweiIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+');
+}
+</style>

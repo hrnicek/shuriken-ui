@@ -33,12 +33,6 @@ export default defineAppConfig({
     },
     BaseAvatar: {
       /**
-       * Default color for the avatar
-       *
-       * @type {'white' | 'muted' | 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'pink' | 'yellow' | 'indigo' | 'violet'}
-       */
-      color: 'muted',
-      /**
        * The radius of the avatar.
        *
        * @type {'none' | 'sm' | 'md' | 'lg' | 'full'}
