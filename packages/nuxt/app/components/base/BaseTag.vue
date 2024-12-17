@@ -58,6 +58,9 @@ const props = withDefaults(defineProps<BaseTagProps>(), {
   rounded: undefined,
   size: undefined,
 })
+const slots = defineSlots<{
+  default(): any
+}>()
 
 const rounded = useNuiDefaultProperty(props, 'BaseTag', 'rounded')
 const size = useNuiDefaultProperty(props, 'BaseTag', 'size')

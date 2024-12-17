@@ -1,100 +1,99 @@
-<script setup lang="ts">
-defineOptions({
-  inheritAttrs: false,
-})
+<script lang="ts">
+import type {
+  AvatarRootProps,
+  AvatarImageProps,
+  AvatarFallbackProps,
+ } from 'reka-ui'
 
-const props = withDefaults(
-  defineProps<{
+export interface BaseAvatarProps extends AvatarRootProps {
+  /**
+   * The URL of the image to display.
+   */
+  src?: string
+
+  /**
+   * The URL of a dark version of the image to display when the component is in dark mode.
+   */
+  srcDark?: string
+
+  /**
+   * The URL of a badge to display on top of the image.
+   */
+  badgeSrc?: string
+
+  /**
+   * The alt text of the image.
+   */
+  alt?: string
+
+  /**
+   * The text to display below the image.
+   */
+  text?: string
+
+  /**
+   * The size of the image.
+   *
+   * @default 'sm'
+   */
+  size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl'
+
+  /**
+   * The radius of the image.
+   *
+   * @default 'full'
+   */
+  rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
+
+  /**
+   * Applies an svg mask from the available presets. (needs rounded to be set to `none`).
+   */
+  mask?: 'hex' | 'hexed' | 'deca' | 'blob' | 'diamond'
+
+  /**
+   * Optional CSS classes to apply to the component inner elements.
+   */
+  classes?: {
     /**
-     * The URL of the image to display.
+     * CSS classes to apply to the wrapper element.
      */
-    src?: string
+    wrapper?: string | string[]
 
     /**
-     * The URL of a dark version of the image to display when the component is in dark mode.
+     * CSS classes to apply to the inner element.
      */
-     srcDark?: string
-
-     /**
-     * The URL of a badge to display on top of the image.
-     */
-    badgeSrc?: string
+    inner?: string | string[]
 
     /**
-     * The alt text of the image.
+     * CSS classes to apply to the img element.
      */
-    alt?: string
+    img?: string | string[]
 
     /**
-     * The text to display below the image.
+     * CSS classes to apply to the badge element.
      */
-    text?: string
+    badge?: string | string[]
 
     /**
-     * The size of the image.
-     *
-     * @default 'sm'
+     * CSS classes to apply to the dot element.
      */
-     size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl'
+    dot?: string | string[]
+  }
 
+  /**
+   * Optional bindings to pass to the inner components.
+   */
+  bindings?: {
     /**
-     * The radius of the image.
-     *
-     * @default 'full'
+     * Optional bindings to pass to the badge element.
      */
-    rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
+    image?: AvatarImageProps
+    dark?: AvatarImageProps
+    fallback?: AvatarFallbackProps
+  }
+}
 
-    /**
-     * Applies an svg mask from the available presets. (needs rounded to be set to `none`).
-     */
-     mask?: 'hex' | 'hexed' | 'deca' | 'blob' | 'diamond'
-
-    /**
-     * Optional CSS classes to apply to the component inner elements.
-     */
-    classes?: {
-      /**
-       * CSS classes to apply to the wrapper element.
-       */
-      wrapper?: string | string[]
-
-      /**
-       * CSS classes to apply to the inner element.
-       */
-      inner?: string | string[]
-
-      /**
-       * CSS classes to apply to the img element.
-       */
-      img?: string | string[]
-
-      /**
-       * CSS classes to apply to the badge element.
-       */
-      badge?: string | string[]
-
-      /**
-       * CSS classes to apply to the dot element.
-       */
-      dot?: string | string[]
-    }
-  }>(),
-  {
-    src: undefined,
-    srcDark: undefined,
-    badgeSrc: undefined,
-    text: '?',
-    size: undefined,
-    rounded: undefined,
-    mask: undefined,
-    classes: () => ({}),
-  },
-)
-
-const rounded = useNuiDefaultProperty(props, 'BaseAvatar', 'rounded')
-const size = useNuiDefaultProperty(props, 'BaseAvatar', 'size')
-
-const sizes = {
+export const sizes = {
   'xxs': 'size-6',
   'xs': 'size-8',
   'sm': 'size-10',
@@ -106,7 +105,7 @@ const sizes = {
   '4xl': 'size-32',
 } as const
 
-const textSizes = {
+export const textSizes = {
   xxs: 'text-xs',
   xs: 'text-sm',
   sm: 'text-sm',
@@ -118,7 +117,7 @@ const textSizes = {
   '4xl': 'text-3xl',
 } as const
 
-const radiuses = {
+export const radiuses = {
   none: '',
   sm: 'rounded-sm',
   md: 'rounded-lg',
@@ -126,7 +125,7 @@ const radiuses = {
   full: 'rounded-full',
 } as const
 
-const masks = {
+export const masks = {
   hex: 'nui-mask-hex',
   hexed: 'nui-mask-hexed',
   deca: 'nui-mask-deca',
@@ -134,7 +133,7 @@ const masks = {
   diamond: 'nui-mask-diamond',
 } as const
 
-const badgeSize = {
+export const badgeSize = {
   xxs: 'h-3 w-3',
   xs: 'h-4 w-4',
   sm: 'h-5 w-5',
@@ -146,20 +145,59 @@ const badgeSize = {
   '4xl': 'h-12 w-12',
 } as const
 
+</script>
+
+<script setup lang="ts">
+import { useForwardProps } from 'reka-ui'
+import { reactiveOmit } from '@vueuse/core'
+
+defineOptions({
+  inheritAttrs: false,
+})
+
+const props = withDefaults(defineProps<BaseAvatarProps>(), {
+  src: undefined,
+  srcDark: undefined,
+  badgeSrc: undefined,
+  text: '?',
+  size: undefined,
+  rounded: undefined,
+  mask: undefined,
+  classes: () => ({}),
+})
+const slots = defineSlots<{
+  default(): any
+  badge(): any
+}>()
+
+const attrs = useAttrs()
+
+const rounded = useNuiDefaultProperty(props, 'BaseAvatar', 'rounded')
+const size = useNuiDefaultProperty(props, 'BaseAvatar', 'size')
+
+const forward = useForwardProps(reactiveOmit(props, ['src', 'srcDark', 'badgeSrc', 'text', 'size', 'rounded', 'mask', 'classes', 'bindings']))
+
 const badgePosition = computed(() => {
-  let result = ''
+  if (rounded.value === 'full') {
+    return 'bottom-0 end-0'
+  }
+  if (size.value === '4xl') {
+    return '-bottom-2 -end-2'
+  }
+  else if (['2xl', '3xl'].includes(size.value)) {
+    return '-bottom-1.5 -end-1.5'
+  }
+  else if (['xs', 'sm', 'md', 'lg', 'xl'].includes(size.value)) {
+    return '-bottom-1 -end-1'
+  }
 
-  if (size.value === '4xl') result = '-bottom-2 -end-2'
-  if (['2xl', '3xl'].includes(size.value)) result = '-bottom-1.5 -end-1.5'
-  if (['xs', 'sm', 'md', 'lg', 'xl'].includes(size.value))
-  result = '-bottom-1 -end-1'
-
-  return rounded.value === 'full' ? 'bottom-0 end-0' : result
+  return ''
 })
 </script>
 
 <template>
   <AvatarRoot
+    v-bind="forward"
     class="relative inline-flex shrink-0 items-center justify-center outline-none"
     :class="[
       size && sizes[size],
@@ -174,7 +212,10 @@ const badgePosition = computed(() => {
       <slot>
         <AvatarImage
           v-if="props.src"
-          v-bind="$attrs"
+          v-bind="{
+            ...attrs,
+            ...(props.bindings?.image || {}),
+          }"
           :src="props.src"
           class="object-cover h-full max-h-full w-full max-w-full shadow-xs"
           :class="[
@@ -186,15 +227,22 @@ const badgePosition = computed(() => {
 
         <AvatarImage
           v-if="props.src && props.srcDark"
-          v-bind="$attrs"
+          v-bind="{
+            ...attrs,
+            ...(props.bindings?.dark || {}),
+          }"
           :src="props.srcDark"
-          class="bject-cover h-full max-h-full w-full max-w-full shadow-xs hidden dark:block"
+          class="object-cover h-full max-h-full w-full max-w-full shadow-xs hidden dark:block"
           :class="[rounded && radiuses[rounded], props.classes?.img]"
         />
 
-        <AvatarFallback :delay-ms="200" class="font-sans font-medium text-center uppercase" :class="[
-          textSizes[size]
-        ]">
+        <AvatarFallback
+          v-bind="props.bindings?.fallback"
+          class="font-sans font-medium text-center uppercase"
+          :class="[
+            textSizes[size]
+          ]"
+        >
           {{ props.text }}
         </AvatarFallback>
       </slot>

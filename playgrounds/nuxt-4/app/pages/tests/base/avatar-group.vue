@@ -44,7 +44,7 @@ const people = [
 
       <NuiPreview title="Size: xs" description="Avatar group component xs size">
         <div class="flex flex-wrap items-end gap-4">
-          <BaseAvatarGroup size="xs" :limit="4" :avatars="people" />
+          <BaseAvatarGroup size="xs" rounded="none" :limit="4" :avatars="people" />
         </div>
       </NuiPreview>
 

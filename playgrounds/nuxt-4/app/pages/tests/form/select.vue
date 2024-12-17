@@ -101,7 +101,11 @@ const options = reactive({
             :bindings="{
               content: {
                 position: 'popper',
-              }
+                bodyLock: false,
+              },
+              portal: {
+                disabled: true,
+              },
             }"
           >
             <BaseSelectItem value="Superman">

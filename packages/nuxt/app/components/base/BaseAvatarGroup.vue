@@ -1,73 +1,55 @@
-<script setup lang="ts">
-const props = withDefaults(
-  defineProps<{
-    /** An array of avatar objects. */
-    avatars: {
-      /** The source URL for the avatar image. */
-      src?: string
+<script lang="ts">
+import type { PrimitiveProps } from 'reka-ui';
+import type { BaseAvatarProps } from './BaseAvatar.vue'
 
-      /** The source URL for the dark version of the avatar image. */
-      srcDark?: string
+export interface BaseAvatarGroupProps extends PrimitiveProps {
+  /** An array of avatar objects. */
+  avatars: BaseAvatarProps[]
 
-      /** The text to display as the avatar. */
-      text?: string
-    }[]
+  /**
+   * The maximum number of avatars to display.
+   *
+   * @default 4
+   */
+  limit?: number
+
+  /**
+   * The size of the avatars.
+   *
+   * @default 'sm'
+   */
+   size?: BaseAvatarProps['size']
+ 
+  /**
+   * The radius of the image.
+   *
+   * @default 'full'
+   */
+  rounded?: BaseAvatarProps['rounded']
+
+  /**
+   * Optional CSS classes to apply to the component inner elements.
+   *
+   */
+  classes?: {
+    /**
+     * CSS classes to apply to the wrapper element.
+     */
+    wrapper?: string | string[]
 
     /**
-     * The maximum number of avatars to display.
-     *
-     * @default 4
+     * CSS classes to apply to the outer element.
      */
-    limit?: number
+    outer?: string | string[]
 
     /**
-     * The size of the avatars.
-     *
-     * @default 'sm'
+     * CSS classes to apply to the count element.
      */
-    size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl'
-
-    /**
-     * Optional CSS classes to apply to the component inner elements.
-     *
-     */
-    classes?: {
-      /**
-       * CSS classes to apply to the wrapper element.
-       */
-      wrapper?: string | string[]
-
-      /**
-       * CSS classes to apply to the outer element.
-       */
-      outer?: string | string[]
-
-      /**
-       * CSS classes to apply to the count element.
-       */
-      count?: string | string[]
-    }
-  }>(),
-  {
-    limit: undefined,
-    size: undefined,
-    classes: () => ({}),
-  },
-)
-
-const sizes = {
-  'xxs': 'size-6',
-  'xs': 'size-8',
-  'sm': 'size-10',
-  'md': 'size-12',
-  'lg': 'size-16',
-  'xl': 'size-20',
-  '2xl': 'size-24',
-  '3xl': 'size-28',
-  '4xl': 'size-32',
+    count?: string | string[]
+  }
 }
 
-const spacings = {
+export const spacings = {
   'xxs': '-ms-2 hover:-ms-3 hover:me-2 focus:-ms-3 focus:me-2 first:hover:-ms-3 first:hover:me-2 first:focus:-ms-3 first:focus:me-2',
   'xs': '-ms-2 hover:-ms-4 hover:me-2 focus:-ms-4 focus:me-2 first:hover:-ms-2 first:hover:me-2 first:focus:-ms-2 first:focus:me-2',
   'sm': '-ms-3 hover:-ms-5 hover:me-2 focus:-ms-5 focus:me-2 first:hover:-ms-2 first:hover:me-2 first:focus:-ms-2 first:focus:me-2',
@@ -77,9 +59,9 @@ const spacings = {
   '2xl': '-ms-5 hover:-ms-9 hover:me-4 focus:-ms-9 focus:me-4 first:hover:-ms-4 first:hover:me-4 first:focus:me-4',
   '3xl': '-ms-5 hover:-ms-9 hover:me-4 focus:-ms-9 focus:me-4 first:hover:-ms-4 first:hover:me-4 first:focus:me-4',
   '4xl': '-ms-5 hover:-ms-9 hover:me-4 focus:-ms-9 focus:me-4 first:hover:-ms-4 first:hover:me-4 first:focus:me-4',
-}
+} as const
 
-const counters = {
+export const counters = {
   'xxs': '-ms-2 text-xs',
   'xs': '-ms-2 text-sm',
   'sm': '-ms-3 text-sm',
@@ -89,10 +71,28 @@ const counters = {
   '2xl': '-ms-5 text-xl',
   '3xl': '-ms-5 text-xl',
   '4xl': '-ms-5 text-xl',
-}
+} as const
+</script>
+
+<script setup lang="ts">
+import { useForwardProps } from 'reka-ui'
+import { reactiveOmit } from '@vueuse/core'
+import { sizes, radiuses } from './BaseAvatar.vue'
+
+const props = withDefaults(defineProps<BaseAvatarGroupProps>(), {
+  limit: undefined,
+  size: undefined,
+  rounded: 'full',
+  classes: () => ({}),
+})
+const slots = defineSlots<{
+  default(): any
+}>()
 
 const size = useNuiDefaultProperty(props, 'BaseAvatarGroup', 'size')
 const limit = useNuiDefaultProperty(props, 'BaseAvatarGroup', 'limit')
+const rounded = useNuiDefaultProperty(props, 'BaseAvatarGroup', 'rounded')
+const forward = useForwardProps(reactiveOmit(props, ['avatars', 'size', 'limit', 'classes']))
 
 const avatarDisplay = computed(() => {
   if (
@@ -107,7 +107,8 @@ const avatarDisplay = computed(() => {
 </script>
 
 <template>
-  <div
+  <Primitive
+    v-bind="forward"
     class="flex"
     :class="[size && sizes[size], props.classes?.wrapper]"
   >
@@ -115,38 +116,44 @@ const avatarDisplay = computed(() => {
       <div
         v-for="avatar in avatarDisplay"
         :key="typeof avatar === 'string' ? avatar : avatar.src"
-        class="relative flex shrink-0 items-center justify-center rounded-full bg-white dark:bg-muted-800 transition-all duration-100 ease-in"
+        class="relative flex shrink-0 items-center justify-center bg-white dark:bg-muted-800 transition-all duration-100 ease-in"
         :class="[
           props.classes?.outer,
+          rounded && radiuses[rounded],
           size && sizes[size],
           size && spacings[size],
         ]"
       >
         <BaseAvatar
-          v-bind="typeof avatar === 'string' ? { src: avatar } : avatar"
-          :size="props.size"
-          rounded="full"
+          v-bind="avatar"
+          :size="size"
+          :rounded="rounded"
           tabindex="0"
           class="bg-primary-500/20 text-primary-500 scale-90"
         />
       </div>
       <div
         v-if="limit !== undefined && avatars.length > limit"
-        class="relative shrink-0 rounded-full bg-white dark:bg-muted-800 transition-all duration-100 ease-in"
+        class="relative shrink-0 bg-white dark:bg-muted-800 transition-all duration-100 ease-in"
         :class="[
           props.classes?.count,
+          rounded && radiuses[rounded],
           size && sizes[size],
           size && counters[size],
           size && spacings[size],
-
         ]"
       >
-        <div class="relative scale-90 inline-flex items-center justify-center rounded-full h-full w-full bg-muted-200 dark:bg-muted-700 border border-white dark:border-muted-800">
+        <div
+          class="relative scale-90 inline-flex items-center justify-center h-full w-full bg-muted-200 dark:bg-muted-700 border border-white dark:border-muted-800"
+          :class="[
+            rounded && radiuses[rounded],
+          ]"
+        >
           <span class="-ms-1 uppercase font-sans font-medium text-muted-500 dark:text-muted-300">
             +{{ avatars.length - limit + 1 }}
           </span>
         </div>
       </div>
     </slot>
-  </div>
+  </Primitive>
 </template>

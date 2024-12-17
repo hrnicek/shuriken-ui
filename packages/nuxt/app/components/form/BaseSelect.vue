@@ -180,8 +180,6 @@ const slots = defineSlots<{
   label(): any
 }>()
 
-console.log('props' , props)
-
 const id = useNinjaId(() => props.id)
 const contrast = useNuiDefaultProperty(props, 'BaseSelect', 'contrast')
 const rounded = useNuiDefaultProperty(props, 'BaseSelect', 'rounded')
@@ -225,7 +223,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, [
     </Label>
     <SelectRoot :id v-bind="forward" :class="props.classes?.outer">
       <SelectTrigger
-        class="flex min-w-[160px] items-center justify-between rounded-lg px-[15px] text-xs leading-none h-[35px] gap-[5px] bg-white border  text-primary-500 data-[placeholder]:text-muted-500 outline-none"
+        class="nui-focus flex min-w-[160px] items-center justify-between rounded-lg px-[15px] text-xs leading-none h-[35px] gap-[5px] bg-white border  text-primary-500 data-[placeholder]:text-muted-500 outline-none"
         aria-label="Customise options"
         v-bind="props.bindings?.trigger"
       >
