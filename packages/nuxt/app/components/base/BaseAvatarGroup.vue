@@ -18,7 +18,7 @@ export interface BaseAvatarGroupProps extends PrimitiveProps {
    *
    * @default 'sm'
    */
-   size?: BaseAvatarProps['size']
+  size?: BaseAvatarProps['size']
  
   /**
    * The radius of the image.

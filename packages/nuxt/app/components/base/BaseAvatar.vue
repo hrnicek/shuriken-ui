@@ -148,7 +148,6 @@ export const badgeSize = {
   '3xl': 'h-10 w-10',
   '4xl': 'h-12 w-12',
 } as const
-
 </script>
 
 <script setup lang="ts">

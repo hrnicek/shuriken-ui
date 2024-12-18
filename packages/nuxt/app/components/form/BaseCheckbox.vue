@@ -152,6 +152,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'error'
       </Label>
       <Label
         v-if="props.error && typeof props.error === 'string' || 'error' in slots"
+        :for="id"
         class="nui-checkbox-error"
         as-child
       >
