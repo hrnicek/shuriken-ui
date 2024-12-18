@@ -8,16 +8,19 @@ definePageMeta({
 
 const accordion = ref([
   {
+    value: 'item-1',
     title: 'Accordion Item 1',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quo tandem modo? Inde igitur, inquit, ordiendum est. Primum quid tu dicis breve? Duo Reges: constructio interrete.',
   },
   {
+    value: 'item-2',
     title: 'Accordion Item 2',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quo tandem modo? Inde igitur, inquit, ordiendum est. Primum quid tu dicis breve? Duo Reges: constructio interrete.',
   },
   {
+    value: 'item-3',
     title: 'Accordion Item 3',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quo tandem modo? Inde igitur, inquit, ordiendum est. Primum quid tu dicis breve? Duo Reges: constructio interrete.',
@@ -30,13 +33,40 @@ const accordion = ref([
     <NuiPreviewContainer title="BaseAccordion">
       <NuiPreview title="Default" description="Default accordion style">
         <div class="md:max-w-lg">
-          <BaseAccordion :items="accordion" />
+          <BaseAccordion :items="accordion" type="multiple" />
+        </div>
+      </NuiPreview>
+      <NuiPreview title="Slots" description="Default accordion style">
+        <div class="md:max-w-lg">
+          <BaseAccordion type="multiple">
+            <BaseAccordionItem value="item-1" title="Accordion Item 1">
+              <template #title>
+                Accordion Item 1
+              </template>
+
+              Lorem ipsum <strong>dolor sit amet</strong>, consectetur adipiscing elit. Quo tandem modo? Inde igitur, inquit, ordiendum est. Primum quid tu dicis breve? Duo Reges: constructio interrete.
+            </BaseAccordionItem>
+            <BaseAccordionItem value="item-2" title="Accordion Item 2" variant="default-low" action="chevron">
+              <template #title>
+                Accordion Item 2
+              </template>
+
+              Lorem ipsum <strong>dolor sit amet</strong>, consectetur adipiscing elit. Quo tandem modo? Inde igitur, inquit, ordiendum est. Primum quid tu dicis breve? Duo Reges: constructio interrete.
+            </BaseAccordionItem>
+            <BaseAccordionItem value="item-3" title="Accordion Item 3" variant="default-high" action="plus">
+              <template #title>
+                Accordion Item 3
+              </template>
+
+              Lorem ipsum <strong>dolor sit amet</strong>, consectetur adipiscing elit. Quo tandem modo? Inde igitur, inquit, ordiendum est. Primum quid tu dicis breve? Duo Reges: constructio interrete.
+            </BaseAccordionItem>
+          </BaseAccordion>
         </div>
       </NuiPreview>
 
       <NuiPreview title="Exclusive" description="Exclusive accordion style">
         <div class="md:max-w-lg">
-          <BaseAccordion :items="accordion" exclusive />
+          <BaseAccordion :items="accordion" type="single" />
         </div>
       </NuiPreview>
 
@@ -44,10 +74,10 @@ const accordion = ref([
         <div class="md:max-w-5xl">
           <div class="grid md:grid-cols-2 gap-6">
             <BaseCard variant="default-low" rounded="md" class="p-6">
-              <BaseAccordion variant="default-low" :items="accordion" exclusive />
+              <BaseAccordion variant="default-low" :items="accordion" type="single" />
             </BaseCard>
             <BaseCard variant="default-high" rounded="md" class="p-6">
-              <BaseAccordion :items="accordion" exclusive />
+              <BaseAccordion :items="accordion" type="single" />
             </BaseCard>
           </div>
         </div>
@@ -55,13 +85,13 @@ const accordion = ref([
 
       <NuiPreview title="Chevron" description="Chevron accordion style">
         <div class="md:max-w-lg">
-          <BaseAccordion :items="accordion" exclusive action="chevron" />
+          <BaseAccordion :items="accordion" type="single" action="chevron" />
         </div>
       </NuiPreview>
 
       <NuiPreview title="Plus" description="Plus accordion style">
         <div class="md:max-w-lg">
-          <BaseAccordion :items="accordion" exclusive action="plus" />
+          <BaseAccordion :items="accordion" type="single" action="plus" />
         </div>
       </NuiPreview>
     </NuiPreviewContainer>
