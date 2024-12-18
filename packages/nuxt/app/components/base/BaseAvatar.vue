@@ -84,9 +84,6 @@ export interface BaseAvatarProps extends AvatarRootProps {
    * Optional bindings to pass to the inner components.
    */
   bindings?: {
-    /**
-     * Optional bindings to pass to the badge element.
-     */
     image?: AvatarImageProps
     dark?: AvatarImageProps
     fallback?: AvatarFallbackProps
