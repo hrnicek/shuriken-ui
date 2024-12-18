@@ -164,7 +164,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['ellipsis', 'variant',
         props.classes?.wrapper,
       ]"
     >
-      <ul
+      <div
         class="inline-flex flex-wrap gap-2 md:gap-1 mb-4 md:mb-0"
         :class="[
           variant === 'primary-low' && wrapped && 'p-1 bg-muted-100 dark:bg-muted-700 border border-muted-200 dark:border-muted-600',
@@ -220,7 +220,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['ellipsis', 'variant',
         </template>
 
         <slot name="after-pagination" />
-      </ul>
+      </div>
 
       <div
         class="flex items-center justify-end gap-1 enabled:cursor-pointer"
