@@ -63,6 +63,7 @@ export interface BaseAccordionItemProps extends AccordionItemProps {
 export type BaseAccordionItemSlots = {
   default(): any
   title(): any
+  action(): any
 }
 </script>
 
@@ -115,27 +116,27 @@ const iconPlus = useNuiDefaultIcon('plus')
         </div>
 
         <div
-          v-if="action === 'dot'"
-          class="ms-2"
-        > 
-          <BaseChip
-            position="static"
-            size="md"
-            color="custom"
-            class="text-muted-200 dark:text-muted-600 group-data-[state=open]/trigger:text-primary-500"
-          />
-        </div>
-        <div
-          v-else-if="action === 'chevron'"
           class="ms-2 text-muted-500 dark:text-muted-300 flex items-center justify-center size-5 group-data-[state=open]/trigger:rotate-180 transition-all duration-300"
         >
-          <Icon :name="iconChevron" class="text-base" />
-        </div>
-        <div
-          v-else-if="action === 'plus'"
-          class="ms-2 text-muted-500 dark:text-muted-300 flex items-center justify-center size-5 group-data-[state=open]/trigger:rotate-45 transition-all duration-300"
-        >
-          <Icon :name="iconPlus" class="text-base" />
+          <slot name="action">
+            <BaseChip
+              v-if="action === 'dot'"
+              position="static"
+              size="md"
+              color="custom"
+              class="text-muted-200 dark:text-muted-600 group-data-[state=open]/trigger:text-primary-500"
+            />
+            <Icon
+              v-else-if="action === 'chevron'"
+              :name="iconChevron"
+              class="text-base"
+            />
+            <Icon
+              v-else-if="action === 'plus'"
+              :name="iconPlus"
+              class="text-base"
+            />
+          </slot>
         </div>
       </AccordionTrigger>
     </AccordionHeader>
