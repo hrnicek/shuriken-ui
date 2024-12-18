@@ -18,23 +18,9 @@ export interface BaseDropdownItemProps extends DropdownMenuItemProps {
   /**
    * The hover color of the dropdown-item inner elements.
    *
-   * @default 'primary'
+   * @default 'default-low'
    */
-  color?:
-    | 'primary'
-    | 'info'
-    | 'success'
-    | 'warning'
-    | 'danger'
-    | 'dark'
-    | 'black'
-
-  /**
-   * The contrast of the dropdown-item.
-   *
-   * @default 'default'
-   */
-  contrast?: 'default' | 'contrast'
+  variant?: 'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'primary-low' | 'primary-high' | 'none'
 
   /**
    * The radius of the dropdown-item.
@@ -42,17 +28,12 @@ export interface BaseDropdownItemProps extends DropdownMenuItemProps {
    * @since 2.0.0
    * @default 'sm'
    */
-  rounded?: 'none' | 'sm' | 'md' | 'lg'
+  rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
 
   /**
    * Optional CSS classes to apply to the wrapper and inner elements.
    */
   classes?: {
-    /**
-     * CSS classes to apply to the wrapper element.
-     */
-    wrapper?: string | string[]
-
     /**
      * CSS classes to apply to the title element.
      */
@@ -74,35 +55,34 @@ export type BaseDropdownItemSlots = {
 
 export const radiuses = {
   none: '',
-  sm: 'nui-dropdown-item-rounded-sm',
-  md: 'nui-dropdown-item-rounded-md',
-  lg: 'nui-dropdown-item-rounded-lg',
+  sm: 'rounded-sm',
+  md: 'rounded-md',
+  lg: 'rounded-lg',
+  full: 'rounded-lg',
 } as const
 
-export const contrasts = {
-  default: 'nui-dropdown-item-default',
-  contrast: 'nui-dropdown-item-contrast',
-} as const
-
-export const colors = {
-  primary: 'nui-dropdown-item-primary',
-  info: 'nui-dropdown-item-info',
-  success: 'nui-dropdown-item-success',
-  warning: 'nui-dropdown-item-warning',
-  danger: 'nui-dropdown-item-danger',
-  dark: 'nui-dropdown-item-dark',
-  black: 'nui-dropdown-item-black',
+export const variants = {
+  'default-low': 'hover:bg-muted-100 dark:hover:bg-muted-700',
+  'default-high': 'hover:bg-muted-100 dark:hover:bg-muted-900',
+  'muted-low': 'hover:bg-muted-200 dark:hover:bg-muted-700',
+  'muted-high': 'hover:bg-muted-200 dark:hover:bg-muted-900',
+  'primary-low': 'hover:bg-primary-500/10 dark:hover:bg-primary-500/20',
+  'primary-high': 'hover:bg-primary-500/10 dark:hover:bg-primary-500/20',
+  'none': '',
 } as const
 </script>
 
 <script setup lang="ts">
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
+import { injectBaseDropdownContext } from './BaseDropdown.vue'
+
+const context = injectBaseDropdownContext()
 
 const props = withDefaults(defineProps<BaseDropdownItemProps>(), {
   rounded: undefined,
   contrast: undefined,
-  color: undefined,
+  variant: undefined,
   title: '',
   text: '',
   classes: () => ({
@@ -115,26 +95,23 @@ const props = withDefaults(defineProps<BaseDropdownItemProps>(), {
 const emits = defineEmits<BaseDropdownItemEmits>()
 const slots = defineSlots<BaseDropdownItemSlots>()
 
-const color = useNuiDefaultProperty(props, 'BaseDropdownItem', 'color')
-const contrast = useNuiDefaultProperty(props, 'BaseDropdownItem', 'contrast')
+const variant = useNuiDefaultProperty(props, 'BaseDropdownItem', 'variant')
 const rounded = useNuiDefaultProperty(props, 'BaseDropdownItem', 'rounded')
-const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'color', 'contrast', 'rounded', 'classes']), emits)
+const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'variant', 'rounded', 'classes']), emits)
 </script>
 
 <template>
   <DropdownMenuItem
     v-bind="forward"
-    class="nui-dropdown-item"
+    class="nui-focus flex w-full items-center justify-start gap-2 p-2 cursor-pointer text-start font-sans text-sm transition-colors duration-300"
     :class="[
-      rounded && radiuses[rounded],
-      contrast && contrasts[contrast],
-      color && colors[color],
-      props.disabled && 'nui-dropdown-item-disabled',
-      props.classes?.wrapper,
+      context.rounded.value && radiuses[context.rounded.value],
+      context.variant.value && variants[context.variant.value],
+      props.disabled && 'opacity-50 pointer-events-none',
     ]"
   >
     <slot name="start" />
-    <div class="nui-dropdown-item-content">
+    <div class="grow">
       <div :class="props.classes?.title">
         <slot>
           {{ props.title }}

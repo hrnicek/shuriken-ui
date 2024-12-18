@@ -19,28 +19,13 @@ export interface BaseDropdownRadioItemProps extends DropdownMenuRadioItemProps {
   /**
    * The hover color of the dropdown-item inner elements.
    *
-   * @default 'primary'
+   * @default 'default-low'
    */
-  color?:
-    | 'primary'
-    | 'info'
-    | 'success'
-    | 'warning'
-    | 'danger'
-    | 'dark'
-    | 'black'
-
-  /**
-   * The contrast of the dropdown-item.
-   *
-   * @default 'default'
-   */
-  contrast?: 'default' | 'contrast'
+  variant?: 'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'none'
 
   /**
    * The radius of the dropdown-item.
    *
-   * @since 2.0.0
    * @default 'sm'
    */
   rounded?: 'none' | 'sm' | 'md' | 'lg'
@@ -81,15 +66,13 @@ export type BaseDropdownRadioItemSlots = {
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 import {
-  colors,
-  contrasts,
+  variants,
   radiuses,
 } from './BaseDropdownItem.vue'
 
 const props = withDefaults(defineProps<BaseDropdownRadioItemProps>(), {
+  variant: undefined,
   rounded: undefined,
-  contrast: undefined,
-  color: undefined,
   disabled: undefined,
   text: undefined,
   textValue: undefined,
@@ -104,29 +87,27 @@ const props = withDefaults(defineProps<BaseDropdownRadioItemProps>(), {
 const emits = defineEmits<BaseDropdownRadioItemEmits>()
 const slots = defineSlots<BaseDropdownRadioItemSlots>()
 
-const color = useNuiDefaultProperty(props, 'BaseDropdownItem', 'color')
-const contrast = useNuiDefaultProperty(props, 'BaseDropdownItem', 'contrast')
+const variant = useNuiDefaultProperty(props, 'BaseDropdownItem', 'variant')
 const rounded = useNuiDefaultProperty(props, 'BaseDropdownItem', 'rounded')
 const iconCheck = useNuiDefaultIcon('checkCircle')
-const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'color', 'contrast', 'rounded', 'bindings', 'classes']), emits)
+const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'variant', 'rounded', 'bindings', 'classes']), emits)
 </script>
 
 <template>
   <DropdownMenuRadioItem 
     v-bind="forward"
-    class="nui-dropdown-item group/menu-radio-item"
+    class="nui-focus flex w-full items-center justify-start gap-2 p-2 cursor-pointer text-start font-sans text-sm transition-colors duration-300 group/menu-radio-item"
     :class="[
       rounded && radiuses[rounded],
-      contrast && contrasts[contrast],
-      color && colors[color],
-      props.disabled && 'nui-dropdown-item-disabled',
+      variant && variants[variant],
+      props.disabled && 'opacity-50 pointer-events-none',
     ]"
   >
-    <DropdownMenuItemIndicator v-bind="props.bindings?.indicator">
-      <Icon :name="iconCheck" class="size-4" />
+    <DropdownMenuItemIndicator v-bind="props.bindings?.indicator" class="relative me-2 translate-y-1/4">
+      <BaseChip position="static" color="primary" size="sm" />
     </DropdownMenuItemIndicator>
 
-    <div class="nui-dropdown-item-content group-data-[state=unchecked]/menu-radio-item:ps-6!">
+    <div class="grow group-data-[state=unchecked]/menu-radio-item:ps-6!">
       <div :class="props.classes?.title">
         <slot>
           {{ props.title }}
