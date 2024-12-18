@@ -37,10 +37,10 @@ const props = withDefaults(
       class="flex"
       :class="[
         props.position === 'absolute' ? 'absolute' : 'static',
-        props.placement === 'top-start' ? 'top-0 start-0' : '',
-        props.placement === 'top-end' ? 'top-0 end-0' : '',
-        props.placement === 'bottom-start' ? 'bottom-0 start-0' : '',
-        props.placement === 'bottom-end' ? 'bottom-0 end-0' : '',
+        props.placement === 'top-start' ? 'top-0 start-0 -mt-0.5 -ms-0.5' : '',
+        props.placement === 'top-end' ? 'top-0 end-0 -mt-0.5 -me-0.5' : '',
+        props.placement === 'bottom-start' ? 'bottom-0 start-0 -mb-0.5 -ms-0.5' : '',
+        props.placement === 'bottom-end' ? 'bottom-0 end-0 -mb-0.5 -me-0.5' : '',
       ]"
       :style="[
         props.placement === 'top-start' && `transform: translate(${offset}px, ${offset}px)`,
