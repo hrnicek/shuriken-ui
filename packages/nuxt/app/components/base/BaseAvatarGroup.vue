@@ -3,7 +3,9 @@ import type { PrimitiveProps } from 'reka-ui';
 import type { BaseAvatarProps } from './BaseAvatar.vue'
 
 export interface BaseAvatarGroupProps extends PrimitiveProps {
-  /** An array of avatar objects. */
+  /** 
+   * The avatars to display.
+   */
   avatars: BaseAvatarProps[]
 
   /**
@@ -18,7 +20,7 @@ export interface BaseAvatarGroupProps extends PrimitiveProps {
    *
    * @default 'sm'
    */
-   size?: BaseAvatarProps['size']
+  size?: BaseAvatarProps['size']
  
   /**
    * The radius of the image.
