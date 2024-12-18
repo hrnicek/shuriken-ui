@@ -19,28 +19,13 @@ export interface BaseDropdownCheckboxProps extends DropdownMenuCheckboxItemProps
   /**
    * The hover color of the dropdown-item inner elements.
    *
-   * @default 'primary'
+   * @default 'default-high'
    */
-  color?:
-    | 'primary'
-    | 'info'
-    | 'success'
-    | 'warning'
-    | 'danger'
-    | 'dark'
-    | 'black'
-
-  /**
-   * The contrast of the dropdown-item.
-   *
-   * @default 'default'
-   */
-  contrast?: 'default' | 'contrast'
+  variant?: 'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'primary-low' | 'primary-high' | 'none'
 
   /**
    * The radius of the dropdown-item.
    *
-   * @since 2.0.0
    * @default 'sm'
    */
   rounded?: 'none' | 'sm' | 'md' | 'lg'
@@ -81,15 +66,13 @@ export type BaseDropdownCheckboxSlots = {
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 import {
-  colors,
-  contrasts,
+  variants,
   radiuses,
 } from './BaseDropdownItem.vue'
 
 const props = withDefaults(defineProps<BaseDropdownCheckboxProps>(), {
   rounded: undefined,
-  contrast: undefined,
-  color: undefined,
+  variant: undefined,
   disabled: undefined,
   modelValue: undefined,
   text: undefined,
@@ -106,29 +89,27 @@ const emits = defineEmits<BaseDropdownCheckboxEmits>()
 
 const slots = defineSlots<BaseDropdownCheckboxSlots>()
 
-const color = useNuiDefaultProperty(props, 'BaseDropdownItem', 'color')
-const contrast = useNuiDefaultProperty(props, 'BaseDropdownItem', 'contrast')
+const variant = useNuiDefaultProperty(props, 'BaseDropdownItem', 'variant')
 const rounded = useNuiDefaultProperty(props, 'BaseDropdownItem', 'rounded')
-const iconCheck = useNuiDefaultIcon('checkSquare')
-const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'color', 'contrast', 'rounded', 'bindings', 'classes']), emits)
+const iconCheck = useNuiDefaultIcon('check')
+const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'variant', 'rounded', 'bindings', 'classes']), emits)
 </script>
 
 <template>
   <DropdownMenuCheckboxItem 
     v-bind="forward"
-    class="nui-dropdown-item group/menu-checkbox-item"
+    class="nui-focus flex w-full items-center justify-start gap-2 p-2 cursor-pointer text-start font-sans text-sm transition-colors duration-300 group/menu-checkbox-item"
     :class="[
       rounded && radiuses[rounded],
-      contrast && contrasts[contrast],
-      color && colors[color],
-      props.disabled && 'nui-dropdown-item-disabled',
+      variant && variants[variant],
+      props.disabled && 'opacity-50 pointer-events-none',
     ]"
   >
-    <DropdownMenuItemIndicator v-bind="props.bindings?.indicator">
-      <Icon :name="iconCheck" class="size-4" />
+    <DropdownMenuItemIndicator v-bind="props.bindings?.indicator" class="flex items-center justify-center shrink-0 size-4 group-data-[state=checked]/menu-checkbox-item:text-[var(--primary-bg-base)] group-data-[state=unchecked]/menu-checkbox-item:text-transparent">
+      <Icon :name="iconCheck" class="scale-90 relative start-0.5 text-sm [&>path]:stroke-[4px]" />
     </DropdownMenuItemIndicator>
 
-    <div class="nui-dropdown-item-content group-data-[state=unchecked]/menu-checkbox-item:ps-6!">
+    <div class="grow group-data-[state=unchecked]/menu-checkbox-item:ps-6!">
       <div :class="props.classes?.title">
         <slot>
           {{ props.title }}

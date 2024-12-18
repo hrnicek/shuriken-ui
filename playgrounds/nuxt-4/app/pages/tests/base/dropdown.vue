@@ -16,65 +16,127 @@ const selection = ref('first')
 <template>
   <div>
     <NuiPreviewContainer title="BaseDropdown">
-      <NuiPreview title="Size" description="Dropdown menu sizes">
-        <div class="flex justify-start gap-8 w-full">
-          <BaseDropdown label="Dropdown">
+      <NuiPreview title="Variants & Sizes" description="Dropdown menu variants and menu sizes">
+        <div class="flex justify-start gap-4 w-full">
+          <BaseDropdown variant="default-low" label="Default low">
+            <BaseDropdownItem>Leads</BaseDropdownItem>
             <BaseDropdownItem>Projects</BaseDropdownItem>
             <BaseDropdownItem>Team</BaseDropdownItem>
+            <BaseDropdownItem>Reports</BaseDropdownItem>
             <BaseDropdownItem>
               Settings
               <template #end>
-                <span class="text-xs font-mono">⇧⌘P</span>
+                <BaseKbd size="sm">
+                  <span class="text-xs font-mono">⌘</span>
+                </BaseKbd>
+                <BaseKbd size="sm">
+                  <span class="text-xs font-mono px-0.5">P</span>
+                </BaseKbd>
               </template>
             </BaseDropdownItem>
           </BaseDropdown>
-          <BaseDropdown label="Large" size="lg">
-            <BaseDropdownItem>Profile</BaseDropdownItem> 
-            <BaseDropdownItem>Projects</BaseDropdownItem> 
-            <BaseDropdownItem>Team</BaseDropdownItem> 
+          <BaseDropdown variant="default-high" label="Default high" :classes="{ menu: 'w-72' }">
+            <BaseDropdownItem>Leads</BaseDropdownItem>
+            <BaseDropdownItem>Projects</BaseDropdownItem>
+            <BaseDropdownItem>Team</BaseDropdownItem>
+            <BaseDropdownItem>Reports</BaseDropdownItem>
             <BaseDropdownItem>
               Settings
               <template #end>
-                <span class="text-xs font-mono">⇧⌘P</span>
+                <BaseKbd size="sm">
+                  <span class="text-xs font-mono">⌘</span>
+                </BaseKbd>
+                <BaseKbd size="sm">
+                  <span class="text-xs font-mono px-0.5">P</span>
+                </BaseKbd>
               </template>
             </BaseDropdownItem> 
           </BaseDropdown>
-          <BaseDropdown label="Disabled" disabled>
-            <BaseDropdownItem>Profile</BaseDropdownItem> 
-            <BaseDropdownItem>Projects</BaseDropdownItem> 
-            <BaseDropdownItem>Team</BaseDropdownItem> 
+          <BaseDropdown variant="muted-low" label="Muted low">
+            <BaseDropdownItem>Leads</BaseDropdownItem>
+            <BaseDropdownItem>Projects</BaseDropdownItem>
+            <BaseDropdownItem>Team</BaseDropdownItem>
+            <BaseDropdownItem>Reports</BaseDropdownItem>
             <BaseDropdownItem>
               Settings
               <template #end>
-                <span class="text-xs font-mono">⇧⌘P</span>
+                <BaseKbd size="sm">
+                  <span class="text-xs font-mono">⌘</span>
+                </BaseKbd>
+                <BaseKbd size="sm">
+                  <span class="text-xs font-mono px-0.5">P</span>
+                </BaseKbd>
+              </template>
+            </BaseDropdownItem>
+          </BaseDropdown>
+          <BaseDropdown variant="muted-high" label="Muted high" :classes="{ menu: 'w-72' }">
+            <BaseDropdownItem>Leads</BaseDropdownItem>
+            <BaseDropdownItem>Projects</BaseDropdownItem>
+            <BaseDropdownItem>Team</BaseDropdownItem>
+            <BaseDropdownItem>Reports</BaseDropdownItem>
+            <BaseDropdownItem>
+              Settings
+              <template #end>
+                <BaseKbd size="sm">
+                  <span class="text-xs font-mono">⌘</span>
+                </BaseKbd>
+                <BaseKbd size="sm">
+                  <span class="text-xs font-mono px-0.5">P</span>
+                </BaseKbd>
+              </template>
+            </BaseDropdownItem> 
+          </BaseDropdown>
+          <BaseDropdown variant="primary-low" label="Primary low">
+            <BaseDropdownItem>Leads</BaseDropdownItem>
+            <BaseDropdownItem>Projects</BaseDropdownItem>
+            <BaseDropdownItem>Team</BaseDropdownItem>
+            <BaseDropdownItem>Reports</BaseDropdownItem>
+            <BaseDropdownItem>
+              Settings
+              <template #end>
+                <BaseKbd size="sm">
+                  <span class="text-xs font-mono">⌘</span>
+                </BaseKbd>
+                <BaseKbd size="sm">
+                  <span class="text-xs font-mono px-0.5">P</span>
+                </BaseKbd>
+              </template>
+            </BaseDropdownItem>
+          </BaseDropdown>
+          <BaseDropdown variant="primary-high" label="Primary high" :classes="{ menu: 'w-72' }">
+            <BaseDropdownItem>Leads</BaseDropdownItem>
+            <BaseDropdownItem>Projects</BaseDropdownItem>
+            <BaseDropdownItem>Team</BaseDropdownItem>
+            <BaseDropdownItem>Reports</BaseDropdownItem>
+            <BaseDropdownItem>
+              Settings
+              <template #end>
+                <BaseKbd size="sm">
+                  <span class="text-xs font-mono">⌘</span>
+                </BaseKbd>
+                <BaseKbd size="sm">
+                  <span class="text-xs font-mono px-0.5">P</span>
+                </BaseKbd>
               </template>
             </BaseDropdownItem> 
           </BaseDropdown>
         </div>
       </NuiPreview>
 
-      <NuiPreview title="Color" description="Dropdown menu sizes">
-        <div class="flex justify-start gap-8 w-full">
-          <BaseDropdown label="default" color="default">
+      <NuiPreview title="Nested menus" description="Dropdown menu sizes">
+        <div class="flex justify-start gap-4 w-full">
+          <BaseDropdown label="Inner Submenus">
             <BaseDropdownLabel>Label</BaseDropdownLabel> 
-            <BaseDropdownItem>Profile</BaseDropdownItem> 
-            <BaseDropdownItem>Projects</BaseDropdownItem>
-            <BaseDropdownItem>Team</BaseDropdownItem>
             <BaseDropdownSub>
               <template #title>
-                Settings
+                Profile
               </template>
               <BaseDropdownLabel>Label</BaseDropdownLabel> 
               <BaseDropdownItem>Profile</BaseDropdownItem> 
-              <BaseDropdownItem>Projects</BaseDropdownItem> 
-              <BaseDropdownItem>Team</BaseDropdownItem> 
-              <BaseDropdownItem>Settings</BaseDropdownItem> 
+              <BaseDropdownItem>General</BaseDropdownItem> 
+              <BaseDropdownItem>Billing</BaseDropdownItem> 
+              <BaseDropdownItem>Support</BaseDropdownItem> 
             </BaseDropdownSub>
-            <BaseDropdownArrow />
-          </BaseDropdown>
-          <BaseDropdown label="default-contrast" color="default-contrast">
-            <BaseDropdownLabel>Label</BaseDropdownLabel> 
-            <BaseDropdownItem>Profile</BaseDropdownItem> 
             <BaseDropdownItem>Projects</BaseDropdownItem> 
             <BaseDropdownItem>Team</BaseDropdownItem> 
             <BaseDropdownSub>
@@ -82,67 +144,32 @@ const selection = ref('first')
                 Settings
               </template>
               <BaseDropdownLabel>Label</BaseDropdownLabel> 
-              <BaseDropdownItem>Profile</BaseDropdownItem> 
-              <BaseDropdownItem>Projects</BaseDropdownItem> 
-              <BaseDropdownItem>Team</BaseDropdownItem> 
-              <BaseDropdownItem>Settings</BaseDropdownItem> 
+              <BaseDropdownItem>General</BaseDropdownItem> 
+              <BaseDropdownItem>Users</BaseDropdownItem> 
+              <BaseDropdownItem>Permissions</BaseDropdownItem> 
+              <BaseDropdownItem>Security</BaseDropdownItem> 
             </BaseDropdownSub>
-            <BaseDropdownArrow />
-          </BaseDropdown>
-          <BaseDropdown label="muted" color="muted">
-            <BaseDropdownLabel>Label</BaseDropdownLabel> 
-            <BaseDropdownItem>Profile</BaseDropdownItem> 
-            <BaseDropdownItem>Projects</BaseDropdownItem> 
-            <BaseDropdownItem>Team</BaseDropdownItem> 
-            <BaseDropdownSub>
-              <template #title>
-                Settings
-              </template>
-              <BaseDropdownLabel>Label</BaseDropdownLabel> 
-              <BaseDropdownItem>Profile</BaseDropdownItem> 
-              <BaseDropdownItem>Projects</BaseDropdownItem> 
-              <BaseDropdownItem>Team</BaseDropdownItem> 
-              <BaseDropdownItem>Settings</BaseDropdownItem> 
-            </BaseDropdownSub>
-            <BaseDropdownArrow />
-          </BaseDropdown>
-          <BaseDropdown label="muted-contrast" color="muted-contrast">
-            <BaseDropdownLabel>Label</BaseDropdownLabel> 
-            <BaseDropdownItem>Profile</BaseDropdownItem> 
-            <BaseDropdownItem>Projects</BaseDropdownItem> 
-            <BaseDropdownItem>Team</BaseDropdownItem> 
-            <BaseDropdownSub>
-              <template #title>
-                Settings
-              </template>
-              <BaseDropdownLabel>Label</BaseDropdownLabel> 
-              <BaseDropdownItem>Profile</BaseDropdownItem> 
-              <BaseDropdownItem>Projects</BaseDropdownItem> 
-              <BaseDropdownItem>Team</BaseDropdownItem> 
-              <BaseDropdownItem>Settings</BaseDropdownItem> 
-            </BaseDropdownSub>
-            <BaseDropdownArrow />
           </BaseDropdown>
         </div>
       </NuiPreview>
 
       
-      <NuiPreview title="Arrow and spacing example">
-        <div class="flex justify-start gap-8 w-full">
-          <BaseDropdown label="Default" size="lg">
+      <NuiPreview title="Arrow and menu spacing">
+        <div class="flex justify-start gap-4 w-full">
+          <BaseDropdown label="Default spacing">
             <BaseDropdownItem>Profile</BaseDropdownItem> 
             <BaseDropdownItem>Projects</BaseDropdownItem> 
             <BaseDropdownItem>Team</BaseDropdownItem> 
             <BaseDropdownItem>Settings</BaseDropdownItem> 
           </BaseDropdown>
-          <BaseDropdown label="With arrow" size="lg">
+          <BaseDropdown label="With top arrow">
             <BaseDropdownItem>Profile</BaseDropdownItem> 
             <BaseDropdownItem>Projects</BaseDropdownItem> 
             <BaseDropdownItem>Team</BaseDropdownItem> 
             <BaseDropdownItem>Settings</BaseDropdownItem> 
             <BaseDropdownArrow />
           </BaseDropdown>
-          <BaseDropdown label="With spacing" size="lg" :bindings="{ content: { sideOffset: 10 } }">
+          <BaseDropdown label="With more spacing" :bindings="{ content: { sideOffset: 10 } }">
             <BaseDropdownItem>Profile</BaseDropdownItem> 
             <BaseDropdownItem>Projects</BaseDropdownItem> 
             <BaseDropdownItem>Team</BaseDropdownItem> 
@@ -152,10 +179,12 @@ const selection = ref('first')
       </NuiPreview>
 
       <NuiPreview title="Composition example" description="Combine dropdown with items, labels, checkboxes, and submenus">
-        <div class="flex justify-start gap-8 w-full">
+        <div class="flex justify-start gap-4 w-full">
           <BaseDropdown
-            label="Dropdown"
-            contrast="default"
+            label="Custom dropdown"
+            rounded="md"
+            :classes="{ menu: 'w-72' }"
+            :bindings="{ content: { sideOffset: 10 } }"
           >
             <BaseDropdownLabel>Label</BaseDropdownLabel>  
             <BaseDropdownItem
@@ -187,17 +216,14 @@ const selection = ref('first')
               <BaseDropdownCheckbox
                 v-model="checked"
                 title="Profile"
-                text="View your profile"
               />
               <BaseDropdownCheckbox
                 title="Projects"
-                text="View your projects"
                 disabled
               />
               <BaseDropdownCheckbox
                 v-model="checked2"
                 title="Team"
-                text="Manage your team"
               />
             </BaseDropdownSub>
             <BaseDropdownSub
@@ -210,8 +236,8 @@ const selection = ref('first')
                   First
                   <template #end>
                     <div class="flex gap-0.5">
-                      <BaseKbd variant="muted-high" size="sm">alt</BaseKbd>
-                      <BaseKbd variant="muted-high" size="sm">1</BaseKbd>
+                      <BaseKbd variant="default-high" size="sm">alt</BaseKbd>
+                      <BaseKbd variant="default-high" size="sm">1</BaseKbd>
                     </div>
                   </template>
                 </BaseDropdownRadioItem>
@@ -219,8 +245,8 @@ const selection = ref('first')
                   Second
                   <template #end>
                     <div class="flex gap-0.5">
-                      <BaseKbd variant="muted-high" size="sm">alt</BaseKbd>
-                      <BaseKbd variant="muted-high" size="sm">2</BaseKbd>
+                      <BaseKbd variant="default-high" size="sm">alt</BaseKbd>
+                      <BaseKbd variant="default-high" size="sm">2</BaseKbd>
                     </div>
                   </template>
                 </BaseDropdownRadioItem>
@@ -228,8 +254,8 @@ const selection = ref('first')
                   Third
                   <template #end>
                     <div class="flex gap-0.5">
-                      <BaseKbd variant="muted-high" size="sm">alt</BaseKbd>
-                      <BaseKbd variant="muted-high" size="sm">3</BaseKbd>
+                      <BaseKbd variant="default-high" size="sm">alt</BaseKbd>
+                      <BaseKbd variant="default-high" size="sm">3</BaseKbd>
                     </div>
                   </template>
                 </BaseDropdownRadioItem>
@@ -237,19 +263,18 @@ const selection = ref('first')
             </BaseDropdownSub>
             <BaseDropdownItem
               title="Settings"
-              text="Set your preferences"
             >
               <template #end>
                 <div class="flex gap-0.5">
-                  <BaseKbd variant="muted-high" size="sm">ctrl</BaseKbd>
-                  <BaseKbd variant="muted-high" size="sm">k</BaseKbd>
+                  <BaseKbd variant="default-high" size="sm">ctrl</BaseKbd>
+                  <BaseKbd variant="default-high" size="sm">k</BaseKbd>
                 </div>
               </template>
             </BaseDropdownItem>
           </BaseDropdown>
           
           <BaseDropdown
-            label="Scrollable"
+            label="Scrollable menu"
             contrast="default"
           >
             <BaseDropdownLabel>Label</BaseDropdownLabel>  
@@ -264,11 +289,11 @@ const selection = ref('first')
             <template #button>
               <BaseButton
                 variant="primary"
-                size="icon-md"
+                size="icon-sm"
                 rounded="full"
                 class="group"
               >
-                <Icon name="ph:plus" class="block h-5 w-5 transition-transform group-data-[state=open]:rotate-45" />
+                <Icon name="ph:plus" class="block text-base transition-transform group-data-[state=open]:rotate-45" />
               </BaseButton>
             </template>
 
@@ -303,8 +328,8 @@ const selection = ref('first')
         title="Content: align"
         description="Dropdown button start position"
       >
-        <div class="flex justify-start gap-8 w-full">
-          <BaseDropdown label="Start" :bindings="{
+        <div class="flex justify-start gap-4 w-full">
+          <BaseDropdown label="Start align" :bindings="{
             content: {
               align: 'start',
             }
@@ -315,7 +340,7 @@ const selection = ref('first')
             <BaseDropdownItem>Settings</BaseDropdownItem> 
             <BaseDropdownArrow />
           </BaseDropdown>
-          <BaseDropdown label="Center" :bindings="{
+          <BaseDropdown label="Center align" :bindings="{
             content: {
               align: 'center',
             }
@@ -326,7 +351,7 @@ const selection = ref('first')
             <BaseDropdownItem>Settings</BaseDropdownItem> 
             <BaseDropdownArrow />
           </BaseDropdown>
-          <BaseDropdown label="End" :bindings="{
+          <BaseDropdown label="End align" :bindings="{
             content: {
               align: 'end',
             }
@@ -345,7 +370,7 @@ const selection = ref('first')
         title="Content: side"
         description="Dropdown button start position"
       >
-        <div class="flex justify-start gap-8 w-full">
+        <div class="flex justify-start gap-4 w-full">
           <BaseDropdown :bindings="{
             content: {
               side: 'top',
@@ -357,8 +382,8 @@ const selection = ref('first')
                 size="icon-md"
                 class="group"
               >
-                <Icon name="lucide:arrow-up" class="size-4 block mx-auto transition-transform group-data-[state=open]:hidden" />
-                <Icon name="lucide:x" class="size-4 hidden mx-auto transition-transform group-data-[state=open]:block" />
+                <Icon name="lucide:arrow-up" class="text-base block mx-auto transition-transform group-data-[state=open]:hidden" />
+                <Icon name="lucide:x" class="text-base hidden mx-auto transition-transform group-data-[state=open]:block" />
               </BaseButton>
             </template>
 
@@ -378,8 +403,8 @@ const selection = ref('first')
                 size="icon-md"
                 class="group"
               >
-                <Icon name="lucide:arrow-right" class="size-4 block mx-auto transition-transform group-data-[state=open]:hidden" />
-                <Icon name="lucide:x" class="size-4 hidden mx-auto transition-transform group-data-[state=open]:block" />
+                <Icon name="lucide:arrow-right" class="text-base block mx-auto transition-transform group-data-[state=open]:hidden" />
+                <Icon name="lucide:x" class="text-base hidden mx-auto transition-transform group-data-[state=open]:block" />
               </BaseButton>
             </template>
             <BaseDropdownItem>Profile</BaseDropdownItem> 
@@ -398,8 +423,8 @@ const selection = ref('first')
                 size="icon-md"
                 class="group"
               >
-                <Icon name="lucide:arrow-down" class="size-4 block mx-auto transition-transform group-data-[state=open]:hidden" />
-                <Icon name="lucide:x" class="size-4 hidden mx-auto transition-transform group-data-[state=open]:block" />
+                <Icon name="lucide:arrow-down" class="text-base block mx-auto transition-transform group-data-[state=open]:hidden" />
+                <Icon name="lucide:x" class="text-base hidden mx-auto transition-transform group-data-[state=open]:block" />
               </BaseButton>
             </template>
             <BaseDropdownItem>Profile</BaseDropdownItem> 
@@ -418,8 +443,8 @@ const selection = ref('first')
                 size="icon-md"
                 class="group"
               >
-                <Icon name="lucide:arrow-left" class="size-4 block mx-auto transition-transform group-data-[state=open]:hidden" />
-                <Icon name="lucide:x" class="size-4 hidden mx-auto transition-transform group-data-[state=open]:block" />
+                <Icon name="lucide:arrow-left" class="text-base block mx-auto transition-transform group-data-[state=open]:hidden" />
+                <Icon name="lucide:x" class="text-base hidden mx-auto transition-transform group-data-[state=open]:block" />
               </BaseButton>
             </template>
             <BaseDropdownItem>Profile</BaseDropdownItem> 
@@ -432,14 +457,14 @@ const selection = ref('first')
       </NuiPreview>
 
       <NuiPreview title="Slot: icon" description="Dropdown icon slot">
-        <div class="flex justify-start gap-6 w-full">
-          <BaseDropdown label="Dropdown">
+        <div class="flex justify-start gap-4 w-full">
+          <BaseDropdown label="Dropdown" rounded="md" :classes="{ menu: 'w-72' }">
             <BaseDropdownItem
               title="Profile"
               text="View your profile"
             >
               <template #start>
-                <Icon name="ph:user-duotone" class="me-2 block h-5 w-5" />
+                <Icon name="solar:user-rounded-linear" class="me-2 block text-[1.15rem]" />
               </template>
             </BaseDropdownItem>
             <BaseDropdownItem
@@ -447,7 +472,7 @@ const selection = ref('first')
               text="View your projects"
             >
               <template #start>
-                <Icon name="ph:briefcase-duotone" class="me-2 block h-5 w-5" />
+                <Icon name="solar:case-linear" class="me-2 block text-[1.15rem]" />
               </template>
             </BaseDropdownItem>
             <BaseDropdownItem
@@ -455,7 +480,7 @@ const selection = ref('first')
               text="Manage your team"
             >
               <template #start>
-                <Icon name="ph:users-four-duotone" class="me-2 block h-5 w-5" />
+                <Icon name="solar:widget-3-linear" class="me-2 block text-[1.15rem]" />
               </template>
             </BaseDropdownItem>
             <BaseDropdownSeparator />
@@ -464,55 +489,7 @@ const selection = ref('first')
               text="Set your preferences"
             >
               <template #start>
-                <Icon name="ph:gear-six-duotone" class="me-2 block h-5 w-5" />
-              </template>
-            </BaseDropdownItem>
-          </BaseDropdown>
-
-          <BaseDropdown label="Dropdown">
-            <BaseDropdownItem
-              title="Profile"
-              text="View your profile"
-              contrast="default"
-              color="dark"
-              rounded="sm"
-            >
-              <template #start>
-                <Icon name="ph:user-duotone" class="me-2 block h-5 w-5" />
-              </template>
-            </BaseDropdownItem>
-            <BaseDropdownItem
-              title="Projects"
-              text="View your projects"
-              contrast="default"
-              color="dark"
-              rounded="sm"
-            >
-              <template #start>
-                <Icon name="ph:briefcase-duotone" class="me-2 block h-5 w-5" />
-              </template>
-            </BaseDropdownItem>
-            <BaseDropdownItem
-              title="Team"
-              text="Manage your team"
-              contrast="default"
-              color="dark"
-              rounded="sm"
-            >
-              <template #start>
-                <Icon name="ph:users-four-duotone" class="me-2 block h-5 w-5" />
-              </template>
-            </BaseDropdownItem>
-            <BaseDropdownSeparator />
-            <BaseDropdownItem
-              title="Settings"
-              text="Set your preferences"
-              contrast="default"
-              color="dark"
-              rounded="sm"
-            >
-              <template #start>
-                <Icon name="ph:gear-six-duotone" class="me-2 block h-5 w-5" />
+                <Icon name="solar:settings-linear" class="me-2 block text-[1.15rem]" />
               </template>
             </BaseDropdownItem>
           </BaseDropdown>
@@ -521,66 +498,7 @@ const selection = ref('first')
 
       <NuiPreview title="Slot: avatar" description="Dropdown avatar slot">
         <div class="flex justify-start w-full">
-          <BaseDropdown label="Dropdown">
-            <BaseDropdownItem
-              title="Lana Jensen"
-              text="Software Engineer"
-            >
-              <template #start>
-                <BaseAvatar
-                  src="https://tairo.cssninja.io/img/avatars/4.svg"
-                  size="xs"
-                />
-              </template>
-            </BaseDropdownItem>
-
-            <BaseDropdownItem
-              title="Shawn Miller"
-              text="Product Manager"
-            >
-              <template #start>
-                <BaseAvatar
-                  src="https://tairo.cssninja.io/img/avatars/3.svg"
-                  size="xs"
-                />
-              </template>
-            </BaseDropdownItem>
-
-            <BaseDropdownItem
-              title="John Marynski"
-              text="Sales Manager"
-            >
-              <template #start>
-                <BaseAvatar
-                  src="https://tairo.cssninja.io/img/avatars/18.svg"
-                  size="xs"
-                />
-              </template>
-            </BaseDropdownItem>
-
-            <BaseDropdownSeparator />
-
-            <BaseDropdownItem
-              title="Garry Porter"
-              text="CEO - Founder"
-            >
-              <template #start>
-                <BaseAvatar
-                  src="https://tairo.cssninja.io/img/avatars/6.svg"
-                  size="xs"
-                />
-              </template>
-            </BaseDropdownItem>
-          </BaseDropdown>
-        </div>
-      </NuiPreview>
-
-      <NuiPreview title="Menu header" description="Dropdown menu header">
-        <div class="flex justify-start w-full">
-          <BaseDropdown
-            label="Dropdown"
-            header-label="My Team"
-          >
+          <BaseDropdown label="Dropdown" rounded="md" :classes="{ menu: 'w-72' }">
             <BaseDropdownItem
               title="Lana Jensen"
               text="Software Engineer"

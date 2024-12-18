@@ -161,36 +161,24 @@ export default defineAppConfig({
       /**
        * The color of the dropdown.
        *
-       * @type {'default' | 'default-contrast' | 'muted' | 'muted-contrast' | 'none'}
+       * @type {'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'primary-low' | 'primary-high' | 'none'}
        */
-      color: 'default',
+      variant: 'default-high',
       /**
        * Default rounded for the BaseDropdown component
        *
        * @type {'none' | 'sm' | 'md' | 'lg' | 'full'}
        */
       rounded: 'sm',
-      /**
-       * Default size for the BaseDropdown component menu
-       *
-       * @type {'md' | 'lg'}
-       */
-      size: 'md',
     },
     BaseDropdownSeparator: {},
     BaseDropdownItem: {
       /**
        * The hover color of the dropdown item inner elements.
        *
-       * @type {'primary' | 'info' | 'success' | 'warning' | 'danger' | 'dark' | 'black'}
+       * @type {'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'primary-low' | 'primary-high' | 'none'}
        */
-      color: 'primary',
-      /**
-       * The contrast of the dropdown item.
-       *
-       * @type {'default' | 'contrast'}
-       */
-      contrast: 'default',
+      variant: 'default-high',
       /**
        * The radius of the dropdown item.
        *
@@ -256,7 +244,7 @@ export default defineAppConfig({
        *
        * @type {'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'custom'}
        */
-      variant: 'default',
+      variant: 'default-high',
       /**
        * The size of the kbd.
        *

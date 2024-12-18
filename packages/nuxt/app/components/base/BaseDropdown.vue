@@ -22,11 +22,11 @@ export interface BaseDropdownProps extends DropdownMenuRootProps {
   disabled?: boolean
 
   /**
-   * The color of the dropdown.buttonSize
+   * The variant of the dropdown.buttonSize
    *
-   * @default 'default'
+   * @default 'default-low'
    */
-  color?: 'default' | 'default-contrast' | 'muted' | 'muted-contrast' | 'none'
+  variant?: 'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'primary-low' | 'primary-high' | 'none'
 
   /**
    * The radius of the dropdown button.
@@ -34,13 +34,6 @@ export interface BaseDropdownProps extends DropdownMenuRootProps {
    * @default 'sm'
    */
   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
-
-  /**
-   * The size of the dropdown.
-   *
-   * @default 'md'
-   */
-  size?: 'md' | 'lg'
 
   /**
    * Optional CSS classes to apply to the component inner elements.
@@ -84,9 +77,8 @@ export interface BaseDropdownProps extends DropdownMenuRootProps {
 export interface BaseDropdownEmits extends DropdownMenuRootEmits {}
 
 export interface BaseDropdownContext {
-  color: ComputedRef<NonNullable<BaseDropdownProps['color']>>
+  variant: ComputedRef<NonNullable<BaseDropdownProps['variant']>>
   rounded: ComputedRef<NonNullable<BaseDropdownProps['rounded']>>
-  size: ComputedRef<NonNullable<BaseDropdownProps['size']>>
 }
 export type BaseDropdownSlots = {
   default(): any
@@ -94,29 +86,21 @@ export type BaseDropdownSlots = {
   label(): any
 }
 
-export const sizes = {
-  md: 'nui-dropdown-menu-md',
-  lg: 'nui-dropdown-menu-lg',
-} as const
-
 export const radiuses = {
   none: '',
-  sm: 'nui-dropdown-menu-rounded-sm',
-  md: 'nui-dropdown-menu-rounded-md',
-  lg: 'nui-dropdown-menu-rounded-lg',
-  full: 'nui-dropdown-menu-rounded-lg',
+  sm: 'rounded-sm',
+  md: 'rounded-md',
+  lg: 'rounded-lg',
+  full: 'rounded-lg',
 } as const
 
-export const colors = {
-  'default': 'nui-dropdown-menu-default',
-  'default-contrast': 'nui-dropdown-menu-default-contrast',
-  'muted': 'nui-dropdown-menu-muted',
-  'muted-contrast': 'nui-dropdown-menu-muted-contrast',
-  'primary': 'nui-dropdown-menu-primary',
-  'info': 'nui-dropdown-menu-info',
-  'success': 'nui-dropdown-menu-success',
-  'warning': 'nui-dropdown-menu-warning',
-  'danger': 'nui-dropdown-menu-danger',
+export const variants = {
+  'default-low': 'border border-muted-200 dark:border-muted-700 bg-white dark:bg-muted-800',
+  'default-high': 'border border-muted-200 dark:border-muted-800 bg-white dark:bg-muted-950',
+  'muted-low': 'border border-muted-200 dark:border-muted-700 bg-muted-50 dark:bg-muted-800',
+  'muted-high': 'border border-muted-200 dark:border-muted-800 bg-muted-50 dark:bg-muted-950',
+  'primary-low': 'border border-muted-200 dark:border-muted-700 bg-white dark:bg-muted-800',
+  'primary-high': 'border border-muted-200 dark:border-muted-800 bg-white dark:bg-muted-950',
   'none': '',
 } as const
 
@@ -135,9 +119,8 @@ defineOptions({
 })
 
 const props = withDefaults(defineProps<BaseDropdownProps>(), {
-  color: undefined,
+  variant: undefined,
   rounded: undefined,
-  size: undefined,
   label: '',
   modal: undefined,
   open: undefined,
@@ -150,24 +133,22 @@ const slots = defineSlots<BaseDropdownSlots>()
 
 const attrs = useAttrs()
 
-const color = useNuiDefaultProperty(props, 'BaseDropdown', 'color')
+const variant = useNuiDefaultProperty(props, 'BaseDropdown', 'variant')
 const rounded = useNuiDefaultProperty(props, 'BaseDropdown', 'rounded')
-const size = useNuiDefaultProperty(props, 'BaseDropdown', 'size')
 const iconChevronDown = useNuiDefaultIcon('chevronDown')
-const forward = useForwardPropsEmits(reactiveOmit(props, ['label', 'disabled', 'color', 'rounded', 'size', 'classes', 'bindings']), emits)
+const forward = useForwardPropsEmits(reactiveOmit(props, ['label', 'disabled', 'variant', 'rounded', 'classes', 'bindings']), emits)
 
 provideBaseDropdownContext({
-  color,
+  variant,
   rounded,
-  size,
 })
 </script>
 
 <template>
   <DropdownMenuRoot v-bind="forward">
-    <div class="nui-dropdown" v-bind="attrs" :class="props.classes?.wrapper">
+    <div class="text-start" v-bind="attrs" :class="props.classes?.wrapper">
       <div
-        class="nui-dropdown-menu-wrapper"
+        class="relative inline-block text-start"
         :class="props.classes?.menuWrapper"
       >
         <DropdownMenuTrigger 
@@ -181,6 +162,7 @@ provideBaseDropdownContext({
             <BaseButton
               :rounded="props.rounded ? props.rounded : rounded"
               :disabled="props.disabled"
+              :variant="variant.includes('low') ? 'default-low' : 'default-high'"
               class="group"
             >
               <slot name="label">
@@ -188,7 +170,7 @@ provideBaseDropdownContext({
               </slot>
               <Icon
                 :name="iconChevronDown"
-                class="nui-dropdown-chevron group-data-[state=open]:rotate-180"
+                class="text-base transition-transform duration-300 group-data-[state=open]:rotate-180"
               />
             </BaseButton>
           </slot>
@@ -203,19 +185,18 @@ provideBaseDropdownContext({
             leave-to-class="opacity-0"
           >
             <DropdownMenuContent
-              class="nui-dropdown-menu"
+              class="min-w-52 focus:outline-none shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20"
               v-bind="{
                 align: 'start',
                 ...(props.bindings?.content || {}),
               }"
               :class="[
-                size && sizes[size],
                 rounded && radiuses[rounded],
-                color && colors[color],
+                variant && variants[variant],
                 props.classes?.menu,
               ]"
             >
-              <div class="nui-dropdown-menu-content max-h-[var(--reka-popper-available-height)] overflow-y-scroll nui-slimscroll" :class="props.classes?.content">
+              <div class="p-2 space-y-1 max-h-[calc(var(--reka-popper-available-height)_-_2rem)] overflow-y-auto nui-slimscroll" :class="props.classes?.content">
                 <slot />
 
               </div>
