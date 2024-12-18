@@ -263,59 +263,59 @@ definePageMeta({
         description="Avatar component indicators"
       >
         <div class="flex flex-wrap items-end gap-4">
-          <BaseChip size="xs" placement="top-end" :offset="1" color="red">
+          <BaseChip size="xs" placement="top-end" :offset="2.5" color="red">
             <BaseAvatar
               src="https://tairo.cssninja.io/img/avatars/20.svg"
               size="xxs"
               rounded="full"
             />
           </BaseChip>
-          <BaseChip size="xs" placement="top-end" :offset="1.5" color="green">
+          <BaseChip size="xs" placement="top-end" :offset="3" color="green">
             <BaseAvatar
               src="https://tairo.cssninja.io/img/avatars/1.svg"
               size="xs"
               rounded="full"
             />
           </BaseChip>
-          <BaseChip size="sm" placement="top-end" :offset="2" color="yellow">
+          <BaseChip size="sm" placement="top-end" :offset="4" color="yellow">
             <BaseAvatar src="https://tairo.cssninja.io/img/avatars/5.svg" />
           </BaseChip>
-          <BaseChip size="sm" placement="top-end" :offset="3" color="primary">
+          <BaseChip size="sm" placement="top-end" :offset="5" color="primary">
             <BaseAvatar
               src="https://tairo.cssninja.io/img/avatars/4.svg"
               size="md"
               rounded="full"
             />
           </BaseChip>
-          <BaseChip size="md" placement="top-end" :offset="5" color="red">
+          <BaseChip size="md" placement="top-end" :offset="7" color="red">
             <BaseAvatar
               src="https://tairo.cssninja.io/img/avatars/3.svg"
               size="lg"
               rounded="full"
             />
           </BaseChip>
-          <BaseChip size="md" placement="top-end" :offset="7" color="pink">
+          <BaseChip size="md" placement="top-end" :offset="9" color="pink">
             <BaseAvatar
               src="https://tairo.cssninja.io/img/avatars/8.svg"
               size="xl"
               rounded="full"
             />
           </BaseChip>
-          <BaseChip size="lg" placement="top-end" :offset="8" color="yellow">
+          <BaseChip size="lg" placement="top-end" :offset="10" color="yellow">
             <BaseAvatar
               src="https://tairo.cssninja.io/img/avatars/16.svg"
               size="2xl"
               rounded="full"
             />
           </BaseChip>
-          <BaseChip size="lg" placement="top-end" :offset="10" color="green">
+          <BaseChip size="lg" placement="top-end" :offset="12" color="green">
             <BaseAvatar
               src="https://tairo.cssninja.io/img/avatars/2.svg"
               size="3xl"
               rounded="full"
             />
           </BaseChip>
-          <BaseChip size="lg" placement="top-end" :offset="13" color="red">
+          <BaseChip size="lg" placement="top-end" :offset="15" color="red">
             <BaseAvatar
               src="https://tairo.cssninja.io/img/avatars/10.svg"
               size="4xl"

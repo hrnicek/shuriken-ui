@@ -30,7 +30,7 @@ const props = withDefaults(
      *
      * @default 'default-high'
      */
-     variant?: 'default-low' | 'default-high'
+    variant?: 'default-low' | 'default-high'
 
     /**
      * Defines the icon used for accordion item toggle action

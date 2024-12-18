@@ -268,22 +268,22 @@ const loading = ref(true)
 
       <NuiPreview title="Chip" description="Button component with chip component">
         <div class="flex flex-wrap items-end gap-4">
-          <BaseChip pulse>
+          <BaseChip :offset="-5" pulse>
             <BaseButton variant="default-low" size="sm" rounded="md">
               Button
             </BaseButton>
           </BaseChip>
-          <BaseChip pulse>
+          <BaseChip :offset="-5" pulse>
             <BaseButton variant="default-low" size="md" rounded="md">
               Button
             </BaseButton>
           </BaseChip>
-          <BaseChip pulse>
+          <BaseChip :offset="-5" pulse>
             <BaseButton variant="default-low" size="lg" rounded="md">
               Button
             </BaseButton>
           </BaseChip>
-          <BaseChip pulse>
+          <BaseChip :offset="-5" pulse>
             <BaseButton variant="default-low" size="xl" rounded="md">
               Button
             </BaseButton>
