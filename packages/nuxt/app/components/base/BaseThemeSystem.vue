@@ -47,7 +47,7 @@ const disableTransitions = useNuiDefaultProperty(
 const variant = useNuiDefaultProperty(props, 'BaseThemeSystem', 'variant')
 const iconSun = useNuiDefaultIcon('sun')
 const iconMoon = useNuiDefaultIcon('moon')
-const iconMonitor = useNuiDefaultIcon('monitor')
+const iconScreen = useNuiDefaultIcon('screen')
 
 const colorMode = useColorMode()
 const isTheme = computed({
@@ -87,17 +87,17 @@ const isTheme = computed({
 
   <div class="relative p-1 rounded-full max-w-[104px]" :class="trackVariants[variant]">
     <div class="relative flex">
-      <button class="relative z-10 h-8 w-8 flex items-center justify-center" role="option" @click="$colorMode.preference = 'system'">
+      <button class="relative z-10 size-8 flex items-center justify-center" role="option" @click="$colorMode.preference = 'system'">
         <span class="pointer-events-none">
-          <Icon class="text-lg" :name="iconMonitor" :class="$colorMode.preference === 'system' ? 'text-yellow-400' : 'text-muted-400 dark:text-muted-500'" />
+          <Icon class="text-lg" :name="iconScreen" :class="$colorMode.preference === 'system' ? 'text-primary-500' : 'text-muted-400 dark:text-muted-500'" />
         </span>
       </button>
-      <button class="relative z-10 h-8 w-8 flex items-center justify-center" role="option" @click="$colorMode.preference = 'light'">
+      <button class="relative z-10 size-8 flex items-center justify-center" role="option" @click="$colorMode.preference = 'light'">
         <span class="pointer-events-none">
           <Icon class="text-lg" :name="iconSun" :class="$colorMode.preference === 'light' ? 'text-yellow-400' : 'text-muted-400 dark:text-muted-500'" />
         </span>
       </button>
-      <button class="relative z-10 h-8 w-8 flex items-center justify-center" role="option" @click="$colorMode.preference = 'dark'">
+      <button class="relative z-10 size-8 flex items-center justify-center" role="option" @click="$colorMode.preference = 'dark'">
         <span class="pointer-events-none">
           <Icon class="text-lg" :name="iconMoon" :class="$colorMode.preference === 'dark' ? 'text-yellow-400' : 'text-muted-400 dark:text-muted-500'" />
         </span>
@@ -108,7 +108,7 @@ const isTheme = computed({
           $colorMode.preference === 'system' && 'ml-0',
           $colorMode.preference === 'light' && 'ml-[33.3%]',
           $colorMode.preference === 'dark' && 'ml-[66.6%]',
-          variants[variant],
+          variant && variants[variant],
         ]"
       >
       </div>
