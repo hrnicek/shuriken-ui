@@ -493,6 +493,53 @@ const selection = ref('first')
               </template>
             </BaseDropdownItem>
           </BaseDropdown>
+          <BaseDropdown label="Dropdown" rounded="md" :classes="{ menu: 'w-72' }">
+            <div class="flex justify-center p-4 mb-3 rounded-lg bg-muted-100 dark:bg-muted-900/80">
+              <div class="text-center">
+                <BaseChip size="md" placement="top-end" :offset="7" color="red">
+                  <BaseAvatar
+                    src="https://tairo.cssninja.io/img/avatars/3.svg"
+                    size="lg"
+                    rounded="full"
+                  />
+                </BaseChip>
+                <BaseHeading as="p" size="sm" weight="medium" class="text-muted-900 dark:text-white mt-1">Hi, Michael</BaseHeading>
+              </div>
+            </div>
+            <BaseDropdownItem
+              title="Profile"
+              text="View your profile"
+            >
+              <template #start>
+                <Icon name="solar:user-rounded-linear" class="me-2 block text-[1.15rem]" />
+              </template>
+            </BaseDropdownItem>
+            <BaseDropdownItem
+              title="Projects"
+              text="View your projects"
+            >
+              <template #start>
+                <Icon name="solar:case-linear" class="me-2 block text-[1.15rem]" />
+              </template>
+            </BaseDropdownItem>
+            <BaseDropdownItem
+              title="Team"
+              text="Manage your team"
+            >
+              <template #start>
+                <Icon name="solar:widget-3-linear" class="me-2 block text-[1.15rem]" />
+              </template>
+            </BaseDropdownItem>
+            <BaseDropdownSeparator />
+            <BaseDropdownItem
+              title="Settings"
+              text="Set your preferences"
+            >
+              <template #start>
+                <Icon name="solar:settings-linear" class="me-2 block text-[1.15rem]" />
+              </template>
+            </BaseDropdownItem>
+          </BaseDropdown>
         </div>
       </NuiPreview>
 
