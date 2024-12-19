@@ -85,7 +85,7 @@ const radiuses = {
   md: 'rounded-md',
   lg: 'rounded-lg',
   full: 'rounded-full',
-}
+} as const
 
 const sizes = {
   xs: 'h-1',
@@ -93,7 +93,7 @@ const sizes = {
   md: 'h-3',
   lg: 'h-4',
   xl: 'h-5',
-}
+} as const
 
 const value = computed(() => {
   const { value, max } = props

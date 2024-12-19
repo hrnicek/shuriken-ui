@@ -95,7 +95,7 @@ const variants = {
   'dark-low': 'text-muted-900 dark:text-muted-100',
   'dark-high': 'text-muted-900 dark:text-muted-100',
   'none': '',
-}
+} as const
 
 const trackVariants = {
   'primary-low': 'text-muted-200 dark:text-muted-700',
@@ -103,7 +103,7 @@ const trackVariants = {
   'dark-low': 'text-muted-200 dark:text-muted-700',
   'dark-high': 'text-muted-200 dark:text-muted-900',
   'none': '',
-}
+} as const
 </script>
 
 <template>
