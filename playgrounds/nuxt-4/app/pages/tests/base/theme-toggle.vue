@@ -23,13 +23,24 @@ definePageMeta({
 
       <NuiPreview
         title="Switch"
-        description="Theme toggle component variants"
+        description="Theme switch component variants"
       >
         <div class="flex items-center gap-10">
           <BaseThemeSwitch variant="default-low" />
           <BaseThemeSwitch variant="default-high" />
         </div>
       </NuiPreview>
+
+      <NuiPreview
+        title="System"
+        description="Theme system component variants"
+      >
+        <div class="flex items-center gap-10">
+          <BaseThemeSystem variant="default-low" />
+          <BaseThemeSystem variant="default-high" />
+        </div>
+      </NuiPreview>
+
       <NuiPreview
         title="Disable transitions"
         description="Disable transition when toggling between light and dark mode"

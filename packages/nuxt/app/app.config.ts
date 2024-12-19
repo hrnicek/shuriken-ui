@@ -3,6 +3,7 @@ export default defineAppConfig({
     icons: {
       sun: 'nui-icon:sun',
       moon: 'nui-icon:moon',
+      monitor: 'nui-icon:monitor',
       spiner: 'nui-icon:spiner',
       required: 'lucide:asterisk',
       alert: 'lucide:triangle-alert',
@@ -531,6 +532,20 @@ export default defineAppConfig({
       variant: 'default-low',
     },
     BaseThemeToggle: {
+      /**
+       * Disables transitions when toggling between light and dark mode.
+       *
+       * @type {boolean}
+       */
+      disableTransitions: false,
+      /**
+       * The variant of the toggle.
+       *
+       * @type {'default-low' | 'default-high'}
+       */
+      variant: 'default-low',
+    },
+    BaseThemeSystem: {
       /**
        * Disables transitions when toggling between light and dark mode.
        *
