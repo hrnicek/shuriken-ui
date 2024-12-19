@@ -18,7 +18,7 @@ export default defineComponent({
   },
   setup(props, { slots }) {
     return () => {
-      const ordered = props.ordered ? 'nui-list-ol' : 'nui-list-ul'
+      const ordered = props.ordered ? 'list-decimal' : 'list-disc'
       const children = slots.default?.()
       const hasMedia
         = props.media
@@ -30,9 +30,9 @@ export default defineComponent({
         props.ordered ? 'ol' : 'ul',
         {
           class: [
-            'nui-list',
-            hasMedia && 'nui-list-media',
-            !hasMedia && `nui-list-base ${ordered}`,
+            'relative',
+            hasMedia && 'space-y-4 marker:text-muted-700 dark:marker:text-muted-400',
+            !hasMedia && `space-y-2 font-sans text-sm marker:text-muted-700 dark:marker:text-muted-400 ${ordered}`,
           ],
         },
         children,

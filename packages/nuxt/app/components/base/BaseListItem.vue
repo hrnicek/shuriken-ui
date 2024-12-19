@@ -20,30 +20,26 @@ const hasSubtitle = computed(() => {
 </script>
 
 <template>
-  <li class="nui-list-item">
+  <li class="flex gap-2">
     <slot />
 
     <div v-if="hasTitle || hasSubtitle">
-      <BaseHeading
+      <h6
         v-if="hasTitle"
-        as="h6"
-        weight="medium"
-        size="md"
-        lead="tight"
+        class="font-sans font-medium text-sm leading-snug"
       >
         <slot name="title">
           {{ props.title }}
         </slot>
-      </BaseHeading>
-      <BaseParagraph
+      </h6>
+      <p
         v-if="hasSubtitle"
-        size="xs"
-        class="text-muted-500 dark:text-muted-400"
+        class="font-sans text-xs text-muted-500 dark:text-muted-400"
       >
         <slot name="subtitle">
           {{ props.subtitle }}
         </slot>
-      </BaseParagraph>
+      </p>
     </div>
 
     <div v-if="'end' in $slots" class="ms-auto">
