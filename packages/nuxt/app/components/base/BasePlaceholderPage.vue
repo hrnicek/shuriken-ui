@@ -67,40 +67,37 @@ const imageSize = useNuiDefaultProperty(
 )
 
 const sizes = {
-  xs: 'nui-placeholder-xs',
-  sm: 'nui-placeholder-sm',
-  md: 'nui-placeholder-md',
-  lg: 'nui-placeholder-lg',
-  xl: 'nui-placeholder-xl',
-}
+  xs: 'max-w-xs',
+  sm: 'max-w-sm',
+  md: 'max-w-md',
+  lg: 'max-w-lg',
+  xl: 'max-w-xl',
+} as const
 </script>
 
 <template>
   <div
-    class="nui-placeholder-page"
+    class="flex mx-auto min-h-[400px] items-center justify-center"
     :class="[imageSize && sizes[imageSize], props.classes?.wrapper]"
   >
-    <div class="nui-placeholder-page-inner" :class="props.classes?.inner">
+    <div class="mx-auto w-full text-center" :class="props.classes?.inner">
       <div
         v-if="'image' in $slots"
-        class="nui-placeholder-page-img"
+        class="mx-auto block"
         :class="props.classes?.img"
       >
         <slot name="image" />
       </div>
-      <div class="nui-placeholder-page-content" :class="props.classes?.content">
-        <BaseHeading
-          as="h4"
-          weight="medium"
-          size="xl"
-          class="nui-placeholder-page-title"
+      <div class="mx-auto max-w-sm" :class="props.classes?.content">
+        <h4
+          class="font-heading font-medium text-lg text-muted-900 dark:text-white mb-1 mt-4"
           :class="props.classes?.title"
         >
           {{ props.title }}
-        </BaseHeading>
+        </h4>
         <p
           v-if="props.subtitle"
-          class="nui-placeholder-page-subtitle"
+          class="text-sm text-muted-600 dark:text-muted-400 mb-4"
           :class="props.classes?.subtitle"
         >
           {{ props.subtitle }}
