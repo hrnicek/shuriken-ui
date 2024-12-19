@@ -376,17 +376,11 @@ export default defineAppConfig({
     BasePlaceload: {},
     BaseProgress: {
       /**
-       * The color of the progress.
+       * The variant of the progress.
        *
-       * @type {'primary' | 'info' | 'success' | 'warning' | 'danger' | 'light' | 'dark' | 'black'}
+       * @type {'primary-low' | 'primary-high' | 'dark-low' | 'dark-high' | 'none'}
        */
-      color: 'primary',
-      /**
-       * The grey shade of the progress.
-       *
-       * @type {'default' | 'contrast'}
-       */
-      contrast: 'default',
+      variant: 'primary-high',
       /**
        * The radius of the progress.
        *
@@ -402,11 +396,11 @@ export default defineAppConfig({
     },
     BaseProgressCircle: {
       /**
-       * The color of the progress circle.
+       * The variant of the progress circle.
        *
-       * @type {'primary' | 'info' | 'success' | 'warning' | 'danger' | 'light' | 'dark' | 'black'}
+       * @type {'primary-low' | 'primary-high' | 'dark-low' | 'dark-high' | 'none'}
        */
-      color: 'primary',
+      variant: 'primary-high',
     },
     BaseProse: {
       /**

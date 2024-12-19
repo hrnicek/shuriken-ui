@@ -27,20 +27,11 @@ const props = withDefaults(
     animation?: boolean | number
 
     /**
-     * Defines the color of the progress circle
+     * Defines the variant of the progress circle
      *
-     * @since 3.0.0
      * @default 'primary'
      */
-    color?:
-      | 'primary'
-      | 'info'
-      | 'success'
-      | 'warning'
-      | 'danger'
-      | 'light'
-      | 'dark'
-      | 'black'
+    variant?: 'primary-low' | 'primary-high' | 'dark-low' | 'dark-high' | 'none'
 
     /**
      * Optional CSS classes to apply to the component inner elements.
@@ -68,12 +59,12 @@ const props = withDefaults(
     size: 60,
     thickness: 4,
     animation: 2,
-    color: undefined,
+    variant: undefined,
     classes: () => ({}),
   },
 )
 
-const color = useNuiDefaultProperty(props, 'BaseProgressCircle', 'color')
+const variant = useNuiDefaultProperty(props, 'BaseProgressCircle', 'variant')
 
 const percent = computed(() => {
   const { value, max } = props
@@ -98,15 +89,20 @@ const duration = computed(() => {
   return ratio ? `${Math.round(maxDuration * ratio * 10) / 10}s` : '0s'
 })
 
-const colors = {
-  light: 'text-muted-500 dark:text-muted-400',
-  dark: 'text-muted-900 dark:text-muted-100',
-  black: 'text-black dark:text-white',
-  primary: 'text-primary-500',
-  info: 'text-info-500',
-  success: 'text-success-500',
-  warning: 'text-warning-500',
-  danger: 'text-danger-500',
+const variants = {
+  'primary-low': 'text-primary-500',
+  'primary-high': 'text-primary-500',
+  'dark-low': 'text-muted-900 dark:text-muted-100',
+  'dark-high': 'text-muted-900 dark:text-muted-100',
+  'none': '',
+}
+
+const trackVariants = {
+  'primary-low': 'text-muted-200 dark:text-muted-700',
+  'primary-high': 'text-muted-200 dark:text-muted-900',
+  'dark-low': 'text-muted-200 dark:text-muted-700',
+  'dark-high': 'text-muted-200 dark:text-muted-900',
+  'none': '',
 }
 </script>
 
@@ -122,8 +118,11 @@ const colors = {
     :height="props.size"
   >
     <circle
-      class="text-muted-200 dark:text-muted-700 stroke-current"
-      :class="props.classes?.track"
+      class="stroke-current"
+      :class="[
+        props.classes?.track,
+        variant && trackVariants[variant],
+      ]"
       :stroke-width="props.thickness"
       fill="none"
       cx="50%"
@@ -133,7 +132,7 @@ const colors = {
     <circle
       class="stroke-current"
       :class="[
-        color && colors[color],
+        variant && variants[variant],
         props.classes?.progress,
         props.animation !== false && 'circle-value transition-all duration-500',
       ]"

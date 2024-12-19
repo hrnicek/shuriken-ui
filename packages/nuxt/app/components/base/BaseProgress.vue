@@ -13,26 +13,11 @@ const props = withDefaults(
     max?: number
 
     /**
-     * The color of the progress bar.
+     * The variant of the progress bar.
      *
      * @default 'primary'
      */
-    color?:
-      | 'primary'
-      | 'info'
-      | 'success'
-      | 'warning'
-      | 'danger'
-      | 'light'
-      | 'dark'
-      | 'black'
-
-    /**
-     * The contrast ot the progress bar.
-     *
-     * @default 'default'
-     */
-    contrast?: 'default' | 'contrast'
+    variant?: 'primary-low' | 'primary-high' | 'dark-low' | 'dark-high' | 'none'
 
     /**
      * The radius of the progress bar.
@@ -66,8 +51,7 @@ const props = withDefaults(
   }>(),
   {
     size: undefined,
-    contrast: undefined,
-    color: undefined,
+    variant: undefined,
     rounded: undefined,
     value: undefined,
     max: 100,
@@ -75,41 +59,40 @@ const props = withDefaults(
   },
 )
 
-const color = useNuiDefaultProperty(props, 'BaseProgress', 'color')
-const contrast = useNuiDefaultProperty(props, 'BaseProgress', 'contrast')
+const variant = useNuiDefaultProperty(props, 'BaseProgress', 'variant')
 const rounded = useNuiDefaultProperty(props, 'BaseProgress', 'rounded')
 const size = useNuiDefaultProperty(props, 'BaseProgress', 'size')
 
-const colors = {
-  primary: 'nui-progress-primary',
-  info: 'nui-progress-info',
-  success: 'nui-progress-success',
-  warning: 'nui-progress-warning',
-  danger: 'nui-progress-danger',
-  light: 'nui-progress-light',
-  dark: 'nui-progress-dark',
-  black: 'nui-progress-black',
+const variants = {
+  'primary-low': 'bg-primary-500',
+  'primary-high': 'bg-primary-500',
+  'dark-low': 'bg-muted-900 dark:bg-white',
+  'dark-high': 'bg-muted-900 dark:bg-white',
+  'none': '',
 }
 
-const contrasts = {
-  default: 'nui-progress-default',
-  contrast: 'nui-progress-contrast',
+const trackVariants = {
+  'primary-low': 'bg-muted-200 dark:bg-muted-700',
+  'primary-high': 'bg-muted-200 dark:bg-muted-900',
+  'dark-low': 'bg-muted-200 dark:bg-muted-700',
+  'dark-high': 'bg-muted-200 dark:bg-muted-900',
+  'none': '',
 }
 
 const radiuses = {
   none: '',
-  sm: 'nui-progress-rounded-sm',
-  md: 'nui-progress-rounded-md',
-  lg: 'nui-progress-rounded-lg',
-  full: 'nui-progress-rounded-full',
+  sm: 'rounded-sm',
+  md: 'rounded-md',
+  lg: 'rounded-lg',
+  full: 'rounded-full',
 }
 
 const sizes = {
-  xs: 'nui-progress-xs',
-  sm: 'nui-progress-sm',
-  md: 'nui-progress-md',
-  lg: 'nui-progress-lg',
-  xl: 'nui-progress-xl',
+  xs: 'h-1',
+  sm: 'h-2',
+  md: 'h-3',
+  lg: 'h-4',
+  xl: 'h-5',
 }
 
 const value = computed(() => {
@@ -129,21 +112,22 @@ const isIndeterminate = computed(() => typeof value.value !== 'number')
     role="progressbar"
     :aria-valuenow="value"
     :aria-valuemax="props.max"
-    class="nui-progress"
+    class="relative w-full overflow-hidden"
     :class="[
       size && sizes[size],
-      contrast && contrasts[contrast],
-      color && colors[color],
+      variant && trackVariants[variant],
       rounded && radiuses[rounded],
       props.classes?.wrapper,
     ]"
   >
     <div
-      class="nui-progress-bar"
+      class="absolute start-0 top-0 h-full transition-all duration-300"
       :class="[
         isIndeterminate
           && 'nui-progress-indeterminate animate-nui-progress-indeterminate',
         props.classes?.progress,
+        variant && variants[variant],
+        rounded && radiuses[rounded],
       ]"
       :style="!isIndeterminate ? `width: ${value}%` : 'width: 100%'"
     />
