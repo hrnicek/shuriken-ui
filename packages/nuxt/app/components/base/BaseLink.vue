@@ -32,7 +32,7 @@ const NuxtLink = defineNuxtLink({})
 </script>
 
 <template>
-  <component :is="NuxtLink" class="nui-link" v-bind="props as any">
+  <component :is="NuxtLink" class="underline-offset-4 hover:underline focus:underline hover:text-[var(--primary-bg-base)] dark:hover:text-[var(--primary-bg-base)] focus:text-[var(--primary-bg-base)] dark:focus:text-[var(--primary-bg-base)]" v-bind="props as any">
     <slot />
   </component>
 </template>
