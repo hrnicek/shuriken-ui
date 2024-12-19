@@ -4,6 +4,8 @@ export default defineAppConfig({
       sun: 'nui-icon:sun',
       moon: 'nui-icon:moon',
       spiner: 'nui-icon:spiner',
+      required: 'lucide:asterisk',
+      alert: 'lucide:triangle-alert',
       close: 'lucide:x',
       check: 'lucide:check',
       checkSquare: 'lucide:square-check',

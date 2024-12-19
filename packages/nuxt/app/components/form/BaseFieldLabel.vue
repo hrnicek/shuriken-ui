@@ -18,7 +18,12 @@ const { id, idLabel } = injectBaseFieldContext()
 </script>
 
 <template>
-  <Label v-bind="forward" :for="id" :id="idLabel">
+  <Label
+    v-bind="forward"
+    :for="id"
+    :id="idLabel"
+    class="font-sans leading-none text-muted-600 dark:text-muted-300"
+  >
     <slot />
   </Label>
 </template>

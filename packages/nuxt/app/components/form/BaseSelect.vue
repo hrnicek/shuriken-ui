@@ -154,10 +154,6 @@ export const contrasts = {
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardPropsEmits } from 'reka-ui'
 
-defineOptions({
-  inheritAttrs: false,
-})
-
 const props = withDefaults(defineProps<BaseSelectProps>(), {
   id: undefined,
   rounded: undefined,
@@ -191,75 +187,43 @@ const iconChevronUp = useNuiDefaultIcon('chevronUp')
 
 const forward = useForwardPropsEmits(reactiveOmit(props, [
   'id', 'label', 'labelFloat', 'icon', 
-  'placeholder', 'loading','disabled', 
+  'placeholder', 'loading',
   'colorFocus', 'error','contrast', 
   'rounded', 'size', 'classes', 'bindings'
 ]), emits)
 </script>
 
 <template>
-  <div
-    class="nui-select-wrapper"
-    :class="[
-      contrast && contrasts[contrast],
-      size && sizes[size],
-      rounded && radiuses[rounded],
-      props.error && !props.loading && 'nui-select-error',
-      props.loading && 'nui-select-loading',
-      props.labelFloat && 'nui-select-label-float',
-      props.icon && 'nui-select-has-icon',
-      props.colorFocus && 'nui-select-focus',
-      props.classes?.wrapper,
-    ]"
-  >
-    <Label
-      v-if="
-        ('label' in $slots && !props.labelFloat)
-          || (props.label && !props.labelFloat)
-      "
-      :for="id"
-      :class="props.classes?.label"
+  <SelectRoot :id v-bind="forward">
+    <SelectTrigger
+      class="nui-focus w-full flex min-w-[160px] items-center justify-between rounded-lg px-[15px] text-xs leading-none h-[35px] gap-[5px] bg-white dark:bg-muted-900 dark:border-muted-600 border  text-muted-500 data-[placeholder]:text-muted-300 dark:data-[placeholder]:text-muted-700 outline-none"
+      aria-label="Customise options"
+      v-bind="props.bindings?.trigger"
     >
-      <slot name="label">{{ props.label }}</slot>
-    </Label>
-    <SelectRoot :id v-bind="forward" :class="props.classes?.outer">
-      <SelectTrigger
-        class="nui-focus flex min-w-[160px] items-center justify-between rounded-lg px-[15px] text-xs leading-none h-[35px] gap-[5px] bg-white border  text-primary-500 data-[placeholder]:text-muted-500 outline-none"
-        aria-label="Customise options"
-        v-bind="props.bindings?.trigger"
+      <SelectValue :placeholder="props.placeholder" />
+      <Icon :name="iconChevronDown" class="size-4" />
+    </SelectTrigger>
+
+    <SelectPortal v-bind="props.bindings?.portal">
+      <SelectContent
+        class="min-w-[160px] bg-white rounded-lg border shadow-sm will-change-[opacity,transform] data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade z-[100]"
+        v-bind="{
+          sideOffset: 5,
+          ...(props.bindings?.content || {}),
+        }"
       >
-        <SelectValue :placeholder="props.placeholder" />
-        <Icon :name="iconChevronDown" class="size-4" />
-      </SelectTrigger>
+        <SelectScrollUpButton class="flex items-center justify-center h-[25px] bg-white text-violet11 cursor-default">
+          <Icon :name="iconChevronUp" />
+        </SelectScrollUpButton>
 
-      <SelectPortal v-bind="props.bindings?.portal">
-        <SelectContent
-          class="min-w-[160px] bg-white rounded-lg border shadow-sm will-change-[opacity,transform] data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade z-[100]"
-          v-bind="{
-            sideOffset: 5,
-            ...(props.bindings?.content || {}),
-          }"
-        >
-          <SelectScrollUpButton class="flex items-center justify-center h-[25px] bg-white text-violet11 cursor-default">
-            <Icon :name="iconChevronUp" />
-          </SelectScrollUpButton>
+        <SelectViewport v-bind="props.bindings?.viewport" class="p-[5px]">
+          <slot />
+        </SelectViewport> 
 
-          <SelectViewport v-bind="props.bindings?.viewport" class="p-[5px]">
-            <slot />
-          </SelectViewport> 
-
-          <SelectScrollDownButton class="flex items-center justify-center h-[25px] bg-white text-violet11 cursor-default">
-            <Icon :name="iconChevronDown" />
-          </SelectScrollDownButton>
-        </SelectContent>
-      </SelectPortal>
-      <BaseInputHelpText
-        v-if="props.error && typeof props.error === 'string'"
-        color="danger"
-        :class="props.classes?.error"
-      >
-        {{ props.error }}
-      </BaseInputHelpText>
-    </SelectRoot>
-  </div>
+        <SelectScrollDownButton class="flex items-center justify-center h-[25px] bg-white text-violet11 cursor-default">
+          <Icon :name="iconChevronDown" />
+        </SelectScrollDownButton>
+      </SelectContent>
+    </SelectPortal>
+  </SelectRoot>
 </template>

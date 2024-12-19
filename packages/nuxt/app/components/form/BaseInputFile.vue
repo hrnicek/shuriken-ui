@@ -131,6 +131,7 @@ const props = withDefaults(
 
 const [modelValue] = defineModel<FileList | null>()
 
+const attrs = useAttrs()
 const contrast = useNuiDefaultProperty(props, 'BaseInputFile', 'contrast')
 const rounded = useNuiDefaultProperty(props, 'BaseInputFile', 'rounded')
 const size = useNuiDefaultProperty(props, 'BaseInputFile', 'size')
@@ -240,13 +241,13 @@ defineExpose({
         </div>
 
         <div class="nui-input-file-regular-text">
-          {{ textValue }}
+          {{ textValue }} {{attrs}}
         </div>
         <input
           :id="id"
           ref="inputRef"
           type="file"
-          v-bind="$attrs"
+          v-bind="attrs"
           class="hidden"
           @change="
             (event: any) => (modelValue = (event.target as HTMLInputElement).files)

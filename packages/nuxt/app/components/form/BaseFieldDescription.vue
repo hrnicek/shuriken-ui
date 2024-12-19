@@ -21,7 +21,12 @@ const { id, idDescription, state } = injectBaseFieldContext()
 </script>
 
 <template>
-  <Label v-bind="forward" :for="id" :id="idDescription">
+  <Label
+    v-bind="forward"
+    :id="idDescription"
+    :for="id"
+    class="font-sans text-xs font-medium leading-tight text-muted-400 dark:text-muted-600"
+  >
     <slot />
   </Label>
 </template>

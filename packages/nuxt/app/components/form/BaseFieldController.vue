@@ -14,15 +14,19 @@ import { injectBaseFieldContext } from './BaseField.vue'
 const props = withDefaults(defineProps<BaseFieldController>(), {})
 const forward = useForwardProps(reactiveOmit(props, []))
 
-const { id, idLabel, idDescription, idError, state, required } = injectBaseFieldContext()
+const { id, required, disabled, name, state, idLabel, idDescription, idError } = injectBaseFieldContext()
 </script>
 
 <template>
   <Primitive
     v-bind="forward"
     :id
+    :name
+    :required
+    :disabled
+    :data-field-state="state"
     :aria-labelledby="idLabel"
-    :aria-describedby="state !== 'error' ? idDescription : undefined"
+    :aria-describedby="idDescription"
     :aria-required="required ? 'true' : undefined"
     :aria-invalid="state === 'error' ? 'true' : undefined"
     :aria-errormessage="state === 'error' ? idError : undefined"

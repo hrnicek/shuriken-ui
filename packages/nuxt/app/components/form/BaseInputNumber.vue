@@ -432,6 +432,7 @@ if (import.meta.dev) {
           <button
             type="button"
             aria-label="Decrement"
+            tabindex="-1"
             :disabled="props.disabled"
             @pointerdown="startDecrement"
             @pointerout="stopDecrement"
@@ -442,6 +443,7 @@ if (import.meta.dev) {
           <button
             type="button"
             aria-label="Increment"
+            tabindex="-1"
             :disabled="props.disabled"
             @pointerdown="startIncrement"
             @pointerout="stopIncrement"

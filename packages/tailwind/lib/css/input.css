@@ -83,8 +83,16 @@
     @apply !text-primary-500 dark:!text-primary-500;
   }
 
+  &[data-field-state=error] ~ .nui-input-icon,
   &:disabled ~ .nui-input-icon {
     @apply cursor-not-allowed opacity-75;
+  }
+
+  &[data-field-state=error] {
+    @apply !border-danger-500 dark:!border-danger-800 focus:outline-danger-300 focus:dark:outline-danger-600
+  }
+  &[data-field-state=success] {
+    @apply focus:outline-success-300 focus:dark:outline-success-600
   }
 }
 @utility nui-input-placeload-wrapper {
@@ -265,7 +273,7 @@
 }
 @utility nui-input-error {
   .nui-input {
-    @apply !border-danger-500 dark:!border-danger-500;
+    @apply !border-danger-500 dark:!border-danger-800 focus:outline-danger-300 focus:dark:outline-danger-600;
   }
 
   .nui-input-icon {

@@ -16,13 +16,15 @@ const props = withDefaults(defineProps<BaseFieldLoadingIndicator>(), {
 })
 const forward = useForwardProps(reactiveOmit(props, []))
 
+const iconRequired = useNuiDefaultIcon('required')
+
 const { required } = injectBaseFieldContext()
 </script>
 
 <template>
-  <Primitive v-if="required" v-bind="forward">
+  <Primitive v-if="required" v-bind="forward" class="select-none text-danger-300 dark:text-danger-600">
     <slot>
-      <span class="text-red-500">*</span>
+      <Icon :name="iconRequired" class="size-3 inline-block align-text-top" />
     </slot>
   </Primitive>
 </template>

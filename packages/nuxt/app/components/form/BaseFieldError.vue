@@ -21,7 +21,13 @@ const { id, idError, state } = injectBaseFieldContext()
 </script>
 
 <template>
-  <Label v-bind="forward" v-if="state === 'error'" :for="id" :id="idError">
+  <Label
+    v-if="state === 'error'"
+    v-bind="forward"
+    :id="idError"
+    :for="id"
+    class="font-sans text-xs font-medium leading-none text-danger-400 dark:text-danger-800"
+  >
     <slot />
   </Label>
 </template>

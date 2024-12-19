@@ -1,7 +1,7 @@
 <script lang="ts">
 import type { PrimitiveProps } from 'reka-ui';
 
-export interface BaseFieldLoadingIndicator extends PrimitiveProps {}
+export interface BaseFieldErrorIndicator extends PrimitiveProps {}
 </script>
 
 
@@ -11,20 +11,20 @@ import { reactiveOmit } from '@vueuse/core'
 
 import { injectBaseFieldContext } from './BaseField.vue'
 
-const props = withDefaults(defineProps<BaseFieldLoadingIndicator>(), {
+const props = withDefaults(defineProps<BaseFieldErrorIndicator>(), {
   as: 'span',
 })
 const forward = useForwardProps(reactiveOmit(props, []))
 
-const iconSpiner = useNuiDefaultIcon('spiner')
+const iconAlert = useNuiDefaultIcon('alert')
 
 const { state } = injectBaseFieldContext()
 </script>
 
 <template>
-  <Primitive v-if="state === 'loading'" v-bind="forward" class="pointer-events-none text-muted-300 dark:text-muted-600">
+  <Primitive v-bind="forward" v-if="state === 'error'" class="pointer-events-none text-danger-400 dark:text-danger-800">
     <slot>
-      <Icon :name="iconSpiner" class="size-4" />
+      <Icon :name="iconAlert" class="size-4" />
     </slot>
   </Primitive>
 </template>

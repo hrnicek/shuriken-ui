@@ -38,6 +38,12 @@
     @apply focus:!border-primary-500 dark:focus:!border-primary-500;
     @apply transition-colors duration-300;
   }
+  &[data-field-state=error] {
+    @apply !border-danger-500 dark:!border-danger-800 focus:outline-danger-300 focus:dark:outline-danger-600
+  }
+  &[data-field-state=success] {
+    @apply focus:outline-success-300 focus:dark:outline-success-600
+  }
 }
 @utility nui-textarea-placeload-wrapper {
   @apply absolute start-0 top-4 flex h-full w-full flex-col space-y-2 px-3;

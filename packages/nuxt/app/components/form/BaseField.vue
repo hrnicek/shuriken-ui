@@ -13,6 +13,7 @@ export interface BaseFieldContext {
   idError: Ref<string | undefined>
   name: Ref<string | undefined>
   required: Ref<boolean>
+  disabled: Ref<boolean>
 }
 
 export interface BaseFieldProps extends PrimitiveProps {
@@ -21,6 +22,7 @@ export interface BaseFieldProps extends PrimitiveProps {
   id?: string
   name?: string
   required?: boolean
+  disabled?: boolean
   modelValue?: any
 }
 
@@ -56,13 +58,17 @@ provideBaseFieldContext({
   idLabel,
   idDescription,
   idError,
+  disabled: toRef(props, 'disabled'),
   name: toRef(props, 'name'),
   required: toRef(props, 'required'),
 })
 </script>
 
 <template>
-  <Primitive v-bind="forward">
+  <Primitive
+    v-bind="forward"
+    :data-filed-state="state"
+  >
     <slot />
   </Primitive>
 </template>
