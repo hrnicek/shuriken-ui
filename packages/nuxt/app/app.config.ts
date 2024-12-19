@@ -412,11 +412,11 @@ export default defineAppConfig({
     },
     BaseSnack: {
       /**
-       * The color of the snack.
+       * The variant of the snack.
        *
-       * @type {'default' | 'default-contrast' | 'muted' | 'muted-contrast'}
+       * @type {'default-low' | 'default-high' | 'muted-low' | 'muted-high'}
        */
-      color: 'default',
+      variant: 'default-high',
       /**
        * The size of the snack.
        *

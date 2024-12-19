@@ -17,11 +17,11 @@ const props = withDefaults(
     image?: string
 
     /**
-     * The color of snack.
+     * The variant of snack.
      *
-     * @default 'default'
+     * @default 'default-high'
      */
-    color?: 'default' | 'default-contrast' | 'muted' | 'muted-contrast'
+    variant?: 'default-low' | 'default-high' | 'muted-low' | 'muted-high'
 
     /**
      * The size of the snack.
@@ -62,7 +62,7 @@ const props = withDefaults(
   }>(),
   {
     size: undefined,
-    color: undefined,
+    variant: undefined,
     label: '',
     icon: undefined,
     image: undefined,
@@ -74,58 +74,93 @@ const emit = defineEmits<{
   delete: []
 }>()
 
-const color = useNuiDefaultProperty(props, 'BaseSnack', 'color')
+const variant = useNuiDefaultProperty(props, 'BaseSnack', 'variant')
 const size = useNuiDefaultProperty(props, 'BaseSnack', 'size')
+const iconClose = useNuiDefaultIcon('close')
 
 const sizes = {
-  xs: 'nui-snack-xs',
-  sm: 'nui-snack-sm',
-  md: 'nui-snack-md',
-}
+  xs: 'h-6',
+  sm: 'h-8',
+  md: 'h-10',
+} as const
 
-const colors = {
-  'default': 'nui-snack-default',
-  'default-contrast': 'nui-snack-default-contrast',
-  'muted': 'nui-snack-muted',
-  'muted-contrast': 'nui-snack-muted-contrast',
-}
+const textSizes = {
+  xs: 'text-xs',
+  sm: 'text-sm',
+  md: 'text-sm',
+} as const
+
+const wrapperSizes = {
+  xs: 'size-6',
+  sm: 'size-8',
+  md: 'size-10',
+} as const
+
+const spacings = {
+  xs: '!ps-2',
+  sm: '!ps-3',
+  md: '!ps-4',
+} as const
+
+const iconSizes = {
+  xs: 'text-xs',
+  sm: 'text-sm',
+  md: 'text-base',
+} as const
+
+const variants = {
+  'default-low': 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
+  'default-high': 'bg-white dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
+  'muted-low': 'bg-muted-200 dark:bg-muted-700',
+  'muted-high': 'bg-muted-200 dark:bg-muted-950',
+} as const
 </script>
 
 <template>
   <div
-    class="nui-snack"
+    class="inline-flex items-center gap-1 rounded-full outline-transparent"
     :class="[
       size && sizes[size],
-      color && colors[color],
-      props.icon || props.image ? 'nui-snack-has-media' : '',
+      variant && variants[variant],
+      props.icon || props.image ? '' : spacings[size],
       props.classes?.wrapper,
     ]"
   >
     <div
       v-if="props.icon && !props.image"
-      class="nui-snack-icon"
-      :class="props.classes?.icon"
+      class="-ms-0.5 flex items-center justify-center rounded-full bg-white dark:bg-muted-950 border border-muted-200 dark:border-muted-700"
+      :class="[
+        props.classes?.icon,
+        size && wrapperSizes[size],
+      ]"
     >
       <slot name="icon">
-        <Icon :name="props.icon" class="nui-snack-icon-inner" />
+        <Icon :name="props.icon" :class="size && iconSizes[size]" />
       </slot>
     </div>
     <div
       v-else-if="props.image && !props.icon"
-      class="nui-snack-image"
+      class="-ms-0.5 flex items-center justify-center rounded-full shrink-0"
       :class="props.classes?.img"
     >
-      <img :src="props.image" class="nui-snack-image-inner" alt="">
+      <img :src="props.image" class="rounded-full" :class="size && wrapperSizes[size]" alt="">
     </div>
-    <span class="nui-snack-text" :class="props.classes?.text">
+    <span class="font-sans text-muted-600 dark:text-muted-300" :class="[
+      props.classes?.text,
+      size && textSizes[size],
+    ]">
       <slot>{{ props.label }}</slot>
     </span>
-    <BaseButtonClose
-      class="nui-snack-button"
-      :class="props.classes?.button"
-      rounded="full"
-      :size="size"
+    <button
+      type="button"
+      class="cursor-pointer scale-75 flex items-center justify-center rounded-full text-muted-600 dark:text-muted-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-500/10 dark:hover:bg-primary-500/20 transition-colors duration-200"
+      :class="[
+        props.classes?.button,
+        size && wrapperSizes[size],
+      ]"
       @click="emit('delete')"
-    />
+    >
+      <Icon :name="iconClose" class="text-base" />
+    </button>
   </div>
 </template>
