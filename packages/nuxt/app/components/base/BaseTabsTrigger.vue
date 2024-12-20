@@ -5,7 +5,7 @@ export interface BaseTabsTriggerProps extends TabsTriggerProps {
   /**
    * The label to display for the tab
    */
-  label: string
+  label?: string
 
   /**
    * An optional icon to display next to the tab label

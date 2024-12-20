@@ -89,26 +89,7 @@ const routes = computed(() =>
       </div>
     </div>
     <div class="fixed top-0 end-0 pr-6 pt-6 z-50">
-      <ClientOnly>
-        <BaseSelect
-          v-model="color.preference"
-          size="sm"
-          :bindings="{ 
-            content: { position: 'popper', bodyLock: false },
-            portal: { disabled: true },
-          }"
-        >
-          <BaseSelectItem value="system">
-            system
-          </BaseSelectItem>
-          <BaseSelectItem value="light">
-            light
-          </BaseSelectItem>
-          <BaseSelectItem value="dark">
-            dark
-          </BaseSelectItem>
-        </BaseSelect>
-      </ClientOnly>
+      <BaseThemeSystem disable-transitions />
     </div>
   </div>
 </template>

@@ -67,7 +67,6 @@ const value3 = ref('')
                   <BaseLink to="#" class="text-primary-400 dark:text-primary-700">Learn more</BaseLink>
                 </BaseFieldDescription>
               </div>
-              
             </template>
           </BaseField>
           <!-- BaseInputNumber -->

@@ -246,12 +246,15 @@ const tabsNoIcon = [
             :tabs="tabs"
           >
             <template #trigger>
-              <BaseTabsTrigger
-                v-for="(tab, key) in tabs"
-                :key="key"
-                v-bind="tab"
-                @click="selectedTab = tab.value"
-              />
+              <BaseTabsTrigger value="team" @click="selectedTab = 'team'">
+                Team
+              </BaseTabsTrigger>
+              <BaseTabsTrigger value="projects" @click="selectedTab = 'projects'">
+                Projects
+              </BaseTabsTrigger>
+              <BaseTabsTrigger value="tasks" @click="selectedTab = 'tasks'">
+                Tasks
+              </BaseTabsTrigger>
             </template>
             
             <BaseTabsContent value="team">

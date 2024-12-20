@@ -125,7 +125,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['variant', 'size', 'th
         <circle
           class="stroke-current origin-center "
           :class="[
-          typeof modelValue === 'number' ? '-rotate-90 transition-[stroke-dasharray] duration-300' : 'animate-nui-spin',
+            typeof modelValue === 'number' ? '-rotate-90 transition-[stroke-dasharray] duration-300' : 'animate-nui-spin',
             variant && variants[variant],
             props.classes?.progress,
           ]"
@@ -137,7 +137,6 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['variant', 'size', 'th
           cx="50%"
           cy="50%"
           r="15.91549431"
-          :title="'modelValue:' + modelValue"
         >
           <template v-if="typeof modelValue !== 'number'">
             <animate

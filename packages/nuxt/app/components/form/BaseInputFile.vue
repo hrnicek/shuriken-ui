@@ -241,7 +241,7 @@ defineExpose({
         </div>
 
         <div class="nui-input-file-regular-text">
-          {{ textValue }} {{attrs}}
+          {{ textValue }}
         </div>
         <input
           :id="id"

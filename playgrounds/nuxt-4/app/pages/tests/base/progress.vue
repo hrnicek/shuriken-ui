@@ -251,6 +251,7 @@ const progressCircle = ref(25)
           <BaseProgressCircle
             title="indeterminate success progress bar"
             :size="42"
+            :thickness="6"
           />
         </div>
       </NuiPreview>
