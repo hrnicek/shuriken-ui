@@ -116,7 +116,11 @@ const iconPlus = useNuiDefaultIcon('plus')
         </div>
 
         <div
-          class="ms-2 text-muted-500 dark:text-muted-300 flex items-center justify-center size-5 group-data-[state=open]/trigger:rotate-180 transition-all duration-300"
+          class="ms-2 text-muted-500 dark:text-muted-300 flex items-center justify-center size-5 transition-all duration-300"
+          :class="[
+            action === 'chevron' && 'group-data-[state=open]/trigger:rotate-180',
+            action === 'plus' && 'group-data-[state=open]/trigger:rotate-45',
+          ]"
         >
           <slot name="action">
             <BaseChip
