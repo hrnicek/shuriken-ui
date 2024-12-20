@@ -92,6 +92,7 @@
   --animate-nui-progress-indeterminate: nui-progress-indeterminate 3s linear infinite forwards;
   --animate-nui-tooltip-x: nui-tooltip-x 300ms ease-out forwards;
   --animate-nui-tooltip-y: nui-tooltip-y 300ms ease-out forwards;
+  --animate-nui-spin: spin 2s linear infinite;
   
   @keyframes nui-placeload {
     0% {

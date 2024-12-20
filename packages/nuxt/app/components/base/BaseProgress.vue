@@ -1,85 +1,70 @@
-<script setup lang="ts">
-const props = withDefaults(
-  defineProps<{
-    /**
-     * The current value of the progress bar.
-     * If `value` is not provided, the progress bar will be in an indeterminate state.
-     */
-    value?: number
+<script lang="ts">
+import type {
+  ProgressRootProps,
+  ProgressRootEmits,
+} from 'reka-ui'
 
-    /**
-     * The maximum value of the progress bar.
-     */
-    max?: number
-
-    /**
-     * The variant of the progress bar.
-     *
-     * @default 'primary'
-     */
+export interface BaseProgressProps extends ProgressRootProps {
+  /**
+   * The variant of the progress bar.
+   *
+   * @default 'primary'
+   */
     variant?: 'primary-low' | 'primary-high' | 'dark-low' | 'dark-high' | 'none'
 
+  /**
+   * The radius of the progress bar.
+   *
+   * @since 2.0.0
+   * @default 'full'
+   */
+  rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
+
+  /**
+   * The size of the progress bar.
+   *
+   * @default 'sm'
+   */
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+
+  /**
+   * Optional CSS classes to apply to the component inner elements.
+   */
+  classes?: {
     /**
-     * The radius of the progress bar.
-     *
-     * @since 2.0.0
-     * @default 'full'
+     * CSS classes to apply to the wrapper element.
      */
-    rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
+    wrapper?: string | string[]
 
     /**
-     * The size of the progress bar.
-     *
-     * @default 'sm'
+     * CSS classes to apply to the progress element.
      */
-    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+    progress?: string | string[]
+  }
+}
+export interface BaseProgressEmits extends ProgressRootEmits {}
 
-    /**
-     * Optional CSS classes to apply to the component inner elements.
-     */
-    classes?: {
-      /**
-       * CSS classes to apply to the wrapper element.
-       */
-      wrapper?: string | string[]
+export type BaseProgressSlots = {
+  default(): any
+}
 
-      /**
-       * CSS classes to apply to the progress element.
-       */
-      progress?: string | string[]
-    }
-  }>(),
-  {
-    size: undefined,
-    variant: undefined,
-    rounded: undefined,
-    value: undefined,
-    max: 100,
-    classes: () => ({}),
-  },
-)
-
-const variant = useNuiDefaultProperty(props, 'BaseProgress', 'variant')
-const rounded = useNuiDefaultProperty(props, 'BaseProgress', 'rounded')
-const size = useNuiDefaultProperty(props, 'BaseProgress', 'size')
-
-const variants = {
+export const variants = {
   'primary-low': 'bg-primary-500',
   'primary-high': 'bg-primary-500',
   'dark-low': 'bg-muted-900 dark:bg-white',
   'dark-high': 'bg-muted-900 dark:bg-white',
   'none': '',
-}
+} as const
 
-const trackVariants = {
+export const trackVariants = {
   'primary-low': 'bg-muted-200 dark:bg-muted-700',
   'primary-high': 'bg-muted-200 dark:bg-muted-900',
   'dark-low': 'bg-muted-200 dark:bg-muted-700',
   'dark-high': 'bg-muted-200 dark:bg-muted-900',
   'none': '',
-}
+} as const
 
-const radiuses = {
+export const radiuses = {
   none: '',
   sm: 'rounded-sm',
   md: 'rounded-md',
@@ -87,31 +72,44 @@ const radiuses = {
   full: 'rounded-full',
 } as const
 
-const sizes = {
+export const sizes = {
   xs: 'h-1',
   sm: 'h-2',
   md: 'h-3',
   lg: 'h-4',
   xl: 'h-5',
 } as const
+</script>
 
-const value = computed(() => {
-  const { value, max } = props
+<script setup lang="ts">
+import { useForwardPropsEmits } from 'reka-ui'
+import { reactiveOmit } from '@vueuse/core'
 
-  if (max === 0) {
-    return 0
-  }
-  return typeof value === 'number' ? (value / max) * 100 : undefined
+const props = withDefaults(defineProps<BaseProgressProps>(), {
+  size: undefined,
+  variant: undefined,
+  rounded: undefined,
+
+  max: undefined,
+  modelValue: undefined,
+  getValueLabel: undefined,
+
+  classes: () => ({}),
 })
+const emits = defineEmits<BaseProgressEmits>()
+const slots = defineSlots<BaseProgressSlots>()
 
-const isIndeterminate = computed(() => typeof value.value !== 'number')
+const variant = useNuiDefaultProperty(props, 'BaseProgress', 'variant')
+const rounded = useNuiDefaultProperty(props, 'BaseProgress', 'rounded')
+const size = useNuiDefaultProperty(props, 'BaseProgress', 'size')
+
+const forward = useForwardPropsEmits(reactiveOmit(props, ['variant', 'rounded', 'size', 'classes']), emits)
 </script>
 
 <template>
-  <div
-    role="progressbar"
-    :aria-valuenow="value"
-    :aria-valuemax="props.max"
+  <ProgressRoot
+    v-bind="forward"
+    v-slot="{ modelValue }"
     class="relative w-full overflow-hidden"
     :class="[
       size && sizes[size],
@@ -120,16 +118,15 @@ const isIndeterminate = computed(() => typeof value.value !== 'number')
       props.classes?.wrapper,
     ]"
   >
-    <div
-      class="absolute start-0 top-0 h-full transition-all duration-300"
+    <ProgressIndicator
+      class="absolute start-0 top-0 h-full w-full transition-all duration-300"
       :class="[
-        isIndeterminate
-          && 'nui-progress-indeterminate animate-nui-progress-indeterminate',
+        typeof modelValue !== 'number' && 'nui-progress-indeterminate animate-nui-progress-indeterminate',
         props.classes?.progress,
         variant && variants[variant],
         rounded && radiuses[rounded],
       ]"
-      :style="!isIndeterminate ? `width: ${value}%` : 'width: 100%'"
+      :style="typeof modelValue === 'number' && `transform: translateX(-${100 - modelValue}%)`"
     />
-  </div>
+  </ProgressRoot>
 </template>

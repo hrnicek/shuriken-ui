@@ -18,7 +18,7 @@ const progressCircle = ref(25)
           <BaseProgress
             title="Default progress bar"
             size="sm"
-            :value="progress"
+            v-model="progress"
             variant="primary-high"
           />
           <div class="flex justify-between gap-2">
@@ -31,9 +31,7 @@ const progressCircle = ref(25)
               @click="progress = 25"
             >
               25%
-            </BaseButton
-              size="sm"
-              rounded="md">
+            </BaseButton>
             <BaseButton
               size="sm"
               rounded="md"
@@ -43,9 +41,7 @@ const progressCircle = ref(25)
               @click="progress = 50"
             >
               50%
-            </BaseButton
-              size="sm"
-              rounded="md">
+            </BaseButton>
             <BaseButton
               size="sm"
               rounded="md"
@@ -55,9 +51,7 @@ const progressCircle = ref(25)
               @click="progress = 75"
             >
               75%
-            </BaseButton
-              size="sm"
-              rounded="md">
+            </BaseButton>
             <BaseButton
               size="sm"
               rounded="md"
@@ -67,9 +61,7 @@ const progressCircle = ref(25)
               @click="progress = 100"
             >
               100%
-            </BaseButton
-              size="sm"
-              rounded="md">
+            </BaseButton>
           </div>
         </div>
       </NuiPreview>
@@ -80,19 +72,19 @@ const progressCircle = ref(25)
             <BaseProgressCircle
               title="Dark circle progress bar"
               :size="35"
-              :value="progressCircle"
+              v-model="progressCircle"
               variant="dark-high"
             />
             <BaseProgressCircle
               title="Primary circle progress bar"
               :size="45"
-              :value="progressCircle"
+              v-model="progressCircle"
               variant="primary-high"
             />
             <BaseProgressCircle
               title="Custom color circle progress bar"
               :size="55"
-              :value="progressCircle"
+              v-model="progressCircle"
               variant="none"
               :classes="{
                 wrapper: 'text-muted-200 dark:text-muted-900',
@@ -102,7 +94,7 @@ const progressCircle = ref(25)
             <BaseProgressCircle
               title="Custom color circle progress bar"
               :size="75"
-              :value="progressCircle"
+              v-model="progressCircle"
               variant="none"
               :classes="{
                 wrapper: 'text-muted-200 dark:text-muted-900',
@@ -112,7 +104,7 @@ const progressCircle = ref(25)
             <BaseProgressCircle
               title="Custom color circle progress bar"
               :size="85"
-              :value="progressCircle"
+              v-model="progressCircle"
               variant="none"
               :classes="{
                 wrapper: 'text-muted-200 dark:text-muted-900',
@@ -122,7 +114,7 @@ const progressCircle = ref(25)
             <BaseProgressCircle
               title="Custom color circle progress bar"
               :size="95"
-              :value="progressCircle"
+              v-model="progressCircle"
               variant="none"
               :classes="{
                 wrapper: 'text-muted-200 dark:text-muted-900',
@@ -140,9 +132,7 @@ const progressCircle = ref(25)
               @click="progressCircle = 25"
             >
               25%
-            </BaseButton
-              size="sm"
-              rounded="md">
+            </BaseButton>
             <BaseButton
               size="sm"
               rounded="md"
@@ -152,9 +142,7 @@ const progressCircle = ref(25)
               @click="progressCircle = 50"
             >
               50%
-            </BaseButton
-              size="sm"
-              rounded="md">
+            </BaseButton>
             <BaseButton
               size="sm"
               rounded="md"
@@ -164,9 +152,7 @@ const progressCircle = ref(25)
               @click="progressCircle = 75"
             >
               75%
-            </BaseButton
-              size="sm"
-              rounded="md">
+            </BaseButton>
             <BaseButton
               size="sm"
               rounded="md"
@@ -177,9 +163,7 @@ const progressCircle = ref(25)
               @click="progressCircle = 100"
             >
               100%
-            </BaseButton
-              size="sm"
-              rounded="md">
+            </BaseButton>
           </div>
         </div>
       </NuiPreview>
@@ -189,31 +173,31 @@ const progressCircle = ref(25)
           <BaseProgress
             title="xs progress bar"
             size="xs"
-            :value="78"
+            :model-value="78"
             variant="primary-high"
           />
           <BaseProgress
             title="sm progress bar"
             size="sm"
-            :value="78"
+            :model-value="78"
             variant="primary-high"
           />
           <BaseProgress
             title="md progress bar"
             size="md"
-            :value="78"
+            :model-value="78"
             variant="primary-high"
           />
           <BaseProgress
             title="lg progress bar"
             size="lg"
-            :value="78"
+            :model-value="78"
             variant="primary-high"
           />
           <BaseProgress
             title="xl progress bar"
             size="xl"
-            :value="78"
+            :model-value="78"
             variant="primary-high"
           />
         </div>
@@ -227,19 +211,19 @@ const progressCircle = ref(25)
           <BaseProgress
             title="primary progress bar"
             size="sm"
-            :value="78"
+            :model-value="78"
             variant="primary-high"
           />
           <BaseProgress
             title="dark progress bar"
             size="sm"
-            :value="78"
+            :model-value="78"
             variant="dark-high"
           />
           <BaseProgress
             title="custom progress bar"
             size="sm"
-            :value="78"
+            :model-value="78"
             variant="none"
             :classes="{
               wrapper: 'bg-muted-200 dark:bg-muted-900',
@@ -263,6 +247,10 @@ const progressCircle = ref(25)
             title="indeterminate success progress bar"
             size="sm"
             variant="dark-high"
+          />
+          <BaseProgressCircle
+            title="indeterminate success progress bar"
+            :size="42"
           />
         </div>
       </NuiPreview>
