@@ -26,6 +26,8 @@ export const variants = {
 </script>
 
 <script setup lang="ts">
+import { useMounted } from '@vueuse/core'
+
 const props = withDefaults(defineProps<BaseThemeSwitchProps>(), {
   id: undefined,
   disableTransitions: undefined,
@@ -43,8 +45,12 @@ const iconSun = useNuiDefaultIcon('sun')
 const iconMoon = useNuiDefaultIcon('moon')
 
 const colorMode = useColorMode()
+const isMounted = useMounted()
 const isDark = computed({
   get() {
+    if (!isMounted.value) {
+      return false
+    }
     return colorMode.value === 'dark'
   },
   set(value) {

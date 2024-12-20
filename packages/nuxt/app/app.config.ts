@@ -3,7 +3,7 @@ export default defineAppConfig({
     icons: {
       sun: 'nui-icon:sun',
       moon: 'nui-icon:moon',
-      screen: 'nui-icon:screen',
+      screen: 'nui-icon:screen-duotone',
       spiner: 'nui-icon:spiner',
       required: 'lucide:asterisk',
       alert: 'lucide:triangle-alert',

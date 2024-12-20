@@ -48,6 +48,7 @@ definePageMeta({
         <div class="flex items-center gap-10">
           <BaseThemeToggle disable-transitions />
           <BaseThemeSwitch disable-transitions />
+          <BaseThemeSystem disable-transitions />
         </div>
       </NuiPreview>
     </NuiPreviewContainer>
