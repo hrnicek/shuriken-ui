@@ -7,40 +7,94 @@ definePageMeta({
 })
 
 const selectedTab = ref('team')
+
+const tabs = [
+  {
+    label: 'Team',
+    value: 'team',
+    icon: 'ph:users-three-duotone',
+  },
+  {
+    label: 'Projects',
+    value: 'projects',
+    icon: 'ph:briefcase-duotone',
+  },
+  {
+    label: 'Tasks',
+    value: 'tasks',
+    icon: 'ph:check-circle-duotone',
+  },
+]
+const tabsNoIcon = [
+  {
+    label: 'Team',
+    value: 'team',
+  },
+  {
+    label: 'Projects',
+    value: 'projects',
+  },
+  {
+    label: 'Tasks',
+    value: 'tasks',
+  },
+]
 </script>
 
 <template>
   <div>
     <NuiPreviewContainer title="BaseTabs">
       <NuiPreview title="Align: start" description="Tabs component start align">
-        <div class="w-full max-w-sm">
+        <div class="w-full gap-8 grid grid-cols-2 max-w-3xl">
           <BaseTabs
-            v-model="selectedTab"
+            default-value="team"
             :tabs="[
               { label: 'Team', value: 'team' },
               { label: 'Projects', value: 'projects' },
+              { label: 'Disabled', value: 'tasks', disabled: true },
             ]"
           >
-            <template #tab="{ activeValue }">
-              <p
-                v-if="activeValue === 'team'"
-                class="font-sans text-sm text-gray-500 dark:text-gray-400"
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
-                iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum?
-                Ne discipulum abducam, times.
-              </p>
+            <BaseTabsContent value="team">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
+              iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum?
+              Ne discipulum abducam, times. ...
+            </BaseTabsContent>
+            <BaseTabsContent value="projects">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla malesuada odio sed ante malesuada, 
+              quis facilisis erat iaculis. Sed egestas porta fringilla. Ut ultrices, elit eget congue aliquet, 
+              risus sem semper lorem, vitae efficitur nunc est eget mi. ...
+            </BaseTabsContent>
+            <BaseTabsContent value="tasks">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris leo ipsum, efficitur eu finibus eu, 
+              gravida quis enim. Fusce a elementum nunc. Nunc venenatis a elit quis ornare. 
+              Pellentesque quis vehicula ipsum. ...
+            </BaseTabsContent>
+          </BaseTabs>
 
-              <p
-                v-else-if="activeValue === 'projects'"
-                class="font-sans text-sm text-gray-500 dark:text-gray-400"
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
-                iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum?
-                Ne discipulum abducam, times. Quae diligentissime contra
-                Aristonem dicuntur a Chryippo. Duo Reges: constructio interrete.
-              </p>
-            </template>
+          <BaseTabs
+            default-value="team"
+            orientation="vertical"
+            :tabs="[
+              { label: 'Team', value: 'team' },
+              { label: 'Projects', value: 'projects' },
+              { label: 'Disabled', value: 'tasks', disabled: true },
+            ]"
+          >
+            <BaseTabsContent value="team">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
+              iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum?
+              Ne discipulum abducam, times. ...
+            </BaseTabsContent>
+            <BaseTabsContent value="projects">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla malesuada odio sed ante malesuada, 
+              quis facilisis erat iaculis. Sed egestas porta fringilla. Ut ultrices, elit eget congue aliquet, 
+              risus sem semper lorem, vitae efficitur nunc est eget mi. ...
+            </BaseTabsContent>
+            <BaseTabsContent value="tasks">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris leo ipsum, efficitur eu finibus eu, 
+              gravida quis enim. Fusce a elementum nunc. Nunc venenatis a elit quis ornare. 
+              Pellentesque quis vehicula ipsum. ...
+            </BaseTabsContent>
           </BaseTabs>
         </div>
       </NuiPreview>
@@ -51,6 +105,7 @@ const selectedTab = ref('team')
       >
         <div class="w-full max-w-sm">
           <BaseTabs
+            default-value="team"
             justify="center"
             color="dark"
             :tabs="[
@@ -58,26 +113,21 @@ const selectedTab = ref('team')
               { label: 'Projects', value: 'projects' },
             ]"
           >
-            <template #tab="{ activeValue }">
-              <p
-                v-if="activeValue === 'team'"
-                class="font-sans text-sm text-gray-500 dark:text-gray-400"
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
-                iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum?
-                Ne discipulum abducam, times.
-              </p>
-
-              <p
-                v-else-if="activeValue === 'projects'"
-                class="font-sans text-sm text-gray-500 dark:text-gray-400"
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
-                iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum?
-                Ne discipulum abducam, times. Quae diligentissime contra
-                Aristonem dicuntur a Chryippo. Duo Reges: constructio interrete.
-              </p>
-            </template>
+            <BaseTabsContent value="team">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
+              iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum?
+              Ne discipulum abducam, times. ...
+            </BaseTabsContent>
+            <BaseTabsContent value="projects">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla malesuada odio sed ante malesuada, 
+              quis facilisis erat iaculis. Sed egestas porta fringilla. Ut ultrices, elit eget congue aliquet, 
+              risus sem semper lorem, vitae efficitur nunc est eget mi. ...
+            </BaseTabsContent>
+            <BaseTabsContent value="tasks">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris leo ipsum, efficitur eu finibus eu, 
+              gravida quis enim. Fusce a elementum nunc. Nunc venenatis a elit quis ornare. 
+              Pellentesque quis vehicula ipsum. ...
+            </BaseTabsContent>
           </BaseTabs>
         </div>
       </NuiPreview>
@@ -85,7 +135,7 @@ const selectedTab = ref('team')
       <NuiPreview title="Align: end" description="Tabs component end align">
         <div class="w-full max-w-sm">
           <BaseTabs
-            model-value="team"
+            default-value="projects"
             justify="end"
             color="black"
             :tabs="[
@@ -93,26 +143,21 @@ const selectedTab = ref('team')
               { label: 'Projects', value: 'projects' },
             ]"
           >
-            <template #tab="{ activeValue }">
-              <p
-                v-if="activeValue === 'team'"
-                class="font-sans text-sm text-gray-500 dark:text-gray-400"
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
-                iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum?
-                Ne discipulum abducam, times.
-              </p>
-
-              <p
-                v-else-if="activeValue === 'projects'"
-                class="font-sans text-sm text-gray-500 dark:text-gray-400"
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
-                iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum?
-                Ne discipulum abducam, times. Quae diligentissime contra
-                Aristonem dicuntur a Chryippo. Duo Reges: constructio interrete.
-              </p>
-            </template>
+            <BaseTabsContent value="team">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
+              iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum?
+              Ne discipulum abducam, times. ...
+            </BaseTabsContent>
+            <BaseTabsContent value="projects">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla malesuada odio sed ante malesuada, 
+              quis facilisis erat iaculis. Sed egestas porta fringilla. Ut ultrices, elit eget congue aliquet, 
+              risus sem semper lorem, vitae efficitur nunc est eget mi. ...
+            </BaseTabsContent>
+            <BaseTabsContent value="tasks">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris leo ipsum, efficitur eu finibus eu, 
+              gravida quis enim. Fusce a elementum nunc. Nunc venenatis a elit quis ornare. 
+              Pellentesque quis vehicula ipsum. ...
+            </BaseTabsContent>
           </BaseTabs>
         </div>
       </NuiPreview>
@@ -120,107 +165,74 @@ const selectedTab = ref('team')
       <NuiPreview title="Icon" description="Tabs component icons">
         <div class="w-full max-w-sm">
           <BaseTabs
-            model-value="team"
+            default-value="tasks"
             color="default"
-            :tabs="[
-              {
-                label: 'Team',
-                value: 'team',
-                icon: 'ph:users-three-duotone',
-              },
-              {
-                label: 'Projects',
-                value: 'projects',
-                icon: 'ph:briefcase-duotone',
-              },
-              {
-                label: 'Tasks',
-                value: 'tasks',
-                icon: 'ph:check-circle-duotone',
-              },
-            ]"
+            :tabs
           >
-            <template #tab="{ activeValue }">
-              <p
-                v-if="activeValue === 'team'"
-                class="font-sans text-sm text-gray-500 dark:text-gray-400"
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
-                iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum?
-                Ne discipulum abducam, times.
-              </p>
-
-              <p
-                v-else-if="activeValue === 'projects'"
-                class="font-sans text-sm text-gray-500 dark:text-gray-400"
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
-                iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum?
-                Ne discipulum abducam, times. Quae diligentissime contra
-                Aristonem dicuntur a Chryippo. Duo Reges: constructio interrete.
-              </p>
-
-              <p
-                v-else-if="activeValue === 'tasks'"
-                class="font-sans text-sm text-gray-500 dark:text-gray-400"
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
-                iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum?
-                Ne discipulum abducam, times. Quae diligentissime contra.
-              </p>
-            </template>
+            <BaseTabsContent value="team">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
+              iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum?
+              Ne discipulum abducam, times. ...
+            </BaseTabsContent>
+            <BaseTabsContent value="projects">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla malesuada odio sed ante malesuada, 
+              quis facilisis erat iaculis. Sed egestas porta fringilla. Ut ultrices, elit eget congue aliquet, 
+              risus sem semper lorem, vitae efficitur nunc est eget mi. ...
+            </BaseTabsContent>
+            <BaseTabsContent value="tasks">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris leo ipsum, efficitur eu finibus eu, 
+              gravida quis enim. Fusce a elementum nunc. Nunc venenatis a elit quis ornare. 
+              Pellentesque quis vehicula ipsum. ...
+            </BaseTabsContent>
           </BaseTabs>
         </div>
       </NuiPreview>
 
       <NuiPreview title="Boxed" description="Tabs component boxed">
-        <div class="w-full max-w-sm">
+        <div class="w-full gap-8 grid grid-cols-2 max-w-3xl">
           <BaseTabs
+            v-model="selectedTab"
             type="box"
-            :tabs="[
-              {
-                label: 'Team',
-                value: 'team',
-              },
-              {
-                label: 'Projects',
-                value: 'projects',
-              },
-              {
-                label: 'Tasks',
-                value: 'tasks',
-              },
-            ]"
+            :tabs="tabsNoIcon"
           >
-            <template #tab="{ activeValue }">
-              <p
-                v-if="activeValue === 'team'"
-                class="font-sans text-sm text-gray-500 dark:text-gray-400"
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
-                iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum?
-                Ne discipulum abducam, times.
-              </p>
+            <BaseTabsContent value="team">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
+              iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum?
+              Ne discipulum abducam, times. ...
+            </BaseTabsContent>
+            <BaseTabsContent value="projects">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla malesuada odio sed ante malesuada, 
+              quis facilisis erat iaculis. Sed egestas porta fringilla. Ut ultrices, elit eget congue aliquet, 
+              risus sem semper lorem, vitae efficitur nunc est eget mi. ...
+            </BaseTabsContent>
+            <BaseTabsContent value="tasks">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris leo ipsum, efficitur eu finibus eu, 
+              gravida quis enim. Fusce a elementum nunc. Nunc venenatis a elit quis ornare. 
+              Pellentesque quis vehicula ipsum. ...
+            </BaseTabsContent>
+          </BaseTabs>
 
-              <p
-                v-else-if="activeValue === 'projects'"
-                class="font-sans text-sm text-gray-500 dark:text-gray-400"
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
-                iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum?
-                Ne discipulum abducam, times. Quae diligentissime contra
-                Aristonem dicuntur a Chryippo. Duo Reges: constructio interrete.
-              </p>
-
-              <p
-                v-else-if="activeValue === 'tasks'"
-                class="font-sans text-sm text-gray-500 dark:text-gray-400"
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
-                iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum?
-                Ne discipulum abducam, times. Quae diligentissime contra.
-              </p>
-            </template>
+          <BaseTabs
+            v-model="selectedTab"
+            type="box"
+            orientation="vertical"
+            :tabs="tabsNoIcon"
+          >
+            <BaseTabsContent value="team">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
+              iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum?
+              Ne discipulum abducam, times. ...
+            </BaseTabsContent>
+            <BaseTabsContent value="projects">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla malesuada odio sed ante malesuada, 
+              quis facilisis erat iaculis. Sed egestas porta fringilla. Ut ultrices, elit eget congue aliquet, 
+              risus sem semper lorem, vitae efficitur nunc est eget mi. ...
+            </BaseTabsContent>
+            <BaseTabsContent value="tasks">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris leo ipsum, efficitur eu finibus eu, 
+              gravida quis enim. Fusce a elementum nunc. Nunc venenatis a elit quis ornare. 
+              Pellentesque quis vehicula ipsum. ...
+            </BaseTabsContent>
           </BaseTabs>
         </div>
       </NuiPreview>
@@ -229,55 +241,121 @@ const selectedTab = ref('team')
         <div class="w-full max-w-sm">
           <BaseTabs
             type="box"
-            model-value="team"
+            v-model="selectedTab"
             color="black"
-            :tabs="[
-              {
-                label: 'Team',
-                value: 'team',
-                icon: 'ph:users-three-duotone',
-              },
-              {
-                label: 'Projects',
-                value: 'projects',
-                icon: 'ph:briefcase-duotone',
-              },
-              {
-                label: 'Tasks',
-                value: 'tasks',
-                icon: 'ph:check-circle-duotone',
-              },
-            ]"
+            :tabs="tabs"
           >
-            <template #tab="{ activeValue }">
-              <p
-                v-if="activeValue === 'team'"
-                class="font-sans text-sm text-gray-500 dark:text-gray-400"
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
-                iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum?
-                Ne discipulum abducam, times.
-              </p>
-
-              <p
-                v-else-if="activeValue === 'projects'"
-                class="font-sans text-sm text-gray-500 dark:text-gray-400"
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
-                iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum?
-                Ne discipulum abducam, times. Quae diligentissime contra
-                Aristonem dicuntur a Chryippo. Duo Reges: constructio interrete.
-              </p>
-
-              <p
-                v-else-if="activeValue === 'tasks'"
-                class="font-sans text-sm text-gray-500 dark:text-gray-400"
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
-                iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum?
-                Ne discipulum abducam, times. Quae diligentissime contra.
-              </p>
+            <template #trigger>
+              <BaseTabsTrigger
+                v-for="(tab, key) in tabs"
+                :key="key"
+                v-bind="tab"
+                @click="selectedTab = tab.value"
+              />
             </template>
+            
+            <BaseTabsContent value="team">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
+              iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum?
+              Ne discipulum abducam, times. ...
+            </BaseTabsContent>
+            <BaseTabsContent value="projects">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla malesuada odio sed ante malesuada, 
+              quis facilisis erat iaculis. Sed egestas porta fringilla. Ut ultrices, elit eget congue aliquet, 
+              risus sem semper lorem, vitae efficitur nunc est eget mi. ...
+            </BaseTabsContent>
+            <BaseTabsContent value="tasks">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris leo ipsum, efficitur eu finibus eu, 
+              gravida quis enim. Fusce a elementum nunc. Nunc venenatis a elit quis ornare. 
+              Pellentesque quis vehicula ipsum. ...
+            </BaseTabsContent>
+          </BaseTabs>
+        </div>
+      </NuiPreview>
+
+      
+      <NuiPreview title="Nested" description="Tabs component boxed icons">
+        <div class="w-full max-w-lg">
+          <BaseTabs
+            default-value="team"
+            color="black"
+            :tabs="tabs"
+          >
+            <BaseTabsContent value="team">
+              <BaseTabs
+                default-value="team"
+                orientation="vertical"
+                type="box"
+                color="black"
+                :tabs="tabsNoIcon"
+              >
+                <BaseTabsContent value="team">
+                  team Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
+                  iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum?
+                  Ne discipulum abducam, times. ...
+                </BaseTabsContent>
+                <BaseTabsContent value="projects">
+                  team Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla malesuada odio sed ante malesuada, 
+                  quis facilisis erat iaculis. Sed egestas porta fringilla. Ut ultrices, elit eget congue aliquet, 
+                  risus sem semper lorem, vitae efficitur nunc est eget mi. ...
+                </BaseTabsContent>
+                <BaseTabsContent value="tasks">
+                  team Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris leo ipsum, efficitur eu finibus eu, 
+                  gravida quis enim. Fusce a elementum nunc. Nunc venenatis a elit quis ornare. 
+                  Pellentesque quis vehicula ipsum. ...
+                </BaseTabsContent>
+              </BaseTabs>
+            </BaseTabsContent>
+            <BaseTabsContent value="projects">
+              <BaseTabs
+                default-value="team"
+                orientation="vertical"
+                type="box"
+                color="black"
+                :tabs="tabsNoIcon"
+              >
+                <BaseTabsContent value="team">
+                  projects Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
+                  iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum?
+                  Ne discipulum abducam, times. ...
+                </BaseTabsContent>
+                <BaseTabsContent value="projects">
+                  projects Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla malesuada odio sed ante malesuada, 
+                  quis facilisis erat iaculis. Sed egestas porta fringilla. Ut ultrices, elit eget congue aliquet, 
+                  risus sem semper lorem, vitae efficitur nunc est eget mi. ...
+                </BaseTabsContent>
+                <BaseTabsContent value="tasks">
+                  projects Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris leo ipsum, efficitur eu finibus eu, 
+                  gravida quis enim. Fusce a elementum nunc. Nunc venenatis a elit quis ornare. 
+                  Pellentesque quis vehicula ipsum. ...
+                </BaseTabsContent>
+              </BaseTabs>
+            </BaseTabsContent>
+            <BaseTabsContent value="tasks">
+              <BaseTabs
+                default-value="team"
+                orientation="vertical"
+                type="box"
+                color="black"
+                :tabs="tabsNoIcon"
+              >
+                <BaseTabsContent value="team">
+                  tasks Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
+                  iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum?
+                  Ne discipulum abducam, times. ...
+                </BaseTabsContent>
+                <BaseTabsContent value="projects">
+                  tasks Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla malesuada odio sed ante malesuada, 
+                  quis facilisis erat iaculis. Sed egestas porta fringilla. Ut ultrices, elit eget congue aliquet, 
+                  risus sem semper lorem, vitae efficitur nunc est eget mi. ...
+                </BaseTabsContent>
+                <BaseTabsContent value="tasks">
+                  tasks Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris leo ipsum, efficitur eu finibus eu, 
+                  gravida quis enim. Fusce a elementum nunc. Nunc venenatis a elit quis ornare. 
+                  Pellentesque quis vehicula ipsum. ...
+                </BaseTabsContent>
+              </BaseTabs>
+            </BaseTabsContent>
           </BaseTabs>
         </div>
       </NuiPreview>

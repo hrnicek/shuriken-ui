@@ -1,168 +1,202 @@
-<script setup lang="ts">
-const props = withDefaults(
-  defineProps<{
+<script lang="ts">
+import type { 
+  TabsRootProps,
+  TabsRootEmits,
+} from 'reka-ui'
+import {
+  createContext,
+} from 'reka-ui'
+import type { BaseTabsTriggerProps } from './BaseTabsTrigger.vue'
+
+export interface BaseTabsProps extends TabsRootProps {
+  /**
+   * An array of tab objects that contain a label and value
+   */
+  tabs: BaseTabsTriggerProps[]
+
+  /**
+   * Accessible label for the tabs
+   */
+  label?: string
+
+  /**
+   * Defines the hover color of the active tab
+   *
+   * @since 3.0.0
+   * @default 'default'
+   */
+  color?: 'default' | 'primary' | 'light' | 'dark' | 'black'
+
+  /**
+   * The horizontal alignment of the tabs.
+   *
+   * @default 'start'
+   */
+  justify?: 'start' | 'center' | 'end'
+
+  /**
+   * The type of tabs to display..
+   *
+   * @default 'tabs'
+   */
+  type?: 'tabs' | 'box'
+
+  /**
+   * Optional CSS classes to apply to the component inner elements.
+   */
+  classes?: {
     /**
-     * An array of tab objects that contain a label and value
+     * CSS classes to apply to the wrapper element.
      */
-    tabs: {
-      /**
-       * The label to display for the tab
-       */
-      label: string
-      /**
-       * The value of the tab. This value will be used to identify the tab when it is selected.
-       */
-      value: string
-      /**
-       * An optional icon to display next to the tab label
-       */
-      icon?: string
-    }[]
+    wrapper?: string | string[]
 
     /**
-     * Whether or not to hide the label for the tab.
+     * CSS classes to apply to the inner element.
      */
-    hideLabel?: boolean
+    inner?: string | string[]
 
     /**
-     * Defines the hover color of the active tab
-     *
-     * @since 3.0.0
-     * @default 'default'
+     * CSS classes to apply to the item element.
      */
-    color?: 'default' | 'primary' | 'light' | 'dark' | 'black'
+    item?: string | string[]
 
     /**
-     * The horizontal alignment of the tabs.
-     *
-     * @default 'start'
+     * CSS classes to apply to the content element.
      */
-    justify?: 'start' | 'center' | 'end'
-
-    /**
-     * The type of tabs to display..
-     *
-     * @default 'tabs'
-     */
-    type?: 'tabs' | 'box'
-
-    /**
-     * Optional CSS classes to apply to the component inner elements.
-     */
-    classes?: {
-      /**
-       * CSS classes to apply to the wrapper element.
-       */
-      wrapper?: string | string[]
-
-      /**
-       * CSS classes to apply to the inner element.
-       */
-      inner?: string | string[]
-
-      /**
-       * CSS classes to apply to the item element.
-       */
-      item?: string | string[]
-
-      /**
-       * CSS classes to apply to the content element.
-       */
-      content?: string | string[]
-    }
-  }>(),
-  {
-    type: undefined,
-    justify: undefined,
-    color: undefined,
-    classes: () => ({}),
-  },
-)
-
-const [modelValue] = defineModel<string>({
-  default: null,
-})
-
-const color = useNuiDefaultProperty(props, 'BaseTabs', 'color')
-const justify = useNuiDefaultProperty(props, 'BaseTabs', 'justify')
-const type = useNuiDefaultProperty(props, 'BaseTabs', 'type')
-
-onBeforeMount(() => {
-  if (modelValue.value === null && props.tabs[0]?.value) {
-    modelValue.value = props.tabs[0]?.value
+    content?: string | string[]
   }
-})
+}
+export interface BaseTabsEmits extends TabsRootEmits {}
+export type BaseTabsSlots = {
+  default(): any
+  trigger(): any
+}
+export interface BaseTabsContext {
+  color: ComputedRef<NonNullable<BaseTabsProps['color']>>
+  justify: ComputedRef<NonNullable<BaseTabsProps['justify']>>
+  type: ComputedRef<NonNullable<BaseTabsProps['type']>>
+}
 
-const justifies = {
+export const justifies = {
   start: '',
   center: 'nui-tabs-centered',
   end: 'nui-tabs-end',
-}
+} as const
 
-const types = {
+export const types = {
   tabs: 'nui-tab-item',
   box: 'nui-tab-pill-item',
-}
+} as const
 
-const colors = {
+export const colors = {
   default: 'nui-tabs-default',
   primary: 'nui-tabs-primary',
   light: 'nui-tabs-light',
   dark: 'nui-tabs-dark',
   black: 'nui-tabs-black',
-}
+} as const
 
-function toggle(value: string) {
-  modelValue.value = value
-}
+export const [
+  injectBaseTabsContext,
+  provideBaseTabsContext,
+] = createContext<BaseTabsContext>('BaseTabsContext')
+</script>
+
+
+<script setup lang="ts">
+import { useForwardPropsEmits } from 'reka-ui'
+import { reactiveOmit } from '@vueuse/core'
+
+const props = withDefaults(defineProps<BaseTabsProps>(), {
+  type: undefined,
+  justify: undefined,
+  color: undefined,
+
+  modelValue: undefined,
+  orientation: undefined,
+  defaultValue: undefined,
+
+  classes: () => ({}),
+})
+const emits = defineEmits<BaseTabsEmits>()
+const slots = defineSlots<BaseTabsSlots>()
+
+const color = useNuiDefaultProperty(props, 'BaseTabs', 'color')
+const justify = useNuiDefaultProperty(props, 'BaseTabs', 'justify')
+const type = useNuiDefaultProperty(props, 'BaseTabs', 'type')
+
+provideBaseTabsContext({
+  color,
+  justify,
+  type,
+})
+
+const forward = useForwardPropsEmits(reactiveOmit(props, ['tabs', 'color', 'justify', 'type', 'classes']))
 </script>
 
 <template>
-  <div
+  <TabsRoot
+    v-bind="forward"
     class="nui-tabs"
     :class="[
       justify && justifies[justify],
       color && colors[color],
-      props.type === 'tabs' && 'nui-tabs-bordered',
+      type === 'tabs' && 'nui-tabs-bordered',
+      props.orientation === 'vertical' && 'flex flex-row',
       props.classes?.wrapper,
     ]"
   >
-    <div class="nui-tabs-inner" :class="props.classes?.inner">
-      <a
-        v-for="(tab, key) in tabs"
-        :key="key"
-        class="nui-tab"
+    <TabsList
+      :aria-label="props.label"
+      class="relative nui-tabs-inner"
+      :class="[
+        props.orientation === 'vertical' && 'flex flex-col items-start me-6',
+        props.classes?.inner,
+      ]"
+    >
+      <slot name="trigger">
+        <BaseTabsTrigger
+          v-for="(tab, key) in tabs"
+          :key="key"
+          v-bind="tab"
+          @click="emits('update:modelValue', tab.value)"
+        />
+      </slot>
+
+      
+      <TabsIndicator
+        v-if="type === 'tabs'"
+        class="absolute rounded-full duration-300"
         :class="[
-          type && types[type],
-          modelValue === tab.value && 'nui-tab-active',
-          tab.icon && 'nui-tab-has-icon',
-          props.classes?.item,
+          props.orientation === 'vertical' && 'h-[var(--reka-tabs-indicator-size)] translate-y-[var(--reka-tabs-indicator-position)] end-0 w-[2px] transition-[height,translate]',
+          props.orientation !== 'vertical' && 'w-[var(--reka-tabs-indicator-size)] translate-x-[var(--reka-tabs-indicator-position)] start-0 h-[2px] bottom-0 transition-[width,translate]',
         ]"
-        tabindex="0"
-        @click="toggle(tab.value)"
       >
-        <slot
-          v-if="tab.icon"
-          name="icon"
-          :icon-name="tab.icon"
-          :toggle="toggle"
-        >
-          <Icon :name="tab.icon" class="me-1 block size-5" />
-        </slot>
-        <span
-          :class="[
-            props.type === 'box' && tab.icon && 'text-[.85rem]',
-            props.type === 'box' && !tab.icon && 'text-sm',
-            props.type === 'tabs' && 'text-sm',
-          ]"
-        >
-          {{ tab.label }}
-        </span>
-      </a>
-    </div>
+        <div class="bg-primary-500 w-full h-full" />
+      </TabsIndicator>
+      <TabsIndicator
+        v-else
+        class="absolute rounded-full duration-300 pointer-events-none"
+        :class="[
+          props.orientation === 'vertical' && 'w-full translate-y-[var(--reka-tabs-indicator-position)] h-[var(--reka-tabs-indicator-size)] top-0 start-0 transition-[height,translate]',
+          props.orientation !== 'vertical' && 'h-full translate-x-[var(--reka-tabs-indicator-position)] w-[var(--reka-tabs-indicator-size)]  bottom-0 start-0 transition-[width,translate]',
+        ]"
+      >
+        <div class="bg-muted-100 dark:bg-muted-900 w-full h-full" />
+      </TabsIndicator>
+
+    </TabsList>
 
     <div class="relative block" :class="props.classes?.content">
-      <slot name="tab" :active-value="modelValue" :toggle="toggle" />
-    </div>
-  </div>
+      <slot>
+        <BaseTabsContent 
+          v-for="(tab, key) in tabs" 
+          :key="key" 
+          :value="tab.value" 
+        >
+          {{ tab.value }}
+        </BaseTabsContent>
+      </slot>
+    </div> 
+  </TabsRoot>
 </template>
