@@ -429,9 +429,9 @@ export default defineAppConfig({
       /**
        * The color of the active tab.
        *
-       * @type {'default' | 'primary' | 'light' | 'dark' | 'black'}
+       * @type {'primary-low' | 'primary-high' | 'dark-low' | 'dark-high' | 'muted-low' | 'muted-high'}
        */
-      color: 'primary',
+      variant: 'primary-high',
       /**
        * The alignment of the tabs.
        *
@@ -443,6 +443,12 @@ export default defineAppConfig({
        *
        * @type {'tabs' | 'box'}
        */
+      /**
+       * The radius of the progress.
+       *
+       * @type {'none' | 'sm' | 'md' | 'lg' | 'full'}
+       */
+      rounded: 'md',
       type: 'tabs',
     },
     BaseTabSlider: {

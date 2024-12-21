@@ -20,12 +20,11 @@ export interface BaseTabsProps extends TabsRootProps {
   label?: string
 
   /**
-   * Defines the hover color of the active tab
+   * Defines the color of the active tab
    *
-   * @since 3.0.0
    * @default 'default'
    */
-  color?: 'default' | 'primary' | 'light' | 'dark' | 'black'
+  variant?: 'primary-low' | 'primary-high' | 'dark-low' | 'dark-high' | 'muted-low' | 'muted-high'
 
   /**
    * The horizontal alignment of the tabs.
@@ -33,6 +32,13 @@ export interface BaseTabsProps extends TabsRootProps {
    * @default 'start'
    */
   justify?: 'start' | 'center' | 'end'
+
+  /**
+   * The radius of the boxed tab.
+   *
+   * @default 'md'
+   */
+   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
 
   /**
    * The type of tabs to display..
@@ -72,28 +78,29 @@ export type BaseTabsSlots = {
   trigger(): any
 }
 export interface BaseTabsContext {
-  color: ComputedRef<NonNullable<BaseTabsProps['color']>>
+  variant: ComputedRef<NonNullable<BaseTabsProps['variant']>>
   justify: ComputedRef<NonNullable<BaseTabsProps['justify']>>
+  rounded: ComputedRef<NonNullable<BaseTabsProps['rounded']>>
   type: ComputedRef<NonNullable<BaseTabsProps['type']>>
 }
 
+export const radiuses = {
+  none: '',
+  sm: 'rounded-sm',
+  md: 'rounded-md',
+  lg: 'rounded-lg',
+  full: 'rounded-full',
+} as const
+
 export const justifies = {
   start: '',
-  center: 'nui-tabs-centered',
-  end: 'nui-tabs-end',
+  center: 'justify-center',
+  end: 'justify-end',
 } as const
 
 export const types = {
-  tabs: 'nui-tab-item',
-  box: 'nui-tab-pill-item',
-} as const
-
-export const colors = {
-  default: 'nui-tabs-default',
-  primary: 'nui-tabs-primary',
-  light: 'nui-tabs-light',
-  dark: 'nui-tabs-dark',
-  black: 'nui-tabs-black',
+  tabs: 'cursor-pointer px-4 py-3 text-sm transition-all duration-300',
+  box: 'flex flex-col rounded-xl px-5 cursor-pointer text-center transition-all duration-300',
 } as const
 
 export const [
@@ -110,7 +117,8 @@ import { reactiveOmit } from '@vueuse/core'
 const props = withDefaults(defineProps<BaseTabsProps>(), {
   type: undefined,
   justify: undefined,
-  color: undefined,
+  rounded: undefined,
+  variant: undefined,
 
   modelValue: undefined,
   orientation: undefined,
@@ -121,36 +129,37 @@ const props = withDefaults(defineProps<BaseTabsProps>(), {
 const emits = defineEmits<BaseTabsEmits>()
 const slots = defineSlots<BaseTabsSlots>()
 
-const color = useNuiDefaultProperty(props, 'BaseTabs', 'color')
+const variant = useNuiDefaultProperty(props, 'BaseTabs', 'variant')
 const justify = useNuiDefaultProperty(props, 'BaseTabs', 'justify')
+const rounded = useNuiDefaultProperty(props, 'BaseTabs', 'rounded')
 const type = useNuiDefaultProperty(props, 'BaseTabs', 'type')
 
 provideBaseTabsContext({
-  color,
+  variant,
   justify,
+  rounded,
   type,
 })
 
-const forward = useForwardPropsEmits(reactiveOmit(props, ['tabs', 'color', 'justify', 'type', 'classes']))
+const forward = useForwardPropsEmits(reactiveOmit(props, ['tabs', 'variant', 'justify', 'rounded', 'type', 'classes']))
 </script>
 
 <template>
   <TabsRoot
     v-bind="forward"
-    class="nui-tabs"
+    class="relative"
     :class="[
-      justify && justifies[justify],
-      color && colors[color],
-      type === 'tabs' && 'nui-tabs-bordered',
-      props.orientation === 'vertical' && 'flex flex-row',
+      props.orientation === 'vertical' ? 'flex flex-row' : '',
       props.classes?.wrapper,
     ]"
   >
     <TabsList
       :aria-label="props.label"
-      class="relative nui-tabs-inner"
+      class="relative font-sans mb-6 flex"
       :class="[
-        props.orientation === 'vertical' && 'flex flex-col items-start me-6',
+        justify && justifies[justify],
+        props.orientation === 'vertical' && 'flex flex-col items-start me-16 min-w-32',
+        props.orientation !== 'vertical' && type === 'tabs' && 'border-b border-muted-200 dark:border-muted-800',
         props.classes?.inner,
       ]"
     >
@@ -159,6 +168,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['tabs', 'color', 'just
           v-for="(tab, key) in tabs"
           :key="key"
           v-bind="tab"
+          :variant="variant"
           @click="emits('update:modelValue', tab.value)"
         />
       </slot>
@@ -172,7 +182,14 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['tabs', 'color', 'just
           props.orientation !== 'vertical' && 'w-[var(--reka-tabs-indicator-size)] translate-x-[var(--reka-tabs-indicator-position)] start-0 h-[2px] bottom-0 transition-[width,translate]',
         ]"
       >
-        <div class="bg-primary-500 w-full h-full" />
+        <div class="w-full h-full" :class="[
+          variant === 'primary-low' && 'bg-primary-500',
+          variant === 'primary-high' && 'bg-primary-500',
+          variant === 'dark-low' && 'bg-muted-900 dark:bg-muted-100',
+          variant === 'dark-high' && 'bg-muted-900 dark:bg-muted-100',
+          variant === 'muted-low' && 'bg-muted-400 dark:bg-muted-400',
+          variant === 'muted-high' && 'bg-muted-400 dark:bg-muted-500',
+        ]" />
       </TabsIndicator>
       <TabsIndicator
         v-else
@@ -182,7 +199,15 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['tabs', 'color', 'just
           props.orientation !== 'vertical' && 'h-full translate-x-[var(--reka-tabs-indicator-position)] w-[var(--reka-tabs-indicator-size)]  bottom-0 start-0 transition-[width,translate]',
         ]"
       >
-        <div class="bg-muted-100 dark:bg-muted-900 w-full h-full" />
+        <div class="w-full h-full" :class="[
+          rounded && radiuses[rounded],
+          variant === 'primary-low' && 'bg-primary-500/10 dark:bg-primary-500/20',  
+          variant === 'primary-high' && 'bg-primary-500/10 dark:bg-primary-500/20',
+          variant === 'dark-low' && 'bg-muted-900/10 dark:bg-muted-100/10',
+          variant === 'dark-high' && 'bg-muted-900/10 dark:bg-white/10',
+          variant === 'muted-low' && 'bg-muted-100 dark:bg-muted-700',
+          variant === 'muted-high' && 'bg-muted-100 dark:bg-muted-900',
+        ]" />
       </TabsIndicator>
 
     </TabsList>

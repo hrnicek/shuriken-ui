@@ -13,6 +13,13 @@ export interface BaseTabsTriggerProps extends TabsTriggerProps {
   icon?: string
 
   /**
+   * Defines the color of the active tab
+   *
+   * @default 'default'
+   */
+   variant?: 'primary-low' | 'primary-high' | 'dark-low' | 'dark-high' | 'muted-low' | 'muted-high'
+
+  /**
    * The type of tabs to display..
    *
    * @default 'tabs'
@@ -33,31 +40,44 @@ import { injectBaseTabsContext, types } from './BaseTabs.vue'
 const props = withDefaults(defineProps<BaseTabsTriggerProps>(), {
   type: undefined,
   icon: undefined,
+  variant: undefined,
 })
 const type = useNuiDefaultProperty(props, 'BaseTabs', 'type')
 
 const context = injectBaseTabsContext()
 
 const slots = defineSlots<BaseTabsTriggerSlots>()
-const forward = useForwardProps(reactiveOmit(props, ['label', 'type', 'icon']))
+const forward = useForwardProps(reactiveOmit(props, ['label', 'type', 'variant', 'icon']))
+
+const tabVariants = {
+  'primary-low': 'group-data-[state=active]/trigger:text-primary-500 group-data-[state=inactive]/trigger:text-muted-400 dark:group-data-[state=active]/trigger:text-primary-400 dark:group-data-[state=inactive]/trigger:text-muted-400',
+  'primary-high': 'group-data-[state=active]/trigger:text-primary-500 group-data-[state=inactive]/trigger:text-muted-400 dark:group-data-[state=active]/trigger:text-primary-400 dark:group-data-[state=inactive]/trigger:text-muted-400',
+  'dark-low': 'group-data-[state=active]/trigger:text-muted-900 group-data-[state=inactive]/trigger:text-muted-400 dark:group-data-[state=active]/trigger:text-white dark:group-data-[state=inactive]/trigger:text-muted-400',
+  'dark-high': 'group-data-[state=active]/trigger:text-muted-900 group-data-[state=inactive]/trigger:text-muted-400 dark:group-data-[state=active]/trigger:text-white dark:group-data-[state=inactive]/trigger:text-muted-400',
+  'muted-low': 'group-data-[state=active]/trigger:text-muted-700 group-data-[state=inactive]/trigger:text-muted-400 dark:group-data-[state=active]/trigger:text-muted-100 dark:group-data-[state=inactive]/trigger:text-muted-400',
+  'muted-high': 'group-data-[state=active]/trigger:text-muted-700 group-data-[state=inactive]/trigger:text-muted-400 dark:group-data-[state=active]/trigger:text-muted-100 dark:group-data-[state=inactive]/trigger:text-muted-400',
+} as const
 </script>
 
 <template>
   <TabsTrigger 
     v-bind="forward"
-    class="nui-tab z-10 relative"
+    class="group/trigger z-10 relative disabled:pointer-events-none disabled:opacity-50"
     :class="[
       (props.type || context.type.value) && types[props.type || context.type.value],
-      props.icon && 'nui-tab-has-icon',
+      props.icon && 'flex items-center gap-1',
+      (props.type || context.type.value === 'box' && !props.icon) && 'py-1.5 text-center',
+      (props.type || context.type.value === 'box' && props.icon) && 'py-3 text-center',
     ]"
   >
     <slot>
-      <Icon v-if="props.icon" :name="props.icon" class="me-1 block size-5" />
+      <Icon v-if="props.icon" :name="props.icon" class="me-1 block size-5" :class="(props.variant || context.variant.value) && tabVariants[props.variant || context.variant.value]" />
       <span
         :class="[
-          (props.type || context.type.value === 'box') && props.icon && 'text-[.85rem]',
+          (props.type || context.type.value === 'box') && props.icon && 'text-sm',
           (props.type || context.type.value === 'box') && !props.icon && 'text-sm',
           (props.type || context.type.value === 'tabs') && 'text-sm',
+          (props.variant || context.variant.value) && tabVariants[props.variant || context.variant.value],
         ]"
       >
         {{ props.label }}
