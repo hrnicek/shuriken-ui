@@ -738,11 +738,11 @@ export default defineAppConfig({
     BaseListboxItem: {},
     BaseRadio: {
       /**
-       * Default color for the BaseRadio component
+       * Default variant for the BaseRadio component
        *
-       * @type {'default' | 'light' | 'muted' | 'dark' | 'black' | 'primary' | 'info' | 'success' | 'warning' | 'danger'}
+       * @type {'default-low' | 'default-high' | 'primary' | 'dark' | 'none'}
        */
-      color: 'default',
+      variant: 'default-high',
     },
     BaseRadioHeadless: {},
     BaseSelect: {
