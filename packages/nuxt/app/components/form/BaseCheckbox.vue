@@ -16,29 +16,11 @@ export interface BaseCheckboxProps extends CheckboxRootProps {
   error?: string | boolean
 
   /**
-   * The color of the checkbox.
+   * The variant of the checkbox.
    *
-   * @default 'default'
+   * @default 'default-high'
    */
-  color?:
-    | 'default'
-    | 'muted'
-    | 'light'
-    | 'dark'
-    | 'black'
-    | 'primary'
-    | 'info'
-    | 'success'
-    | 'warning'
-    | 'danger'
-
-  /**
-   * The radius of the checkbox.
-   *
-   * @since 2.0.0
-   * @default 'sm'
-   */
-  rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
+  variant?: 'default-low' | 'default-high' | 'primary' | 'dark' | 'none'
 
   /**
    * Optional CSS classes to apply to the wrapper, label, and input elements.
@@ -57,7 +39,7 @@ export interface BaseCheckboxProps extends CheckboxRootProps {
     /**
      * CSS classes to apply to the input element.
      */
-    input?: string | string[]
+    box?: string | string[]
   }
 }
 export interface BaseCheckboxEmits extends CheckboxRootEmits {}
@@ -66,25 +48,12 @@ export type BaseCheckboxSlots = {
   error(): any
 }
 
-const radiuses = {
-  none: '',
-  sm: 'nui-checkbox-rounded-sm',
-  md: 'nui-checkbox-rounded-md',
-  lg: 'nui-checkbox-rounded-lg',
-  full: 'nui-checkbox-rounded-full',
-} as const
-
-const colors = {
-  default: 'nui-checkbox-default',
-  muted: 'nui-checkbox-muted',
-  light: 'nui-checkbox-light',
-  dark: 'nui-checkbox-dark',
-  black: 'nui-checkbox-black',
-  primary: 'nui-checkbox-primary',
-  info: 'nui-checkbox-info',
-  success: 'nui-checkbox-success',
-  warning: 'nui-checkbox-warning',
-  danger: 'nui-checkbox-danger',
+const variants = {
+  'default-low': 'bg-muted-50 dark:bg-muted-700 border-1 border-muted-300 dark:border-muted-700 text-muted-700 dark:text-muted-300',
+  'default-high': 'bg-muted-50 dark:bg-muted-950 border-1 border-muted-300 dark:border-muted-700 text-muted-700 dark:text-muted-100',
+  'primary': 'bg-primary-500/10 dark:bg-primary-500/20 border-1 border-muted-300 dark:border-muted-700 text-primary-500 dark:text-primary-400',
+  'dark': 'bg-muted-900/10 dark:bg-white/10 border-1 border-muted-300 dark:border-muted-700 text-muted-900 dark:text-white',
+  'none': '',
 } as const
 </script>
 
@@ -106,8 +75,7 @@ const props = withDefaults(defineProps<BaseCheckboxProps>(), {
   modelValue: undefined,
   label: undefined,
   error: false,
-  rounded: undefined,
-  color: undefined,
+  variant: undefined,
   classes: () => ({}),
 })
 const emits = defineEmits<BaseCheckboxEmits>()
@@ -116,36 +84,39 @@ const slots = defineSlots<BaseCheckboxSlots>()
 
 const attrs = useAttrs()
 const id = useNinjaId(() => props.id)
-const color = useNuiDefaultProperty(props, 'BaseCheckbox', 'color')
-const rounded = useNuiDefaultProperty(props, 'BaseCheckbox', 'rounded')
+const variant = useNuiDefaultProperty(props, 'BaseCheckbox', 'variant')
 
 const iconCheck = useNuiDefaultIcon('check')
 const iconIndeterminate = useNuiDefaultIcon('minus')
-const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'error', 'color', 'rounded', 'classes']), emits)
+const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'error', 'variant', 'classes']), emits)
 </script>
 
 <template>
   <div
-    class="nui-checkbox"
+    class="relative inline-flex items-start gap-1"
     :class="[
       props.disabled && 'opacity-50',
-      rounded && radiuses[rounded],
-      color && colors[color],
       props.classes?.wrapper,
     ]"
   >
-    <CheckboxRoot :id v-bind="{ ...forward, ...attrs }" class="nui-checkbox-outer">
-      <div class="nui-checkbox-inner"></div>
-      <CheckboxIndicator class="nui-checkbox-inner group">
-        <Icon :name="iconCheck" class="hidden group-data-[state=checked]:block size-4" />
-        <Icon :name="iconIndeterminate" class="hidden group-data-[state=indeterminate]:block size-4" />
+    <CheckboxRoot :id v-bind="{ ...forward, ...attrs }" class="nui-focus relative flex items-center justify-center h-5 w-5 shrink-0 cursor-pointer disabled:cursor-not-allowed overflow-hidden">
+      <div class="absolute start-0 top-0 z-0 h-full w-full rounded-md" :class="[
+        variant && variants[variant],
+        props.classes?.box,
+      ]"></div>
+      <CheckboxIndicator class="absolute start-0 top-0 z-0 flex items-center justify-center h-full w-full rounded-md group" :class="[
+        variant && variants[variant],
+        props.classes?.box,
+      ]">
+        <Icon :name="iconCheck" class="hidden group-data-[state=checked]:block size-4 scale-90" />
+        <Icon :name="iconIndeterminate" class="hidden group-data-[state=indeterminate]:block size-4 scale-90" />
       </CheckboxIndicator>
     </CheckboxRoot>
-    <div class="nui-checkbox-label-wrapper">
+    <div class="inline-flex flex-col">
       <Label
         v-if="props.label || 'default' in $slots"
         :for="id"
-        class="nui-checkbox-label-text"
+        class="font-sans text-sm ms-1 cursor-pointer select-none text-muted-600 dark:text-muted-400"
         :class="props.classes?.label"
       >
         <slot>{{ props.label }}</slot>
@@ -153,7 +124,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'error'
       <Label
         v-if="props.error && typeof props.error === 'string' || 'error' in slots"
         :for="id"
-        class="nui-checkbox-error"
+        class="ms-1 inline-block"
         as-child
       >
         <slot name="error">

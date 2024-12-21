@@ -7,7 +7,7 @@ const props = defineProps<{
 
 <template>
   <div
-    className="border border-muted-200 dark:border-muted-800 bg-white dark:bg-muted-950 p-6 rounded-sm"
+    className="border-b border-muted-200 dark:border-muted-800 py-12"
   >
     <div v-if="props.title" class="mb-6">
       <h3

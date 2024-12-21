@@ -21,7 +21,7 @@ const forward = useForwardProps(reactiveOmit(props, []))
 </script>
 
 <template>
-  <TabsContent v-bind="forward" class="font-sans text-sm text-gray-500 dark:text-gray-400">
+  <TabsContent v-bind="forward" class="font-sans text-sm text-muted-500 dark:text-muted-400">
     <slot />
   </TabsContent>
 </template>

@@ -17,13 +17,13 @@ const thinValues = reactive({
 })
 
 const ballValues = reactive({
-  primary: true,
-  info: true,
-  success: true,
-  warning: true,
-  danger: true,
-  dark: true,
-  black: true,
+  one: true,
+  two: true,
+  three: true,
+  four: true,
+  five: true,
+  six: true,
+  seven: true,
 })
 
 const thinSublabelValue = ref(true)
@@ -33,52 +33,86 @@ const ballSublabelValue = ref(true)
 <template>
   <div>
     <NuiPreviewContainer title="BaseSwitch">
-      <NuiPreview title="Thin: default" description="Switch thin component">
-        <BaseFocusLoop
-          class="grid grid-cols-2 gap-6 md:max-w-lg md:grid-cols-4"
+      <NuiPreview title="Thin variants" description="Switch thin component">
+        <div
+          class="grid grid-cols-2 gap-6 md:max-w-2xl md:grid-cols-4"
         >
           <BaseSwitchThin
             v-model="thinValues.primary"
-            color="primary"
+            variant="default-low"
           >
-            Primary
+            Default low
           </BaseSwitchThin>
-          <BaseSwitchThin v-model="thinValues.info"  color="info">
-            Info
+          <BaseSwitchThin v-model="thinValues.info"
+            variant="default-high">
+            Default high
           </BaseSwitchThin>
           <BaseSwitchThin
             v-model="thinValues.success"
-            color="success"
+            variant="primary"
           >
-            Success
+            Primary
           </BaseSwitchThin>
           <BaseSwitchThin
             v-model="thinValues.warning"
-            color="warning"
+            variant="dark"
           >
             Warning
           </BaseSwitchThin>
+        </div>
+      </NuiPreview>
+
+      <NuiPreview title="Custom variants" description="Switch thin custom variants">
+        <div
+          class="grid grid-cols-2 gap-6 md:max-w-4xl md:grid-cols-4"
+        >
           <BaseSwitchThin
-            v-model="thinValues.danger"
-            color="danger"
+            v-model="thinValues.primary"
+            variant="none"
+            :classes="{ 
+              track: 'peer-data-[state=checked]:bg-green-500 dark:peer-data-[state=checked]:bg-green-500 bg-muted-300 dark:bg-muted-600',
+              handle: 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
+            }"
           >
-            Danger
+            Custom variant
           </BaseSwitchThin>
-          <BaseSwitchThin v-model="thinValues.dark" label="Dark" color="dark" />
+          <BaseSwitchThin 
+            v-model="thinValues.info"
+            variant="none"
+            :classes="{ 
+              track: 'peer-data-[state=checked]:bg-pink-500 dark:peer-data-[state=checked]:bg-pink-500 bg-muted-300 dark:bg-muted-600',
+              handle: 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
+            }">
+            Custom variant
+          </BaseSwitchThin>
           <BaseSwitchThin
-            v-model="thinValues.black"
-            color="black"
+            v-model="thinValues.success"
+            variant="none"
+            :classes="{ 
+              track: 'peer-data-[state=checked]:bg-amber-500 dark:peer-data-[state=checked]:bg-amber-500 bg-muted-300 dark:bg-muted-600',
+              handle: 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
+            }"
           >
-            Black
+            Custom variant
           </BaseSwitchThin>
-        </BaseFocusLoop>
+          <BaseSwitchThin
+            v-model="thinValues.warning"
+            variant="none"
+            :classes="{ 
+              track: 'peer-data-[state=checked]:bg-violet-500 dark:peer-data-[state=checked]:bg-violet-500 bg-muted-300 dark:bg-muted-600',
+              handle: 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
+            }"
+          >
+            Custom variant
+          </BaseSwitchThin>
+        </div>
       </NuiPreview>
 
       <NuiPreview title="Thin: sublabel" description="Switch thin sublabel">
         <div class="grid gap-6 md:max-w-lg md:grid-cols-2">
           <BaseSwitchThin
             v-model="thinSublabelValue"
-            color="primary"
+            variant="primary"
           >
             Primary
 
@@ -89,49 +123,85 @@ const ballSublabelValue = ref(true)
         </div>
       </NuiPreview>
 
-      <NuiPreview title="Ball: default" description="Switch thin component">
+      <NuiPreview title="Ball variants" description="Switch ball component variants">
         <BaseFocusLoop
-          class="grid grid-cols-2 gap-6 md:max-w-lg md:grid-cols-4"
+          class="grid grid-cols-2 gap-6 md:max-w-2xl md:grid-cols-4"
         >
           <BaseSwitchBall
-            v-model="ballValues.primary"
-            color="primary"
+            v-model="ballValues.one"
+            variant="default-low"
+          >
+            Default low
+          </BaseSwitchBall> 
+          <BaseSwitchBall
+            v-model="ballValues.two"
+            variant="default-high"
+          >
+            Default high
+          </BaseSwitchBall> 
+          <BaseSwitchBall
+            v-model="ballValues.three"
+            variant="primary"
           >
             Primary
           </BaseSwitchBall> 
-          <BaseSwitchBall v-model="ballValues.info" label="Info" color="info">
-            Info
-          </BaseSwitchBall>
           <BaseSwitchBall
-            v-model="ballValues.success"
-            color="success"
-          >
-            Success
-          </BaseSwitchBall>
-          <BaseSwitchBall
-            v-model="ballValues.warning"
-            color="warning"
-          >
-            Warning
-          </BaseSwitchBall>
-          <BaseSwitchBall
-            v-model="ballValues.danger"
-            color="danger"
-          >
-            Danger
-          </BaseSwitchBall>
-          <BaseSwitchBall
-            v-model="ballValues.dark"
+            v-model="ballValues.four"
             id="dark"
-            color="dark"
+            variant="dark"
           >
             Dark
           </BaseSwitchBall>
+        </BaseFocusLoop>
+      </NuiPreview>
+
+      <NuiPreview title="Custom variants" description="Switch ball custom variants">
+        <BaseFocusLoop
+          class="grid grid-cols-2 gap-6 md:max-w-3xl md:grid-cols-4"
+        >
           <BaseSwitchBall
-            v-model="ballValues.black"
-            color="black"
+            v-model="ballValues.one"
+            variant="none"
+            :classes="{ 
+              track: 'peer-data-[state=checked]:bg-green-500 dark:peer-data-[state=checked]:bg-green-500 bg-muted-300 dark:bg-muted-600', 
+              icon: 'text-white dark:text-white',
+              handle: 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
+            }"
           >
-            Black
+            Custom variant
+          </BaseSwitchBall> 
+          <BaseSwitchBall
+            v-model="ballValues.two"
+            variant="none"
+            :classes="{ 
+              track: 'peer-data-[state=checked]:bg-pink-500 dark:peer-data-[state=checked]:bg-pink-500 bg-muted-300 dark:bg-muted-600', 
+              icon: 'text-white dark:text-white',
+              handle: 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
+            }"
+          >
+            Custom variant
+          </BaseSwitchBall> 
+          <BaseSwitchBall
+            v-model="ballValues.three"
+            variant="none"
+            :classes="{ 
+              track: 'peer-data-[state=checked]:bg-amber-500 dark:peer-data-[state=checked]:bg-amber-500 bg-muted-300 dark:bg-muted-600', 
+              icon: 'text-white dark:text-white',
+              handle: 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
+            }"
+          >
+            Custom variant
+          </BaseSwitchBall> 
+          <BaseSwitchBall
+            v-model="ballValues.four"
+            variant="none"
+            :classes="{ 
+              track: 'peer-data-[state=checked]:bg-violet-500 dark:peer-data-[state=checked]:bg-violet-500 bg-muted-300 dark:bg-muted-600', 
+              icon: 'text-white dark:text-white',
+              handle: 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
+            }"
+          >
+            Custom variant
           </BaseSwitchBall>
         </BaseFocusLoop>
       </NuiPreview>
@@ -141,6 +211,7 @@ const ballSublabelValue = ref(true)
           <BaseSwitchBall
             v-model="ballSublabelValue"
             label="Primary"
+            variant="primary"
           >
             Primary
 

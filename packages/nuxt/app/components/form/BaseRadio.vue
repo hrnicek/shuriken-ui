@@ -16,21 +16,11 @@ export interface BaseCheckboxProps extends RadioGroupItemProps {
   error?: string | boolean
 
   /**
-   * The color of the radio.
+   * The variant of the radio.
    *
-   * @default 'default'
+   * @default 'default-high'
    */
-  color?:
-    | 'default'
-    | 'muted'
-    | 'light'
-    | 'dark'
-    | 'black'
-    | 'primary'
-    | 'info'
-    | 'success'
-    | 'warning'
-    | 'danger'
+  variant?: 'default-low' | 'default-high' | 'primary' | 'dark' | 'none'
 
   /**
    * Classes to apply to the various parts of the radio input.
@@ -49,12 +39,12 @@ export interface BaseCheckboxProps extends RadioGroupItemProps {
     /**
      * Classes to apply to the dot element inside the radio input.
      */
-    inputDot?: string | string[]
+    dot?: string | string[]
 
     /**
      * Classes to apply to the background element inside the radio input.
      */
-    inputBg?: string | string[]
+    box?: string | string[]
   }
 }
 export interface BaseCheckboxEmits /*extends RadioGroupItemEmits*/ {
@@ -65,17 +55,20 @@ export type BaseCheckboxSlots = {
   error(): any
 }
 
-const colors = {
-  default: 'nui-radio-default',
-  muted: 'nui-radio-muted',
-  light: 'nui-radio-light',
-  dark: 'nui-radio-dark',
-  black: 'nui-radio-black',
-  primary: 'nui-radio-primary',
-  info: 'nui-radio-info',
-  success: 'nui-radio-success',
-  warning: 'nui-radio-warning',
-  danger: 'nui-radio-danger',
+const boxVariants = {
+  'default-low': 'bg-muted-50 dark:bg-muted-700 border-1 border-muted-300 dark:border-muted-700 text-muted-700 dark:text-muted-300',
+  'default-high': 'bg-muted-50 dark:bg-muted-950 border-1 border-muted-300 dark:border-muted-700 text-muted-700 dark:text-muted-100',
+  'primary': 'bg-primary-500/10 dark:bg-primary-500/20 border-1 border-muted-300 dark:border-muted-700 text-primary-500 dark:text-primary-400',
+  'dark': 'bg-muted-900/10 dark:bg-white/10 border-1 border-muted-300 dark:border-muted-700 text-muted-900 dark:text-white',
+  'none': '',
+} as const
+
+const dotVariants = {
+  'default-low': 'text-muted-700 dark:text-muted-300',
+  'default-high': 'text-muted-700 dark:text-muted-300',
+  'primary': 'text-primary-500 dark:text-primary-400',
+  'dark': 'text-muted-900 dark:text-white',
+  'none': '',
 } as const
 </script>
 
@@ -94,7 +87,7 @@ const props = withDefaults(defineProps<BaseCheckboxProps>(), {
   value: undefined,
   id: undefined,
   label: undefined,
-  color: undefined,
+  variant: undefined,
   error: undefined,
   classes: () => ({}),
 })
@@ -103,32 +96,38 @@ const slots = defineSlots<BaseCheckboxSlots>()
 
 const attrs = useAttrs()
 const id = useNinjaId(() => props.id)
-const color = useNuiDefaultProperty(props, 'BaseRadio', 'color')
-const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'error', 'color',  'classes']), emits)
+const variant = useNuiDefaultProperty(props, 'BaseRadio', 'variant')
+const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'error', 'variant',  'classes']), emits)
 </script>
 
 <template>
   <div
-    class="nui-radio"
-    :class="[color && colors[color], props.classes?.wrapper]"
+    class="relative inline-flex items-start gap-1"
+    :class="props.classes?.wrapper"
   >
-    <RadioGroupItem :id v-bind="{ ...forward, ...attrs }" class="nui-radio-outer">
-      <div :class="props.classes?.inputBg" class="nui-radio-inner" />
-      <div :class="props.classes?.inputDot" class="nui-radio-dot" />
+    <RadioGroupItem :id v-bind="{ ...forward, ...attrs }" class="group/radio nui-focus relative flex items-center justify-center shrink-0 cursor-pointer overflow-hidden rounded-full size-5 disabled:pointer-events-none disabled:opacity-50">
+      <div :class="[props.classes?.box, variant && boxVariants[variant]]" class="absolute start-0 top-0 z-0 rounded-full h-full w-full" />
+      <div 
+        :class="[
+          props.classes?.dot, 
+          variant && dotVariants[variant]
+        ]" 
+        class="pointer-events-none z-10 block group-data-[state=unchecked]/radio:scale-0 roup-data-[state=checked]/radio:scale-100 rounded-full size-1 bg-current dark:bg-current transition-all duration-300" 
+      />
     </RadioGroupItem>
-    <div class="nui-radio-label-wrapper">
+    <div class="inline-flex flex-col">
       <Label
         v-if="props.label || 'default' in $slots"
         :for="id"
         :class="props.classes?.label"
-        class="nui-radio-label-text"
+        class=" ms-1 cursor-pointer select-none font-sans text-sm text-muted-400 dark:text-muted-400"
       >
         <slot>{{ props.label }}</slot>
       </Label>
       <Label
         v-if="props.error && typeof props.error === 'string'"
         :for="id"
-        class="nui-radio-error"
+        class="ms-1 inline-block"
         as-child
       >
         <slot name="error">

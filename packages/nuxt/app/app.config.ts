@@ -427,9 +427,9 @@ export default defineAppConfig({
       /**
        * The color of the active tab.
        *
-       * @type {'default' | 'primary' | 'light' | 'dark' | 'black'}
+       * @type {'primary-low' | 'primary-high' | 'dark-low' | 'dark-high' | 'muted-low' | 'muted-high'}
        */
-      color: 'primary',
+      variant: 'primary-high',
       /**
        * The alignment of the tabs.
        *
@@ -441,6 +441,12 @@ export default defineAppConfig({
        *
        * @type {'tabs' | 'box'}
        */
+      /**
+       * The radius of the progress.
+       *
+       * @type {'none' | 'sm' | 'md' | 'lg' | 'full'}
+       */
+      rounded: 'md',
       type: 'tabs',
     },
     BaseTabSlider: {
@@ -600,17 +606,11 @@ export default defineAppConfig({
     },
     BaseCheckbox: {
       /**
-       * Default color for the BaseCheckbox component
+       * Default variant for the BaseCheckbox component
        *
-       * @type {'default' | 'muted' | 'light' | 'dark' | 'black' | 'primary' | 'info' | 'success' | 'warning' | 'danger'}
+       * @type {'default-low' | 'default-high' | 'primary' | 'dark' | 'none'}
        */
-      color: 'default',
-      /**
-       * Default rounded for the BaseCheckbox component
-       *
-       * @type {'none' | 'sm' | 'md' | 'lg' | 'full'}
-       */
-      rounded: 'sm',
+      variant: 'default-high',
     },
     BaseCheckboxAnimated: {
       /**
@@ -737,13 +737,12 @@ export default defineAppConfig({
     BaseListboxItem: {},
     BaseRadio: {
       /**
-       * Default color for the BaseRadio component
+       * Default variant for the BaseRadio component
        *
-       * @type {'default' | 'light' | 'muted' | 'dark' | 'black' | 'primary' | 'info' | 'success' | 'warning' | 'danger'}
+       * @type {'default-low' | 'default-high' | 'primary' | 'dark' | 'none'}
        */
-      color: 'default',
+      variant: 'default-high',
     },
-    BaseRadioHeadless: {},
     BaseSelect: {
       /**
        * The contrast of the select.
@@ -766,19 +765,19 @@ export default defineAppConfig({
     },
     BaseSwitchBall: {
       /**
-       * The color of the switch.
+       * The variant of the switch.
        *
-       * @type {'primary' | 'info' | 'success' | 'warning' | 'danger' | 'dark' | 'black'}
+       * @type {'default-low' | 'default-high' | 'primary' | 'dark' | 'none'}
        */
-      color: 'primary',
+      variant: 'default-high',
     },
     BaseSwitchThin: {
       /**
-       * The color of the switch.
+       * The variant of the switch.
        *
-       * @type {'primary' | 'info' | 'success' | 'warning' | 'danger' | 'dark' | 'black'}
+       * @type {'default-low' | 'default-high' | 'primary' | 'dark' | 'none'}
        */
-      color: 'primary',
+      variant: 'default-high',
     },
     BaseTextarea: {
       /**
