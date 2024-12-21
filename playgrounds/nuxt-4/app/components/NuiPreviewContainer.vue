@@ -13,7 +13,7 @@ const props = defineProps<{
       >
         {{ props.title }}
       </h2>
-      <div class="flex flex-col gap-y-20 w-full">
+      <div class="flex flex-col gap-y-12 w-full">
         <slot />
       </div>
     </div>
