@@ -4,12 +4,6 @@
   @apply relative w-full;
 
 
-  &:disabled {
-    @apply cursor-not-allowed opacity-75;
-    .nui-input-file-regular-addon {
-      @apply cursor-not-allowed opacity-75;
-    }
-  }
   &.nui-input-file-regular-sm:not(.nui-input-file-regular-has-icon) {
     @apply text-xs leading-4;
 
@@ -96,6 +90,10 @@
   @apply relative nui-focus w-full flex cursor-pointer items-center overflow-hidden disabled:cursor-not-allowed disabled:opacity-75;
   @apply font-sans;
   @apply transition-colors duration-300;
+
+  &:has([disabled]) {
+    @apply cursor-not-allowed opacity-75;
+  }
 }
 @utility nui-input-file-regular-addon {
   @apply pointer-events-none flex shrink-0 items-center justify-center gap-1 transition-colors duration-100;
@@ -120,6 +118,10 @@
     @apply bg-white dark:bg-muted-800;
     @apply border border-muted-300 dark:border-muted-700;
     @apply placeholder:text-muted-300 dark:placeholder:text-muted-500;
+
+    &:has([aria-invalid='true']) {
+      @apply border-danger-500 dark:border-danger-500;
+    }
   }
 
   .nui-input-file-regular-addon {
@@ -150,11 +152,6 @@
 @utility nui-input-file-regular-loading {
   .nui-input-file-regular-inner {
     @apply text-transparent placeholder:text-transparent;
-  }
-}
-@utility nui-input-file-regular-error {
-  .nui-input-file-regular-inner {
-    @apply border-danger-500 dark:border-danger-500;
   }
 }
 @utility nui-input-file-regular-rounded-sm {

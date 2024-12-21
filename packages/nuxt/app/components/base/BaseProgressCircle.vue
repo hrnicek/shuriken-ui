@@ -123,7 +123,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['variant', 'size', 'th
       />
       <ProgressIndicator as-child>
         <circle
-          class="stroke-current origin-center "
+          class="stroke-current origin-center"
           :class="[
             typeof modelValue === 'number' ? '-rotate-90 transition-[stroke-dasharray] duration-300' : 'animate-nui-spin',
             variant && variants[variant],

@@ -150,7 +150,9 @@ const value3 = ref('')
               </BaseFieldLabel>
             </div>
             <div class="relative">
-              <BaseInputFile />
+              <BaseFieldController>
+                <BaseInputFile placeholder="placeholder" />
+              </BaseFieldController>
               <div class="absolute z-10 end-4 top-3" >
                 <BaseFieldLoadingIndicator/>
                 <BaseFieldSuccessIndicator />
@@ -258,7 +260,7 @@ const value3 = ref('')
                   <BaseSelectItem value="4">Option 4</BaseSelectItem>
                 </BaseSelect>
               </BaseFieldController>
-              <div class="absolute z-10 end-10 top-2.5" >
+              <div class="absolute z-10 end-10 top-3" >
                 <BaseFieldLoadingIndicator/>
                 <BaseFieldSuccessIndicator />
                 <BaseFieldErrorIndicator />
@@ -427,7 +429,7 @@ const value3 = ref('')
                   <BaseSelectItem value="4">Option 4</BaseSelectItem>
                 </BaseSelect>
               </BaseFieldController>
-              <div class="absolute z-10 end-10 top-2.5" >
+              <div class="absolute z-10 end-10 top-3" >
                 <BaseFieldLoadingIndicator/>
                 <BaseFieldSuccessIndicator />
                 <BaseFieldErrorIndicator>
