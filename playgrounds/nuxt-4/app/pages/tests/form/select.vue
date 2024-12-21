@@ -161,6 +161,14 @@ const options = reactive({
                 Cyclops
               </BaseSelectItem>
             </BaseSelectGroup>
+
+            
+            <BaseSelectGroup>
+              <BaseSelectLabel>
+                Long list
+              </BaseSelectLabel>
+              <BaseSelectItem v-for="i in 50" :value="i">Option {{ i }}</BaseSelectItem>
+            </BaseSelectGroup>
           </BaseSelect>
         </div>
       </NuiPreview>

@@ -36,29 +36,9 @@ const props = withDefaults(
     inputmode?: 'numeric' | 'decimal'
 
     /**
-     * The label to display for the input.
-     */
-    label?: string
-
-    /**
-     * If the label should be floating.
-     */
-    labelFloat?: boolean
-
-    /**
-     * The icon to display for the input.
-     */
-    icon?: string
-
-    /**
      * The placeholder to display for the input.
      */
     placeholder?: string
-
-    /**
-     * An error message or boolean value indicating whether the input is in an error state.
-     */
-    error?: string | boolean
 
     /**
      * The icon to display for the decrement button.
@@ -74,11 +54,6 @@ const props = withDefaults(
      * Whether the color of the input should change when it is focused.
      */
     colorFocus?: boolean
-
-    /**
-     * Whether the input is in a loading state.
-     */
-    loading?: boolean
 
     /**
      * Whether the input is in a disabled state.
@@ -122,29 +97,14 @@ const props = withDefaults(
       outer?: string | string[]
 
       /**
-       * CSS classes to apply to the label element.
-       */
-      label?: string | string[]
-
-      /**
        * CSS classes to apply to the input element.
        */
       input?: string | string[]
 
       /**
-       * CSS classes to apply to the addon element.
-       */
-      addon?: string | string[]
-
-      /**
        * CSS classes to apply to the error element.
        */
       error?: string | string[]
-
-      /**
-       * CSS classes to apply to the icon element.
-       */
-      icon?: string | string[]
 
       /**
        * CSS classes to apply to the buttons wrapper.
@@ -162,10 +122,7 @@ const props = withDefaults(
     rounded: undefined,
     size: undefined,
     contrast: undefined,
-    label: undefined,
-    icon: undefined,
     placeholder: undefined,
-    error: false,
     iconDecrement: undefined,
     iconIncrement: undefined,
     classes: () => ({}),
@@ -231,16 +188,6 @@ defineExpose({
   id,
 })
 
-const placeholder = computed(() => {
-  if (props.loading) {
-    return
-  }
-  if (props.labelFloat) {
-    return props.label
-  }
-
-  return props.placeholder
-})
 
 const floatPrecision = computed(() => {
   if (!Number.isFinite(props.step) || Number.isNaN(props.step))
@@ -340,15 +287,6 @@ onBeforeUnmount(() => {
   clearInterval(incrementInterval)
   clearInterval(decrementInterval)
 })
-
-if (import.meta.dev) {
-  const slots = useSlots()
-  if (props.labelFloat && 'label' in slots) {
-    console.warn(
-      '[ninja-ui][base-input-number] The "label-float" property is not compatible with the label slot, use the label property instead.',
-    )
-  }
-}
 </script>
 
 <template>
@@ -358,25 +296,10 @@ if (import.meta.dev) {
       contrast && contrasts[contrast],
       size && sizes[size],
       rounded && radiuses[rounded],
-      props.error && !props.loading && 'nui-input-number-error',
-      props.loading && 'nui-input-number-loading',
-      props.labelFloat && 'nui-input-number-label-float',
-      props.icon && 'nui-input-number-has-icon',
       props.colorFocus && 'nui-input-number-focus',
       props.classes?.wrapper,
     ]"
   >
-    <Label
-      v-if="
-        ('label' in $slots && !props.labelFloat)
-          || (props.label && !props.labelFloat)
-      "
-      class="nui-input-number-label"
-      :for="id"
-      :class="props.classes?.label"
-    >
-      <slot name="label">{{ props.label }}</slot>
-    </Label>
     <div class="nui-input-number-outer" :class="props.classes?.outer">
       <div>
         <input
@@ -405,29 +328,6 @@ if (import.meta.dev) {
           :inputmode="props.inputmode"
           :disabled="props.disabled"
         >
-        <label
-          v-if="
-            ('label' in $slots && props.labelFloat)
-              || (props.label && props.labelFloat)
-          "
-          class="nui-input-number-label-float-label"
-          :for="id"
-          :class="props.classes?.label"
-        >
-          <slot name="label">{{ props.label }}</slot>
-        </label>
-        <div v-if="props.loading" class="nui-input-number-placeload-wrapper">
-          <BasePlaceload class="nui-input-number-placeload" />
-        </div>
-        <div
-          v-if="props.icon"
-          class="nui-input-number-icon"
-          :class="props.classes?.icon"
-        >
-          <slot name="icon">
-            <Icon :name="props.icon" class="nui-input-number-icon-inner" />
-          </slot>
-        </div>
         <div class="nui-input-number-buttons" :class="props.classes?.buttons">
           <button
             type="button"
@@ -454,12 +354,5 @@ if (import.meta.dev) {
         </div>
       </div>
     </div>
-    <BaseInputHelpText
-      v-if="props.error && typeof props.error === 'string'"
-      color="danger"
-      :class="props.classes?.error"
-    >
-      {{ props.error }}
-    </BaseInputHelpText>
   </div>
 </template>

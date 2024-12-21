@@ -16,39 +16,14 @@ const props = withDefaults(
     type?: string
 
     /**
-     * The label to display for the input.
-     */
-    label?: string
-
-    /**
-     * If the label should be floating.
-     */
-    labelFloat?: boolean
-
-    /**
-     * The icon to display for the input.
-     */
-    icon?: string
-
-    /**
      * The placeholder to display for the input.
      */
     placeholder?: string
 
     /**
-     * An error message or boolean value indicating whether the input is in an error state.
-     */
-    error?: string | boolean
-
-    /**
      * Whether the color of the input should change when it is focused.
      */
     colorFocus?: boolean
-
-    /**
-     * Whether the input is in a loading state.
-     */
-    loading?: boolean
 
     /**
      * The contrast of the input.
@@ -87,24 +62,9 @@ const props = withDefaults(
       outer?: string | string[]
 
       /**
-       * CSS classes to apply to the label element.
-       */
-      label?: string | string[]
-
-      /**
        * CSS classes to apply to the input element.
        */
       input?: string | string[]
-
-      /**
-       * CSS classes to apply to the addon element.
-       */
-      addon?: string | string[]
-
-      /**
-       * CSS classes to apply to the error element.
-       */
-      error?: string | string[]
 
       /**
        * CSS classes to apply to the icon element.
@@ -118,10 +78,7 @@ const props = withDefaults(
     rounded: undefined,
     size: undefined,
     contrast: undefined,
-    label: undefined,
-    icon: undefined,
     placeholder: undefined,
-    error: false,
     classes: () => ({}),
   },
 )
@@ -187,26 +144,6 @@ defineExpose({
    */
   id,
 })
-
-const placeholder = computed(() => {
-  if (props.loading) {
-    return
-  }
-  if (props.labelFloat) {
-    return props.label
-  }
-
-  return props.placeholder
-})
-
-if (import.meta.dev) {
-  const slots = useSlots()
-  if (props.labelFloat && 'label' in slots) {
-    console.warn(
-      '[ninja-ui][base-input] The "label-float" property is not compatible with the label slot, use the label property instead.',
-    )
-  }
-}
 </script>
 
 <template>
@@ -216,82 +153,34 @@ if (import.meta.dev) {
       contrast && contrasts[contrast],
       size && sizes[size],
       rounded && radiuses[rounded],
-      props.error && !props.loading && 'nui-input-error',
-      props.loading && 'nui-input-loading',
-      props.labelFloat && 'nui-input-label-float',
-      props.icon && 'nui-input-has-icon',
       props.colorFocus && 'nui-input-focus',
       'action' in $slots && 'nui-input-has-action',
       props.classes?.wrapper,
     ]"
   >
-    <label
-      v-if="
-        ('label' in $slots && !props.labelFloat)
-          || (props.label && !props.labelFloat)
-      "
-      class="nui-input-label"
-      :for="id"
-      :class="props.classes?.label"
-    >
-      <slot name="label">{{ props.label }}</slot>
-    </label>
     <div class="nui-input-outer" :class="props.classes?.outer">
-      <div>
-        <input
-          v-if="modelModifiers.lazy"
-          :id="id"
-          ref="inputRef"
-          v-model.lazy="modelValue"
-          :type="props.type"
-          v-bind="$attrs"
-          class="nui-input"
-          :class="props.classes?.input"
-          :placeholder="placeholder"
-        >
-        <input
-          v-else
-          :id="id"
-          ref="inputRef"
-          v-model="modelValue"
-          :type="props.type"
-          v-bind="$attrs"
-          class="nui-input"
-          :class="props.classes?.input"
-          :placeholder="placeholder"
-        >
-        <label
-          v-if="
-            ('label' in $slots && props.labelFloat)
-              || (props.label && props.labelFloat)
-          "
-          class="nui-input-label-float-label"
-          :for="id"
-          :class="props.classes?.label"
-        >
-          <slot name="label">{{ props.label }}</slot>
-        </label>
-        <div v-if="props.loading" class="nui-input-placeload-wrapper">
-          <BasePlaceload class="nui-input-placeload" />
-        </div>
-        <div
-          v-if="props.icon"
-          class="nui-input-icon"
-          :class="props.classes?.icon"
-        >
-          <slot name="icon">
-            <Icon :name="props.icon" class="nui-input-icon-inner" />
-          </slot>
-        </div>
-        <slot name="action" />
-      </div>
-      <BaseInputHelpText
-        v-if="props.error && typeof props.error === 'string'"
-        color="danger"
-        :class="props.classes?.error"
+      <input
+        v-if="modelModifiers.lazy"
+        :id="id"
+        ref="inputRef"
+        v-model.lazy="modelValue"
+        :type="props.type"
+        v-bind="$attrs"
+        class="nui-input"
+        :class="props.classes?.input"
+        :placeholder="placeholder"
       >
-        {{ props.error }}
-      </BaseInputHelpText>
+      <input
+        v-else
+        :id="id"
+        ref="inputRef"
+        v-model="modelValue"
+        :type="props.type"
+        v-bind="$attrs"
+        class="nui-input"
+        :class="props.classes?.input"
+        :placeholder="placeholder"
+      >
     </div>
   </div>
 </template>

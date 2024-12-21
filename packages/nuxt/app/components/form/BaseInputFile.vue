@@ -9,12 +9,6 @@ const props = withDefaults(
      * The form input identifier.
      */
     id?: string
-
-    /**
-     * The label to display for the file input.
-     */
-    label?: string
-
     /**
      * The icon to display for the file input.
      */
@@ -26,19 +20,9 @@ const props = withDefaults(
     placeholder?: string
 
     /**
-     * An error message or boolean value indicating whether the file input is in an error state.
-     */
-    error?: string | boolean
-
-    /**
      * Whether the color of the file input should change when it is focused.
      */
     colorFocus?: boolean
-
-    /**
-     * Whether the file input is in a loading state.
-     */
-    loading?: boolean
 
     /**
      * Method to return the text value of the file input.
@@ -89,11 +73,6 @@ const props = withDefaults(
       wrapper?: string | string[]
 
       /**
-       * CSS classes to apply to the label element.
-       */
-      label?: string | string[]
-
-      /**
        * CSS classes to apply to the input element.
        */
       input?: string | string[]
@@ -102,11 +81,6 @@ const props = withDefaults(
        * CSS classes to apply to the text element.
        */
       text?: string | string[]
-
-      /**
-       * CSS classes to apply to the error element.
-       */
-      error?: string | string[]
 
       /**
        * CSS classes to apply to the icon element.
@@ -120,10 +94,8 @@ const props = withDefaults(
     size: undefined,
     i18n: undefined,
     contrast: undefined,
-    label: undefined,
     icon: undefined,
     placeholder: undefined,
-    error: false,
     textValue: undefined,
     classes: () => ({}),
   },
@@ -142,7 +114,7 @@ const id = useNinjaId(() => props.id)
 
 function defaultTextValue(fileList?: FileList | null) {
   if (!fileList?.item?.length) {
-    return i18n.value.empty
+    return ''
   }
 
   return fileList?.item.length === 1
@@ -201,21 +173,11 @@ defineExpose({
       contrast && contrasts[contrast],
       size && sizes[size],
       rounded && radiuses[rounded],
-      props.error && !props.loading && 'nui-input-file-regular-error',
-      props.loading && 'nui-input-file-regular-loading',
       props.icon && 'nui-input-file-regular-has-icon',
       props.colorFocus && 'nui-input-file-regular-color-focus',
       props.classes?.wrapper,
     ]"
   >
-    <Label
-      v-if="'label' in $slots || props.label"
-      class="nui-input-file-regular-label"
-      :for="id"
-      :class="props.classes?.label"
-    >
-      <slot name="label">{{ props.label }}</slot>
-    </Label>
     <div class="nui-input-file-regular-outer">
       <label
         tabindex="0"
@@ -223,25 +185,8 @@ defineExpose({
         :for="id"
         :class="[props.classes?.input]"
       >
-        <div
-          v-if="props.placeholder || props.icon || 'icon' in $slots"
-          class="nui-input-file-regular-addon"
-          :class="props.classes?.text"
-        >
-          <span v-if="props.placeholder" class="text-xs">
-            {{ props.placeholder }}
-          </span>
-          <slot name="icon">
-            <Icon
-              v-if="props.icon"
-              :name="props.icon"
-              :class="props.classes?.icon"
-            />
-          </slot>
-        </div>
-
         <div class="nui-input-file-regular-text">
-          {{ textValue }}
+          {{ textValue || props.placeholder }}
         </div>
         <input
           :id="id"
@@ -254,17 +199,6 @@ defineExpose({
           "
         >
       </label>
-
-      <div v-if="props.loading" class="nui-input-file-regular-placeload-wrapper">
-        <BasePlaceload class="nui-input-file-regular-placeload" />
-      </div>
-      <BaseInputHelpText
-        v-if="props.error && typeof props.error === 'string'"
-        color="danger"
-        :class="props.classes?.error"
-      >
-        {{ props.error }}
-      </BaseInputHelpText>
     </div>
   </div>
 </template>

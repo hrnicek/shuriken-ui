@@ -356,7 +356,6 @@ const taxes = ref('With taxes')
               rounded="md"
               label="Size: sm"
               placeholder="Ex: username"
-              error="Please enter a valid username"
             />
           </div>
 
@@ -367,7 +366,6 @@ const taxes = ref('With taxes')
               rounded="md"
               label="Size: md"
               placeholder="Ex: username"
-              error="Please enter a valid username"
             />
           </div>
 
@@ -378,7 +376,6 @@ const taxes = ref('With taxes')
               rounded="md"
               label="Size: lg"
               placeholder="Ex: username"
-              error="Please enter a valid username"
             />
           </div>
 
@@ -389,7 +386,6 @@ const taxes = ref('With taxes')
               rounded="md"
               label="Size: xl"
               placeholder="Ex: username"
-              error="Please enter a valid username"
             />
           </div>
         </div>
@@ -405,7 +401,7 @@ const taxes = ref('With taxes')
               rounded="md"
               label="Size: sm"
               placeholder="Ex: username"
-              error="Please enter a valid username"
+              aria-invalid="true"
             />
           </div>
 
@@ -417,7 +413,7 @@ const taxes = ref('With taxes')
               rounded="md"
               label="Size: md"
               placeholder="Ex: username"
-              error="Please enter a valid username"
+              aria-invalid="true"
             />
           </div>
 
@@ -429,7 +425,7 @@ const taxes = ref('With taxes')
               rounded="md"
               label="Size: lg"
               placeholder="Ex: username"
-              error="Please enter a valid username"
+              aria-invalid="true"
             />
           </div>
 
@@ -441,7 +437,7 @@ const taxes = ref('With taxes')
               rounded="md"
               label="Size: xl"
               placeholder="Ex: username"
-              error="Please enter a valid username"
+              aria-invalid="true"
             />
           </div>
         </div>

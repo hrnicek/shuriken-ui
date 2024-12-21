@@ -84,11 +84,12 @@
   }
 
   &[data-field-state=error] ~ .nui-input-icon,
+  &[aria-invalid=true] ~ .nui-input-icon,
   &:disabled ~ .nui-input-icon {
     @apply cursor-not-allowed opacity-75;
   }
 
-  &[data-field-state=error] {
+  &[data-field-state=error], &[aria-invalid=true] {
     @apply !border-danger-500 dark:!border-danger-800 focus:outline-danger-300 focus:dark:outline-danger-600
   }
   &[data-field-state=success] {

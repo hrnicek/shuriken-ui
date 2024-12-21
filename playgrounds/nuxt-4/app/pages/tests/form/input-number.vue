@@ -361,7 +361,7 @@ const fields = reactive({
               rounded="md"
               label="Size: sm"
               placeholder="Quantity"
-              error="Please enter a valid value"
+              aria-invalid="true"
             />
           </div>
 
@@ -372,7 +372,7 @@ const fields = reactive({
               rounded="md"
               label="Size: md"
               placeholder="Quantity"
-              error="Please enter a valid value"
+              aria-invalid="true"
             />
           </div>
 
@@ -383,7 +383,7 @@ const fields = reactive({
               rounded="md"
               label="Size: lg"
               placeholder="Quantity"
-              error="Please enter a valid value"
+              aria-invalid="true"
             />
           </div>
 
@@ -394,7 +394,7 @@ const fields = reactive({
               rounded="md"
               label="Size: xl"
               placeholder="Quantity"
-              error="Please enter a valid value"
+              aria-invalid="true"
             />
           </div>
         </div>
@@ -410,7 +410,7 @@ const fields = reactive({
               rounded="md"
               label="Size: sm"
               placeholder="Quantity"
-              error="Please enter a valid value"
+              aria-invalid="true"
             />
           </div>
 
@@ -422,7 +422,7 @@ const fields = reactive({
               rounded="md"
               label="Size: md"
               placeholder="Quantity"
-              error="Please enter a valid value"
+              aria-invalid="true"
             />
           </div>
 
@@ -434,7 +434,7 @@ const fields = reactive({
               rounded="md"
               label="Size: lg"
               placeholder="Quantity"
-              error="Please enter a valid value"
+              aria-invalid="true"
             />
           </div>
 
@@ -446,7 +446,7 @@ const fields = reactive({
               rounded="md"
               label="Size: xl"
               placeholder="Quantity"
-              error="Please enter a valid value"
+              aria-invalid="true"
             />
           </div>
         </div>
