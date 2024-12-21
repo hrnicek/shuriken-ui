@@ -607,17 +607,11 @@ export default defineAppConfig({
     },
     BaseCheckbox: {
       /**
-       * Default color for the BaseCheckbox component
+       * Default variant for the BaseCheckbox component
        *
-       * @type {'default' | 'muted' | 'light' | 'dark' | 'black' | 'primary' | 'info' | 'success' | 'warning' | 'danger'}
+       * @type {'default-low' | 'default-high' | 'primary' | 'dark' | 'none'}
        */
-      color: 'default',
-      /**
-       * Default rounded for the BaseCheckbox component
-       *
-       * @type {'none' | 'sm' | 'md' | 'lg' | 'full'}
-       */
-      rounded: 'sm',
+      variant: 'default-high',
     },
     BaseCheckboxAnimated: {
       /**
