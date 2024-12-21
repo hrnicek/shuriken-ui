@@ -18,16 +18,9 @@ export interface BaseSwitchBallProps extends SwitchRootProps {
   /**
    * Main color of the switch.
    *
-   * @default 'primary'
+   * @default 'default-low'
    */
-  color?:
-    | 'primary'
-    | 'info'
-    | 'success'
-    | 'warning'
-    | 'danger'
-    | 'dark'
-    | 'black'
+   variant?: 'default-low' | 'default-high' | 'primary' | 'dark' | 'none'
 
   /**
    * Optional CSS classes to apply to the component inner elements.
@@ -78,7 +71,7 @@ const props = withDefaults(defineProps<BaseSwitchBallProps>(), {
   id: undefined,
   label: undefined,
   sublabel: undefined,
-  color: undefined,
+  variant: undefined,
   defaultValue: undefined,
   modelValue: undefined,
   name: undefined,
@@ -89,43 +82,66 @@ const emits = defineEmits<BaseSwitchBallEmits>()
 const slots = defineSlots<BaseSwitchBallSlots>()
 
 const id = useNinjaId(() => props.id)
-const color = useNuiDefaultProperty(props, 'BaseSwitchBall', 'color')
+const variant = useNuiDefaultProperty(props, 'BaseSwitchBall', 'variant')
 const iconCheck = useNuiDefaultIcon('check')
-const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'sublabel', 'color', 'classes']), emits)
+const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'sublabel', 'variant', 'classes']), emits)
 
-const colors = {
-  primary: 'nui-switch-ball-primary',
-  info: 'nui-switch-ball-info',
-  success: 'nui-switch-ball-success',
-  warning: 'nui-switch-ball-warning',
-  danger: 'nui-switch-ball-danger',
-  dark: 'nui-switch-ball-dark',
-  black: 'nui-switch-ball-black',
+const trackVariants = {
+  'default-low': 'peer-data-[state=checked]:bg-muted-400 dark:peer-data-[state=checked]:bg-muted-700 bg-muted-300 dark:bg-muted-600',
+  'default-high': 'peer-data-[state=checked]:bg-muted-500 dark:peer-data-[state=checked]:bg-muted-800 bg-muted-300 dark:bg-muted-900',
+  'primary': 'peer-data-[state=checked]:bg-primary-500 dark:peer-data-[state=checked]:bg-primary-500 bg-muted-300 dark:bg-muted-600',
+  'dark': 'peer-data-[state=checked]:bg-muted-900 dark:peer-data-[state=checked]:bg-muted-100 bg-muted-300 dark:bg-muted-600',
+  'none': '',
+}
+
+const ballVariants = {
+  'default-low': 'bg-white dark:bg-muted-900 border border-muted-300 dark:border-muted-800',
+  'default-high': 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
+  'primary': 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
+  'dark': 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
+  'none': '',
+}
+
+const iconVariants = {
+  'default-low': 'text-muted-900 dark:text-white',
+  'default-high': 'text-muted-100 dark:text-white',
+  'primary': 'text-white dark:text-white',
+  'dark': 'text-white dark:text-muted-900',
+  'none': '',
 }
 </script>
 
 <template>
   <span
-    class="nui-switch-ball"
-    :class="[color && colors[color], props.classes?.wrapper]"
+    class="flex items-center"
+    :class="[props.classes?.wrapper]"
   >
-    <SwitchRoot :id v-bind="forward" class="nui-switch-ball-outer" :class="props.classes?.outer">
+    <SwitchRoot :id v-bind="forward" class="group/switch relative" :class="props.classes?.outer">
       <SwitchThumb
-        class="nui-switch-ball-handle"
-        :class="props.classes?.handle"
+        class="peer data-[state=checked]:translate-x-full data-[state=checked]:rtl:-translate-x-full absolute start-0.5 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center rounded-full shadow focus:w-6 size-5 transition-all duration-300"
+        :class="[
+          props.classes?.handle,
+          ballVariants[variant],
+        ]"
       />
-      <span class="nui-switch-ball-track" :class="props.classes?.track" />
-      <Icon :name="iconCheck" class="nui-switch-ball-icon" :class="props.classes?.icon" />
+      <span class="block h-6 w-11 rounded-full transition-all duration-300" :class="[
+        props.classes?.track,
+        trackVariants[variant],
+      ]" />
+      <Icon :name="iconCheck" class="peer-data-[state=checked]:-translate-y-1/2 peer-data-[state=checked]:opacity-100 peer-data-[state=checked]:block pointer-events-none absolute start-2 top-1/2 z-10 translate-y-0 fill-current opacity-0 h-2.5 w-2.5 transition-all duration-300" :class="[
+        props.classes?.icon,
+        iconVariants[variant],
+      ]" />
     </SwitchRoot>
-    <Label :for="id" v-if="props.sublabel || 'sublabel' in slots" class="nui-switch-ball-dual-label">
-      <span class="nui-switch-ball-label">
+    <Label :for="id" v-if="props.sublabel || 'sublabel' in slots" class="ms-3 select-none">
+      <span class="block cursor-pointer font-sans text-sm text-muted-600 dark:text-white">
         <slot>{{ props.label }}</slot>
       </span>
-      <span class="nui-switch-ball-sublabel">
+      <span class="block cursor-pointer font-sans text-xs text-muted-400 dark:text-muted-400">
         <slot name="sublabel">{{ props.sublabel }}</slot>
       </span>
     </Label>
-    <Label :for="id" v-else class="nui-switch-ball-single-label">
+    <Label :for="id" v-else class="relative ms-3 cursor-pointer select-none font-sans text-sm text-muted-600 dark:text-white">
       <slot>{{ props.label }}</slot>
     </Label>
   </span>

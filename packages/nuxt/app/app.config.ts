@@ -744,7 +744,6 @@ export default defineAppConfig({
        */
       variant: 'default-high',
     },
-    BaseRadioHeadless: {},
     BaseSelect: {
       /**
        * The contrast of the select.
@@ -767,19 +766,19 @@ export default defineAppConfig({
     },
     BaseSwitchBall: {
       /**
-       * The color of the switch.
+       * The variant of the switch.
        *
-       * @type {'primary' | 'info' | 'success' | 'warning' | 'danger' | 'dark' | 'black'}
+       * @type {'default-low' | 'default-high' | 'primary' | 'dark' | 'none'}
        */
-      color: 'primary',
+      variant: 'default-high',
     },
     BaseSwitchThin: {
       /**
-       * The color of the switch.
+       * The variant of the switch.
        *
-       * @type {'primary' | 'info' | 'success' | 'warning' | 'danger' | 'dark' | 'black'}
+       * @type {'default-low' | 'default-high' | 'primary' | 'dark' | 'none'}
        */
-      color: 'primary',
+      variant: 'default-high',
     },
     BaseTextarea: {
       /**
