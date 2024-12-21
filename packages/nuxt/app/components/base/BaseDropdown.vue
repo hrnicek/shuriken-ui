@@ -45,19 +45,9 @@ export interface BaseDropdownProps extends DropdownMenuRootProps {
     wrapper?: string | string[]
 
     /**
-     * CSS classes to apply to the headless ui menu element.
-     */
-    menuWrapper?: string | string[]
-
-    /**
      * CSS classes to apply to the dropdown menu element.
      */
     menu?: string | string[]
-
-    /**
-     * CSS classes to apply to the header element.
-     */
-    header?: string | string[]
 
     /**
      * CSS classes to apply to the content element.
@@ -69,9 +59,9 @@ export interface BaseDropdownProps extends DropdownMenuRootProps {
    * Optional bindings to pass to the inner components.
    */
   bindings?: {
-    content?: DropdownMenuContentProps,
-    trigger?: DropdownMenuTriggerProps,
-    portal?: DropdownMenuPortalProps,
+    content?: DropdownMenuContentProps
+    trigger?: DropdownMenuTriggerProps
+    portal?: DropdownMenuPortalProps
   },
 }
 export interface BaseDropdownEmits extends DropdownMenuRootEmits {}
@@ -146,64 +136,45 @@ provideBaseDropdownContext({
 
 <template>
   <DropdownMenuRoot v-bind="forward">
-    <div class="text-start" v-bind="attrs" :class="props.classes?.wrapper">
-      <div
-        class="relative inline-block text-start"
-        :class="props.classes?.menuWrapper"
-      >
-        <DropdownMenuTrigger 
-          v-bind="{
-            asChild: true,
-            disabled: props.disabled,
-            ...(props.bindings?.trigger || {}),
-          }"
+    <DropdownMenuTrigger 
+      v-bind="{
+        asChild: true,
+        disabled: props.disabled,
+        ...attrs,
+        ...(props.bindings?.trigger || {}),
+      }"
+    >
+      <slot name="button">
+        <BaseButton
+          :rounded
+          :variant="variant.endsWith('low') ? 'default-low' : 'default-high'"
+          class="group"
         >
-          <slot name="button">
-            <BaseButton
-              :rounded="props.rounded ? props.rounded : rounded"
-              :disabled="props.disabled"
-              :variant="variant.includes('low') ? 'default-low' : 'default-high'"
-              class="group"
-            >
-              <slot name="label">
-                <span>{{ props.label }}</span>
-              </slot>
-              <Icon
-                :name="iconChevronDown"
-                class="text-base transition-transform duration-300 group-data-[state=open]:rotate-180"
-              />
-            </BaseButton>
+          <slot name="label">
+            <span>{{ props.label }}</span>
           </slot>
-        </DropdownMenuTrigger>
-        <DropdownMenuPortal v-bind="props.bindings?.portal">
-          <Transition
-            enter-active-class="transition-opacity duration-100 ease-out"
-            enter-from-class="opacity-0"
-            enter-to-class=" opacity-100"
-            leave-active-class="transition-opacity duration-75 ease-in"
-            leave-from-class="opacity-100"
-            leave-to-class="opacity-0"
-          >
-            <DropdownMenuContent
-              class="min-w-52 focus:outline-none shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20"
-              v-bind="{
-                align: 'start',
-                ...(props.bindings?.content || {}),
-              }"
-              :class="[
-                rounded && radiuses[rounded],
-                variant && variants[variant],
-                props.classes?.menu,
-              ]"
-            >
-              <div class="p-2 space-y-1 max-h-[calc(var(--reka-popper-available-height)_-_2rem)] overflow-y-auto nui-slimscroll" :class="props.classes?.content">
-                <slot />
-
-              </div>
-            </DropdownMenuContent>
-          </Transition>
-        </DropdownMenuPortal>
-      </div>
-    </div>
+          <Icon
+            :name="iconChevronDown"
+            class="text-base transition-transform duration-300 group-data-[state=open]:rotate-180"
+          />
+        </BaseButton>
+      </slot>
+    </DropdownMenuTrigger>
+    <DropdownMenuPortal v-bind="props.bindings?.portal">
+      <DropdownMenuContent
+        class="min-w-52 focus:outline-none shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20 will-change-[opacity] duration-100 transition-opacity transition-discrete data-[state=open]:opacity-100 starting:data-[state=open]:opacity-0 p-2 space-y-1 max-h-[calc(var(--reka-popper-available-height)_-_2rem)] overflow-y-auto nui-slimscroll"
+        v-bind="{
+          align: 'start',
+          ...(props.bindings?.content || {}),
+        }"
+        :class="[
+          rounded && radiuses[rounded],
+          variant && variants[variant],
+          props.classes?.content,
+        ]"
+      >
+        <slot />
+      </DropdownMenuContent>
+    </DropdownMenuPortal>
   </DropdownMenuRoot>
 </template>

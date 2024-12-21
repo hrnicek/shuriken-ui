@@ -103,7 +103,7 @@
   }
 }
 @utility nui-autocomplete-results {
-  @apply nui-slimscroll absolute z-20 mt-1 max-h-[265px] w-full overflow-auto py-1 outline-none sm:text-sm;
+  @apply nui-slimscroll z-20 max-h-[265px] w-full overflow-auto py-1 outline-none sm:text-sm;
   @apply text-base;
   @apply shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20;
 

@@ -18,6 +18,8 @@ definePageMeta({
           <Icon name="nui-icon:sun" class="text-2xl text-amber-500" />
           <Icon name="nui-icon:moon" class="text-2xl text-amber-500" />
           <Icon name="nui-icon:screen" class="text-2xl text-primary-500" />
+          <Icon name="nui-icon:screen-duotone" class="text-2xl text-primary-500" />
+          <Icon name="nui-icon:screen-fill" class="text-2xl text-primary-500" />
         </div>
       </NuiPreview>
     </NuiPreviewContainer>

@@ -175,6 +175,12 @@ const selection = ref('first')
             <BaseDropdownItem>Team</BaseDropdownItem> 
             <BaseDropdownItem>Settings</BaseDropdownItem> 
           </BaseDropdown>
+          <BaseDropdown label="disabled" disabled>
+            <BaseDropdownItem>Profile</BaseDropdownItem> 
+            <BaseDropdownItem>Projects</BaseDropdownItem> 
+            <BaseDropdownItem>Team</BaseDropdownItem> 
+            <BaseDropdownItem>Settings</BaseDropdownItem> 
+          </BaseDropdown>
         </div>
       </NuiPreview>
 

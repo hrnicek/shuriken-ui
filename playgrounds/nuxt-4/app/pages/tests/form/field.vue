@@ -69,6 +69,57 @@ const value3 = ref('')
               </div>
             </template>
           </BaseField>
+          
+          <!-- BaseInput -->
+          <BaseField v-for="state in states" :key="state" :state="state" :disabled="alt === 'disabled'" :required="alt === 'full'"> 
+            <div v-if="alt === 'full'" class="w-full inline-flex">
+              <BaseFieldLabel class="flex items-center justify-between w-full">
+                <div>
+                  <span>BaseInput</span>
+                  <BaseFieldRequiredIndicator  />
+                </div>
+
+                <div>
+                  <BaseDropdown
+                    :bindings="{
+                      content: {
+                        side: 'top',
+                        align: 'center',
+                      }
+                    }"
+                  >
+                    <template #button>
+                      <Icon name="lucide:circle-help" class="size-4 text-muted-500" />
+                    </template>
+
+                    <BaseDropdownItem>Option 1</BaseDropdownItem>
+                    <BaseDropdownArrow />
+                  </BaseDropdown>
+                </div>
+              </BaseFieldLabel>
+            </div>
+            <div class="relative">
+              <BaseFieldController>
+                <BaseInput type="search" placeholder="placeholder" />
+              </BaseFieldController>
+              <div class="absolute z-10 end-4 top-3" >
+                <BaseFieldLoadingIndicator/>
+                <BaseFieldSuccessIndicator />
+                <BaseFieldErrorIndicator />
+              </div>
+            </div>
+            <template v-if="alt === 'full'">
+              <div class="mt-2 flex flex-col">
+                <BaseFieldError class="mb-1 block">
+                  The input is invalid because ...
+                </BaseFieldError>
+                <BaseFieldDescription>
+                  Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
+                  <BaseLink to="#" class="text-primary-400 dark:text-primary-700">Learn more</BaseLink>
+                </BaseFieldDescription>
+              </div>
+            </template>
+          </BaseField>
           <!-- BaseInputNumber -->
           <BaseField v-for="state in states" :key="state" :state="state" :disabled="alt === 'disabled'" :required="alt === 'full'"> 
             <div v-if="alt === 'full'" class="w-full inline-flex">
@@ -311,11 +362,12 @@ const value3 = ref('')
               <BaseFieldController>
                 <BaseAutocomplete
                   placeholder="autocomplete placeholder"
+                  clearable
                 >
                   <BaseAutocompleteItem value="1">Option 1</BaseAutocompleteItem>
                 </BaseAutocomplete>
               </BaseFieldController>
-              <div class="absolute z-10 end-4 top-2.5" >
+              <div class="absolute z-10 end-10 top-3" >
                 <BaseFieldLoadingIndicator/>
                 <BaseFieldSuccessIndicator />
                 <BaseFieldErrorIndicator />

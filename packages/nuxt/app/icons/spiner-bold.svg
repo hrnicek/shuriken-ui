@@ -2,9 +2,9 @@
   <circle
     cx="12"
     cy="12"
-    r="11"
+    r="10"
     fill="none"
-    stroke-width="2"
+    stroke-width="3"
     stroke="currentColor"
     stroke-linecap="round"
     stroke-dasharray="1,75"

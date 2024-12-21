@@ -201,7 +201,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, [
 <template>
   <SelectRoot :id v-bind="forward">
     <SelectTrigger
-      class="nui-focus w-full flex min-w-[160px] items-center justify-between rounded-lg px-[15px] text-xs leading-none h-10 gap-[5px] bg-white dark:bg-muted-900 dark:border-muted-600 border text-muted-500 data-[placeholder]:text-muted-300 dark:data-[placeholder]:text-muted-700 outline-none disabled:cursor-not-allowed disabled:opacity-75 aria-invalid:border-red-500!"
+      class="nui-focus w-full flex min-w-[160px] items-center justify-between rounded-lg px-[15px] text-xs leading-none h-10 gap-[5px] bg-white dark:bg-muted-900 dark:border-muted-600 border text-muted-500 data-placeholder:text-muted-300 dark:data-placeholder:text-muted-700 outline-none disabled:cursor-not-allowed disabled:opacity-75 aria-invalid:border-red-500!"
       v-bind="{ ...attrs, ...(props.bindings?.trigger || {}) }"
     >
       <SelectValue :placeholder="props.placeholder" />

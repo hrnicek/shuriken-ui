@@ -34,7 +34,8 @@ export type BaseDropdownSubSlots = {
 
 <script setup lang="ts">
 import { injectBaseDropdownContext, variants as dropdownVariants } from './BaseDropdown.vue'
-import { variants, radiuses } from './BaseDropdownItem.vue'
+import { variants } from './BaseDropdownItem.vue'
+import { radiuses } from './BaseDropdown.vue'
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 

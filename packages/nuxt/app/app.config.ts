@@ -9,8 +9,6 @@ export default defineAppConfig({
       alert: 'lucide:triangle-alert',
       close: 'lucide:x',
       check: 'lucide:check',
-      checkSquare: 'lucide:square-check',
-      checkCircle: 'lucide:circle-check',
       plus: 'lucide:plus',
       minus: 'lucide:minus',
       chevronUp: 'lucide:chevron-up',
@@ -563,6 +561,7 @@ export default defineAppConfig({
 
     // #region form
     BaseAutocomplete: {
+      variant: 'default-low',
       /**
        * The contrast of the autocomplete.
        *

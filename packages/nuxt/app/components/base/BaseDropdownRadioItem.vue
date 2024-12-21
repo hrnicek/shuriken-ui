@@ -65,10 +65,8 @@ export type BaseDropdownRadioItemSlots = {
 <script setup lang="ts">
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
-import {
-  variants,
-  radiuses,
-} from './BaseDropdownItem.vue'
+import { variants } from './BaseDropdownItem.vue'
+import { radiuses } from './BaseDropdown.vue'
 
 const props = withDefaults(defineProps<BaseDropdownRadioItemProps>(), {
   variant: undefined,

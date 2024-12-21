@@ -53,14 +53,6 @@ export type BaseDropdownItemSlots = {
   end(): any
 }
 
-export const radiuses = {
-  none: '',
-  sm: 'rounded-sm',
-  md: 'rounded-md',
-  lg: 'rounded-lg',
-  full: 'rounded-lg',
-} as const
-
 export const variants = {
   'default-low': 'hover:bg-muted-100 dark:hover:bg-muted-700',
   'default-high': 'hover:bg-muted-100 dark:hover:bg-muted-900',
@@ -75,7 +67,7 @@ export const variants = {
 <script setup lang="ts">
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
-import { injectBaseDropdownContext } from './BaseDropdown.vue'
+import { injectBaseDropdownContext, radiuses } from './BaseDropdown.vue'
 
 const context = injectBaseDropdownContext()
 
@@ -95,8 +87,6 @@ const props = withDefaults(defineProps<BaseDropdownItemProps>(), {
 const emits = defineEmits<BaseDropdownItemEmits>()
 const slots = defineSlots<BaseDropdownItemSlots>()
 
-const variant = useNuiDefaultProperty(props, 'BaseDropdownItem', 'variant')
-const rounded = useNuiDefaultProperty(props, 'BaseDropdownItem', 'rounded')
 const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'variant', 'rounded', 'classes']), emits)
 </script>
 
