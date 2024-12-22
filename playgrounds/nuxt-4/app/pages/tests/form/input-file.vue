@@ -22,60 +22,78 @@ const fifth = ref<FileList | null>(null)
             v-model="first"
             rounded="none"
             placeholder="Choose file"
-            label="Rounded: none"
-            color-focus
           />
           <BaseInputFile
             v-model="second"
             rounded="sm"
-            label="Rounded: sm"
-            icon="heroicons:document-text"
-            color-focus
+            placeholder="Choose file"
           />
           <BaseInputFile
             v-model="third"
             rounded="md"
-            label="Rounded: md"
-            color-focus
+            placeholder="Choose file"
           />
           <BaseInputFile
             v-model="fourth"
             rounded="lg"
-            label="Rounded: lg"
-            color-focus
+            placeholder="Choose file"
           />
           <BaseInputFile
             v-model="fifth"
             rounded="full"
-            label="Rounded: full"
-            color-focus
+            placeholder="Choose file"
           />
         </div>
       </NuiPreview>
-      <NuiPreview title="Loading" description="File inputs loading">
-        <div class="grid gap-6 md:max-w-4xl md:grid-cols-3">
+
+      <NuiPreview title="Sizes" description="File inputs sizes">
+        <div class="grid gap-6 md:max-w-5xl md:grid-cols-4">
           <BaseInputFile
             v-model="first"
-            rounded="none"
+            rounded="md"
+            size="sm"
             placeholder="Choose file"
-            label="Rounded: none"
-            color-focus
-            loading
           />
           <BaseInputFile
             v-model="second"
-            rounded="sm"
-            label="Rounded: sm"
-            icon="heroicons:document-text"
-            color-focus
-            loading
+            rounded="md"
+            size="md"
+            placeholder="Choose file"
           />
           <BaseInputFile
             v-model="third"
             rounded="md"
-            label="Rounded: md"
-            color-focus
-            loading
+            size="lg"
+            placeholder="Choose file"
+          />
+          <BaseInputFile
+            v-model="third"
+            rounded="md"
+            size="xl"
+            placeholder="Choose file"
+          />
+        </div>
+      </NuiPreview>
+
+      <NuiPreview title="Variants" description="File inputs variants">
+        <div class="grid gap-6 md:max-w-4xl md:grid-cols-3">
+          <BaseInputFile
+            v-model="first"
+            rounded="md"
+            variant="default"
+            placeholder="Choose file"
+          />
+          <BaseInputFile
+            v-model="second"
+            rounded="md"
+            variant="muted"
+            placeholder="Choose file"
+          />
+          <BaseInputFile
+            v-model="third"
+            rounded="md"
+            variant="primary"
+            placeholder="Choose file"
           />
         </div>
       </NuiPreview>

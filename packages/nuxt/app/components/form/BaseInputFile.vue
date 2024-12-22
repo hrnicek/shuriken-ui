@@ -8,11 +8,7 @@ const props = withDefaults(
     /**
      * The form input identifier.
      */
-    id?: string
-    /**
-     * The icon to display for the file input.
-     */
-    icon?: string
+    id?: BigIntToLocaleStringOptions
 
     /**
      * The placeholder to display for the file input.
@@ -20,22 +16,16 @@ const props = withDefaults(
     placeholder?: string
 
     /**
-     * Whether the color of the file input should change when it is focused.
-     */
-    colorFocus?: boolean
-
-    /**
      * Method to return the text value of the file input.
      */
     textValue?: (fileList?: FileList | null) => string
 
     /**
-     * The contrast of the input.
+     * The variant of the input.
      *
-     * @since 2.0.0
      * @default 'default'
      */
-    contrast?: 'default' | 'default-contrast'
+    variant?: 'default' | 'muted' | 'primary'
 
     /**
      * The radius of the file input.
@@ -93,7 +83,7 @@ const props = withDefaults(
     rounded: undefined,
     size: undefined,
     i18n: undefined,
-    contrast: undefined,
+    variant: undefined,
     icon: undefined,
     placeholder: undefined,
     textValue: undefined,
@@ -104,13 +94,13 @@ const props = withDefaults(
 const [modelValue] = defineModel<FileList | null>()
 
 const attrs = useAttrs()
-const contrast = useNuiDefaultProperty(props, 'BaseInputFile', 'contrast')
+const variant = useNuiDefaultProperty(props, 'BaseInputFile', 'variant')
 const rounded = useNuiDefaultProperty(props, 'BaseInputFile', 'rounded')
 const size = useNuiDefaultProperty(props, 'BaseInputFile', 'size')
 const i18n = useNuiDefaultProperty(props, 'BaseInputFile', 'i18n')
 
 const inputRef = ref<HTMLInputElement>()
-const id = useNinjaId(() => props.id)
+const id = useNinjaId(() => props.id as string)
 
 function defaultTextValue(fileList?: FileList | null) {
   if (!fileList?.item?.length) {
@@ -125,25 +115,53 @@ function defaultTextValue(fileList?: FileList | null) {
     )
 }
 
-const radiuses = {
-  none: '',
-  sm: 'nui-input-file-regular-rounded-sm',
-  md: 'nui-input-file-regular-rounded-md',
-  lg: 'nui-input-file-regular-rounded-lg',
-  full: 'nui-input-file-regular-rounded-full',
-}
+const variants = {
+  default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 invalid:!border-[var(--destructive-bg-base)]',
+  muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 invalid:!border-[var(--destructive-bg-base)]',
+  primary: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 invalid:!border-[var(--destructive-bg-base)]',
+} as const
+
+// @todo: low-contrast-theme
+// const variants = {
+//   default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 invalid:!border-[var(--destructive-bg-base)]',
+//   muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 invalid:!border-[var(--destructive-bg-base)]',
+//   primary: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 invalid:!border-[var(--destructive-bg-base)]',
+// } as const
 
 const sizes = {
-  sm: 'nui-input-file-regular-sm',
-  md: 'nui-input-file-regular-md',
-  lg: 'nui-input-file-regular-lg',
-  xl: 'nui-input-file-regular-xl',
-}
+  sm: 'h-8 text-xs pe-2',
+  md: 'h-10 text-sm pe-3',
+  lg: 'h-12 text-sm pe-4',
+  xl: 'h-14 text-base pe-4',
+} as const
 
-const contrasts = {
-  'default': 'nui-input-file-regular-default',
-  'default-contrast': 'nui-input-file-regular-default-contrast',
-}
+const radiuses = {
+  none: '',
+  sm: 'rounded-sm',
+  md: 'rounded-md',
+  lg: 'rounded-lg',
+  full: 'rounded-full',
+} as const
+
+const textVariants = {
+  default: 'bg-muted-100 dark:bg-muted-800 text-muted-700 dark:text-muted-400 group-hover/file:bg-muted-200 dark:group-hover/file:bg-muted-700 group-hover/file:text-muted-800 dark:group-hover/file:text-muted-200',
+  muted: 'bg-muted-100 dark:bg-muted-800 text-muted-700 dark:text-muted-400 group-hover/file:bg-muted-200 dark:group-hover/file:bg-muted-700 group-hover/file:text-muted-800 dark:group-hover/file:text-muted-200',
+  primary: 'bg-primary-500/10 dark:bg-primary-500/20 text-primary-500 dark:text-primary-400 group-hover/file:bg-primary-500/20 dark:group-hover/file:bg-primary-500/10 group-hover/file:text-primary-600 dark:group-hover/file:text-primary-300',
+} as const
+
+// @todo: low-contrast-theme
+// const textVariants = {
+//   default: 'bg-muted-100 dark:bg-muted-800 text-muted-700 dark:text-muted-400 group-hover/file:bg-muted-200 dark:group-hover/file:bg-muted-700 group-hover/file:text-muted-800 dark:group-hover/file:text-muted-200',
+//   muted: 'bg-muted-100 dark:bg-muted-800 text-muted-700 dark:text-muted-400 group-hover/file:bg-muted-200 dark:group-hover/file:bg-muted-700 group-hover/file:text-muted-800 dark:group-hover/file:text-muted-200',
+//   primary: 'bg-primary-500/10 dark:bg-primary-500/20 text-primary-500 dark:text-primary-400 group-hover/file:bg-primary-500/20 dark:group-hover/file:bg-primary-500/10 group-hover/file:text-primary-600 dark:group-hover/file:text-primary-300',
+// } as const
+
+const textSpacings = {
+  sm: 'px-2',
+  md: 'px-2',
+  lg: 'px-4',
+  xl: 'px-5',
+} as const
 
 const textValue = computed(() => {
   if (props.textValue) {
@@ -160,45 +178,55 @@ defineExpose({
   el: inputRef,
 
   /**
-   * The internal id of the radio input.
+   * The internal id of the file input.
    */
   id,
 })
 </script>
 
 <template>
-  <div
-    class="nui-input-file-regular"
+  <div class="relative" 
     :class="[
-      contrast && contrasts[contrast],
-      size && sizes[size],
-      rounded && radiuses[rounded],
-      props.icon && 'nui-input-file-regular-has-icon',
-      props.colorFocus && 'nui-input-file-regular-color-focus',
       props.classes?.wrapper,
     ]"
   >
-    <div class="nui-input-file-regular-outer">
-      <label
-        tabindex="0"
-        class="nui-input-file-regular-inner"
-        :for="id"
-        :class="[props.classes?.input]"
+    <label
+      tabindex="0"
+      class="group/file relative nui-focus w-full flex cursor-pointer items-center overflow-hidden disabled:cursor-not-allowed disabled:opacity-50 font-sans transition-colors duration-300"
+      :for="id"
+      :class="[
+        props.classes?.input,
+        variant && variants[variant],
+        size && sizes[size],
+        rounded && radiuses[rounded],
+      ]"
+    >
+      <div class="inline-flex items-center text-muted-600 dark:text-muted-400 px-1 py-1.5"
+        :class="[
+          props.classes?.text,
+          size && sizes[size],
+        ]"
       >
-        <div class="nui-input-file-regular-text">
+        <div class="h-full inline-flex items-center justify-center transition-colors duration-300"
+          :class="[
+            rounded && radiuses[rounded],
+            variant && textVariants[variant],
+            size && textSpacings[size],
+          ]"
+        >
           {{ textValue || props.placeholder }}
         </div>
-        <input
-          :id="id"
-          ref="inputRef"
-          type="file"
-          v-bind="attrs"
-          class="hidden"
-          @change="
-            (event: any) => (modelValue = (event.target as HTMLInputElement).files)
-          "
-        >
-      </label>
-    </div>
+      </div>
+      <input
+        :id="id"
+        ref="inputRef"
+        type="file"
+        v-bind="attrs"
+        class="hidden"
+        @change="
+          (event: any) => (modelValue = (event.target as HTMLInputElement).files)
+        "
+      >
+    </label>
   </div>
 </template>
