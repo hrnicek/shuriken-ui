@@ -107,7 +107,7 @@ export const variants = {
 // @todo: low-contrast-theme
 // export const variants = {
 //   'default': 'bg-white dark:bg-muted-800 border-muted-300 dark:border-muted-700 border text-muted-500 data-placeholder:text-muted-300 dark:data-placeholder:text-muted-700',
-//   'muted': '',
+//   'muted': 'bg-muted-50 dark:bg-muted-800 border-muted-300 dark:border-muted-700 border text-muted-500 data-placeholder:text-muted-300 dark:data-placeholder:text-muted-700',
 // } as const
 
 export const portalVariants = {

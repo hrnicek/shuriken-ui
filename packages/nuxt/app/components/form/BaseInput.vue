@@ -21,22 +21,16 @@ const props = withDefaults(
     placeholder?: string
 
     /**
-     * Whether the color of the input should change when it is focused.
-     */
-    colorFocus?: boolean
-
-    /**
-     * The contrast of the input.
+     * The variant of the input.
      *
      * @default 'default'
      */
-    contrast?: 'default' | 'default-contrast' | 'muted' | 'muted-contrast'
+     variant?: 'default' | 'muted' 
 
     /**
      * The radius of the input.
      *
-     * @since 2.0.0
-     * @default 'sm'
+     * @default 'md'
      */
     rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
 
@@ -57,19 +51,9 @@ const props = withDefaults(
       wrapper?: string | string[]
 
       /**
-       * CSS classes to apply to the outer element.
-       */
-      outer?: string | string[]
-
-      /**
        * CSS classes to apply to the input element.
        */
       input?: string | string[]
-
-      /**
-       * CSS classes to apply to the icon element.
-       */
-      icon?: string | string[]
     }
   }>(),
   {
@@ -77,7 +61,7 @@ const props = withDefaults(
     type: 'text',
     rounded: undefined,
     size: undefined,
-    contrast: undefined,
+    variant: undefined,
     placeholder: undefined,
     classes: () => ({}),
   },
@@ -104,34 +88,38 @@ const [modelValue, modelModifiers] = defineModel<
   },
 })
 
-const contrast = useNuiDefaultProperty(props, 'BaseInput', 'contrast')
-const rounded = useNuiDefaultProperty(props, 'BaseInput', 'rounded')
+const variant = useNuiDefaultProperty(props, 'BaseInput', 'variant')
 const size = useNuiDefaultProperty(props, 'BaseInput', 'size')
+const rounded = useNuiDefaultProperty(props, 'BaseInput', 'rounded')
 
 const inputRef = ref<HTMLInputElement>()
 const id = useNinjaId(() => props.id)
 
-const radiuses = {
-  none: '',
-  sm: 'nui-input-rounded-sm',
-  md: 'nui-input-rounded-md',
-  lg: 'nui-input-rounded-lg',
-  full: 'nui-input-rounded-full',
-}
+const variants = {
+  default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 invalid:!border-[var(--destructive-bg-base)]',
+  muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-600 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 invalid:!border-[var(--destructive-bg-base)]',
+} as const
+
+// @todo: low-contrast-theme
+// const variants = {
+//   'default': 'bg-white dark:bg-muted-800 border-muted-300 dark:border-muted-700 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700',
+//   'muted': 'bg-muted-50 dark:bg-muted-800 border-muted-300 dark:border-muted-700 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700',
+// } as const
 
 const sizes = {
-  sm: 'nui-input-sm',
-  md: 'nui-input-md',
-  lg: 'nui-input-lg',
-  xl: 'nui-input-xl',
-}
+  sm: 'h-8 text-xs px-2',
+  md: 'h-10 text-sm px-3',
+  lg: 'h-12 text-sm px-4',
+  xl: 'h-14 text-base px-4',
+} as const
 
-const contrasts = {
-  'default': 'nui-input-default',
-  'default-contrast': 'nui-input-default-contrast',
-  'muted': 'nui-input-muted',
-  'muted-contrast': 'nui-input-muted-contrast',
-}
+const radiuses = {
+  none: '',
+  sm: 'rounded-md',
+  md: 'rounded-lg',
+  lg: 'rounded-xl',
+  full: 'rounded-full',
+} as const
 
 defineExpose({
   /**
@@ -147,40 +135,38 @@ defineExpose({
 </script>
 
 <template>
-  <div
-    class="nui-input-wrapper"
-    :class="[
-      contrast && contrasts[contrast],
-      size && sizes[size],
-      rounded && radiuses[rounded],
-      props.colorFocus && 'nui-input-focus',
-      'action' in $slots && 'nui-input-has-action',
-      props.classes?.wrapper,
-    ]"
-  >
-    <div class="nui-input-outer" :class="props.classes?.outer">
-      <input
-        v-if="modelModifiers.lazy"
-        :id="id"
-        ref="inputRef"
-        v-model.lazy="modelValue"
-        :type="props.type"
-        v-bind="$attrs"
-        class="nui-input"
-        :class="props.classes?.input"
-        :placeholder="placeholder"
-      >
-      <input
-        v-else
-        :id="id"
-        ref="inputRef"
-        v-model="modelValue"
-        :type="props.type"
-        v-bind="$attrs"
-        class="nui-input"
-        :class="props.classes?.input"
-        :placeholder="placeholder"
-      >
-    </div>
+  <div class="relative" :class="props.classes?.wrapper">
+    <input
+      v-if="modelModifiers.lazy"
+      :id="id"
+      ref="inputRef"
+      v-model.lazy="modelValue"
+      :type="props.type"
+      v-bind="$attrs"
+      class="nui-focus w-full font-sans disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300"
+      :class="[
+        props.classes?.input,
+        variant && variants[variant],
+        size && sizes[size],
+        rounded && radiuses[rounded],
+      ]"
+      :placeholder="placeholder"
+    >
+    <input
+      v-else
+      :id="id"
+      ref="inputRef"
+      v-model="modelValue"
+      :type="props.type"
+      v-bind="$attrs"
+      class="nui-focus w-full font-sans disabled:cursor-not-allowed disabled:opacity-75 transition-all duration-300"
+      :class="[
+        props.classes?.input,
+        variant && variants[variant],
+        size && sizes[size],
+        rounded && radiuses[rounded],
+      ]"
+      :placeholder="placeholder"
+    >
   </div>
 </template>
