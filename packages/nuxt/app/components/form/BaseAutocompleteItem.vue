@@ -11,8 +11,8 @@ export type BaseAutocompleteItemSlots = {
 }
 
 export const variants = {
-  default: 'data-[highlighted]:bg-muted-100 text-muted-700 data-[highlighted]:text-primary-500 dark:text-muted-300 dark:data-[highlighted]:text-primary-400',
-  muted: 'data-[highlighted]:bg-muted-200 text-muted-800 data-[highlighted]:text-primary-500 dark:text-muted-400 dark:data-[highlighted]:text-primary-400',
+  default: 'data-[highlighted]:bg-muted-100 dark:data-[highlighted]:bg-muted-800 text-muted-700 data-[highlighted]:text-primary-500 dark:text-muted-300 dark:data-[highlighted]:text-primary-400',
+  muted: 'data-[highlighted]:bg-muted-200 dark:data-[highlighted]:bg-muted-800 text-muted-800 data-[highlighted]:text-primary-500 dark:text-muted-400 dark:data-[highlighted]:text-primary-400',
   none: '',
 } as const
 

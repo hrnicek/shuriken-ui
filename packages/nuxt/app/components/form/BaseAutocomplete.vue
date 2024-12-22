@@ -76,7 +76,7 @@ export interface BaseAutocompleteContext {
 
 export const variants = {
   default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 data-placeholder:text-muted-300 dark:data-placeholder:text-muted-700',
-  muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-600 border text-muted-500 data-placeholder:text-muted-300 dark:data-placeholder:text-muted-700',
+  muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 data-placeholder:text-muted-300 dark:data-placeholder:text-muted-700',
   none: '',
 } as const
 
@@ -85,6 +85,18 @@ export const variants = {
 //   'default': 'border border-muted-200 dark:border-muted-700 bg-white dark:bg-muted-800',
 //   'muted': 'border border-muted-200 dark:border-muted-700 bg-muted-50 dark:bg-muted-800',
 //   'none': '',
+// } as const
+
+export const portalVariants = {
+  default: 'bg-white dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
+  muted: 'bg-muted-50 dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
+  none: '',
+} as const
+
+// @todo: low-contrast-theme
+// const portalVariants = {
+//   'default': '',
+//   'muted': '',
 // } as const
 
 export const radiuses = {
@@ -204,7 +216,7 @@ provideBaseAutocompleteContext({
         :class="[
           rounded !== 'full' && radiuses[rounded],
           rounded === 'full' && 'rounded-xl',
-          variant && variants[variant],
+          variant && portalVariants[variant],
         ]"
       >
         <ComboboxViewport
