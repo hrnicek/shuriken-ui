@@ -358,9 +358,9 @@ export default defineAppConfig({
       /**
        * The color of the active tab.
        *
-       * @type {'primary-low' | 'primary-high' | 'dark-low' | 'dark-high' | 'muted-low' | 'muted-high'}
+       * @type {'primary' | 'dark' | 'muted'}
        */
-      variant: 'primary-high',
+      variant: 'primary',
       /**
        * The alignment of the tabs.
        *

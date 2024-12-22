@@ -24,7 +24,7 @@ export interface BaseTabsProps extends TabsRootProps {
    *
    * @default 'default'
    */
-  variant?: 'primary-low' | 'primary-high' | 'dark-low' | 'dark-high' | 'muted-low' | 'muted-high'
+  variant?: 'primary' | 'dark' | 'muted'
 
   /**
    * The horizontal alignment of the tabs.
@@ -183,12 +183,13 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['tabs', 'variant', 'ju
         ]"
       >
         <div class="w-full h-full" :class="[
-          variant === 'primary-low' && 'bg-primary-500',
-          variant === 'primary-high' && 'bg-primary-500',
-          variant === 'dark-low' && 'bg-muted-900 dark:bg-muted-100',
-          variant === 'dark-high' && 'bg-muted-900 dark:bg-muted-100',
-          variant === 'muted-low' && 'bg-muted-400 dark:bg-muted-400',
-          variant === 'muted-high' && 'bg-muted-400 dark:bg-muted-500',
+          // @todo: low-contrast-theme
+          // variant === 'primary-low' && 'bg-primary-500',
+          variant === 'primary' && 'bg-primary-500',
+          // variant === 'dark-low' && 'bg-muted-900 dark:bg-muted-100',
+          variant === 'dark' && 'bg-muted-900 dark:bg-muted-100',
+          // variant === 'muted-low' && 'bg-muted-400 dark:bg-muted-400',
+          variant === 'muted' && 'bg-muted-400 dark:bg-muted-500',
         ]" />
       </TabsIndicator>
       <TabsIndicator
@@ -201,12 +202,13 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['tabs', 'variant', 'ju
       >
         <div class="w-full h-full" :class="[
           rounded && radiuses[rounded],
-          variant === 'primary-low' && 'bg-primary-500/10 dark:bg-primary-500/20',  
-          variant === 'primary-high' && 'bg-primary-500/10 dark:bg-primary-500/20',
-          variant === 'dark-low' && 'bg-muted-900/10 dark:bg-muted-100/10',
-          variant === 'dark-high' && 'bg-muted-900/10 dark:bg-white/10',
-          variant === 'muted-low' && 'bg-muted-100 dark:bg-muted-700',
-          variant === 'muted-high' && 'bg-muted-100 dark:bg-muted-900',
+          // @todo: low-contrast-theme
+          // variant === 'primary-low' && 'bg-primary-500/10 dark:bg-primary-500/20',  
+          variant === 'primary' && 'bg-primary-500/10 dark:bg-primary-500/20',
+          // variant === 'dark-low' && 'bg-muted-900/10 dark:bg-muted-100/10',
+          variant === 'dark' && 'bg-muted-900/10 dark:bg-white/10',
+          // variant === 'muted-low' && 'bg-muted-100 dark:bg-muted-700',
+          variant === 'muted' && 'bg-muted-100 dark:bg-muted-900',
         ]" />
       </TabsIndicator>
 

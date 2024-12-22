@@ -17,7 +17,7 @@ export interface BaseTabsTriggerProps extends TabsTriggerProps {
    *
    * @default 'default'
    */
-   variant?: 'primary-low' | 'primary-high' | 'dark-low' | 'dark-high' | 'muted-low' | 'muted-high'
+   variant?: 'primary' | 'dark' | 'muted'
 
   /**
    * The type of tabs to display..
@@ -50,13 +50,17 @@ const slots = defineSlots<BaseTabsTriggerSlots>()
 const forward = useForwardProps(reactiveOmit(props, ['label', 'type', 'variant', 'icon']))
 
 const tabVariants = {
-  'primary-low': 'group-data-[state=active]/trigger:text-primary-500 group-data-[state=inactive]/trigger:text-muted-400 dark:group-data-[state=active]/trigger:text-primary-400 dark:group-data-[state=inactive]/trigger:text-muted-400',
-  'primary-high': 'group-data-[state=active]/trigger:text-primary-500 group-data-[state=inactive]/trigger:text-muted-400 dark:group-data-[state=active]/trigger:text-primary-400 dark:group-data-[state=inactive]/trigger:text-muted-400',
-  'dark-low': 'group-data-[state=active]/trigger:text-muted-900 group-data-[state=inactive]/trigger:text-muted-400 dark:group-data-[state=active]/trigger:text-white dark:group-data-[state=inactive]/trigger:text-muted-400',
-  'dark-high': 'group-data-[state=active]/trigger:text-muted-900 group-data-[state=inactive]/trigger:text-muted-400 dark:group-data-[state=active]/trigger:text-white dark:group-data-[state=inactive]/trigger:text-muted-400',
-  'muted-low': 'group-data-[state=active]/trigger:text-muted-700 group-data-[state=inactive]/trigger:text-muted-400 dark:group-data-[state=active]/trigger:text-muted-100 dark:group-data-[state=inactive]/trigger:text-muted-400',
-  'muted-high': 'group-data-[state=active]/trigger:text-muted-700 group-data-[state=inactive]/trigger:text-muted-400 dark:group-data-[state=active]/trigger:text-muted-100 dark:group-data-[state=inactive]/trigger:text-muted-400',
+  'primary': 'group-data-[state=active]/trigger:text-primary-500 group-data-[state=inactive]/trigger:text-muted-400 dark:group-data-[state=active]/trigger:text-primary-400 dark:group-data-[state=inactive]/trigger:text-muted-400',
+  'dark': 'group-data-[state=active]/trigger:text-muted-900 group-data-[state=inactive]/trigger:text-muted-400 dark:group-data-[state=active]/trigger:text-white dark:group-data-[state=inactive]/trigger:text-muted-400',
+  'muted': 'group-data-[state=active]/trigger:text-muted-700 group-data-[state=inactive]/trigger:text-muted-400 dark:group-data-[state=active]/trigger:text-muted-100 dark:group-data-[state=inactive]/trigger:text-muted-400',
 } as const
+
+// @todo: low-contrast-theme
+// const tabVariants = {
+//   'primary': 'group-data-[state=active]/trigger:text-primary-500 group-data-[state=inactive]/trigger:text-muted-400 dark:group-data-[state=active]/trigger:text-primary-400 dark:group-data-[state=inactive]/trigger:text-muted-400',
+//   'dark': 'group-data-[state=active]/trigger:text-muted-900 group-data-[state=inactive]/trigger:text-muted-400 dark:group-data-[state=active]/trigger:text-white dark:group-data-[state=inactive]/trigger:text-muted-400',
+//   'muted': 'group-data-[state=active]/trigger:text-muted-700 group-data-[state=inactive]/trigger:text-muted-400 dark:group-data-[state=active]/trigger:text-muted-100 dark:group-data-[state=inactive]/trigger:text-muted-400',
+// } as const
 </script>
 
 <template>

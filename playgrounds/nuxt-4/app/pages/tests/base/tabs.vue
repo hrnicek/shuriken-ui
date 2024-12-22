@@ -49,32 +49,7 @@ const tabsNoIcon = [
         <div class="w-full gap-8 grid grid-cols-2 max-w-3xl">
           <BaseTabs
             default-value="team"
-            variant="primary-low"
-            :tabs="[
-              { label: 'Team', value: 'team' },
-              { label: 'Projects', value: 'projects' },
-              { label: 'Disabled', value: 'tasks', disabled: true },
-            ]"
-          >
-            <BaseTabsContent value="team">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
-              iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum?
-              Ne discipulum abducam, times. ...
-            </BaseTabsContent>
-            <BaseTabsContent value="projects">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla malesuada odio sed ante malesuada, 
-              quis facilisis erat iaculis. Sed egestas porta fringilla. Ut ultrices, elit eget congue aliquet, 
-              risus sem semper lorem, vitae efficitur nunc est eget mi. ...
-            </BaseTabsContent>
-            <BaseTabsContent value="tasks">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris leo ipsum, efficitur eu finibus eu, 
-              gravida quis enim. Fusce a elementum nunc. Nunc venenatis a elit quis ornare. 
-              Pellentesque quis vehicula ipsum. ...
-            </BaseTabsContent>
-          </BaseTabs>
-          <BaseTabs
-            default-value="team"
-            variant="primary-high"
+            variant="primary"
             :tabs="[
               { label: 'Team', value: 'team' },
               { label: 'Projects', value: 'projects' },
@@ -108,32 +83,7 @@ const tabsNoIcon = [
           <BaseTabs
             default-value="team"
             justify="center"
-            variant="dark-low"
-            :tabs="[
-              { label: 'Team', value: 'team' },
-              { label: 'Projects', value: 'projects' },
-            ]"
-          >
-            <BaseTabsContent value="team">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
-              iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum?
-              Ne discipulum abducam, times. ...
-            </BaseTabsContent>
-            <BaseTabsContent value="projects">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla malesuada odio sed ante malesuada, 
-              quis facilisis erat iaculis. Sed egestas porta fringilla. Ut ultrices, elit eget congue aliquet, 
-              risus sem semper lorem, vitae efficitur nunc est eget mi. ...
-            </BaseTabsContent>
-            <BaseTabsContent value="tasks">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris leo ipsum, efficitur eu finibus eu, 
-              gravida quis enim. Fusce a elementum nunc. Nunc venenatis a elit quis ornare. 
-              Pellentesque quis vehicula ipsum. ...
-            </BaseTabsContent>
-          </BaseTabs>
-          <BaseTabs
-            default-value="team"
-            justify="center"
-            variant="dark-high"
+            variant="dark"
             :tabs="[
               { label: 'Team', value: 'team' },
               { label: 'Projects', value: 'projects' },
@@ -163,32 +113,7 @@ const tabsNoIcon = [
           <BaseTabs
             default-value="projects"
             justify="end"
-            variant="muted-low"
-            :tabs="[
-              { label: 'Team', value: 'team' },
-              { label: 'Projects', value: 'projects' },
-            ]"
-          >
-            <BaseTabsContent value="team">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
-              iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum?
-              Ne discipulum abducam, times. ...
-            </BaseTabsContent>
-            <BaseTabsContent value="projects">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla malesuada odio sed ante malesuada, 
-              quis facilisis erat iaculis. Sed egestas porta fringilla. Ut ultrices, elit eget congue aliquet, 
-              risus sem semper lorem, vitae efficitur nunc est eget mi. ...
-            </BaseTabsContent>
-            <BaseTabsContent value="tasks">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris leo ipsum, efficitur eu finibus eu, 
-              gravida quis enim. Fusce a elementum nunc. Nunc venenatis a elit quis ornare. 
-              Pellentesque quis vehicula ipsum. ...
-            </BaseTabsContent>
-          </BaseTabs>
-          <BaseTabs
-            default-value="projects"
-            justify="end"
-            variant="muted-high"
+            variant="muted"
             :tabs="[
               { label: 'Team', value: 'team' },
               { label: 'Projects', value: 'projects' },
@@ -243,7 +168,7 @@ const tabsNoIcon = [
           <BaseTabs
             default-value="team"
             orientation="vertical"
-            variant="dark-high"
+            variant="dark"
             :tabs="[
               { label: 'Team', value: 'team' },
               { label: 'Projects', value: 'projects' },
@@ -349,31 +274,7 @@ const tabsNoIcon = [
           <BaseTabs
             v-model="selectedTab"
             type="box"
-            variant="muted-high"
-            :tabs="tabsNoIcon"
-          >
-            <BaseTabsContent value="team">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
-              iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum?
-              Ne discipulum abducam, times. ...
-            </BaseTabsContent>
-            <BaseTabsContent value="projects">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla malesuada odio sed ante malesuada, 
-              quis facilisis erat iaculis. Sed egestas porta fringilla. Ut ultrices, elit eget congue aliquet, 
-              risus sem semper lorem, vitae efficitur nunc est eget mi. ...
-            </BaseTabsContent>
-            <BaseTabsContent value="tasks">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris leo ipsum, efficitur eu finibus eu, 
-              gravida quis enim. Fusce a elementum nunc. Nunc venenatis a elit quis ornare. 
-              Pellentesque quis vehicula ipsum. ...
-            </BaseTabsContent>
-          </BaseTabs>
-
-          <BaseTabs
-            v-model="selectedTab"
-            type="box"
-            variant="muted-high"
-            orientation="vertical"
+            variant="muted"
             :tabs="tabsNoIcon"
           >
             <BaseTabsContent value="team">
@@ -400,7 +301,7 @@ const tabsNoIcon = [
           <BaseTabs
             v-model="selectedTab"
             type="box"
-            variant="dark-high"
+            variant="dark"
             :tabs="tabsNoIcon"
           >
             <BaseTabsContent value="team">
@@ -423,7 +324,7 @@ const tabsNoIcon = [
           <BaseTabs
             v-model="selectedTab"
             type="box"
-            variant="dark-high"
+            variant="dark"
             orientation="vertical"
             :tabs="tabsNoIcon"
           >
@@ -451,7 +352,7 @@ const tabsNoIcon = [
           <BaseTabs
             type="box"
             v-model="selectedTab"
-            variant="dark-high"
+            variant="dark"
             :tabs="tabs"
           >
             <!--template #trigger>
@@ -485,7 +386,7 @@ const tabsNoIcon = [
           <BaseTabs
             type="box"
             v-model="selectedTab"
-            variant="primary-high"
+            variant="primary"
             :tabs="tabs"
           >
             <!--template #trigger>
@@ -524,7 +425,7 @@ const tabsNoIcon = [
         <div class="w-full max-w-lg">
           <BaseTabs
             default-value="team"
-            variant="dark-high"
+            variant="dark"
             :tabs="tabs"
           >
             <BaseTabsContent value="team">
@@ -532,7 +433,7 @@ const tabsNoIcon = [
                 default-value="team"
                 orientation="vertical"
                 type="box"
-                variant="dark-high"
+                variant="dark"
                 :tabs="tabsNoIcon"
               >
                 <BaseTabsContent value="team">
@@ -557,7 +458,7 @@ const tabsNoIcon = [
                 default-value="team"
                 orientation="vertical"
                 type="box"
-                variant="dark-high"
+                variant="dark"
                 :tabs="tabsNoIcon"
               >
                 <BaseTabsContent value="team">
@@ -582,7 +483,7 @@ const tabsNoIcon = [
                 default-value="team"
                 orientation="vertical"
                 type="box"
-                variant="dark-high"
+                variant="dark"
                 :tabs="tabsNoIcon"
               >
                 <BaseTabsContent value="team">
