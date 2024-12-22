@@ -11,54 +11,9 @@ const props = withDefaults(
     id?: string
 
     /**
-     * The name of the textarea.
-     */
-    name?: string
-
-    /**
-     * The label for the textarea.
-     */
-    label?: string
-
-    /**
-     * If the label should be floating.
-     */
-    labelFloat?: boolean
-
-    /**
      * The placeholder text for the textarea.
      */
     placeholder?: string
-
-    /**
-     * Whether to apply the focus color to the textarea.
-     */
-    colorFocus?: boolean
-
-    /**
-     * Whether the textarea is in a loading state.
-     */
-    loading?: boolean
-
-    /**
-     * Whether the textarea is disabled.
-     */
-    disabled?: boolean
-
-    /**
-     * Whether the textarea is read-only.
-     */
-    readonly?: boolean
-
-    /**
-     * The error message for the textarea, or whether it is in an error state.
-     */
-    error?: string | boolean
-
-    /**
-     * Whether to display an addon element in the textarea.
-     */
-    addon?: boolean
 
     /**
      * The number of rows to display in the textarea.
@@ -81,17 +36,16 @@ const props = withDefaults(
     maxHeight?: number
 
     /**
-     * The contrast of the textarea.
+     * The variant of the textarea.
      *
      * @default 'default'
      */
-    contrast?: 'default' | 'default-contrast' | 'muted' | 'muted-contrast'
+     variant?: 'default' | 'muted'
 
     /**
      * The radius of the textarea.
      *
-     * @since 2.0.0
-     * @default 'sm'
+     * @default 'md'
      */
     rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
 
@@ -133,11 +87,11 @@ const props = withDefaults(
     name: undefined,
     rounded: undefined,
     size: undefined,
-    contrast: undefined,
+    variant: undefined,
     label: undefined,
     placeholder: '',
     error: false,
-    rows: 4,
+    rows: 3,
     maxHeight: undefined,
     classes: () => ({}),
   },
@@ -153,7 +107,7 @@ const [modelValue, modelModifiers] = defineModel<string, 'lazy' | 'trim'>({
   },
 })
 
-const contrast = useNuiDefaultProperty(props, 'BaseTextarea', 'contrast')
+const variant = useNuiDefaultProperty(props, 'BaseTextarea', 'variant')
 const rounded = useNuiDefaultProperty(props, 'BaseTextarea', 'rounded')
 const size = useNuiDefaultProperty(props, 'BaseTextarea', 'size')
 
@@ -162,24 +116,22 @@ const id = useNinjaId(() => props.id)
 
 const radiuses = {
   none: '',
-  sm: 'nui-textarea-rounded-sm',
-  md: 'nui-textarea-rounded-md',
-  lg: 'nui-textarea-rounded-lg',
-  full: 'nui-textarea-rounded-lg',
-}
+  sm: 'rounded-sm',
+  md: 'rounded-md',
+  lg: 'rounded-lg',
+  full: 'rounded-xl',
+} as const
 
 const sizes = {
   sm: 'nui-textarea-sm',
   md: 'nui-textarea-md',
   lg: 'nui-textarea-lg',
-}
+} as const
 
-const contrasts = {
-  'default': 'nui-textarea-default',
-  'default-contrast': 'nui-textarea-default-contrast',
-  'muted': 'nui-textarea-muted',
-  'muted-contrast': 'nui-textarea-muted-contrast',
-}
+const variants = {
+  default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 invalid:!border-[var(--destructive-bg-base)]',
+  muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-600 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 invalid:!border-[var(--destructive-bg-base)]',
+} as const
 
 defineExpose({
   /**
@@ -195,93 +147,40 @@ defineExpose({
 </script>
 
 <template>
-  <div
-    class="nui-textarea-wrapper"
-    :class="[
-      contrast && contrasts[contrast],
-      size && sizes[size],
-      rounded && radiuses[rounded],
-      props.error && !props.loading && 'nui-textarea-error',
-      props.loading && 'nui-textarea-loading',
-      props.labelFloat && 'nui-textarea-label-float',
-      !props.resize && 'nui-textarea-not-resize',
-      props.addon && 'nui-textarea-has-addon',
-      props.colorFocus && 'nui-textarea-focus',
-      props.classes?.wrapper,
-    ]"
-  >
-    <Label
-      v-if="props.label && !props.labelFloat"
-      :for="id"
-      class="nui-textarea-label"
-      :class="props.classes?.label"
-    >
-      {{ props.label }}
-    </Label>
-    <div class="nui-textarea-outer">
-      <textarea
-        v-if="modelModifiers.lazy"
-        :id="id"
-        ref="textareaRef"
-        v-model.lazy="modelValue"
-        v-bind="$attrs"
-        class="nui-textarea nui-slimscroll"
-        :class="[
-          props.autogrow && 'field-sizing-content',
-          props.colorFocus && 'nui-textarea-focus',
-          props.classes?.textarea,
-        ]"
-        :name="props.name"
-        :placeholder="props.placeholder"
-        :readonly="props.readonly"
-        :disabled="props.disabled"
-        :rows="props.rows"
-      />
-      <textarea
-        v-else
-        :id="id"
-        ref="textareaRef"
-        v-model="modelValue"
-        v-bind="$attrs"
-        class="nui-textarea nui-slimscroll"
-        :class="[
-          props.autogrow && 'field-sizing-content',
-          props.colorFocus && 'nui-textarea-focus',
-          props.classes?.textarea,
-        ]"
-        :name="props.name"
-        :placeholder="props.placeholder"
-        :readonly="props.readonly"
-        :disabled="props.disabled"
-        :rows="props.rows"
-      />
-      <label
-        v-if="props.label && props.labelFloat"
-        class="nui-textarea-label-float-label"
-        :for="id"
-        :class="props.classes?.label"
-      >
-        <slot name="label">{{ props.label }}</slot>
-      </label>
-      <div v-if="props.loading" class="nui-textarea-placeload-wrapper">
-        <BasePlaceload class="nui-textarea-placeload" />
-        <BasePlaceload class="nui-textarea-placeload" />
-        <BasePlaceload class="nui-textarea-placeload" />
-      </div>
-      <div
-        v-if="props.addon"
-        class="nui-textarea-addon"
-        :class="props.classes?.addon"
-      >
-        <slot name="addon" />
-      </div>
-      <BaseInputHelpText
-        v-if="props.error && typeof props.error === 'string'"
-        color="danger"
-        :class="props.classes?.error"
-      >
-        {{ props.error }}
-      </BaseInputHelpText>
-    </div>
+  <div class="relative flex flex-col">
+    <textarea
+      v-if="modelModifiers.lazy"
+      :id="id"
+      ref="textareaRef"
+      v-model.lazy="modelValue"
+      v-bind="$attrs"
+      class="nui-focus w-full p-2 text-sm enabled:cursor-text cursor-not-allowed nui-slimscroll"
+      :class="[
+        props.autogrow && 'field-sizing-content',
+        props.classes?.textarea,
+        variant && variants[variant],
+        rounded && radiuses[rounded],
+        !props.resize && 'resize-none',
+      ]"
+      :placeholder="props.placeholder"
+      :rows="props.rows"
+    />
+    <textarea
+      v-else
+      :id="id"
+      ref="textareaRef"
+      v-model="modelValue"
+      v-bind="$attrs"
+      class="nui-focus w-full p-2 text-sm enabled:cursor-text cursor-not-allowed nui-slimscroll"
+      :class="[
+        props.autogrow && 'field-sizing-content',
+        props.classes?.textarea,
+        variant && variants[variant],
+        rounded && radiuses[rounded],
+        !props.resize && 'resize-none',
+      ]"
+      :placeholder="props.placeholder"
+      :rows="props.rows"
+    />
   </div>
 </template>

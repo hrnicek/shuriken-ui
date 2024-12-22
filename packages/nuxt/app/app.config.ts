@@ -658,17 +658,17 @@ export default defineAppConfig({
     },
     BaseTextarea: {
       /**
-       * The contrast of the textarea.
+       * The variant of the textarea.
        *
-       * @type {'default' | 'default-contrast' | 'muted' | 'muted-contrast'}
+       * @type {'default' | 'muted'}
        */
-      contrast: 'default',
+      variant: 'default',
       /**
        * The radius of the textarea.
        *
        * @type {'none' | 'sm' | 'md' | 'lg' | 'full'}
        */
-      rounded: 'sm',
+      rounded: 'md',
       /**
        * The size of the textarea.
        *

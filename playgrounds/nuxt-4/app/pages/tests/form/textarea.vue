@@ -24,163 +24,42 @@ const value = ref('')
         <div class="grid gap-6 md:max-w-4xl md:grid-cols-3">
           <BaseTextarea
             v-model="fields.first"
-            label="Rounded: none"
             rounded="none"
-            placeholder="Write a message..."
+            placeholder="Rounded: none"
           />
           <BaseTextarea
             v-model="fields.second"
-            label="Rounded: sm"
             rounded="sm"
-            placeholder="Write a message..."
+            placeholder="Rounded: sm"
           />
           <BaseTextarea
             v-model="fields.third"
-            label="Rounded: md"
             rounded="md"
-            placeholder="Write a message..."
+            placeholder="Rounded: md"
+          />
+          <BaseTextarea
+            v-model="fields.third"
+            rounded="lg"
+            placeholder="Rounded: lg"
           />
         </div>
       </NuiPreview>
 
       <NuiPreview
-        title="Contrast: default-contrast"
-        description="Textarea component default contrast"
+        title="Variants"
+        description="Textarea component variants"
       >
         <div class="grid gap-6 md:max-w-4xl md:grid-cols-3 mt-10">
           <BaseTextarea
-            v-model="value"
-            contrast="default-contrast"
-            size="sm"
-            label="Message"
-            placeholder="Write a message..."
+            v-model="fields.third"
+            rounded="md"
+            placeholder="Variant: default"
           />
           <BaseTextarea
-            v-model="value"
-            contrast="default-contrast"
-            label="Message"
-            size="md"
-            placeholder="Write a message..."
-          />
-          <BaseTextarea
-            v-model="value"
-            contrast="default-contrast"
-            label="Message"
-            size="lg"
-            placeholder="Write a message..."
-          />
-        </div>
-      </NuiPreview>
-
-      <NuiPreview
-        title="Contrast: muted"
-        description="Textarea component muted"
-      >
-        <div class="grid gap-6 md:max-w-4xl md:grid-cols-3 mt-10">
-          <BaseTextarea
-            v-model="value"
-            contrast="muted"
-            size="sm"
-            label="Message"
-            placeholder="Write a message..."
-          />
-          <BaseTextarea
-            v-model="value"
-            contrast="muted"
-            size="md"
-            label="Message"
-            placeholder="Write a message..."
-          />
-          <BaseTextarea
-            v-model="value"
-            size="lg"
-            contrast="muted"
-            label="Message"
-            placeholder="Write a message..."
-          />
-        </div>
-      </NuiPreview>
-
-      <NuiPreview
-        title="Contrast: muted-contrast"
-        description="Textarea component muted contrast"
-      >
-        <div class="grid gap-6 md:max-w-4xl md:grid-cols-3 mt-10">
-          <BaseTextarea
-            v-model="value"
-            contrast="muted-contrast"
-            label="Message"
-            size="sm"
-            placeholder="Write a message..."
-          />
-          <BaseTextarea
-            v-model="value"
-            contrast="muted-contrast"
-            label="Message"
-            size="md"
-            placeholder="Write a message..."
-          />
-          <BaseTextarea
-            v-model="value"
-            contrast="muted-contrast"
-            label="Message"
-            size="lg"
-            placeholder="Write a message..."
-          />
-        </div>
-      </NuiPreview>
-
-      <NuiPreview
-        title="Label: float"
-        description="Textarea component label float"
-      >
-        <div class="grid gap-6 md:max-w-4xl md:grid-cols-3 mt-10">
-          <BaseTextarea
-            v-model="value"
-            label="Message"
-            size="sm"
-            placeholder="Write a message..."
-            label-float
-          />
-          <BaseTextarea
-            v-model="value"
-            label="Message"
-            size="md"
-            placeholder="Write a message..."
-            label-float
-          />
-          <BaseTextarea
-            v-model="value"
-            label="Message"
-            size="lg"
-            placeholder="Write a message..."
-            label-float
-          />
-        </div>
-      </NuiPreview>
-
-      <NuiPreview title="Focus" description="Textarea component focus color">
-        <div class="grid gap-6 md:max-w-4xl md:grid-cols-3 mt-10">
-          <BaseTextarea
-            v-model="value"
-            label="Message"
-            size="md"
-            placeholder="Write a message..."
-            color-focus
-          />
-          <BaseTextarea
-            v-model="value"
-            label="Message"
-            size="md"
-            placeholder="Write a message..."
-            color-focus
-          />
-          <BaseTextarea
-            v-model="value"
-            label="Message"
-            size="lg"
-            placeholder="Write a message..."
-            color-focus
+            v-model="fields.third"
+            rounded="md"
+            placeholder="Variant: muted"
+            variant="muted"
           />
         </div>
       </NuiPreview>
@@ -188,54 +67,19 @@ const value = ref('')
       <NuiPreview title="Error" description="Textarea component errors">
         <div class="grid gap-6 md:max-w-4xl md:grid-cols-3 mt-10">
           <BaseTextarea
-            v-model="value"
-            size="sm"
-            label="Message"
-            placeholder="Write a message..."
-            error="Please enter a message"
+            v-model="fields.third"
+            rounded="md"
+            placeholder="Variant: default"
+            required
+            invalid
           />
           <BaseTextarea
-            v-model="value"
-            label="Message"
-            size="md"
-            placeholder="Write a message..."
-            error="Please enter a message"
-          />
-          <BaseTextarea
-            v-model="value"
-            label="Message"
-            size="lg"
-            placeholder="Write a message..."
-            error="Please enter a message"
-          />
-        </div>
-      </NuiPreview>
-
-      <NuiPreview
-        title="Loading"
-        description="Textarea component loading state"
-      >
-        <div class="grid gap-6 md:max-w-4xl md:grid-cols-3 mt-10">
-          <BaseTextarea
-            v-model="value"
-            size="sm"
-            label="Message"
-            placeholder="Write a message..."
-            loading
-          />
-          <BaseTextarea
-            v-model="value"
-            label="Message"
-            size="md"
-            placeholder="Write a message..."
-            loading
-          />
-          <BaseTextarea
-            v-model="value"
-            label="Message"
-            size="lg"
-            placeholder="Write a message..."
-            loading
+            v-model="fields.third"
+            rounded="md"
+            placeholder="Variant: muted"
+            variant="muted"
+            required
+            invalid
           />
         </div>
       </NuiPreview>
@@ -246,24 +90,16 @@ const value = ref('')
       >
         <div class="grid gap-6 md:max-w-4xl md:grid-cols-3 mt-10">
           <BaseTextarea
-            v-model="value"
-            size="sm"
-            label="Message"
-            placeholder="Write a message..."
+            v-model="fields.third"
+            rounded="md"
+            placeholder="Variant: default"
             disabled
           />
           <BaseTextarea
-            v-model="value"
-            label="Message"
-            size="md"
-            placeholder="Write a message..."
-            disabled
-          />
-          <BaseTextarea
-            v-model="value"
-            label="Message"
-            size="lg"
-            placeholder="Write a message..."
+            v-model="fields.third"
+            rounded="md"
+            placeholder="Variant: muted"
+            variant="muted"
             disabled
           />
         </div>
@@ -277,96 +113,16 @@ const value = ref('')
           <BaseTextarea
             v-model="value"
             size="sm"
-            label="Message"
             placeholder="Write a message..."
             autogrow
           />
           <BaseTextarea
             v-model="value"
-            label="Message"
             size="md"
             placeholder="Write a message..."
+            variant="muted"
             autogrow
           />
-          <BaseTextarea
-            v-model="value"
-            label="Message"
-            size="lg"
-            placeholder="Write a message..."
-            autogrow
-          />
-        </div>
-      </NuiPreview>
-
-      <NuiPreview title="Addon" description="Textarea component custom addon">
-        <div class="grid gap-6 md:max-w-6xl md:grid-cols-3 mt-10">
-          <BaseTextarea
-            v-model="value"
-            size="sm"
-            label="Message"
-            rounded="md"
-            placeholder="Write a message..."
-            :rows="6"
-            addon
-          >
-            <template #addon>
-              <div class="flex items-center gap-2">
-                <BaseAvatar
-                  src="https://tairo.cssninja.io/img/avatars/2.svg"
-                  class="me-1"
-                  size="xs"
-                />
-
-                <BaseHeading
-                  as="h4"
-                  size="sm"
-                  weight="semibold"
-                  class="text-muted-800 dark:text-white"
-                >
-                  Maya
-                </BaseHeading>
-              </div>
-
-              <div class="flex items-center gap-2">
-                <BaseButton size="sm">
-                  Post Comment
-                </BaseButton>
-              </div>
-            </template>
-          </BaseTextarea>
-          <BaseTextarea
-            v-model="value"
-            label="Message"
-            rounded="md"
-            placeholder="Write a message..."
-            :rows="6"
-            addon
-          >
-            <template #addon>
-              <div class="flex items-center gap-2">
-                <BaseAvatar
-                  src="https://tairo.cssninja.io/img/avatars/2.svg"
-                  class="me-1"
-                  size="xs"
-                />
-
-                <BaseHeading
-                  as="h4"
-                  size="sm"
-                  weight="semibold"
-                  class="text-muted-800 dark:text-white"
-                >
-                  Maya
-                </BaseHeading>
-              </div>
-
-              <div class="flex items-center gap-2">
-                <BaseButton size="sm">
-                  Post Comment
-                </BaseButton>
-              </div>
-            </template>
-          </BaseTextarea>
         </div>
       </NuiPreview>
     </NuiPreviewContainer>
