@@ -14,15 +14,19 @@ export interface BaseThemeSwitchProps {
   /**
    * The variant of the toggle.
    *
-   * @default 'default-low'
+   * @default 'default'
    */
-  variant?: 'default-low' | 'default-high'
+  variant?: 'default'
 }
 
 export const variants = {
-  'default-low': 'bg-white dark:bg-muted-800 border border-muted-300 dark:border-muted-700',
-  'default-high': 'bg-white dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
+  'default': 'bg-white dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
 } as const
+
+// @todo: low-contrast-theme
+// export const variants = {
+//   'default': 'bg-white dark:bg-muted-800 border border-muted-300 dark:border-muted-700',
+// } as const
 </script>
 
 <script setup lang="ts">
@@ -77,8 +81,9 @@ const isDark = computed({
     v-model="isDark" 
     class="nui-focus relative block h-6 w-14 scale-[0.8] rounded-full focus-visible:outline-2 ring-2 ring-transparent ring-offset-muted-200 dark:ring-offset-muted-900" 
     :class="[
-      variant === 'default-low' && 'bg-muted-200 dark:bg-muted-700',
-      variant === 'default-high' && 'bg-muted-200 dark:bg-muted-800',
+      // @todo: low-contrast-theme
+      // variant === 'default-low' && 'bg-muted-200 dark:bg-muted-700',
+      variant === 'default' && 'bg-muted-200 dark:bg-muted-800',
     ]"
   >
     <SwitchThumb

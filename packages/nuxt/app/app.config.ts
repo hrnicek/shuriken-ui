@@ -436,9 +436,9 @@ export default defineAppConfig({
       /**
        * The variant of the switch.
        *
-       * @type {'default-low' | 'default-high'}
+       * @type {'default'}
        */
-      variant: 'default-low',
+      variant: 'default',
     },
     BaseThemeToggle: {
       /**
@@ -450,9 +450,9 @@ export default defineAppConfig({
       /**
        * The variant of the toggle.
        *
-       * @type {'default-low' | 'default-high'}
+       * @type {'default'}
        */
-      variant: 'default-low',
+      variant: 'default',
     },
     BaseThemeSystem: {
       /**
@@ -464,7 +464,7 @@ export default defineAppConfig({
       /**
        * The variant of the toggle.
        *
-       * @type {'default-low' | 'default-high'}
+       * @type {'default' | 'default-high'}
        */
       variant: 'default-low',
     },

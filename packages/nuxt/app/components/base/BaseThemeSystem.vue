@@ -14,20 +14,28 @@ export interface BaseThemeSystemProps {
   /**
    * The variant of the toggle.
    *
-   * @default 'default-low'
+   * @default 'default'
    */
-  variant?: 'default-low' | 'default-high'
+  variant?: 'default'
 }
 
 export const variants = {
-  'default-low': 'bg-white dark:bg-muted-800 border border-muted-200 dark:border-muted-700',
-  'default-high': 'bg-white dark:bg-muted-950 border border-muted-200 dark:border-muted-800',
+  'default': 'bg-white dark:bg-muted-950 border border-muted-200 dark:border-muted-800',
 } as const
 
+// @todo: low-contrast-theme
+// export const variants = {
+//   'default': 'bg-white dark:bg-muted-800 border border-muted-200 dark:border-muted-700',
+// } as const
+
 export const trackVariants = {
-  'default-low': 'bg-muted-100 dark:bg-muted-700',
-  'default-high': 'bg-muted-100 dark:bg-muted-800',
+  'default': 'bg-muted-100 dark:bg-muted-800',
 } as const
+
+// @todo: low-contrast-theme
+// export const trackVariants = {
+//   'default': 'bg-muted-100 dark:bg-muted-700',
+// } as const
 </script>
 
 <script setup lang="ts">

@@ -14,15 +14,19 @@ export interface BaseThemeToggleProps {
   /**
    * The variant of the toggle.
    *
-   * @default 'default-low'
+   * @default 'default'
    */
-  variant?: 'default-low' | 'default-high'
+  variant?: 'default'
 }
 
 export const variants = {
-  'default-low': 'bg-white dark:bg-muted-800 border border-muted-300 dark:border-muted-700',
-  'default-high': 'bg-white dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
+  'default': 'bg-white dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
 }
+
+// @todo: low-contrast-theme
+// export const variants = {
+//   'default': 'bg-white dark:bg-muted-800 border border-muted-300 dark:border-muted-700',
+// }
 </script>
 
 <script setup lang="ts">
