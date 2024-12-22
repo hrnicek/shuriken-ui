@@ -19,7 +19,7 @@ const progressCircle = ref(25)
             title="Default progress bar"
             size="sm"
             v-model="progress"
-            variant="primary-high"
+            variant="primary"
           />
           <div class="flex justify-between gap-2">
             <BaseButton
@@ -73,13 +73,13 @@ const progressCircle = ref(25)
               title="Dark circle progress bar"
               :size="35"
               v-model="progressCircle"
-              variant="dark-high"
+              variant="dark"
             />
             <BaseProgressCircle
               title="Primary circle progress bar"
               :size="45"
               v-model="progressCircle"
-              variant="primary-high"
+              variant="primary"
             />
             <BaseProgressCircle
               title="Custom color circle progress bar"
@@ -174,31 +174,31 @@ const progressCircle = ref(25)
             title="xs progress bar"
             size="xs"
             :model-value="78"
-            variant="primary-high"
+            variant="primary"
           />
           <BaseProgress
             title="sm progress bar"
             size="sm"
             :model-value="78"
-            variant="primary-high"
+            variant="primary"
           />
           <BaseProgress
             title="md progress bar"
             size="md"
             :model-value="78"
-            variant="primary-high"
+            variant="primary"
           />
           <BaseProgress
             title="lg progress bar"
             size="lg"
             :model-value="78"
-            variant="primary-high"
+            variant="primary"
           />
           <BaseProgress
             title="xl progress bar"
             size="xl"
             :model-value="78"
-            variant="primary-high"
+            variant="primary"
           />
         </div>
       </NuiPreview>
@@ -212,13 +212,13 @@ const progressCircle = ref(25)
             title="primary progress bar"
             size="sm"
             :model-value="78"
-            variant="primary-high"
+            variant="primary"
           />
           <BaseProgress
             title="dark progress bar"
             size="sm"
             :model-value="78"
-            variant="dark-high"
+            variant="dark"
           />
           <BaseProgress
             title="custom progress bar"
@@ -241,12 +241,12 @@ const progressCircle = ref(25)
           <BaseProgress
             title="indeterminate primary progress bar"
             size="sm"
-            variant="primary-high"
+            variant="primary"
           />
           <BaseProgress
             title="indeterminate success progress bar"
             size="sm"
-            variant="dark-high"
+            variant="dark"
           />
           <BaseProgressCircle
             title="indeterminate success progress bar"

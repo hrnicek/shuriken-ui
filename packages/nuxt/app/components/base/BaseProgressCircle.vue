@@ -25,7 +25,7 @@ export interface BaseProgressCircleProps extends ProgressRootProps {
    *
    * @default 'primary'
    */
-  variant?: 'primary-low' | 'primary-high' | 'dark-low' | 'dark-high' | 'none'
+  variant?: 'primary' | 'dark' | 'none'
 
   /**
    * Optional CSS classes to apply to the component inner elements.
@@ -54,20 +54,30 @@ export type BaseProgressCircleSlots = {
 }
 
 export const variants = {
-  'primary-low': 'text-primary-500',
-  'primary-high': 'text-primary-500',
-  'dark-low': 'text-muted-900 dark:text-muted-100',
-  'dark-high': 'text-muted-900 dark:text-muted-100',
+  'primary': 'text-primary-500',
+  'dark': 'text-muted-900 dark:text-muted-100',
   'none': '',
 } as const
 
+// @todo: low-contrast-theme
+// export const variants = {
+//   'primary': 'text-primary-500',
+//   'dark': 'text-muted-900 dark:text-muted-100',
+//   'none': '',
+// } as const
+
 export const trackVariants = {
-  'primary-low': 'text-muted-200 dark:text-muted-700',
-  'primary-high': 'text-muted-200 dark:text-muted-900',
-  'dark-low': 'text-muted-200 dark:text-muted-700',
-  'dark-high': 'text-muted-200 dark:text-muted-900',
+  'primary': 'text-muted-200 dark:text-muted-900',
+  'dark': 'text-muted-200 dark:text-muted-900',
   'none': '',
 } as const
+
+// @todo: low-contrast-theme
+// export const trackVariants = {
+//   'primary': 'text-muted-200 dark:text-muted-700',
+//   'dark': 'text-muted-200 dark:text-muted-700',
+//   'none': '',
+// } as const
 </script>
 
 <script setup lang="ts">

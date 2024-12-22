@@ -308,9 +308,9 @@ export default defineAppConfig({
       /**
        * The variant of the progress.
        *
-       * @type {'primary-low' | 'primary-high' | 'dark-low' | 'dark-high' | 'none'}
+       * @type {'primary' | 'dark' | 'none'}
        */
-      variant: 'primary-high',
+      variant: 'primary',
       /**
        * The radius of the progress.
        *
@@ -328,9 +328,9 @@ export default defineAppConfig({
       /**
        * The variant of the progress circle.
        *
-       * @type {'primary-low' | 'primary-high' | 'dark-low' | 'dark-high' | 'none'}
+       * @type {'primary' | 'dark' | 'none'}
        */
-      variant: 'primary-high',
+      variant: 'primary',
     },
     BaseProse: {
       /**

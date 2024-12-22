@@ -10,12 +10,11 @@ export interface BaseProgressProps extends ProgressRootProps {
    *
    * @default 'primary'
    */
-    variant?: 'primary-low' | 'primary-high' | 'dark-low' | 'dark-high' | 'none'
+    variant?: 'primary' | 'dark' | 'none'
 
   /**
    * The radius of the progress bar.
    *
-   * @since 2.0.0
    * @default 'full'
    */
   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
@@ -49,20 +48,30 @@ export type BaseProgressSlots = {
 }
 
 export const variants = {
-  'primary-low': 'bg-primary-500',
-  'primary-high': 'bg-primary-500',
-  'dark-low': 'bg-muted-900 dark:bg-white',
-  'dark-high': 'bg-muted-900 dark:bg-white',
+  'primary': 'bg-primary-500',
+  'dark': 'bg-muted-900 dark:bg-white',
   'none': '',
 } as const
 
+// @todo: low-contrast-theme
+// export const variants = {
+//   'primary': 'bg-primary-500',
+//   'dark': 'bg-muted-900 dark:bg-white',
+//   'none': '',
+// } as const
+
 export const trackVariants = {
-  'primary-low': 'bg-muted-200 dark:bg-muted-700',
-  'primary-high': 'bg-muted-200 dark:bg-muted-900',
-  'dark-low': 'bg-muted-200 dark:bg-muted-700',
-  'dark-high': 'bg-muted-200 dark:bg-muted-900',
+  'primary': 'bg-muted-200 dark:bg-muted-900',
+  'dark': 'bg-muted-200 dark:bg-muted-900',
   'none': '',
 } as const
+
+// @todo: low-contrast-theme
+// export const trackVariants = {
+//   'primary': 'bg-muted-200 dark:bg-muted-700',
+//   'dark': 'bg-muted-200 dark:bg-muted-700',
+//   'none': '',
+// } as const
 
 export const radiuses = {
   none: '',
