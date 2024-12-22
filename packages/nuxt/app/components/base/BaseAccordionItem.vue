@@ -19,9 +19,9 @@ export interface BaseAccordionItemProps extends AccordionItemProps {
   /**
    * The variant of the accordion.
    *
-   * @default 'default-high'
+   * @default 'default'
    */
-  variant?: 'default-low' | 'default-high'
+  variant?: 'default'
 
   /**
    * Defines the icon used for accordion item toggle action
@@ -105,8 +105,8 @@ const iconPlus = useNuiDefaultIcon('plus')
         class="flex group/trigger items-center justify-between w-full py-3 rounded-md px-4 cursor-pointer nui-focus"
         :class="[
           props.classes?.trigger,
-          variant === 'default-low' && 'hover:bg-muted-50 dark:hover:bg-muted-700',
-          variant === 'default-high' && 'hover:bg-muted-50 dark:hover:bg-muted-800',
+          // variant === 'default' && 'hover:bg-muted-50 dark:hover:bg-muted-700', @todo: low-contrast-theme
+          variant === 'default' && 'hover:bg-muted-50 dark:hover:bg-muted-800',
         ]" 
       >
         <div 

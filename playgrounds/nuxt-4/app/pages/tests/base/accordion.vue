@@ -36,7 +36,7 @@ const accordion = ref([
           <BaseAccordion :items="accordion" type="multiple" />
         </div>
       </NuiPreview>
-      <NuiPreview title="Slots" description="Default accordion style">
+      <NuiPreview title="Slots" description="Accordion available slots">
         <div class="md:max-w-lg">
           <BaseAccordion type="multiple">
             <BaseAccordionItem value="item-1" title="Accordion Item 1">
@@ -46,14 +46,14 @@ const accordion = ref([
 
               Lorem ipsum <strong>dolor sit amet</strong>, consectetur adipiscing elit. Quo tandem modo? Inde igitur, inquit, ordiendum est. Primum quid tu dicis breve? Duo Reges: constructio interrete.
             </BaseAccordionItem>
-            <BaseAccordionItem value="item-2" title="Accordion Item 2" variant="default-low" action="chevron">
+            <BaseAccordionItem value="item-2" title="Accordion Item 2" variant="default" action="chevron">
               <template #title>
                 Accordion Item 2
               </template>
 
               Lorem ipsum <strong>dolor sit amet</strong>, consectetur adipiscing elit. Quo tandem modo? Inde igitur, inquit, ordiendum est. Primum quid tu dicis breve? Duo Reges: constructio interrete.
             </BaseAccordionItem>
-            <BaseAccordionItem value="item-3" title="Accordion Item 3" variant="default-high" action="plus">
+            <BaseAccordionItem value="item-3" title="Accordion Item 3" variant="default" action="plus">
               <template #title>
                 Accordion Item 3
               </template>
@@ -73,10 +73,7 @@ const accordion = ref([
       <NuiPreview title="Wrapped" description="Accordion wrapped in a card">
         <div class="md:max-w-5xl">
           <div class="grid md:grid-cols-2 gap-6">
-            <BaseCard variant="default-low" rounded="md" class="p-6">
-              <BaseAccordion variant="default-low" :items="accordion" type="single" />
-            </BaseCard>
-            <BaseCard variant="default-high" rounded="md" class="p-6">
+            <BaseCard rounded="md" class="p-6">
               <BaseAccordion :items="accordion" type="single" />
             </BaseCard>
           </div>

@@ -23,9 +23,9 @@ export default defineAppConfig({
       /**
        * Default variant for the accordion
        *
-       * @type {'default-low' | 'default-high'}
+       * @type {'default'}
        */
-      variant: 'default-high',
+      variant: 'default',
       /**
        * The action icon of the accordion.
        *
