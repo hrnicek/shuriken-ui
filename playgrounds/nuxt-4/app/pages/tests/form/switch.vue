@@ -7,13 +7,13 @@ definePageMeta({
 })
 
 const thinValues = reactive({
-  primary: true,
-  info: true,
-  success: true,
-  warning: true,
-  danger: true,
-  dark: true,
-  black: true,
+  one: true,
+  two: true,
+  three: true,
+  four: true,
+  five: true,
+  six: true,
+  seven: true,
 })
 
 const ballValues = reactive({
@@ -37,24 +37,18 @@ const ballSublabelValue = ref(true)
         <div
           class="grid grid-cols-2 gap-6 md:max-w-2xl md:grid-cols-4"
         >
-          <BaseSwitchThin
-            v-model="thinValues.primary"
-            variant="default-low"
-          >
-            Default low
-          </BaseSwitchThin>
-          <BaseSwitchThin v-model="thinValues.info"
-            variant="default-high">
-            Default high
+          <BaseSwitchThin v-model="thinValues.one"
+            variant="default">
+            Default
           </BaseSwitchThin>
           <BaseSwitchThin
-            v-model="thinValues.success"
+            v-model="thinValues.two"
             variant="primary"
           >
             Primary
           </BaseSwitchThin>
           <BaseSwitchThin
-            v-model="thinValues.warning"
+            v-model="thinValues.three"
             variant="dark"
           >
             Warning
@@ -67,7 +61,7 @@ const ballSublabelValue = ref(true)
           class="grid grid-cols-2 gap-6 md:max-w-4xl md:grid-cols-4"
         >
           <BaseSwitchThin
-            v-model="thinValues.primary"
+            v-model="thinValues.one"
             variant="none"
             :classes="{ 
               track: 'peer-data-[state=checked]:bg-green-500 dark:peer-data-[state=checked]:bg-green-500 bg-muted-300 dark:bg-muted-600',
@@ -77,7 +71,7 @@ const ballSublabelValue = ref(true)
             Custom variant
           </BaseSwitchThin>
           <BaseSwitchThin 
-            v-model="thinValues.info"
+            v-model="thinValues.two"
             variant="none"
             :classes="{ 
               track: 'peer-data-[state=checked]:bg-pink-500 dark:peer-data-[state=checked]:bg-pink-500 bg-muted-300 dark:bg-muted-600',
@@ -86,7 +80,7 @@ const ballSublabelValue = ref(true)
             Custom variant
           </BaseSwitchThin>
           <BaseSwitchThin
-            v-model="thinValues.success"
+            v-model="thinValues.three"
             variant="none"
             :classes="{ 
               track: 'peer-data-[state=checked]:bg-amber-500 dark:peer-data-[state=checked]:bg-amber-500 bg-muted-300 dark:bg-muted-600',
@@ -96,7 +90,7 @@ const ballSublabelValue = ref(true)
             Custom variant
           </BaseSwitchThin>
           <BaseSwitchThin
-            v-model="thinValues.warning"
+            v-model="thinValues.four"
             variant="none"
             :classes="{ 
               track: 'peer-data-[state=checked]:bg-violet-500 dark:peer-data-[state=checked]:bg-violet-500 bg-muted-300 dark:bg-muted-600',
@@ -129,16 +123,10 @@ const ballSublabelValue = ref(true)
         >
           <BaseSwitchBall
             v-model="ballValues.one"
-            variant="default-low"
+            variant="default"
           >
-            Default low
-          </BaseSwitchBall> 
-          <BaseSwitchBall
-            v-model="ballValues.two"
-            variant="default-high"
-          >
-            Default high
-          </BaseSwitchBall> 
+            Default
+          </BaseSwitchBall>
           <BaseSwitchBall
             v-model="ballValues.three"
             variant="primary"

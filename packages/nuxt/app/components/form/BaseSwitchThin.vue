@@ -18,9 +18,9 @@ export interface BaseSwitchThinProps extends SwitchRootProps {
   /**
    * Main color of the switch.
    *
-   * @default 'default-low'
+   * @default 'default'
    */
-   variant?: 'default-low' | 'default-high' | 'primary' | 'dark' | 'none'
+   variant?: 'default' | 'primary' | 'dark' | 'none'
 
   /**
    * Optional CSS classes to apply to the component inner elements.
@@ -82,20 +82,34 @@ const variant = useNuiDefaultProperty(props, 'BaseSwitchThin', 'variant')
 const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'sublabel', 'variant', 'classes']), emits)
 
 const trackVariants = {
-  'default-low': 'peer-data-[state=checked]:bg-muted-400 dark:peer-data-[state=checked]:bg-muted-700 bg-muted-300 dark:bg-muted-600',
-  'default-high': 'peer-data-[state=checked]:bg-muted-500 dark:peer-data-[state=checked]:bg-muted-800 bg-muted-300 dark:bg-muted-900',
+  'default': 'peer-data-[state=checked]:bg-muted-500 dark:peer-data-[state=checked]:bg-muted-800 bg-muted-300 dark:bg-muted-900',
   'primary': 'peer-data-[state=checked]:bg-primary-500 dark:peer-data-[state=checked]:bg-primary-500 bg-muted-300 dark:bg-muted-600',
   'dark': 'peer-data-[state=checked]:bg-muted-900 dark:peer-data-[state=checked]:bg-muted-100 bg-muted-300 dark:bg-muted-600',
   'none': '',
-}
+} as const
+
+// @todo: low-contrast-theme
+// const trackVariants = {
+//   'default': 'peer-data-[state=checked]:bg-muted-400 dark:peer-data-[state=checked]:bg-muted-700 bg-muted-300 dark:bg-muted-600',
+//   'primary': 'peer-data-[state=checked]:bg-primary-500 dark:peer-data-[state=checked]:bg-primary-500 bg-muted-300 dark:bg-muted-600',
+//   'dark': 'peer-data-[state=checked]:bg-muted-900 dark:peer-data-[state=checked]:bg-muted-100 bg-muted-300 dark:bg-muted-600',
+//   'none': '',
+// } as const
 
 const handleVariants = {
-  'default-low': 'bg-white dark:bg-muted-900 border border-muted-300 dark:border-muted-700',
-  'default-high': 'bg-white dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
+  'default': 'bg-white dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
   'primary': 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
   'dark': 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
   'none': '',
-}
+} as const
+
+// @todo: low-contrast-theme
+// const handleVariants = {
+//   'default': 'bg-white dark:bg-muted-900 border border-muted-300 dark:border-muted-700',
+//   'primary': 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
+//   'dark': 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
+//   'none': '',
+// } as const
 </script>
 
 <template>

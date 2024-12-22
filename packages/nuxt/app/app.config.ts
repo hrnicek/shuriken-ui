@@ -672,17 +672,17 @@ export default defineAppConfig({
       /**
        * The variant of the switch.
        *
-       * @type {'default-low' | 'default-high' | 'primary' | 'dark' | 'none'}
+       * @type {'default' | 'primary' | 'dark' | 'none'}
        */
-      variant: 'default-high',
+      variant: 'default',
     },
     BaseSwitchThin: {
       /**
        * The variant of the switch.
        *
-       * @type {'default-low' | 'default-high' | 'primary' | 'dark' | 'none'}
+       * @type {'default' | 'primary' | 'dark' | 'none'}
        */
-      variant: 'default-high',
+      variant: 'default',
     },
     BaseTextarea: {
       /**
