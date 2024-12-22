@@ -45,7 +45,7 @@ const formatter = new Intl.NumberFormat('en-US', { style: 'decimal' })
           :total="512"
           v-model:page="page"
           :sibling-count="3"
-          rounded="sm"
+          rounded="md"
         />
       </NuiPreview>
 
@@ -60,28 +60,14 @@ const formatter = new Intl.NumberFormat('en-US', { style: 'decimal' })
           :sibling-count="1"
           rounded="md"
           size="sm"
+          variant="dark"
           :wrapped="false"
         />
       </NuiPreview>
 
       <NuiPreview
-        title="Variant: primary low"
-        description="Pagination component primary low variant"
-      >
-        <BasePagination
-          :items-per-page="8"
-          :total="512"
-          v-model:page="page"
-          :sibling-count="1"
-          rounded="lg"
-          variant="primary-low"
-          size="sm"
-        />
-      </NuiPreview>
-
-      <NuiPreview
-        title="Variant: primary high"
-        description="Pagination component primary high variant"
+        title="Variant: primary"
+        description="Pagination component primary variant"
       >
         <BasePagination
           :items-per-page="8"
@@ -89,12 +75,12 @@ const formatter = new Intl.NumberFormat('en-US', { style: 'decimal' })
           v-model:page="page"
           :sibling-count="1"
           rounded="full"
-          variant="primary-high"
+          variant="primary"
         />
       </NuiPreview>
 
       <NuiPreview
-        title="Variant: dark low"
+        title="Variant: dark"
         description="Pagination component dark variant"
       >
         <BasePagination
@@ -103,14 +89,14 @@ const formatter = new Intl.NumberFormat('en-US', { style: 'decimal' })
           v-model:page="page"
           :sibling-count="1"
           rounded="lg"
-          variant="dark-low"
+          variant="dark"
           size="sm"
         />
       </NuiPreview>
 
       <NuiPreview
-        title="Variant: dark high"
-        description="Pagination component dark variant"
+        title="Slot usage"
+        description="Pagination component slots example"
       >
         <BasePagination
           :items-per-page="8"
@@ -118,7 +104,7 @@ const formatter = new Intl.NumberFormat('en-US', { style: 'decimal' })
           v-model:page="page"
           :sibling-count="1"
           rounded="full"
-          variant="dark-high"
+          variant="dark"
         >
           <template #page="{ page }">
             {{ formatter.format(page) }}

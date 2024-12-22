@@ -241,9 +241,9 @@ export default defineAppConfig({
       /**
        * The variant of the pagination.
        *
-       * @type {'primary-low' | 'primary-high' | 'dark-low' | 'dark-high'}
+       * @type {'primary' | 'dark'}
        */
-      variant: 'primary-low',
+      variant: 'primary',
       /**
        * The size of the pagination.
        *

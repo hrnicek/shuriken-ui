@@ -20,7 +20,7 @@ export interface BasePaginationProps extends PaginationRootProps {
    *
    * @default 'primary'
    */
-  variant?: 'primary-low' | 'primary-high' | 'dark-low' | 'dark-high'
+  variant?: 'primary' | 'dark'
 
   /**
    * The size of the pagination buttons.
@@ -167,10 +167,11 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['ellipsis', 'variant',
       <div
         class="inline-flex flex-wrap gap-2 md:gap-1 mb-4 md:mb-0"
         :class="[
-          variant === 'primary-low' && wrapped && 'p-1 bg-muted-100 dark:bg-muted-700 border border-muted-200 dark:border-muted-600',
-          variant === 'primary-high' && wrapped && 'p-1 bg-muted-100 dark:bg-muted-950 border border-muted-200 dark:border-muted-800',
-          variant === 'dark-low' && wrapped && 'p-1 bg-muted-100 dark:bg-muted-700 border border-muted-200 dark:border-muted-600',
-          variant === 'dark-high' && wrapped && 'p-1 bg-muted-100 dark:bg-muted-950 border border-muted-200 dark:border-muted-800',
+          // @todo: low-contrast-theme
+          // variant === 'primary-low' && wrapped && 'p-1 bg-muted-100 dark:bg-muted-700 border border-muted-200 dark:border-muted-600',
+          variant === 'primary' && wrapped && 'p-1 bg-muted-100 dark:bg-muted-950 border border-muted-200 dark:border-muted-800',
+          // variant === 'dark-low' && wrapped && 'p-1 bg-muted-100 dark:bg-muted-700 border border-muted-200 dark:border-muted-600',
+          variant === 'dark' && wrapped && 'p-1 bg-muted-100 dark:bg-muted-950 border border-muted-200 dark:border-muted-800',
           rounded && radiuses[rounded], 
           props.classes?.list
         ]"
@@ -185,10 +186,11 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['ellipsis', 'variant',
             :value="page.value"
             class="outline-none focus-visible:ring focus-visible:!ring-primary-500 flex items-center justify-center mb-0 inline-flex flex-wrap gap-2 md:gap-1 font-sans text-sm border enabled:cursor-pointer"
             :class="[
-              variant === 'primary-low' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-800 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-600 data-selected:!bg-[var(--primary-bg-base)] data-selected:!text-[var(--primary-text-base)]',
-              variant === 'primary-high' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-900 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-800 data-selected:!bg-[var(--primary-bg-base)] data-selected:!text-[var(--primary-text-base)]',
-              variant === 'dark-low' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-800 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-700 data-selected:!bg-muted-900 data-selected:!text-white dark:data-selected:!bg-white dark:data-selected:!text-muted-900',
-              variant === 'dark-high' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-900 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-700 data-selected:!bg-muted-900 data-selected:!text-white dark:data-selected:!bg-white dark:data-selected:!text-muted-900',
+              // @todo: low-contrast-theme
+              // variant === 'primary-low' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-800 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-600 data-selected:!bg-[var(--primary-bg-base)] data-selected:!text-[var(--primary-text-base)]',
+              variant === 'primary' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-900 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-800 data-selected:!bg-[var(--primary-bg-base)] data-selected:!text-[var(--primary-text-base)]',
+              // variant === 'dark-low' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-800 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-700 data-selected:!bg-muted-900 data-selected:!text-white dark:data-selected:!bg-white dark:data-selected:!text-muted-900',
+              variant === 'dark' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-900 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-700 data-selected:!bg-muted-900 data-selected:!text-white dark:data-selected:!bg-white dark:data-selected:!text-muted-900',
               rounded && radiuses[rounded],
               size && heights[size],
               props.classes?.link,
@@ -205,10 +207,11 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['ellipsis', 'variant',
             :index="index"
             class="select-none flex items-center justify-center font-sans text-sm"
             :class="[
-              variant === 'primary-low' && 'bg-white dark:bg-muted-800 border border-muted-200 dark:border-muted-600',
-              variant === 'primary-high' && 'bg-white dark:bg-muted-900 border border-muted-200 dark:border-muted-800',
-              variant === 'dark-low' && 'bg-white hover:bg-muted-50 dark:bg-muted-800 border border-muted-200 dark:border-muted-700',
-              variant === 'dark-high' && 'bg-white hover:bg-muted-50 dark:bg-muted-900 border border-muted-200 dark:border-muted-700',
+              // @todo: low-contrast-theme
+              // variant === 'primary-low' && 'bg-white dark:bg-muted-800 border border-muted-200 dark:border-muted-600',
+              variant === 'primary' && 'bg-white dark:bg-muted-900 border border-muted-200 dark:border-muted-800',
+              // variant === 'dark-low' && 'bg-white hover:bg-muted-50 dark:bg-muted-800 border border-muted-200 dark:border-muted-700',
+              variant === 'dark' && 'bg-white hover:bg-muted-50 dark:bg-muted-900 border border-muted-200 dark:border-muted-700',
               rounded && radiuses[rounded],
               size && sizes[size],
             ]"
@@ -225,10 +228,11 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['ellipsis', 'variant',
       <div
         class="flex items-center justify-end gap-1 enabled:cursor-pointer"
         :class="[
-          variant === 'primary-low' && wrapped && 'p-1 border bg-muted-100 dark:bg-muted-700 border-muted-200 dark:border-muted-600',
-          variant === 'primary-high' && wrapped && 'p-1 border bg-muted-100 dark:bg-muted-950 border-muted-200 dark:border-muted-800',
-          variant === 'dark-low' && wrapped && 'p-1 border bg-muted-100 dark:bg-muted-700 border-muted-200 dark:border-muted-600',
-          variant === 'dark-high' && wrapped && 'p-1 border bg-muted-100 dark:bg-muted-950 border-muted-200 dark:border-muted-800',
+              // @todo: low-contrast-theme
+          // variant === 'primary-low' && wrapped && 'p-1 border bg-muted-100 dark:bg-muted-700 border-muted-200 dark:border-muted-600',
+          variant === 'primary' && wrapped && 'p-1 border bg-muted-100 dark:bg-muted-950 border-muted-200 dark:border-muted-800',
+          // variant === 'dark-low' && wrapped && 'p-1 border bg-muted-100 dark:bg-muted-700 border-muted-200 dark:border-muted-600',
+          variant === 'dark' && wrapped && 'p-1 border bg-muted-100 dark:bg-muted-950 border-muted-200 dark:border-muted-800',
           rounded && radiuses[rounded], 
           props.classes?.buttons
         ]"
@@ -239,10 +243,11 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['ellipsis', 'variant',
           v-bind="props.bindings.prev"
           class="outline-none focus-visible:ring focus-visible:!ring-primary-500 flex w-full items-center justify-center font-sans text-sm enabled:cursor-pointer transition-all duration-300 disabled:opacity-50" 
           :class="[
-            variant === 'primary-low' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-800 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-600',
-            variant === 'primary-high' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-900 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-800',
-            variant === 'dark-low' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-800 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-700',
-            variant === 'dark-high' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-900 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-700',
+              // @todo: low-contrast-theme
+            // variant === 'primary-low' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-800 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-600',
+            variant === 'primary' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-900 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-800',
+            // variant === 'dark-low' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-800 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-700',
+            variant === 'dark' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-900 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-700',
             rounded && radiuses[rounded], 
             size && heights[size],
           ]">
