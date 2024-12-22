@@ -7,6 +7,9 @@ import type {
   SelectContentProps,
   SelectViewportProps,
 } from 'reka-ui'
+import {
+  createContext,
+} from 'reka-ui'
 
 export interface BaseSelectProps extends SelectRootProps {
   /**
@@ -15,34 +18,9 @@ export interface BaseSelectProps extends SelectRootProps {
   id?: string
 
   /**
-   * The label text for the select input.
-   */
-  label?: string
-
-  /**
-   * If the label should be floating.
-   */
-  labelFloat?: boolean
-
-  /**
-   * An icon to display in the select input.
-   */
-  icon?: string
-
-  /**
    * The placeholder to display for the select input.
    */
   placeholder?: string
-
-  /**
-   * Whether the select input is in a loading state.
-   */
-  loading?: boolean
-
-  /**
-   * Whether the color of the input should change when it is focused.
-   */
-  colorFocus?: boolean
 
   /**
    * An error message to display, or a boolean indicating whether there is an error.
@@ -50,17 +28,16 @@ export interface BaseSelectProps extends SelectRootProps {
   error?: string | boolean
 
   /**
-   * The contrast of the select input.
+   * The variant of the select input.
    *
    * @default 'default'
    */
-  contrast?: 'default' | 'default-contrast' | 'muted' | 'muted-contrast'
+   variant?: 'default' | 'muted' 
 
   /**
    * The radius of the select input.
    *
-   * @since 2.0.0
-   * @default 'sm'
+   * @default 'md'
    */
   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
 
@@ -86,11 +63,6 @@ export interface BaseSelectProps extends SelectRootProps {
     outer?: string | string[]
 
     /**
-     * A class or classes to apply to the label element.
-     */
-    label?: string | string[]
-
-    /**
      * A class or classes to apply to the select element.
      */
     select?: string | string[]
@@ -99,11 +71,6 @@ export interface BaseSelectProps extends SelectRootProps {
      * A class or classes to apply to the chevron element.
      */
     chevron?: string | string[]
-
-    /**
-     * A class or classes to apply to the icon element.
-     */
-    icon?: string | string[]
 
     /**
      * A class or classes to apply to the error element.
@@ -127,12 +94,17 @@ export type BaseSelectSlots = {
   label(): any
 }
 
+export interface BaseSelectContext {
+  variant: ComputedRef<NonNullable<BaseSelectProps['variant']>>
+  rounded: ComputedRef<NonNullable<BaseSelectProps['rounded']>>
+}
+
 export const radiuses = {
   none: '',
-  sm: 'nui-select-rounded-sm',
-  md: 'nui-select-rounded-md',
-  lg: 'nui-select-rounded-lg',
-  full: 'nui-select-rounded-full',
+  sm: 'rounded-sm',
+  md: 'rounded-md',
+  lg: 'rounded-lg',
+  full: 'rounded-full',
 } as const
 
 export const sizes = {
@@ -148,6 +120,11 @@ export const contrasts = {
   'muted': 'nui-select-muted',
   'muted-contrast': 'nui-select-muted-contrast',
 } as const
+
+export const [
+  injectBaseSelectContext,
+  provideBaseSelectContext,
+] = createContext<BaseSelectContext>('BaseSelectContext')
 </script>
 
 <script setup lang="ts">
@@ -158,9 +135,7 @@ const props = withDefaults(defineProps<BaseSelectProps>(), {
   id: undefined,
   rounded: undefined,
   size: undefined,
-  contrast: undefined,
-  label: '',
-  icon: undefined,
+  variant: undefined,
   placeholder: '',
   error: false,
   
@@ -179,7 +154,7 @@ const slots = defineSlots<BaseSelectSlots>()
 
 const attrs = useAttrs()
 const id = useNinjaId(() => props.id)
-const contrast = useNuiDefaultProperty(props, 'BaseSelect', 'contrast')
+const variant = useNuiDefaultProperty(props, 'BaseSelect', 'variant')
 const rounded = useNuiDefaultProperty(props, 'BaseSelect', 'rounded')
 const size = useNuiDefaultProperty(props, 'BaseSelect', 'size')
 
@@ -189,34 +164,92 @@ const iconChevronUp = useNuiDefaultIcon('chevronUp')
 const forward = useForwardPropsEmits(reactiveOmit(props, [
   'id',
   'placeholder', 
-  'colorFocus', 
-  'contrast', 
+  'variant', 
   'rounded',
   'size',
   'classes',
   'bindings',
 ]), emits)
+
+provideBaseSelectContext({
+  variant,
+  rounded,
+})
+
+const variants = {
+  'default': 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 data-placeholder:text-muted-300 dark:data-placeholder:text-muted-700',
+  'muted': 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-600 border text-muted-500 data-placeholder:text-muted-300 dark:data-placeholder:text-muted-700',
+} as const
+
+// @todo: low-contrast-theme
+// const variants = {
+//   'default': 'bg-white dark:bg-muted-800 border-muted-300 dark:border-muted-700 border text-muted-500 data-placeholder:text-muted-300 dark:data-placeholder:text-muted-700',
+//   'muted': '',
+// } as const
+
+const portalVariants = {
+  'default': 'bg-white dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
+  'muted': 'bg-muted-50 dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
+} as const
+
+// @todo: low-contrast-theme
+// const portalVariants = {
+//   'default': '',
+//   'muted': '',
+// } as const
+
+const sizes = {
+  'sm': 'h-8 text-xs px-2',
+  'md': 'h-10 text-sm px-3',
+  'lg': 'h-12 text-sm px-4',
+  'xl': 'h-14 text-base px-4',
+} as const
+
+const radiuses = {
+  none: '',
+  sm: 'rounded-md',
+  md: 'rounded-lg',
+  lg: 'rounded-xl',
+  full: 'rounded-full',
+} as const
+
+const portalRadiuses = {
+  none: '',
+  sm: 'rounded-md',
+  md: 'rounded-lg',
+  lg: 'rounded-xl',
+  full: 'rounded-xl',
+} as const
 </script>
 
 <template>
   <SelectRoot :id v-bind="forward">
     <SelectTrigger
-      class="nui-focus w-full flex min-w-[160px] items-center justify-between rounded-lg px-[15px] text-xs leading-none h-10 gap-[5px] bg-white dark:bg-muted-900 dark:border-muted-600 border text-muted-500 data-placeholder:text-muted-300 dark:data-placeholder:text-muted-700 outline-none disabled:cursor-not-allowed disabled:opacity-75 aria-invalid:border-red-500!"
+      class="nui-focus w-full flex min-w-[160px] items-center justify-between leading-none gap-[5px] outline-none disabled:cursor-not-allowed disabled:opacity-75 aria-invalid:border-red-500!"
+      :class="[
+        variant && variants[variant],
+        size && sizes[size],
+        rounded && radiuses[rounded],
+      ]"
       v-bind="{ ...attrs, ...(props.bindings?.trigger || {}) }"
     >
-      <SelectValue :placeholder="props.placeholder" />
+      <SelectValue :placeholder="props.placeholder" class="line-clamp-1" />
       <Icon :name="iconChevronDown" class="size-4" />
     </SelectTrigger>
 
     <SelectPortal v-bind="props.bindings?.portal">
       <SelectContent
-        class="min-w-[160px] bg-white rounded-lg border shadow-sm will-change-[opacity,transform] data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade z-[100]"
+        class="min-w-[160px] shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20 will-change-[opacity,transform] data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade z-[100]"
+        :class="[
+          variant && portalVariants[variant],
+          rounded && portalRadiuses[rounded],
+        ]"
         v-bind="{
           sideOffset: 5,
           ...(props.bindings?.content || {}),
         }"
       >
-        <SelectScrollUpButton class="flex items-center justify-center h-[25px] bg-white text-violet11 cursor-default">
+        <SelectScrollUpButton class="flex items-center justify-center h-[25px] bg-white cursor-default">
           <Icon :name="iconChevronUp" />
         </SelectScrollUpButton>
 
@@ -224,7 +257,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, [
           <slot />
         </SelectViewport> 
 
-        <SelectScrollDownButton class="flex items-center justify-center h-[25px] bg-white text-violet11 cursor-default">
+        <SelectScrollDownButton class="flex items-center justify-center h-[25px] bg-white cursor-default">
           <Icon :name="iconChevronDown" />
         </SelectScrollDownButton>
       </SelectContent>

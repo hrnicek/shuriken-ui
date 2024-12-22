@@ -28,6 +28,7 @@ const forward = useForwardProps(reactiveOmit(props, ['label']));
 <template>
   <SelectLabel
     v-bind="forward"
+    class="font-sans font-medium uppercase px-2 pt-4 first:pt-2 pb-2 text-xs text-muted-900"
   >
     <slot>
       {{ props.label }}

@@ -14,5 +14,5 @@ const forward = useForwardProps(props);
 </script>
 
 <template>
-  <SelectArrow v-bind="forward" class="fill-muted-200 dark:fill-muted-700" />
+  <SelectArrow v-bind="forward" class="fill-muted-400 dark:fill-muted-500" />
 </template>

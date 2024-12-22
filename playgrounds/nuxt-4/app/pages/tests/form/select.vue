@@ -19,7 +19,7 @@ const options = reactive({
   <div class="mb-42">
     <NuiPreviewContainer title="BaseSelect">
       <NuiPreview title="Select base" description="Select component radiuses">
-        <div class="grid gap-6 md:max-w-4xl md:grid-cols-3">
+        <div class="grid gap-6 md:max-w-xl md:grid-cols-2">
           <BaseSelect
             v-model="options.first"
             rounded="none"
@@ -59,6 +59,210 @@ const options = reactive({
               Cyclops
             </BaseSelectItem>
           </BaseSelect>
+          <BaseSelect
+            v-model="options.first"
+            rounded="md"
+            placeholder="Select a hero"
+            label="Rounded: md"
+          >
+            <BaseSelectItem value="Superman">
+              Superman
+            </BaseSelectItem>
+            <BaseSelectItem value="Batman">
+              Batman
+            </BaseSelectItem>
+            <BaseSelectItem value="Iron man">
+              Iron man
+            </BaseSelectItem>
+            <BaseSelectItem value="Magneto">
+              Magneto
+            </BaseSelectItem>
+            <BaseSelectItem value="Cyclops">
+              Cyclops
+            </BaseSelectItem>
+          </BaseSelect>
+          <BaseSelect
+            v-model="options.first"
+            rounded="lg"
+            placeholder="Select a hero"
+            label="Rounded: lg"
+          >
+            <BaseSelectItem value="Superman">
+              Superman
+            </BaseSelectItem>
+            <BaseSelectItem value="Batman">
+              Batman
+            </BaseSelectItem>
+            <BaseSelectItem value="Iron man">
+              Iron man
+            </BaseSelectItem>
+            <BaseSelectItem value="Magneto">
+              Magneto
+            </BaseSelectItem>
+            <BaseSelectItem value="Cyclops">
+              Cyclops
+            </BaseSelectItem>
+          </BaseSelect>
+          <BaseSelect
+            v-model="options.first"
+            rounded="full"
+            placeholder="Select a hero"
+            label="Rounded: full"
+          >
+            <BaseSelectItem value="Superman">
+              Superman
+            </BaseSelectItem>
+            <BaseSelectItem value="Batman">
+              Batman
+            </BaseSelectItem>
+            <BaseSelectItem value="Iron man">
+              Iron man
+            </BaseSelectItem>
+            <BaseSelectItem value="Magneto">
+              Magneto
+            </BaseSelectItem>
+            <BaseSelectItem value="Cyclops">
+              Cyclops
+            </BaseSelectItem>
+          </BaseSelect>
+        </div>
+      </NuiPreview>
+
+      <NuiPreview title="Variants" description="Select component variants">
+        <div class="grid gap-6 md:max-w-xl md:grid-cols-2">
+          <BaseSelect
+            v-model="options.first"
+            size="md"
+            placeholder="Select a hero"
+            variant="default"
+          >
+            <BaseSelectItem value="Superman">
+              Superman
+            </BaseSelectItem>
+            <BaseSelectItem value="Batman">
+              Batman
+            </BaseSelectItem>
+            <BaseSelectItem value="Iron man">
+              Iron man
+            </BaseSelectItem>
+            <BaseSelectItem value="Magneto">
+              Magneto
+            </BaseSelectItem>
+            <BaseSelectItem value="Cyclops">
+              Cyclops
+            </BaseSelectItem>
+          </BaseSelect>
+          <BaseSelect
+            v-model="options.first"
+            size="md"
+            placeholder="Select a hero"
+            variant="muted"
+          >
+            <BaseSelectItem value="Superman">
+              Superman
+            </BaseSelectItem>
+            <BaseSelectItem value="Batman">
+              Batman
+            </BaseSelectItem>
+            <BaseSelectItem value="Iron man">
+              Iron man
+            </BaseSelectItem>
+            <BaseSelectItem value="Magneto">
+              Magneto
+            </BaseSelectItem>
+            <BaseSelectItem value="Cyclops">
+              Cyclops
+            </BaseSelectItem>
+          </BaseSelect>
+        </div>
+      </NuiPreview>
+
+      <NuiPreview title="Sizes" description="Select component sizes">
+        <div class="flex items-end gap-3 max-w-6xl">
+          <BaseSelect
+            v-model="options.first"
+            size="sm"
+            placeholder="Select a hero"
+          >
+            <BaseSelectItem value="Superman">
+              Superman
+            </BaseSelectItem>
+            <BaseSelectItem value="Batman">
+              Batman
+            </BaseSelectItem>
+            <BaseSelectItem value="Iron man">
+              Iron man
+            </BaseSelectItem>
+            <BaseSelectItem value="Magneto">
+              Magneto
+            </BaseSelectItem>
+            <BaseSelectItem value="Cyclops">
+              Cyclops
+            </BaseSelectItem>
+          </BaseSelect>
+          <BaseSelect
+            v-model="options.first"
+            size="md"
+            placeholder="Select a hero"
+          >
+            <BaseSelectItem value="Superman">
+              Superman
+            </BaseSelectItem>
+            <BaseSelectItem value="Batman">
+              Batman
+            </BaseSelectItem>
+            <BaseSelectItem value="Iron man">
+              Iron man
+            </BaseSelectItem>
+            <BaseSelectItem value="Magneto">
+              Magneto
+            </BaseSelectItem>
+            <BaseSelectItem value="Cyclops">
+              Cyclops
+            </BaseSelectItem>
+          </BaseSelect>
+          <BaseSelect
+            v-model="options.first"
+            size="lg"
+            placeholder="Select a hero"
+          >
+            <BaseSelectItem value="Superman">
+              Superman
+            </BaseSelectItem>
+            <BaseSelectItem value="Batman">
+              Batman
+            </BaseSelectItem>
+            <BaseSelectItem value="Iron man">
+              Iron man
+            </BaseSelectItem>
+            <BaseSelectItem value="Magneto">
+              Magneto
+            </BaseSelectItem>
+            <BaseSelectItem value="Cyclops">
+              Cyclops
+            </BaseSelectItem>
+          </BaseSelect>
+          <BaseSelect
+            v-model="options.first"
+            size="xl"
+            placeholder="Select a hero"
+          >
+            <BaseSelectItem value="Superman">
+              Superman
+            </BaseSelectItem>
+            <BaseSelectItem value="Batman">
+              Batman
+            </BaseSelectItem>
+            <BaseSelectItem value="Iron man">
+              Iron man
+            </BaseSelectItem>
+            <BaseSelectItem value="Magneto">
+              Magneto
+            </BaseSelectItem>
+            <BaseSelectItem value="Cyclops">
+              Cyclops
+            </BaseSelectItem>
+          </BaseSelect>
         </div>
       </NuiPreview>
       
@@ -66,7 +270,6 @@ const options = reactive({
         <div class="grid gap-6 md:max-w-4xl md:grid-cols-3">
           <BaseSelect
             v-model="options.second"
-            rounded="none"
             placeholder="Select a hero"
             label="Item aligned (default)"
             :bindings="{
@@ -95,9 +298,7 @@ const options = reactive({
           
           <BaseSelect
             v-model="options.second"
-            rounded="none"
             placeholder="Select a hero"
-            label="Popper"
             :bindings="{
               content: {
                 position: 'popper',
@@ -134,9 +335,7 @@ const options = reactive({
         <div class="grid gap-6 md:max-w-4xl md:grid-cols-3">
           <BaseSelect
             v-model="options.third"
-            rounded="none"
             placeholder="Select a hero"
-            label="Item aligned (default)"
           >
             <BaseSelectGroup>
               <BaseSelectLabel>
@@ -178,9 +377,7 @@ const options = reactive({
         <div class="grid gap-6 md:max-w-4xl md:grid-cols-3">
           <BaseSelect
             v-model="options.fourth"
-            rounded="none"
-            placeholder="Select a hero"
-            label="Multiple"
+            placeholder="Select some heroes"
             multiple
           >
             <BaseSelectLabel>

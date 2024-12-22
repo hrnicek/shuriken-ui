@@ -84,7 +84,7 @@ const routes = computed(() =>
           </ul>
         </nav>
       </div>
-      <div class="w-10/12 border-l border-muted-200 dark:border-muted-800">
+      <div class="w-10/12 border-s border-muted-200 dark:border-muted-800">
         <slot />
       </div>
     </div>

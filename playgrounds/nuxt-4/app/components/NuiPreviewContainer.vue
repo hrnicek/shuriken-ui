@@ -5,7 +5,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="w-full bg-white dark:bg-muted-900 min-h-screen px-4">
+  <div class="w-full bg-white dark:bg-muted-950 min-h-screen px-4">
     <div class="w-full max-w-7xl mx-auto py-12">
       <h2
         v-if="props.title"

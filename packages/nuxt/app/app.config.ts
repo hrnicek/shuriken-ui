@@ -623,17 +623,17 @@ export default defineAppConfig({
     },
     BaseSelect: {
       /**
-       * The contrast of the select.
+       * The variant of the select.
        *
-       * @type {'default' | 'default-contrast' | 'muted' | 'muted-contrast'}
+       * @type {'default' | 'muted'}
        */
-      contrast: 'default',
+      variant: 'default',
       /**
        * The radius of the select.
        *
        * @type {'none' | 'sm' | 'md' | 'lg' | 'full'}
        */
-      rounded: 'sm',
+      rounded: 'md',
       /**
        * The size of the select.
        *
