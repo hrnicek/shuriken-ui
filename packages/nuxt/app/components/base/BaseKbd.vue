@@ -7,7 +7,7 @@ export interface BaseKbdProps extends PrimitiveProps {
    *
    * @default 'default'
    */
-  variant?: 'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'custom'
+  variant?: 'default' | 'muted' | 'none'
 
   /**
    * The size of the kbd.
@@ -27,12 +27,17 @@ export const sizes = {
 } as const
 
 export const variants = {
-  'default-low': 'bg-white border border-muted-200 text-muted-800 shadow-[0px_2px_0px_0px_rgba(0,0,0,0.08)] dark:bg-muted-700 dark:border-muted-600 dark:text-muted-200 dark:shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)]',
-  'default-high': 'bg-white border border-muted-200 text-muted-800 shadow-[0px_2px_0px_0px_rgba(0,0,0,0.08)] dark:bg-muted-900 dark:border-muted-700 dark:text-muted-200 dark:shadow-[0px_2px_0px_0px_rgba(255,255,255,0.2)]',
-  'muted-low': 'bg-muted-200 border border-transparent text-muted-800 dark:bg-muted-700 dark:text-muted-200',
-  'muted-high': 'bg-muted-200 border border-transparent text-muted-800 dark:bg-muted-900 dark:text-muted-200',
-  'custom': '',
+  'default': 'bg-white border border-muted-200 text-muted-800 shadow-[0px_2px_0px_0px_rgba(0,0,0,0.08)] dark:bg-muted-900 dark:border-muted-700 dark:text-muted-200 dark:shadow-[0px_2px_0px_0px_rgba(255,255,255,0.2)]',
+  'muted': 'bg-muted-200 border border-transparent text-muted-800 dark:bg-muted-900 dark:text-muted-200',
+  'none': '',
 } as const
+
+// @todo: low-contrast-theme
+// export const variants = {
+//   'default': 'bg-white border border-muted-200 text-muted-800 shadow-[0px_2px_0px_0px_rgba(0,0,0,0.08)] dark:bg-muted-700 dark:border-muted-600 dark:text-muted-200 dark:shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)]',
+//   'muted': 'bg-muted-200 border border-transparent text-muted-800 dark:bg-muted-700 dark:text-muted-200',
+//   'none': '',
+// } as const
 </script>
 
 <script setup lang="ts">

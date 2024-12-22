@@ -11,25 +11,25 @@ definePageMeta({
   <div>
     <NuiPreviewContainer title="BaseKbd">
       <NuiPreview
-        title="Variant: default-low"
-        description="Kbd component default low contrast variant"
+        title="Variant: default"
+        description="Kbd component default variant"
       >
         <div class="flex flex-wrap items-end gap-3">
           <BaseKbd
             size="sm"
-            variant="default-low"
+            variant="default"
           >
             ctrl
           </BaseKbd>
           <BaseKbd
             size="md"
-            variant="default-low"
+            variant="default"
             >
             ctrl
           </BaseKbd>
           <BaseKbd
             size="lg"
-            variant="default-low"
+            variant="default"
             >
             ctrl
           </BaseKbd>
@@ -37,77 +37,25 @@ definePageMeta({
       </NuiPreview>
 
       <NuiPreview
-        title="Variant: default-high"
-        description="Kbd component default high contrast variant"
+        title="Variant: muted"
+        description="Kbd component muted variant"
       >
         <div class="flex flex-wrap items-end gap-3">
           <BaseKbd
             size="sm"
-            variant="default-high"
+            variant="muted"
           >
             ctrl
           </BaseKbd>
           <BaseKbd
             size="md"
-            variant="default-high"
+            variant="muted"
             >
             ctrl
           </BaseKbd>
           <BaseKbd
             size="lg"
-            variant="default-high"
-            >
-            ctrl
-          </BaseKbd>
-        </div>
-      </NuiPreview>
-
-      <NuiPreview
-        title="Variant: muted-low"
-        description="Kbd component muted low contrast variant"
-      >
-        <div class="flex flex-wrap items-end gap-3">
-          <BaseKbd
-            size="sm"
-            variant="muted-low"
-          >
-            ctrl
-          </BaseKbd>
-          <BaseKbd
-            size="md"
-            variant="muted-low"
-            >
-            ctrl
-          </BaseKbd>
-          <BaseKbd
-            size="lg"
-            variant="muted-low"
-            >
-            ctrl
-          </BaseKbd>
-        </div>
-      </NuiPreview>
-
-      <NuiPreview
-        title="Variant: muted-high"
-        description="Kbd component muted high contrast variant"
-      >
-        <div class="flex flex-wrap items-end gap-3">
-          <BaseKbd
-            size="sm"
-            variant="muted-high"
-          >
-            ctrl
-          </BaseKbd>
-          <BaseKbd
-            size="md"
-            variant="muted-high"
-            >
-            ctrl
-          </BaseKbd>
-          <BaseKbd
-            size="lg"
-            variant="muted-high"
+            variant="muted"
             >
             ctrl
           </BaseKbd>
