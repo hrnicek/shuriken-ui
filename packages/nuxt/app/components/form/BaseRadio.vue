@@ -134,7 +134,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'error'
         v-if="props.label || 'default' in $slots"
         :for="id"
         :class="props.classes?.label"
-        class=" ms-1 cursor-pointer select-none font-sans text-sm text-muted-400 dark:text-muted-400"
+        class=" ms-1 cursor-pointer select-none font-sans text-sm text-muted-600 dark:text-muted-400"
       >
         <slot>{{ props.label }}</slot>
       </Label>
