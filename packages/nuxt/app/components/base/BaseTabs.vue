@@ -12,7 +12,7 @@ export interface BaseTabsProps extends TabsRootProps {
   /**
    * An array of tab objects that contain a label and value
    */
-  tabs: BaseTabsTriggerProps[]
+  tabs?: BaseTabsTriggerProps[]
 
   /**
    * Accessible label for the tabs

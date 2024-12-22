@@ -353,19 +353,10 @@ const tabsNoIcon = [
             type="box"
             v-model="selectedTab"
             variant="dark"
-            :tabs="tabs"
           >
-            <!--template #trigger>
-              <BaseTabsTrigger value="team" @click="selectedTab = 'team'">
-                Team
-              </BaseTabsTrigger>
-              <BaseTabsTrigger value="projects" @click="selectedTab = 'projects'">
-                Projects
-              </BaseTabsTrigger>
-              <BaseTabsTrigger value="tasks" @click="selectedTab = 'tasks'">
-                Tasks
-              </BaseTabsTrigger>
-            </template-->
+            <template #trigger>
+              <BaseTabsTrigger v-for="tab in tabs" :key="tab.value" label="Team" :icon="tab.icon" value="team" @click="selectedTab = 'team'" />
+            </template>
             
             <BaseTabsContent value="team">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
