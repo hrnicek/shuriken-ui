@@ -146,11 +146,6 @@ provideBaseAutocompleteContext({
   rounded,
   size,
 })
-
-const theme = {
-  anchor: '',
-  cancel: ''
-}
 </script>
 
 <template>

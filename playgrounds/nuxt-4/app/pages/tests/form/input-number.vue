@@ -19,8 +19,87 @@ const fields = reactive({
 <template>
   <div>
     <NuiPreviewContainer title="BaseInputNumber">
+      <NuiPreview title="Format" description="Inputs radiuses">
+        <div class="grid grid-cols-4 max-w-5xl gap-4">
+          <BaseInputNumber
+            :default-value="5"
+            label="Default"
+            placeholder="Quantity"
+          />
+          <BaseInputNumber
+            :default-value="5"
+            :format-options="{
+              signDisplay: 'exceptZero',
+              minimumFractionDigits: 1,
+            }"
+            placeholder="Decimal"
+          />
+          <BaseInputNumber
+            :default-value="0.05"
+            :step="0.01"
+            :format-options="{
+              style: 'percent',
+            }"
+            placeholder="Percent"
+          />
+          <BaseInputNumber
+            :default-value="5"
+            :step="1"
+            :format-options="{
+              style: 'currency',
+              currency: 'EUR',
+              currencyDisplay: 'code',
+              currencySign: 'accounting',
+            }"
+            placeholder="EUR"
+          />
+        </div>
+      </NuiPreview>
+
+
+      <NuiPreview title="Format: fr" description="Inputs radiuses">
+        <div class="grid grid-cols-4 max-w-5xl gap-4">
+          <BaseInputNumber
+            :default-value="5"
+            locale="fr"
+            placeholder="Quantity"
+          />
+          <BaseInputNumber
+            :default-value="5"
+            locale="fr"
+            :format-options="{
+              signDisplay: 'exceptZero',
+              minimumFractionDigits: 1,
+              roundingMode: 'expand'
+            }"
+            placeholder="Decimal"
+          />
+          <BaseInputNumber
+            :default-value="0.05"
+            locale="fr"
+            :step="0.01"
+            :format-options="{
+              style: 'percent',
+            }"
+            placeholder="Percent"
+          />
+          <BaseInputNumber
+            :default-value="5.1"
+            locale="fr"
+            :step="0.01"
+            :format-options="{
+              style: 'currency',
+              currency: 'EUR',
+              currencyDisplay: 'symbol',
+              currencySign: 'standard',
+            }"
+            placeholder="EUR"
+          />
+        </div>
+      </NuiPreview>
+
       <NuiPreview title="Radius" description="Inputs radiuses">
-        <div class="grid gap-6 md:max-w-4xl md:grid-cols-3">
+        <div class="grid grid-cols-4 max-w-5xl gap-4">
           <BaseInputNumber
             v-model="fields.first"
             rounded="none"
@@ -55,7 +134,7 @@ const fields = reactive({
       </NuiPreview>
 
       <NuiPreview title="Size" description="Input component sizes">
-        <div class="flex flex-wrap items-end gap-3 max-w-5xl">
+        <div class="grid grid-cols-4 max-w-5xl gap-4">
           <div class="flex-1">
             <BaseInputNumber
               v-model="fields.first"
@@ -102,7 +181,7 @@ const fields = reactive({
         title="Contrast: default-contrast"
         description="Input component default contrast"
       >
-        <div class="flex flex-wrap items-end gap-3 max-w-5xl">
+        <div class="grid grid-cols-4 max-w-5xl gap-4">
           <div class="flex-1">
             <BaseInputNumber
               v-model="fields.first"
@@ -150,7 +229,7 @@ const fields = reactive({
       </NuiPreview>
 
       <NuiPreview title="Contrast: muted" description="Input component muted">
-        <div class="flex flex-wrap items-end gap-3 max-w-5xl">
+        <div class="grid grid-cols-4 max-w-5xl gap-4">
           <div class="flex-1">
             <BaseInputNumber
               v-model="fields.first"
@@ -201,7 +280,7 @@ const fields = reactive({
         title="Contrast: muted-contrast"
         description="Input component muted contrast"
       >
-        <div class="flex flex-wrap items-end gap-3 max-w-5xl">
+        <div class="grid grid-cols-4 max-w-5xl gap-4">
           <div class="flex-1">
             <BaseInputNumber
               v-model="fields.first"
@@ -249,7 +328,7 @@ const fields = reactive({
       </NuiPreview>
 
       <NuiPreview title="Icon" description="Input component icons">
-        <div class="flex flex-wrap items-end gap-3 max-w-5xl">
+        <div class="grid grid-cols-4 max-w-5xl gap-4">
           <div class="flex-1">
             <BaseInputNumber
               v-model="fields.first"
@@ -305,7 +384,7 @@ const fields = reactive({
       </NuiPreview>
 
       <NuiPreview title="Focus" description="Input component color focus">
-        <div class="flex flex-wrap items-end gap-3 max-w-5xl">
+        <div class="grid grid-cols-4 max-w-5xl gap-4">
           <div class="flex-1">
             <BaseInputNumber
               v-model="fields.first"
@@ -353,7 +432,7 @@ const fields = reactive({
       </NuiPreview>
 
       <NuiPreview title="Error" description="Input component errors">
-        <div class="flex flex-wrap items-end gap-3 max-w-5xl">
+        <div class="grid grid-cols-4 max-w-5xl gap-4">
           <div class="flex-1">
             <BaseInputNumber
               v-model="fields.first"
@@ -401,7 +480,7 @@ const fields = reactive({
       </NuiPreview>
 
       <NuiPreview title="Error: icon" description="Input component errors">
-        <div class="flex flex-wrap items-end gap-3 max-w-5xl">
+        <div class="grid grid-cols-4 max-w-5xl gap-4">
           <div class="flex-1">
             <BaseInputNumber
               v-model="fields.first"
@@ -521,7 +600,7 @@ const fields = reactive({
       </NuiPreview>
 
       <NuiPreview title="Disabled" description="Input component disabled state">
-        <div class="flex flex-wrap items-end gap-3 max-w-5xl">
+        <div class="grid grid-cols-4 max-w-5xl gap-4">
           <div class="flex-1">
             <BaseInputNumber
               v-model="fields.first"

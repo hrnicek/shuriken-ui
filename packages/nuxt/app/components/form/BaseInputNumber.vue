@@ -1,358 +1,261 @@
-<script setup lang="ts">
-defineOptions({
-  inheritAttrs: false,
-})
+<script lang="ts">
+import type {
+  NumberFieldRootProps,
+  NumberFieldRootEmits,
+} from 'reka-ui'
 
-const props = withDefaults(
-  defineProps<{
-    /**
-     * Minimum value allowed when decrementing
-     */
-    min?: number
+export interface BaseInputNumberProps extends NumberFieldRootProps {
+  /**
+   * The inputmode to use for the input, usually for mobile devices.
+   */
+  inputmode?: 'numeric' | 'decimal'
 
-    /**
-     * Maximum value allowed when decrementing
-     */
-    max?: number
+  /**
+   * The placeholder to display for the input.
+   */
+  placeholder?: string
 
-    /**
-     * Sets the stepping interval when clicking up and down spinner buttons
-     */
-    step?: number
+  /**
+   * Whether the color of the input should change when it is focused.
+   */
+  colorFocus?: boolean
 
-    /**
-     * The form input identifier.
-     */
-    id?: string
+  /**
+   * The contrast of the input.
+   *
+   * @default 'default'
+   */
+  contrast?: 'default' | 'default-contrast' | 'muted' | 'muted-contrast'
 
-    /**
-     * The type of input.
-     */
-    type?: string
+  /**
+   * The radius of the input.
+   *
+   * @since 2.0.0
+   * @default 'sm'
+   */
+  rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
 
-    /**
-     * The inputmode to use for the input, usually for mobile devices.
-     */
-    inputmode?: 'numeric' | 'decimal'
-
-    /**
-     * The placeholder to display for the input.
-     */
-    placeholder?: string
-
-    /**
-     * The icon to display for the decrement button.
-     */
-    iconDecrement?: string
-
-    /**
-     * The icon to display for the increment button.
-     */
-    iconIncrement?: string
-
-    /**
-     * Whether the color of the input should change when it is focused.
-     */
-    colorFocus?: boolean
-
-    /**
-     * Whether the input is in a disabled state.
-     */
-    disabled?: boolean
-
-    /**
-     * The contrast of the input.
-     *
-     * @default 'default'
-     */
-    contrast?: 'default' | 'default-contrast' | 'muted' | 'muted-contrast'
-
-    /**
-     * The radius of the input.
-     *
-     * @since 2.0.0
-     * @default 'sm'
-     */
-    rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
-
-    /**
-     * The size of the input.
-     *
-     * @default 'md'
-     */
-    size?: 'sm' | 'md' | 'lg' | 'xl'
-
-    /**
-     * Optional CSS classes to apply to the wrapper, label, input, addon, error, and icon elements.
-     */
-    classes?: {
-      /**
-       * CSS classes to apply to the wrapper element.
-       */
-      wrapper?: string | string[]
-
-      /**
-       * CSS classes to apply to the outer element.
-       */
-      outer?: string | string[]
-
-      /**
-       * CSS classes to apply to the input element.
-       */
-      input?: string | string[]
-
-      /**
-       * CSS classes to apply to the error element.
-       */
-      error?: string | string[]
-
-      /**
-       * CSS classes to apply to the buttons wrapper.
-       */
-      buttons?: string | string[]
-    }
-  }>(),
-  {
-    min: undefined,
-    max: undefined,
-    step: 1,
-    id: undefined,
-    type: 'text',
-    inputmode: undefined,
-    rounded: undefined,
-    size: undefined,
-    contrast: undefined,
-    placeholder: undefined,
-    iconDecrement: undefined,
-    iconIncrement: undefined,
-    classes: () => ({}),
-  },
-)
-
-function looseToNumber(val: any) {
-  const n = Number.parseFloat(val)
-  return Number.isNaN(n) ? val : n
+  /**
+   * The size of the input.
+   *
+   * @default 'md'
+   */
+  size?: 'sm' | 'md' | 'lg' | 'xl'
 }
+export interface BaseInputNumberEmits extends NumberFieldRootEmits {}
+export type BaseInputNumberSlots = {}
 
-const [modelValue, modelModifiers] = defineModel<number, 'lazy' | 'raw'>({
-  set(value) {
-    if (modelModifiers.raw) {
-      return value
-    }
-
-    return looseToNumber(value)
-  },
-})
-
-const contrast = useNuiDefaultProperty(props, 'BaseInputNumber', 'contrast')
-const rounded = useNuiDefaultProperty(props, 'BaseInputNumber', 'rounded')
-const size = useNuiDefaultProperty(props, 'BaseInputNumber', 'size')
-
-const iconIncrement = useNuiDefaultIcon('plus', () => props.iconIncrement)
-const iconDecrement = useNuiDefaultIcon('minus', () => props.iconDecrement)
-
-const radiuses = {
+export const radiuses = {
   none: '',
   sm: 'nui-input-number-rounded-sm',
   md: 'nui-input-number-rounded-md',
   lg: 'nui-input-number-rounded-lg',
   full: 'nui-input-number-rounded-full',
-}
+} as const
 
-const sizes = {
+export const sizes = {
   sm: 'nui-input-number-sm',
   md: 'nui-input-number-md',
   lg: 'nui-input-number-lg',
   xl: 'nui-input-number-xl',
-}
+} as const
 
-const contrasts = {
+export const contrasts = {
   'default': 'nui-input-number-default',
   'default-contrast': 'nui-input-number-default-contrast',
   'muted': 'nui-input-number-muted',
   'muted-contrast': 'nui-input-number-muted-contrast',
-}
+} as const
+</script>
 
-const inputRef = ref<HTMLInputElement>()
+
+<script setup lang="ts">
+import { useForwardPropsEmits } from 'reka-ui'
+import { reactiveOmit } from '@vueuse/core'
+
+defineOptions({
+  inheritAttrs: false,
+})
+
+const props = withDefaults(defineProps<BaseInputNumberProps>(), {
+  inputmode: undefined,
+  rounded: undefined,
+  size: undefined,
+  contrast: undefined,
+  placeholder: undefined,
+  
+  defaultValue: undefined,
+  formatOptions: undefined,
+  modelValue: undefined,
+  name: undefined,
+})
+const emits = defineEmits<BaseInputNumberEmits>()
+const slots = defineSlots<BaseInputNumberSlots>()
+
+// function looseToNumber(val: any) {
+//   const n = Number.parseFloat(val)
+//   return Number.isNaN(n) ? val : n
+// }
+
+// const [modelValue, modelModifiers] = defineModel<number, 'lazy' | 'raw'>({
+//   set(value) {
+//     if (modelModifiers.raw) {
+//       return value
+//     }
+
+//     return looseToNumber(value)
+//   },
+// })
+
 const id = useNinjaId(() => props.id)
+const contrast = useNuiDefaultProperty(props, 'BaseInputNumber', 'contrast')
+const rounded = useNuiDefaultProperty(props, 'BaseInputNumber', 'rounded')
+const size = useNuiDefaultProperty(props, 'BaseInputNumber', 'size')
 
-defineExpose({
-  /**
-   * The underlying HTMLInputElement element.
-   */
-  el: inputRef,
+const iconIncrement = useNuiDefaultIcon('plus')
+const iconDecrement = useNuiDefaultIcon('minus')
 
-  /**
-   * The internal id of the radio input.
-   */
-  id,
-})
+const forward = useForwardPropsEmits(reactiveOmit(props, ['contrast', 'rounded', 'size', 'placeholder']), emits)
+
+// const inputRef = ref<HTMLInputElement>()
+
+// defineExpose({
+//   /**
+//    * The underlying HTMLInputElement element.
+//    */
+//   el: inputRef,
+
+//   /**
+//    * The internal id of the radio input.
+//    */
+//   id,
+// })
 
 
-const floatPrecision = computed(() => {
-  if (!Number.isFinite(props.step) || Number.isNaN(props.step))
-    return 0
-  let exp = 1
-  let precision = 0
-  while (Math.round(props.step * exp) / exp !== props.step) {
-    exp *= 10
-    precision++
-  }
-  return precision
-})
-const floatPrecisionExp = computed(() => 10 ** floatPrecision.value)
-const stepAbs = computed(() => Math.abs(props.step))
+// const floatPrecision = computed(() => {
+//   if (!Number.isFinite(props.step) || Number.isNaN(props.step))
+//     return 0
+//   let exp = 1
+//   let precision = 0
+//   while (Math.round(props.step * exp) / exp !== props.step) {
+//     exp *= 10
+//     precision++
+//   }
+//   return precision
+// })
+// const floatPrecisionExp = computed(() => 10 ** floatPrecision.value)
+// const stepAbs = computed(() => Math.abs(props.step))
 
-function clamp(value: number) {
-  const rounded
-    = Math.round(value * floatPrecisionExp.value) / floatPrecisionExp.value
+// function clamp(value: number) {
+//   const rounded
+//     = Math.round(value * floatPrecisionExp.value) / floatPrecisionExp.value
 
-  return Math.max(
-    Math.min(rounded, props.max ?? Number.POSITIVE_INFINITY),
-    props.min ?? Number.NEGATIVE_INFINITY,
-  )
-}
+//   return Math.max(
+//     Math.min(rounded, props.max ?? Number.POSITIVE_INFINITY),
+//     props.min ?? Number.NEGATIVE_INFINITY,
+//   )
+// }
 
-function increment() {
-  if (props.disabled)
-    return
+// function increment() {
+//   if (props.disabled)
+//     return
 
-  if (modelValue.value === undefined) {
-    modelValue.value = 0
-    return
-  }
+//   if (modelValue.value === undefined) {
+//     modelValue.value = 0
+//     return
+//   }
 
-  if (typeof modelValue.value === 'number') {
-    modelValue.value = clamp(modelValue.value + stepAbs.value)
-  }
-}
+//   if (typeof modelValue.value === 'number') {
+//     modelValue.value = clamp(modelValue.value + stepAbs.value)
+//   }
+// }
 
-function decrement() {
-  if (props.disabled)
-    return
+// function decrement() {
+//   if (props.disabled)
+//     return
 
-  if (modelValue.value === undefined) {
-    modelValue.value = 0
-    return
-  }
+//   if (modelValue.value === undefined) {
+//     modelValue.value = 0
+//     return
+//   }
 
-  if (typeof modelValue.value === 'number') {
-    modelValue.value = clamp(modelValue.value - stepAbs.value)
-  }
-}
+//   if (typeof modelValue.value === 'number') {
+//     modelValue.value = clamp(modelValue.value - stepAbs.value)
+//   }
+// }
 
-let incrementInterval: any
-function startIncrement() {
-  if (props.disabled)
-    return
+// let incrementInterval: any
+// function startIncrement() {
+//   if (props.disabled)
+//     return
 
-  increment()
-  let i = 0
+//   increment()
+//   let i = 0
 
-  incrementInterval = setInterval(() => {
-    i++
-    increment()
-    if (i > 10) {
-      clearInterval(incrementInterval)
-      incrementInterval = setInterval(increment, 50)
-    }
-  }, 150)
-}
-function stopIncrement() {
-  clearInterval(incrementInterval)
-}
+//   incrementInterval = setInterval(() => {
+//     i++
+//     increment()
+//     if (i > 10) {
+//       clearInterval(incrementInterval)
+//       incrementInterval = setInterval(increment, 50)
+//     }
+//   }, 150)
+// }
+// function stopIncrement() {
+//   clearInterval(incrementInterval)
+// }
 
-let decrementInterval: any
-function startDecrement() {
-  if (props.disabled)
-    return
+// let decrementInterval: any
+// function startDecrement() {
+//   if (props.disabled)
+//     return
 
-  decrement()
-  let i = 0
+//   decrement()
+//   let i = 0
 
-  decrementInterval = setInterval(() => {
-    i++
-    decrement()
-    if (i > 10) {
-      clearInterval(decrementInterval)
-      decrementInterval = setInterval(decrement, 50)
-    }
-  }, 150)
-}
-function stopDecrement() {
-  clearInterval(decrementInterval)
-}
+//   decrementInterval = setInterval(() => {
+//     i++
+//     decrement()
+//     if (i > 10) {
+//       clearInterval(decrementInterval)
+//       decrementInterval = setInterval(decrement, 50)
+//     }
+//   }, 150)
+// }
+// function stopDecrement() {
+//   clearInterval(decrementInterval)
+// }
 
-onBeforeUnmount(() => {
-  clearInterval(incrementInterval)
-  clearInterval(decrementInterval)
-})
+// onBeforeUnmount(() => {
+//   clearInterval(incrementInterval)
+//   clearInterval(decrementInterval)
+// })
 </script>
 
 <template>
-  <div
+  <NumberFieldRoot
+    v-bind="forward"
     class="nui-input-number-wrapper"
     :class="[
       contrast && contrasts[contrast],
       size && sizes[size],
       rounded && radiuses[rounded],
       props.colorFocus && 'nui-input-number-focus',
-      props.classes?.wrapper,
     ]"
   >
-    <div class="nui-input-number-outer" :class="props.classes?.outer">
-      <div>
-        <input
-          v-if="modelModifiers.lazy"
-          :id="id"
-          ref="inputRef"
-          v-model.lazy="modelValue"
-          :type="props.type"
-          v-bind="$attrs"
-          class="nui-input-number"
-          :class="props.classes?.input"
-          :placeholder="placeholder"
-          :inputmode="props.inputmode"
-          :disabled="props.disabled"
-        >
-        <input
-          v-else
-          :id="id"
-          ref="inputRef"
-          v-model="modelValue"
-          :type="props.type"
-          v-bind="$attrs"
-          class="nui-input-number"
-          :class="props.classes?.input"
-          :placeholder="placeholder"
-          :inputmode="props.inputmode"
-          :disabled="props.disabled"
-        >
-        <div class="nui-input-number-buttons" :class="props.classes?.buttons">
-          <button
-            type="button"
-            aria-label="Decrement"
-            tabindex="-1"
-            :disabled="props.disabled"
-            @pointerdown="startDecrement"
-            @pointerout="stopDecrement"
-            @pointerup="stopDecrement"
-          >
-            <Icon :name="iconDecrement" />
-          </button>
-          <button
-            type="button"
-            aria-label="Increment"
-            tabindex="-1"
-            :disabled="props.disabled"
-            @pointerdown="startIncrement"
-            @pointerout="stopIncrement"
-            @pointerup="stopIncrement"
-          >
-            <Icon :name="iconIncrement" />
-          </button>
-        </div>
-      </div>
+    <div class="nui-input-number-outer flex gap-2">
+      <NumberFieldDecrement>
+        <Icon :name="iconDecrement" />
+      </NumberFieldDecrement>
+      <NumberFieldInput
+        class="nui-input-number outline-none grow"
+        :placeholder="placeholder"
+        :inputmode="props.inputmode"
+        :disabled="props.disabled"
+      />
+      <NumberFieldIncrement>
+        <Icon :name="iconIncrement" />
+      </NumberFieldIncrement> 
     </div>
-  </div>
+  </NumberFieldRoot>
 </template>
