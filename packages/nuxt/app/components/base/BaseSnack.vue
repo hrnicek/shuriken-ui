@@ -19,9 +19,9 @@ const props = withDefaults(
     /**
      * The variant of snack.
      *
-     * @default 'default-high'
+     * @default 'default'
      */
-    variant?: 'default-low' | 'default-high' | 'muted-low' | 'muted-high'
+    variant?: 'default' | 'muted'
 
     /**
      * The size of the snack.
@@ -109,11 +109,15 @@ const iconSizes = {
 } as const
 
 const variants = {
-  'default-low': 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
-  'default-high': 'bg-white dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
-  'muted-low': 'bg-muted-200 dark:bg-muted-700',
-  'muted-high': 'bg-muted-200 dark:bg-muted-950',
+  'default': 'bg-white dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
+  'muted': 'bg-muted-200 dark:bg-muted-950',
 } as const
+
+// @todo: low-contrast-variant
+// const variants = {
+//   'default': 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
+//   'muted': 'bg-muted-200 dark:bg-muted-700',
+// } as const
 </script>
 
 <template>

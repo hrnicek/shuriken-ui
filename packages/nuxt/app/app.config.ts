@@ -344,9 +344,9 @@ export default defineAppConfig({
       /**
        * The variant of the snack.
        *
-       * @type {'default-low' | 'default-high' | 'muted-low' | 'muted-high'}
+       * @type {'default' | 'muted'}
        */
-      variant: 'default-high',
+      variant: 'default',
       /**
        * The size of the snack.
        *

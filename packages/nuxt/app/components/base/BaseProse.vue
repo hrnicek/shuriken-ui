@@ -4,7 +4,6 @@ const props = withDefaults(
     /**
      * Inner elements shapes.
      *
-     * @since 2.0.0
      * @default 'none'
      */
     rounded?: 'none' | 'sm' | 'md' | 'lg'
