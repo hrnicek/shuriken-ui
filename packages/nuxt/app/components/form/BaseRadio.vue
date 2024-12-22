@@ -18,9 +18,9 @@ export interface BaseCheckboxProps extends RadioGroupItemProps {
   /**
    * The variant of the radio.
    *
-   * @default 'default-high'
+   * @default 'default'
    */
-  variant?: 'default-low' | 'default-high' | 'primary' | 'dark' | 'none'
+  variant?: 'default' | 'primary' | 'dark' | 'none'
 
   /**
    * Classes to apply to the various parts of the radio input.
@@ -56,20 +56,34 @@ export type BaseCheckboxSlots = {
 }
 
 const boxVariants = {
-  'default-low': 'bg-muted-50 dark:bg-muted-700 border-1 border-muted-300 dark:border-muted-700 text-muted-700 dark:text-muted-300',
-  'default-high': 'bg-muted-50 dark:bg-muted-950 border-1 border-muted-300 dark:border-muted-700 text-muted-700 dark:text-muted-100',
+  'default': 'bg-white dark:bg-muted-950 border-1 border-muted-300 dark:border-muted-700 text-muted-700 dark:text-muted-100',
   'primary': 'bg-primary-500/10 dark:bg-primary-500/20 border-1 border-muted-300 dark:border-muted-700 text-primary-500 dark:text-primary-400',
   'dark': 'bg-muted-900/10 dark:bg-white/10 border-1 border-muted-300 dark:border-muted-700 text-muted-900 dark:text-white',
   'none': '',
 } as const
 
+// @todo: low-contrast-theme
+// const boxVariants = {
+//   'default': 'bg-white dark:bg-muted-700 border-1 border-muted-300 dark:border-muted-700 text-muted-700 dark:text-muted-300',
+//   'primary': 'bg-primary-500/10 dark:bg-primary-500/20 border-1 border-muted-300 dark:border-muted-700 text-primary-500 dark:text-primary-400',
+//   'dark': 'bg-muted-900/10 dark:bg-white/10 border-1 border-muted-300 dark:border-muted-700 text-muted-900 dark:text-white',
+//   'none': '',
+// } as const
+
 const dotVariants = {
-  'default-low': 'text-muted-700 dark:text-muted-300',
-  'default-high': 'text-muted-700 dark:text-muted-300',
+  'default': 'text-muted-700 dark:text-muted-300',
   'primary': 'text-primary-500 dark:text-primary-400',
   'dark': 'text-muted-900 dark:text-white',
   'none': '',
 } as const
+
+// @todo: low-contrast-theme
+// const dotVariants = {
+//   'default': 'text-muted-700 dark:text-muted-300',
+//   'primary': 'text-primary-500 dark:text-primary-400',
+//   'dark': 'text-muted-900 dark:text-white',
+//   'none': '',
+// } as const
 </script>
 
 

@@ -513,9 +513,9 @@ export default defineAppConfig({
       /**
        * Default variant for the BaseCheckbox component
        *
-       * @type {'default-low' | 'default-high' | 'primary' | 'dark' | 'none'}
+       * @type {'default' | 'primary' | 'dark' | 'none'}
        */
-      variant: 'default-high',
+      variant: 'default',
     },
     BaseCheckboxAnimated: {
       /**
@@ -644,9 +644,9 @@ export default defineAppConfig({
       /**
        * Default variant for the BaseRadio component
        *
-       * @type {'default-low' | 'default-high' | 'primary' | 'dark' | 'none'}
+       * @type {'default' | 'primary' | 'dark' | 'none'}
        */
-      variant: 'default-high',
+      variant: 'default',
     },
     BaseSelect: {
       /**

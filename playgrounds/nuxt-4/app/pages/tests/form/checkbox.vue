@@ -43,22 +43,17 @@ function reset() {
         >
           <BaseCheckbox
             v-model="options.first"
-            label="Default low"
+            label="Default"
             data-testid="checkbox-1"
-            variant="default-low"
+            variant="default"
           />
           <BaseCheckbox
             v-model="options.second"
-            label="Default high"
-            variant="default-high"
-          />
-          <BaseCheckbox
-            v-model="options.third"
             label="Primary"
             variant="primary"
           />
           <BaseCheckbox
-            v-model="options.fourth"
+            v-model="options.third"
             label="Dark"
             variant="dark"
           />

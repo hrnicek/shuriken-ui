@@ -16,13 +16,8 @@ const customValue = ref('pink')
       <NuiPreview title="Variants" description="Radio component variants">
         <BaseRadioGroup v-model="value" name="radio_base" class="grid grid-cols-2 gap-6 md:max-w-lg md:grid-cols-4">
           <BaseRadio
-            label="Default low"
-            value="default"
-            variant="default-low"
-          />
-          <BaseRadio
-            label="Default high"
-            variant="default-high"
+            label="Default"
+            variant="default"
           />
           <BaseRadio
             label="Primary"
