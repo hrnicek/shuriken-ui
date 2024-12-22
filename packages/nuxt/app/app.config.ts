@@ -89,68 +89,13 @@ export default defineAppConfig({
        */
       variant: 'default',
     },
-    BaseButtonAction: {
-      /**
-       * Default color for the BaseButtonAction component
-       *
-       * @type {'default' | 'default-contrast' | 'muted' | 'muted-contrast' | 'light' | 'dark' | 'primary' | 'info' | 'success' | 'warning' | 'danger' | 'none'}
-       */
-      color: 'default',
-      /**
-       * Default rounded for the BaseButtonAction component
-       *
-       * @type {'none' | 'sm' | 'md' | 'lg' | 'full'}
-       */
-      rounded: 'md',
-    },
-    BaseButtonClose: {
-      /**
-       * Default color for the BaseButtonClose component
-       *
-       * @type {'default' | 'default-contrast' | 'muted' | 'muted-contrast' | 'primary' | 'info' | 'success' | 'warning' | 'danger' | 'none'}
-       */
-      color: 'default',
-      /**
-       * Default rounded for the BaseButtonClose component
-       *
-       * @type {'none' | 'sm' | 'md' | 'lg' | 'full'}
-       */
-      rounded: 'full',
-      /**
-       * Default size for the BaseButtonClose component
-       *
-       * @type {'xs' | 'sm' | 'md' | 'lg' | 'xl'}
-       */
-      size: 'sm',
-    },
-    BaseButtonGroup: {},
-    BaseButtonIcon: {
-      /**
-       * Default color for the BaseButtonIcon component
-       *
-       * @type {'default' | 'default-contrast' | 'muted' | 'muted-contrast' | 'light' | 'dark' | 'primary' | 'info' | 'success' | 'warning' | 'danger' | 'none'}
-       */
-      color: 'default',
-      /**
-       * Default rounded for the BaseButtonIcon component
-       *
-       * @type {'none' | 'sm' | 'md' | 'lg' | 'full'}
-       */
-      rounded: 'md',
-      /**
-       * Default size for the BaseButton component
-       *
-       * @type {'sm' | 'md' | 'lg' | 'xl'}
-       */
-      size: 'md',
-    },
     BaseCard: {
       /**
        * Default variant for the BaseCard component
        *
-       * @type {'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'custom'}
+       * @type {'default' | 'muted' | 'none'}
        */
-      variant: 'default-high',
+      variant: 'default',
       /**
        * Default rounded for the BaseCard component
        *

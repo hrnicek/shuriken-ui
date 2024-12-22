@@ -12,7 +12,7 @@ definePageMeta({
     <NuiPreviewContainer title="BaseCard">
       <NuiPreview title="Radius" description="Card component radiuses">
         <div class="grid gap-4 md:grid-cols-2 max-w-3xl">
-          <BaseCard variant="default-low" rounded="none" class="p-6">
+          <BaseCard rounded="none" class="p-6">
             <BaseHeading
               as="h4"
               size="sm"
@@ -28,7 +28,7 @@ definePageMeta({
             </BaseParagraph>
           </BaseCard>
 
-          <BaseCard variant="default-low" rounded="sm" class="p-6">
+          <BaseCard rounded="sm" class="p-6">
             <BaseHeading
               as="h4"
               size="sm"
@@ -44,7 +44,7 @@ definePageMeta({
             </BaseParagraph>
           </BaseCard>
 
-          <BaseCard variant="default-low" rounded="md" class="p-6">
+          <BaseCard rounded="md" class="p-6">
             <BaseHeading
               as="h4"
               size="sm"
@@ -60,7 +60,7 @@ definePageMeta({
             </BaseParagraph>
           </BaseCard>
 
-          <BaseCard variant="default-low" rounded="lg" class="p-6">
+          <BaseCard rounded="lg" class="p-6">
             <BaseHeading
               as="h4"
               size="sm"
@@ -80,7 +80,7 @@ definePageMeta({
 
       <NuiPreview title="Variants" description="Card component variants">
         <div class="grid gap-4 md:grid-cols-2 max-w-3xl">
-          <BaseCard  variant="default-low" rounded="md" class="p-6">
+          <BaseCard  variant="default" rounded="md" class="p-6">
             <BaseHeading
               as="h4"
               size="sm"
@@ -88,7 +88,7 @@ definePageMeta({
               lead="tight"
               class="text-muted-800 mb-2 dark:text-white"
             >
-              Default low
+              Default card
             </BaseHeading>
 
             <BaseParagraph size="sm" lead="tight" class="text-muted-400">
@@ -96,7 +96,7 @@ definePageMeta({
             </BaseParagraph>
           </BaseCard>
 
-          <BaseCard variant="default-high" rounded="md" class="p-6">
+          <BaseCard variant="muted" rounded="md" class="p-6">
             <BaseHeading
               as="h4"
               size="sm"
@@ -104,7 +104,7 @@ definePageMeta({
               lead="tight"
               class="text-muted-800 mb-2 dark:text-white"
             >
-              Default high
+              Muted card
             </BaseHeading>
 
             <BaseParagraph size="sm" lead="tight" class="text-muted-400">
@@ -112,39 +112,7 @@ definePageMeta({
             </BaseParagraph>
           </BaseCard>
 
-          <BaseCard variant="muted-low" rounded="md" class="p-6">
-            <BaseHeading
-              as="h4"
-              size="sm"
-              weight="semibold"
-              lead="tight"
-              class="text-muted-800 mb-2 dark:text-white"
-            >
-              Muted low
-            </BaseHeading>
-
-            <BaseParagraph size="sm" lead="tight" class="text-muted-400">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </BaseParagraph>
-          </BaseCard>
-
-          <BaseCard variant="muted-high" rounded="md" class="p-6">
-            <BaseHeading
-              as="h4"
-              size="sm"
-              weight="semibold"
-              lead="tight"
-              class="text-muted-800 mb-2 dark:text-white"
-            >
-              Muted high
-            </BaseHeading>
-
-            <BaseParagraph size="sm" lead="tight" class="text-muted-400">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </BaseParagraph>
-          </BaseCard>
-
-          <BaseCard variant="custom" rounded="md" class="p-6 bg-primary-600/10 border-2 border-primary-600">
+          <BaseCard variant="none" rounded="md" class="p-6 bg-primary-600/10 border-2 border-primary-600">
             <BaseHeading
               as="h4"
               size="sm"
@@ -152,7 +120,7 @@ definePageMeta({
               lead="tight"
               class="text-primary-600 mb-2 dark:text-primary-200"
             >
-              Custom
+              Custom card
             </BaseHeading>
 
             <BaseParagraph size="sm" lead="tight" class="text-primary-600">
@@ -160,7 +128,7 @@ definePageMeta({
             </BaseParagraph>
           </BaseCard>
 
-          <BaseCard variant="custom" rounded="md" class="p-6 bg-muted-950 dark:bg-white">
+          <BaseCard variant="none" rounded="md" class="p-6 bg-muted-950 dark:bg-white">
             <BaseHeading
               as="h4"
               size="sm"
@@ -168,7 +136,7 @@ definePageMeta({
               lead="tight"
               class="text-white mb-2 dark:text-muted-900"
             >
-              Custom
+              Custom card
             </BaseHeading>
 
             <BaseParagraph size="sm" lead="tight" class="text-white dark:text-muted-900">

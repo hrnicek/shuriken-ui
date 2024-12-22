@@ -9,19 +9,13 @@ const props = withDefaults(
     /**
      * The variant of the card.
      *
-     * @default 'default-high'
+     * @default 'default'
      */
-     variant?:
-      | 'default-low'
-      | 'default-high'
-      | 'muted-low'
-      | 'muted-high'
-      | 'custom'
+     variant?: 'default' | 'muted' | 'none'
 
     /**
      * The radius of the card.
      *
-     * @since 2.0.0
      * @default 'sm'
      */
     rounded?: 'none' | 'sm' | 'md' | 'lg'
@@ -44,12 +38,17 @@ const radiuses = {
 }
 
 const variants = {
-  'default-low': 'border border-muted-200 dark:border-muted-700 bg-white dark:bg-muted-800',
-  'default-high': 'border border-muted-300 dark:border-muted-800 bg-white dark:bg-muted-950',
-  'muted-low': 'border border-muted-200 dark:border-muted-700 bg-muted-100 dark:bg-muted-800',
-  'muted-high': 'border border-muted-200 dark:border-muted-800 bg-muted-100 dark:bg-muted-950',
-  'custom': '',
+  'default': 'border border-muted-300 dark:border-muted-800 bg-white dark:bg-muted-950',
+  'muted': 'border border-muted-200 dark:border-muted-800 bg-muted-100 dark:bg-muted-950',
+  'none': '',
 }
+
+// @todo: low-contrast-theme
+// const variants = {
+//   'default': 'border border-muted-200 dark:border-muted-700 bg-white dark:bg-muted-800',
+//   'muted': 'border border-muted-200 dark:border-muted-800 bg-muted-100 dark:bg-muted-950',
+//   'none': '',
+// }
 
 const shadows = {
   static: 'shadow-muted-300/30 dark:shadow-muted-800/30 shadow-xl',
