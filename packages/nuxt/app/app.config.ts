@@ -203,11 +203,11 @@ export default defineAppConfig({
     BaseListItem: {},
     BaseMessage: {
       /**
-       * The color of the message.
+       * The variant of the message.
        *
-       * @type {'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'primary-low' | 'primary-high' | 'info-low' | 'info-high' | 'success-low' | 'success-high' | 'warning-low' | 'warning-high' | 'destructive-low' | 'destructive-high'}
+       * @type {'default' | 'muted' | 'primary' | 'info' | 'success' | 'warning' | 'destructive'}
        */
-      variant: 'default-high',
+      variant: 'default',
       /**
        * The radius of the message.
        *
@@ -218,37 +218,23 @@ export default defineAppConfig({
        * The default icons of the message.
        *
        * @type {{
-          'default-low'?: string
-          'default-high'?: string
-          'muted-low'?: string
-          'muted-high'?: string
-          'info-low'?: string
-          'info-high'?: string
-          'success-low'?: string
-          'success-high'?: string
-          'warning-low'?: string
-          'warning-high'?: string
-          'destructive-low'?: string
-          'destructive-high'?: string
-          'primary-low?: string
-          'primary-high?: string
+          'default'?: string
+          'muted'?: string
+          'info'?: string
+          'success'?: string
+          'warning'?: string
+          'destructive'?: string
+          'primary?: string
         }}
        */
       defaultIcons: {
-        'default-low': 'akar-icons:info-fill',
-        'default-high': 'akar-icons:info-fill',
-        'muted-low': 'akar-icons:info-fill',
-        'muted-high': 'akar-icons:info-fill',
-        'info-low': 'akar-icons:info-fill',
-        'info-high': 'akar-icons:info-fill',
-        'success-low': 'carbon:checkmark-filled',
-        'success-high': 'carbon:checkmark-filled',
-        'warning-low': 'ci:warning',
-        'warning-high': 'ci:warning',
-        'destructive-low': 'ph:warning-octagon-fill',
-        'destructive-high': 'ph:warning-octagon-fill',
-        'primary-low': 'akar-icons:info-fill',
-        'primary-high': 'akar-icons:info-fill',
+        'default': 'akar-icons:info-fill',
+        'muted': 'akar-icons:info-fill',
+        'info': 'akar-icons:info-fill',
+        'success': 'carbon:checkmark-filled',
+        'warning': 'ci:warning',
+        'destructive': 'ph:warning-octagon-fill',
+        'primary': 'akar-icons:info-fill',
       },
     },
     BasePagination: {
