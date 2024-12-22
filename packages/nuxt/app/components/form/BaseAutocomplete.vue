@@ -18,14 +18,13 @@ export interface BaseAutocompleteProps extends ComboboxRootProps {
   /**
    * The variant of the dropdown
    *
-   * @default 'default-low'
+   * @default 'default'
    */
-   variant?: 'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'primary-low' | 'primary-high' | 'none'
+   variant?: 'default' | 'muted' | 'none'
 
   /**
    * The radius of the component.
    *
-   * @since 2.0.0
    * @default 'sm'
    */
   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
@@ -76,28 +75,31 @@ export interface BaseAutocompleteContext {
 }
 
 export const variants = {
-  'default-low': 'border border-muted-200 dark:border-muted-700 bg-white dark:bg-muted-800',
-  'default-high': 'border border-muted-200 dark:border-muted-800 bg-white dark:bg-muted-950',
-  'muted-low': 'border border-muted-200 dark:border-muted-700 bg-muted-50 dark:bg-muted-800',
-  'muted-high': 'border border-muted-200 dark:border-muted-800 bg-muted-50 dark:bg-muted-950',
-  'primary-low': 'border border-muted-200 dark:border-muted-700 bg-white dark:bg-muted-800',
-  'primary-high': 'border border-muted-200 dark:border-muted-800 bg-white dark:bg-muted-950',
-  'none': '',
+  default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 data-placeholder:text-muted-300 dark:data-placeholder:text-muted-700',
+  muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-600 border text-muted-500 data-placeholder:text-muted-300 dark:data-placeholder:text-muted-700',
+  none: '',
 } as const
+
+// @todo: low-contrast-theme
+// export const variants = {
+//   'default': 'border border-muted-200 dark:border-muted-700 bg-white dark:bg-muted-800',
+//   'muted': 'border border-muted-200 dark:border-muted-700 bg-muted-50 dark:bg-muted-800',
+//   'none': '',
+// } as const
 
 export const radiuses = {
   none: '',
   sm: 'rounded-sm',
   md: 'rounded-md',
   lg: 'rounded-lg',
-  full: 'rounded-lg',
+  full: 'rounded-full',
 } as const
 
 export const sizes = {
-  sm: 'nui-autocomplete-sm',
-  md: 'nui-autocomplete-md',
-  lg: 'nui-autocomplete-lg',
-  xl: 'nui-autocomplete-xl',
+  sm: 'h-8 text-xs px-2',
+  md: 'h-10 text-sm px-3',
+  lg: 'h-12 text-sm px-4',
+  xl: 'h-14 text-base px-4',
 } as const
 
 export const [
@@ -151,15 +153,14 @@ provideBaseAutocompleteContext({
 <template>
   <ComboboxRoot
     v-bind="forward"
-    class="nui-autocomplete"
-    :class="[
-      size && sizes[size],
-    ]"
+    class="w-full relative"
   >
     <ComboboxAnchor
-      class="nui-focus w-full flex min-w-[160px] items-center justify-between px-2 text-xs leading-none h-10 gap-[5px] bg-white dark:bg-muted-900 dark:border-muted-600 border text-muted-500 data-placeholder:text-muted-300 dark:data-placeholder:text-muted-700 outline-none disabled:cursor-not-allowed has-disabled:opacity-75 has-aria-invalid:border-red-500! group"
+      class="nui-focus w-full flex min-w-[160px] items-center justify-between leading-none gap-[5px] outline-none disabled:cursor-not-allowed has-disabled:opacity-75 has-aria-invalid:border-red-500! group"
       :class="[
         rounded && radiuses[rounded],
+        size && sizes[size],
+        variant && variants[variant],
       ]"
       v-bind="props.bindings.anchor"
     >
@@ -175,7 +176,7 @@ provideBaseAutocompleteContext({
       >
         <Icon
           :name="iconClose"
-          class="size-4"
+          class="size-4 text-base text-muted-600 dark:text-muted-400"
         />
       </ComboboxCancel>
 
@@ -187,7 +188,7 @@ provideBaseAutocompleteContext({
       >
         <Icon
           :name="iconChevronDown"
-          class="size-4"
+          class="size-4 text-base"
         />
       </ComboboxTrigger>
     </ComboboxAnchor>
@@ -201,7 +202,8 @@ provideBaseAutocompleteContext({
         }"
         class="min-w-52 focus:outline-none shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20 will-change-[opacity] duration-100 transition-opacity transition-discrete data-[state=open]:opacity-100 starting:data-[state=open]:opacity-0 space-y-1"
         :class="[
-          rounded && radiuses[rounded],
+          rounded !== 'full' && radiuses[rounded],
+          rounded === 'full' && 'rounded-xl',
           variant && variants[variant],
         ]"
       >

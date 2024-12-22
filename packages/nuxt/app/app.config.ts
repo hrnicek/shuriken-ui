@@ -472,13 +472,12 @@ export default defineAppConfig({
 
     // #region form
     BaseAutocomplete: {
-      variant: 'default-low',
       /**
-       * The contrast of the autocomplete.
+       * The variant of the autocomplete.
        *
-       * @type {'default' | 'default-contrast' | 'muted' | 'muted-contrast'}
+       * @type {'default' | 'muted' | 'none'}
        */
-      contrast: 'default',
+      variant: 'default',
       /**
        * Translation strings.
        *
@@ -493,7 +492,7 @@ export default defineAppConfig({
        *
        * @type {'none' | 'sm' | 'md' | 'lg' | 'full'}
        */
-      rounded: 'sm',
+      rounded: 'md',
       /**
        * The size of the autocomplete.
        *

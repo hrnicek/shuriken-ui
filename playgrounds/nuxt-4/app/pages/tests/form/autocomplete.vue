@@ -139,7 +139,7 @@ const fields = reactive({
   <div>
     <NuiPreviewContainer title="BaseAutocomplete">
       <NuiPreview title="Radius" description="Autocomplete component radiuses">
-        <div class="grid grid-cols-4 gap-4 w-full max-w-5xl">
+        <div class="grid grid-cols-3 gap-4 w-full max-w-3xl">
           <BaseAutocomplete
             rounded="none"
             placeholder="Ex: nuxt"
@@ -251,20 +251,7 @@ const fields = reactive({
           <div class="flex-1">
             <BaseAutocomplete
               v-model="fields.first"
-              variant="default-low"
-              size="sm"
-              placeholder="Ex: nuxt"
-            >
-              <BaseAutocompleteItem v-for="item in frameworks" :key="item" :value="item">
-                {{ item }}
-              </BaseAutocompleteItem>
-            </BaseAutocomplete>
-          </div>
-
-          <div class="flex-1">
-            <BaseAutocomplete
-              v-model="fields.second"
-              variant="default-high"
+              variant="default"
               size="md"
               placeholder="Ex: nuxt"
             >
@@ -276,50 +263,9 @@ const fields = reactive({
 
           <div class="flex-1">
             <BaseAutocomplete
-              v-model="fields.third"
-              variant="muted-low"
-              size="lg"
-              placeholder="Ex: nuxt"
-            >
-              <BaseAutocompleteItem v-for="item in frameworks" :key="item" :value="item">
-                {{ item }}
-              </BaseAutocompleteItem>
-            </BaseAutocomplete>
-          </div>
-
-          <div class="flex-1">
-            <BaseAutocomplete
-              v-model="fields.fourth"
-              variant="muted-high"
-              size="xl"
-              placeholder="Ex: nuxt"
-            >
-              <BaseAutocompleteItem v-for="item in frameworks" :key="item" :value="item">
-                {{ item }}
-              </BaseAutocompleteItem>
-            </BaseAutocomplete>
-          </div>
-          
-
-          <div class="flex-1">
-            <BaseAutocomplete
-              v-model="fields.fourth"
-              variant="primary-low"
-              size="xl"
-              placeholder="Ex: nuxt"
-            >
-              <BaseAutocompleteItem v-for="item in frameworks" :key="item" :value="item">
-                {{ item }}
-              </BaseAutocompleteItem>
-            </BaseAutocomplete>
-          </div>
-          
-
-          <div class="flex-1">
-            <BaseAutocomplete
-              v-model="fields.fourth"
-              variant="primary-high"
-              size="xl"
+              v-model="fields.second"
+              variant="muted"
+              size="md"
               placeholder="Ex: nuxt"
             >
               <BaseAutocompleteItem v-for="item in frameworks" :key="item" :value="item">
@@ -337,8 +283,8 @@ const fields = reactive({
         <div class="grid grid-cols-4 gap-4 w-full max-w-5xl">
           <BaseAutocomplete
             v-model="fields.first"
-            variant="default-low"
-            size="sm"
+            variant="default"
+            size="md"
             placeholder="Ex: nuxt"
           >
             <BaseAutocompleteGroup>
@@ -361,8 +307,8 @@ const fields = reactive({
           </BaseAutocomplete>
           <BaseAutocomplete
             v-model="multipleValue"
-            variant="default-low"
-            size="sm"
+            variant="muted"
+            size="md"
             placeholder="Ex: nuxt"
             multiple
           >
@@ -389,7 +335,7 @@ const fields = reactive({
 
       <NuiPreview title="Bindings" description="Autocomplete component bindings">
         <div class="grid grid-cols-4 gap-4 w-full max-w-5xl">
-          <BaseAutocomplete label="Default spacing">
+          <BaseAutocomplete placeholder="Default bindings">
             <BaseAutocompleteGroup>
               <BaseAutocompleteLabel>
                 Frameworks
@@ -409,6 +355,8 @@ const fields = reactive({
             </BaseAutocompleteGroup>
           </BaseAutocomplete>
           <BaseAutocomplete
+            placeholder="Disabled bindings"
+            variant="muted"
             :bindings="{
               portal: { disabled: true },
               content: { position: 'inline', class: 'absolute z-10 w-full max-h-50!' }
@@ -435,84 +383,23 @@ const fields = reactive({
         </div>
       </NuiPreview>
 
-      <NuiPreview title="Arrow and menu spacing">
-        <div class="grid grid-cols-4 gap-4 w-full max-w-5xl">
-          <BaseAutocomplete label="Default spacing">
+      <NuiPreview title="Spacing" description="Menu spacing options">
+        <div class="grid grid-cols-4 gap-4 w-full max-w-4xl">
+          <BaseAutocomplete placeholder="Default spacing">
             <BaseAutocompleteItem v-for="item in frameworks" :key="item" :value="item">
               {{ item }}
             </BaseAutocompleteItem>
           </BaseAutocomplete>
-          <BaseAutocomplete label="With top arrow">
+          <BaseAutocomplete placeholder="With more spacing" :bindings="{ content: { sideOffset: 10 } }">
             <BaseAutocompleteItem v-for="item in frameworks" :key="item" :value="item">
               {{ item }}
             </BaseAutocompleteItem>
           </BaseAutocomplete>
-          <BaseAutocomplete label="With more spacing" :bindings="{ content: { sideOffset: 10 } }">
+          <BaseAutocomplete placeholder="disabled" disabled>
             <BaseAutocompleteItem v-for="item in frameworks" :key="item" :value="item">
               {{ item }}
             </BaseAutocompleteItem>
           </BaseAutocomplete>
-          <BaseAutocomplete label="disabled" disabled>
-            <BaseAutocompleteItem v-for="item in frameworks" :key="item" :value="item">
-              {{ item }}
-            </BaseAutocompleteItem>
-          </BaseAutocomplete>
-        </div>
-      </NuiPreview>
-
-      <NuiPreview title="Error" description="Autocomplete component error">
-        <div class="grid grid-cols-4 gap-4 w-full max-w-5xl">
-          <div class="flex-1">
-            <BaseAutocomplete
-              v-model="fields.first"
-              size="sm"
-              placeholder="Ex: nuxt"
-              error="Please select a framework"
-            >
-              <BaseAutocompleteItem v-for="item in frameworks" :key="item" :value="item">
-                {{ item }}
-              </BaseAutocompleteItem>
-            </BaseAutocomplete>
-          </div>
-
-          <div class="flex-1">
-            <BaseAutocomplete
-              v-model="fields.second"
-              size="md"
-              placeholder="Ex: nuxt"
-              error="Please select a framework"
-            >
-              <BaseAutocompleteItem v-for="item in frameworks" :key="item" :value="item">
-                {{ item }}
-              </BaseAutocompleteItem>
-            </BaseAutocomplete>
-          </div>
-
-          <div class="flex-1">
-            <BaseAutocomplete
-              v-model="fields.third"
-              size="lg"
-              placeholder="Ex: nuxt"
-              error="Please select a framework"
-            >
-              <BaseAutocompleteItem v-for="item in frameworks" :key="item" :value="item">
-                {{ item }}
-              </BaseAutocompleteItem>
-            </BaseAutocomplete>
-          </div>
-
-          <div class="flex-1">
-            <BaseAutocomplete
-              v-model="fields.fourth"
-              size="xl"
-              placeholder="Ex: nuxt"
-              error="Please select a framework"
-            >
-              <BaseAutocompleteItem v-for="item in frameworks" :key="item" :value="item">
-                {{ item }}
-              </BaseAutocompleteItem>
-            </BaseAutocomplete>
-          </div>
         </div>
       </NuiPreview>
 
@@ -524,7 +411,7 @@ const fields = reactive({
           <div class="flex-1">
             <BaseAutocomplete
               v-model="fields.first"
-              size="sm"
+              size="md"
               placeholder="Ex: nuxt"
               disabled
             >
@@ -538,32 +425,7 @@ const fields = reactive({
             <BaseAutocomplete
               v-model="fields.second"
               size="md"
-              placeholder="Ex: nuxt"
-              disabled
-            >
-              <BaseAutocompleteItem v-for="item in frameworks" :key="item" :value="item">
-                {{ item }}
-              </BaseAutocompleteItem>
-            </BaseAutocomplete>
-          </div>
-
-          <div class="flex-1">
-            <BaseAutocomplete
-              v-model="fields.third"
-              size="lg"
-              placeholder="Ex: nuxt"
-              disabled
-            >
-              <BaseAutocompleteItem v-for="item in frameworks" :key="item" :value="item">
-                {{ item }}
-              </BaseAutocompleteItem>
-            </BaseAutocomplete>
-          </div>
-
-          <div class="flex-1">
-            <BaseAutocomplete
-              v-model="fields.fourth"
-              size="xl"
+              variant="muted"
               placeholder="Ex: nuxt"
               disabled
             >
@@ -583,7 +445,7 @@ const fields = reactive({
           <div class="flex-1">
             <BaseAutocomplete
               v-model="fields.first"
-              size="sm"
+              size="md"
               placeholder="Ex: nuxt"
               clearable
             >
@@ -597,32 +459,7 @@ const fields = reactive({
             <BaseAutocomplete
               v-model="fields.second"
               size="md"
-              placeholder="Ex: nuxt"
-              clearable
-            >
-              <BaseAutocompleteItem v-for="item in frameworks" :key="item" :value="item">
-                {{ item }}
-              </BaseAutocompleteItem>
-            </BaseAutocomplete>
-          </div>
-
-          <div class="flex-1">
-            <BaseAutocomplete
-              v-model="fields.third"
-              size="lg"
-              placeholder="Ex: nuxt"
-              clearable
-            >
-              <BaseAutocompleteItem v-for="item in frameworks" :key="item" :value="item">
-                {{ item }}
-              </BaseAutocompleteItem>
-            </BaseAutocomplete>
-          </div>
-
-          <div class="flex-1">
-            <BaseAutocomplete
-              v-model="fields.fourth"
-              size="xl"
+              variant="muted"
               placeholder="Ex: nuxt"
               clearable
             >
@@ -677,11 +514,14 @@ const fields = reactive({
           <BaseAutocomplete
             v-model="fields.thirteenth"
             allow-create
+            placeholder="Allow create"
           />
           <BaseAutocomplete
             v-model="fields.thirteenth"
             allow-create
             hide-create-prompt
+            variant="muted"
+            placeholder="Hide create prompt"
           />
         </div>
       </NuiPreview>

@@ -28,14 +28,10 @@ const forward = useForwardProps(reactiveOmit(props, ['label']));
 <template>
   <ComboboxLabel
     v-bind="forward"
-    class="px-2 pt-1"
+    class="font-sans font-medium uppercase px-2 pt-4 first:pt-2 pb-2 text-xs text-muted-400 dark:text-muted-500"
   >
-    <div class="relative flex items-center justify-between mb-3">
-      <h4 class="font-sans font-medium tracking-wider text-[0.65rem] uppercase text-muted-500 dark:text-muted-200">
-        <slot>
-          {{ props.label }}
-        </slot>
-      </h4>
-    </div>
+    <slot>
+      {{ props.label }}
+    </slot>
   </ComboboxLabel>
 </template>

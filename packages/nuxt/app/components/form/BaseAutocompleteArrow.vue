@@ -6,14 +6,17 @@ import type {
 export interface BaseAutocompleteArrowProps extends ComboboxArrowProps {}
 
 export const variants = {
-  'default-low': 'fill-white dark:fill-muted-800 stroke-muted-200 dark:stroke-muted-600',
-  'default-high': 'fill-white dark:fill-muted-950 stroke-muted-200 dark:stroke-muted-800',
-  'muted-low': 'fill-muted-50 dark:fill-muted-800 stroke-muted-200 dark:stroke-muted-600',
-  'muted-high': 'fill-muted-50 dark:fill-muted-950 stroke-muted-200 dark:stroke-muted-800',
-  'primary-low': 'fill-white dark:fill-muted-800 stroke-muted-200 dark:stroke-muted-600',
-  'primary-high': 'fill-white dark:fill-muted-950 stroke-muted-200 dark:stroke-muted-800',
-  'none': '',
+  default: 'fill-muted-400 dark:fill-muted-500',
+  muted: 'fill-muted-400 dark:fill-muted-500',
+  none: '',
 } as const
+
+// @todo: low-contrast-theme
+// export const variants = {
+//   default: 'fill-white dark:fill-muted-800 stroke-muted-200 dark:stroke-muted-600',
+//   muted: 'fill-muted-50 dark:fill-muted-800 stroke-muted-200 dark:stroke-muted-600',
+//   none: '',
+// } as const
 </script>
 
 <script setup lang="ts">

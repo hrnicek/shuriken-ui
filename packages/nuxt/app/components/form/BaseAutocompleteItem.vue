@@ -11,14 +11,16 @@ export type BaseAutocompleteItemSlots = {
 }
 
 export const variants = {
-  'default-low': 'data-[highlighted]:bg-muted-100 dark:data-[highlighted]:bg-muted-700',
-  'default-high': 'data-[highlighted]:bg-muted-100 dark:data-[highlighted]:bg-muted-900',
-  'muted-low': 'data-[highlighted]:bg-muted-200 dark:data-[highlighted]:bg-muted-700',
-  'muted-high': 'data-[highlighted]:bg-muted-200 dark:data-[highlighted]:bg-muted-900',
-  'primary-low': 'data-[highlighted]:bg-primary-500/10 dark:data-[highlighted]:bg-primary-500/20',
-  'primary-high': 'data-[highlighted]:bg-primary-500/10 dark:data-[highlighted]:bg-primary-500/20',
-  'none': '',
+  default: 'data-[highlighted]:bg-muted-100 text-muted-700 data-[highlighted]:text-primary-500 dark:text-muted-300 dark:data-[highlighted]:text-primary-400',
+  muted: 'data-[highlighted]:bg-muted-200 text-muted-800 data-[highlighted]:text-primary-500 dark:text-muted-400 dark:data-[highlighted]:text-primary-400',
+  none: '',
 } as const
+
+// export const variants = {
+//   default: '',
+//   muted: '',
+//   none: '',
+// } as const
 </script>
 
 <script setup lang="ts">
