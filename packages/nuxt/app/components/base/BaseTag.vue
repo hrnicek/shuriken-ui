@@ -7,7 +7,7 @@ export interface BaseTagProps extends PrimitiveProps {
    *
    * @default 'default-low'
    */
-  variant?: 'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'primary' | 'custom'
+  variant?: 'default' | 'muted' | 'primary' | 'none'
 
   /**
    * The size of the tag.
@@ -28,13 +28,19 @@ export type BaseTagSlots = {
 }
 
 export const variants = {
-  'default-low': 'bg-white/10 dark:bg-muted-200/10 text-muted-400 dark:text-muted-200 ring-1 ring-inset ring-muted-400/30 dark:ring-muted-200/20',
-  'default-high': 'bg-white/10 dark:bg-muted-950/10 text-muted-400 dark:text-muted-200 ring-1 ring-inset ring-muted-400/20 dark:ring-muted-200/20',
-  'muted-low': 'bg-muted-400/10 dark:bg-muted-200/10 text-muted-400 dark:text-muted-200 ring-1 ring-inset ring-muted-400/20 dark:ring-muted-200/20',
-  'muted-high': 'bg-muted-400/10 dark:bg-muted-950/10 text-muted-400 dark:text-muted-200 ring-1 ring-inset ring-muted-400/20 dark:ring-muted-200/20',
+  'default': 'bg-white/10 dark:bg-muted-950/10 text-muted-400 dark:text-muted-200 ring-1 ring-inset ring-muted-400/20 dark:ring-muted-200/20',
+  'muted': 'bg-muted-400/10 dark:bg-muted-950/10 text-muted-400 dark:text-muted-200 ring-1 ring-inset ring-muted-400/20 dark:ring-muted-200/20',
   'primary': 'bg-primary-400/10 text-primary-400 ring-1 ring-inset ring-primary-400/20',
-  'custom': ''
+  'none': ''
 } as const
+
+// @todo: low-contrast-theme
+// export const variants = {
+//   'default': 'bg-white/10 dark:bg-muted-200/10 text-muted-400 dark:text-muted-200 ring-1 ring-inset ring-muted-400/30 dark:ring-muted-200/20',
+//   'muted': 'bg-muted-400/10 dark:bg-muted-200/10 text-muted-400 dark:text-muted-200 ring-1 ring-inset ring-muted-400/20 dark:ring-muted-200/20',
+//   'primary': 'bg-primary-400/10 text-primary-400 ring-1 ring-inset ring-primary-400/20',
+//   'none': ''
+// } as const
 
 export const radiuses = {
   none: '',

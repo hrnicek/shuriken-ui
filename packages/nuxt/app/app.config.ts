@@ -380,39 +380,13 @@ export default defineAppConfig({
       rounded: 'md',
       type: 'tabs',
     },
-    BaseTabSlider: {
-      /**
-       * The color of the active tab.
-       *
-       * @type {'default' | 'default-contrast' | 'primary' | 'light' | 'dark' | 'black'}
-       */
-      color: 'default',
-      /**
-       * The alignment of the tabs.
-       *
-       * @type {'start' | 'center' | 'end'}
-       */
-      justify: 'start',
-      /**
-       * The radius of the tabs.
-       *
-       * @type {'none' | 'sm' | 'md' | 'lg' | 'full'}
-       */
-      rounded: 'lg',
-      /**
-       * The size of the tabs.
-       *
-       * @type {'sm' | 'md'}
-       */
-      size: 'md',
-    },
     BaseTag: {
       /**
        * The variant of the tag.
        *
-       * @type {'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'primary' | 'custom'}
+       * @type {'default' | 'muted' | 'primary' | 'none'}
        */
-      variant: 'default-low',
+      variant: 'default',
       /**
        * The size of the tag.
        *
