@@ -613,33 +613,6 @@ export default defineAppConfig({
        */
       color: 'default',
     },
-    BaseListbox: {
-      /**
-       * The contrast of the input.
-       *
-       * @type {'default' | 'default-contrast' | 'muted' | 'muted-contrast'}
-       */
-      contrast: 'default',
-      /**
-       * The placement of the dropdown via floating-ui
-       *
-       * @type {'top' | 'top-start' | 'top-end' | 'right' | 'right-start' | 'right-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'left-start' | 'left-end'}
-       */
-      placement: 'bottom-start',
-      /**
-       * The radius of the input.
-       *
-       * @type {'none' | 'sm' | 'md' | 'lg' | 'full'}
-       */
-      rounded: 'sm',
-      /**
-       * The size of the input.
-       *
-       * @type {'sm' | 'md' | 'lg' | 'xl'}
-       */
-      size: 'md',
-    },
-    BaseListboxItem: {},
     BaseRadio: {
       /**
        * Default variant for the BaseRadio component
