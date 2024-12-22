@@ -6,7 +6,7 @@ const props = withDefaults(
      *
      * @default 'default-low'
      */
-    variant?: 'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'primary' | 'dark' | 'custom'
+    variant?: 'default' | 'muted' | 'primary' | 'dark' | 'none'
 
     /**
      * The size of the icon.
@@ -18,7 +18,6 @@ const props = withDefaults(
      /**
      * The radius of the icon.
      *
-     * @since 2.0.0
      * @default 'sm'
      */
     rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
@@ -41,14 +40,21 @@ const size = useNuiDefaultProperty(props, 'BaseIconBox', 'size')
 const rounded = useNuiDefaultProperty(props, 'BaseIconBox', 'rounded')
 
 const variants = {
-  'default-low': 'text-muted-600 dark:text-muted-200 bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
-  'default-high': 'text-muted-600 dark:text-muted-200 bg-white dark:bg-muted-800 border border-muted-300 dark:border-muted-700',
-  'muted-low': 'text-muted-600 dark:text-muted-200 bg-muted-100 dark:bg-muted-700 border border-muted-100 dark:border-muted-700',
-  'muted-high': 'text-muted-600 dark:text-muted-200 bg-muted-100 dark:bg-muted-800 border border-muted-100 dark:border-muted-800',
+  'default': 'text-muted-600 dark:text-muted-200 bg-white dark:bg-muted-800 border border-muted-300 dark:border-muted-700',
+  'muted': 'text-muted-600 dark:text-muted-200 bg-muted-100 dark:bg-muted-800 border border-muted-100 dark:border-muted-800',
   'primary': 'text-[var(--primary-text-base)] bg-[var(--primary-bg-base)]',
   'dark': 'text-white bg-muted-900 dark:bg-white dark:text-muted-900',
-  'custom': '',
+  'none': '',
 }
+
+// @todo: low-contrast-variant
+// const variants = {
+//   'default': 'text-muted-600 dark:text-muted-200 bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
+//   'muted': 'text-muted-600 dark:text-muted-200 bg-muted-100 dark:bg-muted-700 border border-muted-100 dark:border-muted-700',
+//   'primary': 'text-[var(--primary-text-base)] bg-[var(--primary-bg-base)]',
+//   'dark': 'text-white bg-muted-900 dark:bg-white dark:text-muted-900',
+//   'none': '',
+// }
 
 const sizes = {
   'xs': 'size-8',

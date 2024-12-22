@@ -168,9 +168,9 @@ export default defineAppConfig({
       /**
        * The variant of the icon box.
        *
-       * @type {'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'primary' | 'dark' | 'custom'}
+       * @type {'default' | 'muted' | 'primary' | 'dark' | 'none'}
        */
-      variant: 'default-low',
+      variant: 'default',
       /**
        * The size of the icon box.
        *

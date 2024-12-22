@@ -55,35 +55,40 @@ definePageMeta({
       </NuiPreview>
 
       <NuiPreview
-        title="Variant: default-low"
-        description="Icon box component default low contrast variant"
+        title="Variant: default"
+        description="Icon box component default variant"
       >
         <div class="flex flex-wrap items-end gap-2">
           <BaseIconBox
+            variant="default"
             size="md"
             rounded="none"
           >
             <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
           <BaseIconBox
+            variant="default"
             size="md"
             rounded="sm"
           >
             <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
           <BaseIconBox
+            variant="default"
             size="md"
             rounded="md"
           >
             <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
           <BaseIconBox
+            variant="default"
             size="md"
             rounded="lg"
           >
             <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
           <BaseIconBox
+            variant="default"
             size="md"
             rounded="full"
           >
@@ -93,126 +98,40 @@ definePageMeta({
       </NuiPreview>
 
       <NuiPreview
-        title="Variant: default-high"
-        description="Icon box component default high contrast variant"
+        title="Variant: muted"
+        description="Icon box component muted variant"
       >
         <div class="flex flex-wrap items-end gap-2">
           <BaseIconBox
-            variant="default-high"
+            variant="muted"
             size="md"
             rounded="none"
           >
             <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
           <BaseIconBox
-            variant="default-high"
+            variant="muted"
             size="md"
             rounded="sm"
           >
             <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
           <BaseIconBox
-            variant="default-high"
+            variant="muted"
             size="md"
             rounded="md"
           >
             <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
           <BaseIconBox
-            variant="default-high"
+            variant="muted"
             size="md"
             rounded="lg"
           >
             <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
           <BaseIconBox
-            variant="default-high"
-            size="md"
-            rounded="full"
-          >
-            <Icon name="ph:nut-duotone" class="text-lg" />
-          </BaseIconBox>
-        </div>
-      </NuiPreview>
-
-      <NuiPreview
-        title="Variant: muted-low"
-        description="Icon box component muted low contrast variant"
-      >
-        <div class="flex flex-wrap items-end gap-2">
-          <BaseIconBox
-            variant="muted-low"
-            size="md"
-            rounded="none"
-          >
-            <Icon name="ph:nut-duotone" class="text-lg" />
-          </BaseIconBox>
-          <BaseIconBox
-            variant="muted-low"
-            size="md"
-            rounded="sm"
-          >
-            <Icon name="ph:nut-duotone" class="text-lg" />
-          </BaseIconBox>
-          <BaseIconBox
-            variant="muted-low"
-            size="md"
-            rounded="md"
-          >
-            <Icon name="ph:nut-duotone" class="text-lg" />
-          </BaseIconBox>
-          <BaseIconBox
-            variant="muted-low"
-            size="md"
-            rounded="lg"
-          >
-            <Icon name="ph:nut-duotone" class="text-lg" />
-          </BaseIconBox>
-          <BaseIconBox
-            variant="muted-low"
-            size="md"
-            rounded="full"
-          >
-            <Icon name="ph:nut-duotone" class="text-lg" />
-          </BaseIconBox>
-        </div>
-      </NuiPreview>
-
-      <NuiPreview
-        title="Variant: muted-high"
-        description="Icon box component muted high contrast variant"
-      >
-        <div class="flex flex-wrap items-end gap-2">
-          <BaseIconBox
-            variant="muted-high"
-            size="md"
-            rounded="none"
-          >
-            <Icon name="ph:nut-duotone" class="text-lg" />
-          </BaseIconBox>
-          <BaseIconBox
-            variant="muted-high"
-            size="md"
-            rounded="sm"
-          >
-            <Icon name="ph:nut-duotone" class="text-lg" />
-          </BaseIconBox>
-          <BaseIconBox
-            variant="muted-high"
-            size="md"
-            rounded="md"
-          >
-            <Icon name="ph:nut-duotone" class="text-lg" />
-          </BaseIconBox>
-          <BaseIconBox
-            variant="muted-high"
-            size="md"
-            rounded="lg"
-          >
-            <Icon name="ph:nut-duotone" class="text-lg" />
-          </BaseIconBox>
-          <BaseIconBox
-            variant="muted-high"
+            variant="muted"
             size="md"
             rounded="full"
           >
@@ -313,7 +232,7 @@ definePageMeta({
       >
         <div class="flex flex-wrap items-end gap-2">
           <BaseIconBox
-            variant="custom"
+            variant="none"
             size="md"
             rounded="none"
             mask="hex"
@@ -322,7 +241,7 @@ definePageMeta({
             <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
           <BaseIconBox
-            variant="custom"
+            variant="none"
             size="md"
             rounded="none"
             mask="hexed"
@@ -331,7 +250,7 @@ definePageMeta({
             <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
           <BaseIconBox
-            variant="custom"
+            variant="none"
             size="md"
             rounded="none"
             mask="deca"
@@ -340,7 +259,7 @@ definePageMeta({
             <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
           <BaseIconBox
-            variant="custom"
+            variant="none"
             size="md"
             rounded="none"
             mask="diamond"
@@ -349,7 +268,7 @@ definePageMeta({
             <Icon name="ph:nut-duotone" class="text-lg" />
           </BaseIconBox>
           <BaseIconBox
-            variant="custom"
+            variant="none"
             size="md"
             rounded="none"
             mask="blob"
