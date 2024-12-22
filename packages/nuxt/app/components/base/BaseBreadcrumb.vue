@@ -131,10 +131,18 @@ const items = computed(() => {
     <ul class="mb-6 flex items-center font-sans text-[0.85rem]" :class="props.classes?.list">
       <li class="me-3 sm:hidden">
         <BaseDropdown
-          variant="context"
           size="md"
           :class="props.classes?.dropdown"
         >
+          <template #button>
+            <BaseButton
+              size="icon-sm"
+              rounded="full"
+              class="group"
+            >
+              <Icon name="lucide:ellipsis" class="block text-base transition-transform group-data-[state=open]:rotate-45" />
+            </BaseButton>
+          </template>
           <BaseDropdownItem
             v-for="(item, index) in items.slice(0, items.length - 1)"
             :key="index"
