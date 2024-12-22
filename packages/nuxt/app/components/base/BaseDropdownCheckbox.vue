@@ -21,7 +21,7 @@ export interface BaseDropdownCheckboxProps extends DropdownMenuCheckboxItemProps
    *
    * @default 'default-high'
    */
-  variant?: 'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'primary-low' | 'primary-high' | 'none'
+  variant?: 'default' | 'muted' | 'primary' | 'none'
 
   /**
    * The radius of the dropdown-item.

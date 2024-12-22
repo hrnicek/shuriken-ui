@@ -24,9 +24,9 @@ export interface BaseDropdownProps extends DropdownMenuRootProps {
   /**
    * The variant of the dropdown.buttonSize
    *
-   * @default 'default-low'
+   * @default 'default'
    */
-  variant?: 'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'primary-low' | 'primary-high' | 'none'
+  variant?: 'default' | 'muted' | 'primary' | 'none'
 
   /**
    * The radius of the dropdown button.
@@ -85,14 +85,19 @@ export const radiuses = {
 } as const
 
 export const variants = {
-  'default-low': 'border border-muted-200 dark:border-muted-700 bg-white dark:bg-muted-800',
-  'default-high': 'border border-muted-200 dark:border-muted-800 bg-white dark:bg-muted-950',
-  'muted-low': 'border border-muted-200 dark:border-muted-700 bg-muted-50 dark:bg-muted-800',
-  'muted-high': 'border border-muted-200 dark:border-muted-800 bg-muted-50 dark:bg-muted-950',
-  'primary-low': 'border border-muted-200 dark:border-muted-700 bg-white dark:bg-muted-800',
-  'primary-high': 'border border-muted-200 dark:border-muted-800 bg-white dark:bg-muted-950',
+  'default': 'border border-muted-200 dark:border-muted-800 bg-white dark:bg-muted-950',
+  'muted': 'border border-muted-200 dark:border-muted-800 bg-muted-50 dark:bg-muted-950',
+  'primary': 'border border-muted-200 dark:border-muted-800 bg-white dark:bg-muted-950',
   'none': '',
 } as const
+
+// @todo: low-contrast-theme
+// export const variants = {
+//   'default': 'border border-muted-200 dark:border-muted-700 bg-white dark:bg-muted-800',
+//   'muted': 'border border-muted-200 dark:border-muted-700 bg-muted-50 dark:bg-muted-800',
+//   'primary': 'border border-muted-200 dark:border-muted-700 bg-white dark:bg-muted-800',
+//   'none': '',
+// } as const
 
 export const [
   injectBaseDropdownContext,
@@ -147,7 +152,6 @@ provideBaseDropdownContext({
       <slot name="button">
         <BaseButton
           :rounded
-          :variant="variant.endsWith('low') ? 'default-low' : 'default-high'"
           class="group"
         >
           <slot name="label">

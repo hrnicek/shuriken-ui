@@ -107,9 +107,9 @@ export default defineAppConfig({
       /**
        * The color of the dropdown.
        *
-       * @type {'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'primary-low' | 'primary-high' | 'none'}
+       * @type {'default' | 'muted' | 'primary' | 'none'}
        */
-      variant: 'default-high',
+      variant: 'default',
       /**
        * Default rounded for the BaseDropdown component
        *
@@ -122,7 +122,7 @@ export default defineAppConfig({
       /**
        * The hover color of the dropdown item inner elements.
        *
-       * @type {'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'primary-low' | 'primary-high' | 'none'}
+       * @type {'default' | 'muted' | 'primary' | 'none'}
        */
       variant: 'default-high',
       /**

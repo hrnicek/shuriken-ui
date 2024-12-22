@@ -18,14 +18,13 @@ export interface BaseDropdownItemProps extends DropdownMenuItemProps {
   /**
    * The hover color of the dropdown-item inner elements.
    *
-   * @default 'default-low'
+   * @default 'default'
    */
-  variant?: 'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'primary-low' | 'primary-high' | 'none'
+  variant?: 'default' | 'muted' | 'primary' | 'none'
 
   /**
    * The radius of the dropdown-item.
    *
-   * @since 2.0.0
    * @default 'sm'
    */
   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
@@ -54,14 +53,19 @@ export type BaseDropdownItemSlots = {
 }
 
 export const variants = {
-  'default-low': 'hover:bg-muted-100 dark:hover:bg-muted-700',
-  'default-high': 'hover:bg-muted-100 dark:hover:bg-muted-900',
-  'muted-low': 'hover:bg-muted-200 dark:hover:bg-muted-700',
-  'muted-high': 'hover:bg-muted-200 dark:hover:bg-muted-900',
-  'primary-low': 'hover:bg-primary-500/10 dark:hover:bg-primary-500/20',
-  'primary-high': 'hover:bg-primary-500/10 dark:hover:bg-primary-500/20',
+  'default': 'hover:bg-muted-100 dark:hover:bg-muted-900',
+  'muted': 'hover:bg-muted-200 dark:hover:bg-muted-900',
+  'primary': 'hover:bg-primary-500/10 dark:hover:bg-primary-500/20',
   'none': '',
 } as const
+
+// @todo: low-contrast-theme
+// export const variants = {
+//   'default': 'hover:bg-muted-100 dark:hover:bg-muted-700',
+//   'muted': 'hover:bg-muted-200 dark:hover:bg-muted-700',
+//   'primary': 'hover:bg-primary-500/10 dark:hover:bg-primary-500/20',
+//   'none': '',
+// } as const
 </script>
 
 <script setup lang="ts">

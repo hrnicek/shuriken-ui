@@ -6,14 +6,19 @@ import type {
 export interface BaseDropdownSeparatorProps extends DropdownMenuSeparatorProps {}
 
 export const variants = {
-  'default-low': 'border-muted-200 dark:border-muted-700',
-  'default-high': 'border-muted-200 dark:border-muted-800',
-  'muted-low': 'border-muted-300 dark:border-muted-700',
-  'muted-high': 'border-muted-300 dark:border-muted-800',
-  'primary-low': 'border-muted-200 dark:border-muted-700',
-  'primary-high': 'border-muted-200 dark:border-muted-800',
+  'default': 'border-muted-200 dark:border-muted-800',
+  'muted': 'border-muted-300 dark:border-muted-800',
+  'primary': 'border-muted-200 dark:border-muted-800',
   'none': '',
 } as const
+
+// @todo: low-contrast-theme
+// export const variants = {
+//   'default': 'border-muted-200 dark:border-muted-700',
+//   'muted': 'border-muted-300 dark:border-muted-700',
+//   'primary': 'border-muted-200 dark:border-muted-700',
+//   'none': '',
+// } as const
 </script>
 
 <script setup lang="ts">

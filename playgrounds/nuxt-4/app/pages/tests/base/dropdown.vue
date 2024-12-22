@@ -18,7 +18,7 @@ const selection = ref('first')
     <NuiPreviewContainer title="BaseDropdown">
       <NuiPreview title="Variants & Sizes" description="Dropdown menu variants and menu sizes">
         <div class="flex justify-start gap-4 w-full">
-          <BaseDropdown variant="default-low" label="Default low">
+          <BaseDropdown variant="default" label="Default dropdown">
             <BaseDropdownItem>Leads</BaseDropdownItem>
             <BaseDropdownItem>Projects</BaseDropdownItem>
             <BaseDropdownItem>Team</BaseDropdownItem>
@@ -35,24 +35,7 @@ const selection = ref('first')
               </template>
             </BaseDropdownItem>
           </BaseDropdown>
-          <BaseDropdown variant="default-high" label="Default high" :classes="{ menu: 'w-72' }">
-            <BaseDropdownItem>Leads</BaseDropdownItem>
-            <BaseDropdownItem>Projects</BaseDropdownItem>
-            <BaseDropdownItem>Team</BaseDropdownItem>
-            <BaseDropdownItem>Reports</BaseDropdownItem>
-            <BaseDropdownItem>
-              Settings
-              <template #end>
-                <BaseKbd size="sm">
-                  <span class="text-xs font-mono">⌘</span>
-                </BaseKbd>
-                <BaseKbd size="sm">
-                  <span class="text-xs font-mono px-0.5">P</span>
-                </BaseKbd>
-              </template>
-            </BaseDropdownItem> 
-          </BaseDropdown>
-          <BaseDropdown variant="muted-low" label="Muted low">
+          <BaseDropdown variant="muted" label="Muted dropdown">
             <BaseDropdownItem>Leads</BaseDropdownItem>
             <BaseDropdownItem>Projects</BaseDropdownItem>
             <BaseDropdownItem>Team</BaseDropdownItem>
@@ -69,24 +52,7 @@ const selection = ref('first')
               </template>
             </BaseDropdownItem>
           </BaseDropdown>
-          <BaseDropdown variant="muted-high" label="Muted high" :classes="{ menu: 'w-72' }">
-            <BaseDropdownItem>Leads</BaseDropdownItem>
-            <BaseDropdownItem>Projects</BaseDropdownItem>
-            <BaseDropdownItem>Team</BaseDropdownItem>
-            <BaseDropdownItem>Reports</BaseDropdownItem>
-            <BaseDropdownItem>
-              Settings
-              <template #end>
-                <BaseKbd size="sm">
-                  <span class="text-xs font-mono">⌘</span>
-                </BaseKbd>
-                <BaseKbd size="sm">
-                  <span class="text-xs font-mono px-0.5">P</span>
-                </BaseKbd>
-              </template>
-            </BaseDropdownItem> 
-          </BaseDropdown>
-          <BaseDropdown variant="primary-low" label="Primary low">
+          <BaseDropdown variant="primary" label="Primary dropdown">
             <BaseDropdownItem>Leads</BaseDropdownItem>
             <BaseDropdownItem>Projects</BaseDropdownItem>
             <BaseDropdownItem>Team</BaseDropdownItem>
@@ -102,23 +68,6 @@ const selection = ref('first')
                 </BaseKbd>
               </template>
             </BaseDropdownItem>
-          </BaseDropdown>
-          <BaseDropdown variant="primary-high" label="Primary high" :classes="{ menu: 'w-72' }">
-            <BaseDropdownItem>Leads</BaseDropdownItem>
-            <BaseDropdownItem>Projects</BaseDropdownItem>
-            <BaseDropdownItem>Team</BaseDropdownItem>
-            <BaseDropdownItem>Reports</BaseDropdownItem>
-            <BaseDropdownItem>
-              Settings
-              <template #end>
-                <BaseKbd size="sm">
-                  <span class="text-xs font-mono">⌘</span>
-                </BaseKbd>
-                <BaseKbd size="sm">
-                  <span class="text-xs font-mono px-0.5">P</span>
-                </BaseKbd>
-              </template>
-            </BaseDropdownItem> 
           </BaseDropdown>
         </div>
       </NuiPreview>
@@ -314,7 +263,7 @@ const selection = ref('first')
           <BaseDropdown>
             <template #button>
               <BaseButton
-                variant="ghost-high"
+                variant="ghost"
                 size="sm"
                 class="group"
               >

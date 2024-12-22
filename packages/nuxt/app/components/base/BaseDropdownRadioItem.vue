@@ -21,7 +21,7 @@ export interface BaseDropdownRadioItemProps extends DropdownMenuRadioItemProps {
    *
    * @default 'default-low'
    */
-  variant?: 'default-low' | 'default-high' | 'muted-low' | 'muted-high' | 'none'
+  variant?: 'default' | 'muted' | 'primary' | 'none'
 
   /**
    * The radius of the dropdown-item.
@@ -87,7 +87,6 @@ const slots = defineSlots<BaseDropdownRadioItemSlots>()
 
 const variant = useNuiDefaultProperty(props, 'BaseDropdownItem', 'variant')
 const rounded = useNuiDefaultProperty(props, 'BaseDropdownItem', 'rounded')
-const iconCheck = useNuiDefaultIcon('checkCircle')
 const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'variant', 'rounded', 'bindings', 'classes']), emits)
 </script>
 
