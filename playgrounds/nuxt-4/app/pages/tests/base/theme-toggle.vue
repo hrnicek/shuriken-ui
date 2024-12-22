@@ -15,9 +15,7 @@ definePageMeta({
         description="Theme toggle component variants"
       >
         <div class="flex items-center gap-10">
-          <BaseThemeToggle variant="default-low" />
-
-          <BaseThemeToggle variant="default-high" />
+          <BaseThemeToggle variant="default" />
         </div>
       </NuiPreview>
 
@@ -26,8 +24,7 @@ definePageMeta({
         description="Theme switch component variants"
       >
         <div class="flex items-center gap-10">
-          <BaseThemeSwitch variant="default-low" />
-          <BaseThemeSwitch variant="default-high" />
+          <BaseThemeSwitch variant="default" />
         </div>
       </NuiPreview>
 
@@ -36,8 +33,7 @@ definePageMeta({
         description="Theme system component variants"
       >
         <div class="flex items-center gap-10">
-          <BaseThemeSystem variant="default-low" />
-          <BaseThemeSystem variant="default-high" />
+          <BaseThemeSystem variant="default" />
         </div>
       </NuiPreview>
 

@@ -464,9 +464,9 @@ export default defineAppConfig({
       /**
        * The variant of the toggle.
        *
-       * @type {'default' | 'default-high'}
+       * @type {'default'}
        */
-      variant: 'default-low',
+      variant: 'default',
     },
     // #endregion
 
