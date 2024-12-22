@@ -85,9 +85,9 @@ export default defineAppConfig({
       /**
        * Default variant for the BaseButton component
        *
-       * @type {'default-low' | 'default-high' | 'muted-low' | 'ghost-low' | 'ghost-high' | 'muted-high' | 'primary' | 'destructive' | 'dark' | 'link' | 'custom'}
+       * @type {'default' | 'muted' | 'ghost' | 'muted' | 'primary' | 'destructive' | 'dark' | 'link' | 'none'}
        */
-      variant: 'default-low',
+      variant: 'default',
     },
     BaseButtonAction: {
       /**

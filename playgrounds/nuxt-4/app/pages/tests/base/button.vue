@@ -14,19 +14,19 @@ const loading = ref(true)
     <NuiPreviewContainer title="BaseButton">
       <NuiPreview title="Normal radius" description="Button component border radiuses for normal buttons">
         <div class="flex flex-wrap items-end gap-4">
-          <BaseButton variant="default-low" rounded="none">
+          <BaseButton rounded="none">
             Button
           </BaseButton>
-          <BaseButton variant="default-low" rounded="sm">
+          <BaseButton rounded="sm">
             Button
           </BaseButton>
-          <BaseButton variant="default-low" rounded="md">
+          <BaseButton rounded="md">
             Button
           </BaseButton>
-          <BaseButton variant="default-low" rounded="lg">
+          <BaseButton rounded="lg">
             Button
           </BaseButton>
-          <BaseButton variant="default-low" rounded="full">
+          <BaseButton rounded="full">
             Button
           </BaseButton>
         </div>
@@ -34,16 +34,16 @@ const loading = ref(true)
 
       <NuiPreview title="Normal size" description="Button component sizes for normal buttons">
         <div class="flex flex-wrap items-end gap-4">
-          <BaseButton variant="default-low" size="sm" rounded="md">
+          <BaseButton size="sm" rounded="md">
             Button
           </BaseButton>
-          <BaseButton variant="default-low" size="md" rounded="md">
+          <BaseButton size="md" rounded="md">
             Button
           </BaseButton>
-          <BaseButton variant="default-low" size="lg" rounded="md">
+          <BaseButton size="lg" rounded="md">
             Button
           </BaseButton>
-          <BaseButton variant="default-low" size="xl" rounded="md">
+          <BaseButton size="xl" rounded="md">
             Button
           </BaseButton>
         </div>
@@ -51,27 +51,27 @@ const loading = ref(true)
 
       <NuiPreview title="Normal with icons" description="Normal buttons with icons">
         <div class="flex flex-wrap items-end gap-4">
-          <BaseButton variant="default-low">
+          <BaseButton>
             <Icon name="lucide:moon" class="-ms-1 size-4" />
             <span>Button</span>
           </BaseButton>
-          <BaseButton variant="default-low">
+          <BaseButton>
             <span>Button</span>
             <Icon name="lucide:arrow-right" class="me-1 size-4" />
           </BaseButton>
-          <BaseButton variant="default-low">
+          <BaseButton>
             <Icon name="cib:envato" class="-ms-1 size-4" />
             <span>Button</span>
           </BaseButton>
-          <BaseButton variant="default-low">
+          <BaseButton>
             <Icon name="fa:twitter" class="-ms-1 size-4" />
             <span>Button</span>
           </BaseButton>
-          <BaseButton variant="default-low">
+          <BaseButton>
             <Icon name="ion:shapes" class="-ms-1 size-4" />
             <span>Button</span>
           </BaseButton>
-          <BaseButton variant="default-low">
+          <BaseButton>
             <Icon name="ph:heart-duotone" class="-ms-1 size-4" />
             <span>Button</span>
           </BaseButton>
@@ -80,19 +80,19 @@ const loading = ref(true)
 
       <NuiPreview title="Icon radius" description="Button icon component radiuses">
         <div class="flex flex-wrap items-end gap-2">
-          <BaseButton variant="default-low" size="icon-md"  rounded="none">
+          <BaseButton size="icon-md"  rounded="none">
             <Icon name="ph:moon-duotone" class="size-5" />
           </BaseButton>
-          <BaseButton variant="default-low" size="icon-md"  rounded="sm">
+          <BaseButton size="icon-md"  rounded="sm">
             <Icon name="ph:github-logo-duotone" class="size-5" />
           </BaseButton>
-          <BaseButton variant="default-low" size="icon-md"  rounded="md">
+          <BaseButton size="icon-md"  rounded="md">
             <Icon name="ph:game-controller-duotone" class="size-5" />
           </BaseButton>
-          <BaseButton variant="default-low" size="icon-md"  rounded="lg">
+          <BaseButton size="icon-md"  rounded="lg">
             <Icon name="ph:alien-duotone" class="size-5" />
           </BaseButton>
-          <BaseButton variant="default-low" size="icon-md"  rounded="full">
+          <BaseButton size="icon-md"  rounded="full">
             <Icon name="ph:heart-duotone" class="size-5" />
           </BaseButton>
         </div>
@@ -100,100 +100,58 @@ const loading = ref(true)
 
       <NuiPreview title="Icon size" description="Button component sizes for icon buttons">
         <div class="flex flex-wrap items-end gap-4">
-          <BaseButton variant="default-low" size="icon-sm" rounded="md">
+          <BaseButton size="icon-sm" rounded="md">
             <Icon name="ph:game-controller-duotone" class="size-4" />
           </BaseButton>
-          <BaseButton variant="default-low" size="icon-md" rounded="md">
+          <BaseButton size="icon-md" rounded="md">
             <Icon name="ph:game-controller-duotone" class="size-5" />
           </BaseButton>
-          <BaseButton variant="default-low" size="icon-lg" rounded="md">
+          <BaseButton size="icon-lg" rounded="md">
             <Icon name="ph:game-controller-duotone" class="size-6" />
           </BaseButton>
-          <BaseButton variant="default-low" size="icon-xl" rounded="md">
+          <BaseButton size="icon-xl" rounded="md">
             <Icon name="ph:game-controller-duotone" class="size-7" />
           </BaseButton>
         </div>
       </NuiPreview>
 
       <NuiPreview
-        title="Variant: low contrast"
-        description="Button component low contrast variant"
+        title="Variant: default"
+        description="Button component default variant"
       >
         <div class="flex flex-wrap items-end gap-4">
-          <BaseButton variant="default-low">
-            This is a low contrast button
+          <BaseButton>
+            This is a default button
           </BaseButton>
-          <BaseButton variant="default-low" size="icon-md" rounded="md">
+          <BaseButton size="icon-md" rounded="md">
             <Icon name="ph:game-controller-duotone" class="size-5" />
           </BaseButton>
         </div>
       </NuiPreview>
 
       <NuiPreview
-        title="Variant: high contrast"
-        description="Button component high contrast variant"
+        title="Variant: muted"
+        description="Button muted variant"
       >
         <div class="flex flex-wrap items-end gap-4">
-          <BaseButton variant="default-high">
-            This is a high contrast button
+          <BaseButton variant="muted">
+            This is a muted button
           </BaseButton>
-          <BaseButton variant="default-high" size="icon-md" rounded="md">
+          <BaseButton variant="muted" size="icon-md" rounded="md">
             <Icon name="ph:game-controller-duotone" class="size-5" />
           </BaseButton>
         </div>
       </NuiPreview>
 
       <NuiPreview
-        title="Variant: muted low contrast"
-        description="Button muted low contrast variant"
+        title="Variant: ghost"
+        description="Button ghost variant"
       >
         <div class="flex flex-wrap items-end gap-4">
-          <BaseButton variant="muted-low">
-            This is a muted low button
+          <BaseButton variant="ghost">
+            This is a ghost button
           </BaseButton>
-          <BaseButton variant="muted-low" size="icon-md" rounded="md">
-            <Icon name="ph:game-controller-duotone" class="size-5" />
-          </BaseButton>
-        </div>
-      </NuiPreview>
-
-      <NuiPreview
-        title="Variant: muted high contrast"
-        description="Button muted high contrast variant"
-      >
-        <div class="flex flex-wrap items-end gap-4">
-          <BaseButton variant="muted-high">
-            This is a muted high button
-          </BaseButton>
-          <BaseButton variant="muted-high" size="icon-md" rounded="md">
-            <Icon name="ph:game-controller-duotone" class="size-5" />
-          </BaseButton>
-        </div>
-      </NuiPreview>
-
-      <NuiPreview
-        title="Variant: ghost low contrast"
-        description="Button ghost low contrast variant"
-      >
-        <div class="flex flex-wrap items-end gap-4">
-          <BaseButton variant="ghost-low">
-            This is a ghost low button
-          </BaseButton>
-          <BaseButton variant="ghost-low" size="icon-md" rounded="md">
-            <Icon name="ph:game-controller-duotone" class="size-5" />
-          </BaseButton>
-        </div>
-      </NuiPreview>
-
-      <NuiPreview
-        title="Variant: ghost high contrast"
-        description="Button ghost high contrast variant"
-      >
-        <div class="flex flex-wrap items-end gap-4">
-          <BaseButton variant="ghost-high">
-            This is a ghost high button
-          </BaseButton>
-          <BaseButton variant="ghost-high" size="icon-md" rounded="md">
+          <BaseButton variant="ghost" size="icon-md" rounded="md">
             <Icon name="ph:game-controller-duotone" class="size-5" />
           </BaseButton>
         </div>
@@ -260,7 +218,7 @@ const loading = ref(true)
         description="Button component custom variant"
       >
         <div class="flex flex-wrap items-end gap-4">
-          <BaseButton variant="custom" class="bg-primary-500/10 text-primary-600">
+          <BaseButton variant="none" class="bg-primary-500/10 text-primary-600">
             This is a custom button
           </BaseButton>
         </div>
@@ -269,22 +227,22 @@ const loading = ref(true)
       <NuiPreview title="Chip" description="Button component with chip component">
         <div class="flex flex-wrap items-end gap-4">
           <BaseChip :offset="-5" pulse>
-            <BaseButton variant="default-low" size="sm" rounded="md">
+            <BaseButton size="sm" rounded="md">
               Button
             </BaseButton>
           </BaseChip>
           <BaseChip :offset="-5" pulse>
-            <BaseButton variant="default-low" size="md" rounded="md">
+            <BaseButton size="md" rounded="md">
               Button
             </BaseButton>
           </BaseChip>
           <BaseChip :offset="-5" pulse>
-            <BaseButton variant="default-low" size="lg" rounded="md">
+            <BaseButton size="lg" rounded="md">
               Button
             </BaseButton>
           </BaseChip>
           <BaseChip :offset="-5" pulse>
-            <BaseButton variant="default-low" size="xl" rounded="md">
+            <BaseButton size="xl" rounded="md">
               Button
             </BaseButton>
           </BaseChip>
@@ -296,14 +254,14 @@ const loading = ref(true)
         description="Button component in a loading state"
       >
         <div class="flex flex-wrap items-end gap-4">
-          <BaseSwitchBall v-model="loading" />
-          <BaseButton :loading="loading" variant="default-low">
+          <BaseSwitchBall v-model="loading" variant="primary" />
+          <BaseButton :loading="loading" variant="default">
             Loading
           </BaseButton>
-          <BaseButton :loading="loading" variant="muted-low">
+          <BaseButton :loading="loading" variant="muted">
             Loading
           </BaseButton>
-          <BaseButton :loading="loading" variant="ghost-low">
+          <BaseButton :loading="loading" variant="ghost">
             Loading
           </BaseButton>
           <BaseButton :loading="loading" variant="link">
@@ -315,7 +273,7 @@ const loading = ref(true)
           <BaseButton :loading="loading" variant="dark">
             Loading
           </BaseButton>
-          <BaseButton :loading="loading" variant="custom" class="bg-lime-500 font-medium text-muted-900">
+          <BaseButton :loading="loading" variant="none" class="bg-lime-500 font-medium text-muted-900">
             Loading
           </BaseButton>
         </div>
@@ -326,13 +284,13 @@ const loading = ref(true)
         description="Button component in a disabled state"
       >
         <div class="flex flex-wrap items-end gap-4">
-          <BaseButton disabled variant="default-low">
+          <BaseButton disabled variant="default">
             Button
           </BaseButton>
-          <BaseButton disabled variant="muted-low">
+          <BaseButton disabled variant="muted">
             Button
           </BaseButton>
-          <BaseButton disabled variant="ghost-low">
+          <BaseButton disabled variant="ghost">
             Button
           </BaseButton>
           <BaseButton disabled variant="link">
@@ -349,19 +307,19 @@ const loading = ref(true)
 
       <NuiPreview title="Close button" description="Buttons with a close icon">
         <div class="flex flex-wrap items-end gap-2">
-          <BaseButton variant="default-low" size="icon-md"  rounded="none">
+          <BaseButton variant="default" size="icon-md"  rounded="none">
             <Icon name="lucide:x" class="text-base" />
           </BaseButton>
-          <BaseButton variant="default-low" size="icon-md"  rounded="sm">
+          <BaseButton variant="default" size="icon-md"  rounded="sm">
             <Icon name="lucide:x" class="text-base" />
           </BaseButton>
-          <BaseButton variant="default-low" size="icon-md"  rounded="md">
+          <BaseButton variant="default" size="icon-md"  rounded="md">
             <Icon name="lucide:x" class="text-base" />
           </BaseButton>
-          <BaseButton variant="default-low" size="icon-md"  rounded="lg">
+          <BaseButton variant="default" size="icon-md"  rounded="lg">
             <Icon name="lucide:x" class="text-base" />
           </BaseButton>
-          <BaseButton variant="default-low" size="icon-md"  rounded="full">
+          <BaseButton variant="default" size="icon-md"  rounded="full">
             <Icon name="lucide:x" class="text-base" />
           </BaseButton>
         </div>
@@ -371,10 +329,10 @@ const loading = ref(true)
         title="Group"
         description="Button component inside a button group"
       >
-        <BaseButton variant="default-low" rounded="none" class="border-e-0 rounded-s-md">
+        <BaseButton variant="default" rounded="none" class="border-e-0 rounded-s-md">
           <span>Edit</span>
         </BaseButton>
-        <BaseButton variant="default-low" rounded="none" class="border-e-0">
+        <BaseButton variant="default" rounded="none" class="border-e-0">
           <span>View</span>
         </BaseButton>
         <BaseButton variant="primary" rounded="none" class="border-e-0">
@@ -383,14 +341,14 @@ const loading = ref(true)
 
         <BaseDropdown :classes="{ wrapper: 'inline-block' }" arrow>
           <template #button>
-            <BaseButton variant="default-low" rounded="none" class="border-e-0">
+            <BaseButton variant="default" rounded="none" class="border-e-0">
               <span>Share</span>
             </BaseButton>
           </template>
           <BaseDropdownItem>test</BaseDropdownItem>
         </BaseDropdown>
 
-        <BaseButton variant="default-low" rounded="none" class="rounded-e-md">
+        <BaseButton variant="default" rounded="none" class="rounded-e-md">
           <span>Share</span>
         </BaseButton>
       </NuiPreview>

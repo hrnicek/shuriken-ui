@@ -25,7 +25,7 @@ interface BaseButtonProps {
    *
    * @default 'default'
    */
-  variant?: 'default-low' | 'default-high' |'muted-low' | 'muted-high' | 'ghost-low' | 'ghost-high' | 'primary' | 'destructive' | 'dark' | 'link' | 'custom'
+  variant?: 'default' | 'muted' | 'ghost' | 'muted' | 'primary' | 'destructive' | 'dark' | 'link' | 'none'
 
   /**
    * The size of the button
@@ -79,18 +79,27 @@ const radiuses = {
 } as const
 
 const variants = {
-  'default-low': 'border border-muted-300 dark:border-muted-600 hover:enabled:border-muted-200 dark:hover:enabled:border-muted-500 text-muted-700 dark:text-muted-100 bg-white dark:bg-muted-700 hover:enabled:bg-muted-50 dark:hover:enabled:bg-muted-600 active:enabled:bg-white dark:active:enabled:bg-muted-700 focus-visible:bg-muted-50 dark:focus-visible:bg-muted-600 ',
-  'default-high': 'border border-muted-300 dark:border-muted-800 hover:enabled:border-muted-200 dark:hover:enabled:border-muted-700 text-muted-800 dark:text-muted-100 bg-white dark:bg-muted-950 hover:enabled:bg-muted-50 dark:hover:enabled:bg-muted-900 active:enabled:bg-white dark:active:enabled:bg-muted-950 focus-visible:bg-muted-50 dark:focus-visible:bg-muted-900',
-  'muted-low': 'border border-muted-100 dark:border-muted-700 text-muted-500 dark:text-muted-100 bg-muted-100 dark:bg-muted-700 hover:enabled:bg-muted-50 dark:hover:enabled:bg-muted-600 active:enabled:bg-muted-100 dark:active:enabled:bg-muted-700 focus-visible:bg-muted-50 dark:focus-visible:bg-muted-600',
-  'muted-high': 'border border-muted-100 dark:border-muted-800 text-muted-500 dark:text-muted-100 bg-muted-100 dark:bg-muted-800 hover:enabled:bg-muted-50 dark:hover:enabled:bg-muted-700 active:enabled:bg-muted-100 dark:active:enabled:bg-muted-600 focus-visible:bg-muted-50 dark:focus-visible:bg-muted-700',
-  'ghost-low': 'text-muted-600 dark:text-muted-100 hover:enabled:bg-muted-100 dark:hover:enabled:bg-muted-700 active:enabled:bg-muted-50 dark:active:enabled:bg-muted-600 focus-visible:bg-muted-100 dark:focus-visible:bg-muted-600',
-  'ghost-high': 'text-muted-600 dark:text-muted-100 hover:enabled:bg-muted-100 dark:hover:enabled:bg-muted-800 active:enabled:bg-muted-50 dark:active:enabled:bg-muted-700 focus-visible:bg-muted-100 dark:focus-visible:bg-muted-800',
+  'default': 'border border-muted-300 dark:border-muted-800 hover:enabled:border-muted-200 dark:hover:enabled:border-muted-700 text-muted-800 dark:text-muted-100 bg-white dark:bg-muted-950 hover:enabled:bg-muted-50 dark:hover:enabled:bg-muted-900 active:enabled:bg-white dark:active:enabled:bg-muted-950 focus-visible:bg-muted-50 dark:focus-visible:bg-muted-900',
+  'muted': 'border border-muted-100 dark:border-muted-800 text-muted-500 dark:text-muted-100 bg-muted-100 dark:bg-muted-800 hover:enabled:bg-muted-50 dark:hover:enabled:bg-muted-700 active:enabled:bg-muted-100 dark:active:enabled:bg-muted-600 focus-visible:bg-muted-50 dark:focus-visible:bg-muted-700',
+  'ghost': 'text-muted-600 dark:text-muted-100 hover:enabled:bg-muted-100 dark:hover:enabled:bg-muted-800 active:enabled:bg-muted-50 dark:active:enabled:bg-muted-700 focus-visible:bg-muted-100 dark:focus-visible:bg-muted-800',
   'primary': 'text-[var(--primary-text-base)] dark:text-[var(--primary-text-base)] bg-[var(--primary-bg-base)] dark:bg-[var(--primary-bg-base)] hover:enabled:bg-[var(--primary-bg-hocus)] dark:hover:enabled:bg-[var(--primary-bg-hocus)] active:enabled:bg-[var(--primary-bg-base)] dark:active:enabled:bg-[var(--primary-bg-base)] focus-visible:bg-[var(--primary-bg-hocus)] dark:focus-visible:bg-[var(--primary-bg-hocus)]',
   'destructive': 'text-[var(--destructive-text-base)] dark:text-[var(--destructive-text-base)] bg-[var(--destructive-bg-base)] dark:bg-[var(--destructive-bg-base)] hover:enabled:bg-[var(--destructive-bg-hocus)] dark:hover:enabled:bg-[var(--destructive-bg-hocus)] active:enabled:bg-[var(--destructive-bg-base)] dark:active:enabled:bg-[var(--destructive-bg-base)] focus-visible:bg-[var(--destructive-bg-hocus)] dark:focus-visible:bg-[var(--destructive-bg-hocus)]',
   'dark': 'text-muted-100 dark:text-muted-900 bg-muted-900 dark:bg-muted-100 hover:enabled:bg-muted-700 dark:hover:enabled:bg-muted-100 active:enabled:bg-muted-900 dark:active:enabled:bg-muted-50 focus-visible:bg-muted-800 dark:focus-visible:bg-muted-50 border border-muted-900 dark:border-muted-100 border-muted-800 dark:border-muted-50',
   'link': 'text-muted-600 dark:text-muted-100 hover:text-primary-500 dark:hover:text-primary-500 focus-visible:text-primary-500 dark:focus-visible:text-primary-500 hover:underline underline-offset-4',
-  'custom': '',
+  'none': '',
 } as const
+
+// @todo: low-contrast-theme
+// const variants = {
+//   'default-low': 'border border-muted-300 dark:border-muted-600 hover:enabled:border-muted-200 dark:hover:enabled:border-muted-500 text-muted-700 dark:text-muted-100 bg-white dark:bg-muted-700 hover:enabled:bg-muted-50 dark:hover:enabled:bg-muted-600 active:enabled:bg-white dark:active:enabled:bg-muted-700 focus-visible:bg-muted-50 dark:focus-visible:bg-muted-600 ',
+//   'muted-low': 'border border-muted-100 dark:border-muted-700 text-muted-500 dark:text-muted-100 bg-muted-100 dark:bg-muted-700 hover:enabled:bg-muted-50 dark:hover:enabled:bg-muted-600 active:enabled:bg-muted-100 dark:active:enabled:bg-muted-700 focus-visible:bg-muted-50 dark:focus-visible:bg-muted-600',
+//   'ghost-low': 'text-muted-600 dark:text-muted-100 hover:enabled:bg-muted-100 dark:hover:enabled:bg-muted-700 active:enabled:bg-muted-50 dark:active:enabled:bg-muted-600 focus-visible:bg-muted-100 dark:focus-visible:bg-muted-600',
+//   'primary': 'text-[var(--primary-text-base)] dark:text-[var(--primary-text-base)] bg-[var(--primary-bg-base)] dark:bg-[var(--primary-bg-base)] hover:enabled:bg-[var(--primary-bg-hocus)] dark:hover:enabled:bg-[var(--primary-bg-hocus)] active:enabled:bg-[var(--primary-bg-base)] dark:active:enabled:bg-[var(--primary-bg-base)] focus-visible:bg-[var(--primary-bg-hocus)] dark:focus-visible:bg-[var(--primary-bg-hocus)]',
+//   'destructive': 'text-[var(--destructive-text-base)] dark:text-[var(--destructive-text-base)] bg-[var(--destructive-bg-base)] dark:bg-[var(--destructive-bg-base)] hover:enabled:bg-[var(--destructive-bg-hocus)] dark:hover:enabled:bg-[var(--destructive-bg-hocus)] active:enabled:bg-[var(--destructive-bg-base)] dark:active:enabled:bg-[var(--destructive-bg-base)] focus-visible:bg-[var(--destructive-bg-hocus)] dark:focus-visible:bg-[var(--destructive-bg-hocus)]',
+//   'dark': 'text-muted-100 dark:text-muted-900 bg-muted-900 dark:bg-muted-100 hover:enabled:bg-muted-700 dark:hover:enabled:bg-muted-100 active:enabled:bg-muted-900 dark:active:enabled:bg-muted-50 focus-visible:bg-muted-800 dark:focus-visible:bg-muted-50 border border-muted-900 dark:border-muted-100 border-muted-800 dark:border-muted-50',
+//   'link': 'text-muted-600 dark:text-muted-100 hover:text-primary-500 dark:hover:text-primary-500 focus-visible:text-primary-500 dark:focus-visible:text-primary-500 hover:underline underline-offset-4',
+//   'none': '',
+// } as const
 
 const classes = computed(() => [
   'relative inline-flex justify-center items-center space-x-1 font-sans font-normal leading-5 no-underline transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed hover:shadow-none',
