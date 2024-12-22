@@ -19,8 +19,8 @@ const fields = reactive({
 <template>
   <div>
     <NuiPreviewContainer title="BaseInputNumber">
-      <NuiPreview title="Format" description="Inputs radiuses">
-        <div class="grid grid-cols-4 max-w-5xl gap-4">
+      <NuiPreview title="Format" description="Number value formatting">
+        <div class="grid grid-cols-4 max-w-3xl gap-4">
           <BaseInputNumber
             :default-value="5"
             label="Default"
@@ -57,8 +57,8 @@ const fields = reactive({
       </NuiPreview>
 
 
-      <NuiPreview title="Format: fr" description="Inputs radiuses">
-        <div class="grid grid-cols-4 max-w-5xl gap-4">
+      <NuiPreview title="Format: fr" description="Number value formatting">
+        <div class="grid grid-cols-4 max-w-3xl gap-4">
           <BaseInputNumber
             :default-value="5"
             locale="fr"
@@ -98,8 +98,8 @@ const fields = reactive({
         </div>
       </NuiPreview>
 
-      <NuiPreview title="Radius" description="Inputs radiuses">
-        <div class="grid grid-cols-4 max-w-5xl gap-4">
+      <NuiPreview title="Radius" description="Inputs border radiuses">
+        <div class="grid grid-cols-3 max-w-2xl gap-4">
           <BaseInputNumber
             v-model="fields.first"
             rounded="none"
@@ -178,15 +178,15 @@ const fields = reactive({
       </NuiPreview>
 
       <NuiPreview
-        title="Contrast: default-contrast"
-        description="Input component default contrast"
+        title="Variants"
+        description="Input component variants"
       >
         <div class="grid grid-cols-4 max-w-5xl gap-4">
           <div class="flex-1">
             <BaseInputNumber
               v-model="fields.first"
-              contrast="default-contrast"
-              size="sm"
+              variant="default"
+              size="md"
               rounded="md"
               label="Size: sm"
               placeholder="Quantity"
@@ -196,406 +196,13 @@ const fields = reactive({
           <div class="flex-1">
             <BaseInputNumber
               v-model="fields.second"
-              contrast="default-contrast"
+              variant="muted"
               size="md"
               rounded="md"
               label="Size: md"
               placeholder="Quantity"
             />
           </div>
-
-          <div class="flex-1">
-            <BaseInputNumber
-              v-model="fields.third"
-              contrast="default-contrast"
-              size="lg"
-              rounded="md"
-              label="Size: lg"
-              placeholder="Quantity"
-            />
-          </div>
-
-          <div class="flex-1">
-            <BaseInputNumber
-              v-model="fields.third"
-              contrast="default-contrast"
-              size="xl"
-              rounded="md"
-              label="Size: xl"
-              placeholder="Quantity"
-            />
-          </div>
-        </div>
-      </NuiPreview>
-
-      <NuiPreview title="Contrast: muted" description="Input component muted">
-        <div class="grid grid-cols-4 max-w-5xl gap-4">
-          <div class="flex-1">
-            <BaseInputNumber
-              v-model="fields.first"
-              contrast="muted"
-              size="sm"
-              rounded="md"
-              label="Size: sm"
-              placeholder="Quantity"
-            />
-          </div>
-
-          <div class="flex-1">
-            <BaseInputNumber
-              v-model="fields.second"
-              contrast="muted"
-              size="md"
-              rounded="md"
-              label="Size: md"
-              placeholder="Quantity"
-            />
-          </div>
-
-          <div class="flex-1">
-            <BaseInputNumber
-              v-model="fields.third"
-              contrast="muted"
-              size="lg"
-              rounded="md"
-              label="Size: lg"
-              placeholder="Quantity"
-            />
-          </div>
-
-          <div class="flex-1">
-            <BaseInputNumber
-              v-model="fields.third"
-              contrast="muted"
-              size="xl"
-              rounded="md"
-              label="Size: xl"
-              placeholder="Quantity"
-            />
-          </div>
-        </div>
-      </NuiPreview>
-
-      <NuiPreview
-        title="Contrast: muted-contrast"
-        description="Input component muted contrast"
-      >
-        <div class="grid grid-cols-4 max-w-5xl gap-4">
-          <div class="flex-1">
-            <BaseInputNumber
-              v-model="fields.first"
-              contrast="muted-contrast"
-              size="sm"
-              rounded="md"
-              label="Size: sm"
-              placeholder="Quantity"
-            />
-          </div>
-
-          <div class="flex-1">
-            <BaseInputNumber
-              v-model="fields.second"
-              contrast="muted-contrast"
-              size="md"
-              rounded="md"
-              label="Size: md"
-              placeholder="Quantity"
-            />
-          </div>
-
-          <div class="flex-1">
-            <BaseInputNumber
-              v-model="fields.third"
-              contrast="muted-contrast"
-              size="lg"
-              rounded="md"
-              label="Size: lg"
-              placeholder="Quantity"
-            />
-          </div>
-
-          <div class="flex-1">
-            <BaseInputNumber
-              v-model="fields.third"
-              contrast="muted-contrast"
-              size="xl"
-              rounded="md"
-              label="Size: xl"
-              placeholder="Quantity"
-            />
-          </div>
-        </div>
-      </NuiPreview>
-
-      <NuiPreview title="Icon" description="Input component icons">
-        <div class="grid grid-cols-4 max-w-5xl gap-4">
-          <div class="flex-1">
-            <BaseInputNumber
-              v-model="fields.first"
-              icon="lucide:star"
-              icon-increment="lucide:chevron-right"
-              icon-decrement="lucide:chevron-left"
-              size="sm"
-              rounded="md"
-              label="Size: sm"
-              placeholder="Quantity"
-            />
-          </div>
-
-          <div class="flex-1">
-            <BaseInputNumber
-              v-model="fields.second"
-              icon="lucide:star"
-              icon-increment="lucide:alarm-plus"
-              icon-decrement="lucide:alarm-minus"
-              size="md"
-              rounded="md"
-              label="Size: md"
-              placeholder="Quantity"
-            />
-          </div>
-
-          <div class="flex-1">
-            <BaseInputNumber
-              v-model="fields.third"
-              icon="lucide:star"
-              icon-increment="lucide:chevron-right"
-              icon-decrement="lucide:chevron-left"
-              size="lg"
-              rounded="md"
-              label="Size: lg"
-              placeholder="Quantity"
-            />
-          </div>
-
-          <div class="flex-1">
-            <BaseInputNumber
-              v-model="fields.third"
-              icon="lucide:star"
-              icon-increment="lucide:alarm-plus"
-              icon-decrement="lucide:alarm-minus"
-              size="xl"
-              rounded="md"
-              label="Size: xl"
-              placeholder="Quantity"
-            />
-          </div>
-        </div>
-      </NuiPreview>
-
-      <NuiPreview title="Focus" description="Input component color focus">
-        <div class="grid grid-cols-4 max-w-5xl gap-4">
-          <div class="flex-1">
-            <BaseInputNumber
-              v-model="fields.first"
-              size="sm"
-              rounded="md"
-              label="Size: sm"
-              placeholder="Quantity"
-              color-focus
-            />
-          </div>
-
-          <div class="flex-1">
-            <BaseInputNumber
-              v-model="fields.second"
-              size="md"
-              rounded="md"
-              label="Size: md"
-              placeholder="Quantity"
-              color-focus
-            />
-          </div>
-
-          <div class="flex-1">
-            <BaseInputNumber
-              v-model="fields.third"
-              size="lg"
-              rounded="md"
-              label="Size: lg"
-              placeholder="Quantity"
-              color-focus
-            />
-          </div>
-
-          <div class="flex-1">
-            <BaseInputNumber
-              v-model="fields.third"
-              size="xl"
-              rounded="md"
-              label="Size: xl"
-              placeholder="Quantity"
-              color-focus
-            />
-          </div>
-        </div>
-      </NuiPreview>
-
-      <NuiPreview title="Error" description="Input component errors">
-        <div class="grid grid-cols-4 max-w-5xl gap-4">
-          <div class="flex-1">
-            <BaseInputNumber
-              v-model="fields.first"
-              size="sm"
-              rounded="md"
-              label="Size: sm"
-              placeholder="Quantity"
-              aria-invalid="true"
-            />
-          </div>
-
-          <div class="flex-1">
-            <BaseInputNumber
-              v-model="fields.second"
-              size="md"
-              rounded="md"
-              label="Size: md"
-              placeholder="Quantity"
-              aria-invalid="true"
-            />
-          </div>
-
-          <div class="flex-1">
-            <BaseInputNumber
-              v-model="fields.third"
-              size="lg"
-              rounded="md"
-              label="Size: lg"
-              placeholder="Quantity"
-              aria-invalid="true"
-            />
-          </div>
-
-          <div class="flex-1">
-            <BaseInputNumber
-              v-model="fields.third"
-              size="xl"
-              rounded="md"
-              label="Size: xl"
-              placeholder="Quantity"
-              aria-invalid="true"
-            />
-          </div>
-        </div>
-      </NuiPreview>
-
-      <NuiPreview title="Error: icon" description="Input component errors">
-        <div class="grid grid-cols-4 max-w-5xl gap-4">
-          <div class="flex-1">
-            <BaseInputNumber
-              v-model="fields.first"
-              icon="lucide:alarm-clock"
-              size="sm"
-              rounded="md"
-              label="Size: sm"
-              placeholder="Quantity"
-              aria-invalid="true"
-            />
-          </div>
-
-          <div class="flex-1">
-            <BaseInputNumber
-              v-model="fields.second"
-              icon="lucide:alarm-clock"
-              size="md"
-              rounded="md"
-              label="Size: md"
-              placeholder="Quantity"
-              aria-invalid="true"
-            />
-          </div>
-
-          <div class="flex-1">
-            <BaseInputNumber
-              v-model="fields.third"
-              icon="lucide:alarm-clock"
-              size="lg"
-              rounded="md"
-              label="Size: lg"
-              placeholder="Quantity"
-              aria-invalid="true"
-            />
-          </div>
-
-          <div class="flex-1">
-            <BaseInputNumber
-              v-model="fields.third"
-              icon="lucide:alarm-clock"
-              size="xl"
-              rounded="md"
-              label="Size: xl"
-              placeholder="Quantity"
-              aria-invalid="true"
-            />
-          </div>
-        </div>
-      </NuiPreview>
-
-      <NuiPreview
-        title="Label: float"
-        description="Autocomplete component label float"
-      >
-        <div class="grid gap-6 md:max-w-lg md:grid-cols-2">
-          <BaseInputNumber
-            size="sm"
-            rounded="md"
-            label="Size: sm"
-            placeholder="Quantity"
-            label-float
-          />
-          <BaseInputNumber
-            icon="lucide:star"
-            size="sm"
-            rounded="md"
-            label="Size: sm"
-            placeholder="Quantity"
-            label-float
-          />
-          <BaseInputNumber
-            size="md"
-            rounded="md"
-            label="Size: md"
-            placeholder="Quantity"
-            label-float
-          />
-          <BaseInputNumber
-            icon="lucide:star"
-            size="md"
-            rounded="md"
-            label="Size: md"
-            placeholder="Quantity"
-            label-float
-          />
-          <BaseInputNumber
-            size="lg"
-            rounded="md"
-            label="Size: lg"
-            placeholder="Quantity"
-            label-float
-          />
-          <BaseInputNumber
-            icon="lucide:star"
-            size="lg"
-            rounded="md"
-            label="Size: lg"
-            placeholder="Quantity"
-            label-float
-          />
-          <BaseInputNumber
-            size="xl"
-            rounded="md"
-            label="Size: xl"
-            placeholder="Quantity"
-            label-float
-          />
-          <BaseInputNumber
-            icon="lucide:star"
-            size="xl"
-            rounded="md"
-            label="Size: xl"
-            placeholder="Quantity"
-            label-float
-          />
         </div>
       </NuiPreview>
 
@@ -604,7 +211,8 @@ const fields = reactive({
           <div class="flex-1">
             <BaseInputNumber
               v-model="fields.first"
-              size="sm"
+              variant="default"
+              size="md"
               rounded="md"
               label="Size: sm"
               placeholder="Quantity"
@@ -615,6 +223,7 @@ const fields = reactive({
           <div class="flex-1">
             <BaseInputNumber
               v-model="fields.second"
+              variant="muted"
               size="md"
               rounded="md"
               label="Size: md"
@@ -622,104 +231,6 @@ const fields = reactive({
               disabled
             />
           </div>
-
-          <div class="flex-1">
-            <BaseInputNumber
-              v-model="fields.third"
-              size="lg"
-              rounded="md"
-              label="Size: lg"
-              placeholder="Quantity"
-              disabled
-            />
-          </div>
-
-          <div class="flex-1">
-            <BaseInputNumber
-              v-model="fields.third"
-              size="xl"
-              rounded="md"
-              label="Size: xl"
-              placeholder="Quantity"
-              disabled
-            />
-          </div>
-        </div>
-      </NuiPreview>
-
-      <NuiPreview
-        title="Loading"
-        description="Autocomplete component loading state"
-      >
-        <div class="grid gap-6 md:max-w-lg md:grid-cols-2">
-          <BaseInputNumber
-            v-model="fields.first"
-            size="sm"
-            rounded="md"
-            label="Size: sm"
-            placeholder="Quantity"
-            loading
-          />
-          <BaseInputNumber
-            v-model="fields.fourth"
-            icon="lucide:star"
-            size="sm"
-            rounded="md"
-            label="Size: sm"
-            placeholder="Quantity"
-            loading
-          />
-          <BaseInputNumber
-            v-model="fields.second"
-            size="md"
-            rounded="md"
-            label="Size: md"
-            placeholder="Quantity"
-            loading
-          />
-          <BaseInputNumber
-            v-model="fields.fifth"
-            icon="lucide:star"
-            size="md"
-            rounded="md"
-            label="Size: md"
-            placeholder="Quantity"
-            loading
-          />
-          <BaseInputNumber
-            v-model="fields.third"
-            size="lg"
-            rounded="md"
-            label="Size: lg"
-            placeholder="Quantity"
-            loading
-          />
-          <BaseInputNumber
-            v-model="fields.sixth"
-            icon="lucide:star"
-            size="lg"
-            rounded="md"
-            label="Size: lg"
-            placeholder="Quantity"
-            loading
-          />
-          <BaseInputNumber
-            v-model="fields.third"
-            size="xl"
-            rounded="md"
-            label="Size: xl"
-            placeholder="Quantity"
-            loading
-          />
-          <BaseInputNumber
-            v-model="fields.sixth"
-            icon="lucide:star"
-            size="xl"
-            rounded="md"
-            label="Size: xl"
-            placeholder="Quantity"
-            loading
-          />
         </div>
       </NuiPreview>
     </NuiPreviewContainer>

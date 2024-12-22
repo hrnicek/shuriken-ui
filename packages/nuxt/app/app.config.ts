@@ -586,17 +586,17 @@ export default defineAppConfig({
     BaseInputFileHeadless: {},
     BaseInputNumber: {
       /**
-       * The contrast of the input.
+       * The variant of the input.
        *
-       * @type {'default' | 'default-contrast' | 'muted' | 'muted-contrast'}
+       * @type {'default' | 'muted'}
        */
-      contrast: 'default',
+      variant: 'default',
       /**
        * The radius of the input.
        *
        * @type {'none' | 'sm' | 'md' | 'lg' | 'full'}
        */
-      rounded: 'sm',
+      rounded: 'md',
       /**
        * The size of the input.
        *

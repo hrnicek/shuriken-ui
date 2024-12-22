@@ -16,21 +16,15 @@ export interface BaseInputNumberProps extends NumberFieldRootProps {
   placeholder?: string
 
   /**
-   * Whether the color of the input should change when it is focused.
-   */
-  colorFocus?: boolean
-
-  /**
    * The contrast of the input.
    *
    * @default 'default'
    */
-  contrast?: 'default' | 'default-contrast' | 'muted' | 'muted-contrast'
+  variant?: 'default' | 'muted'
 
   /**
    * The radius of the input.
    *
-   * @since 2.0.0
    * @default 'sm'
    */
   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
@@ -45,26 +39,50 @@ export interface BaseInputNumberProps extends NumberFieldRootProps {
 export interface BaseInputNumberEmits extends NumberFieldRootEmits {}
 export type BaseInputNumberSlots = {}
 
-export const radiuses = {
-  none: '',
-  sm: 'nui-input-number-rounded-sm',
-  md: 'nui-input-number-rounded-md',
-  lg: 'nui-input-number-rounded-lg',
-  full: 'nui-input-number-rounded-full',
+export const variants = {
+  default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 dark:text-muted-100 placeholder:text-muted-300 dark:placeholder:text-muted-700 invalid:!border-[var(--destructive-bg-base)]',
+  muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 dark:text-muted-100 placeholder:text-muted-300 dark:placeholder:text-muted-700 invalid:!border-[var(--destructive-bg-base)]',
 } as const
+
+// @todo: low-contrast-theme
+// export const variants = {
+//   'default': 'bg-white dark:bg-muted-800 border-muted-300 dark:border-muted-700 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700',
+//   'muted': 'bg-muted-50 dark:bg-muted-800 border-muted-300 dark:border-muted-700 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700',
+// } as const
 
 export const sizes = {
-  sm: 'nui-input-number-sm',
-  md: 'nui-input-number-md',
-  lg: 'nui-input-number-lg',
-  xl: 'nui-input-number-xl',
+  sm: 'h-8 text-xs',
+  md: 'h-10 text-sm',
+  lg: 'h-12 text-sm',
+  xl: 'h-14 text-base',
 } as const
 
-export const contrasts = {
-  'default': 'nui-input-number-default',
-  'default-contrast': 'nui-input-number-default-contrast',
-  'muted': 'nui-input-number-muted',
-  'muted-contrast': 'nui-input-number-muted-contrast',
+
+export const spacings = {
+  sm: 'px-2 max-w-[calc(100%_-_4rem)]',
+  md: 'px-3 max-w-[calc(100%_-_5rem)]',
+  lg: 'px-4 max-w-[calc(100%_-_6rem)]',
+  xl: 'px-4 max-w-[calc(100%_-_7rem)]',
+} as const
+
+export const radiuses = {
+  none: '',
+  sm: 'rounded-md',
+  md: 'rounded-lg',
+  lg: 'rounded-xl',
+  full: 'rounded-full',
+} as const
+
+export const buttonSizes = {
+  sm: 'size-8',
+  md: 'size-10',
+  lg: 'size-12',
+  xl: 'size-14',
+} as const
+
+export const buttonVariants = {
+  default: 'bg-muted-100 group-data-[pressed]/button:bg-muted-200 dark:bg-muted-800 dark:group-data-[pressed]/button:bg-muted-700',
+  muted: 'bg-muted-200 group-data-[pressed]/button:bg-muted-300 dark:bg-muted-800 dark:group-data-[pressed]/button:bg-muted-700',
 } as const
 </script>
 
@@ -81,7 +99,7 @@ const props = withDefaults(defineProps<BaseInputNumberProps>(), {
   inputmode: undefined,
   rounded: undefined,
   size: undefined,
-  contrast: undefined,
+  variant: undefined,
   placeholder: undefined,
   
   defaultValue: undefined,
@@ -92,169 +110,68 @@ const props = withDefaults(defineProps<BaseInputNumberProps>(), {
 const emits = defineEmits<BaseInputNumberEmits>()
 const slots = defineSlots<BaseInputNumberSlots>()
 
-// function looseToNumber(val: any) {
-//   const n = Number.parseFloat(val)
-//   return Number.isNaN(n) ? val : n
-// }
-
-// const [modelValue, modelModifiers] = defineModel<number, 'lazy' | 'raw'>({
-//   set(value) {
-//     if (modelModifiers.raw) {
-//       return value
-//     }
-
-//     return looseToNumber(value)
-//   },
-// })
-
 const id = useNinjaId(() => props.id)
-const contrast = useNuiDefaultProperty(props, 'BaseInputNumber', 'contrast')
+const variant = useNuiDefaultProperty(props, 'BaseInputNumber', 'variant')
 const rounded = useNuiDefaultProperty(props, 'BaseInputNumber', 'rounded')
 const size = useNuiDefaultProperty(props, 'BaseInputNumber', 'size')
 
 const iconIncrement = useNuiDefaultIcon('plus')
 const iconDecrement = useNuiDefaultIcon('minus')
 
-const forward = useForwardPropsEmits(reactiveOmit(props, ['contrast', 'rounded', 'size', 'placeholder']), emits)
-
-// const inputRef = ref<HTMLInputElement>()
-
-// defineExpose({
-//   /**
-//    * The underlying HTMLInputElement element.
-//    */
-//   el: inputRef,
-
-//   /**
-//    * The internal id of the radio input.
-//    */
-//   id,
-// })
-
-
-// const floatPrecision = computed(() => {
-//   if (!Number.isFinite(props.step) || Number.isNaN(props.step))
-//     return 0
-//   let exp = 1
-//   let precision = 0
-//   while (Math.round(props.step * exp) / exp !== props.step) {
-//     exp *= 10
-//     precision++
-//   }
-//   return precision
-// })
-// const floatPrecisionExp = computed(() => 10 ** floatPrecision.value)
-// const stepAbs = computed(() => Math.abs(props.step))
-
-// function clamp(value: number) {
-//   const rounded
-//     = Math.round(value * floatPrecisionExp.value) / floatPrecisionExp.value
-
-//   return Math.max(
-//     Math.min(rounded, props.max ?? Number.POSITIVE_INFINITY),
-//     props.min ?? Number.NEGATIVE_INFINITY,
-//   )
-// }
-
-// function increment() {
-//   if (props.disabled)
-//     return
-
-//   if (modelValue.value === undefined) {
-//     modelValue.value = 0
-//     return
-//   }
-
-//   if (typeof modelValue.value === 'number') {
-//     modelValue.value = clamp(modelValue.value + stepAbs.value)
-//   }
-// }
-
-// function decrement() {
-//   if (props.disabled)
-//     return
-
-//   if (modelValue.value === undefined) {
-//     modelValue.value = 0
-//     return
-//   }
-
-//   if (typeof modelValue.value === 'number') {
-//     modelValue.value = clamp(modelValue.value - stepAbs.value)
-//   }
-// }
-
-// let incrementInterval: any
-// function startIncrement() {
-//   if (props.disabled)
-//     return
-
-//   increment()
-//   let i = 0
-
-//   incrementInterval = setInterval(() => {
-//     i++
-//     increment()
-//     if (i > 10) {
-//       clearInterval(incrementInterval)
-//       incrementInterval = setInterval(increment, 50)
-//     }
-//   }, 150)
-// }
-// function stopIncrement() {
-//   clearInterval(incrementInterval)
-// }
-
-// let decrementInterval: any
-// function startDecrement() {
-//   if (props.disabled)
-//     return
-
-//   decrement()
-//   let i = 0
-
-//   decrementInterval = setInterval(() => {
-//     i++
-//     decrement()
-//     if (i > 10) {
-//       clearInterval(decrementInterval)
-//       decrementInterval = setInterval(decrement, 50)
-//     }
-//   }, 150)
-// }
-// function stopDecrement() {
-//   clearInterval(decrementInterval)
-// }
-
-// onBeforeUnmount(() => {
-//   clearInterval(incrementInterval)
-//   clearInterval(decrementInterval)
-// })
+const forward = useForwardPropsEmits(reactiveOmit(props, ['variant', 'rounded', 'size', 'placeholder']), emits)
 </script>
 
 <template>
   <NumberFieldRoot
     v-bind="forward"
-    class="nui-input-number-wrapper"
-    :class="[
-      contrast && contrasts[contrast],
-      size && sizes[size],
-      rounded && radiuses[rounded],
-      props.colorFocus && 'nui-input-number-focus',
-    ]"
+    class="relative"
   >
-    <div class="nui-input-number-outer flex gap-2">
-      <NumberFieldDecrement>
-        <Icon :name="iconDecrement" />
+    <div class="nui-focus relative w-full flex font-sans transition-all duration-300"
+      :class="[
+        variant && variants[variant],
+        rounded && radiuses[rounded],
+      ]"
+    >
+      <NumberFieldDecrement 
+        class="flex items-center justify-center shrink-0 p-1 group/button cursor-pointer"
+        :class="[
+          size && buttonSizes[size],
+          rounded && radiuses[rounded],
+        ]"
+      >
+        <span class="h-full w-full flex items-center justify-center transition-colors duration-300"
+          :class="[
+            rounded && radiuses[rounded],
+            variant && buttonVariants[variant],
+          ]"  
+        >
+          <Icon :name="iconDecrement" />
+        </span>
       </NumberFieldDecrement>
       <NumberFieldInput
-        class="nui-input-number outline-none grow"
+        class="outline-none text-center grow disabled:cursor-not-allowed disabled:opacity-50"
+        :class="[
+          size && spacings[size],
+          size && sizes[size],
+        ]"
         :placeholder="placeholder"
         :inputmode="props.inputmode"
         :disabled="props.disabled"
       />
-      <NumberFieldIncrement>
-        <Icon :name="iconIncrement" />
+      <NumberFieldIncrement
+        class="flex items-center justify-center shrink-0 p-1 group/button cursor-pointer"
+        :class="[
+          size && buttonSizes[size],
+        ]"
+      >
+        <span class="h-full w-full flex items-center justify-center transition-colors duration-300"
+          :class="[
+            rounded && radiuses[rounded],
+            variant && buttonVariants[variant],
+          ]"  
+        >
+          <Icon :name="iconIncrement" />
+        </span>
       </NumberFieldIncrement> 
     </div>
   </NumberFieldRoot>
