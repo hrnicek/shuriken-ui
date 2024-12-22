@@ -55,15 +55,15 @@
   --color-primary-900: var(--color-indigo-900);
   --color-primary-950: var(--color-indigo-950);
 
-  --color-muted-50: var(--color-stone-50);
-  --color-muted-100: var(--color-stone-100);
-  --color-muted-200: var(--color-stone-200);
-  --color-muted-300: var(--color-stone-300);
-  --color-muted-400: var(--color-stone-400);
-  --color-muted-500: var(--color-stone-500);
-  --color-muted-600: var(--color-stone-600);
-  --color-muted-700: var(--color-stone-700);
-  --color-muted-800: var(--color-stone-800);
-  --color-muted-900: var(--color-stone-900);
-  --color-muted-950: var(--color-stone-950);
+  --color-muted-50: var(--color-slate-50);
+  --color-muted-100: var(--color-slate-100);
+  --color-muted-200: var(--color-slate-200);
+  --color-muted-300: var(--color-slate-300);
+  --color-muted-400: var(--color-slate-400);
+  --color-muted-500: var(--color-slate-500);
+  --color-muted-600: var(--color-slate-600);
+  --color-muted-700: var(--color-slate-700);
+  --color-muted-800: var(--color-slate-800);
+  --color-muted-900: var(--color-slate-900);
+  --color-muted-950: var(--color-slate-950);
 }
