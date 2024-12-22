@@ -99,26 +99,49 @@ export interface BaseSelectContext {
   rounded: ComputedRef<NonNullable<BaseSelectProps['rounded']>>
 }
 
+export const variants = {
+  default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 data-placeholder:text-muted-300 dark:data-placeholder:text-muted-700',
+  muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-600 border text-muted-500 data-placeholder:text-muted-300 dark:data-placeholder:text-muted-700',
+} as const
+
+// @todo: low-contrast-theme
+// export const variants = {
+//   'default': 'bg-white dark:bg-muted-800 border-muted-300 dark:border-muted-700 border text-muted-500 data-placeholder:text-muted-300 dark:data-placeholder:text-muted-700',
+//   'muted': '',
+// } as const
+
+export const portalVariants = {
+  default: 'bg-white dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
+  muted: 'bg-muted-50 dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
+} as const
+
+// @todo: low-contrast-theme
+// const portalVariants = {
+//   'default': '',
+//   'muted': '',
+// } as const
+
+export const sizes = {
+  sm: 'h-8 text-xs px-2',
+  md: 'h-10 text-sm px-3',
+  lg: 'h-12 text-sm px-4',
+  xl: 'h-14 text-base px-4',
+} as const
+
 export const radiuses = {
   none: '',
-  sm: 'rounded-sm',
-  md: 'rounded-md',
-  lg: 'rounded-lg',
+  sm: 'rounded-md',
+  md: 'rounded-lg',
+  lg: 'rounded-xl',
   full: 'rounded-full',
 } as const
 
-export const sizes = {
-  sm: 'nui-select-sm',
-  md: 'nui-select-md',
-  lg: 'nui-select-lg',
-  xl: 'nui-select-xl',
-} as const
-
-export const contrasts = {
-  'default': 'nui-select-default',
-  'default-contrast': 'nui-select-default-contrast',
-  'muted': 'nui-select-muted',
-  'muted-contrast': 'nui-select-muted-contrast',
+export const portalRadiuses = {
+  none: '',
+  sm: 'rounded-md',
+  md: 'rounded-lg',
+  lg: 'rounded-xl',
+  full: 'rounded-xl',
 } as const
 
 export const [
@@ -175,51 +198,6 @@ provideBaseSelectContext({
   variant,
   rounded,
 })
-
-const variants = {
-  'default': 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 data-placeholder:text-muted-300 dark:data-placeholder:text-muted-700',
-  'muted': 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-600 border text-muted-500 data-placeholder:text-muted-300 dark:data-placeholder:text-muted-700',
-} as const
-
-// @todo: low-contrast-theme
-// const variants = {
-//   'default': 'bg-white dark:bg-muted-800 border-muted-300 dark:border-muted-700 border text-muted-500 data-placeholder:text-muted-300 dark:data-placeholder:text-muted-700',
-//   'muted': '',
-// } as const
-
-const portalVariants = {
-  'default': 'bg-white dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
-  'muted': 'bg-muted-50 dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
-} as const
-
-// @todo: low-contrast-theme
-// const portalVariants = {
-//   'default': '',
-//   'muted': '',
-// } as const
-
-const sizes = {
-  'sm': 'h-8 text-xs px-2',
-  'md': 'h-10 text-sm px-3',
-  'lg': 'h-12 text-sm px-4',
-  'xl': 'h-14 text-base px-4',
-} as const
-
-const radiuses = {
-  none: '',
-  sm: 'rounded-md',
-  md: 'rounded-lg',
-  lg: 'rounded-xl',
-  full: 'rounded-full',
-} as const
-
-const portalRadiuses = {
-  none: '',
-  sm: 'rounded-md',
-  md: 'rounded-lg',
-  lg: 'rounded-xl',
-  full: 'rounded-xl',
-} as const
 </script>
 
 <template>
