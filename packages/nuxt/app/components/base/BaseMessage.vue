@@ -168,7 +168,7 @@ const textVariants = {
 const iconVariants = {
   'default': 'text-white dark:text-white bg-muted-600 dark:bg-muted-900',
   'muted': 'text-white dark:text-white bg-muted-400 dark:bg-muted-900',
-  'primary': 'text-white dark:text-white bg-primary-500 dark:bg-primary-500',
+  'primary': 'text-white dark:text-white bg-[var(--primary-base)] dark:bg-[var(--primary-light)]',
   'info': 'text-white dark:text-white bg-blue-500 dark:bg-blue-500',
   'success': 'text-white dark:text-white bg-green-500 dark:bg-green-500',
   'warning': 'text-white dark:text-white bg-amber-500 dark:bg-amber-500',

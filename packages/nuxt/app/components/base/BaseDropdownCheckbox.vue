@@ -103,7 +103,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'vari
       props.disabled && 'opacity-50 pointer-events-none',
     ]"
   >
-    <DropdownMenuItemIndicator v-bind="props.bindings?.indicator" class="flex items-center justify-center shrink-0 size-4 group-data-[state=checked]/menu-checkbox-item:text-[var(--primary-bg-base)] group-data-[state=unchecked]/menu-checkbox-item:text-transparent">
+    <DropdownMenuItemIndicator v-bind="props.bindings?.indicator" class="flex items-center justify-center shrink-0 size-4 group-data-[state=checked]/menu-checkbox-item:text-[var(--primary-base)] group-data-[state=unchecked]/menu-checkbox-item:text-transparent">
       <Icon :name="iconCheck" class="scale-90 relative start-0.5 text-sm [&>path]:stroke-[4px]" />
     </DropdownMenuItemIndicator>
 

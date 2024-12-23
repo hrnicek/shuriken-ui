@@ -54,14 +54,14 @@ export type BaseProgressCircleSlots = {
 }
 
 export const variants = {
-  'primary': 'text-primary-500',
+  'primary': 'text-[var(--primary-base)]',
   'dark': 'text-muted-900 dark:text-muted-100',
   'none': '',
 } as const
 
 // @todo: low-contrast-theme
 // export const variants = {
-//   'primary': 'text-primary-500',
+//   'primary': 'text-[var(--primary-base)]',]',
 //   'dark': 'text-muted-900 dark:text-muted-100',
 //   'none': '',
 // } as const

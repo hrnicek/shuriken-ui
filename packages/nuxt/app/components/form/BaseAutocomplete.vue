@@ -168,7 +168,7 @@ provideBaseAutocompleteContext({
     class="w-full relative"
   >
     <ComboboxAnchor
-      class="nui-focus w-full flex min-w-[160px] items-center justify-between leading-none gap-[5px] outline-none disabled:cursor-not-allowed has-disabled:opacity-75 has-aria-invalid:border-red-500! group"
+      class="nui-focus w-full flex min-w-[160px] items-center justify-between leading-none gap-[5px] outline-none disabled:cursor-not-allowed has-disabled:opacity-75 aria-invalid:border-[var(--destructive-base)]! group"
       :class="[
         rounded && radiuses[rounded],
         size && sizes[size],
