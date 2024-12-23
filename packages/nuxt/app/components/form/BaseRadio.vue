@@ -11,11 +11,6 @@ export interface BaseCheckboxProps extends RadioGroupItemProps {
   label?: string
 
   /**
-   * An error message to display below the radio label.
-   */
-  error?: string | boolean
-
-  /**
    * The variant of the radio.
    *
    * @default 'default'
@@ -102,7 +97,6 @@ const props = withDefaults(defineProps<BaseCheckboxProps>(), {
   id: undefined,
   label: undefined,
   variant: undefined,
-  error: undefined,
   classes: () => ({}),
 })
 const emits = defineEmits<BaseCheckboxEmits>()
@@ -111,7 +105,7 @@ const slots = defineSlots<BaseCheckboxSlots>()
 const attrs = useAttrs()
 const id = useNinjaId(() => props.id)
 const variant = useNuiDefaultProperty(props, 'BaseRadio', 'variant')
-const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'error', 'variant',  'classes']), emits)
+const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'variant',  'classes']), emits)
 </script>
 
 <template>
@@ -137,18 +131,6 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'error'
         class=" ms-1 cursor-pointer select-none font-sans text-sm text-muted-600 dark:text-muted-400"
       >
         <slot>{{ props.label }}</slot>
-      </Label>
-      <Label
-        v-if="props.error && typeof props.error === 'string'"
-        :for="id"
-        class="ms-1 inline-block"
-        as-child
-      >
-        <slot name="error">
-          <BaseInputHelpText color="danger">
-            {{ props.error }}
-          </BaseInputHelpText>
-        </slot>
       </Label>
     </div>
   </div>

@@ -212,7 +212,7 @@ provideBaseSelectContext({
       v-bind="{ ...attrs, ...(props.bindings?.trigger || {}) }"
     >
       <SelectValue :placeholder="props.placeholder" class="line-clamp-1" />
-      <Icon :name="iconChevronDown" class="size-4" />
+      <Icon :name="iconChevronDown" class="size-4 text-muted-600 dark:text-muted-500" />
     </SelectTrigger>
 
     <SelectPortal v-bind="props.bindings?.portal">

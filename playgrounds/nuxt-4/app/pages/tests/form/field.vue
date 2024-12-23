@@ -64,7 +64,7 @@ const value3 = ref('')
                 </BaseFieldError>
                 <BaseFieldDescription>
                   Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                  <BaseLink to="#" class="text-primary-400 dark:text-primary-700">Learn more</BaseLink>
+                  <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
                 </BaseFieldDescription>
               </div>
             </template>
@@ -115,11 +115,12 @@ const value3 = ref('')
                 </BaseFieldError>
                 <BaseFieldDescription>
                   Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                  <BaseLink to="#" class="text-primary-400 dark:text-primary-700">Learn more</BaseLink>
+                  <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
                 </BaseFieldDescription>
               </div>
             </template>
           </BaseField>
+
           <!-- BaseInputNumber -->
           <BaseField v-for="state in states" :key="state" :state="state" :disabled="alt === 'disabled'" :required="alt === 'full'"> 
             <div v-if="alt === 'full'" class="w-full inline-flex">
@@ -165,7 +166,7 @@ const value3 = ref('')
                 </BaseFieldError>
                 <BaseFieldDescription>
                   Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                  <BaseLink to="#" class="text-primary-400 dark:text-primary-700">Learn more</BaseLink>
+                  <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
                 </BaseFieldDescription>
               </div>
               
@@ -217,7 +218,7 @@ const value3 = ref('')
                 </BaseFieldError>
                 <BaseFieldDescription>
                   Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                  <BaseLink to="#" class="text-primary-400 dark:text-primary-700">Learn more</BaseLink>
+                  <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
                 </BaseFieldDescription>
               </div>
             </template>
@@ -268,7 +269,7 @@ const value3 = ref('')
                 </BaseFieldError>
                 <BaseFieldDescription>
                   Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                  <BaseLink to="#" class="text-primary-400 dark:text-primary-700">Learn more</BaseLink>
+                  <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
                 </BaseFieldDescription>
               </div>
             </template>
@@ -324,7 +325,7 @@ const value3 = ref('')
                 </BaseFieldError>
                 <BaseFieldDescription>
                   Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                  <BaseLink to="#" class="text-primary-400 dark:text-primary-700">Learn more</BaseLink>
+                  <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
                 </BaseFieldDescription>
               </div>
             </template>
@@ -380,7 +381,7 @@ const value3 = ref('')
                 </BaseFieldError>
                 <BaseFieldDescription>
                   Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                  <BaseLink to="#" class="text-primary-400 dark:text-primary-700">Learn more</BaseLink>
+                  <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
                 </BaseFieldDescription>
               </div>
             </template>
@@ -398,7 +399,7 @@ const value3 = ref('')
             
             <div class="relative w-full">
               <div class="flex w-full">
-                <BaseIconBox variant="default-high" size="sm" class="rounded-e-none border-e-0">
+                <BaseIconBox variant="default" size="sm" class="rounded-e-none border-e-0">
                   <Icon name="lucide:user" class="size-4 text-muted-500" />
                 </BaseIconBox>
                 <BaseFieldController>
@@ -413,7 +414,7 @@ const value3 = ref('')
             </div>
             <BaseFieldDescription class="inline-block mt-2">
               Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-              <BaseLink to="#" class="text-primary-400 dark:text-primary-700">Learn more</BaseLink>
+              <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
             </BaseFieldDescription>
           </BaseField>
 
@@ -441,7 +442,7 @@ const value3 = ref('')
             </div>
             <BaseFieldDescription class="inline-block mt-2">
               Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-              <BaseLink to="#" class="text-primary-400 dark:text-primary-700">Learn more</BaseLink>
+              <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
             </BaseFieldDescription>
           </BaseField>
 
@@ -516,7 +517,7 @@ const value3 = ref('')
             </div>
             <BaseFieldDescription class="inline-block mt-2">
               Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-              <BaseLink to="#" class="text-primary-400 dark:text-primary-700">Learn more</BaseLink>
+              <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
             </BaseFieldDescription>
             <BaseFieldError>
               The input is invalid because ...
@@ -532,7 +533,7 @@ const value3 = ref('')
                 </BaseFieldLabel>
                 <BaseFieldDescription>
                   Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                  <BaseLink to="#" class="text-primary-400 dark:text-primary-700">Learn more</BaseLink>
+                  <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
                 </BaseFieldDescription>
               </div>
               <div class="flex items-center justify-center">
@@ -560,7 +561,7 @@ const value3 = ref('')
                 </BaseFieldLabel>
                 <BaseFieldDescription>
                   Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                  <BaseLink to="#" class="text-primary-400 dark:text-primary-700">Learn more</BaseLink>
+                  <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
                 </BaseFieldDescription>
               </div>
               <div class="flex items-center justify-center">
@@ -621,7 +622,7 @@ const value3 = ref('')
               </BaseFieldLabel>
               <BaseFieldDescription>
                 Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                <BaseLink to="#" class="text-primary-400 dark:text-primary-700">Learn more</BaseLink>
+                <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
               </BaseFieldDescription>
               <div class="absolute z-10 end-0 top-0" >
                 <BaseFieldLoadingIndicator/>
@@ -652,7 +653,7 @@ const value3 = ref('')
               </BaseFieldLabel>
               <BaseFieldDescription>
                 Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                <BaseLink to="#" class="text-primary-400 dark:text-primary-700">Learn more</BaseLink>
+                <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
               </BaseFieldDescription>
               <div class="absolute z-10 end-0 top-0" >
                 <BaseFieldLoadingIndicator/>
@@ -682,7 +683,7 @@ const value3 = ref('')
               </BaseFieldLabel>
               <BaseFieldDescription>
                 Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                <BaseLink to="#" class="text-primary-400 dark:text-primary-700">Learn more</BaseLink>
+                <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
               </BaseFieldDescription>
               <div class="absolute z-10 end-0 top-0" >
                 <BaseFieldLoadingIndicator/>
@@ -712,7 +713,7 @@ const value3 = ref('')
               </BaseFieldLabel>
               <BaseFieldDescription>
                 Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                <BaseLink to="#" class="text-primary-400 dark:text-primary-700">Learn more</BaseLink>
+                <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
               </BaseFieldDescription>
               <div class="absolute z-10 end-0 top-0" >
                 <BaseFieldLoadingIndicator/>
@@ -746,7 +747,7 @@ const value3 = ref('')
               </BaseFieldLabel>
               <BaseFieldDescription>
                 Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                <BaseLink to="#" class="text-primary-400 dark:text-primary-700">Learn more</BaseLink>
+                <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
               </BaseFieldDescription>
               <div class="absolute z-10 end-0 top-0" >
                 <BaseFieldLoadingIndicator/>
@@ -775,7 +776,7 @@ const value3 = ref('')
               </BaseFieldLabel>
               <BaseFieldDescription>
                 Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                <BaseLink to="#" class="text-primary-400 dark:text-primary-700">Learn more</BaseLink>
+                <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
               </BaseFieldDescription>
               <div class="absolute z-10 end-0 top-0" >
                 <BaseFieldLoadingIndicator/>
@@ -801,7 +802,7 @@ const value3 = ref('')
               </BaseFieldLabel>
               <BaseFieldDescription>
                 Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                <BaseLink to="#" class="text-primary-400 dark:text-primary-700">Learn more</BaseLink>
+                <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
               </BaseFieldDescription>
               <div class="absolute z-10 end-0 top-0" >
                 <BaseFieldLoadingIndicator/>
@@ -832,7 +833,7 @@ const value3 = ref('')
               </BaseFieldLabel>
               <BaseFieldDescription>
                 Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                <BaseLink to="#" class="text-primary-400 dark:text-primary-700">Learn more</BaseLink>
+                <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
               </BaseFieldDescription>
               <div class="absolute z-10 end-0 top-0" >
                 <BaseFieldLoadingIndicator/>

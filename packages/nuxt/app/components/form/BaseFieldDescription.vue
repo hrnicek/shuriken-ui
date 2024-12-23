@@ -25,7 +25,7 @@ const { id, idDescription, state } = injectBaseFieldContext()
     v-bind="forward"
     :id="idDescription"
     :for="id"
-    class="font-sans text-xs font-medium leading-tight text-muted-400 dark:text-muted-600"
+    class="font-sans text-xs leading-tight text-muted-500/90 dark:text-muted-400"
   >
     <slot />
   </Label>

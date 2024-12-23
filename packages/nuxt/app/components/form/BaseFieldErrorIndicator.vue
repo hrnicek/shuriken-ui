@@ -22,7 +22,7 @@ const { state } = injectBaseFieldContext()
 </script>
 
 <template>
-  <Primitive v-bind="forward" v-if="state === 'error'" class="pointer-events-none text-danger-400 dark:text-danger-800">
+  <Primitive v-bind="forward" v-if="state === 'error'" class="pointer-events-none text-red-400 dark:text-red-800">
     <slot>
       <Icon :name="iconAlert" class="size-4" />
     </slot>

@@ -22,7 +22,7 @@ const { state } = injectBaseFieldContext()
 </script>
 
 <template>
-  <Primitive v-if="state === 'loading'" v-bind="forward" class="pointer-events-none text-muted-300 dark:text-muted-600">
+  <Primitive v-if="state === 'loading'" v-bind="forward" class="pointer-events-none text-muted-400 dark:text-muted-300">
     <slot>
       <Icon :name="iconSpiner" class="size-4" />
     </slot>

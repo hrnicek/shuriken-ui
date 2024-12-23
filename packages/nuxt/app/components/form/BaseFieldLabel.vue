@@ -22,7 +22,7 @@ const { id, idLabel } = injectBaseFieldContext()
     v-bind="forward"
     :for="id"
     :id="idLabel"
-    class="font-sans leading-none text-muted-600 dark:text-muted-300"
+    class="font-sans font-medium text-sm leading-none text-muted-600 dark:text-muted-300"
   >
     <slot />
   </Label>

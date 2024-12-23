@@ -75,8 +75,8 @@ export interface BaseAutocompleteContext {
 }
 
 export const variants = {
-  default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 data-placeholder:text-muted-300 dark:data-placeholder:text-muted-700',
-  muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 data-placeholder:text-muted-300 dark:data-placeholder:text-muted-700',
+  default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500',
+  muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500',
   none: '',
 } as const
 
@@ -177,7 +177,7 @@ provideBaseAutocompleteContext({
       v-bind="props.bindings.anchor"
     >
       <slot name="input">
-        <ComboboxInput class="h-full w-full outline-none" v-bind="attrs" />
+        <ComboboxInput class="h-full w-full outline-none  placeholder:text-muted-300 dark:placeholder:text-muted-700" v-bind="attrs" />
       </slot>
       <ComboboxCancel
         v-if="props.clearable"

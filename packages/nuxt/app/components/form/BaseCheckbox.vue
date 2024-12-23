@@ -11,11 +11,6 @@ export interface BaseCheckboxProps extends CheckboxRootProps {
   label?: string
 
   /**
-   * An error message to display below the checkbox label.
-   */
-  error?: string | boolean
-
-  /**
    * The variant of the checkbox.
    *
    * @default 'default-high'
@@ -45,7 +40,6 @@ export interface BaseCheckboxProps extends CheckboxRootProps {
 export interface BaseCheckboxEmits extends CheckboxRootEmits {}
 export type BaseCheckboxSlots = {
   default(): any
-  error(): any
 }
 
 // @todo: low-contrast-theme
@@ -81,7 +75,6 @@ const props = withDefaults(defineProps<BaseCheckboxProps>(), {
   value: undefined,
   modelValue: undefined,
   label: undefined,
-  error: false,
   variant: undefined,
   classes: () => ({}),
 })
@@ -95,7 +88,7 @@ const variant = useNuiDefaultProperty(props, 'BaseCheckbox', 'variant')
 
 const iconCheck = useNuiDefaultIcon('check')
 const iconIndeterminate = useNuiDefaultIcon('minus')
-const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'error', 'variant', 'classes']), emits)
+const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'variant', 'classes']), emits)
 </script>
 
 <template>
@@ -127,18 +120,6 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'error'
         :class="props.classes?.label"
       >
         <slot>{{ props.label }}</slot>
-      </Label>
-      <Label
-        v-if="props.error && typeof props.error === 'string' || 'error' in slots"
-        :for="id"
-        class="ms-1 inline-block"
-        as-child
-      >
-        <slot name="error">
-          <BaseInputHelpText color="danger">
-            {{ props.error }}
-          </BaseInputHelpText>
-        </slot>
       </Label>
     </div>
   </div>

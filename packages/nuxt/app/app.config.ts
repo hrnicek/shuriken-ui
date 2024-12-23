@@ -6,7 +6,7 @@ export default defineAppConfig({
       screen: 'nui-icon:screen-duotone',
       spiner: 'nui-icon:spiner',
       required: 'lucide:asterisk',
-      alert: 'lucide:triangle-alert',
+      alert: 'lucide:alert-octagon',
       close: 'lucide:x',
       check: 'lucide:check',
       plus: 'lucide:plus',

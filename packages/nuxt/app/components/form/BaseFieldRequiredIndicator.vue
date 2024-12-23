@@ -22,7 +22,7 @@ const { required } = injectBaseFieldContext()
 </script>
 
 <template>
-  <Primitive v-if="required" v-bind="forward" class="select-none text-danger-300 dark:text-danger-600">
+  <Primitive v-if="required" v-bind="forward" class="select-none text-red-600 dark:text-red-400">
     <slot>
       <Icon :name="iconRequired" class="size-3 inline-block align-text-top" />
     </slot>
