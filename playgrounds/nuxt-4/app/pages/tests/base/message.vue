@@ -12,22 +12,22 @@ definePageMeta({
     <NuiPreviewContainer title="BaseMessage">
       <NuiPreview title="Color" description="Message component colors">
         <div class="grid grid-cols-1 md:grid-cols-2 max-w-2xl gap-4">
-          <BaseMessage variant="success-high">
+          <BaseMessage variant="success">
             A successful message.
           </BaseMessage>
-          <BaseMessage variant="info-high">
+          <BaseMessage variant="info">
             An information message.
           </BaseMessage>
-          <BaseMessage variant="warning-high">
+          <BaseMessage variant="warning">
             A warning message.
           </BaseMessage>
-          <BaseMessage variant="destructive-high">
+          <BaseMessage variant="destructive">
             A destructive message.
           </BaseMessage>
-          <BaseMessage variant="default-high">
+          <BaseMessage variant="default">
             A default message.
           </BaseMessage>
-          <BaseMessage variant="muted-high">
+          <BaseMessage variant="muted">
             A muted message.
           </BaseMessage>
         </div>
@@ -35,22 +35,22 @@ definePageMeta({
 
       <NuiPreview title="Icon" description="Message component icons">
         <div class="grid grid-cols-1 md:grid-cols-2 max-w-2xl gap-4">
-          <BaseMessage variant="success-high" icon>
+          <BaseMessage variant="success" icon>
             A successful message.
           </BaseMessage>
-          <BaseMessage variant="info-high" icon>
+          <BaseMessage variant="info" icon>
             An information message.
           </BaseMessage>
-          <BaseMessage variant="warning-high" icon>
+          <BaseMessage variant="warning" icon>
             A warning message.
           </BaseMessage>
-          <BaseMessage variant="destructive-high" icon>
+          <BaseMessage variant="destructive" icon>
             A destructive message.
           </BaseMessage>
-          <BaseMessage variant="default-high" icon="mingcute:avalanche-avax-fill">
+          <BaseMessage variant="default" icon="mingcute:avalanche-avax-fill">
             A default message.
           </BaseMessage>
-          <BaseMessage variant="muted-high" icon="mingcute:desk-lamp-fill">
+          <BaseMessage variant="muted" icon="mingcute:desk-lamp-fill">
             A muted message.
           </BaseMessage>
         </div>
@@ -58,16 +58,16 @@ definePageMeta({
 
       <NuiPreview title="Radius" description="Message component radiuses">
         <div class="grid grid-cols-1 md:grid-cols-2 max-w-2xl gap-4">
-          <BaseMessage variant="success-high" icon rounded="sm">
+          <BaseMessage variant="success" icon rounded="sm">
             A successful message.
           </BaseMessage>
-          <BaseMessage variant="info-high" icon rounded="md">
+          <BaseMessage variant="info" icon rounded="md">
             An information message.
           </BaseMessage>
-          <BaseMessage variant="warning-high" icon rounded="lg">
+          <BaseMessage variant="warning" icon rounded="lg">
             A warning message.
           </BaseMessage>
-          <BaseMessage variant="destructive-high" icon rounded="full">
+          <BaseMessage variant="destructive" icon rounded="full">
             A destructive message.
           </BaseMessage>
         </div>
@@ -75,16 +75,16 @@ definePageMeta({
 
       <NuiPreview title="Radius" description="Message component radiuses">
         <div class="grid grid-cols-1 md:grid-cols-2 max-w-2xl gap-4">
-          <BaseMessage variant="success-high" icon rounded="sm" closable>
+          <BaseMessage variant="success" icon rounded="sm" closable>
             A successful message.
           </BaseMessage>
-          <BaseMessage variant="info-high" icon rounded="md" closable>
+          <BaseMessage variant="info" icon rounded="md" closable>
             An information message.
           </BaseMessage>
-          <BaseMessage variant="warning-high" icon rounded="lg" closable>
+          <BaseMessage variant="warning" icon rounded="lg" closable>
             A warning message.
           </BaseMessage>
-          <BaseMessage variant="destructive-high" icon rounded="full" closable>
+          <BaseMessage variant="destructive" icon rounded="full" closable>
             A destructive message.
           </BaseMessage>
         </div>
