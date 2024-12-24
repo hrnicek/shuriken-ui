@@ -16,11 +16,11 @@ import {
 
 export interface BaseAutocompleteProps extends ComboboxRootProps {
   /**
-   * The variant of the dropdown
+   * The variant of the autocomplete
    *
    * @default 'default'
    */
-   variant?: 'default' | 'muted' | 'none'
+  variant?: 'default' | 'muted' | 'none'
 
   /**
    * The radius of the component.
@@ -37,29 +37,36 @@ export interface BaseAutocompleteProps extends ComboboxRootProps {
   size?: 'sm' | 'md' | 'lg' | 'xl'
 
   clearable?: boolean
+  
+  /**
+   * Bindings presets 
+   *
+   * @default 'inline'
+   */
+  preset?: 'inline' | 'popper'
 
   bindings?: {
     anchor?: ComboboxAnchorProps & {
       class?: string | string[]
-    },
+    }
     cancel?: ComboboxCancelProps & {
       class?: string | string[]
-    },
+    }
     trigger?: ComboboxTriggerProps & {
       class?: string | string[]
-    },
+    }
     portal?: ComboboxPortalProps & {
       class?: string | string[]
-    },
+    }
     content?: ComboboxContentProps & {
       class?: string | string[]
-    },
-    viewport?: ComboboxViewportProps & {
+    }
+    viewport?: Omit<ComboboxViewportProps, 'as' | 'asChild'> & {
       class?: string | string[]
-    },
+    }
     empty?: ComboboxEmptyProps & {
       class?: string | string[]
-    },
+    }
   }
 }
 export interface BaseAutocompleteEmits extends ComboboxRootEmits {}
@@ -114,6 +121,28 @@ export const sizes = {
   xl: 'h-14 text-base px-4',
 } as const
 
+const presets = {
+  inline: {
+    portal: { 
+      disabled: true,
+    },
+    content: {
+      position: 'inline',
+      class: 'absolute z-10 w-full mt-[6px] max-h-[300px]',
+    },
+  },
+  popper: {
+    content: {
+      position: 'popper',
+      align: 'start',
+      sideOffset: 6,
+    },
+    viewport: {
+      class: 'max-h-[calc(var(--reka-popper-available-height)_-_2rem)] min-w-[calc(var(--reka-combobox-trigger-width)-1px)]',
+    },
+  },
+} as const satisfies Record<NonNullable<BaseAutocompleteProps['preset']>, BaseAutocompleteProps['bindings']>
+
 export const [
   injectBaseAutocompleteContext,
   provideBaseAutocompleteContext,
@@ -121,6 +150,7 @@ export const [
 </script>
 
 <script setup lang="ts">
+import { defu } from 'defu'
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 
@@ -131,6 +161,7 @@ const props = withDefaults(defineProps<BaseAutocompleteProps>(), {
   variant: undefined,
   rounded: undefined,
   size: undefined,
+  preset: undefined,
 
   defaultOpen: undefined,
   open: undefined,
@@ -149,11 +180,14 @@ const slots = defineSlots<BaseAutocompleteSlots>()
 const variant = useNuiDefaultProperty(props, 'BaseAutocomplete', 'variant')
 const rounded = useNuiDefaultProperty(props, 'BaseAutocomplete', 'rounded')
 const size = useNuiDefaultProperty(props, 'BaseAutocomplete', 'size')
+const bindings = computed(() => {
+  return defu(props.bindings, presets[props.preset || 'popper'])
+})
 
 const iconClose = useNuiDefaultIcon('close')
 const iconChevronDown = useNuiDefaultIcon('chevronDown')
 
-const forward = useForwardPropsEmits(reactiveOmit(props, ['variant', 'rounded', 'size', 'bindings']), emits)
+const forward = useForwardPropsEmits(reactiveOmit(props, ['variant', 'rounded', 'size', 'preset', 'bindings']), emits)
 
 provideBaseAutocompleteContext({
   variant,
@@ -182,9 +216,7 @@ provideBaseAutocompleteContext({
       <ComboboxCancel
         v-if="props.clearable"
         class="opacity-0 group-focus-within:opacity-100 transition-opacity duration-100"
-        v-bind="{
-          ...(props.bindings?.cancel || {}),
-        }"
+        as-child
       >
         <Icon
           :name="iconClose"
@@ -195,7 +227,7 @@ provideBaseAutocompleteContext({
       <ComboboxTrigger
         v-bind="{
           disabled: props.disabled,
-          ...(props.bindings.trigger || {}),
+          ...(bindings.trigger || {}),
         }"
       >
         <Icon
@@ -205,14 +237,10 @@ provideBaseAutocompleteContext({
       </ComboboxTrigger>
     </ComboboxAnchor>
 
-    <ComboboxPortal v-bind="props.bindings.portal">
+    <ComboboxPortal v-bind="bindings.portal">
       <ComboboxContent
-        v-bind="{
-          position: 'popper',
-          align: 'start',
-          ...(props.bindings.content || {}),
-        }"
-        class="min-w-52 focus:outline-none shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20 will-change-[opacity] duration-100 transition-opacity transition-discrete data-[state=open]:opacity-100 starting:data-[state=open]:opacity-0 space-y-1"
+        v-bind="bindings.content"
+        class="min-w-52 focus:outline-none data-[side=bottom]:shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20 will-change-[opacity] duration-100 transition-opacity transition-discrete data-[state=open]:opacity-100 starting:data-[state=open]:opacity-0 space-y-1"
         :class="[
           rounded !== 'full' && radiuses[rounded],
           rounded === 'full' && 'rounded-xl',
@@ -220,12 +248,12 @@ provideBaseAutocompleteContext({
         ]"
       >
         <ComboboxViewport
-          class="p-[5px] nui-slimscroll max-h-[calc(var(--reka-popper-available-height)_-_2rem)]"
-          v-bind="props.bindings.viewport"
+          class="p-[5px] nui-slimscroll"
+          v-bind="bindings.viewport"
         >
           <ComboboxEmpty
             class="text-muted-500 text-xs font-medium text-center py-2"
-            v-bind="props.bindings.empty"
+            v-bind="bindings.empty"
           />
 
           <slot />

@@ -48,44 +48,24 @@ export interface BaseSelectProps extends SelectRootProps {
    */
   size?: 'sm' | 'md' | 'lg' | 'xl'
 
-  /**
-   * Classes to apply to the select input.
-   */
-  classes?: {
-    /**
-     * A class or classes to apply to the wrapper element.
-     */
-    wrapper?: string | string[]
-
-    /**
-     * A class or classes to apply to the outer element.
-     */
-    outer?: string | string[]
-
-    /**
-     * A class or classes to apply to the select element.
-     */
-    select?: string | string[]
-
-    /**
-     * A class or classes to apply to the chevron element.
-     */
-    chevron?: string | string[]
-
-    /**
-     * A class or classes to apply to the error element.
-     */
-    error?: string | string[]
-  }
+  preset?: 'aligned' | 'popper'
 
   /**
    * Optional bindings to pass to the inner components.
    */
   bindings?: {
-    trigger?: SelectTriggerProps,
-    portal?: SelectPortalProps,
-    content?: SelectContentProps,
-    viewport?: SelectViewportProps,
+    trigger?: SelectTriggerProps & {
+      class?: string | string[]
+    }
+    portal?: SelectPortalProps & {
+      class?: string | string[]
+    }
+    content?: SelectContentProps & {
+      class?: string | string[]
+    }
+    viewport?: SelectViewportProps & {
+      class?: string | string[]
+    }
   },
 }
 export interface BaseSelectEmits extends SelectRootEmits {}
@@ -144,6 +124,19 @@ export const portalRadiuses = {
   full: 'rounded-xl',
 } as const
 
+
+const presets = {
+  aligned: {},
+  popper: {
+    content: {
+      position: 'popper',
+      align: 'start',
+      sideOffset: 6,
+      class: 'max-h-[calc(var(--reka-popper-available-height)_-_2rem)] min-w-[var(--reka-select-trigger-width)]',
+    },
+  },
+} as const satisfies Record<NonNullable<BaseSelectProps['preset']>, BaseSelectProps['bindings']>
+
 export const [
   injectBaseSelectContext,
   provideBaseSelectContext,
@@ -151,6 +144,7 @@ export const [
 </script>
 
 <script setup lang="ts">
+import { defu } from 'defu'
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardPropsEmits } from 'reka-ui'
 
@@ -161,6 +155,7 @@ const props = withDefaults(defineProps<BaseSelectProps>(), {
   variant: undefined,
   placeholder: '',
   error: false,
+  preset: undefined,
   
   autocomplete: undefined,
   name: undefined,
@@ -184,13 +179,17 @@ const size = useNuiDefaultProperty(props, 'BaseSelect', 'size')
 const iconChevronDown = useNuiDefaultIcon('chevronDown')
 const iconChevronUp = useNuiDefaultIcon('chevronUp')
 
+const bindings = computed(() => {
+  return defu(props.bindings, presets[props.preset || 'aligned'])
+})
+
 const forward = useForwardPropsEmits(reactiveOmit(props, [
   'id',
   'placeholder', 
   'variant', 
   'rounded',
   'size',
-  'classes',
+  'preset',
   'bindings',
 ]), emits)
 
@@ -203,39 +202,46 @@ provideBaseSelectContext({
 <template>
   <SelectRoot :id v-bind="forward">
     <SelectTrigger
-      class="nui-focus w-full flex min-w-[160px] items-center justify-between leading-none gap-[5px] outline-none disabled:cursor-not-allowed disabled:opacity-75 aria-invalid:border-red-500!"
+      class="nui-focus w-full flex items-center justify-between leading-none gap-[5px] outline-none disabled:cursor-not-allowed disabled:opacity-75 aria-invalid:border-red-500!"
       :class="[
         variant && variants[variant],
         size && sizes[size],
         rounded && radiuses[rounded],
       ]"
-      v-bind="{ ...attrs, ...(props.bindings?.trigger || {}) }"
+      v-bind="{ ...attrs, ...(bindings?.trigger || {}) }"
     >
       <SelectValue :placeholder="props.placeholder" class="line-clamp-1" />
       <Icon :name="iconChevronDown" class="size-4 text-muted-600 dark:text-muted-500" />
     </SelectTrigger>
 
-    <SelectPortal v-bind="props.bindings?.portal">
+    <SelectPortal v-bind="bindings?.portal">
       <SelectContent
-        class="min-w-[160px] shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20 will-change-[opacity,transform] data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade z-[100]"
+        class="data-[side=bottom]:shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20 z-[100]"
         :class="[
           variant && portalVariants[variant],
           rounded && portalRadiuses[rounded],
         ]"
-        v-bind="{
-          sideOffset: 5,
-          ...(props.bindings?.content || {}),
-        }"
+        v-bind="bindings?.content"
       >
-        <SelectScrollUpButton class="flex items-center justify-center h-[25px] bg-white cursor-default">
+        <SelectScrollUpButton
+          class="flex items-center justify-center h-[25px] bg-white cursor-default"
+          :class="[
+            rounded && portalRadiuses[rounded],
+          ]"
+        >
           <Icon :name="iconChevronUp" />
         </SelectScrollUpButton>
 
-        <SelectViewport v-bind="props.bindings?.viewport" class="p-[5px]">
+        <SelectViewport v-bind="bindings?.viewport" class="p-[5px]">
           <slot />
         </SelectViewport> 
 
-        <SelectScrollDownButton class="flex items-center justify-center h-[25px] bg-white cursor-default">
+        <SelectScrollDownButton
+          class="flex items-center justify-center h-[25px] bg-white cursor-default"
+          :class="[
+            rounded && portalRadiuses[rounded],
+          ]"
+        >
           <Icon :name="iconChevronDown" />
         </SelectScrollDownButton>
       </SelectContent>

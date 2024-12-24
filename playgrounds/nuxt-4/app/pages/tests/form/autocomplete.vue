@@ -333,9 +333,9 @@ const fields = reactive({
         </div>
       </NuiPreview>
 
-      <NuiPreview title="Bindings" description="Autocomplete component bindings">
+      <NuiPreview title="Presets" description="Autocomplete component presets">
         <div class="grid grid-cols-4 gap-4 w-full max-w-5xl">
-          <BaseAutocomplete placeholder="Default bindings">
+          <BaseAutocomplete preset="popper" placeholder="popper">
             <BaseAutocompleteGroup>
               <BaseAutocompleteLabel>
                 Frameworks
@@ -354,14 +354,121 @@ const fields = reactive({
               </BaseAutocompleteItem>
             </BaseAutocompleteGroup>
           </BaseAutocomplete>
-          <BaseAutocomplete
-            placeholder="Disabled bindings"
-            variant="muted"
-            :bindings="{
-              portal: { disabled: true },
-              content: { position: 'inline', class: 'absolute z-10 w-full max-h-50!' }
-            }"
-          >
+          <BaseAutocomplete preset="inline" placeholder="Inline">
+            <BaseAutocompleteGroup>
+              <BaseAutocompleteLabel>
+                Frameworks
+              </BaseAutocompleteLabel>
+              <BaseAutocompleteItem v-for="item in frameworks" :key="item" :value="item">
+                {{ item }}
+              </BaseAutocompleteItem>
+            </BaseAutocompleteGroup>
+            <BaseAutocompleteSeparator />
+            <BaseAutocompleteGroup>
+              <BaseAutocompleteLabel>
+                Languages
+              </BaseAutocompleteLabel>
+              <BaseAutocompleteItem v-for="item in languages" :key="item" :value="item">
+                {{ item }}
+              </BaseAutocompleteItem>
+            </BaseAutocompleteGroup>
+            <BaseAutocompleteSeparator />
+            <BaseAutocompleteGroup>
+              <BaseAutocompleteLabel>
+                Languages
+              </BaseAutocompleteLabel>
+              <BaseAutocompleteItem v-for="item in languages" :key="item" :value="item">
+                {{ item }}
+              </BaseAutocompleteItem>
+            </BaseAutocompleteGroup>
+            <BaseAutocompleteSeparator />
+            <BaseAutocompleteGroup>
+              <BaseAutocompleteLabel>
+                Languages
+              </BaseAutocompleteLabel>
+              <BaseAutocompleteItem v-for="item in languages" :key="item" :value="item">
+                {{ item }}
+              </BaseAutocompleteItem>
+            </BaseAutocompleteGroup>
+            <BaseAutocompleteSeparator />
+            <BaseAutocompleteGroup>
+              <BaseAutocompleteLabel>
+                Languages
+              </BaseAutocompleteLabel>
+              <BaseAutocompleteItem v-for="item in languages" :key="item" :value="item">
+                {{ item }}
+              </BaseAutocompleteItem>
+            </BaseAutocompleteGroup>
+            <BaseAutocompleteSeparator />
+            <BaseAutocompleteGroup>
+              <BaseAutocompleteLabel>
+                Languages
+              </BaseAutocompleteLabel>
+              <BaseAutocompleteItem v-for="item in languages" :key="item" :value="item">
+                {{ item }}
+              </BaseAutocompleteItem>
+            </BaseAutocompleteGroup>
+            <BaseAutocompleteSeparator />
+            <BaseAutocompleteGroup>
+              <BaseAutocompleteLabel>
+                Languages
+              </BaseAutocompleteLabel>
+              <BaseAutocompleteItem v-for="item in languages" :key="item" :value="item">
+                {{ item }}
+              </BaseAutocompleteItem>
+            </BaseAutocompleteGroup>
+            <BaseAutocompleteSeparator />
+            <BaseAutocompleteGroup>
+              <BaseAutocompleteLabel>
+                Languages
+              </BaseAutocompleteLabel>
+              <BaseAutocompleteItem v-for="item in languages" :key="item" :value="item">
+                {{ item }}
+              </BaseAutocompleteItem>
+            </BaseAutocompleteGroup>
+            <BaseAutocompleteSeparator />
+            <BaseAutocompleteGroup>
+              <BaseAutocompleteLabel>
+                Languages
+              </BaseAutocompleteLabel>
+              <BaseAutocompleteItem v-for="item in languages" :key="item" :value="item">
+                {{ item }}
+              </BaseAutocompleteItem>
+            </BaseAutocompleteGroup>
+            <BaseAutocompleteSeparator />
+            <BaseAutocompleteGroup>
+              <BaseAutocompleteLabel>
+                Languages
+              </BaseAutocompleteLabel>
+              <BaseAutocompleteItem v-for="item in languages" :key="item" :value="item">
+                {{ item }}
+              </BaseAutocompleteItem>
+            </BaseAutocompleteGroup>
+            <BaseAutocompleteSeparator />
+            <BaseAutocompleteGroup>
+              <BaseAutocompleteLabel>
+                Languages
+              </BaseAutocompleteLabel>
+              <BaseAutocompleteItem v-for="item in languages" :key="item" :value="item">
+                {{ item }}
+              </BaseAutocompleteItem>
+            </BaseAutocompleteGroup>
+            <BaseAutocompleteSeparator />
+            <BaseAutocompleteGroup>
+              <BaseAutocompleteLabel>
+                Languages
+              </BaseAutocompleteLabel>
+              <BaseAutocompleteItem v-for="item in languages" :key="item" :value="item">
+                {{ item }}
+              </BaseAutocompleteItem>
+            </BaseAutocompleteGroup>
+          </BaseAutocomplete>
+        </div>
+      </NuiPreview>
+
+      <NuiPreview title="Bindings" description="Autocomplete component bindings">
+        <div class="grid grid-cols-4 gap-4 w-full max-w-5xl">
+          <BaseAutocomplete placeholder="Inline ..">
             <BaseAutocompleteGroup>
               <BaseAutocompleteLabel>
                 Frameworks

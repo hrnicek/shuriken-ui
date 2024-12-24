@@ -1,10 +1,12 @@
 /* @utility nui-slimscroll */
 
 @utility nui-slimscroll {
+  scrollbar-width: auto !important;
+
   &::-webkit-scrollbar {
     scroll-behavior: smooth;
     scrollbar-gutter: stable;
-    @apply w-[6px] h-[6px];
+    @apply w-[6px] h-[6px] block!;
   }
 
   &::-webkit-scrollbar-thumb {
@@ -19,7 +21,7 @@
   &::-webkit-scrollbar {
     scroll-behavior: smooth;
     scrollbar-gutter: stable;
-    @apply w-[6px] h-[6px];
+    @apply w-[6px] h-[6px] block!;
   }
 
   &::-webkit-scrollbar-thumb {

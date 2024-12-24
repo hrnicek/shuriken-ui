@@ -13,6 +13,86 @@ const options = reactive({
   fourth: undefined,
   fifth: undefined,
 })
+
+const heros = [
+  'Superman',
+  'Batman',
+  'Iron man',
+  'Magneto',
+  'Cyclops',
+  'Wolverine',
+  'Spiderman',
+  'Hulk',
+  'Thor',
+  'Captain America',
+  'Black Widow',
+  'Doctor Strange',
+  'Black Panther',
+  'Ant-Man',
+  'Scarlet Witch',
+  'Vision',
+  'Falcon',
+  'Winter Soldier',
+  'Star-Lord',
+  'Gamora',
+  'Drax',
+  'Rocket Raccoon',
+  'Groot',
+  'Nebula',
+  'Mantis',
+  'Yondu',
+  'Hawkeye',
+  'Quicksilver',
+  'War Machine',
+  'Nick Fury',
+  'Loki',
+  'Thanos',
+  'Ultron',
+  'Green Lantern',
+  'Flash',
+  'Aquaman',
+  'Wonder Woman',
+  'Shazam',
+  'Green Arrow',
+  'Martian Manhunter',
+  'Hawkgirl',
+  'Black Canary',
+  'Zatanna',
+  'Supergirl',
+  'Batgirl',
+  'Nightwing',
+  'Red Hood',
+  'Robin',
+  'Catwoman',
+  'Riddler',
+  'Penguin',
+  'Two-Face',
+  'Harley Quinn',
+  'Joker',
+  'Lex Luthor',
+  'Darkseid',
+  'Brainiac',
+  'Deathstroke',
+  'Bane',
+  'Ra\'s al Ghul',
+  'Scarecrow',
+  'Poison Ivy',
+  'Mr. Freeze',
+  'Clayface',
+  'Killer Croc',
+  'Man-Bat',
+  'Hush',
+  'Black Mask',
+  'Deadshot',
+  'Firefly',
+  'Mad Hatter',
+  'Solomon Grundy',
+  'Ventriloquist',
+  'Calendar Man',
+  'Kite Man',
+  'Polka-Dot Man',
+  'Condiment King'
+]
 </script>
 
 <template>
@@ -172,6 +252,31 @@ const options = reactive({
             </BaseSelectItem>
             <BaseSelectItem value="Cyclops">
               Cyclops
+            </BaseSelectItem>
+          </BaseSelect>
+        </div>
+      </NuiPreview>
+
+      
+      <NuiPreview title="Presets" description="Select component preset">
+        <div class="grid gap-6 md:max-w-4xl md:grid-cols-3">
+          <BaseSelect
+            size="md"
+            placeholder="aligned"
+            preset="aligned"
+          >
+            <BaseSelectItem v-for="hero in heros" :value="hero">
+              {{ hero }}
+            </BaseSelectItem>
+          </BaseSelect>
+
+          <BaseSelect
+            size="md"
+            placeholder="popper"
+            preset="popper"
+          >
+            <BaseSelectItem v-for="hero in heros" :value="hero">
+              {{ hero }}
             </BaseSelectItem>
           </BaseSelect>
         </div>
