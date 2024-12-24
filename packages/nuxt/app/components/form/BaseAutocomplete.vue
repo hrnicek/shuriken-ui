@@ -9,12 +9,13 @@ import type {
   ComboboxContentProps,
   ComboboxViewportProps,
   ComboboxEmptyProps,
+  AcceptableValue
 } from 'reka-ui'
 import {
   createContext,
 } from 'reka-ui'
 
-export interface BaseAutocompleteProps extends ComboboxRootProps {
+export interface BaseAutocompleteProps<T = AcceptableValue> extends ComboboxRootProps<T> {
   /**
    * The variant of the autocomplete
    *
@@ -36,6 +37,11 @@ export interface BaseAutocompleteProps extends ComboboxRootProps {
    */
   size?: 'sm' | 'md' | 'lg' | 'xl'
 
+  /**
+   * Display the clear button to reset the query.
+   *
+   * @default false
+   */
   clearable?: boolean
   
   /**
@@ -45,6 +51,9 @@ export interface BaseAutocompleteProps extends ComboboxRootProps {
    */
   preset?: 'inline' | 'popper'
 
+  /**
+   * Optional bindings to pass to the inner components.
+   */
   bindings?: {
     anchor?: ComboboxAnchorProps & {
       class?: string | string[]
@@ -69,10 +78,11 @@ export interface BaseAutocompleteProps extends ComboboxRootProps {
     }
   }
 }
-export interface BaseAutocompleteEmits extends ComboboxRootEmits {}
+export interface BaseAutocompleteEmits<T = AcceptableValue> extends ComboboxRootEmits<T> {}
 export type BaseAutocompleteSlots = {
   default(): any
   input(): any
+  empty(): any
 }
 
 export interface BaseAutocompleteContext {
@@ -106,6 +116,19 @@ export const portalVariants = {
 //   'muted': '',
 // } as const
 
+export const arrowVariants = {
+  default: 'fill-muted-400 dark:fill-muted-500',
+  muted: 'fill-muted-400 dark:fill-muted-500',
+  none: '',
+} as const
+
+// @todo: low-contrast-theme
+// export const arrowVariants = {
+//   default: 'fill-white dark:fill-muted-800 stroke-muted-200 dark:stroke-muted-600',
+//   muted: 'fill-muted-50 dark:fill-muted-800 stroke-muted-200 dark:stroke-muted-600',
+//   none: '',
+// } as const
+
 export const radiuses = {
   none: '',
   sm: 'rounded-sm',
@@ -121,7 +144,7 @@ export const sizes = {
   xl: 'h-14 text-base px-4',
 } as const
 
-const presets = {
+export const presets = {
   inline: {
     portal: { 
       disabled: true,
@@ -149,7 +172,7 @@ export const [
 ] = createContext<BaseAutocompleteContext>('BaseAutocompleteContext')
 </script>
 
-<script setup lang="ts">
+<script setup lang="ts" generic="T extends AcceptableValue = AcceptableValue">
 import { defu } from 'defu'
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
@@ -157,7 +180,7 @@ import { reactiveOmit } from '@vueuse/core'
 defineOptions({
   inheritAttrs: false,
 })
-const props = withDefaults(defineProps<BaseAutocompleteProps>(), {
+const props = withDefaults(defineProps<BaseAutocompleteProps<T>>(), {
   variant: undefined,
   rounded: undefined,
   size: undefined,
@@ -180,9 +203,8 @@ const slots = defineSlots<BaseAutocompleteSlots>()
 const variant = useNuiDefaultProperty(props, 'BaseAutocomplete', 'variant')
 const rounded = useNuiDefaultProperty(props, 'BaseAutocomplete', 'rounded')
 const size = useNuiDefaultProperty(props, 'BaseAutocomplete', 'size')
-const bindings = computed(() => {
-  return defu(props.bindings, presets[props.preset || 'popper'])
-})
+const preset = useNuiDefaultProperty(props, 'BaseAutocomplete', 'preset')
+const bindings = computed(() => defu(props.bindings, presets[preset.value]))
 
 const iconClose = useNuiDefaultIcon('close')
 const iconChevronDown = useNuiDefaultIcon('chevronDown')
@@ -254,11 +276,12 @@ provideBaseAutocompleteContext({
           <ComboboxEmpty
             class="text-muted-500 text-xs font-medium text-center py-2"
             v-bind="bindings.empty"
-          />
+          >
+            <slot name="empty" />
+          </ComboboxEmpty>
 
           <slot />
         </ComboboxViewport>
-        <!-- <BaseAutocompleteArrow /> -->
       </ComboboxContent>
     </ComboboxPortal>
   </ComboboxRoot>

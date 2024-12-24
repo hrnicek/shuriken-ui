@@ -13,10 +13,12 @@ export type BaseAutocompleteGroupSlots = {
 import { useForwardProps } from 'reka-ui';
 import { injectBaseAutocompleteContext } from './BaseAutocomplete.vue'
 
-const context = injectBaseAutocompleteContext()
 const props = withDefaults(defineProps<BaseAutocompleteGroupProps>(), {})
 const slots = defineSlots<BaseAutocompleteGroupSlots>()
+
 const forward = useForwardProps(props);
+
+const context = injectBaseAutocompleteContext()
 </script>
 
 <template>

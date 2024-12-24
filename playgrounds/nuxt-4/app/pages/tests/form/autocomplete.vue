@@ -492,17 +492,10 @@ const fields = reactive({
 
       <NuiPreview title="Spacing" description="Menu spacing options">
         <div class="grid grid-cols-4 gap-4 w-full max-w-4xl">
-          <BaseAutocomplete placeholder="Default spacing">
-            <BaseAutocompleteItem v-for="item in frameworks" :key="item" :value="item">
-              {{ item }}
-            </BaseAutocompleteItem>
-          </BaseAutocomplete>
-          <BaseAutocomplete placeholder="With more spacing" :bindings="{ content: { sideOffset: 10 } }">
-            <BaseAutocompleteItem v-for="item in frameworks" :key="item" :value="item">
-              {{ item }}
-            </BaseAutocompleteItem>
-          </BaseAutocomplete>
-          <BaseAutocomplete placeholder="disabled" disabled>
+          <BaseAutocomplete placeholder="empty">
+            <template #empty>
+              Aucun résultat
+            </template>
             <BaseAutocompleteItem v-for="item in frameworks" :key="item" :value="item">
               {{ item }}
             </BaseAutocompleteItem>
