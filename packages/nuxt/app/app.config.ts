@@ -527,11 +527,11 @@ export default defineAppConfig({
     BaseCheckboxHeadless: {},
     BaseFullscreenDropfile: {
       /**
-       * The color of the icon.
+       * The variant of the icon.
        *
-       * @type {'primary' | 'dark' | 'black'}
+       * @type {'default' | 'primary' | 'dark'}
        */
-      color: 'primary',
+      variant: 'primary',
     },
     BaseInput: {
       /**
