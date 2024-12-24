@@ -196,10 +196,10 @@ const props = withDefaults(defineProps<BaseAutocompleteProps<T>>(), {
   bindings: () => ({}),
 })
 
-const attrs = useAttrs()
-const emits = defineEmits<BaseAutocompleteEmits>()
+const emits = defineEmits<BaseAutocompleteEmits<T>>()
 const slots = defineSlots<BaseAutocompleteSlots>()
-
+const attrs = useAttrs()
+  
 const variant = useNuiDefaultProperty(props, 'BaseAutocomplete', 'variant')
 const rounded = useNuiDefaultProperty(props, 'BaseAutocomplete', 'rounded')
 const size = useNuiDefaultProperty(props, 'BaseAutocomplete', 'size')

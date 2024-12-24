@@ -6,12 +6,13 @@ import type {
   SelectPortalProps,
   SelectContentProps,
   SelectViewportProps,
+  AcceptableValue,
 } from 'reka-ui'
 import {
   createContext,
 } from 'reka-ui'
 
-export interface BaseSelectProps extends SelectRootProps {
+export interface BaseSelectProps<T = AcceptableValue> extends SelectRootProps<T> {
   /**
    * The form input identifier.
    */
@@ -21,11 +22,6 @@ export interface BaseSelectProps extends SelectRootProps {
    * The placeholder to display for the select input.
    */
   placeholder?: string
-
-  /**
-   * An error message to display, or a boolean indicating whether there is an error.
-   */
-  error?: string | boolean
 
   /**
    * The variant of the select input.
@@ -48,6 +44,11 @@ export interface BaseSelectProps extends SelectRootProps {
    */
   size?: 'sm' | 'md' | 'lg' | 'xl'
 
+  /**
+   * Bindings presets
+   *
+   * @default 'aligned'
+   */
   preset?: 'aligned' | 'popper'
 
   /**
@@ -68,7 +69,7 @@ export interface BaseSelectProps extends SelectRootProps {
     }
   },
 }
-export interface BaseSelectEmits extends SelectRootEmits {}
+export interface BaseSelectEmits<T = AcceptableValue> extends SelectRootEmits<T> {}
 export type BaseSelectSlots = {
   default(): any
   label(): any
@@ -143,18 +144,17 @@ export const [
 ] = createContext<BaseSelectContext>('BaseSelectContext')
 </script>
 
-<script setup lang="ts">
+<script setup lang="ts" generic="T extends AcceptableValue = AcceptableValue">
 import { defu } from 'defu'
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardPropsEmits } from 'reka-ui'
 
-const props = withDefaults(defineProps<BaseSelectProps>(), {
+const props = withDefaults(defineProps<BaseSelectProps<T>>(), {
   id: undefined,
   rounded: undefined,
   size: undefined,
   variant: undefined,
   placeholder: '',
-  error: false,
   preset: undefined,
   
   autocomplete: undefined,
@@ -165,9 +165,8 @@ const props = withDefaults(defineProps<BaseSelectProps>(), {
   dir: undefined,
 
   bindings: () => ({}),
-  classes: () => ({}),
 })
-const emits = defineEmits<BaseSelectEmits>()
+const emits = defineEmits<BaseSelectEmits<T>>()
 const slots = defineSlots<BaseSelectSlots>()
 
 const attrs = useAttrs()
