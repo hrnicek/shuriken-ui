@@ -31,7 +31,10 @@ const forward = useForwardProps(props);
 </script>
 
 <template>
-  <DropdownMenuArrow v-bind="forward" :class="[
+  <DropdownMenuArrow
+    v-bind="forward"
+    class="relative z-10"
+    :class="[
       context.variant.value && variants[context.variant.value]
     ]"
   />

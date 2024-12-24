@@ -18,10 +18,19 @@ export interface BaseDropdownSubProps extends DropdownMenuSubProps {
    */
   text?: string
 
+  /**
+   * Optional bindings to pass to the inner components.
+   */
   bindings?: {
-    trigger?: DropdownMenuSubTriggerProps,
-    content?: DropdownMenuSubContentProps,
-    portal?: DropdownMenuPortalProps,
+    trigger?: DropdownMenuSubTriggerProps & {
+      class?: string | string[]
+    }
+    content?: DropdownMenuSubContentProps & {
+      class?: string | string[]
+    }
+    portal?: DropdownMenuPortalProps & {
+      class?: string | string[]
+    }
   }
 }
 export interface BaseDropdownSubEmits extends DropdownMenuSubEmits {}
@@ -66,14 +75,14 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'bind
               {{ props.title }}
             </slot>
           </div>
-          <p
+          <div
             v-if="'text' in $slots || props.text"
             class="text-muted-400 font-sans text-xs"
           >
             <slot name="text">
               {{ props.text }}
             </slot>
-          </p>
+          </div>
         </div>
         <Icon :name="iconChevronRight" />
       </div>

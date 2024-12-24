@@ -28,14 +28,10 @@ const forward = useForwardProps(reactiveOmit(props, ['label']));
 <template>
   <DropdownMenuLabel
     v-bind="forward"
-    class="px-2 pt-1"
+    class="px-2 pt-1 relative flex items-center justify-between mb-3 font-sans font-medium tracking-wider text-[0.65rem] uppercase text-muted-500 dark:text-muted-200"
   >
-    <div class="relative flex items-center justify-between mb-3">
-      <h4 class="font-sans font-medium tracking-wider text-[0.65rem] uppercase text-muted-500 dark:text-muted-200">
-        <slot>
-          {{ props.label }}
-        </slot>
-      </h4>
-    </div>
+    <slot>
+      {{ props.label }}
+    </slot>
   </DropdownMenuLabel>
 </template>

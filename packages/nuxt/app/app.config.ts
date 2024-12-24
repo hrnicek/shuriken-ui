@@ -124,7 +124,7 @@ export default defineAppConfig({
        *
        * @type {'default' | 'muted' | 'primary' | 'none'}
        */
-      variant: 'default-high',
+      variant: 'default',
       /**
        * The radius of the dropdown item.
        *
@@ -499,6 +499,12 @@ export default defineAppConfig({
        * @type {'sm' | 'md' | 'lg' | 'xl'}
        */
       size: 'md',
+      /**
+       * The size of the autocomplete.
+       *
+       * @type {'popper' | 'inline'}
+       */
+      preset: 'popper',
     },
     BaseAutocompleteItem: {
       /**

@@ -31,7 +31,10 @@ const forward = useForwardProps(props);
 </script>
 
 <template>
-  <DropdownMenuSeparator v-bind="forward" class="my-2 block h-px w-full border-t" :class="[
+  <DropdownMenuSeparator
+    v-bind="forward"
+    class="my-2 block h-px w-full border-t"
+    :class="[
       context.variant.value && variants[context.variant.value]
     ]"
   />

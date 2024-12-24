@@ -28,25 +28,12 @@ export interface BaseDropdownItemProps extends DropdownMenuItemProps {
    * @default 'sm'
    */
   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
-
-  /**
-   * Optional CSS classes to apply to the wrapper and inner elements.
-   */
-  classes?: {
-    /**
-     * CSS classes to apply to the title element.
-     */
-    title?: string | string[]
-
-    /**
-     * CSS classes to apply to the text element.
-     */
-    text?: string | string[]
-  }
 }
 export interface BaseDropdownItemEmits extends DropdownMenuItemEmits {}
 export type BaseDropdownItemSlots = {
   default(): any
+
+  title(): any
   text(): any
   start(): any
   end(): any
@@ -81,17 +68,12 @@ const props = withDefaults(defineProps<BaseDropdownItemProps>(), {
   variant: undefined,
   title: '',
   text: '',
-  classes: () => ({
-    title:
-      'font-heading text-muted-800 text-xs font-semibold leading-tight dark:text-white',
-    text: 'text-muted-400 font-sans text-xs',
-  }),
 })
 
 const emits = defineEmits<BaseDropdownItemEmits>()
 const slots = defineSlots<BaseDropdownItemSlots>()
 
-const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'variant', 'rounded', 'classes']), emits)
+const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'variant', 'rounded']), emits)
 </script>
 
 <template>
@@ -106,20 +88,19 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'vari
   >
     <slot name="start" />
     <div class="grow">
-      <div :class="props.classes?.title">
+      <div class="font-heading text-muted-800 text-xs font-semibold leading-tight dark:text-white">
         <slot>
           {{ props.title }}
         </slot>
       </div>
-      <p
+      <div
         v-if="'text' in $slots || props.text"
         class="text-muted-400 font-sans text-xs"
-        :class="props.classes?.text"
       >
         <slot name="text">
           {{ props.text }}
         </slot>
-      </p>
+      </div>
     </div>
     <slot name="end" />
   </DropdownMenuItem>

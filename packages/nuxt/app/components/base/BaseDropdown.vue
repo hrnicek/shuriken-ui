@@ -36,33 +36,19 @@ export interface BaseDropdownProps extends DropdownMenuRootProps {
   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
 
   /**
-   * Optional CSS classes to apply to the component inner elements.
-   */
-  classes?: {
-    /**
-     * CSS classes to apply to the wrapper element.
-     */
-    wrapper?: string | string[]
-
-    /**
-     * CSS classes to apply to the dropdown menu element.
-     */
-    menu?: string | string[]
-
-    /**
-     * CSS classes to apply to the content element.
-     */
-    content?: string | string[]
-  },
-
-  /**
    * Optional bindings to pass to the inner components.
    */
   bindings?: {
-    content?: DropdownMenuContentProps
-    trigger?: DropdownMenuTriggerProps
-    portal?: DropdownMenuPortalProps
-  },
+    content?: DropdownMenuContentProps & {
+      class?: string | string[]
+    }
+    trigger?: DropdownMenuTriggerProps & {
+      class?: string | string[]
+    }
+    portal?: DropdownMenuPortalProps & {
+      class?: string | string[]
+    }
+  }
 }
 export interface BaseDropdownEmits extends DropdownMenuRootEmits {}
 
@@ -120,7 +106,6 @@ const props = withDefaults(defineProps<BaseDropdownProps>(), {
   modal: undefined,
   open: undefined,
   defaultOpen: undefined,
-  classes: () => ({}),
   bindings: () => ({}),
 })
 const emits = defineEmits<BaseDropdownEmits>()
@@ -131,7 +116,7 @@ const attrs = useAttrs()
 const variant = useNuiDefaultProperty(props, 'BaseDropdown', 'variant')
 const rounded = useNuiDefaultProperty(props, 'BaseDropdown', 'rounded')
 const iconChevronDown = useNuiDefaultIcon('chevronDown')
-const forward = useForwardPropsEmits(reactiveOmit(props, ['label', 'disabled', 'variant', 'rounded', 'classes', 'bindings']), emits)
+const forward = useForwardPropsEmits(reactiveOmit(props, ['label', 'disabled', 'variant', 'rounded', 'bindings']), emits)
 
 provideBaseDropdownContext({
   variant,
@@ -169,12 +154,12 @@ provideBaseDropdownContext({
         class="min-w-52 focus:outline-none shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20 will-change-[opacity] duration-100 transition-opacity transition-discrete data-[state=open]:opacity-100 starting:data-[state=open]:opacity-0 p-2 space-y-1 max-h-[calc(var(--reka-popper-available-height)_-_2rem)] overflow-y-auto nui-slimscroll"
         v-bind="{
           align: 'start',
+          sideOffset: 6,
           ...(props.bindings?.content || {}),
         }"
         :class="[
           rounded && radiuses[rounded],
           variant && variants[variant],
-          props.classes?.content,
         ]"
       >
         <slot />

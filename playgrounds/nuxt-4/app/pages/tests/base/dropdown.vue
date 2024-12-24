@@ -96,8 +96,55 @@ const selection = ref('first')
               <BaseDropdownItem>General</BaseDropdownItem> 
               <BaseDropdownItem>Users</BaseDropdownItem> 
               <BaseDropdownItem>Permissions</BaseDropdownItem> 
-              <BaseDropdownItem>Security</BaseDropdownItem> 
+              <BaseDropdownItem>Security</BaseDropdownItem>
             </BaseDropdownSub>
+          </BaseDropdown>
+
+          <BaseDropdown label="Radio">
+            <BaseDropdownRadioGroup v-model="selection">
+              <BaseDropdownRadioItem value="first">
+                First
+                <template #end>
+                  <div class="flex gap-0.5">
+                    <BaseKbd variant="default" size="sm">alt</BaseKbd>
+                    <BaseKbd variant="default" size="sm">1</BaseKbd>
+                  </div>
+                </template>
+              </BaseDropdownRadioItem>
+              <BaseDropdownRadioItem value="second">
+                Second
+                <template #end>
+                  <div class="flex gap-0.5">
+                    <BaseKbd variant="default" size="sm">alt</BaseKbd>
+                    <BaseKbd variant="default" size="sm">2</BaseKbd>
+                  </div>
+                </template>
+              </BaseDropdownRadioItem>
+              <BaseDropdownRadioItem value="third">
+                Third
+                <template #end>
+                  <div class="flex gap-0.5">
+                    <BaseKbd variant="default" size="sm">alt</BaseKbd>
+                    <BaseKbd variant="default" size="sm">3</BaseKbd>
+                  </div>
+                </template>
+              </BaseDropdownRadioItem>
+            </BaseDropdownRadioGroup>
+          </BaseDropdown>
+
+          <BaseDropdown label="Checkbox">
+            <BaseDropdownCheckbox
+              v-model="checked"
+              title="Profile"
+            />
+            <BaseDropdownCheckbox
+              title="Projects"
+              disabled
+            />
+            <BaseDropdownCheckbox
+              v-model="checked2"
+              title="Team"
+            />
           </BaseDropdown>
         </div>
       </NuiPreview>
@@ -111,7 +158,7 @@ const selection = ref('first')
             <BaseDropdownItem>Team</BaseDropdownItem> 
             <BaseDropdownItem>Settings</BaseDropdownItem> 
           </BaseDropdown>
-          <BaseDropdown label="With top arrow">
+          <BaseDropdown label="With top arrow" :bindings="{ content: { sideOffset: 0 } }">
             <BaseDropdownItem>Profile</BaseDropdownItem> 
             <BaseDropdownItem>Projects</BaseDropdownItem> 
             <BaseDropdownItem>Team</BaseDropdownItem> 
@@ -139,7 +186,6 @@ const selection = ref('first')
             label="Custom dropdown"
             rounded="md"
             :classes="{ menu: 'w-72' }"
-            :bindings="{ content: { sideOffset: 10 } }"
           >
             <BaseDropdownLabel>Label</BaseDropdownLabel>  
             <BaseDropdownItem
@@ -191,8 +237,8 @@ const selection = ref('first')
                   First
                   <template #end>
                     <div class="flex gap-0.5">
-                      <BaseKbd variant="default-high" size="sm">alt</BaseKbd>
-                      <BaseKbd variant="default-high" size="sm">1</BaseKbd>
+                      <BaseKbd variant="default" size="sm">alt</BaseKbd>
+                      <BaseKbd variant="default" size="sm">1</BaseKbd>
                     </div>
                   </template>
                 </BaseDropdownRadioItem>
@@ -200,8 +246,8 @@ const selection = ref('first')
                   Second
                   <template #end>
                     <div class="flex gap-0.5">
-                      <BaseKbd variant="default-high" size="sm">alt</BaseKbd>
-                      <BaseKbd variant="default-high" size="sm">2</BaseKbd>
+                      <BaseKbd variant="default" size="sm">alt</BaseKbd>
+                      <BaseKbd variant="default" size="sm">2</BaseKbd>
                     </div>
                   </template>
                 </BaseDropdownRadioItem>
@@ -209,8 +255,8 @@ const selection = ref('first')
                   Third
                   <template #end>
                     <div class="flex gap-0.5">
-                      <BaseKbd variant="default-high" size="sm">alt</BaseKbd>
-                      <BaseKbd variant="default-high" size="sm">3</BaseKbd>
+                      <BaseKbd variant="default" size="sm">alt</BaseKbd>
+                      <BaseKbd variant="default" size="sm">3</BaseKbd>
                     </div>
                   </template>
                 </BaseDropdownRadioItem>
@@ -221,8 +267,8 @@ const selection = ref('first')
             >
               <template #end>
                 <div class="flex gap-0.5">
-                  <BaseKbd variant="default-high" size="sm">ctrl</BaseKbd>
-                  <BaseKbd variant="default-high" size="sm">k</BaseKbd>
+                  <BaseKbd variant="default" size="sm">ctrl</BaseKbd>
+                  <BaseKbd variant="default" size="sm">k</BaseKbd>
                 </div>
               </template>
             </BaseDropdownItem>
@@ -240,7 +286,13 @@ const selection = ref('first')
 
       <NuiPreview title="Button slot" description="Use any button component as a trigger">
         <div class="flex justify-start gap-8 w-full">
-          <BaseDropdown>
+          <BaseDropdown
+            :bindings="{
+              content: {
+                sideOffset: 0,
+              }
+            }"
+          >
             <template #button>
               <BaseButton
                 variant="primary"
@@ -260,7 +312,13 @@ const selection = ref('first')
             <BaseDropdownArrow :width="16" :height="8" />
           </BaseDropdown>
 
-          <BaseDropdown>
+          <BaseDropdown
+            :bindings="{
+              content: {
+                sideOffset: 0,
+              }
+            }"
+          >
             <template #button>
               <BaseButton
                 variant="ghost"
@@ -287,6 +345,7 @@ const selection = ref('first')
           <BaseDropdown label="Start align" :bindings="{
             content: {
               align: 'start',
+              sideOffset: 0,
             }
           }">
             <BaseDropdownItem>Profile</BaseDropdownItem> 
@@ -298,6 +357,7 @@ const selection = ref('first')
           <BaseDropdown label="Center align" :bindings="{
             content: {
               align: 'center',
+              sideOffset: 0,
             }
           }">
             <BaseDropdownItem>Profile</BaseDropdownItem> 
@@ -309,6 +369,7 @@ const selection = ref('first')
           <BaseDropdown label="End align" :bindings="{
             content: {
               align: 'end',
+              sideOffset: 0,
             }
           }">
             <BaseDropdownItem>Profile</BaseDropdownItem> 
@@ -329,7 +390,7 @@ const selection = ref('first')
           <BaseDropdown :bindings="{
             content: {
               side: 'top',
-              disableUpdateOnLayoutShift: true,
+              sideOffset: 0,
             }
           }">
             <template #button>
@@ -351,6 +412,7 @@ const selection = ref('first')
           <BaseDropdown :bindings="{
             content: {
               side: 'right',
+              sideOffset: 0,
             }
           }">
             <template #button>
@@ -371,6 +433,7 @@ const selection = ref('first')
           <BaseDropdown :bindings="{
             content: {
               side: 'bottom',
+              sideOffset: 0,
             }
           }">
             <template #button>
@@ -391,6 +454,7 @@ const selection = ref('first')
           <BaseDropdown :bindings="{
             content: {
               side: 'left',
+              sideOffset: 0,
             }
           }">
             <template #button>
@@ -571,7 +635,6 @@ const selection = ref('first')
             <BaseDropdownItem>Projects</BaseDropdownItem> 
             <BaseDropdownItem>Team</BaseDropdownItem> 
             <BaseDropdownItem>Settings</BaseDropdownItem> 
-            <BaseDropdownArrow />
           </BaseDropdown>
           <BaseDropdown label="Absolute position" :bindings="{
             portal: {
@@ -585,7 +648,6 @@ const selection = ref('first')
             <BaseDropdownItem>Projects</BaseDropdownItem> 
             <BaseDropdownItem>Team</BaseDropdownItem> 
             <BaseDropdownItem>Settings</BaseDropdownItem> 
-            <BaseDropdownArrow />
           </BaseDropdown>
         </div>
       </NuiPreview>

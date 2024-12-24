@@ -30,28 +30,13 @@ export interface BaseDropdownRadioItemProps extends DropdownMenuRadioItemProps {
    */
   rounded?: 'none' | 'sm' | 'md' | 'lg'
 
-  bindings?: {
-    indicator?: DropdownMenuItemIndicatorProps,
-  }
-
   /**
-   * Optional CSS classes to apply to the wrapper and inner elements.
+   * Optional bindings to pass to the inner components.
    */
-  classes?: {
-    /**
-     * CSS classes to apply to the wrapper element.
-     */
-    wrapper?: string | string[]
-
-    /**
-     * CSS classes to apply to the title element.
-     */
-    title?: string | string[]
-
-    /**
-     * CSS classes to apply to the text element.
-     */
-    text?: string | string[]
+  bindings?: {
+    indicator?: DropdownMenuItemIndicatorProps & {
+      class?: string | string[]
+    }
   }
 }
 export interface BaseDropdownRadioItemEmits extends DropdownMenuRadioItemEmits {}
@@ -71,23 +56,21 @@ import { radiuses } from './BaseDropdown.vue'
 const props = withDefaults(defineProps<BaseDropdownRadioItemProps>(), {
   variant: undefined,
   rounded: undefined,
-  disabled: undefined,
   text: undefined,
-  textValue: undefined,
   title: undefined,
+  
+  disabled: undefined,
+  textValue: undefined,
+  value: undefined,
+
   bindings: () => ({}),
-  classes: () => ({
-    title:
-      'font-heading text-muted-800 text-xs font-semibold leading-tight dark:text-white',
-    text: 'text-muted-400 font-sans text-xs',
-  }),
 })
 const emits = defineEmits<BaseDropdownRadioItemEmits>()
 const slots = defineSlots<BaseDropdownRadioItemSlots>()
 
 const variant = useNuiDefaultProperty(props, 'BaseDropdownItem', 'variant')
 const rounded = useNuiDefaultProperty(props, 'BaseDropdownItem', 'rounded')
-const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'variant', 'rounded', 'bindings', 'classes']), emits)
+const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'variant', 'rounded', 'bindings']), emits)
 </script>
 
 <template>
@@ -105,20 +88,19 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'vari
     </DropdownMenuItemIndicator>
 
     <div class="grow group-data-[state=unchecked]/menu-radio-item:ps-6!">
-      <div :class="props.classes?.title">
+      <div class="font-heading text-muted-800 text-xs font-semibold leading-tight dark:text-white">
         <slot>
           {{ props.title }}
         </slot>
       </div>
-      <p
+      <div
         v-if="'text' in $slots || props.text"
         class="text-muted-400 font-sans text-xs"
-        :class="props.classes?.text"
       >
         <slot name="text">
           {{ props.text }}
         </slot>
-      </p>
+      </div>
     </div>
     <slot name="end" />
   </DropdownMenuRadioItem>
