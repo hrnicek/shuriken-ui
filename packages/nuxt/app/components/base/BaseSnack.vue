@@ -157,7 +157,7 @@ const variants = {
     </span>
     <button
       type="button"
-      class="cursor-pointer scale-75 flex items-center justify-center rounded-full text-muted-600 dark:text-muted-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-500/10 dark:hover:bg-primary-500/20 transition-colors duration-200"
+      class="cursor-pointer scale-75 flex items-center justify-center rounded-full text-muted-600 dark:text-muted-300 hover:text-[var(--destructive-base)] dark:hover:text-[var(--destructive-light)] hover:bg-muted-50 dark:hover:bg-white/10 transition-colors duration-200"
       :class="[
         props.classes?.button,
         size && wrapperSizes[size],

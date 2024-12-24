@@ -78,15 +78,29 @@
   --color-danger-900: var(--color-rose-900);
   --color-danger-950: var(--color-rose-950);
 
-  /** Primary button variables */
-  --primary-text-base: var(--color-white);
-  --primary-bg-base: var(--color-primary-500);
-  --primary-bg-hocus: var(--color-primary-400);
+  /** Primary variables */
+  --primary-invert: var(--color-white);
+  --primary-base: var(--color-primary-500);
+  --primary-heavy: var(--color-primary-600);
+  --primary-light: var(--color-primary-400);
 
-  /** Destructive button variables */
-  --destructive-text-base: var(--color-white);
-  --destructive-bg-base: var(--color-danger-600);
-  --destructive-bg-hocus: var(--color-danger-500);
+  /** Destructive variables */
+  --destructive-invert: var(--color-white);
+  --destructive-base: var(--color-red-600);
+  --destructive-heavy: var(--color-red-700);
+  --destructive-light: var(--color-red-500);
+
+  /** Warning variables */
+  --warning-invert: var(--color-white);
+  --warning-base: var(--color-amber-600);
+  --warning-heavy: var(--color-amber-700);
+  --warning-light: var(--color-amber-500);
+
+  /** Success variables */
+  --success-invert: var(--color-white);
+  --success-base: var(--color-green-600);
+  --success-heavy: var(--color-green-700);
+  --success-light: var(--color-green-500);
 
   --animate-nui-placeload: nui-placeload 1s linear infinite forwards;
   --animate-nui-progress-indeterminate: nui-progress-indeterminate 3s linear infinite forwards;

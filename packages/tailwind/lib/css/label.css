@@ -1,5 +1,0 @@
-/* @utility nui-label */
-
-@utility nui-label {
-  @apply inline-block select-none font-sans leading-none text-muted-400 dark:text-muted-400/80;
-}

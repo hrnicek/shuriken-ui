@@ -96,8 +96,8 @@ const inputRef = ref<HTMLInputElement>()
 const id = useNinjaId(() => props.id)
 
 const variants = {
-  default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 invalid:!border-[var(--destructive-bg-base)]',
-  muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-600 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 invalid:!border-[var(--destructive-bg-base)]',
+  default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 aria-invalid:border-[var(--destructive-base)]!',
+  muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-600 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 aria-invalid:border-[var(--destructive-base)]!',
 } as const
 
 // @todo: low-contrast-theme

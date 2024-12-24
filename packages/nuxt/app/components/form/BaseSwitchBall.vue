@@ -88,7 +88,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'sublab
 
 const trackVariants = {
   'default': 'peer-data-[state=checked]:bg-muted-500 dark:peer-data-[state=checked]:bg-muted-800 bg-muted-300 dark:bg-muted-900',
-  'primary': 'peer-data-[state=checked]:bg-primary-500 dark:peer-data-[state=checked]:bg-primary-500 bg-muted-300 dark:bg-muted-600',
+  'primary': 'peer-data-[state=checked]:bg-[var(--primary-base)] dark:peer-data-[state=checked]:bg-[var(--primary-base)] bg-muted-300 dark:bg-muted-600',
   'dark': 'peer-data-[state=checked]:bg-muted-900 dark:peer-data-[state=checked]:bg-muted-100 bg-muted-300 dark:bg-muted-600',
   'none': '',
 } as const
@@ -96,7 +96,7 @@ const trackVariants = {
 // @todo: low-contrast-theme
 // const trackVariants = {
 //   'default': 'peer-data-[state=checked]:bg-muted-400 dark:peer-data-[state=checked]:bg-muted-700 bg-muted-300 dark:bg-muted-600',
-//   'primary': 'peer-data-[state=checked]:bg-primary-500 dark:peer-data-[state=checked]:bg-primary-500 bg-muted-300 dark:bg-muted-600',
+//   'primary': 'peer-data-[state=checked]:bg-[var(--primary-base)] dark:peer-data-[state=checked]:bg-[var(--primary-base)] bg-muted-300 dark:bg-muted-600',
 //   'dark': 'peer-data-[state=checked]:bg-muted-900 dark:peer-data-[state=checked]:bg-muted-100 bg-muted-300 dark:bg-muted-600',
 //   'none': '',
 // } as const

@@ -19,15 +19,14 @@ const props = withDefaults(
     /**
      * Defines the color of the icon
      *
-     * @since 3.0.0
      * @default 'default'
      */
-    color?: 'primary' | 'dark' | 'black'
+    variant?: 'default' | 'primary' | 'dark'
   }>(),
   {
     label: 'Drop your files',
     icon: '',
-    color: undefined,
+    variant: undefined,
     filterFileDropped: () => true,
   },
 )
@@ -35,7 +34,7 @@ const emits = defineEmits<{
   drop: [value: FileList]
 }>()
 
-const color = useNuiDefaultProperty(props, 'BaseFullscreenDropfile', 'color')
+const variant = useNuiDefaultProperty(props, 'BaseFullscreenDropfile', 'variant')
 
 const isDropping = ref(false)
 
@@ -95,17 +94,49 @@ onBeforeUnmount(() => {
   document.documentElement.removeEventListener('drop', onDrop)
 })
 
-const colors = {
-  primary: 'nui-dropfile-primary',
-  dark: 'nui-dropfile-dark',
-  black: 'nui-dropfile-black',
+const dropVariants = {
+  default: 'bg-muted-100 dark:bg-muted-950 border-2 border-dashed border-muted-200 dark:border-muted-800',
+  primary: 'bg-muted-100 dark:bg-muted-950 border-2 border-dashed border-muted-200 dark:border-muted-800',
+  dark: 'bg-muted-100 dark:bg-muted-950 border-2 border-dashed border-muted-200 dark:border-muted-800',
+}
+
+// @todo: low-contrast-theme
+// const dropVariants = {
+//   default: 'bg-muted-100 dark:bg-muted-800 border-2 border-dashed border-muted-200 dark:border-muted-700',
+//   primary: 'bg-muted-100 dark:bg-muted-800 border-2 border-dashed border-muted-200 dark:border-muted-700',
+//   dark: 'bg-muted-100 dark:bg-muted-800 border-2 border-dashed border-muted-200 dark:border-muted-700',
+// }
+
+const overlayVariants = {
+  default: 'bg-muted-50 dark:bg-muted-900/20',
+  primary: 'bg-muted-50 dark:bg-muted-900/20',
+  dark: 'bg-muted-50 dark:bg-muted-900/20',
+}
+
+// @todo: low-contrast-theme
+// const overlayVariants = {
+//   default: 'text-muted-500 dark:text-muted-400',
+//   primary: 'text-[var(--primary-base)] dark:text-[var(--primary-light)]',
+//   dark: 'text-muted-900 dark:text-muted-100',
+// }
+
+const iconVariants = {
+  default: 'text-muted-500 dark:text-muted-400',
+  primary: 'text-[var(--primary-base)] dark:text-[var(--primary-light)]',
+  dark: 'text-muted-900 dark:text-muted-100',
 }
 </script>
 
 <template>
-  <div class="nui-fullscreen-dropfile" :class="color && colors[color]">
-    <div v-if="isDropping" class="nui-fullscreen-dropfile-outer" />
-    <div v-show="isDropping" class="nui-fullscreen-dropfile-inner">
+  <div class="block">
+    <div 
+      v-if="isDropping" 
+      class=" fixed inset-0 z-40 backdrop-blur-xs transition-all hover:backdrop-blur-none" 
+      :class="[
+        overlayVariants[variant],
+      ]" 
+    />
+    <div v-show="isDropping" class="fixed inset-0 z-50">
       <Transition
         enter-active-class="transition duration-100 ease-out"
         enter-from-class="transform scale-0 opacity-0"
@@ -114,14 +145,22 @@ const colors = {
         leave-from-class="transform scale-1 opacity-100"
         leave-to-class="transform scale-0 opacity-0"
       >
-        <div v-if="isDropping" class="nui-fullscreen-dropfile-container">
-          <div class="nui-fullscreen-dropfile-content">
+        <div v-if="isDropping" class="flex h-full flex-1 items-center justify-center">
+          <div 
+            class="h-[230px] w-[500px] mx-auto flex flex-col items-center justify-center gap-6 drop-shadow-xs rounded-md"
+            :class="[
+              dropVariants[variant],
+            ]"
+          > 
             <Icon
               v-if="props.icon"
               :name="props.icon"
-              class="nui-fullscreen-dropfile-icon"
+              class="h-10 w-10"
+              :class="[
+                variant && iconVariants[variant],
+              ]"
             />
-            <div class="nui-fullscreen-dropfile-label">
+            <div class="text-base text-muted-500 dark:text-muted-400">
               {{ props.label }}
             </div>
           </div>

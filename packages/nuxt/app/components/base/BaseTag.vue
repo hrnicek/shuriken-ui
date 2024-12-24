@@ -30,7 +30,7 @@ export type BaseTagSlots = {
 export const variants = {
   'default': 'bg-white/10 dark:bg-muted-950/10 text-muted-400 dark:text-muted-200 ring-1 ring-inset ring-muted-400/20 dark:ring-muted-200/20',
   'muted': 'bg-muted-400/10 dark:bg-muted-950/10 text-muted-400 dark:text-muted-200 ring-1 ring-inset ring-muted-400/20 dark:ring-muted-200/20',
-  'primary': 'bg-primary-400/10 text-primary-400 ring-1 ring-inset ring-primary-400/20',
+  'primary': 'bg-primary-400/10 text-[var(--primary-base)] dark:text-[var(--primary-light)] ring-1 ring-inset ring-primary-400/20',
   'none': ''
 } as const
 
