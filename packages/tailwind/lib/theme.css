@@ -79,28 +79,28 @@
   --color-danger-950: var(--color-rose-950);
 
   /** Primary variables */
-  --primary-invert: var(--color-white);
-  --primary-base: var(--color-primary-500);
-  --primary-heavy: var(--color-primary-600);
-  --primary-light: var(--color-primary-400);
+  --color-primary-invert: var(--color-white);
+  --color-primary-base: var(--color-primary-500);
+  --color-primary-heavy: var(--color-primary-600);
+  --color-primary-light: var(--color-primary-400);
 
   /** Destructive variables */
-  --destructive-invert: var(--color-white);
-  --destructive-base: var(--color-red-600);
-  --destructive-heavy: var(--color-red-700);
-  --destructive-light: var(--color-red-500);
+  --color-destructive-invert: var(--color-white);
+  --color-destructive-base: var(--color-red-600);
+  /* --color-destructive-heavy: var(--color-red-700); */
+  --color-destructive-light: var(--color-red-500);
 
   /** Warning variables */
-  --warning-invert: var(--color-white);
-  --warning-base: var(--color-amber-600);
-  --warning-heavy: var(--color-amber-700);
-  --warning-light: var(--color-amber-500);
+  /* --color-warning-invert: var(--color-white); */
+  /* --color-warning-base: var(--color-amber-600); */
+  /* --color-warning-heavy: var(--color-amber-700); */
+  /* --color-warning-light: var(--color-amber-500); */
 
   /** Success variables */
-  --success-invert: var(--color-white);
-  --success-base: var(--color-green-600);
-  --success-heavy: var(--color-green-700);
-  --success-light: var(--color-green-500);
+  /* --color-success-invert: var(--color-white); */
+  --color-success-base: var(--color-green-600);
+  /* --color-success-heavy: var(--color-green-700); */
+  --color-success-light: var(--color-green-500);
 
   --animate-nui-placeload: nui-placeload 1s linear infinite forwards;
   --animate-nui-progress-indeterminate: nui-progress-indeterminate 3s linear infinite forwards;

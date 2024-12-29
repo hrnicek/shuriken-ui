@@ -33,14 +33,14 @@ export type BaseProgressSlots = {
 }
 
 export const variants = {
-  'primary': 'bg-[var(--primary-base)]',
+  'primary': 'bg-primary-base',
   'dark': 'bg-muted-900 dark:bg-white',
   'none': '',
 } as const
 
 // @todo: low-contrast-theme
 // export const variants = {
-//   'primary': 'bg-[var(--primary-base)]',]',
+//   'primary': 'bg-primary-base',]',
 //   'dark': 'bg-muted-900 dark:bg-white',
 //   'none': '',
 // } as const

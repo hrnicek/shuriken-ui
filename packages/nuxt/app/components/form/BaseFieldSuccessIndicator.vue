@@ -22,7 +22,7 @@ const { state } = injectBaseFieldContext()
 </script>
 
 <template>
-  <Primitive v-bind="forward" v-if="state === 'success'" class="pointer-events-none text-[var(--success-base)] dark:text-[var(--success-light)]">
+  <Primitive v-bind="forward" v-if="state === 'success'" class="pointer-events-none text-success-base dark:text-success-light">
     <slot>
       <Icon :name="iconCheck" class="size-4" />
     </slot>

@@ -60,16 +60,16 @@ export interface BaseInputFileProps {
 }
 
 export const variants = {
-  default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 has-aria-invalid:!border-[var(--destructive-base)]',
-  muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 has-aria-invalid:!border-[var(--destructive-base)]',
-  primary: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 has-aria-invalid:!border-[var(--destructive-base)]',
+  default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 has-aria-invalid:!border-destructive-base',
+  muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 has-aria-invalid:!border-destructive-base',
+  primary: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 has-aria-invalid:!border-destructive-base',
 } as const
 
 // @todo: low-contrast-theme
 // const variants = {
-//   default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 aria-invalid:!border-[var(--destructive-base)]',
-//   muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 aria-invalid:!border-[var(--destructive-base)]',
-//   primary: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 aria-invalid:!border-[var(--destructive-base)]',
+//   default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 aria-invalid:!border-destructive-base',
+//   muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 aria-invalid:!border-destructive-base',
+//   primary: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 aria-invalid:!border-destructive-base',
 // } as const
 
 export const sizes = {
@@ -90,14 +90,14 @@ export const radiuses = {
 export const textVariants = {
   default: 'bg-muted-100 dark:bg-muted-800 text-muted-700 dark:text-muted-400 not-data-disabled:group-hover/file:bg-muted-200 dark:not-data-disabled:group-hover/file:bg-muted-700 not-data-disabled:group-hover/file:text-muted-800 dark:not-data-disabled:group-hover/file:text-muted-200',
   muted: 'bg-muted-100 dark:bg-muted-800 text-muted-700 dark:text-muted-400 not-data-disabled:group-hover/file:bg-muted-200 dark:not-data-disabled:group-hover/file:bg-muted-700 not-data-disabled:group-hover/file:text-muted-800 dark:not-data-disabled:group-hover/file:text-muted-200',
-  primary: 'bg-primary-500/10 dark:bg-primary-500/20 text-[var(--primary-base)] dark:text-[var(--primary-light)] not-data-disabled:group-hover/file:bg-primary-500/20 dark:not-data-disabled:group-hover/file:bg-primary-500/30 not-data-disabled:group-hover/file:text-[var(--primary-heavy)] dark:not-data-disabled:group-hover/file:text-[var(--primary-light)]',
+  primary: 'bg-primary-500/10 dark:bg-primary-500/20 text-primary-base dark:text-primary-light not-data-disabled:group-hover/file:bg-primary-500/20 dark:not-data-disabled:group-hover/file:bg-primary-500/30 not-data-disabled:group-hover/file:text-primary-heavy dark:not-data-disabled:group-hover/file:text-primary-light',
 } as const
 
 // @todo: low-contrast-theme
 // const textVariants = {
 //   default: 'bg-muted-100 dark:bg-muted-800 text-muted-700 dark:text-muted-400 group-hover/file:bg-muted-200 dark:group-hover/file:bg-muted-700 group-hover/file:text-muted-800 dark:group-hover/file:text-muted-200',
 //   muted: 'bg-muted-100 dark:bg-muted-800 text-muted-700 dark:text-muted-400 group-hover/file:bg-muted-200 dark:group-hover/file:bg-muted-700 group-hover/file:text-muted-800 dark:group-hover/file:text-muted-200',
-//   primary: 'bg-primary-500/10 dark:bg-primary-500/20 text-[var(--primary-base)] dark:text-[var(--primary-light)] group-hover/file:bg-primary-500/20 dark:group-hover/file:bg-primary-500/10 group-hover/file:text-[var(--primary-heavy)] dark:group-hover/file:text-[var(--primary-light)]',
+//   primary: 'bg-primary-500/10 dark:bg-primary-500/20 text-primary-base dark:text-primary-light group-hover/file:bg-primary-500/20 dark:group-hover/file:bg-primary-500/10 group-hover/file:text-primary-heavy dark:group-hover/file:text-primary-light',
 // } as const
 
 export const textSpacings = {

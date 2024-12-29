@@ -131,7 +131,7 @@ const forward = useForwardProps(reactiveOmit(props, ['size', 'variant', 'label',
     </span>
     <button
       type="button"
-      class="cursor-pointer scale-75 flex items-center justify-center rounded-full text-muted-600 dark:text-muted-300 hover:text-[var(--destructive-base)] dark:hover:text-[var(--destructive-light)] hover:bg-muted-50 dark:hover:bg-white/10 transition-colors duration-200"
+      class="cursor-pointer scale-75 flex items-center justify-center rounded-full text-muted-600 dark:text-muted-300 hover:text-destructive-base dark:hover:text-destructive-light hover:bg-muted-50 dark:hover:bg-white/10 transition-colors duration-200"
       :class="[
         size && wrapperSizes[size],
       ]"

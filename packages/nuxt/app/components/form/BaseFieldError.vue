@@ -26,7 +26,7 @@ const { id, idError, state } = injectBaseFieldContext()
     v-bind="forward"
     :id="idError"
     :for="id"
-    class="font-sans text-xs font-medium leading-none text-[var(--destructive-base)] dark:text-[var(--destructive-light)]"
+    class="font-sans text-xs font-medium leading-none text-destructive-base dark:text-destructive-light"
   >
     <slot />
   </Label>

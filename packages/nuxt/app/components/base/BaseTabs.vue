@@ -155,8 +155,8 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['tabs', 'variant', 'ju
       >
         <div class="w-full h-full" :class="[
           // @todo: low-contrast-theme
-          // variant === 'primary-low' && 'bg-[var(--primary-base)]',
-          variant === 'primary' && 'bg-[var(--primary-base)]',
+          // variant === 'primary-low' && 'bg-primary-base',
+          variant === 'primary' && 'bg-primary-base',
           // variant === 'dark-low' && 'bg-muted-900 dark:bg-muted-100',
           variant === 'dark' && 'bg-muted-900 dark:bg-muted-100',
           // variant === 'muted-low' && 'bg-muted-400 dark:bg-muted-400',

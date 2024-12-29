@@ -85,7 +85,7 @@ const preference = computed({
     <div class="relative flex">
       <RadioGroupItem class="relative z-10 size-8 flex items-center justify-center nui-focus rounded-full" value="system" @click="preference = 'system'">
         <span class="pointer-events-none">
-          <Icon class="text-lg" :name="iconScreen" :class="preference === 'system' ? 'text-[var(--primary-base)]' : 'text-muted-400 dark:text-muted-500'" />
+          <Icon class="text-lg" :name="iconScreen" :class="preference === 'system' ? 'text-primary-base' : 'text-muted-400 dark:text-muted-500'" />
         </span>
       </RadioGroupItem>
       <RadioGroupItem class="relative z-10 size-8 flex items-center justify-center nui-focus rounded-full" value="light" @click="preference = 'light'">

@@ -22,7 +22,7 @@ const { required } = injectBaseFieldContext()
 </script>
 
 <template>
-  <Primitive v-if="required" v-bind="forward" class="select-none text-[var(--destructive-base)] dark:text-[var(--destructive-light)]">
+  <Primitive v-if="required" v-bind="forward" class="select-none text-destructive-base dark:text-destructive-light">
     <slot>
       <Icon :name="iconRequired" class="size-3 inline-block align-text-top" />
     </slot>

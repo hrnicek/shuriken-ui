@@ -149,8 +149,8 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['ellipsis', 'variant',
             class="outline-none focus-visible:ring focus-visible:!ring-primary-500 flex items-center justify-center mb-0 inline-flex flex-wrap gap-2 md:gap-1 font-sans text-sm border enabled:cursor-pointer"
             :class="[
               // @todo: low-contrast-theme
-              // variant === 'primary-low' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-800 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-600 data-selected:!bg-[var(--primary-base)] data-selected:!text-[var(--primary-invert)]',
-              variant === 'primary' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-900 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-800 data-selected:!bg-[var(--primary-base)] data-selected:!text-[var(--primary-invert)]',
+              // variant === 'primary-low' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-800 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-600 data-selected:!bg-primary-base data-selected:!text-primary-invert',
+              variant === 'primary' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-900 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-800 data-selected:!bg-primary-base data-selected:!text-primary-invert',
               // variant === 'dark-low' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-800 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-700 data-selected:!bg-muted-900 data-selected:!text-white dark:data-selected:!bg-white dark:data-selected:!text-muted-900',
               variant === 'dark' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-900 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-700 data-selected:!bg-muted-900 data-selected:!text-white dark:data-selected:!bg-white dark:data-selected:!text-muted-900',
               rounded && radiuses[rounded],

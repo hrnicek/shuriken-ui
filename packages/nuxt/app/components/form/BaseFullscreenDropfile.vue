@@ -62,13 +62,13 @@ export const overlayVariants = {
 // @todo: low-contrast-theme
 // const overlayVariants = {
 //   default: 'text-muted-500 dark:text-muted-400',
-//   primary: 'text-[var(--primary-base)] dark:text-[var(--primary-light)]',
+//   primary: 'text-primary-base dark:text-primary-light',
 //   dark: 'text-muted-900 dark:text-muted-100',
 // }
 
 export const iconVariants = {
   default: 'text-muted-500 dark:text-muted-400',
-  primary: 'text-[var(--primary-base)] dark:text-[var(--primary-light)]',
+  primary: 'text-primary-base dark:text-primary-light',
   dark: 'text-muted-900 dark:text-muted-100',
 } as const
 </script>

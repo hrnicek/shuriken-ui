@@ -136,7 +136,7 @@ const items = computed(() => {
               :to="item.to"
               class="hover:underline underline-offset-4 text-[0.85rem] flex items-center gap-x-1 text-muted-500 dark:text-muted-400 transition-colors duration-300"
               :class="[
-                item.to && variant === 'primary' && 'hover:text-[var(--primary-heavy)] focus:text-[var(--primary-heavy)] dark:hover:text-[var(--primary-light)] dark:focus:text-[var(--primary-light)]',
+                item.to && variant === 'primary' && 'hover:text-primary-heavy focus:text-primary-heavy dark:hover:text-primary-light dark:focus:text-primary-light',
                 item.to && variant === 'dark' && 'hover:text-muted-900 focus:text-muted-900 dark:hover:text-muted-100 dark:focus:text-muted-100',
               ]"
             >

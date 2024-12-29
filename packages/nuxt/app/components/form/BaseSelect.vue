@@ -193,7 +193,7 @@ provideBaseSelectContext({
 <template>
   <SelectRoot :id v-bind="forward">
     <SelectTrigger
-      class="nui-focus w-full flex items-center justify-between leading-none gap-[5px] outline-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-[var(--destructive-base)]!"
+      class="nui-focus w-full flex items-center justify-between leading-none gap-[5px] outline-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive-base!"
       :class="[
         variant && variants[variant],
         size && sizes[size],
