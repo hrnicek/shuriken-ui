@@ -13,20 +13,25 @@ const uploadedFiles = ref<FileList | null>(null)
   <div>
     <NuiPreviewContainer title="BaseFullscreenDropfile">
       <NuiPreview title="Dropfile" description="Dropfile component variation">
-        <div class="max-w-xl">
+        <div class="max-w-xl flex flex-col gap-4">
           <BaseFullscreenDropfile
             icon="ph:image-duotone"
             :filter-file-dropped="(file) => file.type.startsWith('image')"
-            @drop="
-              (value) => {
-                uploadedFiles = value
-              }
-            "
+            accept="image/*"
+            v-model="uploadedFiles"
+            multiple
+          />
+          <BaseInputFile
+            icon="ph:image-duotone"
+            accept="image/*"
+            v-model="uploadedFiles"
+            multiple
           />
 
           <BaseInputFileHeadless
             v-slot="{ open, remove, preview, drop, files }"
             v-model="uploadedFiles"
+            accept="image/*"
             multiple
           >
             <div class="mb-4 flex items-center gap-2">
@@ -99,9 +104,9 @@ const uploadedFiles = ref<FileList | null>(null)
               <ul v-else class="mt-6 space-y-2">
                 <li v-for="file in files" :key="file.name">
                   <div
-                    class="border-muted-200 dark:border-muted-700 dark:bg-muted-800 relative flex items-center justify-end gap-2 rounded-xl border bg-white p-3"
+                    class="border-muted-200 dark:border-muted-700 dark:bg-muted-800 relative flex items-center justify-end gap-2 rounded-xl border bg-white p-3 w-full"
                   >
-                    <div class="flex items-center gap-2">
+                    <div class="flex items-center gap-2 grow">
                       <div class="shrink-0">
                         <img
                           v-if="file.type.startsWith('image')"
@@ -118,26 +123,26 @@ const uploadedFiles = ref<FileList | null>(null)
                         >
                       </div>
 
-                      <div class="font-sans">
+                      <div class="font-sans flex flex-col truncate">
                         <span
-                          class="text-muted-800 dark:text-muted-100 line-clamp-1 block text-sm"
+                          class="text-muted-800 dark:text-muted-100 text-sm truncate text-ellipsis"
                         >
                           {{ file.name }}
                         </span>
 
-                        <span class="text-muted-400 block text-xs">
+                        <span class="text-muted-400 text-xs">
                           {{ file.size }}
                         </span>
                       </div>
                     </div>
 
                     <div
-                      class="ms-auto w-32 px-4 transition-opacity duration-300 opacity-100"
+                      class="w-32 px-4 shrink-0 transition-opacity duration-300 opacity-100"
                     >
                       <BaseProgress :value="0" size="xs" color="success" />
                     </div>
 
-                    <div class="flex gap-2">
+                    <div class="flex gap-2 shrink-0">
                       <button
                         class="border-muted-200 hover:border-primary-500 text-muted-700 dark:text-muted-200 hover:text-primary-600 dark:border-muted-700 dark:bg-muted-900 dark:hover:border-primary-500 dark:hover:text-primary-600 relative flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border bg-white transition-colors duration-300 disabled:cursor-not-allowed disabled:opacity-60"
                         disabled

@@ -16,6 +16,11 @@ export interface BaseInputFileProps {
   disabled?: boolean
 
   /**
+   * Allows multiple files to be selected.
+   */
+  multiple?: boolean
+
+  /**
    * Method to return the text value of the file input.
    */
   textValue?: (fileList?: FileList | null) => string
@@ -131,16 +136,22 @@ const inputRef = ref<HTMLInputElement>()
 const id = useNinjaId(() => props.id as string)
 
 function defaultTextValue(fileList?: FileList | null) {
-  if (!fileList?.item?.length) {
+  if (!fileList?.length) {
     return ''
   }
 
-  return fileList?.item.length === 1
-    ? fileList.item(0)?.name ?? i18n.value.invalid
-    : i18n.value.multiple.replaceAll(
+  if (fileList.length === 1) {
+    return fileList.item(0)?.name ?? i18n.value.invalid
+  }
+
+  if (props.multiple) {
+    return i18n.value.multiple.replaceAll(
       '{count}',
-      String(fileList?.item?.length ?? 0),
+      String(fileList?.length ?? 0),
     )
+  }
+
+  return i18n.value.invalid
 }
 
 
@@ -207,6 +218,7 @@ defineExpose({
         v-bind="attrs"
         class="hidden"
         :disabled="props.disabled"
+        :multiple="props.multiple"
         @change="
           (event: any) => (modelValue = (event.target as HTMLInputElement).files)
         "

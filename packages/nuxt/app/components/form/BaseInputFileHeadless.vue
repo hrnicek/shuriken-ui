@@ -16,6 +16,11 @@ const props = withDefaults(
     multiple?: boolean
 
     /**
+     * Disables the input.
+     */
+    disabled?: boolean
+
+    /**
      * Allows to filter files when dropped.
      */
     filterFileDropped?: (file: File) => boolean
@@ -39,6 +44,9 @@ function open() {
 function drop(event: DragEvent) {
   event.stopPropagation()
   event.preventDefault()
+
+  if (props.disabled)
+    return
 
   const dt = event.dataTransfer
   const filtered = new DataTransfer()
@@ -176,6 +184,7 @@ defineExpose({
       v-bind="$attrs"
       class="hidden"
       :multiple="props.multiple"
+      :disabled="props.disabled"
       @change="handleFileChange"
     >
   </div>
