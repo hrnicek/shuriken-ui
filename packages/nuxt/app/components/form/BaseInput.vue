@@ -57,10 +57,10 @@ const sizes = {
 
 const radiuses = {
   none: '',
-  sm: 'rounded-md',
-  md: 'rounded-lg',
-  lg: 'rounded-xl',
-  full: 'rounded-full',
+  sm: 'rounded-sm',
+  md: 'rounded-md',
+  lg: 'rounded-lg',
+  full: 'rounded-xl',
 } as const
 </script>
 
@@ -144,7 +144,7 @@ defineExpose({
       v-model="modelValue"
       :type="props.type"
       v-bind="$attrs"
-      class="nui-focus w-full font-sans disabled:cursor-not-allowed disabled:opacity-75 transition-all duration-300"
+      class="nui-focus w-full font-sans disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300"
       :class="[
         variant && variants[variant],
         size && sizes[size],

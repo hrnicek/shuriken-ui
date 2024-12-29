@@ -35,7 +35,7 @@ export interface BaseTextareaProps {
    *
    * @default 'default'
    */
-    variant?: 'default' | 'muted'
+  variant?: 'default' | 'muted'
 
   /**
    * The radius of the textarea.
@@ -128,7 +128,7 @@ defineExpose({
       ref="textareaRef"
       v-model.lazy="modelValue"
       v-bind="$attrs"
-      class="nui-focus w-full p-2 text-sm enabled:cursor-text cursor-not-allowed nui-slimscroll"
+      class="nui-focus w-full p-2 text-sm disabled:cursor-not-allowed disabled:opacity-50 nui-slimscroll"
       :class="[
         props.autogrow && 'field-sizing-content',
         variant && variants[variant],
@@ -144,7 +144,7 @@ defineExpose({
       ref="textareaRef"
       v-model="modelValue"
       v-bind="$attrs"
-      class="nui-focus w-full p-2 text-sm enabled:cursor-text cursor-not-allowed nui-slimscroll"
+      class="nui-focus w-full p-2 text-sm disabled:cursor-not-allowed disabled:opacity-50 nui-slimscroll"
       :class="[
         props.autogrow && 'field-sizing-content',
         variant && variants[variant],

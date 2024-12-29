@@ -3,12 +3,17 @@ export interface BaseInputFileProps {
   /**
    * The form input identifier.
    */
-  id?: BigIntToLocaleStringOptions
+  id?: string
 
   /**
    * The placeholder to display for the file input.
    */
   placeholder?: string
+
+  /**
+   * Whether the input is disabled.
+   */
+  disabled?: boolean
 
   /**
    * Method to return the text value of the file input.
@@ -50,9 +55,9 @@ export interface BaseInputFileProps {
 }
 
 export const variants = {
-  default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 aria-invalid:!border-[var(--destructive-base)]',
-  muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 aria-invalid:!border-[var(--destructive-base)]',
-  primary: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 aria-invalid:!border-[var(--destructive-base)]',
+  default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 has-aria-invalid:!border-[var(--destructive-base)]',
+  muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 has-aria-invalid:!border-[var(--destructive-base)]',
+  primary: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 has-aria-invalid:!border-[var(--destructive-base)]',
 } as const
 
 // @todo: low-contrast-theme
@@ -78,9 +83,9 @@ export const radiuses = {
 } as const
 
 export const textVariants = {
-  default: 'bg-muted-100 dark:bg-muted-800 text-muted-700 dark:text-muted-400 group-hover/file:bg-muted-200 dark:group-hover/file:bg-muted-700 group-hover/file:text-muted-800 dark:group-hover/file:text-muted-200',
-  muted: 'bg-muted-100 dark:bg-muted-800 text-muted-700 dark:text-muted-400 group-hover/file:bg-muted-200 dark:group-hover/file:bg-muted-700 group-hover/file:text-muted-800 dark:group-hover/file:text-muted-200',
-  primary: 'bg-primary-500/10 dark:bg-primary-500/20 text-[var(--primary-base)] dark:text-[var(--primary-light)] group-hover/file:bg-primary-500/20 dark:group-hover/file:bg-primary-500/30 group-hover/file:text-[var(--primary-heavy)] dark:group-hover/file:text-[var(--primary-light)]',
+  default: 'bg-muted-100 dark:bg-muted-800 text-muted-700 dark:text-muted-400 not-data-disabled:group-hover/file:bg-muted-200 dark:not-data-disabled:group-hover/file:bg-muted-700 not-data-disabled:group-hover/file:text-muted-800 dark:not-data-disabled:group-hover/file:text-muted-200',
+  muted: 'bg-muted-100 dark:bg-muted-800 text-muted-700 dark:text-muted-400 not-data-disabled:group-hover/file:bg-muted-200 dark:not-data-disabled:group-hover/file:bg-muted-700 not-data-disabled:group-hover/file:text-muted-800 dark:not-data-disabled:group-hover/file:text-muted-200',
+  primary: 'bg-primary-500/10 dark:bg-primary-500/20 text-[var(--primary-base)] dark:text-[var(--primary-light)] not-data-disabled:group-hover/file:bg-primary-500/20 dark:not-data-disabled:group-hover/file:bg-primary-500/30 not-data-disabled:group-hover/file:text-[var(--primary-heavy)] dark:not-data-disabled:group-hover/file:text-[var(--primary-light)]',
 } as const
 
 // @todo: low-contrast-theme
@@ -163,8 +168,8 @@ defineExpose({
 <template>
   <div class="relative">
     <label
-      tabindex="0"
-      class="group/file relative nui-focus w-full flex cursor-pointer items-center overflow-hidden disabled:cursor-not-allowed disabled:opacity-50 font-sans transition-colors duration-300"
+      :tabindex="props.disabled ? -1 : 0"
+      class="group/file relative nui-focus w-full flex cursor-pointer items-center overflow-hidden has-disabled:cursor-not-allowed has-disabled:opacity-50 font-sans transition-colors duration-300"
       :for="id"
       :class="[
         variant && variants[variant],
@@ -172,19 +177,27 @@ defineExpose({
         rounded && radiuses[rounded],
       ]"
     >
-      <div class="inline-flex items-center text-muted-600 dark:text-muted-400 px-1 py-1.5"
+      <div
+        class="flex w-full items-center text-muted-600 dark:text-muted-400 px-1 py-1.5 gap-2"
         :class="[
           size && sizes[size],
         ]"
       >
-        <div class="h-full inline-flex items-center justify-center transition-colors duration-300"
+        <div
+          class="h-full inline-flex items-center justify-center transition-colors duration-300 select-none shrink-0"
+          :data-disabled="props.disabled ? 'true' : undefined"
           :class="[
             rounded && radiuses[rounded],
             variant && textVariants[variant],
             size && textSpacings[size],
           ]"
         >
-          {{ textValue || props.placeholder }}
+          Choose File
+        </div>
+
+        <div class="flex-1 truncate text-ellipsis">
+          <span v-if="textValue">{{  textValue }}</span>
+          <span v-else class="text-muted-300 dark:text-muted-700 select-none">{{ props.placeholder }}</span>
         </div>
       </div>
       <input
@@ -193,6 +206,7 @@ defineExpose({
         type="file"
         v-bind="attrs"
         class="hidden"
+        :disabled="props.disabled"
         @change="
           (event: any) => (modelValue = (event.target as HTMLInputElement).files)
         "

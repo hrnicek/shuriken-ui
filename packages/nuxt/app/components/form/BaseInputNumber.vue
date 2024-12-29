@@ -40,8 +40,8 @@ export interface BaseInputNumberEmits extends NumberFieldRootEmits {}
 export type BaseInputNumberSlots = {}
 
 export const variants = {
-  default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 dark:text-muted-100 placeholder:text-muted-300 dark:placeholder:text-muted-700 aria-invalid:border-[var(--destructive-base)]!',
-  muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 dark:text-muted-100 placeholder:text-muted-300 dark:placeholder:text-muted-700 aria-invalid:border-[var(--destructive-base)]!',
+  default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 dark:text-muted-100 placeholder:text-muted-300 dark:placeholder:text-muted-700 has-aria-invalid:border-[var(--destructive-base)]!',
+  muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 dark:text-muted-100 placeholder:text-muted-300 dark:placeholder:text-muted-700 has-aria-invalid:border-[var(--destructive-base)]!',
 } as const
 
 // @todo: low-contrast-theme
@@ -67,10 +67,10 @@ export const spacings = {
 
 export const radiuses = {
   none: '',
-  sm: 'rounded-md',
-  md: 'rounded-lg',
-  lg: 'rounded-xl',
-  full: 'rounded-full',
+  sm: 'rounded-sm',
+  md: 'rounded-md',
+  lg: 'rounded-lg',
+  full: 'rounded-xl',
 } as const
 
 export const buttonSizes = {
@@ -110,6 +110,7 @@ const props = withDefaults(defineProps<BaseInputNumberProps>(), {
 const emits = defineEmits<BaseInputNumberEmits>()
 const slots = defineSlots<BaseInputNumberSlots>()
 
+const attrs = useAttrs()
 const id = useNinjaId(() => props.id)
 const variant = useNuiConfig('BaseInputNumber', 'variant', () => props.variant)
 const rounded = useNuiConfig('BaseInputNumber', 'rounded', () => props.rounded)
@@ -125,55 +126,53 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'variant', 'roun
   <NumberFieldRoot
     :id
     v-bind="forward"
-    class="relative"
+    class="nui-focus relative w-full flex font-sans relative data-disabled:opacity-50"
+    :class="[
+      variant && variants[variant],
+      rounded && radiuses[rounded],
+    ]"
   >
-    <div class="nui-focus relative w-full flex font-sans transition-all duration-300"
+    <NumberFieldDecrement 
+      class="flex items-center justify-center shrink-0 p-1 enabled:group/button disabled:cursor-not-allowed cursor-pointer"
       :class="[
-        variant && variants[variant],
+        size && buttonSizes[size],
         rounded && radiuses[rounded],
       ]"
     >
-      <NumberFieldDecrement 
-        class="flex items-center justify-center shrink-0 p-1 group/button cursor-pointer"
+      <span class="h-full w-full flex items-center justify-center transition-colors duration-300"
         :class="[
-          size && buttonSizes[size],
           rounded && radiuses[rounded],
-        ]"
+          variant && buttonVariants[variant],
+        ]"  
       >
-        <span class="h-full w-full flex items-center justify-center transition-colors duration-300"
-          :class="[
-            rounded && radiuses[rounded],
-            variant && buttonVariants[variant],
-          ]"  
-        >
-          <Icon :name="iconDecrement" />
-        </span>
-      </NumberFieldDecrement>
-      <NumberFieldInput
-        class="outline-none text-center grow disabled:cursor-not-allowed disabled:opacity-50"
+        <Icon :name="iconDecrement" />
+      </span>
+    </NumberFieldDecrement>
+    <NumberFieldInput
+      v-bind="attrs"
+      class="outline-none text-center grow disabled:cursor-not-allowed placeholder:text-muted-300 dark:placeholder:text-muted-700"
+      :class="[
+        size && spacings[size],
+        size && sizes[size],
+      ]"
+      :placeholder="placeholder"
+      :inputmode="props.inputmode"
+      :disabled="props.disabled"
+    />
+    <NumberFieldIncrement
+      class="flex items-center justify-center shrink-0 p-1 enabled:group/button disabled:cursor-not-allowed cursor-pointer"
+      :class="[
+        size && buttonSizes[size],
+      ]"
+    >
+      <span class="h-full w-full flex items-center justify-center transition-colors duration-300"
         :class="[
-          size && spacings[size],
-          size && sizes[size],
-        ]"
-        :placeholder="placeholder"
-        :inputmode="props.inputmode"
-        :disabled="props.disabled"
-      />
-      <NumberFieldIncrement
-        class="flex items-center justify-center shrink-0 p-1 group/button cursor-pointer"
-        :class="[
-          size && buttonSizes[size],
-        ]"
+          rounded && radiuses[rounded],
+          variant && buttonVariants[variant],
+        ]"  
       >
-        <span class="h-full w-full flex items-center justify-center transition-colors duration-300"
-          :class="[
-            rounded && radiuses[rounded],
-            variant && buttonVariants[variant],
-          ]"  
-        >
-          <Icon :name="iconIncrement" />
-        </span>
-      </NumberFieldIncrement> 
-    </div>
+        <Icon :name="iconIncrement" />
+      </span>
+    </NumberFieldIncrement> 
   </NumberFieldRoot>
 </template>

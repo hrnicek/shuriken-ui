@@ -129,7 +129,7 @@ const taxes = ref('With taxes')
               size="md"
               rounded="md"
               placeholder="Error"
-              invalid
+              aria-invalid="true"
               required
             />
           </div>
@@ -141,7 +141,7 @@ const taxes = ref('With taxes')
               rounded="md"
               variant="muted"
               placeholder="Error"
-              invalid
+              aria-invalid="true"
               required
             />
           </div>

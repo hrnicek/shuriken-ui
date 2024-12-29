@@ -120,7 +120,7 @@ export const radiuses = {
   sm: 'rounded-sm',
   md: 'rounded-md',
   lg: 'rounded-lg',
-  full: 'rounded-full',
+  full: 'rounded-xl',
 } as const
 
 export const sizes = {
@@ -209,7 +209,7 @@ provideBaseAutocompleteContext({
     class="w-full relative"
   >
     <ComboboxAnchor
-      class="nui-focus w-full flex min-w-[160px] items-center justify-between leading-none gap-[5px] outline-none disabled:cursor-not-allowed has-disabled:opacity-75 aria-invalid:border-[var(--destructive-base)]! group"
+      class="nui-focus w-full flex min-w-[160px] items-center justify-between leading-none gap-[5px] outline-none disabled:cursor-not-allowed has-disabled:opacity-50 has-aria-invalid:border-[var(--destructive-base)]! group"
       :class="[
         rounded && radiuses[rounded],
         size && sizes[size],
