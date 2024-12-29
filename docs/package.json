@@ -28,7 +28,7 @@
     "@nuxt/content": "3.0.0-alpha.7",
     "@nuxt/fonts": "^0.10.3",
     "@nuxt/image": "^1.2.0",
-    "@nuxtjs/mdc": "^0.10.0",
+    "@nuxtjs/mdc": "^0.11.1",
     "@shuriken-ui/nuxt": "workspace:4.0.0-alpha.6",
     "@shuriken-ui/nuxt-component-meta": "workspace:*",
     "@shuriken-ui/tailwind": "workspace:*",

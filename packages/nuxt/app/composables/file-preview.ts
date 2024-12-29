@@ -5,27 +5,34 @@ const previewMap = new WeakMap<File, Ref<string | undefined>>()
 export function useNinjaFilePreview(
   _file: MaybeRefOrGetter<File | null | undefined>,
 ) {
-  const fileReference = toRef(_file)
+  const preview = ref<string>()
+  
+  watchEffect(() => {
+    const file = toValue(_file)
+    if (!file) {
+      preview.value = undefined
+      return
+    }
 
-  const preview = computed(() => {
-    const file = fileReference.value
-    if (!file)
-      return ''
-    if (previewMap.has(file))
-      return previewMap.get(file)?.value
+    if (previewMap.has(file)) {
+      preview.value = previewMap.get(file)?.value
+      return
+    }
 
     const reader = new FileReader()
-    const source = ref<string>('')
 
     const listener = () => {
-      source.value = reader.result?.toString() ?? ''
+      preview.value = reader.result?.toString() ?? ''
       reader.removeEventListener('load', listener)
     }
     reader.addEventListener('load', listener)
     reader.readAsDataURL(file)
-    previewMap.set(file, source)
 
-    return previewMap.get(file)?.value
+    previewMap.set(file, preview)
+
+    return () => {
+      reader.removeEventListener('load', listener)
+    }
   })
 
   return preview

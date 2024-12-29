@@ -7,25 +7,23 @@ export function useNinjaMark(
   _search?: MaybeRefOrGetter<string | undefined>,
   _classes?: MaybeRefOrGetter<string | undefined>,
 ) {
-  const text = toRef(_text)
-  const classes = toRef(_classes)
-  const search = toRef(_search)
-
   return computed(() => {
-    const txt = unref(text)
-    const srch = unref(search)
-    if (!txt) {
+    const text = toValue(_text)
+    const classes = toValue(_classes)
+    const search = toValue(_search)
+
+    if (!text) {
       return ''
     }
 
-    if (!srch) {
-      return escapeHtml(txt)
+    if (!search) {
+      return escapeHtml(text)
     }
 
-    const regex = new RegExp(srch, 'gi')
+    const regex = new RegExp(search, 'gi')
 
-    return txt?.replace(regex, (part) => {
-      return `<mark class="${classes.value}">${escapeHtml(part)}</mark>`
+    return text?.replace(regex, (part) => {
+      return `<mark class="${classes}">${escapeHtml(part)}</mark>`
     }) ?? ''
   })
 }

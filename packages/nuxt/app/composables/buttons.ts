@@ -9,13 +9,12 @@ export interface BaseButtonProperties {
   target?: string
 }
 
+const NuxtLink = defineNuxtLink({})
+
 export function useNinjaButton(properties: BaseButtonProperties, {
-  // @todo: make this configurable (design tokens)
   externalDefaultRelationship = 'noopener noreferrer',
   externalDefaultTarget = '_blank',
 } = {}) {
-  const NuxtLink = defineNuxtLink({})
-
   const is = computed(() =>
     properties.to ? NuxtLink : properties.href ? 'a' : 'button',
   )

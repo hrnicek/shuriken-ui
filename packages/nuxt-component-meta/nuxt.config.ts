@@ -14,12 +14,7 @@ export default defineNuxtConfig({
     globalsOnly: false,
     debug: 2,
     exclude: [
-      (component: any) => {
-        const isExternal = !component.filePath?.startsWith?.(componentsPath)
-        const isIcon = component?.kebabName?.startsWith('icon-')
-
-        return isExternal || isIcon
-      },
+      (component: any) => !component.filePath?.startsWith?.(componentsPath),
     ],
     checkerOptions: {
       schema: {
