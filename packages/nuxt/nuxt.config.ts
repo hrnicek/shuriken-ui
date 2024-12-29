@@ -43,8 +43,4 @@ export default defineNuxtConfig({
       global: false,
     },
   ],
-
-  devtools: {
-    enabled: false,
-  },
 })
