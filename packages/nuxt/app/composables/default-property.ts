@@ -1,18 +1,21 @@
 import type { AppConfig } from 'nuxt/schema'
-import { warn } from 'vue'
 
-export function useNuiConfig<T = string>(
-  section: string,
-  key: string,
+type NuiConfig = AppConfig['nui']
+type NuiConfigSection = keyof NuiConfig
+
+export function useNuiConfig<T = string, S extends NuiConfigSection = NuiConfigSection>(
+  section: S,
+  key: keyof NuiConfig[S],
   defaultValue?: MaybeRefOrGetter<T>,
 ): ComputedRef<NonNullable<T>> {
   return computed(() => {
     const config = useAppConfig().nui as any
+    const value = toValue(defaultValue)
 
     if (import.meta.dev && config?.[section]?.[key] === undefined) {
-      warn(`Default ShurikenUI configuration "${section}.${key}" not found`)
+      console.warn(`Default ShurikenUI configuration "${String(section)}.${String(key)}" not found`)
     }
 
-    return toValue(defaultValue) ?? config?.[section]?.[key]
+    return value ?? config?.[section]?.[key]
   })
 }

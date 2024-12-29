@@ -1,6 +1,6 @@
 export default defineAppConfig({
   nui: {
-    icons: {
+    icon: {
       sun: 'nui-icon:sun',
       moon: 'nui-icon:moon',
       screen: 'nui-icon:screen-duotone',
