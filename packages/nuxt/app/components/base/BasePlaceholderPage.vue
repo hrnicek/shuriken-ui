@@ -19,6 +19,10 @@ export interface BasePlaceholderPageProps extends PrimitiveProps {
    */
   imageSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 }
+export type BasePlaceholderPageSlots = {
+  default(): any
+  image(): any
+}
 
 export const sizes = {
   xs: 'max-w-xs',
@@ -37,6 +41,7 @@ const props = withDefaults(defineProps<BasePlaceholderPageProps>(), {
   subtitle: undefined,
   imageSize: undefined,
 })
+const slots = defineSlots<BasePlaceholderPageSlots>()
 
 const imageSize = useNuiConfig('BasePlaceholderPage', 'imageSize', () => props.imageSize)
 

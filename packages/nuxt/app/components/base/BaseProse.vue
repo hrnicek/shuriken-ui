@@ -9,6 +9,9 @@ export interface BaseProseProps extends PrimitiveProps {
    */
   rounded?: 'none' | 'sm' | 'md' | 'lg'
 }
+export type BaseProseSlots = {
+  default(): any
+}
 
 export const radiuses = {
   none: 'prose-img:rounded-none prose-pre:rounded-none prose-table:rounded-none',
@@ -26,6 +29,7 @@ import { reactiveOmit } from '@vueuse/core'
 const props = withDefaults(defineProps<BaseProseProps>(), {
   rounded: undefined,
 })
+const slots = defineSlots<BaseProseSlots>()
 
 const rounded = useNuiConfig('BaseProse', 'rounded', () => props.rounded)
 const forward = useForwardProps(reactiveOmit(props, ['rounded']))

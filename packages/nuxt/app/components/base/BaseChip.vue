@@ -18,6 +18,10 @@ export interface BaseChipProps {
   /** Add a pulse animation on the badge */
   pulse?: boolean
 }
+
+export type BaseChipSlots = {
+  default(): any
+}
 </script>
 
 <script setup lang="ts">
@@ -29,6 +33,7 @@ const props = withDefaults(defineProps<BaseChipProps>(), {
   offsetX: undefined,
   size: 'md',
 })
+const slots = defineSlots<BaseChipSlots>()
 </script>
 
 <template>

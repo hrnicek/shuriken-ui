@@ -79,6 +79,11 @@ export interface BaseMessageProps extends PrimitiveProps {
 export interface BaseMessageEmits {
   close: []
 }
+export type BaseMessageSlots = {
+  default(): any
+  icon(): any
+  'close-button'(): any
+}
 
 export const radiuses = {
   none: '',
@@ -182,6 +187,7 @@ const props = withDefaults(defineProps<BaseMessageProps>(), {
   closeIcon: undefined,
   defaultIcons: undefined,
 })
+const slots = defineSlots<BaseMessageSlots>()
 const emits = defineEmits<BaseMessageEmits>()
 
 const variant = useNuiConfig('BaseMessage', 'variant', () => props.variant)

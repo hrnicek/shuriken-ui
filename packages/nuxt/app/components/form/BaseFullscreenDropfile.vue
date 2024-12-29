@@ -39,6 +39,9 @@ export interface BaseFullscreenDropfileProps {
 }
 
 export interface BaseFullscreenDropfileEmits {}
+export type BaseFullscreenDropfileSlots = {
+  default(): any
+}
 
 export const dropVariants = {
   default: 'bg-muted-100 dark:bg-muted-950 border-2 border-dashed border-muted-200 dark:border-muted-800',
@@ -87,6 +90,8 @@ const props = withDefaults(defineProps<BaseFullscreenDropfileProps>(), {
 
 const attrs = useAttrs()
 const emits = defineEmits<BaseFullscreenDropfileEmits>()
+const slots = defineSlots<BaseFullscreenDropfileSlots>()
+
 const [modelValue] = defineModel<FileList | null>()
 
 const id = useNinjaId(() => props.id)
@@ -217,24 +222,26 @@ function handleFileChange(event: Event) {
     />
     <div v-if="isDropping" class="fixed inset-0 z-50 starting:opacity-0 transition-discrete transition-opacity duration-300">
       <div class="flex h-full flex-1 items-center justify-center">
-        <div 
-          class="h-[230px] w-[500px] mx-auto flex flex-col items-center justify-center gap-6 drop-shadow-xs rounded-md"
-          :class="[
-            dropVariants[variant],
-          ]"
-        > 
-          <Icon
-            v-if="props.icon"
-            :name="props.icon"
-            class="h-10 w-10"
+        <slot>
+          <div 
+            class="h-[230px] w-[500px] mx-auto flex flex-col items-center justify-center gap-6 drop-shadow-xs rounded-md"
             :class="[
-              variant && iconVariants[variant],
+              dropVariants[variant],
             ]"
-          />
-          <div class="text-base text-muted-500 dark:text-muted-400">
-            {{ props.label }}
+          > 
+            <Icon
+              v-if="props.icon"
+              :name="props.icon"
+              class="h-10 w-10"
+              :class="[
+                variant && iconVariants[variant],
+              ]"
+            />
+            <div class="text-base text-muted-500 dark:text-muted-400">
+              {{ props.label }}
+            </div>
           </div>
-        </div>
+        </slot>
       </div>
     </div>
   </Teleport>

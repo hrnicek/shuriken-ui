@@ -28,6 +28,9 @@ export interface BaseIconBoxProps extends PrimitiveProps {
    */
   mask?: 'hex' | 'hexed' | 'deca' | 'blob' | 'diamond'
 }
+export type BaseIconBoxSlots = {
+  default(): any
+}
 
 export const variants = {
   'default': 'text-muted-600 dark:text-muted-200 bg-white dark:bg-muted-800 border border-muted-300 dark:border-muted-700',
@@ -82,6 +85,7 @@ const props = withDefaults(defineProps<BaseIconBoxProps>(), {
   rounded: undefined,
   mask: undefined,
 })
+const slots = defineSlots<BaseIconBoxSlots>()
 
 const variant = useNuiConfig('BaseIconBox', 'variant', () => props.variant)
 const size = useNuiConfig('BaseIconBox', 'size', () => props.size)

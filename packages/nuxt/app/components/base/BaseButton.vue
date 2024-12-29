@@ -41,6 +41,9 @@ export interface BaseButtonProps {
    */
   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
 }
+export type BaseButtonSlots = {
+  default(): any
+}
 
 export const sizes = {
   'sm': 'h-8 px-3 py-1 text-sm',
@@ -96,10 +99,12 @@ const props = withDefaults(defineProps<BaseButtonProps>(), {
   size: undefined,
   rounded: undefined,
 })
+const slots = defineSlots<BaseButtonSlots>()
 
 const variant = useNuiConfig('BaseButton', 'variant', () => props.variant)
 const size = useNuiConfig('BaseButton', 'size', () => props.size)
 const rounded = useNuiConfig('BaseButton', 'rounded', () => props.rounded)
+const iconSpiner = useNuiConfig('icon', 'spiner')
 
 const classes = computed(() => [
   'relative inline-flex justify-center items-center space-x-1 font-sans font-normal leading-5 no-underline transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed hover:shadow-none',
@@ -115,7 +120,7 @@ const { attributes, is } = useNinjaButton(props)
 <template>
   <component :is="is" v-bind="attributes" :class="classes">
     <span v-if="loading" class="me-2 flex justify-center items-center size-4 shrink-0">
-      <Icon name="nui-icon:spiner-bold" class="text-base text-current" />
+      <Icon :name="iconSpiner" class="text-base text-current" />
     </span>
     <slot />
   </component>

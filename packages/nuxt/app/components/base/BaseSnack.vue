@@ -34,6 +34,10 @@ export interface BaseSnackProps extends PrimitiveProps {
 export interface BaseSnackEmits {
   delete: []
 }
+export type BaseSnackSlots = {
+  default(): any
+  icon(): any
+}
 
 const sizes = {
   xs: 'h-6',
@@ -89,6 +93,7 @@ const props = withDefaults(defineProps<BaseSnackProps>(), {
   image: undefined,
 })
 const emits = defineEmits<BaseSnackEmits>()
+const slots = defineSlots<BaseSnackSlots>()
 
 const variant = useNuiConfig('BaseSnack', 'variant', () => props.variant)
 const size = useNuiConfig('BaseSnack', 'size', () => props.size)

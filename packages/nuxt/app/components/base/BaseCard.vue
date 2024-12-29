@@ -21,6 +21,9 @@ export interface BaseCardProps extends PrimitiveProps {
    */
   rounded?: 'none' | 'sm' | 'md' | 'lg'
 }
+export type BaseCardSlots = {
+  default(): any
+}
 
 export const radiuses = {
   none: '',
@@ -58,6 +61,7 @@ const props = withDefaults(defineProps<BaseCardProps>(), {
   shadow: undefined,
   variant: undefined,
 })
+const slots = defineSlots<BaseCardSlots>()
 
 const variant = useNuiConfig('BaseCard', 'variant', () => props.variant)
 const rounded = useNuiConfig('BaseCard', 'rounded', () => props.rounded)

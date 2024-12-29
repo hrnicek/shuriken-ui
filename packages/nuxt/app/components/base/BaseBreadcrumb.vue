@@ -35,6 +35,11 @@ export interface BaseBreadcrumbProps {
    */
   variant?: 'primary' | 'dark'
 }
+export type BaseBreadcrumbSlots = {
+  default(): any
+  link(props: { item: any, index: number }): any
+  label(props: { item: any, index: number }): any
+}
 </script>
 
 <script setup lang="ts">
@@ -44,7 +49,7 @@ const props = withDefaults(defineProps<BaseBreadcrumbProps>(), {
   items: undefined,
   color: undefined,
 })
-
+const slots = defineSlots<BaseBreadcrumbSlots>()
 const variant = useNuiConfig('BaseBreadcrumb', 'variant', () => props.variant)
 
 const route = useRoute()
