@@ -113,7 +113,7 @@ const { attributes, is } = useNinjaButton(props)
 </script>
 
 <template>
-  <component :is="is" v-bind="attributes" :class="classes" data-group-role="button">
+  <component :is="is" v-bind="attributes" :class="classes">
     <span v-if="loading" class="me-2 flex justify-center items-center size-4 shrink-0">
       <Icon name="nui-icon:spiner-bold" class="text-base text-current" />
     </span>
