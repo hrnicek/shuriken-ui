@@ -22,15 +22,9 @@ export interface BaseDropdownSubProps extends DropdownMenuSubProps {
    * Optional bindings to pass to the inner components.
    */
   bindings?: {
-    trigger?: DropdownMenuSubTriggerProps & {
-      class?: string | string[]
-    }
-    content?: DropdownMenuSubContentProps & {
-      class?: string | string[]
-    }
-    portal?: DropdownMenuPortalProps & {
-      class?: string | string[]
-    }
+    trigger?: DropdownMenuSubTriggerProps & Record<string, any>
+    content?: DropdownMenuSubContentProps & Record<string, any>
+    portal?: DropdownMenuPortalProps & Record<string, any>
   }
 }
 export interface BaseDropdownSubEmits extends DropdownMenuSubEmits {}

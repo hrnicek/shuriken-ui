@@ -55,18 +55,10 @@ export interface BaseSelectProps<T = AcceptableValue> extends SelectRootProps<T>
    * Optional bindings to pass to the inner components.
    */
   bindings?: {
-    trigger?: SelectTriggerProps & {
-      class?: string | string[]
-    }
-    portal?: SelectPortalProps & {
-      class?: string | string[]
-    }
-    content?: SelectContentProps & {
-      class?: string | string[]
-    }
-    viewport?: SelectViewportProps & {
-      class?: string | string[]
-    }
+    trigger?: SelectTriggerProps & Record<string, any>
+    portal?: SelectPortalProps & Record<string, any>
+    content?: SelectContentProps & Record<string, any>
+    viewport?: SelectViewportProps & Record<string, any>
   },
 }
 export interface BaseSelectEmits<T = AcceptableValue> extends SelectRootEmits<T> {}

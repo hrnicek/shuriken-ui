@@ -54,15 +54,9 @@ export interface BaseAvatarProps extends AvatarRootProps {
    * Optional bindings to pass to the inner components.
    */
   bindings?: {
-    image?: AvatarImageProps & {
-      class?: string | string[]
-    }
-    dark?: AvatarImageProps & {
-      class?: string | string[]
-    }
-    fallback?: AvatarFallbackProps & {
-      class?: string | string[]
-    }
+    image?: AvatarImageProps & Record<string, any>
+    dark?: AvatarImageProps & Record<string, any>
+    fallback?: AvatarFallbackProps & Record<string, any>
   }
 }
 export type BaseAvatarSlots = {

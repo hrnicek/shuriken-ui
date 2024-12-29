@@ -55,27 +55,13 @@ export interface BaseAutocompleteProps<T = AcceptableValue> extends ComboboxRoot
    * Optional bindings to pass to the inner components.
    */
   bindings?: {
-    anchor?: ComboboxAnchorProps & {
-      class?: string | string[]
-    }
-    cancel?: ComboboxCancelProps & {
-      class?: string | string[]
-    }
-    trigger?: ComboboxTriggerProps & {
-      class?: string | string[]
-    }
-    portal?: ComboboxPortalProps & {
-      class?: string | string[]
-    }
-    content?: ComboboxContentProps & {
-      class?: string | string[]
-    }
-    viewport?: Omit<ComboboxViewportProps, 'as' | 'asChild'> & {
-      class?: string | string[]
-    }
-    empty?: ComboboxEmptyProps & {
-      class?: string | string[]
-    }
+    anchor?: ComboboxAnchorProps & Record<string, any>
+    cancel?: ComboboxCancelProps & Record<string, any>
+    trigger?: ComboboxTriggerProps & Record<string, any>
+    portal?: ComboboxPortalProps & Record<string, any>
+    content?: ComboboxContentProps & Record<string, any>
+    viewport?: ComboboxViewportProps & Record<string, any>
+    empty?: ComboboxEmptyProps & Record<string, any>
   }
 }
 export interface BaseAutocompleteEmits<T = AcceptableValue> extends ComboboxRootEmits<T> {}
@@ -200,7 +186,7 @@ const emits = defineEmits<BaseAutocompleteEmits<T>>()
 const slots = defineSlots<BaseAutocompleteSlots>()
 const attrs = useAttrs()
   
-const variant = useNuiConfig('BaseAutocomplete', 'variantee', () => props.variant)
+const variant = useNuiConfig('BaseAutocomplete', 'variant', () => props.variant)
 const rounded = useNuiConfig('BaseAutocomplete', 'rounded', () => props.rounded)
 const size = useNuiConfig('BaseAutocomplete', 'size', () => props.size)
 const preset = useNuiConfig('BaseAutocomplete', 'preset', () => props.preset)

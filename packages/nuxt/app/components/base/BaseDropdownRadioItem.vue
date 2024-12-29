@@ -34,9 +34,7 @@ export interface BaseDropdownRadioItemProps extends DropdownMenuRadioItemProps {
    * Optional bindings to pass to the inner components.
    */
   bindings?: {
-    indicator?: DropdownMenuItemIndicatorProps & {
-      class?: string | string[]
-    }
+    indicator?: DropdownMenuItemIndicatorProps & Record<string, any>
   }
 }
 export interface BaseDropdownRadioItemEmits extends DropdownMenuRadioItemEmits {}
