@@ -71,7 +71,7 @@ const slots = defineSlots<BaseAvatarGroupSlots>()
 
 const size = useNuiConfig('BaseAvatarGroup', 'size', () => props.size)
 const limit = useNuiConfig('BaseAvatarGroup', 'limit', () => props.limit)
-const rounded = useNuiConfig('BaseAvatarGroup', 'rounded', () => props.rounded)
+const rounded = useNuiConfig('BaseAvatar', 'rounded', () => props.rounded)
 const forward = useForwardProps(reactiveOmit(props, ['avatars', 'size', 'limit']))
 
 const avatarDisplay = computed(() => {

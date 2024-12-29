@@ -113,7 +113,7 @@ function reset() {
         title="Custom colors"
         description="Checkbox component custom colors"
       >
-        <BaseFocusLoop
+        <div
           class="grid grid-cols-2 gap-6 md:max-w-2xl md:grid-cols-4"
         >
           <BaseCheckbox
@@ -140,7 +140,7 @@ function reset() {
             variant="none"
             class="bg-amber-500/10 dark:bg-amber-500/20 border-1 border-muted-300 dark:border-muted-700 text-amber-700  dark:text-amber-400"
           />
-        </BaseFocusLoop>
+        </div>
       </NuiPreview>
     </NuiPreviewContainer>
   </div>

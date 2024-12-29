@@ -55,29 +55,21 @@ const textarea3 = ref()
           <BaseAutocomplete
             v-model="autocomplete1"
             :items="['tete', 'hello', 'test', 'tast', 'tutu', 'holla']"
-            :filter-items="
-              (query, items) =>
-                items?.filter((item) => {
-                  return query
-                    ? item?.toLowerCase().startsWith(query.toLowerCase())
-                    : true
-                }) ?? []
-            "
           >
-            <template #item="{ item }">
+            <!-- <template #item="{ item }">
               <span>{{ item }}</span>
-            </template>
+            </template> -->
           </BaseAutocomplete>
         </div>
         <BaseCard class="col-span-2 p-2">
           <pre>
 autocomplete1: {{ autocomplete1 }}({{ typeof autocomplete1 }})</pre>
-          <BaseButtonAction @click="autocomplete1 = undefined">
+          <BaseButton @click="autocomplete1 = undefined">
             reset
-          </BaseButtonAction>
-          <BaseButtonAction @click="autocomplete1 = 'hello'">
+          </BaseButton>
+          <BaseButton @click="autocomplete1 = 'hello'">
             set
-          </BaseButtonAction>
+          </BaseButton>
         </BaseCard>
       </div>
     </NuiPreview>
@@ -90,7 +82,6 @@ autocomplete1: {{ autocomplete1 }}({{ typeof autocomplete1 }})</pre>
         <div class="col-span-2">
           <BaseAutocomplete
             v-model="autocomplete2"
-            :display-value="(item) => item?.name"
             clearable
             :items="[
               {
@@ -111,9 +102,9 @@ autocomplete1: {{ autocomplete1 }}({{ typeof autocomplete1 }})</pre>
         <BaseCard class="col-span-2 p-2">
           <pre>
 autocomplete2: {{ autocomplete2 }}({{ typeof autocomplete2 }})</pre>
-          <BaseButtonAction @click="autocomplete2 = undefined">
+          <BaseButton @click="autocomplete2 = undefined">
             reset
-          </BaseButtonAction>
+          </BaseButton>
         </BaseCard>
       </div>
     </NuiPreview>
@@ -125,8 +116,7 @@ autocomplete2: {{ autocomplete2 }}({{ typeof autocomplete2 }})</pre>
       <div class="grid grid-cols-4 gap-6">
         <div class="col-span-2">
           <BaseAutocomplete
-            v-model.prop="autocomplete3"
-            :display-value="(item) => item?.name"
+            v-model="autocomplete3"
             :properties="{
               value: 'value',
               label: 'name',
@@ -154,9 +144,9 @@ autocomplete2: {{ autocomplete2 }}({{ typeof autocomplete2 }})</pre>
         <BaseCard class="col-span-2 p-2">
           <pre>
 autocomplete3: {{ autocomplete3 }}({{ typeof autocomplete3 }})</pre>
-          <BaseButtonAction @click="autocomplete3 = ''">
+          <BaseButton @click="autocomplete3 = ''">
             reset
-          </BaseButtonAction>
+          </BaseButton>
         </BaseCard>
       </div>
     </NuiPreview>
@@ -176,9 +166,9 @@ autocomplete3: {{ autocomplete3 }}({{ typeof autocomplete3 }})</pre>
         <BaseCard class="col-span-2 p-2">
           <pre>
 autocomplete4: {{ autocomplete4 }}({{ typeof autocomplete4 }})</pre>
-          <BaseButtonAction @click="autocomplete4 = undefined">
+          <BaseButton @click="autocomplete4 = undefined">
             reset
-          </BaseButtonAction>
+          </BaseButton>
         </BaseCard>
       </div>
     </NuiPreview>
@@ -219,9 +209,9 @@ autocomplete4: {{ autocomplete4 }}({{ typeof autocomplete4 }})</pre>
         <BaseCard class="col-span-2 p-2">
           <pre>
 autocomplete5: {{ autocomplete5 }}({{ typeof autocomplete5 }})</pre>
-          <BaseButtonAction @click="autocomplete5 = []">
+          <BaseButton @click="autocomplete5 = []">
             reset
-          </BaseButtonAction>
+          </BaseButton>
         </BaseCard>
       </div>
     </NuiPreview>
@@ -233,7 +223,7 @@ autocomplete5: {{ autocomplete5 }}({{ typeof autocomplete5 }})</pre>
       <div class="grid grid-cols-4 gap-6">
         <div class="col-span-2">
           <BaseAutocomplete
-            v-model.prop="autocomplete6"
+            v-model="autocomplete6"
             multiple
             :properties="{
               value: 'value',
@@ -262,9 +252,9 @@ autocomplete5: {{ autocomplete5 }}({{ typeof autocomplete5 }})</pre>
         <BaseCard class="col-span-2 p-2">
           <pre>
 autocomplete6: {{ autocomplete6 }}({{ typeof autocomplete6 }})</pre>
-          <BaseButtonAction @click="autocomplete6 = []">
+          <BaseButton @click="autocomplete6 = []">
             reset
-          </BaseButtonAction>
+          </BaseButton>
         </BaseCard>
       </div>
     </NuiPreview>
@@ -282,9 +272,9 @@ autocomplete6: {{ autocomplete6 }}({{ typeof autocomplete6 }})</pre>
         </div>
         <BaseCard class="col-span-2 p-2">
           <pre>radio1: {{ radio1 }}({{ typeof radio1 }})</pre>
-          <BaseButtonAction @click="radio1 = undefined">
+          <BaseButton @click="radio1 = undefined">
             reset
-          </BaseButtonAction>
+          </BaseButton>
         </BaseCard>
       </div>
     </NuiPreview>
@@ -300,9 +290,9 @@ autocomplete6: {{ autocomplete6 }}({{ typeof autocomplete6 }})</pre>
         </div>
         <BaseCard class="col-span-2 p-2">
           <pre>radio2: {{ radio2 }}({{ typeof radio2 }})</pre>
-          <BaseButtonAction @click="radio2 = undefined">
+          <BaseButton @click="radio2 = undefined">
             reset
-          </BaseButtonAction>
+          </BaseButton>
         </BaseCard>
       </div>
     </NuiPreview>
@@ -318,9 +308,9 @@ autocomplete6: {{ autocomplete6 }}({{ typeof autocomplete6 }})</pre>
         </div>
         <BaseCard class="col-span-2 p-2">
           <pre>radio3: {{ radio3 }}({{ typeof radio3 }})</pre>
-          <BaseButtonAction @click="radio3 = undefined">
+          <BaseButton @click="radio3 = undefined">
             reset
-          </BaseButtonAction>
+          </BaseButton>
         </BaseCard>
       </div>
     </NuiPreview>
@@ -335,9 +325,9 @@ autocomplete6: {{ autocomplete6 }}({{ typeof autocomplete6 }})</pre>
         </div>
         <BaseCard class="col-span-2 p-2">
           <pre>checkbox1: {{ checkbox1 }}({{ typeof checkbox1 }})</pre>
-          <BaseButtonAction @click="checkbox1 = undefined">
+          <BaseButton @click="checkbox1 = undefined">
             reset
-          </BaseButtonAction>
+          </BaseButton>
         </BaseCard>
       </div>
     </NuiPreview>
@@ -352,9 +342,9 @@ autocomplete6: {{ autocomplete6 }}({{ typeof autocomplete6 }})</pre>
         </div>
         <BaseCard class="col-span-2 p-2">
           <pre>checkbox2: {{ checkbox2 }}({{ typeof checkbox2 }})</pre>
-          <BaseButtonAction @click="checkbox2 = undefined">
+          <BaseButton @click="checkbox2 = undefined">
             reset
-          </BaseButtonAction>
+          </BaseButton>
         </BaseCard>
       </div>
     </NuiPreview>
@@ -373,98 +363,9 @@ autocomplete6: {{ autocomplete6 }}({{ typeof autocomplete6 }})</pre>
         </div>
         <BaseCard class="col-span-2 p-2">
           <pre>checkbox3: {{ checkbox3 }}({{ typeof checkbox3 }})</pre>
-          <BaseButtonAction @click="checkbox3 = []">
+          <BaseButton @click="checkbox3 = []">
             reset
-          </BaseButtonAction>
-        </BaseCard>
-      </div>
-    </NuiPreview>
-
-    <NuiPreview
-      title="BaseCheckboxHeadless"
-      description="BaseCheckboxHeadless test"
-    >
-      <div class="grid grid-cols-4 gap-6">
-        <div class="col-span-2">
-          <BaseCheckboxHeadless v-slot="{ value }" v-model="checkboxCustom1">
-            <span>{{ value ? 'checked' : 'unchecked' }}</span>
-          </BaseCheckboxHeadless>
-        </div>
-        <BaseCard class="col-span-2 p-2">
-          <pre>
-checkboxCustom1: {{ checkboxCustom1 }}({{ typeof checkboxCustom1 }})</pre>
-          <BaseButtonAction @click="checkboxCustom1 = undefined">
-            reset
-          </BaseButtonAction>
-        </BaseCard>
-      </div>
-    </NuiPreview>
-
-    <NuiPreview title="BaseRadioHeadless" description="BaseRadioHeadless test">
-      <div class="grid grid-cols-4 gap-6">
-        <div class="col-span-2">
-          <BaseRadioHeadless
-            v-slot="{ value }"
-            v-model="radioCustom1"
-            value="yes"
-          >
-            <span>
-              {{ value === 'yes' ? 'yes selected' : 'yes unselected' }}
-            </span>
-          </BaseRadioHeadless>
-          <BaseRadioHeadless
-            v-slot="{ value }"
-            v-model="radioCustom1"
-            value="no"
-          >
-            <span>
-              {{ value === 'no' ? 'no selected' : 'no unselected' }}
-            </span>
-          </BaseRadioHeadless>
-        </div>
-        <BaseCard class="col-span-2 p-2">
-          <pre>radioCustom1: {{ radioCustom1 }}({{ typeof radioCustom1 }})</pre>
-          <BaseButtonAction @click="radioCustom1 = undefined">
-            reset
-          </BaseButtonAction>
-        </BaseCard>
-      </div>
-    </NuiPreview>
-
-    <NuiPreview
-      title="BaseCheckboxAnimated"
-      description="BaseCheckboxAnimated test"
-    >
-      <div class="grid grid-cols-4 gap-6">
-        <div class="col-span-2">
-          <BaseCheckboxAnimated v-model="animatedCheckbox1" />
-        </div>
-        <BaseCard class="col-span-2 p-2">
-          <pre>
-animatedCheckbox1: {{ animatedCheckbox1 }}({{ typeof animatedCheckbox1 }})</pre>
-          <BaseButtonAction @click="animatedCheckbox1 = undefined">
-            reset
-          </BaseButtonAction>
-        </BaseCard>
-      </div>
-    </NuiPreview>
-
-    <NuiPreview
-      title="BaseCheckboxAnimated (array)"
-      description="BaseCheckboxAnimated test"
-    >
-      <div class="grid grid-cols-4 gap-6">
-        <div class="col-span-2">
-          <BaseCheckboxAnimated v-model="animatedCheckbox2" value="foo" />
-          <BaseCheckboxAnimated v-model="animatedCheckbox2" value="bar" />
-          <BaseCheckboxAnimated v-model="animatedCheckbox2" value="baz" />
-        </div>
-        <BaseCard class="col-span-2 p-2">
-          <pre>
-animatedCheckbox2: {{ animatedCheckbox2 }}({{ typeof animatedCheckbox2 }})</pre>
-          <BaseButtonAction @click="animatedCheckbox2 = []">
-            reset
-          </BaseButtonAction>
+          </BaseButton>
         </BaseCard>
       </div>
     </NuiPreview>
@@ -476,9 +377,9 @@ animatedCheckbox2: {{ animatedCheckbox2 }}({{ typeof animatedCheckbox2 }})</pre>
         </div>
         <BaseCard class="col-span-2 p-2">
           <pre>switchBall: {{ switchBall }}({{ typeof switchBall }})</pre>
-          <BaseButtonAction @click="switchBall = undefined">
+          <BaseButton @click="switchBall = undefined">
             reset
-          </BaseButtonAction>
+          </BaseButton>
         </BaseCard>
       </div>
     </NuiPreview>
@@ -490,9 +391,9 @@ animatedCheckbox2: {{ animatedCheckbox2 }}({{ typeof animatedCheckbox2 }})</pre>
         </div>
         <BaseCard class="col-span-2 p-2">
           <pre>switchThin: {{ switchThin }}({{ typeof switchThin }})</pre>
-          <BaseButtonAction @click="switchThin = undefined">
+          <BaseButton @click="switchThin = undefined">
             reset
-          </BaseButtonAction>
+          </BaseButton>
         </BaseCard>
       </div>
     </NuiPreview>
@@ -504,9 +405,9 @@ animatedCheckbox2: {{ animatedCheckbox2 }}({{ typeof animatedCheckbox2 }})</pre>
         </div>
         <BaseCard class="col-span-2 p-2">
           <pre>input1: {{ input1 }}({{ typeof input1 }})</pre>
-          <BaseButtonAction @click="input1 = undefined">
+          <BaseButton @click="input1 = undefined">
             reset
-          </BaseButtonAction>
+          </BaseButton>
         </BaseCard>
       </div>
     </NuiPreview>
@@ -518,9 +419,9 @@ animatedCheckbox2: {{ animatedCheckbox2 }}({{ typeof animatedCheckbox2 }})</pre>
         </div>
         <BaseCard class="col-span-2 p-2">
           <pre>input2: {{ input2 }}({{ typeof input2 }})</pre>
-          <BaseButtonAction @click="input2 = undefined">
+          <BaseButton @click="input2 = undefined">
             reset
-          </BaseButtonAction>
+          </BaseButton>
         </BaseCard>
       </div>
     </NuiPreview>
@@ -532,9 +433,9 @@ animatedCheckbox2: {{ animatedCheckbox2 }}({{ typeof animatedCheckbox2 }})</pre>
         </div>
         <BaseCard class="col-span-2 p-2">
           <pre>input3: {{ input3 }}({{ typeof input3 }})</pre>
-          <BaseButtonAction @click="input3 = undefined">
+          <BaseButton @click="input3 = undefined">
             reset
-          </BaseButtonAction>
+          </BaseButton>
         </BaseCard>
       </div>
     </NuiPreview>
@@ -546,9 +447,9 @@ animatedCheckbox2: {{ animatedCheckbox2 }}({{ typeof animatedCheckbox2 }})</pre>
         </div>
         <BaseCard class="col-span-2 p-2">
           <pre>input4: {{ input4 }}({{ typeof input4 }})</pre>
-          <BaseButtonAction @click="input4 = undefined">
+          <BaseButton @click="input4 = undefined">
             reset
-          </BaseButtonAction>
+          </BaseButton>
         </BaseCard>
       </div>
     </NuiPreview>
@@ -565,9 +466,9 @@ animatedCheckbox2: {{ animatedCheckbox2 }}({{ typeof animatedCheckbox2 }})</pre>
         </div>
         <BaseCard class="col-span-2 p-2">
           <pre>inputNumber1: {{ inputNumber1 }}({{ typeof inputNumber1 }})</pre>
-          <BaseButtonAction @click="inputNumber1 = undefined">
+          <BaseButton @click="inputNumber1 = undefined">
             reset
-          </BaseButtonAction>
+          </BaseButton>
         </BaseCard>
       </div>
     </NuiPreview>
@@ -582,9 +483,9 @@ animatedCheckbox2: {{ animatedCheckbox2 }}({{ typeof animatedCheckbox2 }})</pre>
         </div>
         <BaseCard class="col-span-2 p-2">
           <pre>inputNumber2: {{ inputNumber2 }}({{ typeof inputNumber2 }})</pre>
-          <BaseButtonAction @click="inputNumber2 = undefined">
+          <BaseButton @click="inputNumber2 = undefined">
             reset
-          </BaseButtonAction>
+          </BaseButton>
         </BaseCard>
       </div>
     </NuiPreview>
@@ -597,9 +498,9 @@ animatedCheckbox2: {{ animatedCheckbox2 }}({{ typeof animatedCheckbox2 }})</pre>
         <BaseCard class="col-span-2 p-2">
           <pre>
 inputFile1: {{ inputFile1?.item?.(0)?.name }}({{ typeof inputFile1 }})</pre>
-          <BaseButtonAction @click="inputFile1 = null">
+          <BaseButton @click="inputFile1 = null">
             reset
-          </BaseButtonAction>
+          </BaseButton>
         </BaseCard>
       </div>
     </NuiPreview>
@@ -618,9 +519,9 @@ inputFile1: {{ inputFile1?.item?.(0)?.name }}({{ typeof inputFile1 }})</pre>
             :filter-file-dropped="(file: File) => file.type.startsWith('image')"
           >
             <div class="flex gap-2">
-              <BaseButtonIcon @click="open">
+              <BaseButton size="icon-md" @click="open">
                 <Icon name="ph:file-plus" />
-              </BaseButtonIcon>
+              </BaseButton>
 
               <template v-for="file of files">
                 <BaseAvatar
@@ -659,152 +560,9 @@ inputFileCustom1: {{
                 .map((file) => file?.name)
                 .join(',')
             }}({{ typeof inputFileCustom1 }})</pre>
-          <BaseButtonAction @click="inputFileCustom1 = null">
+          <BaseButton @click="inputFileCustom1 = null">
             reset
-          </BaseButtonAction>
-        </BaseCard>
-      </div>
-    </NuiPreview>
-
-    <NuiPreview title="BaseListbox (string)" description="BaseListbox test">
-      <div class="grid grid-cols-4 gap-6">
-        <div class="col-span-2">
-          <BaseListbox v-model="listbox1" :items="['foo', 'bar', 'baz']" />
-        </div>
-        <BaseCard class="col-span-2 p-2">
-          <pre>listbox1: {{ listbox1 }}({{ typeof listbox1 }})</pre>
-          <BaseButtonAction @click="listbox1 = undefined">
-            reset
-          </BaseButtonAction>
-        </BaseCard>
-      </div>
-    </NuiPreview>
-
-    <NuiPreview title="BaseListbox (object)" description="BaseListbox test">
-      <div class="grid grid-cols-4 gap-6">
-        <div class="col-span-2">
-          <BaseListbox
-            v-model="listbox2"
-            :properties="{ value: 'name' }"
-            :items="[
-              {
-                name: 'foo',
-              },
-              {
-                name: 'bar',
-              },
-              {
-                name: 'baz',
-              },
-            ]"
-          />
-        </div>
-        <BaseCard class="col-span-2 p-2">
-          <pre>listbox2: {{ listbox2 }}({{ typeof listbox2 }})</pre>
-          <BaseButtonAction @click="listbox2 = undefined">
-            reset
-          </BaseButtonAction>
-        </BaseCard>
-      </div>
-    </NuiPreview>
-
-    <NuiPreview
-      title="BaseListbox (prop modifier)"
-      description="BaseListbox test"
-    >
-      <div class="grid grid-cols-4 gap-6">
-        <div class="col-span-2">
-          <BaseListbox
-            v-model.prop="listbox3"
-            :properties="{ value: 'name', label: 'name' }"
-            :items="[
-              {
-                name: 'foo',
-              },
-              {
-                name: 'bar',
-              },
-              {
-                name: 'baz',
-              },
-            ]"
-          />
-        </div>
-        <BaseCard class="col-span-2 p-2">
-          <pre>listbox3: {{ listbox3 }}({{ typeof listbox3 }})</pre>
-          <BaseButtonAction @click="listbox3 = ''">
-            reset
-          </BaseButtonAction>
-        </BaseCard>
-      </div>
-    </NuiPreview>
-
-    <NuiPreview
-      title="BaseListbox (multipe object)"
-      description="BaseListbox test"
-    >
-      <div class="grid grid-cols-4 gap-6">
-        <div class="col-span-2">
-          <BaseListbox
-            v-model="listbox4"
-            :properties="{ value: 'value', label: 'name' }"
-            multiple
-            :items="[
-              {
-                name: 'Foo',
-                value: 'foo',
-              },
-              {
-                name: 'Bar',
-                value: 'bar',
-              },
-              {
-                name: 'baz',
-                value: 'Baz',
-              },
-            ]"
-          />
-        </div>
-        <BaseCard class="col-span-2 p-2">
-          <pre>listbox4: {{ listbox4 }}({{ typeof listbox4 }})</pre>
-          <BaseButtonAction @click="listbox4 = []">
-            reset
-          </BaseButtonAction>
-        </BaseCard>
-      </div>
-    </NuiPreview>
-
-    <NuiPreview
-      title="BaseListbox (prop modifier)"
-      description="BaseListbox test"
-    >
-      <div class="grid grid-cols-4 gap-6">
-        <div class="col-span-2">
-          <BaseListbox
-            v-model.prop="listbox5"
-            :properties="{ value: 'value', label: 'name' }"
-            multiple
-            :items="[
-              {
-                name: 'Foo',
-                value: 'foo',
-              },
-              {
-                name: 'Bar',
-                value: 'bar',
-              },
-              {
-                name: 'baz',
-                value: 'Baz',
-              },
-            ]"
-          />
-        </div>
-        <BaseCard class="col-span-2 p-2">
-          <pre>listbox5: {{ listbox5 }}({{ typeof listbox5 }})</pre>
-          <BaseButtonAction @click="listbox5 = []">
-            reset
-          </BaseButtonAction>
+          </BaseButton>
         </BaseCard>
       </div>
     </NuiPreview>
@@ -827,9 +585,9 @@ inputFileCustom1: {{
         </div>
         <BaseCard class="col-span-2 p-2">
           <pre>select1: {{ select1 }}({{ typeof select1 }})</pre>
-          <BaseButtonAction @click="select1 = undefined">
+          <BaseButton @click="select1 = undefined">
             reset
-          </BaseButtonAction>
+          </BaseButton>
         </BaseCard>
       </div>
     </NuiPreview>
@@ -852,9 +610,9 @@ inputFileCustom1: {{
         </div>
         <BaseCard class="col-span-2 p-2">
           <pre>select2: {{ select2 }}({{ typeof select2 }})</pre>
-          <BaseButtonAction @click="select2 = undefined">
+          <BaseButton @click="select2 = undefined">
             reset
-          </BaseButtonAction>
+          </BaseButton>
         </BaseCard>
       </div>
     </NuiPreview>
@@ -866,9 +624,9 @@ inputFileCustom1: {{
         </div>
         <BaseCard class="col-span-2 p-2">
           <pre>textarea1: {{ textarea1 }}({{ typeof textarea1 }})</pre>
-          <BaseButtonAction @click="textarea1 = undefined">
+          <BaseButton @click="textarea1 = undefined">
             reset
-          </BaseButtonAction>
+          </BaseButton>
         </BaseCard>
       </div>
     </NuiPreview>
@@ -883,9 +641,9 @@ inputFileCustom1: {{
         </div>
         <BaseCard class="col-span-2 p-2">
           <pre>textarea2: {{ textarea2 }}({{ typeof textarea2 }})</pre>
-          <BaseButtonAction @click="textarea2 = undefined">
+          <BaseButton @click="textarea2 = undefined">
             reset
-          </BaseButtonAction>
+          </BaseButton>
         </BaseCard>
       </div>
     </NuiPreview>
@@ -900,9 +658,9 @@ inputFileCustom1: {{
         </div>
         <BaseCard class="col-span-2 p-2">
           <pre>textarea3: {{ textarea3 }}({{ typeof textarea3 }})</pre>
-          <BaseButtonAction @click="textarea3 = undefined">
+          <BaseButton @click="textarea3 = undefined">
             reset
-          </BaseButtonAction>
+          </BaseButton>
         </BaseCard>
       </div>
     </NuiPreview>

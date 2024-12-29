@@ -107,7 +107,7 @@ const ballSublabelValue = ref(true)
       </NuiPreview>
 
       <NuiPreview title="Ball variants" description="Switch ball component variants">
-        <BaseFocusLoop
+        <div
           class="grid grid-cols-2 gap-6 md:max-w-2xl md:grid-cols-4"
         >
           <BaseSwitchBall
@@ -129,11 +129,11 @@ const ballSublabelValue = ref(true)
           >
             Dark
           </BaseSwitchBall>
-        </BaseFocusLoop>
+        </div>
       </NuiPreview>
 
       <NuiPreview title="Custom variants" description="Switch ball custom variants">
-        <BaseFocusLoop
+        <div
           class="grid grid-cols-2 gap-6 md:max-w-3xl md:grid-cols-4"
         >
           <BaseSwitchBall
@@ -164,7 +164,7 @@ const ballSublabelValue = ref(true)
           >
             Custom variant
           </BaseSwitchBall>
-        </BaseFocusLoop>
+        </div>
       </NuiPreview>
 
       <NuiPreview title="Ball: sublabel" description="Switch thin sublabel">
