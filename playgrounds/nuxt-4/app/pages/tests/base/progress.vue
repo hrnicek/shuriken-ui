@@ -86,40 +86,28 @@ const progressCircle = ref(25)
               :size="55"
               v-model="progressCircle"
               variant="none"
-              :classes="{
-                wrapper: 'text-muted-200 dark:text-muted-900',
-                progress: 'text-cyan-500',
-              }"
+              class="text-cyan-500 *:first:text-muted-200 *:dark:first:text-muted-900"
             />
             <BaseProgressCircle
               title="Custom color circle progress bar"
               :size="75"
               v-model="progressCircle"
               variant="none"
-              :classes="{
-                wrapper: 'text-muted-200 dark:text-muted-900',
-                progress: 'text-yellow-400',
-              }"
+              class="text-yellow-400 *:first:text-muted-200 *:dark:first:text-muted-900"
             />
             <BaseProgressCircle
               title="Custom color circle progress bar"
               :size="85"
               v-model="progressCircle"
               variant="none"
-              :classes="{
-                wrapper: 'text-muted-200 dark:text-muted-900',
-                progress: 'text-pink-500',
-              }"
+              class="text-pink-500 *:first:text-muted-200 *:dark:first:text-muted-900"
             />
             <BaseProgressCircle
               title="Custom color circle progress bar"
               :size="95"
               v-model="progressCircle"
               variant="none"
-              :classes="{
-                wrapper: 'text-muted-200 dark:text-muted-900',
-                progress: 'text-lime-500',
-              }"
+              class="text-lime-500 *:first:text-muted-200 *:dark:first:text-muted-900"
             />
           </div>
           <div class="flex justify-between gap-2">
@@ -225,10 +213,7 @@ const progressCircle = ref(25)
             size="sm"
             :model-value="78"
             variant="none"
-            :classes="{
-              wrapper: 'bg-muted-200 dark:bg-muted-900',
-              progress: 'bg-yellow-400',
-            }"
+            class="bg-muted-200 dark:bg-muted-900 *:first:bg-yellow-400"
           />
         </div>
       </NuiPreview>

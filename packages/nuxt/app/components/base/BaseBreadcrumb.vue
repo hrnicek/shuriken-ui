@@ -1,48 +1,49 @@
+<script lang="ts">
+export interface BaseBreadcrumbProps {
+  /**
+   * The items to display in the breadcrumb.
+   *
+   * If not provided, the breadcrumb will be generated
+   * from the current route using page meta under `breadcrumb` key.
+   */
+  items?: {
+    /**
+     * The route to navigate to when the item is clicked.
+     */
+    to?: RouteLocationRaw
+
+    /**
+     * The label to display for the item.
+     */
+    label?: string
+
+    /**
+     * Whether to hide the label for the item.
+     */
+    hideLabel?: boolean
+
+    /**
+     * CSS classes to apply to the icon.
+     */
+    iconClasses?: string | string[]
+  }[]
+
+  /**
+   * Defines the hover color of the breadcrumb links
+   *
+   * @default 'primary'
+   */
+  variant?: 'primary' | 'dark'
+}
+</script>
+
 <script setup lang="ts">
 import type { RouteLocationRaw } from 'vue-router'
 
-const props = withDefaults(
-  defineProps<{
-    /**
-     * The items to display in the breadcrumb.
-     *
-     * If not provided, the breadcrumb will be generated
-     * from the current route using page meta under `breadcrumb` key.
-     */
-    items?: {
-      /**
-       * The route to navigate to when the item is clicked.
-       */
-      to?: RouteLocationRaw
-
-      /**
-       * The label to display for the item.
-       */
-      label?: string
-
-      /**
-       * Whether to hide the label for the item.
-       */
-      hideLabel?: boolean
-
-      /**
-       * CSS classes to apply to the icon.
-       */
-      iconClasses?: string | string[]
-    }[]
-
-    /**
-     * Defines the hover color of the breadcrumb links
-     *
-     * @default 'primary'
-     */
-    variant?: 'primary' | 'dark'
-  }>(),
-  {
-    items: undefined,
-    color: undefined,
-  },
-)
+const props = withDefaults(defineProps<BaseBreadcrumbProps>(), {
+  items: undefined,
+  color: undefined,
+})
 
 const variant = useNuiConfig('BaseBreadcrumb', 'variant', () => props.variant)
 
@@ -98,9 +99,7 @@ const items = computed(() => {
 </script>
 
 <template>
-  <nav
-    class="block"
-  >
+  <nav class="block">
     <ul class="mb-6 flex items-center font-sans text-[0.85rem]">
       <li class="me-3 sm:hidden">
         <BaseDropdown
@@ -112,7 +111,7 @@ const items = computed(() => {
               rounded="full"
               class="group"
             >
-              <Icon name="lucide:ellipsis" class="block text-base transition-transform group-data-[state=open]:rotate-45" />
+              <Icon name="lucide:ellipsis" class="block text-base transition-transform group-data-[state=open]:rotate-90" />
             </BaseButton>
           </template>
           <BaseDropdownItem

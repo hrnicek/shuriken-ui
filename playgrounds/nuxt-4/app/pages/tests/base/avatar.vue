@@ -60,9 +60,7 @@ definePageMeta({
             src="https://tairo.cssninja.io/img/avatars/1azeaze0.svg"
             size="4xl"
             rounded="full"
-            :classes="{
-              wrapper: 'bg-primary-500/20 text-primary-500',
-            }"
+            class="bg-primary-500/20 text-primary-500"
           />
         </div>
       </NuiPreview>
@@ -164,41 +162,31 @@ definePageMeta({
             src="https://tairo.cssninja.io/img/avatars/hth3.svg"
             size="lg"
             text="ER"
-            :classes="{
-              wrapper: 'bg-yellow-400/20 text-yellow-500',
-            }"
+            class="bg-yellow-400/20 text-yellow-500"
           />
           <BaseAvatar
             src="https://tairo.cssninja.io/img/avatars/2trht.svg"
             size="lg"
             text="FG"
-            :classes="{
-              wrapper: 'bg-green-500/20 text-green-500',
-            }"
+            class="bg-green-500/20 text-green-500"
           />
           <BaseAvatar
             src="https://tairo.cssninja.io/img/avatars/1thrh1.svg"
             size="lg"
             text="GT"
-            :classes="{
-              wrapper: 'bg-sky-500/20 text-sky-500',
-            }"
+            class="bg-sky-500/20 text-sky-500"
           />
           <BaseAvatar
             src="https://tairo.cssninja.io/img/avatars/2htrh4.svg"
             size="lg"
             text="MB"
-            :classes="{
-              wrapper: 'bg-violet-500/20 text-violet-500',
-            }"
+            class="bg-violet-500/20 text-violet-500"
           />
           <BaseAvatar
             src="https://tairo.cssninja.io/img/avatars/1thr0.svg"
             size="lg"
             text="FY"
-            :classes="{
-              wrapper: 'bg-lime-500/20 text-lime-500',
-            }"
+            class="bg-lime-500/20 text-lime-500"
           />
         </div>
       </NuiPreview>
@@ -211,9 +199,7 @@ definePageMeta({
             text="ER"
             rounded="none"
             mask="hex"
-            :classes="{
-              wrapper: 'bg-yellow-400/20 text-yellow-500',
-            }"
+            class="bg-yellow-400/20 text-yellow-500"
           />
           <BaseAvatar
             src="https://tairo.cssninja.io/img/avatars/15.svg"
@@ -221,9 +207,7 @@ definePageMeta({
             text="FG"
             rounded="none"
             mask="hexed"
-            :classes="{
-              wrapper: 'bg-green-500/20 text-green-500',
-            }"
+            class="bg-green-500/20 text-green-500"
           />
           <BaseAvatar
             src="https://tairo.cssninja.io/img/avatars/1thrh1.svg"
@@ -231,9 +215,7 @@ definePageMeta({
             text="GT"
             rounded="none"
             mask="deca"
-            :classes="{
-              wrapper: 'bg-sky-500/20 text-sky-500',
-            }"
+            class="bg-sky-500/20 text-sky-500"
           />
           <BaseAvatar
             src="https://tairo.cssninja.io/img/avatars/4.svg"
@@ -241,9 +223,7 @@ definePageMeta({
             text="MB"
             rounded="none"
             mask="blob"
-            :classes="{
-              wrapper: 'bg-violet-500/20 text-violet-500',
-            }"
+            class="bg-violet-500/20 text-violet-500"
           />
           <BaseAvatar
             src="https://tairo.cssninja.io/img/avatars/1thr0.svg"
@@ -251,9 +231,7 @@ definePageMeta({
             text="FY"
             rounded="none"
             mask="diamond"
-            :classes="{
-              wrapper: 'bg-lime-500/20 text-lime-500',
-            }"
+            class="bg-lime-500/20 text-lime-500"
           />
         </div>
       </NuiPreview>

@@ -80,7 +80,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'varian
     <CheckboxRoot
       :id
       v-bind="{ ...forward, ...attrs }"
-      class="nui-focus relative flex items-center justify-center h-5 w-5 shrink-0 cursor-pointer disabled:cursor-not-allowed overflow-hidden"
+      class="nui-focus relative flex items-center justify-center h-5 w-5 shrink-0 cursor-pointer disabled:cursor-not-allowed overflow-hidden rounded-md"
     >
       <div
         class="absolute start-0 top-0 z-0 h-full w-full rounded-md"

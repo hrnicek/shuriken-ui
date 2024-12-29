@@ -82,25 +82,32 @@ const emits = defineEmits<BaseSwitchThinEmits>()
 const slots = defineSlots<BaseSwitchThinSlots>()
 
 const id = useNinjaId(() => props.id)
+const attrs = useAttrs()
 const variant = useNuiConfig('BaseSwitchThin', 'variant', () => props.variant)
 const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'sublabel', 'variant']), emits)
-
 </script>
 
 <template>
   <span
     class="flex cursor-pointer items-center"
   >
-    <SwitchRoot :id v-bind="forward" ref="inputRef" class="nui-focus relative block h-4 rounded-full cursor-pointer">
+    <SwitchRoot
+      :id 
+      v-bind="{...attrs, ...forward }"
+      class="nui-focus relative block h-4 rounded-full cursor-pointer"
+    >
       <SwitchThumb
         class="peer data-[state=checked]:-translate-y-1/2 data-[state=checked]:translate-x-full data-[state=checked]:rtl:-translate-x-full absolute -start-1 top-1/2 -translate-y-1/2 flex items-center justify-center rounded-full size-6 transition-all duration-300"
         :class="[
           handleVariants[variant],
         ]"
       />
-      <span class="block h-4 w-10 rounded-full transition-all duration-300" :class="[
-        trackVariants[variant],
-      ]" />
+      <span
+        class="block h-4 w-10 rounded-full transition-all duration-300"
+        :class="[
+          trackVariants[variant],
+        ]"
+      />
     </SwitchRoot>
     <Label :for="id" v-if="props.sublabel || 'sublabel' in slots" class="ms-3 select-none">
       <span class="block cursor-pointer font-sans text-sm text-muted-600 dark:text-white">

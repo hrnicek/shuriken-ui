@@ -43,7 +43,7 @@ const trackVariants = {
 //   'none': '',
 // } as const
 
-const ballVariants = {
+const handleVariants = {
   'default': 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
   'primary': 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
   'dark': 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
@@ -51,7 +51,7 @@ const ballVariants = {
 } as const
 
 // @todo: low-contrast-theme
-// const ballVariants = {
+// const handleVariants = {
 //   'default': 'bg-white dark:bg-muted-900 border border-muted-300 dark:border-muted-800',
 //   'primary': 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
 //   'dark': 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
@@ -96,6 +96,7 @@ const emits = defineEmits<BaseSwitchBallEmits>()
 const slots = defineSlots<BaseSwitchBallSlots>()
 
 const id = useNinjaId(() => props.id)
+const attrs = useAttrs()
 const variant = useNuiConfig('BaseSwitchBall', 'variant', () => props.variant)
 const iconCheck = useNuiConfig('icon', 'check')
 const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'sublabel', 'variant']), emits)
@@ -105,19 +106,30 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'sublab
   <span
     class="flex items-center"
   >
-    <SwitchRoot :id v-bind="forward" class="group/switch relative">
+    <SwitchRoot 
+      :id 
+      v-bind="{...attrs, ...forward }" 
+      class="group/switch relative"
+    >
       <SwitchThumb
         class="peer data-[state=checked]:translate-x-full data-[state=checked]:rtl:-translate-x-full absolute start-0.5 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center rounded-full shadow focus:w-6 size-5 transition-all duration-300"
         :class="[
-          ballVariants[variant],
+          handleVariants[variant],
         ]"
       />
-      <span class="block h-6 w-11 rounded-full transition-all duration-300" :class="[
-        trackVariants[variant],
-      ]" />
-      <Icon :name="iconCheck" class="peer-data-[state=checked]:-translate-y-1/2 peer-data-[state=checked]:opacity-100 peer-data-[state=checked]:block pointer-events-none absolute start-2 top-1/2 z-10 translate-y-0 fill-current opacity-0 h-2.5 w-2.5 transition-all duration-300" :class="[
-        iconVariants[variant],
-      ]" />
+      <span 
+        class="block h-6 w-11 rounded-full transition-all duration-300"
+        :class="[
+          trackVariants[variant],
+        ]"
+      />
+      <Icon 
+        :name="iconCheck"
+        class="peer-data-[state=checked]:-translate-y-1/2 peer-data-[state=checked]:opacity-100 peer-data-[state=checked]:block pointer-events-none absolute start-2 top-1/2 z-10 translate-y-0 fill-current opacity-0 h-2.5 w-2.5 transition-all duration-300"
+        :class="[
+          iconVariants[variant],
+        ]"
+      />
     </SwitchRoot>
     <Label :for="id" v-if="props.sublabel || 'sublabel' in slots" class="ms-3 select-none">
       <span class="block cursor-pointer font-sans text-sm text-muted-600 dark:text-white">

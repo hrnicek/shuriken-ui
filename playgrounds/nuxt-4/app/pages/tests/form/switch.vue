@@ -63,39 +63,28 @@ const ballSublabelValue = ref(true)
           <BaseSwitchThin
             v-model="thinValues.one"
             variant="none"
-            :classes="{ 
-              track: 'peer-data-[state=checked]:bg-green-500 dark:peer-data-[state=checked]:bg-green-500 bg-muted-300 dark:bg-muted-600',
-              handle: 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
-            }"
+            class="*:first:bg-white *:first:dark:bg-muted-700 *:first:border *:first:border-muted-300 *:first:dark:border-muted-600 *:last:peer-data-[state=checked]:bg-green-500 *:last:dark:peer-data-[state=checked]:bg-green-500 *:last:bg-muted-300 *:last:dark:bg-muted-600"
           >
             Custom variant
           </BaseSwitchThin>
           <BaseSwitchThin 
             v-model="thinValues.two"
             variant="none"
-            :classes="{ 
-              track: 'peer-data-[state=checked]:bg-pink-500 dark:peer-data-[state=checked]:bg-pink-500 bg-muted-300 dark:bg-muted-600',
-              handle: 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
-            }">
+            class="*:first:bg-white *:first:dark:bg-muted-700 *:first:border *:first:border-muted-300 *:first:dark:border-muted-600 *:last:peer-data-[state=checked]:bg-pink-500 *:last:dark:peer-data-[state=checked]:bg-pink-500 *:last:bg-muted-300 *:last:dark:bg-muted-600"
+          >
             Custom variant
           </BaseSwitchThin>
           <BaseSwitchThin
             v-model="thinValues.three"
             variant="none"
-            :classes="{ 
-              track: 'peer-data-[state=checked]:bg-amber-500 dark:peer-data-[state=checked]:bg-amber-500 bg-muted-300 dark:bg-muted-600',
-              handle: 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
-            }"
+            class="*:first:bg-white *:first:dark:bg-muted-700 *:first:border *:first:border-muted-300 *:first:dark:border-muted-600 *:last:peer-data-[state=checked]:bg-amber-500 *:last:dark:peer-data-[state=checked]:bg-amber-500 *:last:bg-muted-300 *:last:dark:bg-muted-600"
           >
             Custom variant
           </BaseSwitchThin>
           <BaseSwitchThin
             v-model="thinValues.four"
             variant="none"
-            :classes="{ 
-              track: 'peer-data-[state=checked]:bg-violet-500 dark:peer-data-[state=checked]:bg-violet-500 bg-muted-300 dark:bg-muted-600',
-              handle: 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
-            }"
+            class="*:first:bg-white *:first:dark:bg-muted-700 *:first:border *:first:border-muted-300 *:first:dark:border-muted-600 *:last:peer-data-[state=checked]:bg-violet-500 *:last:dark:peer-data-[state=checked]:bg-violet-500 *:last:bg-muted-300 *:last:dark:bg-muted-600"
           >
             Custom variant
           </BaseSwitchThin>
@@ -150,44 +139,28 @@ const ballSublabelValue = ref(true)
           <BaseSwitchBall
             v-model="ballValues.one"
             variant="none"
-            :classes="{ 
-              track: 'peer-data-[state=checked]:bg-green-500 dark:peer-data-[state=checked]:bg-green-500 bg-muted-300 dark:bg-muted-600', 
-              icon: 'text-white dark:text-white',
-              handle: 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
-            }"
+            class="*:first:bg-white *:first:dark:bg-muted-700 *:first:border *:first:border-muted-300 *:first:dark:border-muted-600 *:last:text-white *:last:dark:text-white *:peer-data-[state=checked]:bg-green-500 *:dark:peer-data-[state=checked]:bg-green-500 *:bg-muted-300 *:dark:bg-muted-600"
           >
             Custom variant
           </BaseSwitchBall> 
           <BaseSwitchBall
             v-model="ballValues.two"
             variant="none"
-            :classes="{ 
-              track: 'peer-data-[state=checked]:bg-pink-500 dark:peer-data-[state=checked]:bg-pink-500 bg-muted-300 dark:bg-muted-600', 
-              icon: 'text-white dark:text-white',
-              handle: 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
-            }"
+            class="*:first:bg-white *:first:dark:bg-muted-700 *:first:border *:first:border-muted-300 *:first:dark:border-muted-600 *:last:text-white *:last:dark:text-white *:peer-data-[state=checked]:bg-pink-500 *:dark:peer-data-[state=checked]:bg-pink-500 *:bg-muted-300 *:dark:bg-muted-600"
           >
             Custom variant
           </BaseSwitchBall> 
           <BaseSwitchBall
             v-model="ballValues.three"
             variant="none"
-            :classes="{ 
-              track: 'peer-data-[state=checked]:bg-amber-500 dark:peer-data-[state=checked]:bg-amber-500 bg-muted-300 dark:bg-muted-600', 
-              icon: 'text-white dark:text-white',
-              handle: 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
-            }"
+            class="*:first:bg-white *:first:dark:bg-muted-700 *:first:border *:first:border-muted-300 *:first:dark:border-muted-600 *:last:text-white *:last:dark:text-white *:peer-data-[state=checked]:bg-amber-500 *:dark:peer-data-[state=checked]:bg-amber-500 *:bg-muted-300 *:dark:bg-muted-600"
           >
             Custom variant
           </BaseSwitchBall> 
           <BaseSwitchBall
             v-model="ballValues.four"
             variant="none"
-            :classes="{ 
-              track: 'peer-data-[state=checked]:bg-violet-500 dark:peer-data-[state=checked]:bg-violet-500 bg-muted-300 dark:bg-muted-600', 
-              icon: 'text-white dark:text-white',
-              handle: 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
-            }"
+            class="*:first:bg-white *:first:dark:bg-muted-700 *:first:border *:first:border-muted-300 *:first:dark:border-muted-600 *:last:text-white *:last:dark:text-white *:peer-data-[state=checked]:bg-violet-500 *:dark:peer-data-[state=checked]:bg-violet-500 *:bg-muted-300 *:dark:bg-muted-600"
           >
             Custom variant
           </BaseSwitchBall>

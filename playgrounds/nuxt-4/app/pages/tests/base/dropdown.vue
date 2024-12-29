@@ -185,9 +185,8 @@ const selection = ref('first')
           <BaseDropdown
             label="Custom dropdown"
             rounded="md"
-            :classes="{ menu: 'w-72' }"
           >
-            <BaseDropdownLabel>Label</BaseDropdownLabel>  
+            <BaseDropdownLabel class="w-72">Label</BaseDropdownLabel>  
             <BaseDropdownItem
               title="Profile"
               text="View your profile"
@@ -477,10 +476,11 @@ const selection = ref('first')
 
       <NuiPreview title="Slot: icon" description="Dropdown icon slot">
         <div class="flex justify-start gap-4 w-full">
-          <BaseDropdown label="Dropdown" rounded="md" :classes="{ menu: 'w-72' }">
+          <BaseDropdown label="Dropdown" rounded="md">
             <BaseDropdownItem
               title="Profile"
               text="View your profile"
+              class="w-72"
             >
               <template #start>
                 <Icon name="solar:user-rounded-linear" class="me-2 block text-[1.15rem]" />
@@ -512,8 +512,8 @@ const selection = ref('first')
               </template>
             </BaseDropdownItem>
           </BaseDropdown>
-          <BaseDropdown label="Dropdown" rounded="md" :classes="{ menu: 'w-72' }">
-            <div class="flex justify-center p-4 mb-3 rounded-lg bg-muted-100 dark:bg-muted-900/80">
+          <BaseDropdown label="Dropdown" rounded="md">
+            <div class="flex justify-center p-4 mb-3 w-72 rounded-lg bg-muted-100 dark:bg-muted-900/80">
               <div class="text-center">
                 <BaseChip size="md" placement="top-end" :offset="7" color="red">
                   <BaseAvatar
@@ -564,10 +564,11 @@ const selection = ref('first')
 
       <NuiPreview title="Slot: avatar" description="Dropdown avatar slot">
         <div class="flex justify-start w-full">
-          <BaseDropdown label="Dropdown" rounded="md" :classes="{ menu: 'w-72' }">
+          <BaseDropdown label="Dropdown" rounded="md">
             <BaseDropdownItem
               title="Lana Jensen"
               text="Software Engineer"
+              class="w-72"
             >
               <template #start>
                 <BaseAvatar

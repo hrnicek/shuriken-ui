@@ -121,10 +121,6 @@ export const badgeSize = {
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 
-defineOptions({
-  inheritAttrs: false,
-})
-
 const props = withDefaults(defineProps<BaseAvatarProps>(), {
   src: undefined,
   srcDark: undefined,
@@ -136,8 +132,6 @@ const props = withDefaults(defineProps<BaseAvatarProps>(), {
   classes: () => ({}),
 })
 const slots = defineSlots<BaseAvatarSlots>()
-
-const attrs = useAttrs()
 
 const rounded = useNuiConfig('BaseAvatar', 'rounded', () => props.rounded)
 const size = useNuiConfig('BaseAvatar', 'size', () => props.size)
@@ -178,10 +172,7 @@ const badgePosition = computed(() => {
       <slot>
         <AvatarImage
           v-if="props.src"
-          v-bind="{
-            ...attrs,
-            ...(props.bindings?.image || {}),
-          }"
+          v-bind="props.bindings?.image"
           :src="props.src"
           class="object-cover h-full max-h-full w-full max-w-full shadow-xs"
           :class="[
@@ -192,10 +183,7 @@ const badgePosition = computed(() => {
 
         <AvatarImage
           v-if="props.src && props.srcDark"
-          v-bind="{
-            ...attrs,
-            ...(props.bindings?.dark || {}),
-          }"
+          v-bind="props.bindings?.dark"
           :src="props.srcDark"
           class="object-cover h-full max-h-full w-full max-w-full shadow-xs hidden dark:block"
           :class="[rounded && radiuses[rounded]]"

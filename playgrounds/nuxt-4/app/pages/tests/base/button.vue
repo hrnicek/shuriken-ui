@@ -339,7 +339,7 @@ const loading = ref(true)
           <span>Stash</span>
         </BaseButton>
 
-        <BaseDropdown :classes="{ wrapper: 'inline-block' }" arrow>
+        <BaseDropdown>
           <template #button>
             <BaseButton variant="default" rounded="none" class="border-e-0">
               <span>Share</span>

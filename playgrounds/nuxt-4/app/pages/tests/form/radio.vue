@@ -38,37 +38,25 @@ const customValue = ref('pink')
             label="Custom color"
             value="one"
             variant="none"
-            :classes="{ 
-              box: 'bg-green-500/10 dark:bg-green-500/20 border-1 border-muted-300 dark:border-muted-700 text-green-700 text-green-500 dark:text-green-400',
-              dot: 'text-green-500 dark:text-green-400'
-            }"
+            class="bg-green-500/10 dark:bg-green-500/20 border-1 border-muted-300 dark:border-muted-700 text-green-700 dark:text-green-400"
           />
           <BaseRadio
             label="Custom color"
             value="two"
             variant="none"
-            :classes="{ 
-              box: 'bg-red-500/10 dark:bg-red-500/20 border-1 border-muted-300 dark:border-muted-700 text-red-700 text-red-500 dark:text-red-400',
-              dot: 'text-red-500 dark:text-red-400'
-            }"
+            class="bg-red-500/10 dark:bg-red-500/20 border-1 border-muted-300 dark:border-muted-700 text-red-700 dark:text-red-400"
           />
           <BaseRadio
             label="Custom color"
             value="three"
             variant="none"
-            :classes="{ 
-              box: 'bg-cyan-500/10 dark:bg-cyan-500/20 border-1 border-muted-300 dark:border-muted-700 text-cyan-700 text-cyan-500 dark:text-cyan-400',
-              dot: 'text-cyan-500 dark:text-cyan-400'
-            }"
+            class="bg-cyan-500/10 dark:bg-cyan-500/20 border-1 border-muted-300 dark:border-muted-700 text-cyan-700 dark:text-cyan-400"
           />
           <BaseRadio
             value="Custom color"
             label="four"
             variant="none"
-            :classes="{ 
-              box: 'bg-amber-500/10 dark:bg-amber-500/20 border-1 border-muted-300 dark:border-muted-700 text-amber-700 text-amber-500 dark:text-amber-400',
-              dot: 'text-amber-500 dark:text-amber-400'
-            }"
+            class="bg-amber-500/10 dark:bg-amber-500/20 border-1 border-muted-300 dark:border-muted-700 text-amber-700 dark:text-amber-400"
           />
         </BaseRadioGroup>
       </NuiPreview>
