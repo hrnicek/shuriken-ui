@@ -7,6 +7,17 @@ export interface BaseSelectItemProps extends SelectItemProps {}
 export type BaseSelectItemSlots = {
   default(): any
 }
+
+const variants = {
+  'default': 'data-[highlighted]:bg-muted-100 dark:data-[highlighted]:bg-muted-800 text-muted-700 data-[highlighted]:text-[var(--primary-base)] dark:text-muted-300 dark:data-[highlighted]:text-[var(--primary-light)]',
+  'muted': 'data-[highlighted]:bg-muted-200 dark:data-[highlighted]:bg-muted-800 text-muted-800 data-[highlighted]:text-[var(--primary-base)] dark:text-muted-400 dark:data-[highlighted]:text-[var(--primary-light)]',
+} as const
+
+// @todo: low-contrast-theme
+// const variants = {
+//   'default': 'bg-white dark:bg-muted-800 border-muted-300 dark:border-muted-700 border text-muted-500 data-placeholder:text-muted-300 dark:data-placeholder:text-muted-700',
+//   'muted': '',
+// } as const
 </script>
 
 <script setup lang="ts">
@@ -21,19 +32,8 @@ const props = withDefaults(defineProps<BaseSelectItemProps>(), {
 })
 const slots = defineSlots<BaseSelectItemSlots>()
 
-const iconCheck = useNuiDefaultIcon('check')
+const iconCheck = useNuiConfig('icon', 'check')
 const forward = useForwardProps(props)
-
-const variants = {
-  'default': 'data-[highlighted]:bg-muted-100 dark:data-[highlighted]:bg-muted-800 text-muted-700 data-[highlighted]:text-[var(--primary-base)] dark:text-muted-300 dark:data-[highlighted]:text-[var(--primary-light)]',
-  'muted': 'data-[highlighted]:bg-muted-200 dark:data-[highlighted]:bg-muted-800 text-muted-800 data-[highlighted]:text-[var(--primary-base)] dark:text-muted-400 dark:data-[highlighted]:text-[var(--primary-light)]',
-} as const
-
-// @todo: low-contrast-theme
-// const variants = {
-//   'default': 'bg-white dark:bg-muted-800 border-muted-300 dark:border-muted-700 border text-muted-500 data-placeholder:text-muted-300 dark:data-placeholder:text-muted-700',
-//   'muted': '',
-// } as const
 </script>
 
 <template>

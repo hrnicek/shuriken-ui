@@ -29,34 +29,20 @@ export interface BaseAccordionItemProps extends AccordionItemProps {
    * @default 'dot'
    */
   action?: 'dot' | 'chevron' | 'plus'
-
-  /**
-   * Optional CSS classes to apply to the component inner elements.
-   */
-  classes?: {
-    /**
-     * CSS classes to apply to the header element.
-     */
-    header?: string | string[]
-
-    /**
-     * CSS classes to apply to the trigger element.
-     */
-    trigger?: string | string[]
-
-    /**
-     * CSS classes to apply to the content element.
-     */
-    content?: string | string[]
-  }
   
   /**
    * Optional bindings to pass to the inner components.
    */
   bindings?: {
-    header?: AccordionHeaderProps
-    content?: AccordionContentProps
-    trigger?: AccordionTriggerProps
+    header?: AccordionHeaderProps & {
+      class?: string | string[]
+    }
+    content?: AccordionContentProps & {
+      class?: string | string[]
+    }
+    trigger?: AccordionTriggerProps & {
+      class?: string | string[]
+    }
   }
 }
 
@@ -75,19 +61,18 @@ import { reactiveOmit } from '@vueuse/core'
 const props = withDefaults(defineProps<BaseAccordionItemProps>(), {
   action: undefined,
   variant: undefined,
-  classes: () => ({}),
   bindings: () => ({}),
 })
 
 const slots = defineSlots<BaseAccordionItemSlots>()
 
-const variant = useNuiDefaultProperty(props, 'BaseAccordion', 'variant')
-const action = useNuiDefaultProperty(props, 'BaseAccordion', 'action')
+const variant = useNuiConfig('BaseAccordion', 'variant', () => props.variant)
+const action = useNuiConfig('BaseAccordion', 'action', () => props.action)
+const iconChevron = useNuiConfig('icon', 'chevronDown')
+const iconPlus = useNuiConfig('icon', 'plus')
 
-const forward = useForwardProps(reactiveOmit(props, ['title', 'content', 'variant', 'action', 'classes', 'bindings']))
+const forward = useForwardProps(reactiveOmit(props, ['title', 'content', 'variant', 'action', 'bindings']))
 
-const iconChevron = useNuiDefaultIcon('chevronDown')
-const iconPlus = useNuiDefaultIcon('plus')
 </script>
 
 <template>
@@ -98,13 +83,11 @@ const iconPlus = useNuiDefaultIcon('plus')
     <AccordionHeader
       v-bind="props.bindings?.header"
       class="cursor-pointer list-none outline-none"
-      :class="props.classes?.header"
     >
       <AccordionTrigger
         v-bind="props.bindings?.trigger"
         class="flex group/trigger items-center justify-between w-full py-3 rounded-md px-4 cursor-pointer nui-focus"
         :class="[
-          props.classes?.trigger,
           // variant === 'default' && 'hover:bg-muted-50 dark:hover:bg-muted-700', @todo: low-contrast-theme
           variant === 'default' && 'hover:bg-muted-50 dark:hover:bg-muted-800',
         ]" 
@@ -147,7 +130,6 @@ const iconPlus = useNuiDefaultIcon('plus')
     <AccordionContent 
       v-bind="props.bindings?.content"
       class="px-4 pb-4 font-sans text-sm text-muted-500 dark:text-muted-400" 
-      :class="props.classes?.content"
     >
       <div class="mt-3 text-sm leading-tight">
         <slot>{{ props.content }}</slot>

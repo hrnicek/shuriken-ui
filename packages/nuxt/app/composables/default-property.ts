@@ -1,18 +1,18 @@
 import type { AppConfig } from 'nuxt/schema'
+import { warn } from 'vue'
 
-export function useNuiDefaultProperty<
-  T extends Record<string, unknown>,
-  C extends keyof AppConfig['nui'],
-  K extends keyof T,
->(properties: T, component: C, property: K): ComputedRef<NonNullable<T[K]>> {
-  const config = useAppConfig().nui as any
-  return computed(() => (properties?.[property] ?? config?.[component]?.[property]) as NonNullable<T[K]>)
-}
+export function useNuiConfig<T = string>(
+  section: string,
+  key: string,
+  defaultValue?: MaybeRefOrGetter<T>,
+): ComputedRef<NonNullable<T>> {
+  return computed(() => {
+    const config = useAppConfig().nui as any
 
-export function useNuiDefaultIcon(
-  kind: keyof AppConfig['nui']['icons'],
-  value?: MaybeRefOrGetter<string | undefined>,
-) {
-  const config = useAppConfig().nui
-  return computed(() => toValue(value) ?? config?.icons?.[kind])
+    if (import.meta.dev && config?.[section]?.[key] === undefined) {
+      warn(`Default ShurikenUI configuration "${section}.${key}" not found`)
+    }
+
+    return toValue(defaultValue) ?? config?.[section]?.[key]
+  })
 }

@@ -51,42 +51,18 @@ export interface BaseAvatarProps extends AvatarRootProps {
   mask?: 'hex' | 'hexed' | 'deca' | 'blob' | 'diamond'
 
   /**
-   * Optional CSS classes to apply to the component inner elements.
-   */
-  classes?: {
-    /**
-     * CSS classes to apply to the wrapper element.
-     */
-    wrapper?: string | string[]
-
-    /**
-     * CSS classes to apply to the inner element.
-     */
-    inner?: string | string[]
-
-    /**
-     * CSS classes to apply to the img element.
-     */
-    img?: string | string[]
-
-    /**
-     * CSS classes to apply to the badge element.
-     */
-    badge?: string | string[]
-
-    /**
-     * CSS classes to apply to the dot element.
-     */
-    dot?: string | string[]
-  }
-
-  /**
    * Optional bindings to pass to the inner components.
    */
   bindings?: {
-    image?: AvatarImageProps
-    dark?: AvatarImageProps
-    fallback?: AvatarFallbackProps
+    image?: AvatarImageProps & {
+      class?: string | string[]
+    }
+    dark?: AvatarImageProps & {
+      class?: string | string[]
+    }
+    fallback?: AvatarFallbackProps & {
+      class?: string | string[]
+    }
   }
 }
 export type BaseAvatarSlots = {
@@ -169,10 +145,10 @@ const slots = defineSlots<BaseAvatarSlots>()
 
 const attrs = useAttrs()
 
-const rounded = useNuiDefaultProperty(props, 'BaseAvatar', 'rounded')
-const size = useNuiDefaultProperty(props, 'BaseAvatar', 'size')
+const rounded = useNuiConfig('BaseAvatar', 'rounded', () => props.rounded)
+const size = useNuiConfig('BaseAvatar', 'size', () => props.size)
 
-const forward = useForwardProps(reactiveOmit(props, ['src', 'srcDark', 'badgeSrc', 'text', 'size', 'rounded', 'mask', 'classes', 'bindings']))
+const forward = useForwardProps(reactiveOmit(props, ['src', 'srcDark', 'badgeSrc', 'text', 'size', 'rounded', 'mask', 'bindings']))
 
 const badgePosition = computed(() => {
   if (rounded.value === 'full') {
@@ -202,10 +178,9 @@ const badgePosition = computed(() => {
       props.mask
         && (props.rounded === 'none' || rounded === 'none')
         && `nui-mask ${masks[props.mask]}`,
-      props.classes?.wrapper,
     ]"
   >
-    <div class="relative flex items-center justify-center overflow-hidden text-center h-full w-full transition-all duration-300" :class="props.classes?.inner">
+    <div class="relative flex items-center justify-center overflow-hidden text-center h-full w-full transition-all duration-300">
       <slot>
         <AvatarImage
           v-if="props.src"
@@ -218,7 +193,6 @@ const badgePosition = computed(() => {
           :class="[
             rounded && radiuses[rounded],
             props.srcDark ? 'dark:hidden' : '',
-            props.classes?.img,
           ]"
         />
 
@@ -230,7 +204,7 @@ const badgePosition = computed(() => {
           }"
           :src="props.srcDark"
           class="object-cover h-full max-h-full w-full max-w-full shadow-xs hidden dark:block"
-          :class="[rounded && radiuses[rounded], props.classes?.img]"
+          :class="[rounded && radiuses[rounded]]"
         />
 
         <AvatarFallback
@@ -249,7 +223,6 @@ const badgePosition = computed(() => {
       v-if="'badge' in $slots || props.badgeSrc"
       class="absolute z-10 block overflow-hidden rounded-full bg-white dark:bg-muted-800"
       :class="[
-        props.classes?.badge,
         badgeSize[size],
         badgePosition,
       ]"

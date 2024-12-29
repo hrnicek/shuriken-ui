@@ -1,7 +1,7 @@
 <script lang="ts">
 import type { RouteLocationRaw } from 'vue-router'
 
-interface BaseButtonProps {
+export interface BaseButtonProps {
   /** The location to which the button should navigate when clicked. This is only applicable if the button is a link. */
   to?: RouteLocationRaw
 
@@ -41,25 +41,8 @@ interface BaseButtonProps {
    */
   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
 }
-</script>
 
-<script setup lang="ts">
-const props = withDefaults(defineProps<BaseButtonProps>(), {
-  to: undefined,
-  href: undefined,
-  rel: '',
-  target: '',
-  type: undefined,
-  variant: undefined,
-  size: undefined,
-  rounded: undefined,
-})
-
-const variant = useNuiDefaultProperty(props, 'BaseButton', 'variant')
-const size = useNuiDefaultProperty(props, 'BaseButton', 'size')
-const rounded = useNuiDefaultProperty(props, 'BaseButton', 'rounded')
-
-const sizes = {
+export const sizes = {
   'sm': 'h-8 px-3 py-1 text-sm',
   'md': 'h-10 px-4 py-2 text-sm',
   'lg': 'h-12 px-6 py-2 text-base',
@@ -70,7 +53,7 @@ const sizes = {
   'icon-xl': 'size-14 text-base',
 } as const
 
-const radiuses = {
+export const radiuses = {
   none: '',
   sm: 'rounded-md',
   md: 'rounded-lg',
@@ -78,7 +61,7 @@ const radiuses = {
   full: 'rounded-full',
 } as const
 
-const variants = {
+export const variants = {
   'default': 'border border-muted-300 dark:border-muted-800 hover:enabled:border-muted-200 dark:hover:enabled:border-muted-700 text-muted-800 dark:text-muted-100 bg-white dark:bg-muted-950 hover:enabled:bg-muted-50 dark:hover:enabled:bg-muted-900 active:enabled:bg-white dark:active:enabled:bg-muted-950 focus-visible:bg-muted-50 dark:focus-visible:bg-muted-900',
   'muted': 'border border-muted-100 dark:border-muted-800 text-muted-500 dark:text-muted-100 bg-muted-100 dark:bg-muted-800 hover:enabled:bg-muted-50 dark:hover:enabled:bg-muted-700 active:enabled:bg-muted-100 dark:active:enabled:bg-muted-600 focus-visible:bg-muted-50 dark:focus-visible:bg-muted-700',
   'ghost': 'text-muted-600 dark:text-muted-100 hover:enabled:bg-muted-100 dark:hover:enabled:bg-muted-800 active:enabled:bg-muted-50 dark:active:enabled:bg-muted-700 focus-visible:bg-muted-100 dark:focus-visible:bg-muted-800',
@@ -100,6 +83,23 @@ const variants = {
 //   'link': 'text-muted-600 dark:text-muted-100 hover:text-primary-500 dark:hover:text-primary-500 focus-visible:text-primary-500 dark:focus-visible:text-primary-500 hover:underline underline-offset-4',
 //   'none': '',
 // } as const
+</script>
+
+<script setup lang="ts">
+const props = withDefaults(defineProps<BaseButtonProps>(), {
+  to: undefined,
+  href: undefined,
+  rel: '',
+  target: '',
+  type: undefined,
+  variant: undefined,
+  size: undefined,
+  rounded: undefined,
+})
+
+const variant = useNuiConfig('BaseButton', 'variant', () => props.variant)
+const size = useNuiConfig('BaseButton', 'size', () => props.size)
+const rounded = useNuiConfig('BaseButton', 'rounded', () => props.rounded)
 
 const classes = computed(() => [
   'relative inline-flex justify-center items-center space-x-1 font-sans font-normal leading-5 no-underline transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed hover:shadow-none',

@@ -39,14 +39,10 @@ const props = withDefaults(defineProps<BaseThemeSwitchProps>(), {
 })
 
 const id = useNinjaId(() => props.id)
-const disableTransitions = useNuiDefaultProperty(
-  props,
-  'BaseThemeSwitch',
-  'disableTransitions',
-)
-const variant = useNuiDefaultProperty(props, 'BaseThemeSwitch', 'variant')
-const iconSun = useNuiDefaultIcon('sun')
-const iconMoon = useNuiDefaultIcon('moon')
+const disableTransitions = useNuiConfig('BaseThemeSwitch', 'disableTransitions', () => props.disableTransitions)
+const variant = useNuiConfig('BaseThemeSwitch', 'variant', () => props.variant)
+const iconSun = useNuiConfig('icon', 'sun')
+const iconMoon = useNuiConfig('icon', 'moon')
 
 const colorMode = useColorMode()
 const isMounted = useMounted()

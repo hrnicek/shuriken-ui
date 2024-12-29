@@ -25,21 +25,6 @@ export interface BaseProgressProps extends ProgressRootProps {
    * @default 'sm'
    */
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-
-  /**
-   * Optional CSS classes to apply to the component inner elements.
-   */
-  classes?: {
-    /**
-     * CSS classes to apply to the wrapper element.
-     */
-    wrapper?: string | string[]
-
-    /**
-     * CSS classes to apply to the progress element.
-     */
-    progress?: string | string[]
-  }
 }
 export interface BaseProgressEmits extends ProgressRootEmits {}
 
@@ -102,17 +87,15 @@ const props = withDefaults(defineProps<BaseProgressProps>(), {
   max: undefined,
   modelValue: undefined,
   getValueLabel: undefined,
-
-  classes: () => ({}),
 })
 const emits = defineEmits<BaseProgressEmits>()
 const slots = defineSlots<BaseProgressSlots>()
 
-const variant = useNuiDefaultProperty(props, 'BaseProgress', 'variant')
-const rounded = useNuiDefaultProperty(props, 'BaseProgress', 'rounded')
-const size = useNuiDefaultProperty(props, 'BaseProgress', 'size')
+const variant = useNuiConfig('BaseProgress', 'variant', () => props.variant)
+const rounded = useNuiConfig('BaseProgress', 'rounded', () => props.rounded)
+const size = useNuiConfig('BaseProgress', 'size', () => props.size)
 
-const forward = useForwardPropsEmits(reactiveOmit(props, ['variant', 'rounded', 'size', 'classes']), emits)
+const forward = useForwardPropsEmits(reactiveOmit(props, ['variant', 'rounded', 'size']), emits)
 </script>
 
 <template>
@@ -124,14 +107,12 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['variant', 'rounded', 
       size && sizes[size],
       variant && trackVariants[variant],
       rounded && radiuses[rounded],
-      props.classes?.wrapper,
     ]"
   >
     <ProgressIndicator
       class="absolute start-0 top-0 h-full w-full transition-all duration-300"
       :class="[
         typeof modelValue !== 'number' && 'nui-progress-indeterminate animate-nui-progress-indeterminate',
-        props.classes?.progress,
         variant && variants[variant],
         rounded && radiuses[rounded],
       ]"

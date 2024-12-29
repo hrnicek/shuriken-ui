@@ -35,8 +35,7 @@ const props = withDefaults(defineProps<BaseAutocompleteItemProps>(), {
 const emits = defineEmits<BaseAutocompleteItemEmits>()
 const slots = defineSlots<BaseAutocompleteItemSlots>()
 
-// const rounded = useNuiDefaultProperty(props, 'BaseAutocompleteItem', 'rounded')
-const iconCheck = useNuiDefaultIcon('check')
+const iconCheck = useNuiConfig('icon', 'check')
 const forward = useForwardPropsEmits(reactiveOmit(props, []), emits)
 
 const context = injectBaseAutocompleteContext()

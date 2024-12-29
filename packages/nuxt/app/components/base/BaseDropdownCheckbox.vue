@@ -67,12 +67,11 @@ const props = withDefaults(defineProps<BaseDropdownCheckboxProps>(), {
   bindings: () => ({}),
 })
 const emits = defineEmits<BaseDropdownCheckboxEmits>()
-
 const slots = defineSlots<BaseDropdownCheckboxSlots>()
 
-const variant = useNuiDefaultProperty(props, 'BaseDropdownItem', 'variant')
-const rounded = useNuiDefaultProperty(props, 'BaseDropdownItem', 'rounded')
-const iconCheck = useNuiDefaultIcon('check')
+const variant = useNuiConfig('BaseDropdownItem', 'variant', () => props.variant)
+const rounded = useNuiConfig('BaseDropdownItem', 'rounded', () => props.rounded)
+const iconCheck = useNuiConfig('icon', 'check')
 const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'variant', 'rounded', 'bindings']), emits)
 </script>
 

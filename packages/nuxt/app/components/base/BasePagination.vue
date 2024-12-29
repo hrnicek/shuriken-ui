@@ -44,49 +44,24 @@ export interface BasePaginationProps extends PaginationRootProps {
   wrapped?: boolean
 
   /**
-   * Optional CSS classes to apply to the component inner elements.
-   */
-  classes?: {
-    /**
-     * CSS classes to apply to the wrapper element.
-     */
-    wrapper?: string | string[]
-
-    /**
-     * CSS classes to apply to the list element.
-     */
-    list?: string | string[]
-
-    /**
-     * CSS classes to apply to the link element.
-     */
-    link?: string | string[]
-
-    /**
-     * CSS classes to apply to the ellipsis element.
-     */
-    ellipsis?: string | string[]
-
-    /**
-     * CSS classes to apply to the buttons element.
-     */
-    buttons?: string | string[]
-
-    /**
-     * CSS classes to apply to the button element.
-     */
-    button?: string | string[]
-  }
-
-  /**
    * Optional bindings to pass to the inner components.
    */
   bindings?: {
-    list?: PaginationListProps
-    item?: PaginationListItemProps
-    ellipsis?: PaginationEllipsisProps
-    prev?: PaginationPrevProps
-    next?: PaginationNextProps
+    list?: PaginationListProps & {
+      class?: string | string[]
+    }
+    item?: PaginationListItemProps & {
+      class?: string | string[]
+    }
+    ellipsis?: PaginationEllipsisProps & {
+      class?: string | string[]
+    }
+    prev?: PaginationPrevProps & {
+      class?: string | string[]
+    }
+    next?: PaginationNextProps & {
+      class?: string | string[]
+    }
   }
 }
 export interface BasePaginationEmits extends PaginationRootEmits {}
@@ -134,21 +109,20 @@ const props = withDefaults(defineProps<BasePaginationProps>(), {
   ellipsis: '…',
   showEdges: true,
   wrapped: undefined,
-  classes: () => ({}),
   bindings: () => ({}),
 })
 const emits = defineEmits<BasePaginationEmits>()
 const slots = defineSlots<BasePaginationSlots>()
 
-const variant = useNuiDefaultProperty(props, 'BasePagination', 'variant')
-const size = useNuiDefaultProperty(props, 'BasePagination', 'size')
-const rounded = useNuiDefaultProperty(props, 'BasePagination', 'rounded')
-const wrapped = useNuiDefaultProperty(props, 'BasePagination', 'wrapped')
+const variant = useNuiConfig('BasePagination', 'variant', () => props.variant)
+const size = useNuiConfig('BasePagination', 'size', () => props.size)
+const rounded = useNuiConfig('BasePagination', 'rounded', () => props.rounded)
+const wrapped = useNuiConfig('BasePagination', 'wrapped', () => props.wrapped)
 
-const iconPrevious = useNuiDefaultIcon('chevronLeft')
-const iconNext = useNuiDefaultIcon('chevronRight')
+const iconPrevious = useNuiConfig('icon', 'chevronLeft')
+const iconNext = useNuiConfig('icon', 'chevronRight')
 
-const forward = useForwardPropsEmits(reactiveOmit(props, ['ellipsis', 'variant', 'size', 'rounded', 'wrapped', 'classes', 'bindings']), emits)
+const forward = useForwardPropsEmits(reactiveOmit(props, ['ellipsis', 'variant', 'size', 'rounded', 'wrapped', 'bindings']), emits)
 </script>
 
 <template>
@@ -161,7 +135,6 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['ellipsis', 'variant',
       class="inline-flex w-full flex-col md:flex-row md:justify-between"
       :class="[
         rounded && radiuses[rounded],
-        props.classes?.wrapper,
       ]"
     >
       <div
@@ -173,7 +146,6 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['ellipsis', 'variant',
           // variant === 'dark-low' && wrapped && 'p-1 bg-muted-100 dark:bg-muted-700 border border-muted-200 dark:border-muted-600',
           variant === 'dark' && wrapped && 'p-1 bg-muted-100 dark:bg-muted-950 border border-muted-200 dark:border-muted-800',
           rounded && radiuses[rounded], 
-          props.classes?.list
         ]"
       >
         <slot name="before-pagination" />
@@ -193,7 +165,6 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['ellipsis', 'variant',
               variant === 'dark' && 'bg-white hover:enabled:bg-muted-50 dark:bg-muted-900 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-700 data-selected:!bg-muted-900 data-selected:!text-white dark:data-selected:!bg-white dark:data-selected:!text-muted-900',
               rounded && radiuses[rounded],
               size && heights[size],
-              props.classes?.link,
             ]"
           >
             <slot name="page" :page="page.value">
@@ -234,7 +205,6 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['ellipsis', 'variant',
           // variant === 'dark-low' && wrapped && 'p-1 border bg-muted-100 dark:bg-muted-700 border-muted-200 dark:border-muted-600',
           variant === 'dark' && wrapped && 'p-1 border bg-muted-100 dark:bg-muted-950 border-muted-200 dark:border-muted-800',
           rounded && radiuses[rounded], 
-          props.classes?.buttons
         ]"
       >
         <slot name="before-navigation" />

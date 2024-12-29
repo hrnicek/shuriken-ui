@@ -1,40 +1,75 @@
-<script setup lang="ts">
-const props = withDefaults(
-  defineProps<{
-    /**
-     * Label to display when file is being dropped.
-     */
-    label?: string
+<script lang="ts">
+export interface BaseFullscreenDropfileProps {
+  /**
+   * Label to display when file is being dropped.
+   */
+  label?: string
 
-    /**
-     * Icon to display when file is being dropped.
-     */
-    icon?: string
+  /**
+   * Icon to display when file is being dropped.
+   */
+  icon?: string
 
-    /**
-     * Allows to filter files when dropped.
-     */
-    filterFileDropped?: (file: File) => boolean
+  /**
+   * Allows to filter files when dropped.
+   */
+  filterFileDropped?: (file: File) => boolean
 
-    /**
-     * Defines the color of the icon
-     *
-     * @default 'default'
-     */
-    variant?: 'default' | 'primary' | 'dark'
-  }>(),
-  {
-    label: 'Drop your files',
-    icon: '',
-    variant: undefined,
-    filterFileDropped: () => true,
-  },
-)
-const emits = defineEmits<{
+  /**
+   * Defines the color of the icon
+   *
+   * @default 'default'
+   */
+  variant?: 'default' | 'primary' | 'dark'
+}
+
+export interface BaseFullscreenDropfileEmits {
   drop: [value: FileList]
-}>()
+}
 
-const variant = useNuiDefaultProperty(props, 'BaseFullscreenDropfile', 'variant')
+export const dropVariants = {
+  default: 'bg-muted-100 dark:bg-muted-950 border-2 border-dashed border-muted-200 dark:border-muted-800',
+  primary: 'bg-muted-100 dark:bg-muted-950 border-2 border-dashed border-muted-200 dark:border-muted-800',
+  dark: 'bg-muted-100 dark:bg-muted-950 border-2 border-dashed border-muted-200 dark:border-muted-800',
+} as const
+
+// @todo: low-contrast-theme
+// const dropVariants = {
+//   default: 'bg-muted-100 dark:bg-muted-800 border-2 border-dashed border-muted-200 dark:border-muted-700',
+//   primary: 'bg-muted-100 dark:bg-muted-800 border-2 border-dashed border-muted-200 dark:border-muted-700',
+//   dark: 'bg-muted-100 dark:bg-muted-800 border-2 border-dashed border-muted-200 dark:border-muted-700',
+// }
+
+export const overlayVariants = {
+  default: 'bg-muted-50 dark:bg-muted-900/20',
+  primary: 'bg-muted-50 dark:bg-muted-900/20',
+  dark: 'bg-muted-50 dark:bg-muted-900/20',
+} as const
+
+// @todo: low-contrast-theme
+// const overlayVariants = {
+//   default: 'text-muted-500 dark:text-muted-400',
+//   primary: 'text-[var(--primary-base)] dark:text-[var(--primary-light)]',
+//   dark: 'text-muted-900 dark:text-muted-100',
+// }
+
+export const iconVariants = {
+  default: 'text-muted-500 dark:text-muted-400',
+  primary: 'text-[var(--primary-base)] dark:text-[var(--primary-light)]',
+  dark: 'text-muted-900 dark:text-muted-100',
+} as const
+</script>
+
+<script setup lang="ts">
+const props = withDefaults(defineProps<BaseFullscreenDropfileProps>(), {
+  label: 'Drop your files',
+  icon: '',
+  variant: undefined,
+  filterFileDropped: () => true,
+})
+const emits = defineEmits<BaseFullscreenDropfileEmits>()
+
+const variant = useNuiConfig('BaseFullscreenDropfile', 'variant', () => props.variant)
 
 const isDropping = ref(false)
 
@@ -93,38 +128,6 @@ onBeforeUnmount(() => {
   document.documentElement.removeEventListener('dragover', onDragover)
   document.documentElement.removeEventListener('drop', onDrop)
 })
-
-const dropVariants = {
-  default: 'bg-muted-100 dark:bg-muted-950 border-2 border-dashed border-muted-200 dark:border-muted-800',
-  primary: 'bg-muted-100 dark:bg-muted-950 border-2 border-dashed border-muted-200 dark:border-muted-800',
-  dark: 'bg-muted-100 dark:bg-muted-950 border-2 border-dashed border-muted-200 dark:border-muted-800',
-}
-
-// @todo: low-contrast-theme
-// const dropVariants = {
-//   default: 'bg-muted-100 dark:bg-muted-800 border-2 border-dashed border-muted-200 dark:border-muted-700',
-//   primary: 'bg-muted-100 dark:bg-muted-800 border-2 border-dashed border-muted-200 dark:border-muted-700',
-//   dark: 'bg-muted-100 dark:bg-muted-800 border-2 border-dashed border-muted-200 dark:border-muted-700',
-// }
-
-const overlayVariants = {
-  default: 'bg-muted-50 dark:bg-muted-900/20',
-  primary: 'bg-muted-50 dark:bg-muted-900/20',
-  dark: 'bg-muted-50 dark:bg-muted-900/20',
-}
-
-// @todo: low-contrast-theme
-// const overlayVariants = {
-//   default: 'text-muted-500 dark:text-muted-400',
-//   primary: 'text-[var(--primary-base)] dark:text-[var(--primary-light)]',
-//   dark: 'text-muted-900 dark:text-muted-100',
-// }
-
-const iconVariants = {
-  default: 'text-muted-500 dark:text-muted-400',
-  primary: 'text-[var(--primary-base)] dark:text-[var(--primary-light)]',
-  dark: 'text-muted-900 dark:text-muted-100',
-}
 </script>
 
 <template>

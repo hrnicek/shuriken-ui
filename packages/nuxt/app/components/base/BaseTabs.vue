@@ -46,31 +46,6 @@ export interface BaseTabsProps extends TabsRootProps {
    * @default 'tabs'
    */
   type?: 'tabs' | 'box'
-
-  /**
-   * Optional CSS classes to apply to the component inner elements.
-   */
-  classes?: {
-    /**
-     * CSS classes to apply to the wrapper element.
-     */
-    wrapper?: string | string[]
-
-    /**
-     * CSS classes to apply to the inner element.
-     */
-    inner?: string | string[]
-
-    /**
-     * CSS classes to apply to the item element.
-     */
-    item?: string | string[]
-
-    /**
-     * CSS classes to apply to the content element.
-     */
-    content?: string | string[]
-  }
 }
 export interface BaseTabsEmits extends TabsRootEmits {}
 export type BaseTabsSlots = {
@@ -123,16 +98,14 @@ const props = withDefaults(defineProps<BaseTabsProps>(), {
   modelValue: undefined,
   orientation: undefined,
   defaultValue: undefined,
-
-  classes: () => ({}),
 })
 const emits = defineEmits<BaseTabsEmits>()
 const slots = defineSlots<BaseTabsSlots>()
 
-const variant = useNuiDefaultProperty(props, 'BaseTabs', 'variant')
-const justify = useNuiDefaultProperty(props, 'BaseTabs', 'justify')
-const rounded = useNuiDefaultProperty(props, 'BaseTabs', 'rounded')
-const type = useNuiDefaultProperty(props, 'BaseTabs', 'type')
+const variant = useNuiConfig('BaseTabs', 'variant', () => props.variant)
+const justify = useNuiConfig('BaseTabs', 'justify', () => props.justify)
+const rounded = useNuiConfig('BaseTabs', 'rounded', () => props.rounded)
+const type = useNuiConfig('BaseTabs', 'type', () => props.type)
 
 provideBaseTabsContext({
   variant,
@@ -141,7 +114,7 @@ provideBaseTabsContext({
   type,
 })
 
-const forward = useForwardPropsEmits(reactiveOmit(props, ['tabs', 'variant', 'justify', 'rounded', 'type', 'classes']))
+const forward = useForwardPropsEmits(reactiveOmit(props, ['tabs', 'variant', 'justify', 'rounded', 'type']))
 </script>
 
 <template>
@@ -150,7 +123,6 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['tabs', 'variant', 'ju
     class="relative"
     :class="[
       props.orientation === 'vertical' ? 'flex flex-row' : '',
-      props.classes?.wrapper,
     ]"
   >
     <TabsList
@@ -160,7 +132,6 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['tabs', 'variant', 'ju
         justify && justifies[justify],
         props.orientation === 'vertical' && 'flex flex-col items-start me-16 min-w-32',
         props.orientation !== 'vertical' && type === 'tabs' && 'border-b border-muted-200 dark:border-muted-800',
-        props.classes?.inner,
       ]"
     >
       <slot name="trigger">
@@ -214,7 +185,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['tabs', 'variant', 'ju
 
     </TabsList>
 
-    <div class="relative block" :class="props.classes?.content">
+    <div class="relative block">
       <slot>
         <BaseTabsContent 
           v-for="(tab, key) in tabs" 

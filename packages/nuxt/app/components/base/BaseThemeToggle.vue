@@ -21,7 +21,7 @@ export interface BaseThemeToggleProps {
 
 export const variants = {
   'default': 'bg-white dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
-}
+} as const
 
 // @todo: low-contrast-theme
 // export const variants = {
@@ -39,15 +39,10 @@ const props = withDefaults(defineProps<BaseThemeToggleProps>(), {
 })
 
 const id = useNinjaId(() => props.id)
-const disableTransitions = useNuiDefaultProperty(
-  props,
-  'BaseThemeToggle',
-  'disableTransitions',
-)
-
-const variant = useNuiDefaultProperty(props, 'BaseThemeToggle', 'variant')
-const iconSun = useNuiDefaultIcon('sun')
-const iconMoon = useNuiDefaultIcon('moon')
+const disableTransitions = useNuiConfig('BaseThemeToggle', 'disableTransitions', () => props.disableTransitions)
+const variant = useNuiConfig('BaseThemeToggle', 'variant', () => props.variant)
+const iconSun = useNuiConfig('icon', 'sun')
+const iconMoon = useNuiConfig('icon', 'moon')
 
 const colorMode = useColorMode()
 const isMounted = useMounted()

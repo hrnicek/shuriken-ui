@@ -16,31 +16,6 @@ export interface BaseCheckboxProps extends RadioGroupItemProps {
    * @default 'default'
    */
   variant?: 'default' | 'primary' | 'dark' | 'none'
-
-  /**
-   * Classes to apply to the various parts of the radio input.
-   */
-  classes?: {
-    /**
-     * Classes to apply to the wrapper element of the radio input.
-     */
-    wrapper?: string | string[]
-
-    /**
-     * Classes to apply to the label element of the radio input.
-     */
-    label?: string | string[]
-
-    /**
-     * Classes to apply to the dot element inside the radio input.
-     */
-    dot?: string | string[]
-
-    /**
-     * Classes to apply to the background element inside the radio input.
-     */
-    box?: string | string[]
-  }
 }
 export interface BaseCheckboxEmits /*extends RadioGroupItemEmits*/ {
   select: [event: any]
@@ -81,8 +56,6 @@ const dotVariants = {
 // } as const
 </script>
 
-
-
 <script setup lang="ts">
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
@@ -97,27 +70,28 @@ const props = withDefaults(defineProps<BaseCheckboxProps>(), {
   id: undefined,
   label: undefined,
   variant: undefined,
-  classes: () => ({}),
 })
 const emits = defineEmits<BaseCheckboxEmits>()
 const slots = defineSlots<BaseCheckboxSlots>()
 
 const attrs = useAttrs()
 const id = useNinjaId(() => props.id)
-const variant = useNuiDefaultProperty(props, 'BaseRadio', 'variant')
-const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'variant',  'classes']), emits)
+const variant = useNuiConfig('BaseRadio', 'variant', () => props.variant)
+const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'variant']), emits)
 </script>
 
 <template>
   <div
     class="relative inline-flex items-start gap-1"
-    :class="props.classes?.wrapper"
   >
-    <RadioGroupItem :id v-bind="{ ...forward, ...attrs }" class="group/radio nui-focus relative flex items-center justify-center shrink-0 cursor-pointer overflow-hidden rounded-full size-5 disabled:pointer-events-none disabled:opacity-50">
-      <div :class="[props.classes?.box, variant && boxVariants[variant]]" class="absolute start-0 top-0 z-0 rounded-full h-full w-full" />
+    <RadioGroupItem
+      :id
+      v-bind="{ ...forward, ...attrs }"
+      class="group/radio nui-focus relative flex items-center justify-center shrink-0 cursor-pointer overflow-hidden rounded-full size-5 disabled:pointer-events-none disabled:opacity-50"
+    >
+      <div :class="[variant && boxVariants[variant]]" class="absolute start-0 top-0 z-0 rounded-full h-full w-full" />
       <div 
         :class="[
-          props.classes?.dot, 
           variant && dotVariants[variant]
         ]" 
         class="pointer-events-none z-10 block group-data-[state=unchecked]/radio:scale-0 roup-data-[state=checked]/radio:scale-100 rounded-full size-1 bg-current dark:bg-current transition-all duration-300" 
@@ -127,7 +101,6 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'varian
       <Label
         v-if="props.label || 'default' in $slots"
         :for="id"
-        :class="props.classes?.label"
         class=" ms-1 cursor-pointer select-none font-sans text-sm text-muted-600 dark:text-muted-400"
       >
         <slot>{{ props.label }}</slot>

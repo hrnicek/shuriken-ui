@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useNinjaFilePreview } from '../../composables/file-preview'
-
 defineOptions({
   inheritAttrs: false,
 })

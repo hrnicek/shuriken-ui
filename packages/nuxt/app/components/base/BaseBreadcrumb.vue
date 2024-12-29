@@ -37,40 +37,14 @@ const props = withDefaults(
      * @default 'primary'
      */
     variant?: 'primary' | 'dark'
-
-    /**
-     * Optional CSS classes to apply to the component inner elements.
-     */
-    classes?: {
-      /**
-       * CSS classes to apply to the wrapper element.
-       */
-      wrapper?: string | string[]
-
-      /**
-       * CSS classes to apply to the list element.
-       */
-      list?: string | string[]
-
-      /**
-       * CSS classes to apply to the dropdown element.
-       */
-      dropdown?: string | string[]
-
-      /**
-       * CSS classes to apply to the item element.
-       */
-      item?: string | string[]
-    }
   }>(),
   {
     items: undefined,
     color: undefined,
-    classes: () => ({}),
   },
 )
 
-const variant = useNuiDefaultProperty(props, 'BaseBreadcrumb', 'variant')
+const variant = useNuiConfig('BaseBreadcrumb', 'variant', () => props.variant)
 
 const route = useRoute()
 const router = useRouter()
@@ -126,13 +100,11 @@ const items = computed(() => {
 <template>
   <nav
     class="block"
-    :class="[props.classes?.wrapper]"
   >
-    <ul class="mb-6 flex items-center font-sans text-[0.85rem]" :class="props.classes?.list">
+    <ul class="mb-6 flex items-center font-sans text-[0.85rem]">
       <li class="me-3 sm:hidden">
         <BaseDropdown
           size="md"
-          :class="props.classes?.dropdown"
         >
           <template #button>
             <BaseButton
@@ -158,7 +130,6 @@ const items = computed(() => {
           class="not-last:hidden not-last:sm:flex last:flex last:text-muted-500 dark:last:text-muted-400"
           :class="[
             index !== items.length - 1 ? 'hidden sm:flex' : 'flex',
-            props.classes?.item,
           ]"
         >
           <slot name="link" v-bind="{ item, index }">

@@ -21,65 +21,13 @@ export interface BaseSwitchThinProps extends SwitchRootProps {
    * @default 'default'
    */
    variant?: 'default' | 'primary' | 'dark' | 'none'
-
-  /**
-   * Optional CSS classes to apply to the component inner elements.
-   */
-  classes?: {
-    /**
-     * CSS classes to apply to the wrapper element.
-     */
-    wrapper?: string | string[]
-
-    /**
-     * CSS classes to apply to the outer element.
-     */
-    outer?: string | string[]
-
-    /**
-     * CSS classes to apply to the handle element.
-     */
-    handle?: string | string[]
-
-    /**
-     * CSS classes to apply to the track element.
-     */
-    track?: string | string[]
-  }
 }
 export interface BaseSwitchThinEmits extends SwitchRootEmits {}
 export type BaseSwitchThinSlots = {
   default(): any
   sublabel(): any
 }
-</script>
 
-
-<script setup lang="ts">
-import { reactiveOmit } from '@vueuse/core'
-import { useForwardPropsEmits } from 'reka-ui'
-
-defineOptions({
-  inheritAttrs: false,
-})
-
-const props = withDefaults(defineProps<BaseSwitchThinProps>(), {
-  id: undefined,
-  label: undefined,
-  sublabel: undefined,
-  variant: undefined,
-  defaultValue: undefined,
-  modelValue: undefined,
-  name: undefined,
-  value: undefined,
-  classes: () => ({}),
-})
-const emits = defineEmits<BaseSwitchThinEmits>()
-const slots = defineSlots<BaseSwitchThinSlots>()
-
-const id = useNinjaId(() => props.id)
-const variant = useNuiDefaultProperty(props, 'BaseSwitchThin', 'variant')
-const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'sublabel', 'variant', 'classes']), emits)
 
 const trackVariants = {
   'default': 'peer-data-[state=checked]:bg-muted-500 dark:peer-data-[state=checked]:bg-muted-800 bg-muted-300 dark:bg-muted-900',
@@ -112,21 +60,45 @@ const handleVariants = {
 // } as const
 </script>
 
+<script setup lang="ts">
+import { reactiveOmit } from '@vueuse/core'
+import { useForwardPropsEmits } from 'reka-ui'
+
+defineOptions({
+  inheritAttrs: false,
+})
+
+const props = withDefaults(defineProps<BaseSwitchThinProps>(), {
+  id: undefined,
+  label: undefined,
+  sublabel: undefined,
+  variant: undefined,
+  defaultValue: undefined,
+  modelValue: undefined,
+  name: undefined,
+  value: undefined,
+})
+const emits = defineEmits<BaseSwitchThinEmits>()
+const slots = defineSlots<BaseSwitchThinSlots>()
+
+const id = useNinjaId(() => props.id)
+const variant = useNuiConfig('BaseSwitchThin', 'variant', () => props.variant)
+const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'sublabel', 'variant']), emits)
+
+</script>
+
 <template>
   <span
     class="flex cursor-pointer items-center"
-    :class="[props.classes?.wrapper]"
   >
-    <SwitchRoot :id v-bind="forward" ref="inputRef" class="nui-focus relative block h-4 rounded-full cursor-pointer" :class="props.classes?.outer">
+    <SwitchRoot :id v-bind="forward" ref="inputRef" class="nui-focus relative block h-4 rounded-full cursor-pointer">
       <SwitchThumb
         class="peer data-[state=checked]:-translate-y-1/2 data-[state=checked]:translate-x-full data-[state=checked]:rtl:-translate-x-full absolute -start-1 top-1/2 -translate-y-1/2 flex items-center justify-center rounded-full size-6 transition-all duration-300"
         :class="[
-          props.classes?.handle,
           handleVariants[variant],
         ]"
       />
       <span class="block h-4 w-10 rounded-full transition-all duration-300" :class="[
-        props.classes?.track,
         trackVariants[variant],
       ]" />
     </SwitchRoot>

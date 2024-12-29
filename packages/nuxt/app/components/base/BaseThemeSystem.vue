@@ -47,16 +47,11 @@ const props = withDefaults(defineProps<BaseThemeSystemProps>(), {
   variant: undefined,
 })
 
-const disableTransitions = useNuiDefaultProperty(
-  props,
-  'BaseThemeSystem',
-  'disableTransitions',
-)
-
-const variant = useNuiDefaultProperty(props, 'BaseThemeSystem', 'variant')
-const iconSun = useNuiDefaultIcon('sun')
-const iconMoon = useNuiDefaultIcon('moon')
-const iconScreen = useNuiDefaultIcon('screen')
+const disableTransitions = useNuiConfig('BaseThemeSystem', 'disableTransitions', () => props.disableTransitions)
+const variant = useNuiConfig('BaseThemeSystem', 'variant', () => props.variant)
+const iconSun = useNuiConfig('icon', 'sun')
+const iconMoon = useNuiConfig('icon', 'moon')
+const iconScreen = useNuiConfig('icon', 'screen')
 
 const isMounted = useMounted()
 const colorMode = useColorMode()

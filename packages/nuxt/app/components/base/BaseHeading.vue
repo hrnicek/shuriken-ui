@@ -21,10 +21,10 @@ const props = withDefaults(defineProps<BaseHeadingProps>(), {
 })
 const slots = defineSlots<BaseHeadingSlots>()
 
-const size = useNuiDefaultProperty(props, 'BaseHeading', 'size')
-const lead = useNuiDefaultProperty(props, 'BaseHeading', 'lead')
-const weight = useNuiDefaultProperty(props, 'BaseHeading', 'weight')
-const tracking = useNuiDefaultProperty(props, 'BaseHeading', 'tracking')
+const size = useNuiConfig('BaseHeading', 'size', () => props.size)
+const lead = useNuiConfig('BaseHeading', 'lead', () => props.lead)
+const weight = useNuiConfig('BaseHeading', 'weight', () => props.weight)
+const tracking = useNuiConfig('BaseHeading', 'tracking', () => props.tracking)
 const forward = useForwardProps(reactiveOmit(props, ['size', 'lead', 'weight', 'tracking']))
 </script>
 

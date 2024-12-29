@@ -1,103 +1,126 @@
+<script lang="ts">
+export interface BaseInputFileProps {
+  /**
+   * The form input identifier.
+   */
+  id?: BigIntToLocaleStringOptions
+
+  /**
+   * The placeholder to display for the file input.
+   */
+  placeholder?: string
+
+  /**
+   * Method to return the text value of the file input.
+   */
+  textValue?: (fileList?: FileList | null) => string
+
+  /**
+   * The variant of the input.
+   *
+   * @default 'default'
+   */
+  variant?: 'default' | 'muted' | 'primary'
+
+  /**
+   * The radius of the file input.
+   *
+   * @since 2.0.0
+   * @default 'sm'
+   */
+  rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
+
+  /**
+   * The size of the input.
+   *
+   * @default 'md'
+   */
+  size?: 'sm' | 'md' | 'lg' | 'xl'
+
+  /**
+   * Translation strings.
+   *
+   * @default { empty: 'No file chosen', invalid: 'Invalid file selected', multiple: '{count} files selected'}
+   */
+  i18n?: {
+    empty: string
+    invalid: string
+    multiple: string
+  }
+}
+
+export const variants = {
+  default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 aria-invalid:!border-[var(--destructive-base)]',
+  muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 aria-invalid:!border-[var(--destructive-base)]',
+  primary: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 aria-invalid:!border-[var(--destructive-base)]',
+} as const
+
+// @todo: low-contrast-theme
+// const variants = {
+//   default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 aria-invalid:!border-[var(--destructive-base)]',
+//   muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 aria-invalid:!border-[var(--destructive-base)]',
+//   primary: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 aria-invalid:!border-[var(--destructive-base)]',
+// } as const
+
+export const sizes = {
+  sm: 'h-8 text-xs pe-2',
+  md: 'h-10 text-sm pe-3',
+  lg: 'h-12 text-sm pe-4',
+  xl: 'h-14 text-base pe-4',
+} as const
+
+export const radiuses = {
+  none: '',
+  sm: 'rounded-sm',
+  md: 'rounded-md',
+  lg: 'rounded-lg',
+  full: 'rounded-full',
+} as const
+
+export const textVariants = {
+  default: 'bg-muted-100 dark:bg-muted-800 text-muted-700 dark:text-muted-400 group-hover/file:bg-muted-200 dark:group-hover/file:bg-muted-700 group-hover/file:text-muted-800 dark:group-hover/file:text-muted-200',
+  muted: 'bg-muted-100 dark:bg-muted-800 text-muted-700 dark:text-muted-400 group-hover/file:bg-muted-200 dark:group-hover/file:bg-muted-700 group-hover/file:text-muted-800 dark:group-hover/file:text-muted-200',
+  primary: 'bg-primary-500/10 dark:bg-primary-500/20 text-[var(--primary-base)] dark:text-[var(--primary-light)] group-hover/file:bg-primary-500/20 dark:group-hover/file:bg-primary-500/30 group-hover/file:text-[var(--primary-heavy)] dark:group-hover/file:text-[var(--primary-light)]',
+} as const
+
+// @todo: low-contrast-theme
+// const textVariants = {
+//   default: 'bg-muted-100 dark:bg-muted-800 text-muted-700 dark:text-muted-400 group-hover/file:bg-muted-200 dark:group-hover/file:bg-muted-700 group-hover/file:text-muted-800 dark:group-hover/file:text-muted-200',
+//   muted: 'bg-muted-100 dark:bg-muted-800 text-muted-700 dark:text-muted-400 group-hover/file:bg-muted-200 dark:group-hover/file:bg-muted-700 group-hover/file:text-muted-800 dark:group-hover/file:text-muted-200',
+//   primary: 'bg-primary-500/10 dark:bg-primary-500/20 text-[var(--primary-base)] dark:text-[var(--primary-light)] group-hover/file:bg-primary-500/20 dark:group-hover/file:bg-primary-500/10 group-hover/file:text-[var(--primary-heavy)] dark:group-hover/file:text-[var(--primary-light)]',
+// } as const
+
+export const textSpacings = {
+  sm: 'px-2',
+  md: 'px-2',
+  lg: 'px-4',
+  xl: 'px-5',
+} as const
+</script>
+
 <script setup lang="ts">
 defineOptions({
   inheritAttrs: false,
 })
 
-const props = withDefaults(
-  defineProps<{
-    /**
-     * The form input identifier.
-     */
-    id?: BigIntToLocaleStringOptions
-
-    /**
-     * The placeholder to display for the file input.
-     */
-    placeholder?: string
-
-    /**
-     * Method to return the text value of the file input.
-     */
-    textValue?: (fileList?: FileList | null) => string
-
-    /**
-     * The variant of the input.
-     *
-     * @default 'default'
-     */
-    variant?: 'default' | 'muted' | 'primary'
-
-    /**
-     * The radius of the file input.
-     *
-     * @since 2.0.0
-     * @default 'sm'
-     */
-    rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
-
-    /**
-     * The size of the input.
-     *
-     * @default 'md'
-     */
-    size?: 'sm' | 'md' | 'lg' | 'xl'
-
-    /**
-     * Translation strings.
-     *
-     * @default { empty: 'No file chosen', invalid: 'Invalid file selected', multiple: '{count} files selected'}
-     */
-    i18n?: {
-      empty: string
-      invalid: string
-      multiple: string
-    }
-
-    /**
-     * Optional CSS classes to apply to the wrapper, label, input, text, error, and icon elements.
-     */
-    classes?: {
-      /**
-       * CSS classes to apply to the wrapper element.
-       */
-      wrapper?: string | string[]
-
-      /**
-       * CSS classes to apply to the input element.
-       */
-      input?: string | string[]
-
-      /**
-       * CSS classes to apply to the text element.
-       */
-      text?: string | string[]
-
-      /**
-       * CSS classes to apply to the icon element.
-       */
-      icon?: string | string[]
-    }
-  }>(),
-  {
-    id: undefined,
-    rounded: undefined,
-    size: undefined,
-    i18n: undefined,
-    variant: undefined,
-    icon: undefined,
-    placeholder: undefined,
-    textValue: undefined,
-    classes: () => ({}),
-  },
-)
+const props = withDefaults(defineProps<BaseInputFileProps>(), {
+  id: undefined,
+  rounded: undefined,
+  size: undefined,
+  i18n: undefined,
+  variant: undefined,
+  icon: undefined,
+  placeholder: undefined,
+  textValue: undefined,
+})
 
 const [modelValue] = defineModel<FileList | null>()
 
 const attrs = useAttrs()
-const variant = useNuiDefaultProperty(props, 'BaseInputFile', 'variant')
-const rounded = useNuiDefaultProperty(props, 'BaseInputFile', 'rounded')
-const size = useNuiDefaultProperty(props, 'BaseInputFile', 'size')
-const i18n = useNuiDefaultProperty(props, 'BaseInputFile', 'i18n')
+const variant = useNuiConfig('BaseInputFile', 'variant', () => props.variant)
+const rounded = useNuiConfig('BaseInputFile', 'rounded', () => props.rounded)
+const size = useNuiConfig('BaseInputFile', 'size', () => props.size)
+const i18n = useNuiConfig('BaseInputFile', 'i18n', () => props.i18n)
 
 const inputRef = ref<HTMLInputElement>()
 const id = useNinjaId(() => props.id as string)
@@ -115,53 +138,6 @@ function defaultTextValue(fileList?: FileList | null) {
     )
 }
 
-const variants = {
-  default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 aria-invalid:!border-[var(--destructive-base)]',
-  muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 aria-invalid:!border-[var(--destructive-base)]',
-  primary: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 aria-invalid:!border-[var(--destructive-base)]',
-} as const
-
-// @todo: low-contrast-theme
-// const variants = {
-//   default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 aria-invalid:!border-[var(--destructive-base)]',
-//   muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 aria-invalid:!border-[var(--destructive-base)]',
-//   primary: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 aria-invalid:!border-[var(--destructive-base)]',
-// } as const
-
-const sizes = {
-  sm: 'h-8 text-xs pe-2',
-  md: 'h-10 text-sm pe-3',
-  lg: 'h-12 text-sm pe-4',
-  xl: 'h-14 text-base pe-4',
-} as const
-
-const radiuses = {
-  none: '',
-  sm: 'rounded-sm',
-  md: 'rounded-md',
-  lg: 'rounded-lg',
-  full: 'rounded-full',
-} as const
-
-const textVariants = {
-  default: 'bg-muted-100 dark:bg-muted-800 text-muted-700 dark:text-muted-400 group-hover/file:bg-muted-200 dark:group-hover/file:bg-muted-700 group-hover/file:text-muted-800 dark:group-hover/file:text-muted-200',
-  muted: 'bg-muted-100 dark:bg-muted-800 text-muted-700 dark:text-muted-400 group-hover/file:bg-muted-200 dark:group-hover/file:bg-muted-700 group-hover/file:text-muted-800 dark:group-hover/file:text-muted-200',
-  primary: 'bg-primary-500/10 dark:bg-primary-500/20 text-[var(--primary-base)] dark:text-[var(--primary-light)] group-hover/file:bg-primary-500/20 dark:group-hover/file:bg-primary-500/30 group-hover/file:text-[var(--primary-heavy)] dark:group-hover/file:text-[var(--primary-light)]',
-} as const
-
-// @todo: low-contrast-theme
-// const textVariants = {
-//   default: 'bg-muted-100 dark:bg-muted-800 text-muted-700 dark:text-muted-400 group-hover/file:bg-muted-200 dark:group-hover/file:bg-muted-700 group-hover/file:text-muted-800 dark:group-hover/file:text-muted-200',
-//   muted: 'bg-muted-100 dark:bg-muted-800 text-muted-700 dark:text-muted-400 group-hover/file:bg-muted-200 dark:group-hover/file:bg-muted-700 group-hover/file:text-muted-800 dark:group-hover/file:text-muted-200',
-//   primary: 'bg-primary-500/10 dark:bg-primary-500/20 text-[var(--primary-base)] dark:text-[var(--primary-light)] group-hover/file:bg-primary-500/20 dark:group-hover/file:bg-primary-500/10 group-hover/file:text-[var(--primary-heavy)] dark:group-hover/file:text-[var(--primary-light)]',
-// } as const
-
-const textSpacings = {
-  sm: 'px-2',
-  md: 'px-2',
-  lg: 'px-4',
-  xl: 'px-5',
-} as const
 
 const textValue = computed(() => {
   if (props.textValue) {
@@ -185,17 +161,12 @@ defineExpose({
 </script>
 
 <template>
-  <div class="relative" 
-    :class="[
-      props.classes?.wrapper,
-    ]"
-  >
+  <div class="relative">
     <label
       tabindex="0"
       class="group/file relative nui-focus w-full flex cursor-pointer items-center overflow-hidden disabled:cursor-not-allowed disabled:opacity-50 font-sans transition-colors duration-300"
       :for="id"
       :class="[
-        props.classes?.input,
         variant && variants[variant],
         size && sizes[size],
         rounded && radiuses[rounded],
@@ -203,7 +174,6 @@ defineExpose({
     >
       <div class="inline-flex items-center text-muted-600 dark:text-muted-400 px-1 py-1.5"
         :class="[
-          props.classes?.text,
           size && sizes[size],
         ]"
       >

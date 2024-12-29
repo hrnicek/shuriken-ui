@@ -21,10 +21,10 @@ const props = withDefaults(defineProps<BaseParagraphProps>(), {
 })
 const slots = defineSlots<BaseParagraphSlots>()
 
-const size = useNuiDefaultProperty(props, 'BaseParagraph', 'size')
-const lead = useNuiDefaultProperty(props, 'BaseParagraph', 'lead')
-const weight = useNuiDefaultProperty(props, 'BaseParagraph', 'weight')
-const tracking = useNuiDefaultProperty(props, 'BaseParagraph', 'tracking')
+const size = useNuiConfig('BaseParagraph', 'size', () => props.size)
+const lead = useNuiConfig('BaseParagraph', 'lead', () => props.lead)
+const weight = useNuiConfig('BaseParagraph', 'weight', () => props.weight)
+const tracking = useNuiConfig('BaseParagraph', 'tracking', () => props.tracking)
 const forward = useForwardProps(reactiveOmit(props, ['size', 'lead', 'weight', 'tracking']))
 </script>
 

@@ -16,7 +16,7 @@ const props = withDefaults(defineProps<BaseFieldSuccessIndicator>(), {
 })
 const forward = useForwardProps(reactiveOmit(props, []))
 
-const iconCheck = useNuiDefaultIcon('check')
+const iconCheck = useNuiConfig('icon', 'check')
 
 const { state } = injectBaseFieldContext()
 </script>

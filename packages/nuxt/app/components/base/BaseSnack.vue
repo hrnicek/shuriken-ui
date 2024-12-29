@@ -1,82 +1,39 @@
-<script setup lang="ts">
-const props = withDefaults(
-  defineProps<{
-    /**
-     * The text to display in the snackbar.
-     */
-    label?: string
+<script lang="ts">
+import type { PrimitiveProps } from 'reka-ui'
 
-    /**
-     * An optional icon to display in the snackbar.
-     */
-    icon?: string
+export interface BaseSnackProps extends PrimitiveProps {
+  /**
+   * The text to display in the snackbar.
+   */
+  label?: string
 
-    /**
-     * An optional image to display in the snackbar.
-     */
-    image?: string
+  /**
+   * An optional icon to display in the snackbar.
+   */
+  icon?: string
 
-    /**
-     * The variant of snack.
-     *
-     * @default 'default'
-     */
-    variant?: 'default' | 'muted'
+  /**
+   * An optional image to display in the snackbar.
+   */
+  image?: string
 
-    /**
-     * The size of the snack.
-     *
-     * @default 'md'
-     */
-    size?: 'xs' | 'sm' | 'md'
+  /**
+   * The variant of snack.
+   *
+   * @default 'default'
+   */
+  variant?: 'default' | 'muted'
 
-    /**
-     * Optional CSS classes to apply to the component inner elements.
-     */
-    classes?: {
-      /**
-       * CSS classes to apply to the wrapper element.
-       */
-      wrapper?: string | string[]
-
-      /**
-       * CSS classes to apply to the icon element.
-       */
-      icon?: string | string[]
-
-      /**
-       * CSS classes to apply to the img element.
-       */
-      img?: string | string[]
-
-      /**
-       * CSS classes to apply to the text element.
-       */
-      text?: string | string[]
-
-      /**
-       * CSS classes to apply to the button element.
-       */
-      button?: string | string[]
-    }
-  }>(),
-  {
-    size: undefined,
-    variant: undefined,
-    label: '',
-    icon: undefined,
-    image: undefined,
-    classes: () => ({}),
-  },
-)
-
-const emit = defineEmits<{
+  /**
+   * The size of the snack.
+   *
+   * @default 'md'
+   */
+  size?: 'xs' | 'sm' | 'md'
+}
+export interface BaseSnackEmits {
   delete: []
-}>()
-
-const variant = useNuiDefaultProperty(props, 'BaseSnack', 'variant')
-const size = useNuiDefaultProperty(props, 'BaseSnack', 'size')
-const iconClose = useNuiDefaultIcon('close')
+}
 
 const sizes = {
   xs: 'h-6',
@@ -120,21 +77,40 @@ const variants = {
 // } as const
 </script>
 
+<script setup lang="ts">
+import { useForwardProps } from 'reka-ui'
+import { reactiveOmit } from '@vueuse/core'
+
+const props = withDefaults(defineProps<BaseSnackProps>(), {
+  size: undefined,
+  variant: undefined,
+  label: '',
+  icon: undefined,
+  image: undefined,
+})
+const emits = defineEmits<BaseSnackEmits>()
+
+const variant = useNuiConfig('BaseSnack', 'variant', () => props.variant)
+const size = useNuiConfig('BaseSnack', 'size', () => props.size)
+const iconClose = useNuiConfig('icon', 'close')
+
+const forward = useForwardProps(reactiveOmit(props, ['size', 'variant', 'label', 'icon', 'image']))
+</script>
+
 <template>
-  <div
+  <Primitive
+    v-bind="forward"
     class="inline-flex items-center gap-1 rounded-full outline-transparent"
     :class="[
       size && sizes[size],
       variant && variants[variant],
       props.icon || props.image ? '' : spacings[size],
-      props.classes?.wrapper,
     ]"
   >
     <div
       v-if="props.icon && !props.image"
       class="-ms-0.5 flex items-center justify-center rounded-full bg-white dark:bg-muted-950 border border-muted-200 dark:border-muted-700"
       :class="[
-        props.classes?.icon,
         size && wrapperSizes[size],
       ]"
     >
@@ -145,12 +121,10 @@ const variants = {
     <div
       v-else-if="props.image && !props.icon"
       class="-ms-0.5 flex items-center justify-center rounded-full shrink-0"
-      :class="props.classes?.img"
     >
       <img :src="props.image" class="rounded-full" :class="size && wrapperSizes[size]" alt="">
     </div>
     <span class="font-sans text-muted-600 dark:text-muted-300" :class="[
-      props.classes?.text,
       size && textSizes[size],
     ]">
       <slot>{{ props.label }}</slot>
@@ -159,12 +133,11 @@ const variants = {
       type="button"
       class="cursor-pointer scale-75 flex items-center justify-center rounded-full text-muted-600 dark:text-muted-300 hover:text-[var(--destructive-base)] dark:hover:text-[var(--destructive-light)] hover:bg-muted-50 dark:hover:bg-white/10 transition-colors duration-200"
       :class="[
-        props.classes?.button,
         size && wrapperSizes[size],
       ]"
-      @click="emit('delete')"
+      @click="emits('delete')"
     >
       <Icon :name="iconClose" class="text-base" />
     </button>
-  </div>
+  </Primitive>
 </template>

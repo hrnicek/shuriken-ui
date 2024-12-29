@@ -16,7 +16,7 @@ const props = withDefaults(defineProps<BaseFieldLoadingIndicator>(), {
 })
 const forward = useForwardProps(reactiveOmit(props, []))
 
-const iconSpiner = useNuiDefaultIcon('spiner')
+const iconSpiner = useNuiConfig('icon', 'spiner')
 
 const { state } = injectBaseFieldContext()
 </script>

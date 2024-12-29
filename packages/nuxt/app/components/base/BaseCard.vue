@@ -1,47 +1,39 @@
-<script setup lang="ts">
-const props = withDefaults(
-  defineProps<{
-    /**
-     * Adds a static or a hover shadow to the card.
-     */
-    shadow?: 'static' | 'hover'
+<script lang="ts">
+import type { PrimitiveProps } from 'reka-ui';
 
-    /**
-     * The variant of the card.
-     *
-     * @default 'default'
-     */
-     variant?: 'default' | 'muted' | 'none'
+export interface BaseCardProps extends PrimitiveProps {
+  /**
+   * Adds a static or a hover shadow to the card.
+   */
+  shadow?: 'static' | 'hover'
 
-    /**
-     * The radius of the card.
-     *
-     * @default 'sm'
-     */
-    rounded?: 'none' | 'sm' | 'md' | 'lg'
-  }>(),
-  {
-    rounded: undefined,
-    shadow: undefined,
-    variant: undefined,
-  },
-)
+  /**
+   * The variant of the card.
+   *
+   * @default 'default'
+   */
+    variant?: 'default' | 'muted' | 'none'
 
-const variant = useNuiDefaultProperty(props, 'BaseCard', 'variant')
-const rounded = useNuiDefaultProperty(props, 'BaseCard', 'rounded')
+  /**
+   * The radius of the card.
+   *
+   * @default 'sm'
+   */
+  rounded?: 'none' | 'sm' | 'md' | 'lg'
+}
 
-const radiuses = {
+export const radiuses = {
   none: '',
   sm: 'rounded-md',
   md: 'rounded-lg',
   lg: 'rounded-xl',
-}
+} as const
 
-const variants = {
+export const variants = {
   'default': 'border border-muted-300 dark:border-muted-800 bg-white dark:bg-muted-950',
   'muted': 'border border-muted-200 dark:border-muted-800 bg-muted-100 dark:bg-muted-950',
   'none': '',
-}
+} as const
 
 // @todo: low-contrast-theme
 // const variants = {
@@ -50,21 +42,39 @@ const variants = {
 //   'none': '',
 // }
 
-const shadows = {
+export const shadows = {
   static: 'shadow-muted-300/30 dark:shadow-muted-800/30 shadow-xl',
   hover: 'hover:shadow-muted-300/30 dark:hover:shadow-muted-800/30 hover:shadow-xl',
-}
+} as const
+</script>
 
-const classes = computed(() => [
-  'relative w-full transition-all duration-300',
-  rounded.value && radiuses[rounded.value],
-  variant.value && variants[variant.value],
-  props.shadow && shadows[props.shadow],
-])
+
+<script setup lang="ts">
+import { useForwardProps } from 'reka-ui'
+import { reactiveOmit } from '@vueuse/core'
+
+const props = withDefaults(defineProps<BaseCardProps>(), {
+  rounded: undefined,
+  shadow: undefined,
+  variant: undefined,
+})
+
+const variant = useNuiConfig('BaseCard', 'variant', () => props.variant)
+const rounded = useNuiConfig('BaseCard', 'rounded', () => props.rounded)
+
+const forward = useForwardProps(reactiveOmit(props, ['rounded', 'shadow', 'variant']))
 </script>
 
 <template>
-  <div :class="classes">
+  <Primitive 
+    v-bind="forward"
+    class="w-full"
+    :class="[
+      rounded && radiuses[rounded],
+      variant && variants[variant],
+      props.shadow && shadows[props.shadow],
+    ]"
+  >
     <slot />
-  </div>
+  </Primitive>
 </template>

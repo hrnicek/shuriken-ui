@@ -113,9 +113,9 @@ const slots = defineSlots<BaseDropdownSlots>()
 
 const attrs = useAttrs()
 
-const variant = useNuiDefaultProperty(props, 'BaseDropdown', 'variant')
-const rounded = useNuiDefaultProperty(props, 'BaseDropdown', 'rounded')
-const iconChevronDown = useNuiDefaultIcon('chevronDown')
+const variant = useNuiConfig('BaseDropdown', 'variant', () => props.variant)
+const rounded = useNuiConfig('BaseDropdown', 'rounded', () => props.rounded)
+const iconChevronDown = useNuiConfig('icon', 'chevronDown')
 const forward = useForwardPropsEmits(reactiveOmit(props, ['label', 'disabled', 'variant', 'rounded', 'bindings']), emits)
 
 provideBaseDropdownContext({

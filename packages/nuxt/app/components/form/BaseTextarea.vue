@@ -1,118 +1,56 @@
-<script setup lang="ts">
-defineOptions({
-  inheritAttrs: false,
-})
+<script lang="ts">
+export interface BaseTextareaProps {
+  /**
+   * The form input identifier.
+   */
+  id?: string
 
-const props = withDefaults(
-  defineProps<{
-    /**
-     * The form input identifier.
-     */
-    id?: string
+  /**
+   * The placeholder text for the textarea.
+   */
+  placeholder?: string
 
-    /**
-     * The placeholder text for the textarea.
-     */
-    placeholder?: string
+  /**
+   * The number of rows to display in the textarea.
+   */
+  rows?: number | string
 
-    /**
-     * The number of rows to display in the textarea.
-     */
-    rows?: number | string
+  /**
+   * Whether to allow the user to resize the textarea.
+   */
+  resize?: boolean
 
-    /**
-     * Whether to allow the user to resize the textarea.
-     */
-    resize?: boolean
+  /**
+   * Whether to automatically grow the textarea as text is entered.
+   */
+  autogrow?: boolean
 
-    /**
-     * Whether to automatically grow the textarea as text is entered.
-     */
-    autogrow?: boolean
+  /**
+   * The maximum height of the textarea when autogrow is enabled.
+   */
+  maxHeight?: number
 
-    /**
-     * The maximum height of the textarea when autogrow is enabled.
-     */
-    maxHeight?: number
+  /**
+   * The variant of the textarea.
+   *
+   * @default 'default'
+   */
+    variant?: 'default' | 'muted'
 
-    /**
-     * The variant of the textarea.
-     *
-     * @default 'default'
-     */
-     variant?: 'default' | 'muted'
+  /**
+   * The radius of the textarea.
+   *
+   * @default 'md'
+   */
+  rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
 
-    /**
-     * The radius of the textarea.
-     *
-     * @default 'md'
-     */
-    rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
-
-    /**
-     * The size of the textarea.
-     *
-     * @default 'md'
-     */
-    size?: 'sm' | 'md' | 'lg'
-
-    /**
-     * A set of classes to apply to the various elements of the textarea.
-     */
-    classes?: {
-      /**
-       * A class or list of classes to be applied to the textarea wrapper element.
-       */
-      wrapper?: string | string[]
-      /**
-       * A class or list of classes to be applied to the label element.
-       */
-      label?: string | string[]
-      /**
-       * A class or list of classes to be applied to the textarea element.
-       */
-      textarea?: string | string[]
-      /**
-       * A class or list of classes to be applied to the addon element.
-       */
-      addon?: string | string[]
-      /**
-       * A class or list of classes to be applied to the error element.
-       */
-      error?: string | string[]
-    }
-  }>(),
-  {
-    id: undefined,
-    name: undefined,
-    rounded: undefined,
-    size: undefined,
-    variant: undefined,
-    label: undefined,
-    placeholder: '',
-    error: false,
-    rows: 3,
-    maxHeight: undefined,
-    classes: () => ({}),
-  },
-)
-
-const [modelValue, modelModifiers] = defineModel<string, 'lazy' | 'trim'>({
-  set(value) {
-    if (modelModifiers.trim && typeof value === 'string') {
-      return value.trim()
-    }
-
-    return value
-  },
-})
-
-const variant = useNuiDefaultProperty(props, 'BaseTextarea', 'variant')
-const rounded = useNuiDefaultProperty(props, 'BaseTextarea', 'rounded')
-const size = useNuiDefaultProperty(props, 'BaseTextarea', 'size')
-
-const textareaRef = ref<HTMLTextAreaElement>()
-const id = useNinjaId(() => props.id)
+  /**
+   * The size of the textarea.
+   *
+   * @default 'md'
+   */
+  size?: 'sm' | 'md' | 'lg'
+}
 
 const radiuses = {
   none: '',
@@ -132,6 +70,42 @@ const variants = {
   default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 aria-invalid:border-[var(--destructive-base)]!',
   muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-600 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 aria-invalid:border-[var(--destructive-base)]!',
 } as const
+</script>
+
+<script setup lang="ts">
+defineOptions({
+  inheritAttrs: false,
+})
+
+const props = withDefaults(defineProps<BaseTextareaProps>(), {
+  id: undefined,
+  name: undefined,
+  rounded: undefined,
+  size: undefined,
+  variant: undefined,
+  label: undefined,
+  placeholder: '',
+  error: false,
+  rows: 3,
+  maxHeight: undefined,
+})
+
+const [modelValue, modelModifiers] = defineModel<string, 'lazy' | 'trim'>({
+  set(value) {
+    if (modelModifiers.trim && typeof value === 'string') {
+      return value.trim()
+    }
+
+    return value
+  },
+})
+
+const id = useNinjaId(() => props.id)
+const variant = useNuiConfig('BaseTextarea', 'variant', () => props.variant)
+const rounded = useNuiConfig('BaseTextarea', 'rounded', () => props.rounded)
+const size = useNuiConfig('BaseTextarea', 'size', () => props.size)
+
+const textareaRef = ref<HTMLTextAreaElement>()
 
 defineExpose({
   /**
@@ -157,7 +131,6 @@ defineExpose({
       class="nui-focus w-full p-2 text-sm enabled:cursor-text cursor-not-allowed nui-slimscroll"
       :class="[
         props.autogrow && 'field-sizing-content',
-        props.classes?.textarea,
         variant && variants[variant],
         rounded && radiuses[rounded],
         !props.resize && 'resize-none',
@@ -174,7 +147,6 @@ defineExpose({
       class="nui-focus w-full p-2 text-sm enabled:cursor-text cursor-not-allowed nui-slimscroll"
       :class="[
         props.autogrow && 'field-sizing-content',
-        props.classes?.textarea,
         variant && variants[variant],
         rounded && radiuses[rounded],
         !props.resize && 'resize-none',

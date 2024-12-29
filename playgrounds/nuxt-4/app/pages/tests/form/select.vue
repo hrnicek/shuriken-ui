@@ -93,6 +93,23 @@ const heros = [
   'Polka-Dot Man',
   'Condiment King'
 ]
+
+
+const items = [
+  {
+    value: 'superman',
+    label: 'Superman',
+  },
+  {
+    value: 'batman',
+    label: 'Batman',
+  },
+  {
+    value: 'spiderman',
+    label: 'Spiderman',
+  }
+]
+const item = ref(items[0])
 </script>
 
 <template>
@@ -262,11 +279,15 @@ const heros = [
         <div class="grid gap-6 md:max-w-4xl md:grid-cols-3">
           <BaseSelect
             size="md"
+            v-model="item"
+            :by="(a, b) => {
+              return a.value === b.value
+            }"
             placeholder="aligned"
             preset="aligned"
           >
-            <BaseSelectItem v-for="hero in heros" :value="hero">
-              {{ hero }}
+            <BaseSelectItem v-for="hero in items" :value="hero">
+              {{ hero.label }}
             </BaseSelectItem>
           </BaseSelect>
 
@@ -429,8 +450,6 @@ const heros = [
             <BaseSelectItem value="Cyclops">
               Cyclops
             </BaseSelectItem>
-
-            <BaseSelectArrow />
           </BaseSelect>
         </div>
       </NuiPreview>

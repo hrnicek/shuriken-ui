@@ -171,12 +171,12 @@ const slots = defineSlots<BaseSelectSlots>()
 
 const attrs = useAttrs()
 const id = useNinjaId(() => props.id)
-const variant = useNuiDefaultProperty(props, 'BaseSelect', 'variant')
-const rounded = useNuiDefaultProperty(props, 'BaseSelect', 'rounded')
-const size = useNuiDefaultProperty(props, 'BaseSelect', 'size')
+const variant = useNuiConfig('BaseSelect', 'variant', () => props.variant)
+const rounded = useNuiConfig('BaseSelect', 'rounded', () => props.rounded)
+const size = useNuiConfig('BaseSelect', 'size', () => props.size)
 
-const iconChevronDown = useNuiDefaultIcon('chevronDown')
-const iconChevronUp = useNuiDefaultIcon('chevronUp')
+const iconChevronDown = useNuiConfig('icon', 'chevronDown')
+const iconChevronUp = useNuiConfig('icon', 'chevronUp')
 
 const bindings = computed(() => {
   return defu(props.bindings, presets[props.preset || 'aligned'])
@@ -190,7 +190,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, [
   'size',
   'preset',
   'bindings',
-]), emits)
+]), emits) as SelectRootProps<T>
 
 provideBaseSelectContext({
   variant,

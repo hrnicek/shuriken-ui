@@ -16,7 +16,7 @@ const props = withDefaults(defineProps<BaseFieldErrorIndicator>(), {
 })
 const forward = useForwardProps(reactiveOmit(props, []))
 
-const iconAlert = useNuiDefaultIcon('alert')
+const iconAlert = useNuiConfig('icon', 'alert')
 
 const { state } = injectBaseFieldContext()
 </script>

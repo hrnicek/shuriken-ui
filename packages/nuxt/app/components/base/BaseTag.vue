@@ -69,9 +69,9 @@ const props = withDefaults(defineProps<BaseTagProps>(), {
 })
 const slots = defineSlots<BaseTagSlots>()
 
-const rounded = useNuiDefaultProperty(props, 'BaseTag', 'rounded')
-const size = useNuiDefaultProperty(props, 'BaseTag', 'size')
-const variant = useNuiDefaultProperty(props, 'BaseTag', 'variant')
+const rounded = useNuiConfig('BaseTag', 'rounded', () => props.rounded)
+const size = useNuiConfig('BaseTag', 'size', () => props.size)
+const variant = useNuiConfig('BaseTag', 'variant', () => props.variant)
 
 const forward = useForwardProps(reactiveOmit(props, ['variant', 'rounded', 'size']))
 </script>

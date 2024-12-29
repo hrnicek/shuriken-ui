@@ -1,99 +1,41 @@
-<script setup lang="ts">
-defineOptions({
-  inheritAttrs: false,
-})
+<script lang="ts">
+export interface BaseInputProps {
+  /**
+   * The form input identifier.
+   */
+  id?: string
 
-const props = withDefaults(
-  defineProps<{
-    /**
-     * The form input identifier.
-     */
-    id?: string
+  /**
+   * The type of input.
+   */
+  type?: string
 
-    /**
-     * The type of input.
-     */
-    type?: string
+  /**
+   * The placeholder to display for the input.
+   */
+  placeholder?: string
 
-    /**
-     * The placeholder to display for the input.
-     */
-    placeholder?: string
+  /**
+   * The variant of the input.
+   *
+   * @default 'default'
+   */
+    variant?: 'default' | 'muted' 
 
-    /**
-     * The variant of the input.
-     *
-     * @default 'default'
-     */
-     variant?: 'default' | 'muted' 
+  /**
+   * The radius of the input.
+   *
+   * @default 'md'
+   */
+  rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
 
-    /**
-     * The radius of the input.
-     *
-     * @default 'md'
-     */
-    rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
-
-    /**
-     * The size of the input.
-     *
-     * @default 'md'
-     */
-    size?: 'sm' | 'md' | 'lg' | 'xl'
-
-    /**
-     * Optional CSS classes to apply to the wrapper, label, input, addon, error, and icon elements.
-     */
-    classes?: {
-      /**
-       * CSS classes to apply to the wrapper element.
-       */
-      wrapper?: string | string[]
-
-      /**
-       * CSS classes to apply to the input element.
-       */
-      input?: string | string[]
-    }
-  }>(),
-  {
-    id: undefined,
-    type: 'text',
-    rounded: undefined,
-    size: undefined,
-    variant: undefined,
-    placeholder: undefined,
-    classes: () => ({}),
-  },
-)
-
-function looseToNumber(val: any) {
-  const n = Number.parseFloat(val)
-  return Number.isNaN(n) ? val : n
+  /**
+   * The size of the input.
+   *
+   * @default 'md'
+   */
+  size?: 'sm' | 'md' | 'lg' | 'xl'
 }
-
-const [modelValue, modelModifiers] = defineModel<
-  string | number,
-  'lazy' | 'trim' | 'number'
->({
-  set(value) {
-    if (modelModifiers.number) {
-      return looseToNumber(value)
-    }
-    else if (modelModifiers.trim && typeof value === 'string') {
-      return value.trim()
-    }
-
-    return value
-  },
-})
-
-const variant = useNuiDefaultProperty(props, 'BaseInput', 'variant')
-const size = useNuiDefaultProperty(props, 'BaseInput', 'size')
-const rounded = useNuiDefaultProperty(props, 'BaseInput', 'rounded')
-
-const inputRef = ref<HTMLInputElement>()
-const id = useNinjaId(() => props.id)
 
 const variants = {
   default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 aria-invalid:border-[var(--destructive-base)]!',
@@ -120,6 +62,50 @@ const radiuses = {
   lg: 'rounded-xl',
   full: 'rounded-full',
 } as const
+</script>
+
+
+<script setup lang="ts">
+defineOptions({
+  inheritAttrs: false,
+})
+
+const props = withDefaults(defineProps<BaseInputProps>(), {
+  id: undefined,
+  type: 'text',
+  rounded: undefined,
+  size: undefined,
+  variant: undefined,
+  placeholder: undefined,
+})
+
+function looseToNumber(val: any) {
+  const n = Number.parseFloat(val)
+  return Number.isNaN(n) ? val : n
+}
+
+const [modelValue, modelModifiers] = defineModel<
+  string | number,
+  'lazy' | 'trim' | 'number'
+>({
+  set(value) {
+    if (modelModifiers.number) {
+      return looseToNumber(value)
+    }
+    else if (modelModifiers.trim && typeof value === 'string') {
+      return value.trim()
+    }
+
+    return value
+  },
+})
+
+const variant = useNuiConfig('BaseInput', 'variant', () => props.variant)
+const size = useNuiConfig('BaseInput', 'size', () => props.size)
+const rounded = useNuiConfig('BaseInput', 'rounded', () => props.rounded)
+
+const inputRef = ref<HTMLInputElement>()
+const id = useNinjaId(() => props.id)
 
 defineExpose({
   /**
@@ -135,7 +121,7 @@ defineExpose({
 </script>
 
 <template>
-  <div class="relative" :class="props.classes?.wrapper">
+  <div class="relative">
     <input
       v-if="modelModifiers.lazy"
       :id="id"
@@ -145,7 +131,6 @@ defineExpose({
       v-bind="$attrs"
       class="nui-focus w-full font-sans disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300"
       :class="[
-        props.classes?.input,
         variant && variants[variant],
         size && sizes[size],
         rounded && radiuses[rounded],
@@ -161,7 +146,6 @@ defineExpose({
       v-bind="$attrs"
       class="nui-focus w-full font-sans disabled:cursor-not-allowed disabled:opacity-75 transition-all duration-300"
       :class="[
-        props.classes?.input,
         variant && variants[variant],
         size && sizes[size],
         rounded && radiuses[rounded],

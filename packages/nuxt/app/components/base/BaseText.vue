@@ -105,10 +105,10 @@ const props = withDefaults(defineProps<BaseTextProps>(), {
 })
 const slots = defineSlots<BaseTextSlots>()
 
-const size = useNuiDefaultProperty(props, 'BaseText', 'size')
-const lead = useNuiDefaultProperty(props, 'BaseText', 'lead')
-const weight = useNuiDefaultProperty(props, 'BaseText', 'weight')
-const tracking = useNuiDefaultProperty(props, 'BaseText', 'tracking')
+const size = useNuiConfig('BaseText', 'size', () => props.size)
+const lead = useNuiConfig('BaseText', 'lead', () => props.lead)
+const weight = useNuiConfig('BaseText', 'weight', () => props.weight)
+const tracking = useNuiConfig('BaseText', 'tracking', () => props.tracking)
 const forward = useForwardProps(reactiveOmit(props, ['size', 'lead', 'weight', 'tracking']))
 </script>
 

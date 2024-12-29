@@ -54,7 +54,7 @@ const slots = defineSlots<BaseDropdownSubSlots>()
 
 const context = injectBaseDropdownContext()
 
-const iconChevronRight = useNuiDefaultIcon('chevronRight')
+const iconChevronRight = useNuiConfig('icon', 'chevronRight')
 const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'bindings']), emits)
 </script>
 

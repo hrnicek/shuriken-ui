@@ -28,27 +28,6 @@ export interface BaseAvatarGroupProps extends PrimitiveProps {
    * @default 'full'
    */
   rounded?: BaseAvatarProps['rounded']
-
-  /**
-   * Optional CSS classes to apply to the component inner elements.
-   *
-   */
-  classes?: {
-    /**
-     * CSS classes to apply to the wrapper element.
-     */
-    wrapper?: string | string[]
-
-    /**
-     * CSS classes to apply to the outer element.
-     */
-    outer?: string | string[]
-
-    /**
-     * CSS classes to apply to the count element.
-     */
-    count?: string | string[]
-  }
 }
 export type BaseAvatarGroupSlots = {
   default(): any
@@ -87,14 +66,13 @@ const props = withDefaults(defineProps<BaseAvatarGroupProps>(), {
   limit: undefined,
   size: undefined,
   rounded: 'full',
-  classes: () => ({}),
 })
 const slots = defineSlots<BaseAvatarGroupSlots>()
 
-const size = useNuiDefaultProperty(props, 'BaseAvatarGroup', 'size')
-const limit = useNuiDefaultProperty(props, 'BaseAvatarGroup', 'limit')
-const rounded = useNuiDefaultProperty(props, 'BaseAvatarGroup', 'rounded')
-const forward = useForwardProps(reactiveOmit(props, ['avatars', 'size', 'limit', 'classes']))
+const size = useNuiConfig('BaseAvatarGroup', 'size', () => props.size)
+const limit = useNuiConfig('BaseAvatarGroup', 'limit', () => props.limit)
+const rounded = useNuiConfig('BaseAvatarGroup', 'rounded', () => props.rounded)
+const forward = useForwardProps(reactiveOmit(props, ['avatars', 'size', 'limit']))
 
 const avatarDisplay = computed(() => {
   if (
@@ -112,7 +90,7 @@ const avatarDisplay = computed(() => {
   <Primitive
     v-bind="forward"
     class="flex"
-    :class="[size && sizes[size], props.classes?.wrapper]"
+    :class="[size && sizes[size]]"
   >
     <slot>
       <div
@@ -120,7 +98,6 @@ const avatarDisplay = computed(() => {
         :key="typeof avatar === 'string' ? avatar : avatar.src"
         class="relative flex shrink-0 items-center justify-center bg-white dark:bg-muted-800 transition-all duration-100 ease-in"
         :class="[
-          props.classes?.outer,
           rounded && radiuses[rounded],
           size && sizes[size],
           size && spacings[size],
@@ -138,7 +115,6 @@ const avatarDisplay = computed(() => {
         v-if="limit !== undefined && avatars.length > limit"
         class="relative shrink-0 bg-white dark:bg-muted-800 transition-all duration-100 ease-in"
         :class="[
-          props.classes?.count,
           rounded && radiuses[rounded],
           size && sizes[size],
           size && counters[size],

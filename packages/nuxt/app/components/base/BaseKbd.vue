@@ -52,8 +52,8 @@ const props = withDefaults(defineProps<BaseKbdProps>(), {
 })
 const slots = defineSlots<BaseKbdSlots>()
 
-const variant = useNuiDefaultProperty(props, 'BaseKbd', 'variant')
-const size = useNuiDefaultProperty(props, 'BaseKbd', 'size')
+const variant = useNuiConfig('BaseKbd', 'variant', () => props.variant)
+const size = useNuiConfig('BaseKbd', 'size', () => props.size)
 const forward = useForwardProps(reactiveOmit(props, ['variant', 'size']))
 </script>
 

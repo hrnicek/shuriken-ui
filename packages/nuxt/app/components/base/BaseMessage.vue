@@ -1,129 +1,94 @@
-<script setup lang="ts">
-const props = withDefaults(
-  defineProps<{
+<script lang="ts">
+import type { PrimitiveProps } from 'reka-ui';
+
+export interface BaseMessageProps extends PrimitiveProps {
+  /**
+   * The message to display.
+   */
+  message?: string
+
+  /**
+   * Whether to show an icon, or the name of the icon to display.
+   */
+  icon?: boolean | string
+
+  /**
+   * Default icons to apply to the messages, when the icon is active.
+   */
+  defaultIcons?: {
     /**
-     * The message to display.
+     * The default icon
      */
-    message?: string
-
-    /**
-     * Whether to show an icon, or the name of the icon to display.
-     */
-    icon?: boolean | string
-
-    /**
-     * Default icons to apply to the messages, when the icon is active.
-     */
-    defaultIcons?: {
-      /**
-       * The default icon
-       */
-      'default'?: string
-
-      /**
-       * The muted icon
-       */
-      'muted'?: string
-
-      /**
-       * The info icon
-       */
-      'info'?: string
-
-      /**
-       * The success icon
-       */
-      'success'?: string
-
-      /**
-       * The warning icon
-       */
-      'warning'?: string
-
-      /**
-       * The destructive icon
-       */
-      'destructive'?: string
-
-      /**
-       * The primary icon
-       */
-      'primary'?: string
-    }
+    'default'?: string
 
     /**
-     * The icon to show in the close button
+     * The muted icon
      */
-    closeIcon?: string
+    'muted'?: string
 
     /**
-     * Whether to show a close button.
+     * The info icon
      */
-    closable?: boolean
+    'info'?: string
 
     /**
-     * The variant of the message.
-     *
-     * @default 'default'
+     * The success icon
      */
-    variant?: 'default' | 'muted' | 'primary' | 'info' | 'success' | 'warning' | 'destructive'
+    'success'?: string
 
     /**
-     * The radius of the message.
-     *
-     * @default 'sm'
+     * The warning icon
      */
-    rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
+    'warning'?: string
 
     /**
-     * Optional CSS classes to apply to the component inner elements.
+     * The destructive icon
      */
-    classes?: {
-      /**
-       * CSS classes to apply to the wrapper element.
-       */
-      wrapper?: string | string[]
+    'destructive'?: string
 
-      /**
-       * CSS classes to apply to the icon element.
-       */
-      icon?: string | string[]
+    /**
+     * The primary icon
+     */
+    'primary'?: string
+  }
 
-      /**
-       * CSS classes to apply to the text element.
-       */
-      text?: string | string[]
-    }
-  }>(),
-  {
-    variant: undefined,
-    rounded: undefined,
-    message: '',
-    icon: false,
-    closeIcon: undefined,
-    classes: () => ({}),
-    defaultIcons: undefined,
-  },
-)
-const emit = defineEmits<{
+  /**
+   * The icon to show in the close button
+   */
+  closeIcon?: string
+
+  /**
+   * Whether to show a close button.
+   */
+  closable?: boolean
+
+  /**
+   * The variant of the message.
+   *
+   * @default 'default'
+   */
+  variant?: 'default' | 'muted' | 'primary' | 'info' | 'success' | 'warning' | 'destructive'
+
+  /**
+   * The radius of the message.
+   *
+   * @default 'sm'
+   */
+  rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
+}
+export interface BaseMessageEmits {
   close: []
-}>()
+}
 
-const variant = useNuiDefaultProperty(props, 'BaseMessage', 'variant')
-const rounded = useNuiDefaultProperty(props, 'BaseMessage', 'rounded')
-const icons = useNuiDefaultProperty(props, 'BaseMessage', 'defaultIcons')
-
-const iconClose = useNuiDefaultIcon('close', () => props.closeIcon)
-
-const radiuses = {
+export const radiuses = {
   none: '',
   sm: 'rounded-sm',
   md: 'rounded-md',
   lg: 'rounded-lg',
   full: 'rounded-xl',
-}
+} as const
 
-const variants = {
+export const variants = {
   'default': 'border-muted-200 dark:border-muted-800 bg-white dark:bg-muted-950',
   'muted': 'border-muted-200 dark:border-muted-800 bg-muted-100 dark:bg-muted-950',
   'primary': 'border-primary-200 dark:border-primary-700 bg-primary-100 dark:bg-primary-500/10',
@@ -144,7 +109,7 @@ const variants = {
 //   'destructive': 'border-red-200 dark:border-red-700 bg-red-100 dark:bg-red-500/10',
 // } as const
 
-const textVariants = {
+export const textVariants = {
   'default': 'text-muted-500 dark:text-muted-400',
   'muted': 'text-muted-500 dark:text-muted-500',
   'primary': 'text-primary-800 dark:text-primary-200',
@@ -165,7 +130,7 @@ const textVariants = {
 //   'destructive': 'text-red-800 dark:text-red-200',
 // } as const
 
-const iconVariants = {
+export const iconVariants = {
   'default': 'text-white dark:text-white bg-muted-600 dark:bg-muted-900',
   'muted': 'text-white dark:text-white bg-muted-400 dark:bg-muted-900',
   'primary': 'text-white dark:text-white bg-[var(--primary-base)] dark:bg-[var(--primary-light)]',
@@ -186,7 +151,7 @@ const iconVariants = {
 //   'destructive': 'text-white dark:text-white bg-red-500 dark:bg-red-500',
 // } as const
 
-const closeVariants = {
+export const closeVariants = {
   'default': 'text-muted-500 dark:text-muted-500 hover:enabled:bg-muted-300/50 dark:hover:enabled:bg-muted-500/30 focus-visible:bg-muted-300/50 dark:focus-visible:bg-muted-500/30 active:enabled:bg-muted-300/20 dark:active:enabled:bg-muted-500/20',
   'muted': 'text-muted-500 dark:text-muted-500 hover:enabled:bg-muted-300/50 dark:hover:enabled:bg-muted-500/30 focus-visible:bg-muted-300/50 dark:focus-visible:bg-muted-500/30 active:enabled:bg-muted-300/20 dark:active:enabled:bg-muted-500/20',
   'primary': 'text-primary-500 dark:text-primary-500 hover:enabled:bg-primary-300/50 dark:hover:enabled:bg-primary-500/30 focus-visible:bg-primary-300/50 dark:focus-visible:bg-primary-500/30 active:enabled:bg-primary-300/20 dark:active:enabled:bg-primary-500/20',
@@ -206,6 +171,24 @@ const closeVariants = {
 //   'warning': 'text-amber-500 dark:text-amber-500 hover:enabled:bg-amber-300/50 dark:hover:enabled:bg-amber-500/30 focus-visible:bg-amber-300/50 dark:focus-visible:bg-amber-500/30 active:enabled:bg-amber-300/20 dark:active:enabled:bg-amber-500/20',
 //   'destructive': 'text-red-500 dark:text-red-500 hover:enabled:bg-red-300/50 dark:hover:enabled:bg-red-500/30 focus-visible:bg-red-300/50 dark:focus-visible:bg-red-500/30 active:enabled:bg-red-300/20 dark:active:enabled:bg-red-500/20',
 // } as const
+</script>
+
+<script setup lang="ts">
+const props = withDefaults(defineProps<BaseMessageProps>(), {
+  variant: undefined,
+  rounded: undefined,
+  message: '',
+  icon: false,
+  closeIcon: undefined,
+  defaultIcons: undefined,
+})
+const emits = defineEmits<BaseMessageEmits>()
+
+const variant = useNuiConfig('BaseMessage', 'variant', () => props.variant)
+const rounded = useNuiConfig('BaseMessage', 'rounded', () => props.rounded)
+const icons = useNuiConfig('BaseMessage', 'defaultIcons', () => props.defaultIcons)
+
+const iconClose = useNuiConfig('icon', 'close', () => props.closeIcon)
 
 const icon = computed(() =>
   typeof props.icon === 'string'
@@ -222,7 +205,6 @@ const icon = computed(() =>
     :class="[
       rounded && radiuses[rounded],
       variant && variants[variant],
-      classes?.wrapper,
       props.icon ? 'py-1 ps-1 pe-6' : 'py-2 ps-2 pe-6',
     ]"
   >
@@ -230,7 +212,6 @@ const icon = computed(() =>
       v-if="props.icon && icon"
       class="flex size-10 shrink-0 items-center justify-center"
       :class="[
-        classes?.icon,
         icon && iconVariants[variant],
         rounded && radiuses[rounded],
       ]"
@@ -240,7 +221,6 @@ const icon = computed(() =>
       </slot>
     </div>
     <span class="inline-flex items-center leading-normal font-sans text-sm" :class="[
-      classes?.text,
       variant && textVariants[variant],
     ]">
       <slot>{{ props.message }}</slot>
@@ -253,7 +233,7 @@ const icon = computed(() =>
         :class="[
           icon && closeVariants[variant],
         ]"
-        @click="emit('close')"
+        @click="emits('close')"
       >
         <slot name="close-button">
           <Icon :name="iconClose" class="text-base" />

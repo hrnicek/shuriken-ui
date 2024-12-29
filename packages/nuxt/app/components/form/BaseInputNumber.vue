@@ -111,18 +111,19 @@ const emits = defineEmits<BaseInputNumberEmits>()
 const slots = defineSlots<BaseInputNumberSlots>()
 
 const id = useNinjaId(() => props.id)
-const variant = useNuiDefaultProperty(props, 'BaseInputNumber', 'variant')
-const rounded = useNuiDefaultProperty(props, 'BaseInputNumber', 'rounded')
-const size = useNuiDefaultProperty(props, 'BaseInputNumber', 'size')
+const variant = useNuiConfig('BaseInputNumber', 'variant', () => props.variant)
+const rounded = useNuiConfig('BaseInputNumber', 'rounded', () => props.rounded)
+const size = useNuiConfig('BaseInputNumber', 'size', () => props.size)
 
-const iconIncrement = useNuiDefaultIcon('plus')
-const iconDecrement = useNuiDefaultIcon('minus')
+const iconIncrement = useNuiConfig('icon', 'plus')
+const iconDecrement = useNuiConfig('icon', 'minus')
 
-const forward = useForwardPropsEmits(reactiveOmit(props, ['variant', 'rounded', 'size', 'placeholder']), emits)
+const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'variant', 'rounded', 'size', 'placeholder']), emits)
 </script>
 
 <template>
   <NumberFieldRoot
+    :id
     v-bind="forward"
     class="relative"
   >

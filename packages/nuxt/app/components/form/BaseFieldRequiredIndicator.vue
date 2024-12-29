@@ -16,7 +16,7 @@ const props = withDefaults(defineProps<BaseFieldLoadingIndicator>(), {
 })
 const forward = useForwardProps(reactiveOmit(props, []))
 
-const iconRequired = useNuiDefaultIcon('required')
+const iconRequired = useNuiConfig('icon', 'required')
 
 const { required } = injectBaseFieldContext()
 </script>

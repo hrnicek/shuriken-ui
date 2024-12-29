@@ -17,7 +17,7 @@ export interface BaseTabsTriggerProps extends TabsTriggerProps {
    *
    * @default 'default'
    */
-   variant?: 'primary' | 'dark' | 'muted'
+  variant?: 'primary' | 'dark' | 'muted'
 
   /**
    * The type of tabs to display..
@@ -29,25 +29,6 @@ export interface BaseTabsTriggerProps extends TabsTriggerProps {
 export type BaseTabsTriggerSlots = {
   default(): any
 }
-
-</script>
-
-<script setup lang="ts">
-import { useForwardProps } from 'reka-ui'
-import { reactiveOmit } from '@vueuse/core'
-import { injectBaseTabsContext, types } from './BaseTabs.vue'
-
-const props = withDefaults(defineProps<BaseTabsTriggerProps>(), {
-  type: undefined,
-  icon: undefined,
-  variant: undefined,
-})
-const type = useNuiDefaultProperty(props, 'BaseTabs', 'type')
-
-const context = injectBaseTabsContext()
-
-const slots = defineSlots<BaseTabsTriggerSlots>()
-const forward = useForwardProps(reactiveOmit(props, ['label', 'type', 'variant', 'icon']))
 
 const tabVariants = {
   'primary': 'group-data-[state=active]/trigger:text-[var(--primary-base)] group-data-[state=inactive]/trigger:text-muted-400 dark:group-data-[state=active]/trigger:text-primary-400 dark:group-data-[state=inactive]/trigger:text-muted-400',
@@ -61,6 +42,23 @@ const tabVariants = {
 //   'dark': 'group-data-[state=active]/trigger:text-muted-900 group-data-[state=inactive]/trigger:text-muted-400 dark:group-data-[state=active]/trigger:text-white dark:group-data-[state=inactive]/trigger:text-muted-400',
 //   'muted': 'group-data-[state=active]/trigger:text-muted-700 group-data-[state=inactive]/trigger:text-muted-400 dark:group-data-[state=active]/trigger:text-muted-100 dark:group-data-[state=inactive]/trigger:text-muted-400',
 // } as const
+</script>
+
+<script setup lang="ts">
+import { useForwardProps } from 'reka-ui'
+import { reactiveOmit } from '@vueuse/core'
+import { injectBaseTabsContext, types } from './BaseTabs.vue'
+
+const props = withDefaults(defineProps<BaseTabsTriggerProps>(), {
+  type: undefined,
+  icon: undefined,
+  variant: undefined,
+})
+
+const context = injectBaseTabsContext()
+
+const slots = defineSlots<BaseTabsTriggerSlots>()
+const forward = useForwardProps(reactiveOmit(props, ['label', 'type', 'variant', 'icon']))
 </script>
 
 <template>

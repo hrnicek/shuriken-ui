@@ -68,8 +68,8 @@ const props = withDefaults(defineProps<BaseDropdownRadioItemProps>(), {
 const emits = defineEmits<BaseDropdownRadioItemEmits>()
 const slots = defineSlots<BaseDropdownRadioItemSlots>()
 
-const variant = useNuiDefaultProperty(props, 'BaseDropdownItem', 'variant')
-const rounded = useNuiDefaultProperty(props, 'BaseDropdownItem', 'rounded')
+const variant = useNuiConfig('BaseDropdownItem', 'variant', () => props.variant)
+const rounded = useNuiConfig('BaseDropdownItem', 'rounded', () => props.rounded)
 const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'variant', 'rounded', 'bindings']), emits)
 </script>
 

@@ -26,26 +26,6 @@ export interface BaseProgressCircleProps extends ProgressRootProps {
    * @default 'primary'
    */
   variant?: 'primary' | 'dark' | 'none'
-
-  /**
-   * Optional CSS classes to apply to the component inner elements.
-   */
-  classes?: {
-    /**
-     * CSS classes to apply to the wrapper element.
-     */
-    wrapper?: string | string[]
-
-    /**
-     * CSS classes to apply to the track element.
-     */
-    track?: string | string[]
-
-    /**
-     * CSS classes to apply to the progress element.
-     */
-    progress?: string | string[]
-  }
 }
 export interface BaseProgressCircleEmits extends ProgressRootEmits {}
 
@@ -93,15 +73,13 @@ const props = withDefaults(defineProps<BaseProgressCircleProps>(), {
   max: undefined,
   modelValue: undefined,
   getValueLabel: undefined,
-
-  classes: () => ({}),
 })
 const emits = defineEmits<BaseProgressCircleEmits>()
 const slots = defineSlots<BaseProgressCircleSlots>()
 
-const variant = useNuiDefaultProperty(props, 'BaseProgressCircle', 'variant')
+const variant = useNuiConfig('BaseProgressCircle', 'variant', () => props.variant)
 
-const forward = useForwardPropsEmits(reactiveOmit(props, ['variant', 'size', 'thickness', 'animation', 'classes']), emits)
+const forward = useForwardPropsEmits(reactiveOmit(props, ['variant', 'size', 'thickness', 'animation']), emits)
 </script>
 
 <template>
@@ -112,9 +90,6 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['variant', 'size', 'th
   >
     <svg
       class="origin-center"
-      :class="[
-        props.classes?.wrapper,
-      ]"
       viewBox="0 0 45 45"
       :width="props.size"
       :height="props.size"
@@ -122,7 +97,6 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['variant', 'size', 'th
       <circle
         class="stroke-current "
         :class="[
-          props.classes?.track,
           variant && trackVariants[variant],
         ]"
         :stroke-width="props.thickness"
@@ -137,7 +111,6 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['variant', 'size', 'th
           :class="[
             typeof modelValue === 'number' ? '-rotate-90 transition-[stroke-dasharray] duration-300' : 'animate-nui-spin',
             variant && variants[variant],
-            props.classes?.progress,
           ]"
           :stroke-width="props.thickness"
           :stroke-dasharray="typeof modelValue === 'number' ? `${modelValue},100` : '0,100'"

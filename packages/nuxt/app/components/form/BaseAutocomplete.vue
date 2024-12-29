@@ -200,14 +200,13 @@ const emits = defineEmits<BaseAutocompleteEmits<T>>()
 const slots = defineSlots<BaseAutocompleteSlots>()
 const attrs = useAttrs()
   
-const variant = useNuiDefaultProperty(props, 'BaseAutocomplete', 'variant')
-const rounded = useNuiDefaultProperty(props, 'BaseAutocomplete', 'rounded')
-const size = useNuiDefaultProperty(props, 'BaseAutocomplete', 'size')
-const preset = useNuiDefaultProperty(props, 'BaseAutocomplete', 'preset')
+const variant = useNuiConfig('BaseAutocomplete', 'variantee', () => props.variant)
+const rounded = useNuiConfig('BaseAutocomplete', 'rounded', () => props.rounded)
+const size = useNuiConfig('BaseAutocomplete', 'size', () => props.size)
+const preset = useNuiConfig('BaseAutocomplete', 'preset', () => props.preset)
+const iconClose = useNuiConfig('icon', 'close')
+const iconChevronDown = useNuiConfig('icon', 'chevronDown')
 const bindings = computed(() => defu(props.bindings, presets[preset.value]))
-
-const iconClose = useNuiDefaultIcon('close')
-const iconChevronDown = useNuiDefaultIcon('chevronDown')
 
 const forward = useForwardPropsEmits(reactiveOmit(props, ['variant', 'rounded', 'size', 'preset', 'bindings']), emits)
 
@@ -230,7 +229,7 @@ provideBaseAutocompleteContext({
         size && sizes[size],
         variant && variants[variant],
       ]"
-      v-bind="props.bindings.anchor"
+      v-bind="bindings.anchor"
     >
       <slot name="input">
         <ComboboxInput class="h-full w-full outline-none  placeholder:text-muted-300 dark:placeholder:text-muted-700" v-bind="attrs" />
