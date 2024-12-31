@@ -1,16 +1,3 @@
 <template>
-  <div class="nui-placeload animate-nui-placeload" />
+  <div class="bg-[size:1200px_104px] bg-linear-to-r from-muted-200 dark:from-muted-800 from-8% via-muted-300 dark:via-muted-700 via-18% to-muted-200 dark:to-muted-800 to-33% animate-nui-placeload" />
 </template>
-
-<style scoped>
-.nui-placeload {
-  position: relative;
-  background-position: 0 0;
-  background-image: linear-gradient( to right, rgb(0 0 0 / 7%) 8% ,rgb(0 0 0 / 15%) 18%, rgb(0 0 0 / 7%) 33%);
-  background-size: 1200px 104px;
-}
-.dark .nui-placeload {
-  background-image: linear-gradient(to right, rgb(255 255 255 / 15%) 8%, rgb(255 255 255 / 24%) 18%, rgb(255 255 255 / 15%) 33%);
-}
-
-</style>
