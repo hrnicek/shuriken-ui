@@ -40,7 +40,7 @@ const variants = {
 
 
 <script setup lang="ts">
-import { useForwardPropsEmits } from 'reka-ui'
+import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 
 defineOptions({
@@ -68,6 +68,7 @@ const variant = useNuiConfig('BaseCheckbox', 'variant', () => props.variant)
 const iconCheck = useNuiConfig('icon', 'check')
 const iconIndeterminate = useNuiConfig('icon', 'minus')
 const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'variant']), emits)
+const { forwardRef } = useForwardExpose()
 </script>
 
 <template>
@@ -79,6 +80,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'varian
   >
     <CheckboxRoot
       :id
+      :ref="forwardRef"
       v-bind="{ ...forward, ...attrs }"
       class="nui-focus relative flex items-center justify-center h-5 w-5 shrink-0 cursor-pointer disabled:cursor-not-allowed overflow-hidden rounded-md"
     >

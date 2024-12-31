@@ -88,7 +88,7 @@ export const buttonVariants = {
 
 
 <script setup lang="ts">
-import { useForwardPropsEmits } from 'reka-ui'
+import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 
 defineOptions({
@@ -120,6 +120,7 @@ const iconIncrement = useNuiConfig('icon', 'plus')
 const iconDecrement = useNuiConfig('icon', 'minus')
 
 const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'variant', 'rounded', 'size', 'placeholder']), emits)
+const { forwardRef } = useForwardExpose()
 </script>
 
 <template>
@@ -150,6 +151,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'variant', 'roun
     </NumberFieldDecrement>
     <NumberFieldInput
       v-bind="attrs"
+      :ref="forwardRef"
       class="outline-none text-center grow disabled:cursor-not-allowed placeholder:text-muted-300 dark:placeholder:text-muted-700"
       :class="[
         size && spacings[size],

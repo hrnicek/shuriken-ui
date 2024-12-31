@@ -40,7 +40,7 @@ const listbox5 = ref([])
 const select1 = ref()
 const select2 = ref()
 const textarea1 = ref()
-const textarea2 = ref()
+const textarea2 = ref<string | undefined>('lorem ipsum dolor sit amet\nconsectetur adipiscing elit ...')
 const textarea3 = ref()
 </script>
 
@@ -54,6 +54,7 @@ const textarea3 = ref()
         <div class="col-span-2">
           <BaseAutocomplete
             v-model="autocomplete1"
+            ref="autocomplete1Ref"
             :items="['tete', 'hello', 'test', 'tast', 'tutu', 'holla']"
           >
             <!-- <template #item="{ item }">
@@ -69,6 +70,10 @@ autocomplete1: {{ autocomplete1 }}({{ typeof autocomplete1 }})</pre>
           </BaseButton>
           <BaseButton @click="autocomplete1 = 'hello'">
             set
+          </BaseButton>
+
+          <BaseButton @click="$refs?.autocomplete1Ref?.$el?.focus()">
+            focus
           </BaseButton>
         </BaseCard>
       </div>
@@ -265,7 +270,7 @@ autocomplete6: {{ autocomplete6 }}({{ typeof autocomplete6 }})</pre>
     >
       <div class="grid grid-cols-4 gap-6">
         <div class="col-span-2">
-          <BaseRadioGroup v-model="radio1">
+          <BaseRadioGroup ref="radio1Ref" v-model="radio1">
             <BaseRadio value="yes" />
             <BaseRadio value="no" />
           </BaseRadioGroup>
@@ -274,6 +279,9 @@ autocomplete6: {{ autocomplete6 }}({{ typeof autocomplete6 }})</pre>
           <pre>radio1: {{ radio1 }}({{ typeof radio1 }})</pre>
           <BaseButton @click="radio1 = undefined">
             reset
+          </BaseButton>
+          <BaseButton @click="$refs?.radio1Ref?.$el?.focus()">
+            focus
           </BaseButton>
         </BaseCard>
       </div>
@@ -321,12 +329,15 @@ autocomplete6: {{ autocomplete6 }}({{ typeof autocomplete6 }})</pre>
     >
       <div class="grid grid-cols-4 gap-6">
         <div class="col-span-2">
-          <BaseCheckbox v-model="checkbox1" />
+          <BaseCheckbox ref="checkbox1Ref" v-model="checkbox1" />
         </div>
         <BaseCard class="col-span-2 p-2">
           <pre>checkbox1: {{ checkbox1 }}({{ typeof checkbox1 }})</pre>
           <BaseButton @click="checkbox1 = undefined">
             reset
+          </BaseButton>
+          <BaseButton @click="$refs?.checkbox1Ref?.$el?.focus()">
+            focus
           </BaseButton>
         </BaseCard>
       </div>
@@ -373,12 +384,15 @@ autocomplete6: {{ autocomplete6 }}({{ typeof autocomplete6 }})</pre>
     <NuiPreview title="BaseSwitchBall" description="BaseSwitchBall test">
       <div class="grid grid-cols-4 gap-6">
         <div class="col-span-2">
-          <BaseSwitchBall v-model="switchBall" />
+          <BaseSwitchBall ref="switchBall1Ref" v-model="switchBall" />
         </div>
         <BaseCard class="col-span-2 p-2">
           <pre>switchBall: {{ switchBall }}({{ typeof switchBall }})</pre>
           <BaseButton @click="switchBall = undefined">
             reset
+          </BaseButton>
+          <BaseButton @click="$refs?.switchBall1Ref?.$el?.focus()">
+            focus
           </BaseButton>
         </BaseCard>
       </div>
@@ -387,12 +401,15 @@ autocomplete6: {{ autocomplete6 }}({{ typeof autocomplete6 }})</pre>
     <NuiPreview title="BaseSwitchThin" description="BaseSwitchThin test">
       <div class="grid grid-cols-4 gap-6">
         <div class="col-span-2">
-          <BaseSwitchThin v-model="switchThin" />
+          <BaseSwitchThin ref="switchThin1Ref" v-model="switchThin" />
         </div>
         <BaseCard class="col-span-2 p-2">
           <pre>switchThin: {{ switchThin }}({{ typeof switchThin }})</pre>
           <BaseButton @click="switchThin = undefined">
             reset
+          </BaseButton>
+          <BaseButton @click="$refs?.switchThin1Ref?.$el?.focus()">
+            focus
           </BaseButton>
         </BaseCard>
       </div>
@@ -401,12 +418,15 @@ autocomplete6: {{ autocomplete6 }}({{ typeof autocomplete6 }})</pre>
     <NuiPreview title="BaseInput" description="BaseInput test">
       <div class="grid grid-cols-4 gap-6">
         <div class="col-span-2">
-          <BaseInput v-model="input1" />
+          <BaseInput ref="input1Ref" v-model="input1" />
         </div>
         <BaseCard class="col-span-2 p-2">
           <pre>input1: {{ input1 }}({{ typeof input1 }})</pre>
           <BaseButton @click="input1 = undefined">
             reset
+          </BaseButton>
+          <BaseButton @click="$refs?.input1Ref?.$el?.focus()">
+            focus
           </BaseButton>
         </BaseCard>
       </div>
@@ -459,6 +479,7 @@ autocomplete6: {{ autocomplete6 }}({{ typeof autocomplete6 }})</pre>
         <div class="col-span-2">
           <BaseInputNumber
             v-model="inputNumber1"
+            ref="inputNumber1Ref"
             :min="-2"
             :max="5"
             color-focus
@@ -468,6 +489,9 @@ autocomplete6: {{ autocomplete6 }}({{ typeof autocomplete6 }})</pre>
           <pre>inputNumber1: {{ inputNumber1 }}({{ typeof inputNumber1 }})</pre>
           <BaseButton @click="inputNumber1 = undefined">
             reset
+          </BaseButton>
+          <BaseButton @click="$refs?.inputNumber1Ref?.$el?.focus()">
+            focus
           </BaseButton>
         </BaseCard>
       </div>
@@ -493,7 +517,7 @@ autocomplete6: {{ autocomplete6 }}({{ typeof autocomplete6 }})</pre>
     <NuiPreview title="BaseInputFile" description="BaseInputFile test">
       <div class="grid grid-cols-4 gap-6">
         <div class="col-span-2">
-          <BaseInputFile v-model="inputFile1" />
+          <BaseInputFile ref="inputFile1Ref" v-model="inputFile1" />
         </div>
         <BaseCard class="col-span-2 p-2">
           <pre>
@@ -501,67 +525,8 @@ inputFile1: {{ inputFile1?.item?.(0)?.name }}({{ typeof inputFile1 }})</pre>
           <BaseButton @click="inputFile1 = null">
             reset
           </BaseButton>
-        </BaseCard>
-      </div>
-    </NuiPreview>
-
-    <NuiPreview
-      title="BaseInputFileHeadless"
-      description="BaseInputFileHeadless test"
-    >
-      <div class="grid grid-cols-4 gap-6">
-        <div class="col-span-2">
-          <BaseInputFileHeadless
-            v-slot="{ open, remove, preview, drop, files }"
-            v-model="inputFileCustom1"
-            multiple
-            accept="image/*"
-            :filter-file-dropped="(file: File) => file.type.startsWith('image')"
-          >
-            <div class="flex gap-2">
-              <BaseButton size="icon-md" @click="open">
-                <Icon name="ph:file-plus" />
-              </BaseButton>
-
-              <template v-for="file of files">
-                <BaseAvatar
-                  v-if="file.type.startsWith('image')"
-                  :key="`avatar-${file.name}`"
-                  :title="file.name"
-                  :src="preview(file).value"
-                  @click="remove(file)"
-                />
-                <div v-else :key="`file-${file.name}`">
-                  <BaseIconBox
-                    :title="`${file.name} (${file.type})`"
-                    bordered
-                    @click="remove(file)"
-                  >
-                    <Icon name="ph:file" />
-                  </BaseIconBox>
-                </div>
-              </template>
-            </div>
-            <div
-              class="h-56 w-full border flex items-center justify-center"
-              @click="open"
-              @dragenter.stop.prevent
-              @dragover.stop.prevent
-              @drop="drop"
-            >
-              drop file
-            </div>
-          </BaseInputFileHeadless>
-        </div>
-        <BaseCard class="col-span-2 p-2">
-          <pre>
-inputFileCustom1: {{
-              Array.from(inputFileCustom1 ?? [])
-                .map((file) => file?.name)
-                .join(',')
-            }}({{ typeof inputFileCustom1 }})</pre>
-          <BaseButton @click="inputFileCustom1 = null">
-            reset
+          <BaseButton @click="$refs?.inputFile1Ref?.$el.focus()">
+            focus
           </BaseButton>
         </BaseCard>
       </div>
@@ -570,23 +535,26 @@ inputFileCustom1: {{
     <NuiPreview title="BaseSelect" description="BaseSelect test">
       <div class="grid grid-cols-4 gap-6">
         <div class="col-span-2">
-          <BaseSelect v-model="select1">
-            <option />
-            <option value="foo">
+          <BaseSelect ref="select1Ref" v-model="select1">
+            
+            <BaseSelectItem value="foo">
               foo
-            </option>
-            <option value="bar">
+            </BaseSelectItem>
+            <BaseSelectItem value="bar">
               bar
-            </option>
-            <option value="baz">
+            </BaseSelectItem>
+            <BaseSelectItem value="baz">
               baz
-            </option>
+            </BaseSelectItem>
           </BaseSelect>
         </div>
         <BaseCard class="col-span-2 p-2">
           <pre>select1: {{ select1 }}({{ typeof select1 }})</pre>
           <BaseButton @click="select1 = undefined">
             reset
+          </BaseButton>
+          <BaseButton @click="$refs?.select1Ref?.$el.focus()">
+            focus
           </BaseButton>
         </BaseCard>
       </div>
@@ -596,16 +564,16 @@ inputFileCustom1: {{
       <div class="grid grid-cols-4 gap-6">
         <div class="col-span-2">
           <BaseSelect v-model="select2">
-            <option />
-            <option :value="{ foo: 42 }">
+            
+            <BaseSelectItem :value="{ foo: 42 }">
               foo
-            </option>
-            <option :value="{ bar: 42 }">
+            </BaseSelectItem>
+            <BaseSelectItem :value="{ bar: 42 }">
               bar
-            </option>
-            <option :value="{ baz: 42 }">
+            </BaseSelectItem>
+            <BaseSelectItem :value="{ baz: 42 }">
               baz
-            </option>
+            </BaseSelectItem>
           </BaseSelect>
         </div>
         <BaseCard class="col-span-2 p-2">
@@ -620,12 +588,15 @@ inputFileCustom1: {{
     <NuiPreview title="BaseTextarea" description="BaseTextarea test">
       <div class="grid grid-cols-4 gap-6">
         <div class="col-span-2">
-          <BaseTextarea v-model="textarea1" />
+          <BaseTextarea ref="textarea1Ref" v-model="textarea1" />
         </div>
         <BaseCard class="col-span-2 p-2">
           <pre>textarea1: {{ textarea1 }}({{ typeof textarea1 }})</pre>
           <BaseButton @click="textarea1 = undefined">
             reset
+          </BaseButton>
+          <BaseButton @click="$refs?.textarea1Ref?.$el.focus()">
+            focus
           </BaseButton>
         </BaseCard>
       </div>

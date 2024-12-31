@@ -62,7 +62,7 @@ const handleVariants = {
 
 <script setup lang="ts">
 import { reactiveOmit } from '@vueuse/core'
-import { useForwardPropsEmits } from 'reka-ui'
+import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
 
 defineOptions({
   inheritAttrs: false,
@@ -85,6 +85,7 @@ const id = useNinjaId(() => props.id)
 const attrs = useAttrs()
 const variant = useNuiConfig('BaseSwitchThin', 'variant', () => props.variant)
 const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'sublabel', 'variant']), emits)
+const { forwardRef } = useForwardExpose()
 </script>
 
 <template>
@@ -92,9 +93,10 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'sublab
     class="flex cursor-pointer items-center"
   >
     <SwitchRoot
-      :id 
+      :id
+      :ref="forwardRef"
       v-bind="{...attrs, ...forward }"
-      class="nui-focus relative block h-4 rounded-full cursor-pointer"
+      class="nui-focus-force relative block h-4 rounded-full cursor-pointer"
     >
       <SwitchThumb
         class="peer data-[state=checked]:-translate-y-1/2 data-[state=checked]:translate-x-full data-[state=checked]:rtl:-translate-x-full absolute -start-1 top-1/2 -translate-y-1/2 flex items-center justify-center rounded-full size-6 transition-all duration-300"

@@ -90,69 +90,52 @@ const props = withDefaults(defineProps<BaseTextareaProps>(), {
   maxHeight: undefined,
 })
 
-const [modelValue, modelModifiers] = defineModel<string, 'lazy' | 'trim'>({
-  set(value) {
-    if (modelModifiers.trim && typeof value === 'string') {
-      return value.trim()
-    }
-
-    return value
-  },
-})
+const [modelValue, modelModifiers] = defineModel<string, 'lazy' | 'trim'>()
 
 const id = useNinjaId(() => props.id)
 const variant = useNuiConfig('BaseTextarea', 'variant', () => props.variant)
 const rounded = useNuiConfig('BaseTextarea', 'rounded', () => props.rounded)
 const size = useNuiConfig('BaseTextarea', 'size', () => props.size)
 
-const textareaRef = ref<HTMLTextAreaElement>()
+function updateFromTarget(target: HTMLInputElement) {
+  const value = target.value
 
-defineExpose({
-  /**
-   * The underlying HTMLTextAreaElement element.
-   */
-  el: textareaRef,
+  if (modelModifiers.trim && typeof value === 'string') {
+    modelValue.value = value.trim()
+  } else {
+    modelValue.value = value
+  }
+}
 
-  /**
-   * The internal id of the radio input.
-   */
-  id,
-})
+function onInput(event: Event) {
+  if (modelModifiers.lazy) {
+    return
+  }
+
+  updateFromTarget(event.target as HTMLInputElement)
+}
+
+function onChange(event: Event) {
+  updateFromTarget(event.target as HTMLInputElement)
+}
 </script>
 
 <template>
-  <div class="relative flex flex-col">
-    <textarea
-      v-if="modelModifiers.lazy"
-      :id="id"
-      ref="textareaRef"
-      v-model.lazy="modelValue"
-      v-bind="$attrs"
-      class="nui-focus w-full p-2 text-sm disabled:cursor-not-allowed disabled:opacity-50 nui-slimscroll"
-      :class="[
-        props.autogrow && 'field-sizing-content',
-        variant && variants[variant],
-        rounded && radiuses[rounded],
-        !props.resize && 'resize-none',
-      ]"
-      :placeholder="props.placeholder"
-      :rows="props.rows"
-    />
-    <textarea
-      v-else
-      :id="id"
-      ref="textareaRef"
-      v-model="modelValue"
-      v-bind="$attrs"
-      class="nui-focus w-full p-2 text-sm disabled:cursor-not-allowed disabled:opacity-50 nui-slimscroll"
-      :class="[
-        props.autogrow && 'field-sizing-content',
-        variant && variants[variant],
-        rounded && radiuses[rounded],
-        !props.resize && 'resize-none',
-      ]"
-      :placeholder="props.placeholder"
-      :rows="props.rows"
-    />
-  </div>
+  <textarea
+    :id
+    ref="textareaRef"
+    v-bind="$attrs"
+    class="nui-focus w-full p-2 text-sm disabled:cursor-not-allowed disabled:opacity-50 nui-slimscroll"
+    :class="[
+      props.autogrow && 'field-sizing-content',
+      variant && variants[variant],
+      rounded && radiuses[rounded],
+      !props.resize && 'resize-none',
+    ]"
+    :placeholder="props.placeholder"
+    :rows="props.rows"
+    :value="modelValue"
+    @input="onInput"
+    @change="onChange"
+  />
 </template>

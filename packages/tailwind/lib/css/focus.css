@@ -9,3 +9,23 @@
     @apply outline-dashed ring-0;
   }
 }
+
+@utility nui-focus-within {
+  @apply outline-2 outline-dashed outline-offset-2;
+  @apply outline-transparent;
+
+  &:has(:focus-within), &:focus-within {
+    @apply outline-muted-300 dark:outline-muted-600;
+    @apply outline-dashed ring-0;
+  }
+}
+
+@utility nui-focus-force {
+  @apply outline-2 outline-dashed outline-offset-2;
+  @apply outline-transparent;
+
+  &:has(:focus), &:focus {
+    @apply outline-muted-300 dark:outline-muted-600;
+    @apply outline-dashed ring-0;
+  }
+}

@@ -109,6 +109,8 @@ export const textSpacings = {
 </script>
 
 <script setup lang="ts">
+import { useForwardExpose } from 'reka-ui'
+
 defineOptions({
   inheritAttrs: false,
 })
@@ -132,8 +134,9 @@ const rounded = useNuiConfig('BaseInputFile', 'rounded', () => props.rounded)
 const size = useNuiConfig('BaseInputFile', 'size', () => props.size)
 const i18n = useNuiConfig('BaseInputFile', 'i18n', () => props.i18n)
 
-const inputRef = ref<HTMLInputElement>()
 const id = useNinjaId(() => props.id as string)
+
+const currentRef = useTemplateRef<HTMLInputElement>('currentRef')
 
 function defaultTextValue(fileList?: FileList | null) {
   if (!fileList?.length) {
@@ -164,15 +167,7 @@ const textValue = computed(() => {
 })
 
 defineExpose({
-  /**
-   * The underlying HTMLInputElement element.
-   */
-  el: inputRef,
-
-  /**
-   * The internal id of the file input.
-   */
-  id,
+  $el: currentRef,
 })
 </script>
 
@@ -180,13 +175,15 @@ defineExpose({
   <div class="relative">
     <label
       :tabindex="props.disabled ? -1 : 0"
-      class="group/file relative nui-focus w-full flex cursor-pointer items-center overflow-hidden has-disabled:cursor-not-allowed has-disabled:opacity-50 font-sans transition-colors duration-300"
+      class="group/file relative nui-focus-within w-full flex cursor-pointer items-center overflow-hidden has-disabled:cursor-not-allowed has-disabled:opacity-50 font-sans transition-colors duration-300"
       :for="id"
       :class="[
         variant && variants[variant],
         size && sizes[size],
         rounded && radiuses[rounded],
       ]"
+      @keydown.enter.prevent="currentRef?.click()"
+      @keydown.space.prevent="currentRef?.click()"
     >
       <div
         class="flex w-full items-center text-muted-600 dark:text-muted-400 px-1 py-1.5 gap-2"
@@ -213,10 +210,11 @@ defineExpose({
       </div>
       <input
         :id="id"
-        ref="inputRef"
+        ref="currentRef"
         type="file"
         v-bind="attrs"
-        class="hidden"
+        tabindex="-1"
+        class="absolute opacity-0 w-0 h-0 overflow-hidden"
         :disabled="props.disabled"
         :multiple="props.multiple"
         @change="

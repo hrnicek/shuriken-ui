@@ -139,7 +139,7 @@ export const [
 <script setup lang="ts" generic="T extends AcceptableValue = AcceptableValue">
 import { defu } from 'defu'
 import { reactiveOmit } from '@vueuse/core'
-import { useForwardPropsEmits } from 'reka-ui'
+import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
 
 const props = withDefaults(defineProps<BaseSelectProps<T>>(), {
   id: undefined,
@@ -183,6 +183,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, [
   'preset',
   'bindings',
 ]), emits) as SelectRootProps<T>
+const { forwardRef } = useForwardExpose()
 
 provideBaseSelectContext({
   variant,
@@ -193,7 +194,8 @@ provideBaseSelectContext({
 <template>
   <SelectRoot :id v-bind="forward">
     <SelectTrigger
-      class="nui-focus w-full flex items-center justify-between leading-none gap-[5px] outline-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive-base!"
+      :ref="forwardRef"
+      class="nui-focus-force w-full flex items-center justify-between leading-none gap-[5px] outline-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive-base!"
       :class="[
         variant && variants[variant],
         size && sizes[size],

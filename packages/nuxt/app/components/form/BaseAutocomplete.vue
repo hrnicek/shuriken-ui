@@ -160,7 +160,7 @@ export const [
 
 <script setup lang="ts" generic="T extends AcceptableValue = AcceptableValue">
 import { defu } from 'defu'
-import { useForwardPropsEmits } from 'reka-ui'
+import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 
 defineOptions({
@@ -195,6 +195,7 @@ const iconChevronDown = useNuiConfig('icon', 'chevronDown')
 const bindings = computed(() => defu(props.bindings, presets[preset.value]))
 
 const forward = useForwardPropsEmits(reactiveOmit(props, ['variant', 'rounded', 'size', 'preset', 'bindings']), emits)
+const { forwardRef } = useForwardExpose()
 
 provideBaseAutocompleteContext({
   variant,
@@ -218,7 +219,7 @@ provideBaseAutocompleteContext({
       v-bind="bindings.anchor"
     >
       <slot name="input">
-        <ComboboxInput class="h-full w-full outline-none  placeholder:text-muted-300 dark:placeholder:text-muted-700" v-bind="attrs" />
+        <ComboboxInput :ref="forwardRef" class="h-full w-full outline-none  placeholder:text-muted-300 dark:placeholder:text-muted-700" v-bind="attrs" />
       </slot>
       <ComboboxCancel
         v-if="props.clearable"

@@ -76,7 +76,7 @@ const iconVariants = {
 
 <script setup lang="ts">
 import { reactiveOmit } from '@vueuse/core'
-import { useForwardPropsEmits } from 'reka-ui'
+import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
 
 defineOptions({
   inheritAttrs: false,
@@ -100,6 +100,7 @@ const attrs = useAttrs()
 const variant = useNuiConfig('BaseSwitchBall', 'variant', () => props.variant)
 const iconCheck = useNuiConfig('icon', 'check')
 const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'sublabel', 'variant']), emits)
+const { forwardRef } = useForwardExpose()
 </script>
 
 <template>
@@ -108,8 +109,9 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'sublab
   >
     <SwitchRoot 
       :id 
+      :ref="forwardRef"
       v-bind="{...attrs, ...forward }" 
-      class="group/switch relative"
+      class="group/switch relative nui-focus-force rounded-full"
     >
       <SwitchThumb
         class="peer data-[state=checked]:translate-x-full data-[state=checked]:rtl:-translate-x-full absolute start-0.5 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center rounded-full shadow focus:w-6 size-5 transition-all duration-300"
