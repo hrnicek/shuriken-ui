@@ -1,11 +1,5 @@
-<script lang="ts">
-import type { PrimitiveProps } from 'reka-ui';
-
-export interface BaseFieldController extends PrimitiveProps {}
-</script>
-
-
 <script setup lang="ts">
+import type { BaseFieldController } from '@shuriken-ui/types';
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 

@@ -1,26 +1,14 @@
-<script lang="ts">
-import type { 
-  RadioGroupRootProps,
-  RadioGroupRootEmits,
-} from 'reka-ui'
-
-export interface BaseCheckboxGroupProps extends RadioGroupRootProps {}
-export interface BaseCheckboxGroupEmits extends RadioGroupRootEmits {}
-export type BaseCheckboxGroupSlots = {
-  default(): any
-}
-</script>
-
 <script setup lang="ts">
+import type { BaseRadioGroupEmits, BaseRadioGroupProps, BaseRadioGroupSlots } from '@shuriken-ui/types';
 import { useForwardPropsEmits } from 'reka-ui'
 
-const props = withDefaults(defineProps<BaseCheckboxGroupProps>(), {
+const props = withDefaults(defineProps<BaseRadioGroupProps>(), {
   modelValue: undefined,
   name: undefined,
   orientation: undefined,
 })
-const emits = defineEmits<BaseCheckboxGroupEmits>()
-const slots = defineSlots<BaseCheckboxGroupSlots>()
+const emits = defineEmits<BaseRadioGroupEmits>()
+const slots = defineSlots<BaseRadioGroupSlots>()
 
 const forward = useForwardPropsEmits(props, emits)
 </script>

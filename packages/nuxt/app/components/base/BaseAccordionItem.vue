@@ -1,72 +1,21 @@
-<script lang="ts">
-import type { 
-  AccordionItemProps,
-  AccordionHeaderProps,
-  AccordionContentProps,
-  AccordionTriggerProps,
-} from 'reka-ui'
-
-export interface BaseAccordionItemProps extends AccordionItemProps {
-  /**
-   * The title of the accordion item.
-   */
-  title?: string
-  /**
-   * The content of the accordion item.
-   */
-  content?: string
-
-  /**
-   * The variant of the accordion.
-   *
-   * @default 'default'
-   */
-  variant?: 'default'
-
-  /**
-   * Defines the icon used for accordion item toggle action
-   *
-   * @default 'dot'
-   */
-  action?: 'dot' | 'chevron' | 'plus'
-  
-  /**
-   * Optional bindings to pass to the inner components.
-   */
-  bindings?: {
-    header?: AccordionHeaderProps & Record<string, any>
-    content?: AccordionContentProps & Record<string, any>
-    trigger?: AccordionTriggerProps & Record<string, any>
-  }
-}
-
-export type BaseAccordionItemSlots = {
-  default(): any
-  title(): any
-  action(): any
-}
-</script>
-
-
 <script setup lang="ts">
+import type { BaseAccordionItemProps, BaseAccordionItemSlots } from '@shuriken-ui/types'
+import { BaseAccordion as theme } from '@shuriken-ui/theme-iga'
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 
 const props = withDefaults(defineProps<BaseAccordionItemProps>(), {
-  action: undefined,
-  variant: undefined,
+  action: theme.defaults.action,
+  variant: theme.defaults.variant,
   bindings: () => ({}),
 })
 
 const slots = defineSlots<BaseAccordionItemSlots>()
 
-const variant = useNuiConfig('BaseAccordion', 'variant', () => props.variant)
-const action = useNuiConfig('BaseAccordion', 'action', () => props.action)
 const iconChevron = useNuiConfig('icon', 'chevronDown')
 const iconPlus = useNuiConfig('icon', 'plus')
 
 const forward = useForwardProps(reactiveOmit(props, ['title', 'content', 'variant', 'action', 'bindings']))
-
 </script>
 
 <template>
@@ -80,10 +29,10 @@ const forward = useForwardProps(reactiveOmit(props, ['title', 'content', 'varian
     >
       <AccordionTrigger
         v-bind="props.bindings?.trigger"
-        class="flex group/trigger items-center justify-between w-full py-3 rounded-md px-4 cursor-pointer nui-focus"
+        class="flex group/trigger items-center justify-between w-full py-3 rounded-md px-4 cursor-pointer focus-visible:nui-focus"
         :class="[
           // variant === 'default' && 'hover:bg-muted-50 dark:hover:bg-muted-700', @todo: low-contrast-theme
-          variant === 'default' && 'hover:bg-muted-50 dark:hover:bg-muted-800',
+          props.variant === 'default' && 'hover:bg-muted-50 dark:hover:bg-muted-800',
         ]" 
       >
         <div 
@@ -95,25 +44,25 @@ const forward = useForwardProps(reactiveOmit(props, ['title', 'content', 'varian
         <div
           class="ms-2 text-muted-500 dark:text-muted-300 flex items-center justify-center size-5 transition-all duration-300"
           :class="[
-            action === 'chevron' && 'group-data-[state=open]/trigger:rotate-180',
-            action === 'plus' && 'group-data-[state=open]/trigger:rotate-45',
+            props.action === 'chevron' && 'group-data-[state=open]/trigger:rotate-180',
+            props.action === 'plus' && 'group-data-[state=open]/trigger:rotate-45',
           ]"
         >
           <slot name="action">
             <BaseChip
-              v-if="action === 'dot'"
+              v-if="props.action === 'dot'"
               position="static"
               size="md"
               color="custom"
               class="text-muted-200 dark:text-muted-600 group-data-[state=open]/trigger:text-primary-500"
             />
             <Icon
-              v-else-if="action === 'chevron'"
+              v-else-if="props.action === 'chevron'"
               :name="iconChevron"
               class="text-base"
             />
             <Icon
-              v-else-if="action === 'plus'"
+              v-else-if="props.action === 'plus'"
               :name="iconPlus"
               class="text-base"
             />

@@ -1,22 +1,6 @@
 <script setup lang="ts">
-import type { RouteLocationRaw } from '#vue-router'
+import type { NuxtLinkProps } from '#app'
 
-// We can't use exported types from `#app` because vue doesn't support it yet.
-interface NuxtLinkProps {
-  to?: RouteLocationRaw
-  href?: RouteLocationRaw
-  external?: boolean
-  replace?: boolean
-  custom?: boolean
-  target?: '_blank' | '_parent' | '_self' | '_top' | (string & {}) | null
-  rel?: string | null
-  noRel?: boolean
-  prefetch?: boolean
-  noPrefetch?: boolean
-  activeClass?: string
-  exactActiveClass?: string
-  ariaCurrentValue?: string
-}
 const props = withDefaults(defineProps<NuxtLinkProps>(), {
   to: undefined,
   href: undefined,
@@ -32,7 +16,11 @@ const NuxtLink = defineNuxtLink({})
 </script>
 
 <template>
-  <component :is="NuxtLink" class="underline-offset-4 hover:underline focus:underline hover:text-primary-base dark:hover:text-primary-base focus:text-primary-base dark:focus:text-primary-base" v-bind="props as any">
+  <component 
+    :is="NuxtLink" 
+    v-bind="props"
+    class="underline-offset-4 hover:underline focus:underline hover:text-primary-base dark:hover:text-primary-base focus:text-primary-base dark:focus:text-primary-base" 
+  >
     <slot />
   </component>
 </template>

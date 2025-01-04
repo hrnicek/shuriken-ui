@@ -1,80 +1,6 @@
-<script lang="ts">
-import type{
-  SwitchRootProps,
-  SwitchRootEmits,
-} from 'reka-ui'
-
-export interface BaseSwitchBallProps extends SwitchRootProps {
-  /**
-   * Accessible label for the switch.
-   */
-  label?: string
-
-  /**
-   * The sublabel of the switch.
-   */
-  sublabel?: string
-
-  /**
-   * Main color of the switch.
-   *
-   * @default 'default'
-   */
-   variant?: 'default' | 'primary' | 'dark' | 'none'
-}
-export interface BaseSwitchBallEmits extends SwitchRootEmits {}
-export type BaseSwitchBallSlots = {
-  default(): any
-  sublabel(): any
-}
-
-const trackVariants = {
-  'default': 'peer-data-[state=checked]:bg-muted-500 dark:peer-data-[state=checked]:bg-muted-800 bg-muted-300 dark:bg-muted-900',
-  'primary': 'peer-data-[state=checked]:bg-primary-base dark:peer-data-[state=checked]:bg-primary-base bg-muted-300 dark:bg-muted-600',
-  'dark': 'peer-data-[state=checked]:bg-muted-900 dark:peer-data-[state=checked]:bg-muted-100 bg-muted-300 dark:bg-muted-600',
-  'none': '',
-} as const
-
-// @todo: low-contrast-theme
-// const trackVariants = {
-//   'default': 'peer-data-[state=checked]:bg-muted-400 dark:peer-data-[state=checked]:bg-muted-700 bg-muted-300 dark:bg-muted-600',
-//   'primary': 'peer-data-[state=checked]:bg-primary-base dark:peer-data-[state=checked]:bg-primary-base bg-muted-300 dark:bg-muted-600',
-//   'dark': 'peer-data-[state=checked]:bg-muted-900 dark:peer-data-[state=checked]:bg-muted-100 bg-muted-300 dark:bg-muted-600',
-//   'none': '',
-// } as const
-
-const handleVariants = {
-  'default': 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
-  'primary': 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
-  'dark': 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
-  'none': '',
-} as const
-
-// @todo: low-contrast-theme
-// const handleVariants = {
-//   'default': 'bg-white dark:bg-muted-900 border border-muted-300 dark:border-muted-800',
-//   'primary': 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
-//   'dark': 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
-//   'none': '',
-// } as const
-
-const iconVariants = {
-  'default': 'text-muted-100 dark:text-white',
-  'primary': 'text-white dark:text-white',
-  'dark': 'text-white dark:text-muted-900',
-  'none': '',
-} as const
-
-// @todo: low-contrast-theme
-// const iconVariants = {
-//   'default': 'text-muted-900 dark:text-white',
-//   'primary': 'text-white dark:text-white',
-//   'dark': 'text-white dark:text-muted-900',
-//   'none': '',
-// } as const
-</script>
-
 <script setup lang="ts">
+import type { BaseSwitchBallEmits, BaseSwitchBallProps, BaseSwitchBallSlots } from '@shuriken-ui/types';
+import { BaseSwitchBall as theme } from '@shuriken-ui/theme-iga';
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
 
@@ -86,7 +12,9 @@ const props = withDefaults(defineProps<BaseSwitchBallProps>(), {
   id: undefined,
   label: undefined,
   sublabel: undefined,
-  variant: undefined,
+
+  variant: theme.defaults.variant,
+
   defaultValue: undefined,
   modelValue: undefined,
   name: undefined,
@@ -97,7 +25,6 @@ const slots = defineSlots<BaseSwitchBallSlots>()
 
 const id = useNinjaId(() => props.id)
 const attrs = useAttrs()
-const variant = useNuiConfig('BaseSwitchBall', 'variant', () => props.variant)
 const iconCheck = useNuiConfig('icon', 'check')
 const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'sublabel', 'variant']), emits)
 const { forwardRef } = useForwardExpose()
@@ -111,26 +38,20 @@ const { forwardRef } = useForwardExpose()
       :id 
       :ref="forwardRef"
       v-bind="{...attrs, ...forward }" 
-      class="group/switch relative nui-focus-force rounded-full"
+      class="group/switch relative focus:nui-focus rounded-full"
     >
       <SwitchThumb
         class="peer data-[state=checked]:translate-x-full data-[state=checked]:rtl:-translate-x-full absolute start-0.5 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center rounded-full shadow focus:w-6 size-5 transition-all duration-300"
-        :class="[
-          handleVariants[variant],
-        ]"
+        :class="theme.handleVariants[props.variant]"
       />
       <span 
         class="block h-6 w-11 rounded-full transition-all duration-300"
-        :class="[
-          trackVariants[variant],
-        ]"
+        :class="theme.trackVariants[props.variant]"
       />
       <Icon 
         :name="iconCheck"
         class="peer-data-[state=checked]:-translate-y-1/2 peer-data-[state=checked]:opacity-100 peer-data-[state=checked]:block pointer-events-none absolute start-2 top-1/2 z-10 translate-y-0 fill-current opacity-0 h-2.5 w-2.5 transition-all duration-300"
-        :class="[
-          iconVariants[variant],
-        ]"
+        :class="theme.iconVariants[props.variant]"
       />
     </SwitchRoot>
     <Label :for="id" v-if="props.sublabel || 'sublabel' in slots" class="ms-3 select-none">

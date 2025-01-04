@@ -1,34 +1,6 @@
 <script lang="ts">
-import type { PrimitiveProps } from 'reka-ui';
-import {
-  createContext,
-} from 'reka-ui'
-
-
-export interface BaseFieldContext {
-  state: Ref<'idle' | 'loading' | 'success' | 'error'>
-  id: Ref<string>
-  idLabel: Ref<string | undefined>
-  idDescription: Ref<string | undefined>
-  idError: Ref<string | undefined>
-  name: Ref<string | undefined>
-  required: Ref<boolean>
-  disabled: Ref<boolean>
-}
-
-export interface BaseFieldProps extends PrimitiveProps {
-  // orientation?: 'horizontal' | 'vertical'
-  state?: 'idle' | 'loading' | 'success' | 'error'
-  id?: string
-  name?: string
-  required?: boolean
-  disabled?: boolean
-  modelValue?: any
-}
-
-export type BaseFieldSlots = {
-  default(): any
-}
+import { createContext } from 'reka-ui'
+import type { BaseFieldContext } from '@shuriken-ui/types';
 
 export const [
   injectBaseFieldContext,
@@ -37,6 +9,7 @@ export const [
 </script>
 
 <script setup lang="ts">
+import type { BaseFieldProps, BaseFieldSlots } from '@shuriken-ui/types';
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 

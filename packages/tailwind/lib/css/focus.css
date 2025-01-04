@@ -1,31 +1,24 @@
 /* @utility nui-focus */
 
 @utility nui-focus {
-  @apply outline-2 outline-dashed outline-offset-2;
-  @apply outline-transparent;
+  @apply outline-none ring-current ring-1 ring-offset-2 ring-offset-white;
+  @apply dark:ring-offset-muted-950;
+}
 
-  &:has(:focus-visible), &:focus-visible {
-    @apply outline-muted-300 dark:outline-muted-600;
-    @apply outline-dashed ring-0;
-  }
+/* @utility nui-focus {
+  @apply focus-visible:outline-none focus-visible:ring-current focus-visible:ring-1 focus-visible:ring-offset-2 focus-visible:ring-offset-white;
+  @apply has-focus-visible:outline-none has-focus-visible:ring-current has-focus-visible:ring-1 has-focus-visible:ring-offset-2 has-focus-visible:ring-offset-white;
+  @apply dark:focus-visible:ring-offset-muted-950;
 }
 
 @utility nui-focus-within {
-  @apply outline-2 outline-dashed outline-offset-2;
-  @apply outline-transparent;
-
-  &:has(:focus-within), &:focus-within {
-    @apply outline-muted-300 dark:outline-muted-600;
-    @apply outline-dashed ring-0;
-  }
+  @apply focus-within:outline-none focus-within:ring-current focus-within:ring-1 focus-within:ring-offset-2 focus-within:ring-offset-white;
+  @apply has-focus-within:outline-none has-focus-within:ring-current has-focus-within:ring-1 has-focus-within:ring-offset-2 has-focus-within:ring-offset-white;
+  @apply dark:focus-within:ring-offset-muted-950;
 }
 
 @utility nui-focus-force {
-  @apply outline-2 outline-dashed outline-offset-2;
-  @apply outline-transparent;
-
-  &:has(:focus), &:focus {
-    @apply outline-muted-300 dark:outline-muted-600;
-    @apply outline-dashed ring-0;
-  }
-}
+  @apply focus:outline-none focus:ring-current focus:ring-1 focus:ring-offset-2 focus:ring-offset-white;
+  @apply has-focus:outline-none has-focus:ring-current has-focus:ring-1 has-focus:ring-offset-2 has-focus:ring-offset-white;
+  @apply dark:focus:ring-offset-muted-950;
+} */

@@ -1,0 +1,15 @@
+{
+  "name": "@shuriken-ui/theme-koga",
+  "author": "Css Ninja <hello@cssninja.io> (https://cssninja.io)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shuriken-ui/tailwind.git",
+    "directory": "packages/theme-koga"
+  },
+  "devDependencies": {
+    "@shuriken-ui/types": "workspace:*"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}

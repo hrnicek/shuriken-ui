@@ -16,8 +16,7 @@
   --color-muted-800: var(--color-gray-800);
   --color-muted-900: var(--color-gray-900);
   --color-muted-950: var(--color-gray-950);
-  
-  --color-primary-invert: var(--color-white);
+
   --color-primary-50: var(--color-purple-50);
   --color-primary-100: var(--color-purple-100);
   --color-primary-200: var(--color-purple-200);
@@ -29,6 +28,15 @@
   --color-primary-800: var(--color-purple-800);
   --color-primary-900: var(--color-purple-900);
   --color-primary-950: var(--color-purple-950);
+  
+  --color-primary-invert: var(--color-white);
+  --color-primary-base: var(--color-primary-500);
+  --color-primary-heavy: var(--color-primary-600);
+  --color-primary-light: var(--color-primary-400);
+
+
+
+  
   
   --color-info-50: var(--color-sky-50);
   --color-info-100: var(--color-sky-100);
@@ -79,11 +87,6 @@
   --color-danger-950: var(--color-rose-950);
 
   /** Primary variables */
-  --color-primary-invert: var(--color-white);
-  --color-primary-base: var(--color-primary-500);
-  --color-primary-heavy: var(--color-primary-600);
-  --color-primary-light: var(--color-primary-400);
-
   /** Destructive variables */
   --color-destructive-invert: var(--color-white);
   --color-destructive-base: var(--color-red-600);

@@ -1,19 +1,5 @@
-<script lang="ts">
-import type { ComboboxLabelProps } from 'reka-ui'
-
-export interface BaseAutocompleteLabelProps extends ComboboxLabelProps {
-  /**
-   * The label to display for the Autocomplete.
-   */
-  label?: string
-}
-export type BaseAutocompleteLabelSlots = {
-  default(): any
-}
-</script>
-
-
 <script setup lang="ts">
+import type { BaseAutocompleteLabelProps, BaseAutocompleteLabelSlots } from '@shuriken-ui/types';
 import { useForwardProps } from 'reka-ui';
 import { reactiveOmit } from '@vueuse/core'
 

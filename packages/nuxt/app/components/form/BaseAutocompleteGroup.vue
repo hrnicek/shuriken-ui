@@ -1,15 +1,5 @@
-<script lang="ts">
-import type {
-  ComboboxGroupProps,
-} from 'reka-ui';
-
-export interface BaseAutocompleteGroupProps extends ComboboxGroupProps {}
-export type BaseAutocompleteGroupSlots = {
-  default(): any
-}
-</script>
-
 <script setup lang="ts">
+import type { BaseAutocompleteGroupProps, BaseAutocompleteGroupSlots } from '@shuriken-ui/types';
 import { useForwardProps } from 'reka-ui';
 
 const props = withDefaults(defineProps<BaseAutocompleteGroupProps>(), {})

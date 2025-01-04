@@ -1,11 +1,5 @@
-<script lang="ts">
-import type { LabelProps } from 'reka-ui';
-
-export interface BaseFieldDescription extends LabelProps {}
-</script>
-
-
 <script setup lang="ts">
+import type { BaseFieldDescription } from '@shuriken-ui/types';
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 

@@ -1,15 +1,5 @@
-<script lang="ts">
-import type { TabsContentProps } from 'reka-ui'
-
-export interface BaseTabsContentProps extends TabsContentProps {}
-export type BaseTabsContentSlots = {
-  default(): any
-}
-
-</script>
-
-
 <script setup lang="ts">
+import type { BaseTabsContentProps, BaseTabsContentSlots } from '@shuriken-ui/types';
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 
@@ -21,7 +11,7 @@ const forward = useForwardProps(reactiveOmit(props, []))
 </script>
 
 <template>
-  <TabsContent v-bind="forward" class="font-sans text-sm text-muted-500 dark:text-muted-400">
+  <TabsContent v-bind="forward" class="font-sans focus-visible:nui-focus text-sm text-muted-500 dark:text-muted-400">
     <slot />
   </TabsContent>
 </template>

@@ -1,0 +1,80 @@
+import type {
+  ComboboxRootProps,
+  ComboboxRootEmits,
+  ComboboxAnchorProps,
+  ComboboxCancelProps,
+  ComboboxTriggerProps,
+  ComboboxPortalProps,
+  ComboboxContentProps,
+  ComboboxViewportProps,
+  ComboboxEmptyProps,
+  AcceptableValue,
+} from 'reka-ui'
+
+export interface BaseAutocompleteProps<T = AcceptableValue> extends ComboboxRootProps<T> {
+  /**
+   * The variant of the autocomplete
+   *
+   * @default 'default'
+   */
+  variant?: 'default' | 'muted' | 'none'
+
+  /**
+   * The radius of the component.
+   *
+   * @default 'sm'
+   */
+  rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
+
+  /**
+   * The size of the autocomplete component.
+   *
+   * @default 'md'
+   */
+  size?: 'sm' | 'md' | 'lg' | 'xl'
+
+  /**
+   * Display the clear button to reset the query.
+   *
+   * @default false
+   */
+  clearable?: boolean
+  
+  /**
+   * Bindings presets 
+   *
+   * @default 'inline'
+   */
+  preset?: 'inline' | 'popper'
+
+  /**
+   * Optional bindings to pass to the inner components.
+   */
+  bindings?: {
+    anchor?: ComboboxAnchorProps & Record<string, any>
+    cancel?: ComboboxCancelProps & Record<string, any>
+    trigger?: ComboboxTriggerProps & Record<string, any>
+    portal?: ComboboxPortalProps & Record<string, any>
+    content?: ComboboxContentProps & Record<string, any>
+    viewport?: ComboboxViewportProps & Record<string, any>
+    empty?: ComboboxEmptyProps & Record<string, any>
+  }
+}
+export interface BaseAutocompleteEmits<T = AcceptableValue> extends ComboboxRootEmits<T> {}
+export type BaseAutocompleteSlots = {
+  default(): any
+  input(): any
+  empty(): any
+}
+export type BaseAutocompleteConfig = {
+  variant: NonNullable<BaseAutocompleteProps['variant']>
+  rounded: NonNullable<BaseAutocompleteProps['rounded']>
+  size: NonNullable<BaseAutocompleteProps['size']>
+  preset: NonNullable<BaseAutocompleteProps['preset']>
+}
+
+export interface BaseAutocompleteContext {
+  variant: NonNullable<BaseAutocompleteProps['variant']>
+  rounded: NonNullable<BaseAutocompleteProps['rounded']>
+  size: NonNullable<BaseAutocompleteProps['size']>
+}

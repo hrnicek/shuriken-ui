@@ -1,77 +1,25 @@
-<script lang="ts">
-import type {
-  DropdownMenuItemProps,
-  DropdownMenuItemEmits,
-} from 'reka-ui';
-
-export interface BaseDropdownItemProps extends DropdownMenuItemProps {
-  /**
-   * The title to display for the dropdown item.
-   */
-  title?: string
-
-  /**
-   * The text to display for the dropdown item.
-   */
-  text?: string
-
-  /**
-   * The hover color of the dropdown-item inner elements.
-   *
-   * @default 'default'
-   */
-  variant?: 'default' | 'muted' | 'primary' | 'none'
-
-  /**
-   * The radius of the dropdown-item.
-   *
-   * @default 'sm'
-   */
-  rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
-}
-export interface BaseDropdownItemEmits extends DropdownMenuItemEmits {}
-export type BaseDropdownItemSlots = {
-  default(): any
-
-  title(): any
-  text(): any
-  start(): any
-  end(): any
-}
-
-export const variants = {
-  'default': 'hover:bg-muted-100 dark:hover:bg-muted-900',
-  'muted': 'hover:bg-muted-200 dark:hover:bg-muted-900',
-  'primary': 'hover:bg-primary-500/10 dark:hover:bg-primary-500/20',
-  'none': '',
-} as const
-
-// @todo: low-contrast-theme
-// export const variants = {
-//   'default': 'hover:bg-muted-100 dark:hover:bg-muted-700',
-//   'muted': 'hover:bg-muted-200 dark:hover:bg-muted-700',
-//   'primary': 'hover:bg-primary-500/10 dark:hover:bg-primary-500/20',
-//   'none': '',
-// } as const
-</script>
-
 <script setup lang="ts">
+import type { BaseDropdownItemProps, BaseDropdownItemEmits, BaseDropdownItemSlots } from '@shuriken-ui/types';
+import { 
+  BaseDropdown as dropdownTheme,
+  BaseDropdownItem as theme,
+} from '@shuriken-ui/theme-iga';
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
-import { injectBaseDropdownContext, radiuses } from './BaseDropdown.vue'
-
-const context = injectBaseDropdownContext()
+import { injectBaseDropdownContext } from './BaseDropdown.vue'
 
 const props = withDefaults(defineProps<BaseDropdownItemProps>(), {
-  rounded: undefined,
-  contrast: undefined,
-  variant: undefined,
   title: '',
   text: '',
+
+  variant: theme.defaults.variant,
+  rounded: theme.defaults.rounded,
 })
 
 const emits = defineEmits<BaseDropdownItemEmits>()
 const slots = defineSlots<BaseDropdownItemSlots>()
+
+const context = injectBaseDropdownContext()
 
 const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'variant', 'rounded']), emits)
 </script>
@@ -79,10 +27,10 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'vari
 <template>
   <DropdownMenuItem
     v-bind="forward"
-    class="nui-focus flex w-full items-center justify-start gap-2 p-2 cursor-pointer text-start font-sans text-sm transition-colors duration-300"
+    class="focus-visible:nui-focus flex w-full items-center justify-start gap-2 p-2 cursor-pointer text-start font-sans text-sm transition-colors duration-300"
     :class="[
-      context.rounded.value && radiuses[context.rounded.value],
-      context.variant.value && variants[context.variant.value],
+      context.rounded && dropdownTheme.radiuses[context.rounded],
+      context.variant && theme.variants[context.variant],
       props.disabled && 'opacity-50 pointer-events-none',
     ]"
   >

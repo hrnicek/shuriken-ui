@@ -1,30 +1,18 @@
-<script lang="ts">
-import type { BaseTextProps } from './BaseText.vue'
-
-export interface BaseParagraphProps extends BaseTextProps {}
-export type BaseParagraphSlots = {
-  default(): any
-}
-</script>
-
 <script setup lang="ts">
+import type { BaseParagraphProps, BaseParagraphSlots } from '@shuriken-ui/types';
+import { BaseParagraph as theme } from '@shuriken-ui/theme-iga';
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
-import { leads, sizes, trackings, weights } from './BaseText.vue'
 
 const props = withDefaults(defineProps<BaseParagraphProps>(), {
-  as: undefined,
-  size: undefined,
-  lead: undefined,
-  weight: undefined,
-  tracking: undefined,
+  as: theme.defaults.as,
+  size: theme.defaults.size,
+  lead: theme.defaults.lead,
+  weight: theme.defaults.weight,
+  tracking: theme.defaults.tracking,
 })
 const slots = defineSlots<BaseParagraphSlots>()
 
-const size = useNuiConfig('BaseParagraph', 'size', () => props.size)
-const lead = useNuiConfig('BaseParagraph', 'lead', () => props.lead)
-const weight = useNuiConfig('BaseParagraph', 'weight', () => props.weight)
-const tracking = useNuiConfig('BaseParagraph', 'tracking', () => props.tracking)
 const forward = useForwardProps(reactiveOmit(props, ['size', 'lead', 'weight', 'tracking']))
 </script>
 
@@ -33,10 +21,10 @@ const forward = useForwardProps(reactiveOmit(props, ['size', 'lead', 'weight', '
     v-bind="forward"
     class="font-sans"
     :class="[
-      size && sizes[size],
-      lead && leads[lead],
-      weight && weights[weight],
-      tracking && trackings[tracking],
+      props.size && theme.sizes[props.size],
+      props.lead && theme.leads[props.lead],
+      props.weight && theme.weights[props.weight],
+      props.tracking && theme.trackings[props.tracking],
     ]"
   >
     <slot />

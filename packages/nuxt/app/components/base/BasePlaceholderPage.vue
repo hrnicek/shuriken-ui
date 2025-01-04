@@ -1,49 +1,14 @@
-<script lang="ts">
-import type { PrimitiveProps } from 'reka-ui';
-
-export interface BasePlaceholderPageProps extends PrimitiveProps {
-  /**
-   * The title of the placeholder.
-   */
-  title: string
-
-  /**
-   * The subtitle of the placeholder.
-   */
-  subtitle?: string
-
-  /**
-   * The size of the featured image.
-   *
-   * @default 'xs'
-   */
-  imageSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-}
-export type BasePlaceholderPageSlots = {
-  default(): any
-  image(): any
-}
-
-export const sizes = {
-  xs: 'max-w-xs',
-  sm: 'max-w-sm',
-  md: 'max-w-md',
-  lg: 'max-w-lg',
-  xl: 'max-w-xl',
-} as const
-</script>
-
 <script setup lang="ts">
+import type { BasePlaceholderPageProps, BasePlaceholderPageSlots } from '@shuriken-ui/types';
+import { BasePlaceholderPage as theme } from '@shuriken-ui/theme-iga';
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 
 const props = withDefaults(defineProps<BasePlaceholderPageProps>(), {
   subtitle: undefined,
-  imageSize: undefined,
+  imageSize: theme.defaults.imageSize,
 })
 const slots = defineSlots<BasePlaceholderPageSlots>()
-
-const imageSize = useNuiConfig('BasePlaceholderPage', 'imageSize', () => props.imageSize)
 
 const forward = useForwardProps(reactiveOmit(props, ['title', 'subtitle', 'imageSize']))
 </script>
@@ -52,7 +17,7 @@ const forward = useForwardProps(reactiveOmit(props, ['title', 'subtitle', 'image
   <Primitive
     v-bind="forward"
     class="flex mx-auto min-h-[400px] items-center justify-center"
-    :class="[imageSize && sizes[imageSize]]"
+    :class="[props.imageSize && theme.sizes[props.imageSize]]"
   >
     <div class="mx-auto w-full text-center">
       <div

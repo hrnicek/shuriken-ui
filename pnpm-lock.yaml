@@ -136,6 +136,12 @@ importers:
       '@shuriken-ui/tailwind':
         specifier: workspace:*
         version: link:../tailwind
+      '@shuriken-ui/theme-iga':
+        specifier: workspace:*
+        version: link:../theme-iga
+      '@shuriken-ui/theme-koga':
+        specifier: workspace:*
+        version: link:../theme-koga
       '@tailwindcss/vite':
         specifier: 'catalog:'
         version: 4.0.0-beta.8(vite@6.0.6(@types/node@22.10.2)(jiti@2.4.2)(lightningcss@1.28.2)(terser@5.37.0)(yaml@2.6.1))
@@ -161,6 +167,9 @@ importers:
       '@nuxt/kit':
         specifier: ^3.14.1592
         version: 3.15.0(magicast@0.3.5)(rollup@4.29.1)
+      '@shuriken-ui/types':
+        specifier: workspace:*
+        version: link:../types
 
   packages/nuxt-component-meta:
     devDependencies:
@@ -193,6 +202,30 @@ importers:
       tailwindcss:
         specifier: 'catalog:'
         version: 4.0.0-beta.8
+
+  packages/theme-iga:
+    devDependencies:
+      '@shuriken-ui/types':
+        specifier: workspace:*
+        version: link:../types
+
+  packages/theme-koga:
+    devDependencies:
+      '@shuriken-ui/types':
+        specifier: workspace:*
+        version: link:../types
+
+  packages/types:
+    devDependencies:
+      reka-ui:
+        specifier: 1.0.0-alpha.7
+        version: 1.0.0-alpha.7(typescript@5.7.2)(vue@3.5.13(typescript@5.7.2))
+      vue:
+        specifier: ^3.5.13
+        version: 3.5.13(typescript@5.7.2)
+      vue-router:
+        specifier: ^4.5.0
+        version: 4.5.0(vue@3.5.13(typescript@5.7.2))
 
   packages/vue: {}
 

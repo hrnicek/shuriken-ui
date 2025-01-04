@@ -1,78 +1,7 @@
-<script lang="ts">
-export interface BaseTextareaProps {
-  /**
-   * The form input identifier.
-   */
-  id?: string
-
-  /**
-   * The placeholder text for the textarea.
-   */
-  placeholder?: string
-
-  /**
-   * The number of rows to display in the textarea.
-   */
-  rows?: number | string
-
-  /**
-   * Whether to allow the user to resize the textarea.
-   */
-  resize?: boolean
-
-  /**
-   * Whether to automatically grow the textarea as text is entered.
-   */
-  autogrow?: boolean
-
-  /**
-   * The maximum height of the textarea when autogrow is enabled.
-   */
-  maxHeight?: number
-
-  /**
-   * The variant of the textarea.
-   *
-   * @default 'default'
-   */
-  variant?: 'default' | 'muted'
-
-  /**
-   * The radius of the textarea.
-   *
-   * @default 'md'
-   */
-  rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
-
-  /**
-   * The size of the textarea.
-   *
-   * @default 'md'
-   */
-  size?: 'sm' | 'md' | 'lg'
-}
-
-const radiuses = {
-  none: '',
-  sm: 'rounded-sm',
-  md: 'rounded-md',
-  lg: 'rounded-lg',
-  full: 'rounded-xl',
-} as const
-
-const sizes = {
-  sm: 'nui-textarea-sm',
-  md: 'nui-textarea-md',
-  lg: 'nui-textarea-lg',
-} as const
-
-const variants = {
-  default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 aria-invalid:border-destructive-base!',
-  muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-600 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 aria-invalid:border-destructive-base!',
-} as const
-</script>
-
 <script setup lang="ts">
+import type { BaseTextareaProps } from '@shuriken-ui/types';
+import { BaseTextarea as theme } from '@shuriken-ui/theme-iga';
+
 defineOptions({
   inheritAttrs: false,
 })
@@ -80,9 +9,11 @@ defineOptions({
 const props = withDefaults(defineProps<BaseTextareaProps>(), {
   id: undefined,
   name: undefined,
-  rounded: undefined,
-  size: undefined,
-  variant: undefined,
+
+  rounded: theme.defaults.rounded,
+  size: theme.defaults.size,
+  variant: theme.defaults.variant,
+
   label: undefined,
   placeholder: '',
   error: false,
@@ -93,9 +24,6 @@ const props = withDefaults(defineProps<BaseTextareaProps>(), {
 const [modelValue, modelModifiers] = defineModel<string, 'lazy' | 'trim'>()
 
 const id = useNinjaId(() => props.id)
-const variant = useNuiConfig('BaseTextarea', 'variant', () => props.variant)
-const rounded = useNuiConfig('BaseTextarea', 'rounded', () => props.rounded)
-const size = useNuiConfig('BaseTextarea', 'size', () => props.size)
 
 function updateFromTarget(target: HTMLInputElement) {
   const value = target.value
@@ -125,11 +53,11 @@ function onChange(event: Event) {
     :id
     ref="textareaRef"
     v-bind="$attrs"
-    class="nui-focus w-full p-2 text-sm disabled:cursor-not-allowed disabled:opacity-50 nui-slimscroll"
+    class="focus-visible:nui-focus w-full p-2 text-sm disabled:cursor-not-allowed disabled:opacity-50 nui-slimscroll"
     :class="[
       props.autogrow && 'field-sizing-content',
-      variant && variants[variant],
-      rounded && radiuses[rounded],
+      props.variant && theme.variants[props.variant],
+      props.rounded && theme.radiuses[props.rounded],
       !props.resize && 'resize-none',
     ]"
     :placeholder="props.placeholder"

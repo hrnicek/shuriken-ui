@@ -35,16 +35,16 @@ definePageMeta({
 
       <NuiPreview title="Icon" description="Message component icons">
         <div class="grid grid-cols-1 md:grid-cols-2 max-w-2xl gap-4">
-          <BaseMessage variant="success" icon>
+          <BaseMessage variant="success" icon="carbon:checkmark-filled">
             A successful message.
           </BaseMessage>
-          <BaseMessage variant="info" icon>
+          <BaseMessage variant="info" icon="akar-icons:info-fill">
             An information message.
           </BaseMessage>
-          <BaseMessage variant="warning" icon>
+          <BaseMessage variant="warning" icon="ci:warning">
             A warning message.
           </BaseMessage>
-          <BaseMessage variant="destructive" icon>
+          <BaseMessage variant="destructive" icon="ph:warning-octagon-fill">
             A destructive message.
           </BaseMessage>
           <BaseMessage variant="default" icon="mingcute:avalanche-avax-fill">
@@ -58,16 +58,16 @@ definePageMeta({
 
       <NuiPreview title="Radius" description="Message component radiuses">
         <div class="grid grid-cols-1 md:grid-cols-2 max-w-2xl gap-4">
-          <BaseMessage variant="success" icon rounded="sm">
+          <BaseMessage variant="success" icon="carbon:checkmark-filled" rounded="sm">
             A successful message.
           </BaseMessage>
-          <BaseMessage variant="info" icon rounded="md">
+          <BaseMessage variant="info" icon="akar-icons:info-fill" rounded="md">
             An information message.
           </BaseMessage>
-          <BaseMessage variant="warning" icon rounded="lg">
+          <BaseMessage variant="warning" icon="ci:warning" rounded="lg">
             A warning message.
           </BaseMessage>
-          <BaseMessage variant="destructive" icon rounded="full">
+          <BaseMessage variant="destructive" icon="ph:warning-octagon-fill" rounded="full">
             A destructive message.
           </BaseMessage>
         </div>
@@ -75,16 +75,16 @@ definePageMeta({
 
       <NuiPreview title="Radius" description="Message component radiuses">
         <div class="grid grid-cols-1 md:grid-cols-2 max-w-2xl gap-4">
-          <BaseMessage variant="success" icon rounded="sm" closable>
+          <BaseMessage variant="success" icon="carbon:checkmark-filled" rounded="sm" closable>
             A successful message.
           </BaseMessage>
-          <BaseMessage variant="info" icon rounded="md" closable>
+          <BaseMessage variant="info" icon="akar-icons:info-fill" rounded="md" closable>
             An information message.
           </BaseMessage>
-          <BaseMessage variant="warning" icon rounded="lg" closable>
+          <BaseMessage variant="warning" icon="ci:warning" rounded="lg" closable>
             A warning message.
           </BaseMessage>
-          <BaseMessage variant="destructive" icon rounded="full" closable>
+          <BaseMessage variant="destructive" icon="ph:warning-octagon-fill" rounded="full" closable>
             A destructive message.
           </BaseMessage>
         </div>

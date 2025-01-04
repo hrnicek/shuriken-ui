@@ -1,19 +1,5 @@
-<script lang="ts">
-import type { SelectLabelProps } from 'reka-ui'
-
-export interface BaseSelectLabelProps extends SelectLabelProps {
-  /**
-   * The label to display for the dropdown.
-   */
-  label?: string
-}
-export type BaseSelectLabelSlots = {
-  default(): any
-}
-</script>
-
-
 <script setup lang="ts">
+import type { BaseSelectLabelProps, BaseSelectLabelSlots } from '@shuriken-ui/types';
 import { useForwardProps } from 'reka-ui';
 import { reactiveOmit } from '@vueuse/core'
 

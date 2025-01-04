@@ -1,62 +1,19 @@
-<script lang="ts">
-import type {
-  DropdownMenuCheckboxItemProps,
-  DropdownMenuCheckboxItemEmits,
-  DropdownMenuItemIndicatorProps,
-} from 'reka-ui';
-
-export interface BaseDropdownCheckboxProps extends DropdownMenuCheckboxItemProps {
-  /**
-   * The title to display for the dropdown item.
-   */
-  title?: string
-
-  /**
-   * The text to display for the dropdown item.
-   */
-  text?: string
-
-  /**
-   * The hover color of the dropdown-item inner elements.
-   *
-   * @default 'default'
-   */
-  variant?: 'default' | 'muted' | 'primary' | 'none'
-
-  /**
-   * The radius of the dropdown-item.
-   *
-   * @default 'sm'
-   */
-  rounded?: 'none' | 'sm' | 'md' | 'lg'
-
-  /**
-   * Optional bindings to pass to the inner components.
-   */
-  bindings?: {
-    indicator?: DropdownMenuItemIndicatorProps & Record<string, any>
-  }
-}
-export interface BaseDropdownCheckboxEmits extends DropdownMenuCheckboxItemEmits {}
-export type BaseDropdownCheckboxSlots = {
-  default(): any
-  title(): any
-  text(): any
-  end(): any
-}
-</script>
-
 <script setup lang="ts">
+import type { BaseDropdownCheckboxProps, BaseDropdownCheckboxEmits, BaseDropdownCheckboxSlots} from '@shuriken-ui/types';
+import { 
+  BaseDropdown as dropdownTheme,
+  BaseDropdownItem as theme,
+} from '@shuriken-ui/theme-iga';
+
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
-import { variants } from './BaseDropdownItem.vue'
-import { radiuses } from './BaseDropdown.vue'
 
 const props = withDefaults(defineProps<BaseDropdownCheckboxProps>(), {
-  rounded: undefined,
-  variant: undefined,
-  title: undefined,
-  text: undefined,
+  title: '',
+  text: '',
+
+  variant: theme.defaults.variant,
+  rounded: theme.defaults.rounded,
 
   disabled: undefined,
   modelValue: undefined,
@@ -67,8 +24,6 @@ const props = withDefaults(defineProps<BaseDropdownCheckboxProps>(), {
 const emits = defineEmits<BaseDropdownCheckboxEmits>()
 const slots = defineSlots<BaseDropdownCheckboxSlots>()
 
-const variant = useNuiConfig('BaseDropdownItem', 'variant', () => props.variant)
-const rounded = useNuiConfig('BaseDropdownItem', 'rounded', () => props.rounded)
 const iconCheck = useNuiConfig('icon', 'check')
 const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'variant', 'rounded', 'bindings']), emits)
 </script>
@@ -76,10 +31,10 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'vari
 <template>
   <DropdownMenuCheckboxItem 
     v-bind="forward"
-    class="nui-focus flex w-full items-center justify-start gap-2 p-2 cursor-pointer text-start font-sans text-sm transition-colors duration-300 group/menu-checkbox-item"
+    class="focus-visible:nui-focus flex w-full items-center justify-start gap-2 p-2 cursor-pointer text-start font-sans text-sm transition-colors duration-300 group/menu-checkbox-item"
     :class="[
-      rounded && radiuses[rounded],
-      variant && variants[variant],
+      props.rounded && dropdownTheme.radiuses[rounded],
+      props.variant && theme.variants[variant],
       props.disabled && 'opacity-50 pointer-events-none',
     ]"
   >

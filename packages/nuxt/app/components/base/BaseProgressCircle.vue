@@ -1,66 +1,6 @@
-<script lang="ts">
-import type {
-  ProgressRootProps,
-  ProgressRootEmits,
-} from 'reka-ui'
-
-export interface BaseProgressCircleProps extends ProgressRootProps {
-  /**
-   * The size of the progress circle.
-   */
-  size?: number
-
-  /**
-   * The thickness of the progress circle.
-   */
-  thickness?: number
-
-  /**
-   * Enable/disable animation, or set the animation duration (in seconds).
-   */
-  animation?: boolean | number
-
-  /**
-   * Defines the variant of the progress circle
-   *
-   * @default 'primary'
-   */
-  variant?: 'primary' | 'dark' | 'none'
-}
-export interface BaseProgressCircleEmits extends ProgressRootEmits {}
-
-export type BaseProgressCircleSlots = {
-  default(): any
-}
-
-export const variants = {
-  'primary': 'text-primary-base',
-  'dark': 'text-muted-900 dark:text-muted-100',
-  'none': '',
-} as const
-
-// @todo: low-contrast-theme
-// export const variants = {
-//   'primary': 'text-primary-base',]',
-//   'dark': 'text-muted-900 dark:text-muted-100',
-//   'none': '',
-// } as const
-
-export const trackVariants = {
-  'primary': 'text-muted-200 dark:text-muted-900',
-  'dark': 'text-muted-200 dark:text-muted-900',
-  'none': '',
-} as const
-
-// @todo: low-contrast-theme
-// export const trackVariants = {
-//   'primary': 'text-muted-200 dark:text-muted-700',
-//   'dark': 'text-muted-200 dark:text-muted-700',
-//   'none': '',
-// } as const
-</script>
-
 <script setup lang="ts">
+import type { BaseProgressCircleEmits, BaseProgressCircleProps, BaseProgressCircleSlots } from '@shuriken-ui/types';
+import { BaseProgressCircle as theme } from '@shuriken-ui/theme-iga';
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 
@@ -68,7 +8,8 @@ const props = withDefaults(defineProps<BaseProgressCircleProps>(), {
   size: 60,
   thickness: 4,
   animation: 2,
-  variant: undefined,
+
+  variant: theme.defaults.variant,
   
   max: undefined,
   modelValue: undefined,
@@ -76,8 +17,6 @@ const props = withDefaults(defineProps<BaseProgressCircleProps>(), {
 })
 const emits = defineEmits<BaseProgressCircleEmits>()
 const slots = defineSlots<BaseProgressCircleSlots>()
-
-const variant = useNuiConfig('BaseProgressCircle', 'variant', () => props.variant)
 
 const forward = useForwardPropsEmits(reactiveOmit(props, ['variant', 'size', 'thickness', 'animation']), emits)
 </script>
@@ -97,7 +36,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['variant', 'size', 'th
       <circle
         class="stroke-current "
         :class="[
-          variant && trackVariants[variant],
+          props.variant && theme.trackVariants[props.variant],
         ]"
         :stroke-width="props.thickness"
         fill="none"
@@ -110,7 +49,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['variant', 'size', 'th
           class="stroke-current origin-center"
           :class="[
             typeof modelValue === 'number' ? '-rotate-90 transition-[stroke-dasharray] duration-300' : 'animate-nui-spin',
-            variant && variants[variant],
+            props.variant && theme.variants[props.variant],
           ]"
           :stroke-width="props.thickness"
           :stroke-dasharray="typeof modelValue === 'number' ? `${modelValue},100` : '0,100'"

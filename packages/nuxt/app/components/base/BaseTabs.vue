@@ -1,82 +1,6 @@
 <script lang="ts">
-import type { 
-  TabsRootProps,
-  TabsRootEmits,
-} from 'reka-ui'
-import {
-  createContext,
-} from 'reka-ui'
-import type { BaseTabsTriggerProps } from './BaseTabsTrigger.vue'
-
-export interface BaseTabsProps extends TabsRootProps {
-  /**
-   * An array of tab objects that contain a label and value
-   */
-  tabs?: BaseTabsTriggerProps[]
-
-  /**
-   * Accessible label for the tabs
-   */
-  label?: string
-
-  /**
-   * Defines the color of the active tab
-   *
-   * @default 'default'
-   */
-  variant?: 'primary' | 'dark' | 'muted'
-
-  /**
-   * The horizontal alignment of the tabs.
-   *
-   * @default 'start'
-   */
-  justify?: 'start' | 'center' | 'end'
-
-  /**
-   * The radius of the boxed tab.
-   *
-   * @default 'md'
-   */
-   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
-
-  /**
-   * The type of tabs to display..
-   *
-   * @default 'tabs'
-   */
-  type?: 'tabs' | 'box'
-}
-export interface BaseTabsEmits extends TabsRootEmits {}
-export type BaseTabsSlots = {
-  default(): any
-  trigger(): any
-}
-export interface BaseTabsContext {
-  variant: ComputedRef<NonNullable<BaseTabsProps['variant']>>
-  justify: ComputedRef<NonNullable<BaseTabsProps['justify']>>
-  rounded: ComputedRef<NonNullable<BaseTabsProps['rounded']>>
-  type: ComputedRef<NonNullable<BaseTabsProps['type']>>
-}
-
-export const radiuses = {
-  none: '',
-  sm: 'rounded-sm',
-  md: 'rounded-md',
-  lg: 'rounded-lg',
-  full: 'rounded-full',
-} as const
-
-export const justifies = {
-  start: '',
-  center: 'justify-center',
-  end: 'justify-end',
-} as const
-
-export const types = {
-  tabs: 'cursor-pointer px-4 py-3 text-sm transition-all duration-300',
-  box: 'flex flex-col rounded-xl px-5 cursor-pointer text-center transition-all duration-300',
-} as const
+import type { BaseTabsContext } from '@shuriken-ui/types';
+import { createContext } from 'reka-ui'
 
 export const [
   injectBaseTabsContext,
@@ -84,16 +8,17 @@ export const [
 ] = createContext<BaseTabsContext>('BaseTabsContext')
 </script>
 
-
 <script setup lang="ts">
+import type { BaseTabsProps, BaseTabsEmits, BaseTabsSlots } from '@shuriken-ui/types';
+import { BaseTabs as theme } from '@shuriken-ui/theme-iga';
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 
 const props = withDefaults(defineProps<BaseTabsProps>(), {
-  type: undefined,
-  justify: undefined,
-  rounded: undefined,
-  variant: undefined,
+  type: theme.defaults.type,
+  justify: theme.defaults.justify,
+  rounded: theme.defaults.rounded,
+  variant: theme.defaults.variant,
 
   modelValue: undefined,
   orientation: undefined,
@@ -102,16 +27,11 @@ const props = withDefaults(defineProps<BaseTabsProps>(), {
 const emits = defineEmits<BaseTabsEmits>()
 const slots = defineSlots<BaseTabsSlots>()
 
-const variant = useNuiConfig('BaseTabs', 'variant', () => props.variant)
-const justify = useNuiConfig('BaseTabs', 'justify', () => props.justify)
-const rounded = useNuiConfig('BaseTabs', 'rounded', () => props.rounded)
-const type = useNuiConfig('BaseTabs', 'type', () => props.type)
-
 provideBaseTabsContext({
-  variant,
-  justify,
-  rounded,
-  type,
+  variant: props.variant,
+  justify: props.justify,
+  rounded: props.rounded,
+  type: props.type,
 })
 
 const forward = useForwardPropsEmits(reactiveOmit(props, ['tabs', 'variant', 'justify', 'rounded', 'type']))
@@ -129,9 +49,9 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['tabs', 'variant', 'ju
       :aria-label="props.label"
       class="relative font-sans mb-6 flex"
       :class="[
-        justify && justifies[justify],
+        props.justify && theme.justifies[props.justify],
         props.orientation === 'vertical' && 'flex flex-col items-start me-16 min-w-32',
-        props.orientation !== 'vertical' && type === 'tabs' && 'border-b border-muted-200 dark:border-muted-800',
+        props.orientation !== 'vertical' && props.type === 'tabs' && 'border-b border-muted-200 dark:border-muted-800',
       ]"
     >
       <slot name="trigger">
@@ -139,29 +59,21 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['tabs', 'variant', 'ju
           v-for="(tab, key) in tabs"
           :key="key"
           v-bind="tab"
-          :variant="variant"
+          :variant="props.variant"
           @click="emits('update:modelValue', tab.value)"
         />
       </slot>
 
       
       <TabsIndicator
-        v-if="type === 'tabs'"
+        v-if="props.type === 'tabs'"
         class="absolute rounded-full duration-300"
         :class="[
           props.orientation === 'vertical' && 'h-[var(--reka-tabs-indicator-size)] translate-y-[var(--reka-tabs-indicator-position)] end-0 w-[2px] transition-[height,translate]',
           props.orientation !== 'vertical' && 'w-[var(--reka-tabs-indicator-size)] translate-x-[var(--reka-tabs-indicator-position)] start-0 h-[2px] bottom-0 transition-[width,translate]',
         ]"
       >
-        <div class="w-full h-full" :class="[
-          // @todo: low-contrast-theme
-          // variant === 'primary-low' && 'bg-primary-base',
-          variant === 'primary' && 'bg-primary-base',
-          // variant === 'dark-low' && 'bg-muted-900 dark:bg-muted-100',
-          variant === 'dark' && 'bg-muted-900 dark:bg-muted-100',
-          // variant === 'muted-low' && 'bg-muted-400 dark:bg-muted-400',
-          variant === 'muted' && 'bg-muted-400 dark:bg-muted-500',
-        ]" />
+        <div class="w-full h-full" :class="theme.tabsIndicator[props.variant]" />
       </TabsIndicator>
       <TabsIndicator
         v-else
@@ -171,16 +83,13 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['tabs', 'variant', 'ju
           props.orientation !== 'vertical' && 'h-full translate-x-[var(--reka-tabs-indicator-position)] w-[var(--reka-tabs-indicator-size)]  bottom-0 start-0 transition-[width,translate]',
         ]"
       >
-        <div class="w-full h-full" :class="[
-          rounded && radiuses[rounded],
-          // @todo: low-contrast-theme
-          // variant === 'primary-low' && 'bg-primary-500/10 dark:bg-primary-500/20',  
-          variant === 'primary' && 'bg-primary-500/10 dark:bg-primary-500/20',
-          // variant === 'dark-low' && 'bg-muted-900/10 dark:bg-muted-100/10',
-          variant === 'dark' && 'bg-muted-900/10 dark:bg-white/10',
-          // variant === 'muted-low' && 'bg-muted-100 dark:bg-muted-700',
-          variant === 'muted' && 'bg-muted-100 dark:bg-muted-900',
-        ]" />
+        <div
+          class="w-full h-full"
+          :class="[
+            props.rounded && theme.radiuses[props.rounded],
+            theme.boxIndicator[props.variant]
+          ]"
+        />
       </TabsIndicator>
 
     </TabsList>

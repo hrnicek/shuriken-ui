@@ -1,11 +1,5 @@
-<script lang="ts">
-import type { PrimitiveProps } from 'reka-ui';
-
-export interface BaseFieldErrorIndicator extends PrimitiveProps {}
-</script>
-
-
 <script setup lang="ts">
+import type { BaseFieldErrorIndicator } from '@shuriken-ui/types';
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 

@@ -1,44 +1,11 @@
-<script lang="ts">
-import type { 
-  DropdownMenuSubProps,
-  DropdownMenuSubEmits,
-  DropdownMenuSubTriggerProps,
-  DropdownMenuSubContentProps,
-  DropdownMenuPortalProps,
-} from 'reka-ui'
-
-export interface BaseDropdownSubProps extends DropdownMenuSubProps {
-  /**
-   * The title to display for the dropdown item.
-   */
-  title?: string
-
-  /**
-   * The text to display for the dropdown item.
-   */
-  text?: string
-
-  /**
-   * Optional bindings to pass to the inner components.
-   */
-  bindings?: {
-    trigger?: DropdownMenuSubTriggerProps & Record<string, any>
-    content?: DropdownMenuSubContentProps & Record<string, any>
-    portal?: DropdownMenuPortalProps & Record<string, any>
-  }
-}
-export interface BaseDropdownSubEmits extends DropdownMenuSubEmits {}
-export type BaseDropdownSubSlots = {
-  default(): any
-  title(): any
-  text(): any
-}
-</script>
 
 <script setup lang="ts">
-import { injectBaseDropdownContext, variants as dropdownVariants } from './BaseDropdown.vue'
-import { variants } from './BaseDropdownItem.vue'
-import { radiuses } from './BaseDropdown.vue'
+import type { BaseDropdownSubProps, BaseDropdownSubEmits, BaseDropdownSubSlots } from '@shuriken-ui/types';
+import { 
+  BaseDropdown as dropdownTheme,
+  BaseDropdownItem as theme,
+} from '@shuriken-ui/theme-iga';
+import { injectBaseDropdownContext } from './BaseDropdown.vue'
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 
@@ -56,10 +23,10 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'bind
   <DropdownMenuSub v-bind="forward">
     <DropdownMenuSubTrigger
       v-bind="props.bindings?.trigger"
-      class="nui-focus flex w-full items-center justify-start gap-2 p-2 cursor-pointer text-start font-sans text-sm transition-colors duration-300"
+      class="focus-visible:nui-focus flex w-full items-center justify-start gap-2 p-2 cursor-pointer text-start font-sans text-sm transition-colors duration-300"
       :class="[
-        context.rounded.value && radiuses[context.rounded.value],
-        context.variant.value && variants[context.variant.value],
+        context.rounded && dropdownTheme.radiuses[context.rounded],
+        context.variant && theme.variants[context.variant],
       ]"
     >
       <div class="flex items-center justify-between w-full">
@@ -85,8 +52,8 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'bind
       <DropdownMenuSubContent
         class="mt-2 min-w-52 focus:outline-none shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20"
         :class="[
-          context.rounded.value && radiuses[context.rounded.value],
-          context.variant.value && dropdownVariants[context.variant.value],
+          context.rounded && dropdownTheme.radiuses[context.rounded],
+          context.variant && dropdownTheme.variants[context.variant],
         ]"
         v-bind="{
           sideOffset: 2,

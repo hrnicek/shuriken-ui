@@ -1,86 +1,29 @@
-<script lang="ts">
-import type { PrimitiveProps } from 'reka-ui';
-import type { BaseAvatarProps } from './BaseAvatar.vue'
-
-export interface BaseAvatarGroupProps extends PrimitiveProps {
-  /** 
-   * The avatars to display.
-   */
-  avatars: BaseAvatarProps[]
-
-  /**
-   * The maximum number of avatars to display.
-   *
-   * @default 4
-   */
-  limit?: number
-
-  /**
-   * The size of the avatars.
-   *
-   * @default 'sm'
-   */
-  size?: BaseAvatarProps['size']
- 
-  /**
-   * The radius of the image.
-   *
-   * @default 'full'
-   */
-  rounded?: BaseAvatarProps['rounded']
-}
-export type BaseAvatarGroupSlots = {
-  default(): any
-}
-export const spacings = {
-  'xxs': '-ms-2 hover:-ms-3 hover:me-2 focus:-ms-3 focus:me-2 first:hover:-ms-3 first:hover:me-2 first:focus:-ms-3 first:focus:me-2',
-  'xs': '-ms-2 hover:-ms-4 hover:me-2 focus:-ms-4 focus:me-2 first:hover:-ms-2 first:hover:me-2 first:focus:-ms-2 first:focus:me-2',
-  'sm': '-ms-3 hover:-ms-5 hover:me-2 focus:-ms-5 focus:me-2 first:hover:-ms-2 first:hover:me-2 first:focus:-ms-2 first:focus:me-2',
-  'md': '-ms-4 hover:-ms-7 hover:me-3 focus:-ms-3 first:hover:-ms-3 first:hover:me-3 first:focus:-ms-3 first:focus:me-3',
-  'lg': '-ms-5 hover:-ms-9 hover:me-4 focus:-ms-9 focus:me-4 first:hover:-ms-4 first:first:hover:me-4 first:focus:me-4',
-  'xl': '-ms-5 hover:-ms-9 hover:me-4 focus:-ms-9 focus:me-4 first:hover:-ms-4 first:hover:me-4 first:focus:me-4',
-  '2xl': '-ms-5 hover:-ms-9 hover:me-4 focus:-ms-9 focus:me-4 first:hover:-ms-4 first:hover:me-4 first:focus:me-4',
-  '3xl': '-ms-5 hover:-ms-9 hover:me-4 focus:-ms-9 focus:me-4 first:hover:-ms-4 first:hover:me-4 first:focus:me-4',
-  '4xl': '-ms-5 hover:-ms-9 hover:me-4 focus:-ms-9 focus:me-4 first:hover:-ms-4 first:hover:me-4 first:focus:me-4',
-} as const
-
-export const counters = {
-  'xxs': '-ms-2 text-xs',
-  'xs': '-ms-2 text-sm',
-  'sm': '-ms-3 text-sm',
-  'md': '-ms-4 text-lg',
-  'lg': '-ms-5 text-xl',
-  'xl': '-ms-5 text-xl',
-  '2xl': '-ms-5 text-xl',
-  '3xl': '-ms-5 text-xl',
-  '4xl': '-ms-5 text-xl',
-} as const
-</script>
-
 <script setup lang="ts">
+import type { BaseAvatarGroupProps, BaseAvatarGroupSlots } from '@shuriken-ui/types'
+import {
+  BaseAvatar as avatarTheme,
+  BaseAvatarGroup as theme,
+} from '@shuriken-ui/theme-iga'
+
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
-import { sizes, radiuses } from './BaseAvatar.vue'
 
 const props = withDefaults(defineProps<BaseAvatarGroupProps>(), {
-  limit: undefined,
-  size: undefined,
-  rounded: 'full',
+  limit: theme.defaults.limit,
+  size: theme.defaults.size,
+  rounded: theme.defaults.rounded,
 })
 const slots = defineSlots<BaseAvatarGroupSlots>()
 
-const size = useNuiConfig('BaseAvatarGroup', 'size', () => props.size)
-const limit = useNuiConfig('BaseAvatarGroup', 'limit', () => props.limit)
-const rounded = useNuiConfig('BaseAvatar', 'rounded', () => props.rounded)
-const forward = useForwardProps(reactiveOmit(props, ['avatars', 'size', 'limit']))
+const forward = useForwardProps(reactiveOmit(props, ['avatars', 'size', 'limit', 'rounded']))
 
 const avatarDisplay = computed(() => {
   if (
     props.avatars
-    && limit.value !== undefined
-    && props.avatars.length > limit.value
+    && props.limit !== undefined
+    && props.avatars.length > props.limit
   ) {
-    return props.avatars.slice(0, limit.value - 1)
+    return props.avatars.slice(0, props.limit - 1)
   }
   return props.avatars
 })
@@ -90,7 +33,7 @@ const avatarDisplay = computed(() => {
   <Primitive
     v-bind="forward"
     class="flex"
-    :class="[size && sizes[size]]"
+    :class="[size && avatarTheme.sizes[size]]"
   >
     <slot>
       <div
@@ -98,9 +41,9 @@ const avatarDisplay = computed(() => {
         :key="typeof avatar === 'string' ? avatar : avatar.src"
         class="relative flex shrink-0 items-center justify-center bg-white dark:bg-muted-800 transition-all duration-100 ease-in"
         :class="[
-          rounded && radiuses[rounded],
-          size && sizes[size],
-          size && spacings[size],
+          rounded && avatarTheme.radiuses[rounded],
+          size && avatarTheme.sizes[size],
+          size && theme.spacings[size],
         ]"
       >
         <BaseAvatar
@@ -115,16 +58,16 @@ const avatarDisplay = computed(() => {
         v-if="limit !== undefined && avatars.length > limit"
         class="relative shrink-0 bg-white dark:bg-muted-800 transition-all duration-100 ease-in"
         :class="[
-          rounded && radiuses[rounded],
-          size && sizes[size],
-          size && counters[size],
-          size && spacings[size],
+          rounded && avatarTheme.radiuses[rounded],
+          size && avatarTheme.sizes[size],
+          size && theme.counters[size],
+          size && theme.spacings[size],
         ]"
       >
         <div
           class="relative scale-90 inline-flex items-center justify-center h-full w-full bg-muted-200 dark:bg-muted-700 border border-white dark:border-muted-800"
           :class="[
-            rounded && radiuses[rounded],
+            rounded && avatarTheme.radiuses[rounded],
           ]"
         >
           <span class="-ms-1 uppercase font-sans font-medium text-muted-500 dark:text-muted-300">

@@ -1,45 +1,6 @@
-<script lang="ts">
-import type {
-  CheckboxRootProps,
-  CheckboxRootEmits,
-} from 'reka-ui'
-
-export interface BaseCheckboxProps extends CheckboxRootProps {
-  /**
-   * The label to display for the checkbox.
-   */
-  label?: string
-
-  /**
-   * The variant of the checkbox.
-   *
-   * @default 'default-high'
-   */
-  variant?: 'default' | 'primary' | 'dark' | 'none'
-}
-export interface BaseCheckboxEmits extends CheckboxRootEmits {}
-export type BaseCheckboxSlots = {
-  default(): any
-}
-
-// @todo: low-contrast-theme
-const variants = {
-  'default': 'bg-white dark:bg-muted-950 border-1 border-muted-300 dark:border-muted-700 text-muted-700 dark:text-muted-100',
-  'primary': 'bg-primary-500/10 dark:bg-primary-500/20 border-1 border-muted-300 dark:border-muted-700 text-primary-base dark:text-primary-light',
-  'dark': 'bg-muted-900/10 dark:bg-white/10 border-1 border-muted-300 dark:border-muted-700 text-muted-900 dark:text-white',
-  'none': '',
-} as const
-
-// const variants = {
-//   'default': 'bg-white dark:bg-muted-700 border-1 border-muted-300 dark:border-muted-700 text-muted-700 dark:text-muted-300',
-//   'primary': 'bg-primary-500/10 dark:bg-primary-500/20 border-1 border-muted-300 dark:border-muted-700 text-primary-base dark:text-primary-light',
-//   'dark': 'bg-muted-900/10 dark:bg-white/10 border-1 border-muted-300 dark:border-muted-700 text-muted-900 dark:text-white',
-//   'none': '',
-// } as const
-</script>
-
-
 <script setup lang="ts">
+import type { BaseCheckboxProps, BaseCheckboxEmits, BaseCheckboxSlots } from '@shuriken-ui/types';
+import { BaseCheckbox as theme } from '@shuriken-ui/theme-iga';
 import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 
@@ -58,7 +19,6 @@ const props = withDefaults(defineProps<BaseCheckboxProps>(), {
   variant: undefined,
 })
 const emits = defineEmits<BaseCheckboxEmits>()
-
 const slots = defineSlots<BaseCheckboxSlots>()
 
 const attrs = useAttrs()
@@ -81,19 +41,19 @@ const { forwardRef } = useForwardExpose()
     <CheckboxRoot
       :id
       :ref="forwardRef"
-      v-bind="{ ...forward, ...attrs }"
-      class="nui-focus relative flex items-center justify-center h-5 w-5 shrink-0 cursor-pointer disabled:cursor-not-allowed overflow-hidden rounded-md"
+      v-bind="{ ...attrs, ...forward }"
+      class="focus-visible:nui-focus relative flex items-center justify-center h-5 w-5 shrink-0 cursor-pointer disabled:cursor-not-allowed overflow-hidden rounded-md"
     >
       <div
         class="absolute start-0 top-0 z-0 h-full w-full rounded-md"
         :class="[
-          variant && variants[variant],
+          props.variant && theme.variants[props.variant],
         ]"
       ></div>
       <CheckboxIndicator
         class="absolute start-0 top-0 z-0 flex items-center justify-center h-full w-full rounded-md group"
         :class="[
-          variant && variants[variant],
+          props.variant && theme.variants[props.variant],
         ]"
       >
         <Icon :name="iconCheck" class="hidden group-data-[state=checked]:block size-4 scale-90" />

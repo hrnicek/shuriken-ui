@@ -1,86 +1,11 @@
-<script lang="ts">
-export interface BaseFullscreenDropfileProps {
-  /**
-   * Label to display when file is being dropped.
-   */
-  label?: string
-
-  /**
-   * Icon to display when file is being dropped.
-   */
-  icon?: string
-  
-  /**
-   * The form input identifier.
-   */
-  id?: string
-
-  /**
-   * Disables the input.
-   */
-  disabled?: boolean
-
-  /**
-   * Allows multiple files to be selected.
-   */
-  multiple?: boolean
-
-  /**
-   * Allows to filter files when dropped.
-   */
-  filterFileDropped?: (file: File) => boolean
-
-  /**
-   * Defines the color of the icon
-   *
-   * @default 'default'
-   */
-  variant?: 'default' | 'primary' | 'dark'
-}
-
-export interface BaseFullscreenDropfileEmits {}
-export type BaseFullscreenDropfileSlots = {
-  default(): any
-}
-
-export const dropVariants = {
-  default: 'bg-muted-100 dark:bg-muted-950 border-2 border-dashed border-muted-200 dark:border-muted-800',
-  primary: 'bg-muted-100 dark:bg-muted-950 border-2 border-dashed border-muted-200 dark:border-muted-800',
-  dark: 'bg-muted-100 dark:bg-muted-950 border-2 border-dashed border-muted-200 dark:border-muted-800',
-} as const
-
-// @todo: low-contrast-theme
-// const dropVariants = {
-//   default: 'bg-muted-100 dark:bg-muted-800 border-2 border-dashed border-muted-200 dark:border-muted-700',
-//   primary: 'bg-muted-100 dark:bg-muted-800 border-2 border-dashed border-muted-200 dark:border-muted-700',
-//   dark: 'bg-muted-100 dark:bg-muted-800 border-2 border-dashed border-muted-200 dark:border-muted-700',
-// }
-
-export const overlayVariants = {
-  default: 'bg-muted-50/20 dark:bg-muted-900/20',
-  primary: 'bg-muted-50/20 dark:bg-muted-900/20',
-  dark: 'bg-muted-50/20 dark:bg-muted-900/20',
-} as const
-
-// @todo: low-contrast-theme
-// const overlayVariants = {
-//   default: 'text-muted-500 dark:text-muted-400',
-//   primary: 'text-primary-base dark:text-primary-light',
-//   dark: 'text-muted-900 dark:text-muted-100',
-// }
-
-export const iconVariants = {
-  default: 'text-muted-500 dark:text-muted-400',
-  primary: 'text-primary-base dark:text-primary-light',
-  dark: 'text-muted-900 dark:text-muted-100',
-} as const
-</script>
-
 <script setup lang="ts">
+import type { BaseFullscreenDropfileProps, BaseFullscreenDropfileEmits, BaseFullscreenDropfileSlots } from '@shuriken-ui/types'
+import { BaseFullscreenDropfile as theme } from '@shuriken-ui/theme-iga'
+
 const props = withDefaults(defineProps<BaseFullscreenDropfileProps>(), {
   label: 'Drop your files',
   icon: '',
-  variant: undefined,
+  variant: theme.defaults.variant,
 
   id: undefined,
   multiple: false,
@@ -95,7 +20,7 @@ const slots = defineSlots<BaseFullscreenDropfileSlots>()
 const [modelValue] = defineModel<FileList | null>()
 
 const id = useNinjaId(() => props.id)
-const variant = useNuiConfig('BaseFullscreenDropfile', 'variant', () => props.variant)
+// const variant = useNuiConfig('BaseFullscreenDropfile', 'variant', () => props.variant)
 
 const inputRef = ref<HTMLInputElement>()
 const isDropping = ref(false)
@@ -216,26 +141,20 @@ function handleFileChange(event: Event) {
     <div 
       v-if="isDropping" 
       class=" fixed inset-0 z-40 backdrop-blur-xs transition-all hover:backdrop-blur-none" 
-      :class="[
-        overlayVariants[variant],
-      ]"
+      :class="theme.overlayVariants[props.variant]"
     />
     <div v-if="isDropping" class="fixed inset-0 z-50 starting:opacity-0 transition-discrete transition-opacity duration-300">
       <div class="flex h-full flex-1 items-center justify-center">
         <slot>
           <div 
             class="h-[230px] w-[500px] mx-auto flex flex-col items-center justify-center gap-6 drop-shadow-xs rounded-md"
-            :class="[
-              dropVariants[variant],
-            ]"
+            :class="theme.dropVariants[props.variant]"
           > 
             <Icon
               v-if="props.icon"
               :name="props.icon"
               class="h-10 w-10"
-              :class="[
-                variant && iconVariants[variant],
-              ]"
+              :class="theme.iconVariants[props.variant]"
             />
             <div class="text-base text-muted-500 dark:text-muted-400">
               {{ props.label }}

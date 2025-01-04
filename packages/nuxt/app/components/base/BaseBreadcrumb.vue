@@ -1,56 +1,13 @@
-<script lang="ts">
-export interface BaseBreadcrumbProps {
-  /**
-   * The items to display in the breadcrumb.
-   *
-   * If not provided, the breadcrumb will be generated
-   * from the current route using page meta under `breadcrumb` key.
-   */
-  items?: {
-    /**
-     * The route to navigate to when the item is clicked.
-     */
-    to?: RouteLocationRaw
-
-    /**
-     * The label to display for the item.
-     */
-    label?: string
-
-    /**
-     * Whether to hide the label for the item.
-     */
-    hideLabel?: boolean
-
-    /**
-     * CSS classes to apply to the icon.
-     */
-    iconClasses?: string | string[]
-  }[]
-
-  /**
-   * Defines the hover color of the breadcrumb links
-   *
-   * @default 'primary'
-   */
-  variant?: 'primary' | 'dark'
-}
-export type BaseBreadcrumbSlots = {
-  default(): any
-  link(props: { item: any, index: number }): any
-  label(props: { item: any, index: number }): any
-}
-</script>
-
 <script setup lang="ts">
-import type { RouteLocationRaw } from 'vue-router'
+import type { BaseBreadcrumbProps, BaseBreadcrumbSlots } from '@shuriken-ui/types'
+import { BaseBreadcrumb as theme } from '@shuriken-ui/theme-iga'
 
 const props = withDefaults(defineProps<BaseBreadcrumbProps>(), {
   items: undefined,
   color: undefined,
+  variant: theme.defaults.variant,
 })
 const slots = defineSlots<BaseBreadcrumbSlots>()
-const variant = useNuiConfig('BaseBreadcrumb', 'variant', () => props.variant)
 
 const route = useRoute()
 const router = useRouter()
@@ -139,10 +96,10 @@ const items = computed(() => {
         <slot name="link" v-bind="{ item, index }">
           <NuxtLink
             :to="item.to"
-            class="hover:underline underline-offset-4 text-[0.85rem] flex items-center gap-x-1 text-muted-500 dark:text-muted-400 transition-colors duration-300"
+            class="focus-visible:nui-focus hover:underline underline-offset-4 text-[0.85rem] flex items-center gap-x-1 text-muted-500 dark:text-muted-400 transition-colors duration-300"
             :class="[
-              item.to && variant === 'primary' && 'hover:text-primary-heavy focus:text-primary-heavy dark:hover:text-primary-light dark:focus:text-primary-light',
-              item.to && variant === 'dark' && 'hover:text-muted-900 focus:text-muted-900 dark:hover:text-muted-100 dark:focus:text-muted-100',
+              item.to && props.variant === 'primary' && 'hover:text-primary-heavy focus:text-primary-heavy dark:hover:text-primary-light dark:focus:text-primary-light',
+              item.to && props.variant === 'dark' && 'hover:text-muted-900 focus:text-muted-900 dark:hover:text-muted-100 dark:focus:text-muted-100',
             ]"
           >
             <slot name="label" v-bind="{ item, index }">

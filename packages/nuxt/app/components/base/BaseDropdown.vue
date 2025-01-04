@@ -1,83 +1,6 @@
 <script lang="ts">
-import type {
-  DropdownMenuRootProps,
-  DropdownMenuRootEmits,
-  DropdownMenuContentProps,
-  DropdownMenuTriggerProps,
-  DropdownMenuPortalProps,
-} from 'reka-ui'
-import {
-  createContext,
-} from 'reka-ui'
-
-export interface BaseDropdownProps extends DropdownMenuRootProps {
-  /**
-   * The label to display for the dropdown.
-   */
-  label?: string
-
-  /**
-   * Disables the dropdown.
-   */
-  disabled?: boolean
-
-  /**
-   * The variant of the dropdown.buttonSize
-   *
-   * @default 'default'
-   */
-  variant?: 'default' | 'muted' | 'primary' | 'none'
-
-  /**
-   * The radius of the dropdown button.
-   *
-   * @default 'sm'
-   */
-  rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
-
-  /**
-   * Optional bindings to pass to the inner components.
-   */
-  bindings?: {
-    content?: DropdownMenuContentProps & Record<string, any>
-    trigger?: DropdownMenuTriggerProps & Record<string, any>
-    portal?: DropdownMenuPortalProps & Record<string, any>
-  }
-}
-export interface BaseDropdownEmits extends DropdownMenuRootEmits {}
-
-export interface BaseDropdownContext {
-  variant: ComputedRef<NonNullable<BaseDropdownProps['variant']>>
-  rounded: ComputedRef<NonNullable<BaseDropdownProps['rounded']>>
-}
-export type BaseDropdownSlots = {
-  default(): any
-  button(): any
-  label(): any
-}
-
-export const radiuses = {
-  none: '',
-  sm: 'rounded-sm',
-  md: 'rounded-md',
-  lg: 'rounded-lg',
-  full: 'rounded-lg',
-} as const
-
-export const variants = {
-  'default': 'border border-muted-200 dark:border-muted-800 bg-white dark:bg-muted-950',
-  'muted': 'border border-muted-200 dark:border-muted-800 bg-muted-50 dark:bg-muted-950',
-  'primary': 'border border-muted-200 dark:border-muted-800 bg-white dark:bg-muted-950',
-  'none': '',
-} as const
-
-// @todo: low-contrast-theme
-// export const variants = {
-//   'default': 'border border-muted-200 dark:border-muted-700 bg-white dark:bg-muted-800',
-//   'muted': 'border border-muted-200 dark:border-muted-700 bg-muted-50 dark:bg-muted-800',
-//   'primary': 'border border-muted-200 dark:border-muted-700 bg-white dark:bg-muted-800',
-//   'none': '',
-// } as const
+import type { BaseDropdownContext } from '@shuriken-ui/types';
+import { createContext } from 'reka-ui'
 
 export const [
   injectBaseDropdownContext,
@@ -86,6 +9,8 @@ export const [
 </script>
 
 <script setup lang="ts">
+import type { BaseDropdownProps, BaseDropdownEmits, BaseDropdownSlots } from '@shuriken-ui/types';
+import { BaseDropdown as theme } from '@shuriken-ui/theme-iga';
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardPropsEmits } from 'reka-ui'
 
@@ -94,12 +19,13 @@ defineOptions({
 })
 
 const props = withDefaults(defineProps<BaseDropdownProps>(), {
-  variant: undefined,
-  rounded: undefined,
   label: '',
   modal: undefined,
   open: undefined,
   defaultOpen: undefined,
+
+  variant: theme.defaults.variant,
+  rounded: theme.defaults.rounded,
   bindings: () => ({}),
 })
 const emits = defineEmits<BaseDropdownEmits>()
@@ -107,14 +33,12 @@ const slots = defineSlots<BaseDropdownSlots>()
 
 const attrs = useAttrs()
 
-const variant = useNuiConfig('BaseDropdown', 'variant', () => props.variant)
-const rounded = useNuiConfig('BaseDropdown', 'rounded', () => props.rounded)
 const iconChevronDown = useNuiConfig('icon', 'chevronDown')
 const forward = useForwardPropsEmits(reactiveOmit(props, ['label', 'disabled', 'variant', 'rounded', 'bindings']), emits)
 
 provideBaseDropdownContext({
-  variant,
-  rounded,
+  variant: props.variant,
+  rounded: props.rounded,
 })
 </script>
 
@@ -130,7 +54,7 @@ provideBaseDropdownContext({
     >
       <slot name="button">
         <BaseButton
-          :rounded
+          :rounded="props.rounded"
           class="group"
         >
           <slot name="label">
@@ -152,8 +76,8 @@ provideBaseDropdownContext({
           ...(props.bindings?.content || {}),
         }"
         :class="[
-          rounded && radiuses[rounded],
-          variant && variants[variant],
+          props.rounded && theme.radiuses[props.rounded],
+          props.variant && theme.variants[props.variant],
         ]"
       >
         <slot />

@@ -1,55 +1,12 @@
-<script lang="ts">
-import type {
-  DropdownMenuRadioItemProps,
-  DropdownMenuRadioItemEmits,
-  DropdownMenuItemIndicatorProps,
-} from 'reka-ui';
-
-export interface BaseDropdownRadioItemProps extends DropdownMenuRadioItemProps {
-  /**
-   * The title to display for the dropdown item.
-   */
-  title?: string
-
-  /**
-   * The text to display for the dropdown item.
-   */
-  text?: string
-
-  /**
-   * The hover color of the dropdown-item inner elements.
-   *
-   * @default 'default-low'
-   */
-  variant?: 'default' | 'muted' | 'primary' | 'none'
-
-  /**
-   * The radius of the dropdown-item.
-   *
-   * @default 'sm'
-   */
-  rounded?: 'none' | 'sm' | 'md' | 'lg'
-
-  /**
-   * Optional bindings to pass to the inner components.
-   */
-  bindings?: {
-    indicator?: DropdownMenuItemIndicatorProps & Record<string, any>
-  }
-}
-export interface BaseDropdownRadioItemEmits extends DropdownMenuRadioItemEmits {}
-export type BaseDropdownRadioItemSlots = {
-  default(): any
-  text(): any
-  end(): any
-}
-</script>
-
 <script setup lang="ts">
+import type { BaseDropdownRadioItemProps, BaseDropdownRadioItemEmits, BaseDropdownRadioItemSlots} from '@shuriken-ui/types';
+import { 
+  BaseDropdown as dropdownTheme,
+  BaseDropdownItem as theme,
+} from '@shuriken-ui/theme-iga';
+
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
-import { variants } from './BaseDropdownItem.vue'
-import { radiuses } from './BaseDropdown.vue'
 
 const props = withDefaults(defineProps<BaseDropdownRadioItemProps>(), {
   variant: undefined,
@@ -66,18 +23,16 @@ const props = withDefaults(defineProps<BaseDropdownRadioItemProps>(), {
 const emits = defineEmits<BaseDropdownRadioItemEmits>()
 const slots = defineSlots<BaseDropdownRadioItemSlots>()
 
-const variant = useNuiConfig('BaseDropdownItem', 'variant', () => props.variant)
-const rounded = useNuiConfig('BaseDropdownItem', 'rounded', () => props.rounded)
 const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'variant', 'rounded', 'bindings']), emits)
 </script>
 
 <template>
   <DropdownMenuRadioItem 
     v-bind="forward"
-    class="nui-focus flex w-full items-center justify-start gap-2 p-2 cursor-pointer text-start font-sans text-sm transition-colors duration-300 group/menu-radio-item"
+    class="focus-visible:nui-focus flex w-full items-center justify-start gap-2 p-2 cursor-pointer text-start font-sans text-sm transition-colors duration-300 group/menu-radio-item"
     :class="[
-      rounded && radiuses[rounded],
-      variant && variants[variant],
+      props.rounded && dropdownTheme.radiuses[props.rounded],
+      props.variant && theme.variants[props.variant],
       props.disabled && 'opacity-50 pointer-events-none',
     ]"
   >
