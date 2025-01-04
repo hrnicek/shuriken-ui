@@ -15,14 +15,6 @@ export const variants = {
   'none': '',
 } as const satisfies Record<NonNullable<BaseDropdownProps['variant']>, string>
 
-// @todo: low-contrast-theme
-// export const variants = {
-//   'default': 'border border-muted-200 dark:border-muted-700 bg-white dark:bg-muted-800',
-//   'muted': 'border border-muted-200 dark:border-muted-700 bg-muted-50 dark:bg-muted-800',
-//   'primary': 'border border-muted-200 dark:border-muted-700 bg-white dark:bg-muted-800',
-//   'none': '',
-// } as const
-
 export const defaults = {
   variant: 'default',
   rounded: 'md',

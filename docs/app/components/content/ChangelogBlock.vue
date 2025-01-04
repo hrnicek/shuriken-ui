@@ -28,8 +28,8 @@ const props = defineProps<{
                   data-nui-tooltip="This release has breaking changes"
                   data-nui-tooltip-position="end"
                 >
-                  <span class="absolute inline-flex h-2 w-2 animate-ping rounded-full bg-danger-400 opacity-75" />
-                  <span class="relative inline-flex h-2 w-2 rounded-full bg-danger-500" />
+                  <span class="absolute inline-flex h-2 w-2 animate-ping rounded-full bg-destructive-400 opacity-75" />
+                  <span class="relative inline-flex h-2 w-2 rounded-full bg-destructive-500" />
                 </span>
               </div>
               <BaseParagraph size="sm" class="px-1 leading-loose text-muted-500 dark:text-muted-400 lg:mt-2 lg:leading-normal ltablet:mt-2 ltablet:leading-normal">

@@ -28,15 +28,10 @@
   --color-primary-800: var(--color-purple-800);
   --color-primary-900: var(--color-purple-900);
   --color-primary-950: var(--color-purple-950);
-  
   --color-primary-invert: var(--color-white);
   --color-primary-base: var(--color-primary-500);
   --color-primary-heavy: var(--color-primary-600);
   --color-primary-light: var(--color-primary-400);
-
-
-
-  
   
   --color-info-50: var(--color-sky-50);
   --color-info-100: var(--color-sky-100);
@@ -49,6 +44,10 @@
   --color-info-800: var(--color-sky-800);
   --color-info-900: var(--color-sky-900);
   --color-info-950: var(--color-sky-950);
+  --color-info-invert: var(--color-white);
+  --color-info-base: var(--color-info-600);
+  --color-info-heavy: var(--color-info-700);
+  --color-info-light: var(--color-info-500);
   
   --color-success-50: var(--color-teal-50);
   --color-success-100: var(--color-teal-100);
@@ -61,6 +60,10 @@
   --color-success-800: var(--color-teal-800);
   --color-success-900: var(--color-teal-900);
   --color-success-950: var(--color-teal-950);
+  --color-success-invert: var(--color-white);
+  --color-success-base: var(--color-success-600);
+  --color-success-heavy: var(--color-success-700);
+  --color-success-light: var(--color-success-500);
   
   --color-warning-50: var(--color-amber-50);
   --color-warning-100: var(--color-amber-100);
@@ -73,42 +76,32 @@
   --color-warning-800: var(--color-amber-800);
   --color-warning-900: var(--color-amber-900);
   --color-warning-950: var(--color-amber-950);
+  --color-warning-invert: var(--color-white);
+  --color-warning-base: var(--color-warning-600);
+  --color-warning-heavy: var(--color-warning-700);
+  --color-warning-light: var(--color-warning-500);
   
-  --color-danger-50: var(--color-rose-50);
-  --color-danger-100: var(--color-rose-100);
-  --color-danger-200: var(--color-rose-200);
-  --color-danger-300: var(--color-rose-300);
-  --color-danger-400: var(--color-rose-400);
-  --color-danger-500: var(--color-rose-500);
-  --color-danger-600: var(--color-rose-600);
-  --color-danger-700: var(--color-rose-700);
-  --color-danger-800: var(--color-rose-800);
-  --color-danger-900: var(--color-rose-900);
-  --color-danger-950: var(--color-rose-950);
-
-  /** Primary variables */
-  /** Destructive variables */
+  --color-destructive-50: var(--color-rose-50);
+  --color-destructive-100: var(--color-rose-100);
+  --color-destructive-200: var(--color-rose-200);
+  --color-destructive-300: var(--color-rose-300);
+  --color-destructive-400: var(--color-rose-400);
+  --color-destructive-500: var(--color-rose-500);
+  --color-destructive-600: var(--color-rose-600);
+  --color-destructive-700: var(--color-rose-700);
+  --color-destructive-800: var(--color-rose-800);
+  --color-destructive-900: var(--color-rose-900);
+  --color-destructive-950: var(--color-rose-950);
   --color-destructive-invert: var(--color-white);
-  --color-destructive-base: var(--color-red-600);
-  /* --color-destructive-heavy: var(--color-red-700); */
-  --color-destructive-light: var(--color-red-500);
+  --color-destructive-base: var(--color-destructive-600);
+  --color-destructive-heavy: var(--color-destructive-700);
+  --color-destructive-light: var(--color-destructive-500);
 
-  /** Warning variables */
-  /* --color-warning-invert: var(--color-white); */
-  /* --color-warning-base: var(--color-amber-600); */
-  /* --color-warning-heavy: var(--color-amber-700); */
-  /* --color-warning-light: var(--color-amber-500); */
-
-  /** Success variables */
-  /* --color-success-invert: var(--color-white); */
-  --color-success-base: var(--color-green-600);
-  /* --color-success-heavy: var(--color-green-700); */
-  --color-success-light: var(--color-green-500);
+  --color-link: var(--color-primary-base);
+  --color-ring: var(--color-muted-300);
 
   --animate-nui-placeload: nui-placeload 1s linear infinite forwards;
   --animate-nui-progress-indeterminate: nui-progress-indeterminate 3s linear infinite forwards;
-  --animate-nui-tooltip-x: nui-tooltip-x 300ms ease-out forwards;
-  --animate-nui-tooltip-y: nui-tooltip-y 300ms ease-out forwards;
   --animate-nui-spin: spin 2s linear infinite;
   
   @keyframes nui-placeload {
@@ -128,18 +121,6 @@
     }
     100% {
       margin-left: -100%;
-    }
-  }
-  @keyframes nui-tooltip-x {
-    to {
-      opacity: 1;
-      transform: translate(-50%, 0);
-    }
-  }
-  @keyframes nui-tooltip-y {
-    to {
-      opacity: 1;
-      transform: translate(0, -50%);
     }
   }
 }

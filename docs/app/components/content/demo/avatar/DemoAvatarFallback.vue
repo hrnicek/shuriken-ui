@@ -24,7 +24,7 @@
       <BaseAvatar
         size="md"
         text="T"
-        class="bg-danger-500/20 text-danger-600"
+        class="bg-destructive-500/20 text-destructive-600"
       />
     </div>
   </div>

@@ -12,13 +12,6 @@ export const variants = {
   'none': '',
 } as const satisfies Record<NonNullable<BaseKbdProps['variant']>, string>
 
-// @todo: low-contrast-theme
-// export const variants = {
-//   'default': 'bg-white border border-muted-200 text-muted-800 shadow-[0px_2px_0px_0px_rgba(0,0,0,0.08)] dark:bg-muted-700 dark:border-muted-600 dark:text-muted-200 dark:shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)]',
-//   'muted': 'bg-muted-200 border border-transparent text-muted-800 dark:bg-muted-700 dark:text-muted-200',
-//   'none': '',
-// } as const satisfies Record<NonNullable<BaseKbdProps['variant']>, string>
-
 export const defaults = {
   variant: 'default',
   size: 'md',

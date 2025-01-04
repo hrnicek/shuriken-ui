@@ -30,7 +30,7 @@
     "@vueuse/nuxt": "^12.0.0",
     "@shuriken-ui/theme-iga": "workspace:*",
     "@shuriken-ui/theme-koga": "workspace:*",
-    "reka-ui": "1.0.0-alpha.7"
+    "reka-ui": "1.0.0-alpha.8"
   },
   "peerDependencies": {
     "@shuriken-ui/tailwind": "workspace:*",

@@ -14,7 +14,7 @@
       </BaseListItem>
 
       <BaseListItem title="Pay water bill" subtitle="Bill must be paid before next Tuesday">
-        <Icon name="ph:receipt-duotone" class="h-6 w-6 text-danger-500" />
+        <Icon name="ph:receipt-duotone" class="h-6 w-6 text-destructive-500" />
       </BaseListItem>
     </BaseList>
   </div>

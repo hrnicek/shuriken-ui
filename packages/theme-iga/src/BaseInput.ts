@@ -5,12 +5,6 @@ export const variants = {
   muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-600 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700 aria-invalid:border-destructive-base!',
 } as const satisfies Record<NonNullable<BaseInputProps['variant']>, string>
 
-// @todo: low-contrast-theme
-// const variants = {
-//   'default': 'bg-white dark:bg-muted-800 border-muted-300 dark:border-muted-700 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700',
-//   'muted': 'bg-muted-50 dark:bg-muted-800 border-muted-300 dark:border-muted-700 border text-muted-500 placeholder:text-muted-300 dark:placeholder:text-muted-700',
-// } as const
-
 export const sizes = {
   sm: 'h-8 text-xs px-2',
   md: 'h-10 text-sm px-3',

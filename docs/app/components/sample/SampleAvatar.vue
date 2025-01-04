@@ -205,7 +205,7 @@ const { rounded } = usePlayground()
                 text="X"
                 :rounded="rounded"
                 size="sm"
-                class="!bg-danger-500 !text-white"
+                class="!bg-destructive-500 !text-white"
               />
               <BaseAvatar
                 text="C"
@@ -257,7 +257,7 @@ const { rounded } = usePlayground()
                 text="X"
                 :rounded="rounded"
                 size="sm"
-                class="!bg-danger-500/20 !text-danger-600"
+                class="!bg-destructive-500/20 !text-destructive-600"
               />
               <BaseAvatar
                 text="C"
@@ -309,7 +309,7 @@ const { rounded } = usePlayground()
                 text="X"
                 :rounded="rounded"
                 size="sm"
-                class="border-2 border-current !bg-danger-500/20 !text-danger-600"
+                class="border-2 border-current !bg-destructive-500/20 !text-destructive-600"
               />
               <BaseAvatar
                 text="C"
