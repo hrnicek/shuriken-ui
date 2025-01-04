@@ -12,6 +12,9 @@ catalogs:
     nuxt:
       specifier: 3.15.0
       version: 3.15.0
+    reka-ui:
+      specifier: 1.0.0-alpha.8
+      version: 1.0.0-alpha.8
     tailwindcss:
       specifier: 4.0.0-beta.8
       version: 4.0.0-beta.8
@@ -83,7 +86,7 @@ importers:
         specifier: ^0.11.1
         version: 0.11.1(magicast@0.3.5)(rollup@4.29.1)
       '@shuriken-ui/nuxt':
-        specifier: workspace:4.0.0-alpha.6
+        specifier: workspace:*
         version: link:../packages/nuxt
       '@shuriken-ui/nuxt-component-meta':
         specifier: workspace:*
@@ -139,9 +142,6 @@ importers:
       '@shuriken-ui/theme-iga':
         specifier: workspace:*
         version: link:../theme-iga
-      '@shuriken-ui/theme-koga':
-        specifier: workspace:*
-        version: link:../theme-koga
       '@tailwindcss/vite':
         specifier: 'catalog:'
         version: 4.0.0-beta.8(vite@6.0.6(@types/node@22.10.2)(jiti@2.4.2)(lightningcss@1.28.2)(terser@5.37.0)(yaml@2.6.1))
@@ -158,7 +158,7 @@ importers:
         specifier: 'catalog:'
         version: 3.15.0(@libsql/client@0.14.0)(@parcel/watcher@2.5.0)(@types/node@22.10.2)(better-sqlite3@11.7.0)(db0@0.2.1(@libsql/client@0.14.0)(better-sqlite3@11.7.0))(ioredis@5.4.2)(lightningcss@1.28.2)(magicast@0.3.5)(rollup@4.29.1)(terser@5.37.0)(typescript@5.7.2)(vite@6.0.6(@types/node@22.10.2)(jiti@2.4.2)(lightningcss@1.28.2)(terser@5.37.0)(yaml@2.6.1))(yaml@2.6.1)
       reka-ui:
-        specifier: 1.0.0-alpha.8
+        specifier: 'catalog:'
         version: 1.0.0-alpha.8(typescript@5.7.2)(vue@3.5.13(typescript@5.7.2))
       tailwindcss:
         specifier: 'catalog:'
@@ -173,6 +173,9 @@ importers:
 
   packages/nuxt-component-meta:
     devDependencies:
+      '@nuxt/kit':
+        specifier: ^3.15.0
+        version: 3.15.0(magicast@0.3.5)(rollup@4.29.1)
       '@shuriken-ui/nuxt':
         specifier: workspace:*
         version: link:../nuxt
@@ -218,8 +221,8 @@ importers:
   packages/types:
     devDependencies:
       reka-ui:
-        specifier: 1.0.0-alpha.7
-        version: 1.0.0-alpha.7(typescript@5.7.2)(vue@3.5.13(typescript@5.7.2))
+        specifier: 'catalog:'
+        version: 1.0.0-alpha.8(typescript@5.7.2)(vue@3.5.13(typescript@5.7.2))
       vue:
         specifier: ^3.5.13
         version: 3.5.13(typescript@5.7.2)
@@ -3701,11 +3704,6 @@ packages:
 
   rehype-sort-attributes@5.0.1:
     resolution: {integrity: sha512-Bxo+AKUIELcnnAZwJDt5zUDDRpt4uzhfz9d0PVGhcxYWsbFj5Cv35xuWxu5r1LeYNFNhgGqsr9Q2QiIOM/Qctg==}
-
-  reka-ui@1.0.0-alpha.7:
-    resolution: {integrity: sha512-4HnBz4xml1h63K/ZkYfy3+UGOLcuNnCD9TLqwwKNb3LUbUAh/bXpUeYPkm3cYOtXz/TPbhwJIWNr/ZX7cFKfDQ==}
-    peerDependencies:
-      vue: '>= 3.2.0'
 
   reka-ui@1.0.0-alpha.8:
     resolution: {integrity: sha512-FmAUxWFLWtvbheBLvjgotR/RsE1KSjciMJOLmo7wL0Sbe+sW7M35O8K6f141a0Vc1cE0mH57UHcWBuVpeJNQNA==}
@@ -8914,24 +8912,6 @@ snapshots:
     dependencies:
       '@types/hast': 3.0.4
       unist-util-visit: 5.0.0
-
-  reka-ui@1.0.0-alpha.7(typescript@5.7.2)(vue@3.5.13(typescript@5.7.2)):
-    dependencies:
-      '@floating-ui/dom': 1.6.12
-      '@floating-ui/vue': 1.1.5(vue@3.5.13(typescript@5.7.2))
-      '@internationalized/date': 3.6.0
-      '@internationalized/number': 3.6.0
-      '@tanstack/vue-virtual': 3.11.2(vue@3.5.13(typescript@5.7.2))
-      '@vueuse/core': 12.2.0(typescript@5.7.2)
-      '@vueuse/shared': 12.2.0(typescript@5.7.2)
-      aria-hidden: 1.2.4
-      defu: 6.1.4
-      ohash: 1.1.4
-      uncrypto: 0.1.3
-      vue: 3.5.13(typescript@5.7.2)
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - typescript
 
   reka-ui@1.0.0-alpha.8(typescript@5.7.2)(vue@3.5.13(typescript@5.7.2)):
     dependencies:

@@ -1,5 +1,6 @@
 {
   "name": "@shuriken-ui/types",
+  "version": "4.0.0-alpha.7",
   "author": "Css Ninja <hello@cssninja.io> (https://cssninja.io)",
   "repository": {
     "type": "git",
@@ -7,7 +8,7 @@
     "directory": "packages/types"
   },
   "devDependencies": {
-    "reka-ui": "1.0.0-alpha.7",
+    "reka-ui": "catalog:",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
   },
