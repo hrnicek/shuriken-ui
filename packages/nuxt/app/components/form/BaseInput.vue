@@ -53,7 +53,7 @@ function onChange(event: Event) {
   <input
     :id="id"
     :type="props.type"
-    class="focus-visible:nui-focus w-full font-sans disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300"
+    class="focus-visible:nui-focus w-full font-sans disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive-base!"
     :class="[
       props.variant && theme.variants[props.variant],
       props.size && theme.sizes[props.size],

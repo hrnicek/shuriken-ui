@@ -7,16 +7,22 @@ export const variants = {
 } as const satisfies Record<NonNullable<BaseAutocompleteProps['variant']>, string>
 
 export const portalVariants = {
-  default: 'bg-white dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
-  muted: 'bg-muted-50 dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
+  default: 'bg-white dark:bg-muted-900 border border-muted-300 dark:border-muted-800',
+  muted: 'bg-muted-50 dark:bg-muted-900 border border-muted-300 dark:border-muted-800',
   none: '',
 } as const satisfies Record<NonNullable<BaseAutocompleteProps['variant']>, string>
 
-// @todo: low-contrast-theme
-// const portalVariants = {
-//   'default': '',
-//   'muted': '',
-// } as const satisfies Record<NonNullable<BaseAutocompleteProps['variant']>, string>
+export const inputVariants = {
+  default: 'text-muted-600 dark:text-muted-200 placeholder:text-muted-300 dark:placeholder:text-muted-600',
+  muted: 'text-muted-600 dark:text-muted-200 placeholder:text-muted-300 dark:placeholder:text-muted-600',
+  none: '',
+} as const satisfies Record<NonNullable<BaseAutocompleteProps['variant']>, string>
+
+export const triggerVariants = {
+  default: 'text-muted-600 dark:text-muted-200',
+  muted: 'text-muted-600 dark:text-muted-200',
+  none: '',
+} as const satisfies Record<NonNullable<BaseAutocompleteProps['variant']>, string>
 
 export const arrowVariants = {
   default: 'fill-white dark:fill-muted-800 stroke-muted-200 dark:stroke-muted-600',

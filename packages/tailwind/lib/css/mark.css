@@ -1,5 +1,3 @@
-/* @utility nui-mark */
-
 @utility nui-mark {
   @apply bg-primary-100 dark:bg-primary-800;
   @apply text-primary-800 dark:text-primary-200;

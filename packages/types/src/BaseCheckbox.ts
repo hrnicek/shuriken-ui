@@ -18,3 +18,6 @@ export interface BaseCheckboxEmits extends CheckboxRootEmits {}
 export type BaseCheckboxSlots = {
   default(): any
 }
+export type BaseCheckboxConfig = {
+  variant: NonNullable<BaseCheckboxProps['variant']>
+}

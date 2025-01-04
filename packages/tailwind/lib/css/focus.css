@@ -1,5 +1,3 @@
-/* @utility nui-focus */
-
 @utility nui-focus {
   @apply outline-none ring-ring ring-1 ring-offset-2 ring-offset-white;
   @apply dark:ring-offset-muted-950;

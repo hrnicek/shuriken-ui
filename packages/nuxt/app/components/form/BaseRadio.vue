@@ -36,7 +36,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'varian
     >
       <RadioGroupIndicator
         :class="theme.dotVariants[variant]" 
-        class="pointer-events-none z-10 block group-data-[state=unchecked]/radio:scale-0 roup-data-[state=checked]/radio:scale-100 rounded-full size-1 bg-current dark:bg-current transition-all duration-300"
+        class="pointer-events-none z-10 block group-data-[state=unchecked]/radio:scale-0 roup-data-[state=checked]/radio:scale-100 rounded-full size-1 bg-current dark:bg-current starting:opacity-0 transition-opacity duration-150"
       />
     </RadioGroupItem>
     <div class="inline-flex flex-col">

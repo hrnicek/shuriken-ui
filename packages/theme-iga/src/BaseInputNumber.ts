@@ -1,8 +1,13 @@
 import type { BaseInputNumberConfig, BaseInputNumberProps } from "@shuriken-ui/types"
 
 export const variants = {
-  default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 dark:text-muted-100 placeholder:text-muted-300 dark:placeholder:text-muted-700 has-aria-invalid:border-destructive-base!',
-  muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 dark:text-muted-100 placeholder:text-muted-300 dark:placeholder:text-muted-700 has-aria-invalid:border-destructive-base!',
+  default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border',
+  muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-800 border',
+} as const  satisfies Record<NonNullable<BaseInputNumberProps['variant']>, string>
+
+export const inputVariants = {
+  default: 'text-muted-600 dark:text-muted-300 placeholder:text-muted-300 dark:placeholder:text-muted-700',
+  muted: 'text-muted-600 dark:text-muted-300 placeholder:text-muted-300 dark:placeholder:text-muted-700',
 } as const  satisfies Record<NonNullable<BaseInputNumberProps['variant']>, string>
 
 export const sizes = {

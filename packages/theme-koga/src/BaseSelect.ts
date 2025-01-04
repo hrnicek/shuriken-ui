@@ -1,14 +1,19 @@
 import type { BaseSelectConfig, BaseSelectProps } from "@shuriken-ui/types"
 
 export const variants = {
-  default: 'bg-white dark:bg-muted-800 border-muted-300 dark:border-muted-700 border text-muted-500 data-placeholder:text-muted-300 dark:data-placeholder:text-muted-700',
-  muted: 'bg-muted-50 dark:bg-muted-800 border-muted-300 dark:border-muted-700 border text-muted-500 data-placeholder:text-muted-300 dark:data-placeholder:text-muted-700',
+  default: 'bg-white dark:bg-muted-800 border-muted-300 dark:border-muted-700 border text-muted-600 dark:text-muted-200 data-placeholder:text-muted-300 dark:data-placeholder:text-muted-600',
+  muted: 'bg-muted-50 dark:bg-muted-800 border-muted-300 dark:border-muted-700 border text-muted-600 dark:text-muted-200 data-placeholder:text-muted-300 dark:data-placeholder:text-muted-700',
 } as const satisfies Record<NonNullable<BaseSelectProps['variant']>, string>
 
 export const portalVariants = {
-  default: 'bg-white dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
-  muted: 'bg-muted-50 dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
+  default: 'bg-white dark:bg-muted-900 border border-muted-300 dark:border-muted-800',
+  muted: 'bg-muted-50 dark:bg-muted-900 border border-muted-300 dark:border-muted-800',
 } as const  satisfies Record<NonNullable<BaseSelectProps['variant']>, string>
+
+export const triggerVariants = {
+  default: 'text-muted-600 dark:text-muted-200',
+  muted: 'text-muted-600 dark:text-muted-200',
+} as const satisfies Record<NonNullable<BaseSelectProps['variant']>, string>
 
 // @todo: low-contrast-theme
 // const portalVariants = {

@@ -53,7 +53,7 @@ function onChange(event: Event) {
     :id
     ref="textareaRef"
     v-bind="$attrs"
-    class="focus-visible:nui-focus w-full p-2 text-sm disabled:cursor-not-allowed disabled:opacity-50 nui-slimscroll"
+    class="focus-visible:nui-focus w-full p-2 text-sm disabled:cursor-not-allowed disabled:opacity-50 nui-slimscroll aria-invalid:border-destructive-base!"
     :class="[
       props.autogrow && 'field-sizing-content',
       props.variant && theme.variants[props.variant],

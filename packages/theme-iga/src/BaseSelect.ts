@@ -16,6 +16,11 @@ export const portalVariants = {
   muted: 'bg-muted-50 dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
 } as const  satisfies Record<NonNullable<BaseSelectProps['variant']>, string>
 
+export const triggerVariants = {
+  default: 'text-muted-600 dark:text-muted-300',
+  muted: 'text-muted-600 dark:text-muted-300',
+} as const satisfies Record<NonNullable<BaseSelectProps['variant']>, string>
+
 // @todo: low-contrast-theme
 // const portalVariants = {
 //   'default': '',

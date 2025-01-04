@@ -68,7 +68,7 @@ defineExpose({
   <div class="relative">
     <label
       :tabindex="props.disabled ? -1 : 0"
-      class="group/file relative focus-within:nui-focus w-full flex cursor-pointer items-center overflow-hidden has-disabled:cursor-not-allowed has-disabled:opacity-50 font-sans transition-colors duration-300"
+      class="group/file relative focus-within:nui-focus w-full flex cursor-pointer items-center overflow-hidden has-disabled:cursor-not-allowed has-disabled:opacity-50 font-sans transition-colors duration-300 has-aria-invalid:border-destructive-base!"
       :for="id"
       :class="[
         props.variant && theme.variants[props.variant],
@@ -79,7 +79,7 @@ defineExpose({
       @keydown.space.prevent="currentRef?.click()"
     >
       <div
-        class="flex w-full items-center text-muted-600 dark:text-muted-400 px-1 py-1.5 gap-2"
+        class="flex w-full items-center px-1 py-1.5 gap-2"
         :class="[
           size && theme.sizes[size],
         ]"
@@ -98,7 +98,7 @@ defineExpose({
 
         <div class="flex-1 truncate text-ellipsis">
           <span v-if="textValue">{{  textValue }}</span>
-          <span v-else class="text-muted-300 dark:text-muted-700 select-none">{{ props.placeholder }}</span>
+          <span v-else class="select-none" :class="theme.placeholderVariants[props.variant]">{{ props.placeholder }}</span>
         </div>
       </div>
       <input

@@ -68,7 +68,7 @@ provideBaseAutocompleteContext({
       v-bind="bindings.anchor"
     >
       <slot name="input">
-        <ComboboxInput :ref="forwardRef" class="h-full w-full outline-none  placeholder:text-muted-300 dark:placeholder:text-muted-700" v-bind="attrs" />
+        <ComboboxInput :ref="forwardRef" class="h-full w-full outline-none" :class="theme.inputVariants[props.variant]" v-bind="attrs" />
       </slot>
       <ComboboxCancel
         v-if="props.clearable"
@@ -90,6 +90,7 @@ provideBaseAutocompleteContext({
         <Icon
           :name="iconChevronDown"
           class="size-4 text-base"
+          :class="theme.triggerVariants[props.variant]"
         />
       </ComboboxTrigger>
     </ComboboxAnchor>

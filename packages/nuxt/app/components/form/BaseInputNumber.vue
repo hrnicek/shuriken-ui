@@ -38,14 +38,14 @@ const { forwardRef } = useForwardExpose()
   <NumberFieldRoot
     :id
     v-bind="forward"
-    class="has-focus-visible:nui-focus relative w-full flex font-sans relative data-disabled:opacity-50"
+    class="has-focus-visible:nui-focus relative w-full flex font-sans relative data-disabled:opacity-50 has-aria-invalid:border-destructive-base!"
     :class="[
       theme.variants[props.variant],
       theme.radiuses[props.rounded],
     ]"
   >
     <NumberFieldDecrement 
-      class="flex items-center justify-center shrink-0 p-1 enabled:group/button disabled:cursor-not-allowed cursor-pointer"
+      class="flex items-center justify-center shrink-0 p-1 group/button disabled:cursor-not-allowed cursor-pointer"
       :class="[
         theme.buttonSizes[props.size],
         theme.radiuses[props.rounded],
@@ -63,8 +63,9 @@ const { forwardRef } = useForwardExpose()
     <NumberFieldInput
       v-bind="attrs"
       :ref="forwardRef"
-      class="outline-none text-center grow disabled:cursor-not-allowed placeholder:text-muted-300 dark:placeholder:text-muted-700"
+      class="outline-none text-center grow disabled:cursor-not-allowed"
       :class="[
+        theme.inputVariants[props.variant],
         theme.spacings[props.size],
         theme.sizes[props.size],
       ]"
@@ -73,7 +74,7 @@ const { forwardRef } = useForwardExpose()
       :disabled="props.disabled"
     />
     <NumberFieldIncrement
-      class="flex items-center justify-center shrink-0 p-1 enabled:group/button disabled:cursor-not-allowed cursor-pointer"
+      class="flex items-center justify-center shrink-0 p-1 group/button disabled:cursor-not-allowed cursor-pointer"
       :class="[
         theme.buttonSizes[props.size],
       ]"

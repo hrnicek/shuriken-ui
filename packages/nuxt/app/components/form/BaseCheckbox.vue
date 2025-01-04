@@ -9,21 +9,21 @@ defineOptions({
 })
 
 const props = withDefaults(defineProps<BaseCheckboxProps>(), {
+  label: undefined,
+  variant: theme.defaults.variant,
+
   id: undefined,
   disabled: undefined,
   defaultValue: undefined,
   name: undefined,
   value: undefined,
   modelValue: undefined,
-  label: undefined,
-  variant: undefined,
 })
 const emits = defineEmits<BaseCheckboxEmits>()
 const slots = defineSlots<BaseCheckboxSlots>()
 
 const attrs = useAttrs()
 const id = useNinjaId(() => props.id)
-const variant = useNuiConfig('BaseCheckbox', 'variant', () => props.variant)
 
 const iconCheck = useNuiConfig('icon', 'check')
 const iconIndeterminate = useNuiConfig('icon', 'minus')
@@ -51,7 +51,7 @@ const { forwardRef } = useForwardExpose()
         ]"
       ></div>
       <CheckboxIndicator
-        class="absolute start-0 top-0 z-0 flex items-center justify-center h-full w-full rounded-md group"
+        class="absolute start-0 top-0 z-0 flex items-center justify-center h-full w-full rounded-md group starting:opacity-0 transition-opacity duration-150"
         :class="[
           props.variant && theme.variants[props.variant],
         ]"

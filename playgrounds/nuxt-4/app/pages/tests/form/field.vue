@@ -51,7 +51,7 @@ const value3 = ref('')
               <BaseFieldController>
                 <BaseInput placeholder="placeholder" />
               </BaseFieldController>
-              <div class="absolute z-10 end-4 top-3 pointer-events-none" >
+              <div class="absolute z-0 end-4 top-3 pointer-events-none" >
                 <BaseFieldLoadingIndicator/>
                 <BaseFieldSuccessIndicator />
                 <BaseFieldErrorIndicator />
@@ -102,7 +102,7 @@ const value3 = ref('')
               <BaseFieldController>
                 <BaseInput type="search" placeholder="placeholder" />
               </BaseFieldController>
-              <div class="absolute z-10 end-4 top-3 pointer-events-none" >
+              <div class="absolute z-0 end-4 top-3 pointer-events-none" >
                 <BaseFieldLoadingIndicator/>
                 <BaseFieldSuccessIndicator />
                 <BaseFieldErrorIndicator />
@@ -153,7 +153,7 @@ const value3 = ref('')
               <BaseFieldController>
                 <BaseInputNumber placeholder="placeholder" />
               </BaseFieldController>
-              <div class="absolute z-10 end-12 top-3 pointer-events-none">
+              <div class="absolute z-0 end-12 top-3 pointer-events-none">
                 <BaseFieldLoadingIndicator/>
                 <BaseFieldSuccessIndicator />
                 <BaseFieldErrorIndicator />
@@ -205,7 +205,7 @@ const value3 = ref('')
               <BaseFieldController>
                 <BaseInputFile placeholder="placeholder" />
               </BaseFieldController>
-              <div class="absolute z-10 end-4 top-3 pointer-events-none" >
+              <div class="absolute z-0 end-4 top-3 pointer-events-none" >
                 <BaseFieldLoadingIndicator/>
                 <BaseFieldSuccessIndicator />
                 <BaseFieldErrorIndicator />
@@ -256,7 +256,7 @@ const value3 = ref('')
               <BaseFieldController>
                 <BaseTextarea placeholder="placeholder" />
               </BaseFieldController>
-              <div class="absolute z-10 end-4 top-3 pointer-events-none" >
+              <div class="absolute z-0 end-4 top-3 pointer-events-none" >
                 <BaseFieldLoadingIndicator/>
                 <BaseFieldSuccessIndicator />
                 <BaseFieldErrorIndicator />
@@ -312,7 +312,7 @@ const value3 = ref('')
                   <BaseSelectItem value="4">Option 4</BaseSelectItem>
                 </BaseSelect>
               </BaseFieldController>
-              <div class="absolute z-10 end-10 top-3 pointer-events-none" >
+              <div class="absolute z-0 end-10 top-3 pointer-events-none" >
                 <BaseFieldLoadingIndicator/>
                 <BaseFieldSuccessIndicator />
                 <BaseFieldErrorIndicator />
@@ -368,7 +368,7 @@ const value3 = ref('')
                   <BaseAutocompleteItem value="1">Option 1</BaseAutocompleteItem>
                 </BaseAutocomplete>
               </BaseFieldController>
-              <div class="absolute z-10 end-10 top-3 pointer-events-none" >
+              <div class="absolute z-0 end-10 top-3 pointer-events-none" >
                 <BaseFieldLoadingIndicator/>
                 <BaseFieldSuccessIndicator />
                 <BaseFieldErrorIndicator />
@@ -397,18 +397,18 @@ const value3 = ref('')
               <BaseFieldRequiredIndicator  />
             </BaseFieldLabel>
             
-            <div class="relative w-full">
+            <div class="relative w-full has-focus:nui-focus rounded-md">
               <div class="flex w-full">
                 <BaseIconBox variant="default" size="sm" class="rounded-e-none border-e-0">
                   <Icon name="lucide:user" class="size-4 text-muted-500" />
                 </BaseIconBox>
                 <div class="grow">
                   <BaseFieldController>
-                    <BaseInput class="rounded-s-none! w-full" />
+                    <BaseInput class="rounded-s-none! w-full focus:ring-transparent!" />
                   </BaseFieldController>
                 </div>
               </div>
-              <div class="absolute z-10 end-4 top-3 pointer-events-none" >
+              <div class="absolute z-0 end-4 top-3 pointer-events-none" >
                 <BaseFieldLoadingIndicator/>
                 <BaseFieldSuccessIndicator />
                 <BaseFieldErrorIndicator />
@@ -436,7 +436,7 @@ const value3 = ref('')
               <BaseFieldController>
                 <BaseInput />
               </BaseFieldController>
-              <div class="absolute z-10 end-4 top-3 pointer-events-none" >
+              <div class="absolute z-0 end-4 top-3 pointer-events-none" >
                 <BaseFieldLoadingIndicator/>
                 <BaseFieldSuccessIndicator />
                 <BaseFieldErrorIndicator />
@@ -458,7 +458,7 @@ const value3 = ref('')
               <BaseFieldController>
                 <BaseInputNumber />
               </BaseFieldController>
-              <div class="absolute z-10 end-12 top-3 pointer-events-none">
+              <div class="absolute z-0 end-12 top-3 pointer-events-none">
                 <BaseFieldLoadingIndicator/>
                 <BaseFieldSuccessIndicator />
                 <BaseFieldErrorIndicator />
@@ -484,7 +484,7 @@ const value3 = ref('')
                   <BaseSelectItem value="4">Option 4</BaseSelectItem>
                 </BaseSelect>
               </BaseFieldController>
-              <div class="absolute z-10 end-10 top-3 pointer-events-none" >
+              <div class="absolute z-0 end-10 top-3 pointer-events-none" >
                 <BaseFieldLoadingIndicator/>
                 <BaseFieldSuccessIndicator />
                 <BaseFieldErrorIndicator>
@@ -505,7 +505,7 @@ const value3 = ref('')
                   <span class="text-xs ms-1">(Requis)</span>
                 </BaseFieldRequiredIndicator>
               </BaseFieldLabel>
-              <div class="absolute z-10 end-1 top-0 pointer-events-none" >
+              <div class="absolute z-0 end-1 top-0 pointer-events-none" >
                 <BaseFieldLoadingIndicator/>
                 <BaseFieldSuccessIndicator />
                 <BaseFieldErrorIndicator />
@@ -595,7 +595,7 @@ const value3 = ref('')
               <BaseFieldController>
                 <BaseInput placeholder="Firstname" />
               </BaseFieldController>
-              <div class="absolute z-10 end-4 top-3 pointer-events-none" >
+              <div class="absolute z-0 end-4 top-3 pointer-events-none" >
                 <BaseFieldLoadingIndicator/>
                 <BaseFieldSuccessIndicator />
                 <BaseFieldErrorIndicator />
@@ -608,7 +608,7 @@ const value3 = ref('')
               <BaseFieldController>
                 <BaseInput placeholder="Lastname" />
               </BaseFieldController>
-              <div class="absolute z-10 end-4 top-3 pointer-events-none" >
+              <div class="absolute z-0 end-4 top-3 pointer-events-none" >
                 <BaseFieldLoadingIndicator/>
                 <BaseFieldSuccessIndicator />
                 <BaseFieldErrorIndicator />
@@ -626,7 +626,7 @@ const value3 = ref('')
                 Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
                 <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
               </BaseFieldDescription>
-              <div class="absolute z-10 end-0 top-0 pointer-events-none" >
+              <div class="absolute z-0 end-0 top-0 pointer-events-none" >
                 <BaseFieldLoadingIndicator/>
                 <BaseFieldSuccessIndicator />
                 <BaseFieldErrorIndicator />
@@ -638,7 +638,7 @@ const value3 = ref('')
                 <BaseFieldController>
                   <BaseInput v-model="value1" />
                 </BaseFieldController>
-                <div class="absolute z-10 end-4 top-3 pointer-events-none" >
+                <div class="absolute z-0 end-4 top-3 pointer-events-none" >
                   <BaseFieldLoadingIndicator/>
                   <BaseFieldSuccessIndicator />
                   <BaseFieldErrorIndicator />
@@ -657,7 +657,7 @@ const value3 = ref('')
                 Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
                 <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
               </BaseFieldDescription>
-              <div class="absolute z-10 end-0 top-0 pointer-events-none" >
+              <div class="absolute z-0 end-0 top-0 pointer-events-none" >
                 <BaseFieldLoadingIndicator/>
                 <BaseFieldSuccessIndicator />
                 <BaseFieldErrorIndicator />
@@ -669,7 +669,7 @@ const value3 = ref('')
                 <BaseFieldController>
                   <BaseInput v-model="value2" />
                 </BaseFieldController>
-                <BaseFieldLoadingIndicator class="absolute z-10 end-4 top-3 pointer-events-none" />
+                <BaseFieldLoadingIndicator class="absolute z-0 end-4 top-3 pointer-events-none" />
               </div>
               <BaseFieldError>
                 The input is invalid because ...
@@ -687,7 +687,7 @@ const value3 = ref('')
                 Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
                 <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
               </BaseFieldDescription>
-              <div class="absolute z-10 end-0 top-0 pointer-events-none" >
+              <div class="absolute z-0 end-0 top-0 pointer-events-none" >
                 <BaseFieldLoadingIndicator/>
                 <BaseFieldSuccessIndicator />
                 <BaseFieldErrorIndicator />
@@ -699,7 +699,7 @@ const value3 = ref('')
                 <BaseFieldController>
                   <BaseInputNumber />
                 </BaseFieldController>
-                <BaseFieldLoadingIndicator class="absolute z-10 end-12 top-3 pointer-events-none" />
+                <BaseFieldLoadingIndicator class="absolute z-0 end-12 top-3 pointer-events-none" />
               </div>
               <BaseFieldError>
                 The input is invalid because ...
@@ -717,7 +717,7 @@ const value3 = ref('')
                 Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
                 <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
               </BaseFieldDescription>
-              <div class="absolute z-10 end-0 top-0 pointer-events-none" >
+              <div class="absolute z-0 end-0 top-0 pointer-events-none" >
                 <BaseFieldLoadingIndicator/>
                 <BaseFieldSuccessIndicator />
                 <BaseFieldErrorIndicator />
@@ -733,7 +733,7 @@ const value3 = ref('')
                     <BaseSelectItem value="3">Option 3</BaseSelectItem>
                   </BaseSelect>
                 </BaseFieldController>
-                <BaseFieldLoadingIndicator class="absolute z-10 end-20 top-3 pointer-events-none" />
+                <BaseFieldLoadingIndicator class="absolute z-0 end-20 top-3 pointer-events-none" />
               </div>
               <BaseFieldError>
                 The input is invalid because ...
@@ -751,7 +751,7 @@ const value3 = ref('')
                 Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
                 <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
               </BaseFieldDescription>
-              <div class="absolute z-10 end-0 top-0 pointer-events-none" >
+              <div class="absolute z-0 end-0 top-0 pointer-events-none" >
                 <BaseFieldLoadingIndicator/>
                 <BaseFieldSuccessIndicator />
                 <BaseFieldErrorIndicator />
@@ -780,7 +780,7 @@ const value3 = ref('')
                 Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
                 <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
               </BaseFieldDescription>
-              <div class="absolute z-10 end-0 top-0 pointer-events-none" >
+              <div class="absolute z-0 end-0 top-0 pointer-events-none" >
                 <BaseFieldLoadingIndicator/>
                 <BaseFieldSuccessIndicator />
                 <BaseFieldErrorIndicator />
@@ -806,7 +806,7 @@ const value3 = ref('')
                 Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
                 <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
               </BaseFieldDescription>
-              <div class="absolute z-10 end-0 top-0 pointer-events-none" >
+              <div class="absolute z-0 end-0 top-0 pointer-events-none" >
                 <BaseFieldLoadingIndicator/>
                 <BaseFieldSuccessIndicator />
                 <BaseFieldErrorIndicator />
@@ -837,7 +837,7 @@ const value3 = ref('')
                 Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
                 <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
               </BaseFieldDescription>
-              <div class="absolute z-10 end-0 top-0 pointer-events-none" >
+              <div class="absolute z-0 end-0 top-0 pointer-events-none" >
                 <BaseFieldLoadingIndicator/>
                 <BaseFieldSuccessIndicator />
                 <BaseFieldErrorIndicator />

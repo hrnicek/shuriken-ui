@@ -1,14 +1,26 @@
 import type { BaseAutocompleteConfig, BaseAutocompleteProps } from "@shuriken-ui/types";
 
 export const variants = {
-  default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500',
-  muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500',
+  default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 text-muted-600 dark:text-muted-300',
+  muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 text-muted-600 dark:text-muted-300',
   none: '',
 } as const satisfies Record<NonNullable<BaseAutocompleteProps['variant']>, string>
 
 export const portalVariants = {
   default: 'bg-white dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
   muted: 'bg-muted-50 dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
+  none: '',
+} as const satisfies Record<NonNullable<BaseAutocompleteProps['variant']>, string>
+
+export const inputVariants = {
+  default: 'text-muted-600 dark:text-muted-300 placeholder:text-muted-300 dark:placeholder:text-muted-700',
+  muted: 'text-muted-600 dark:text-muted-300 placeholder:text-muted-300 dark:placeholder:text-muted-700',
+  none: '',
+} as const satisfies Record<NonNullable<BaseAutocompleteProps['variant']>, string>
+
+export const triggerVariants = {
+  default: 'text-muted-600 dark:text-muted-300',
+  muted: 'text-muted-600 dark:text-muted-300',
   none: '',
 } as const satisfies Record<NonNullable<BaseAutocompleteProps['variant']>, string>
 

@@ -31,7 +31,6 @@ const forward = useForwardProps(reactiveOmit(props, ['title', 'content', 'varian
         v-bind="props.bindings?.trigger"
         class="flex group/trigger items-center justify-between w-full py-3 rounded-md px-4 cursor-pointer focus-visible:nui-focus"
         :class="[
-          // variant === 'default' && 'hover:bg-muted-50 dark:hover:bg-muted-700', @todo: low-contrast-theme
           props.variant === 'default' && 'hover:bg-muted-50 dark:hover:bg-muted-800',
         ]" 
       >

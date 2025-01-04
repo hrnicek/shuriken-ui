@@ -1,8 +1,13 @@
 import type { BaseInputNumberConfig, BaseInputNumberProps } from "@shuriken-ui/types"
 
 export const variants = {
-  default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 dark:text-muted-100 placeholder:text-muted-300 dark:placeholder:text-muted-700 has-aria-invalid:border-destructive-base!',
-  muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 dark:text-muted-100 placeholder:text-muted-300 dark:placeholder:text-muted-700 has-aria-invalid:border-destructive-base!',
+  default: 'bg-white dark:bg-muted-800 border-muted-300 dark:border-muted-700 border',
+  muted: 'bg-muted-50 dark:bg-muted-800 border-muted-300 dark:border-muted-700 border',
+} as const  satisfies Record<NonNullable<BaseInputNumberProps['variant']>, string>
+
+export const inputVariants = {
+  default: 'text-muted-600 dark:text-muted-200 placeholder:text-muted-300 dark:placeholder:text-muted-600',
+  muted: 'text-muted-600 dark:text-muted-200 placeholder:text-muted-300 dark:placeholder:text-muted-600',
 } as const  satisfies Record<NonNullable<BaseInputNumberProps['variant']>, string>
 
 // @todo: low-contrast-theme
@@ -42,8 +47,8 @@ export const buttonSizes = {
 } as const satisfies Record<NonNullable<BaseInputNumberProps['size']>, string>
 
 export const buttonVariants = {
-  default: 'bg-muted-100 group-data-[pressed]/button:bg-muted-200 dark:bg-muted-800 dark:group-data-[pressed]/button:bg-muted-700',
-  muted: 'bg-muted-200 group-data-[pressed]/button:bg-muted-300 dark:bg-muted-800 dark:group-data-[pressed]/button:bg-muted-700',
+  default: 'bg-muted-100 group-data-[pressed]/button:bg-muted-200 dark:bg-muted-900 dark:group-data-[pressed]/button:bg-muted-950',
+  muted: 'bg-muted-200 group-data-[pressed]/button:bg-muted-300 dark:bg-muted-900 dark:group-data-[pressed]/button:bg-muted-950',
 } as const satisfies Record<NonNullable<BaseInputNumberProps['variant']>, string>
 
 export const defaults = {
