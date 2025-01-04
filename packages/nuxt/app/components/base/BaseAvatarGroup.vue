@@ -1,9 +1,6 @@
 <script setup lang="ts">
 import type { BaseAvatarGroupProps, BaseAvatarGroupSlots } from '@shuriken-ui/types'
-import {
-  BaseAvatar as avatarTheme,
-  BaseAvatarGroup as theme,
-} from '@shuriken-ui/theme-iga'
+import { BaseAvatarGroup as theme } from '@shuriken-ui/theme-iga'
 
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
@@ -33,7 +30,7 @@ const avatarDisplay = computed(() => {
   <Primitive
     v-bind="forward"
     class="flex"
-    :class="[size && avatarTheme.sizes[size]]"
+    :class="[size && theme.sizes[size]]"
   >
     <slot>
       <div
@@ -41,8 +38,8 @@ const avatarDisplay = computed(() => {
         :key="typeof avatar === 'string' ? avatar : avatar.src"
         class="relative flex shrink-0 items-center justify-center bg-white dark:bg-muted-800 transition-all duration-100 ease-in"
         :class="[
-          rounded && avatarTheme.radiuses[rounded],
-          size && avatarTheme.sizes[size],
+          rounded && theme.radiuses[rounded],
+          size && theme.sizes[size],
           size && theme.spacings[size],
         ]"
       >
@@ -58,8 +55,8 @@ const avatarDisplay = computed(() => {
         v-if="limit !== undefined && avatars.length > limit"
         class="relative shrink-0 bg-white dark:bg-muted-800 transition-all duration-100 ease-in"
         :class="[
-          rounded && avatarTheme.radiuses[rounded],
-          size && avatarTheme.sizes[size],
+          rounded && theme.radiuses[rounded],
+          size && theme.sizes[size],
           size && theme.counters[size],
           size && theme.spacings[size],
         ]"
@@ -67,7 +64,7 @@ const avatarDisplay = computed(() => {
         <div
           class="relative scale-90 inline-flex items-center justify-center h-full w-full bg-muted-200 dark:bg-muted-700 border border-white dark:border-muted-800"
           :class="[
-            rounded && avatarTheme.radiuses[rounded],
+            rounded && theme.radiuses[rounded],
           ]"
         >
           <span class="-ms-1 uppercase font-sans font-medium text-muted-500 dark:text-muted-300">

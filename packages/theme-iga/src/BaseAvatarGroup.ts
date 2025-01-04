@@ -1,5 +1,7 @@
 import type { BaseAvatarGroupConfig, BaseAvatarGroupProps } from '@shuriken-ui/types'
 
+export { sizes, radiuses } from './BaseAvatar'
+
 export const spacings = {
   'xxs': '-ms-2 hover:-ms-3 hover:me-2 focus:-ms-3 focus:me-2 first:hover:-ms-3 first:hover:me-2 first:focus:-ms-3 first:focus:me-2',
   'xs': '-ms-2 hover:-ms-4 hover:me-2 focus:-ms-4 focus:me-2 first:hover:-ms-2 first:hover:me-2 first:focus:-ms-2 first:focus:me-2',

@@ -1,5 +1,7 @@
 import type { BaseTabsTriggerProps } from "@shuriken-ui/types"
 
+export { types } from './BaseTabs'
+
 export const variants = {
   'primary': 'group-data-[state=active]/trigger:text-primary-base group-data-[state=inactive]/trigger:text-muted-400 dark:group-data-[state=active]/trigger:text-primary-400 dark:group-data-[state=inactive]/trigger:text-muted-400',
   'dark': 'group-data-[state=active]/trigger:text-muted-900 group-data-[state=inactive]/trigger:text-muted-400 dark:group-data-[state=active]/trigger:text-white dark:group-data-[state=inactive]/trigger:text-muted-400',

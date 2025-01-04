@@ -1,9 +1,6 @@
 <script setup lang="ts">
 import type { BaseDropdownRadioItemProps, BaseDropdownRadioItemEmits, BaseDropdownRadioItemSlots} from '@shuriken-ui/types';
-import { 
-  BaseDropdown as dropdownTheme,
-  BaseDropdownItem as theme,
-} from '@shuriken-ui/theme-iga';
+import { BaseDropdownItem as theme } from '@shuriken-ui/theme-iga';
 
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
@@ -31,7 +28,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'vari
     v-bind="forward"
     class="focus-visible:nui-focus flex w-full items-center justify-start gap-2 p-2 cursor-pointer text-start font-sans text-sm transition-colors duration-300 group/menu-radio-item"
     :class="[
-      props.rounded && dropdownTheme.radiuses[props.rounded],
+      props.rounded && theme.radiuses[props.rounded],
       props.variant && theme.variants[props.variant],
       props.disabled && 'opacity-50 pointer-events-none',
     ]"

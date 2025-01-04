@@ -1,9 +1,6 @@
 <script setup lang="ts">
 import type { BaseDropdownItemProps, BaseDropdownItemEmits, BaseDropdownItemSlots } from '@shuriken-ui/types';
-import { 
-  BaseDropdown as dropdownTheme,
-  BaseDropdownItem as theme,
-} from '@shuriken-ui/theme-iga';
+import { BaseDropdownItem as theme } from '@shuriken-ui/theme-iga';
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 import { injectBaseDropdownContext } from './BaseDropdown.vue'
@@ -29,7 +26,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'vari
     v-bind="forward"
     class="focus-visible:nui-focus flex w-full items-center justify-start gap-2 p-2 cursor-pointer text-start font-sans text-sm transition-colors duration-300"
     :class="[
-      context.rounded && dropdownTheme.radiuses[context.rounded],
+      context.rounded && theme.radiuses[context.rounded],
       context.variant && theme.variants[context.variant],
       props.disabled && 'opacity-50 pointer-events-none',
     ]"

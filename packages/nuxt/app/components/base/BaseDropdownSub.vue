@@ -1,10 +1,7 @@
 
 <script setup lang="ts">
 import type { BaseDropdownSubProps, BaseDropdownSubEmits, BaseDropdownSubSlots } from '@shuriken-ui/types';
-import { 
-  BaseDropdown as dropdownTheme,
-  BaseDropdownItem as theme,
-} from '@shuriken-ui/theme-iga';
+import { BaseDropdownItem as theme } from '@shuriken-ui/theme-iga';
 import { injectBaseDropdownContext } from './BaseDropdown.vue'
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
@@ -25,7 +22,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'bind
       v-bind="props.bindings?.trigger"
       class="focus-visible:nui-focus flex w-full items-center justify-start gap-2 p-2 cursor-pointer text-start font-sans text-sm transition-colors duration-300"
       :class="[
-        context.rounded && dropdownTheme.radiuses[context.rounded],
+        context.rounded && theme.radiuses[context.rounded],
         context.variant && theme.variants[context.variant],
       ]"
     >
@@ -52,8 +49,8 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'bind
       <DropdownMenuSubContent
         class="mt-2 min-w-52 focus:outline-none shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20"
         :class="[
-          context.rounded && dropdownTheme.radiuses[context.rounded],
-          context.variant && dropdownTheme.variants[context.variant],
+          context.rounded && theme.radiuses[context.rounded],
+          context.variant && theme.variants[context.variant],
         ]"
         v-bind="{
           sideOffset: 2,

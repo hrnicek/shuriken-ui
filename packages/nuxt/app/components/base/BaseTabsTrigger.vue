@@ -1,9 +1,6 @@
 <script setup lang="ts">
 import type { BaseTabsTriggerProps, BaseTabsTriggerSlots } from '@shuriken-ui/types';
-import { 
-  BaseTabs as tabsTheme,
-  BaseTabsTrigger as theme,
-} from '@shuriken-ui/theme-iga';
+import { BaseTabsTrigger as theme } from '@shuriken-ui/theme-iga';
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 import { injectBaseTabsContext } from './BaseTabs.vue'
@@ -25,7 +22,7 @@ const forward = useForwardProps(reactiveOmit(props, ['label', 'type', 'variant',
     v-bind="forward"
     class="group/trigger focus-visible:nui-focus z-10 relative disabled:pointer-events-none disabled:opacity-50"
     :class="[
-      (props.type || context.type) && tabsTheme.types[props.type || context.type],
+      (props.type || context.type) && theme.types[props.type || context.type],
       props.icon && 'flex items-center gap-1',
       (props.type || context.type === 'box' && !props.icon) && 'py-1.5 text-center',
       (props.type || context.type === 'box' && props.icon) && 'py-3 text-center',

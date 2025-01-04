@@ -1,5 +1,6 @@
 import type { BaseDropdownItemConfig, BaseDropdownContext } from "@shuriken-ui/types"
 
+export { radiuses } from './BaseDropdown'
 export const variants = {
   'default': 'hover:bg-muted-100 dark:hover:bg-muted-900',
   'muted': 'hover:bg-muted-200 dark:hover:bg-muted-900',
