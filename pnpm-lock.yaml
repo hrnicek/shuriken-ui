@@ -142,6 +142,9 @@ importers:
       '@shuriken-ui/theme-iga':
         specifier: workspace:*
         version: link:../theme-iga
+      '@shuriken-ui/types':
+        specifier: workspace:*
+        version: link:../types
       '@tailwindcss/vite':
         specifier: 'catalog:'
         version: 4.0.0-beta.8(vite@6.0.6(@types/node@22.10.2)(jiti@2.4.2)(lightningcss@1.28.2)(terser@5.37.0)(yaml@2.6.1))
@@ -167,9 +170,6 @@ importers:
       '@nuxt/kit':
         specifier: ^3.14.1592
         version: 3.15.0(magicast@0.3.5)(rollup@4.29.1)
-      '@shuriken-ui/types':
-        specifier: workspace:*
-        version: link:../types
 
   packages/nuxt-component-meta:
     devDependencies:

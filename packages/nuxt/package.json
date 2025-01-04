@@ -1,6 +1,6 @@
 {
   "name": "@shuriken-ui/nuxt",
-  "version": "4.0.0-alpha.7",
+  "version": "4.0.0-alpha.8",
   "author": "Css Ninja <hello@cssninja.io> (https://cssninja.io)",
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
     "@vue/shared": "^3.5.13",
     "@vueuse/core": "^12.0.0",
     "@vueuse/nuxt": "^12.0.0",
+    "@shuriken-ui/types": "workspace:*",
     "@shuriken-ui/theme-iga": "workspace:*",
     "reka-ui": "catalog:"
   },
@@ -37,7 +38,6 @@
     "tailwindcss": "catalog:"
   },
   "devDependencies": {
-    "@nuxt/kit": "^3.14.1592",
-    "@shuriken-ui/types": "workspace:*"
+    "@nuxt/kit": "^3.14.1592"
   }
 }
