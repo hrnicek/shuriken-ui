@@ -13,10 +13,13 @@
   },
   "files": [
     "app",
-    "nuxt.config.ts"
+    "nuxt.config.ts",
+    "tsconfig.json"
   ],
   "scripts": {
     "prepare": "nuxt prepare",
+    "prepack": "node ./scripts/prepack.js",
+    "postpack": "node ./scripts/postpack.js",
     "nuxt": "nuxt"
   },
   "dependencies": {
