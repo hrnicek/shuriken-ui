@@ -19,7 +19,7 @@ const forward = useForwardProps(reactiveOmit(props, ['size', 'lead', 'weight', '
 <template>
   <Primitive 
     v-bind="forward"
-    class="font-sans"
+    class="font-heading"
     :class="[
       props.size && theme.sizes[props.size],
       props.lead && theme.leads[props.lead],
