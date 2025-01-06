@@ -1,4 +1,5 @@
-import type { MaybeRefOrGetter } from 'vue'
+import type { Ref, MaybeRefOrGetter } from 'vue'
+import { ref, watchEffect, toValue } from 'vue'
 
 const previewMap = new WeakMap<File, Ref<string | undefined>>()
 

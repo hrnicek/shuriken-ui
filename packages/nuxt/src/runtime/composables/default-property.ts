@@ -1,4 +1,7 @@
 import type { AppConfig } from 'nuxt/schema'
+import type { ComputedRef, MaybeRefOrGetter } from 'vue'
+import { computed, toValue } from 'vue'
+import { useAppConfig } from '#imports'
 
 type NuiConfig = AppConfig['nui']
 type NuiConfigSection = keyof NuiConfig

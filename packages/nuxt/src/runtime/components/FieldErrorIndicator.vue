@@ -3,7 +3,7 @@ import type { BaseFieldErrorIndicator } from '@shuriken-ui/types';
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 
-import { injectBaseFieldContext } from './BaseField.vue'
+import { injectBaseFieldContext } from './Field.vue'
 
 const props = withDefaults(defineProps<BaseFieldErrorIndicator>(), {
   as: 'span',

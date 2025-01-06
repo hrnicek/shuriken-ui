@@ -3,7 +3,7 @@ import type { BaseDropdownItemProps, BaseDropdownItemEmits, BaseDropdownItemSlot
 import { BaseDropdownItem as theme } from '@shuriken-ui/theme-iga';
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
-import { injectBaseDropdownContext } from './BaseDropdown.vue'
+import { injectBaseDropdownContext } from './Dropdown.vue'
 
 const props = withDefaults(defineProps<BaseDropdownItemProps>(), {
   title: '',

@@ -18,21 +18,21 @@
 
 Shuriken UI is a free and open-source Tailwind CSS UI Kit. It is a collection of components and templates that you can use to build your next Tailwind CSS project.
 
-This repository contains the Nuxt version (a [layer](https://nuxt.com/docs/getting-started/layers)) of Shuriken UI with ready to use components (form inputs, buttons, cards, etc.) that you can use to build your  project.
+This repository contains Shuriken UI components (form inputs, buttons, cards, etc.) that you can use to build your project.
 
 ## Installation
 
 Install dependencies:
 
 ```bash
-pnpm install -D @shuriken-ui/nuxt@next @shuriken-ui/tailwind@next tailwindcss@next @tailwindcss/vite@next
+pnpm install -D @shuriken-ui/nuxt@next @shuriken-ui/tailwind@next tailwindcss@next
 ```
 
-Add the Shuriken UI layer to your `nuxt.config.ts`:
+Add the Shuriken UI module to your `nuxt.config.ts`:
 
 ```ts
 export default defineNuxtConfig({
-  extends: ['@shuriken-ui/nuxt'],
+  modules: ['@shuriken-ui/nuxt'],
   css: ['~/assets/tailwind.css'],
 })
 ```

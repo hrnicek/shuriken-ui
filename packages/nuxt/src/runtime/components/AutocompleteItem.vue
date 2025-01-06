@@ -3,7 +3,7 @@ import type { BaseAutocompleteItemProps, BaseAutocompleteItemEmits, BaseAutocomp
 import { BaseAutocompleteItem as theme } from '@shuriken-ui/theme-iga';
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
-import { injectBaseAutocompleteContext } from './BaseAutocomplete.vue'
+import { injectBaseAutocompleteContext } from './Autocomplete.vue'
 
 const props = withDefaults(defineProps<BaseAutocompleteItemProps>(), {
   value: undefined,

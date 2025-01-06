@@ -2,7 +2,7 @@
 import type { BaseSelectItemProps, BaseSelectItemSlots } from '@shuriken-ui/types';
 import { BaseSelectItem as theme } from '@shuriken-ui/theme-iga';
 import { useForwardProps } from 'reka-ui'
-import { injectBaseSelectContext } from './BaseSelect.vue'
+import { injectBaseSelectContext } from './Select.vue'
 
 const context = injectBaseSelectContext()
 

@@ -2,7 +2,7 @@
 import type { BaseDropdownSeparatorProps } from '@shuriken-ui/types';
 import { BaseDropdownSeparator as theme } from '@shuriken-ui/theme-iga';
 import { useForwardProps } from 'reka-ui';
-import { injectBaseDropdownContext } from './BaseDropdown.vue'
+import { injectBaseDropdownContext } from './Dropdown.vue'
 
 const context = injectBaseDropdownContext()
 const props = withDefaults(defineProps<BaseDropdownSeparatorProps>(), {})

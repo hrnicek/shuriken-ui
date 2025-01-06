@@ -23,6 +23,7 @@
   ],
   "scripts": {
     "build": "nuxt-module-build build",
+    "prepack": "pnpm build",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare"
   },
   "dependencies": {
@@ -35,16 +36,17 @@
     "@vueuse/core": "^12.0.0",
     "@vueuse/nuxt": "^12.0.0",
     "defu": "^6.1.4",
-    "reka-ui": "catalog:",
-    "typescript": "catalog:"
+    "reka-ui": "catalog:"
   },
   "peerDependencies": {
     "@shuriken-ui/tailwind": "workspace:*",
-    "nuxt": "catalog:",
+    "typescript": "catalog:",
     "tailwindcss": "catalog:"
   },
   "devDependencies": {
     "@nuxt/kit": "^3.14.1592",
-    "@nuxt/module-builder": "^0.8.4"
+    "@nuxt/module-builder": "^0.8.4",
+    "nuxt": "catalog:",
+    "vue-tsc": "^2.2.0"
   }
 }

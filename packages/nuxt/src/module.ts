@@ -74,7 +74,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     addComponentsDir({
       path: resolve('./runtime/components'),
-      prefix: '', //options.prefix,
+      prefix: options.prefix,
       pathPrefix: false
     })
 

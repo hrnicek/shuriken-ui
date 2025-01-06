@@ -2,7 +2,7 @@
 import type { BaseAutocompleteSeparatorProps } from '@shuriken-ui/types';
 import { BaseAutocompleteSeparator as theme } from '@shuriken-ui/theme-iga';
 import { useForwardProps } from 'reka-ui';
-import { injectBaseAutocompleteContext } from './BaseAutocomplete.vue'
+import { injectBaseAutocompleteContext } from './Autocomplete.vue'
 
 const context = injectBaseAutocompleteContext()
 const props = withDefaults(defineProps<BaseAutocompleteSeparatorProps>(), {})
