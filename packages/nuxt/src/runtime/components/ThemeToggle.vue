@@ -2,6 +2,7 @@
 import type { BaseThemeToggleProps } from '../types';
 import { BaseThemeToggle as theme } from '@shuriken-ui/theme-iga';
 import { useMounted } from '@vueuse/core'
+import { useColorMode } from '#imports'
 
 import { useNinjaId } from '../composables/input-id';
 import { useNuiConfig } from '../composables/default-property';

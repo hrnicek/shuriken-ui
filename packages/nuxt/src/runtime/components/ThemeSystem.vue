@@ -2,7 +2,7 @@
 import type { BaseThemeSystemProps } from '../types';
 import { BaseThemeSystem as theme } from '@shuriken-ui/theme-iga';
 import { useMounted } from '@vueuse/core'
-import { useNinjaId } from '../composables/input-id';
+import { useColorMode } from '#imports'
 import { useNuiConfig } from '../composables/default-property';
 
 const props = withDefaults(defineProps<BaseThemeSystemProps>(), {
