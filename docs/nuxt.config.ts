@@ -6,8 +6,8 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
   // ssr: false,
-  extends: ['@shuriken-ui/nuxt'],
   modules: [
+    '@shuriken-ui/nuxt',
     '@nuxt/content',
     '@nuxt/image',
     '@nuxt/fonts',

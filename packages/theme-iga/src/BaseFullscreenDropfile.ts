@@ -1,4 +1,4 @@
-import type { BaseFullscreenDropfileConfig, BaseFullscreenDropfileProps } from "@shuriken-ui/types"
+import type { BaseFullscreenDropfileConfig, BaseFullscreenDropfileProps } from "@shuriken-ui/nuxt"
 
 export const dropVariants = {
   default: 'bg-muted-100 dark:bg-muted-950 border-2 border-dashed border-muted-200 dark:border-muted-800',

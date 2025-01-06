@@ -1,4 +1,4 @@
-import type { BaseCardConfig, BaseCardProps } from "@shuriken-ui/types"
+import type { BaseCardConfig, BaseCardProps } from "@shuriken-ui/nuxt"
 
 export const radiuses = {
   none: '',

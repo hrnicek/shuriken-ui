@@ -1,4 +1,4 @@
-import type { BaseHeadingConfig } from "@shuriken-ui/types";
+import type { BaseHeadingConfig } from "@shuriken-ui/nuxt";
 
 export { leads, sizes, trackings, weights } from './BaseText'
 export const defaults = {

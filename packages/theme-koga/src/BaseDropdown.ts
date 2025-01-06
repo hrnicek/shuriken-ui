@@ -1,4 +1,4 @@
-import type { BaseDropdownConfig, BaseDropdownProps } from "@shuriken-ui/types"
+import type { BaseDropdownConfig, BaseDropdownProps } from "@shuriken-ui/nuxt"
 
 export const radiuses = {
   none: '',

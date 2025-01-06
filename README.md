@@ -17,10 +17,16 @@ This is a monorepo for Shuriken UI, a collection of components for building mode
 pnpm install
 ```
 
+### Prepare the development environment
+
+```bash
+pnpm --filter @shuriken-ui/nuxt dev:prepare
+```
+
 ### Run a playground
 
 ```bash
 pnpm --filter nuxt-4 dev
 ```
 
-Available playgrounds: `nuxt`, `nuxt-4`, `vite`.
+Available playgrounds: `docs`, `nuxt`, `nuxt-4`, `vite`.

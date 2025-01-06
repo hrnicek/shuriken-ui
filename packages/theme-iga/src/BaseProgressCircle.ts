@@ -1,4 +1,4 @@
-import type { BaseProgressCircleConfig, BaseProgressCircleProps } from "@shuriken-ui/types"
+import type { BaseProgressCircleConfig, BaseProgressCircleProps } from "@shuriken-ui/nuxt"
 
 export const variants = {
   'primary': 'text-primary-base',

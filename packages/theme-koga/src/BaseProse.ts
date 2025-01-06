@@ -1,4 +1,4 @@
-import type { BaseProseConfig, BaseProseProps } from "@shuriken-ui/types"
+import type { BaseProseConfig, BaseProseProps } from "@shuriken-ui/nuxt"
 
 export const radiuses = {
   none: 'prose-img:rounded-none prose-pre:rounded-none prose-table:rounded-none',

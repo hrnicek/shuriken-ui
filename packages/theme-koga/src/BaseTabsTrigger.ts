@@ -1,4 +1,4 @@
-import type { BaseTabsTriggerProps } from "@shuriken-ui/types"
+import type { BaseTabsTriggerProps } from "@shuriken-ui/nuxt"
 
 export const variants = {
   'primary': 'group-data-[state=active]/trigger:text-primary-base group-data-[state=inactive]/trigger:text-muted-400 dark:group-data-[state=active]/trigger:text-primary-400 dark:group-data-[state=inactive]/trigger:text-muted-400',

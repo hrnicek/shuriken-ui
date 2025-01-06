@@ -1,4 +1,4 @@
-import type { BaseSelectConfig, BaseSelectProps } from "@shuriken-ui/types"
+import type { BaseSelectConfig, BaseSelectProps } from "@shuriken-ui/nuxt"
 
 export const variants = {
   default: 'bg-white dark:bg-muted-800 border-muted-300 dark:border-muted-700 border text-muted-600 dark:text-muted-200 data-placeholder:text-muted-300 dark:data-placeholder:text-muted-600',

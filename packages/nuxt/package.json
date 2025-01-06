@@ -1,6 +1,6 @@
 {
   "name": "@shuriken-ui/nuxt",
-  "version": "4.0.0-alpha.9",
+  "version": "4.0.0-alpha.16",
   "author": "Css Ninja <hello@cssninja.io> (https://cssninja.io)",
   "repository": {
     "type": "git",
@@ -9,39 +9,44 @@
   },
   "type": "module",
   "exports": {
-    ".": "./nuxt.config.ts"
+    ".": {
+      "types": "./dist/module.d.ts",
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
+    },
+    "./runtime/*": "./dist/runtime/*"
   },
+  "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
   "files": [
-    "app",
-    "nuxt.config.ts",
-    "tsconfig.json"
+    "dist"
   ],
   "scripts": {
-    "prepare": "nuxt prepare",
-    "prepack": "node ./scripts/prepack.js",
-    "postpack": "node ./scripts/postpack.js",
-    "nuxt": "nuxt"
+    "build": "nuxt-module-build build",
+    "prepack": "pnpm build",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare"
   },
   "dependencies": {
-    "@headlessui-float/vue": "^0.15.0",
-    "@headlessui/vue": "^1.7.23",
     "@nuxt/icon": "^1.9.1",
     "@nuxtjs/color-mode": "^3.5.2",
+    "@shuriken-ui/theme-iga": "workspace:*",
     "@tailwindcss/vite": "catalog:",
     "@vue/shared": "^3.5.13",
     "@vueuse/core": "^12.0.0",
     "@vueuse/nuxt": "^12.0.0",
-    "@shuriken-ui/types": "workspace:*",
-    "@shuriken-ui/theme-iga": "workspace:*",
-    "reka-ui": "catalog:",
-    "typescript": "catalog:"
+    "defu": "^6.1.4",
+    "reka-ui": "catalog:"
   },
   "peerDependencies": {
     "@shuriken-ui/tailwind": "workspace:*",
-    "nuxt": "catalog:",
-    "tailwindcss": "catalog:"
+    "tailwindcss": "catalog:",
+    "typescript": "catalog:"
   },
   "devDependencies": {
-    "@nuxt/kit": "^3.14.1592"
+    "@nuxt/kit": "^3.14.1592",
+    "@nuxt/module-builder": "^0.8.4",
+    "nuxt": "catalog:",
+    "unbuild": "^3.2.0",
+    "vue-tsc": "^2.2.0"
   }
 }

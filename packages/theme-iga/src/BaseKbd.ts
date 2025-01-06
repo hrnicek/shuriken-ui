@@ -1,4 +1,4 @@
-import type { BaseKbdConfig, BaseKbdProps } from "@shuriken-ui/types"
+import type { BaseKbdConfig, BaseKbdProps } from "@shuriken-ui/nuxt"
 
 export const sizes = {
   sm: 'min-h-[18px] px-1 text-xs',

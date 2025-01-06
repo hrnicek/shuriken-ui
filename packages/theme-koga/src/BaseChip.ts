@@ -1,4 +1,4 @@
-import type { BaseChipConfig, BaseChipProps } from "@shuriken-ui/types"
+import type { BaseChipConfig, BaseChipProps } from "@shuriken-ui/nuxt"
 
 export const placements = {
   'top-start': 'top-0 start-0 -mt-0.5 -ms-0.5',

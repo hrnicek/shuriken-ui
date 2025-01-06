@@ -1,4 +1,4 @@
-import type { BaseDropdownContext, BaseDropdownItemConfig } from "@shuriken-ui/types"
+import type { BaseDropdownContext, BaseDropdownItemConfig } from "@shuriken-ui/nuxt"
 
 export { radiuses } from './BaseDropdown'
 export const variants = {

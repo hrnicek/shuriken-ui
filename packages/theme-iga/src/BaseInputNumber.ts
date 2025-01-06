@@ -1,4 +1,4 @@
-import type { BaseInputNumberConfig, BaseInputNumberProps } from "@shuriken-ui/types"
+import type { BaseInputNumberConfig, BaseInputNumberProps } from "@shuriken-ui/nuxt"
 
 export const variants = {
   default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border',

@@ -1,4 +1,4 @@
-import type { BaseIconBoxConfig, BaseIconBoxProps } from "@shuriken-ui/types"
+import type { BaseIconBoxConfig, BaseIconBoxProps } from "@shuriken-ui/nuxt"
 
 export const variants = {
   'default': 'text-muted-600 dark:text-muted-200 bg-white dark:bg-muted-800 border border-muted-300 dark:border-muted-700',

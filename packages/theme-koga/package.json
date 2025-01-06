@@ -1,6 +1,6 @@
 {
   "name": "@shuriken-ui/theme-koga",
-  "version": "4.0.0-alpha.9",
+  "version": "4.0.0-alpha.16",
   "author": "Css Ninja <hello@cssninja.io> (https://cssninja.io)",
   "repository": {
     "type": "git",
@@ -8,7 +8,7 @@
     "directory": "packages/theme-koga"
   },
   "devDependencies": {
-    "@shuriken-ui/types": "workspace:*"
+    "@shuriken-ui/nuxt": "workspace:*"
   },
   "exports": {
     ".": "./src/index.ts"

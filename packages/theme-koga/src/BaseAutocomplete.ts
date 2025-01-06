@@ -1,4 +1,4 @@
-import type { BaseAutocompleteConfig, BaseAutocompleteProps } from "@shuriken-ui/types";
+import type { BaseAutocompleteConfig, BaseAutocompleteProps } from "@shuriken-ui/nuxt";
 
 export const variants = {
   'default': 'border border-muted-200 dark:border-muted-700 bg-white dark:bg-muted-800',

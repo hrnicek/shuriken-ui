@@ -1,4 +1,4 @@
-import type { BaseAccordionConfig } from '@shuriken-ui/types'
+import type { BaseAccordionConfig } from '@shuriken-ui/nuxt'
 
 export const defaults = {
   variant: 'default',

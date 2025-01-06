@@ -1,4 +1,4 @@
-import type { BaseTabsConfig, BaseTabsProps } from "@shuriken-ui/types"
+import type { BaseTabsConfig, BaseTabsProps } from "@shuriken-ui/nuxt"
 
 export const radiuses = {
   none: '',
