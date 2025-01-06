@@ -1,4 +1,5 @@
-import { useEventListener, ref, onMounted } from 'vue'
+import { useEventListener } from '@vueuse/core'
+import { ref, onMounted } from 'vue'
 
 export function useNinjaWindowScroll() {
   const x = ref(0)
