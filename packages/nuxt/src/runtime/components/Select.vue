@@ -18,6 +18,7 @@ import { BaseSelect as theme } from '@shuriken-ui/theme-iga';
 import { defu } from 'defu'
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
+import { useAttrs, computed } from 'vue'
 
 const props = withDefaults(defineProps<BaseSelectProps<T>>(), {
   id: undefined,

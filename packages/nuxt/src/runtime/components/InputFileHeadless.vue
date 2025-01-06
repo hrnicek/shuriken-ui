@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import type { Ref } from 'vue'
+import { ref, provide, reactive } from 'vue'
 import { useNinjaId } from '../composables/input-id';
+import { useNinjaFilePreview } from '../composables/file-preview';
 
 defineOptions({
   inheritAttrs: false,

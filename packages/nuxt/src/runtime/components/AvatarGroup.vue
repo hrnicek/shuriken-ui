@@ -4,6 +4,7 @@ import { BaseAvatarGroup as theme } from '@shuriken-ui/theme-iga'
 
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
+import { computed } from 'vue'
 
 const props = withDefaults(defineProps<BaseAvatarGroupProps>(), {
   limit: theme.defaults.limit,

@@ -3,6 +3,7 @@ import type { BaseAvatarProps, BaseAvatarSlots } from '../types'
 import { BaseAvatar as theme } from '@shuriken-ui/theme-iga'
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
+import { computed } from 'vue'
 
 const props = withDefaults(defineProps<BaseAvatarProps>(), {
   src: undefined,

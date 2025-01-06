@@ -3,6 +3,7 @@ import type { BaseSwitchBallEmits, BaseSwitchBallProps, BaseSwitchBallSlots } fr
 import { BaseSwitchBall as theme } from '@shuriken-ui/theme-iga';
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
+import { useAttrs } from 'vue'
 
 import { useNinjaId } from '../composables/input-id';
 import { useNuiConfig } from '../composables/default-property';

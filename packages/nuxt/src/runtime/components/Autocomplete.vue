@@ -16,6 +16,7 @@ import { BaseAutocomplete as theme } from '@shuriken-ui/theme-iga';
 import { defu } from 'defu'
 import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
+import { useAttrs, computed } from 'vue'
 
 defineOptions({
   inheritAttrs: false,
