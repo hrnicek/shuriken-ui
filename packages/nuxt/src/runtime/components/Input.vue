@@ -2,6 +2,9 @@
 import type { BaseInputProps } from '../types'
 import { BaseInput as theme } from '@shuriken-ui/theme-iga'
 
+import { useNinjaId } from '../composables/input-id';
+
+
 const props = withDefaults(defineProps<BaseInputProps>(), {
   id: undefined,
   type: 'text',

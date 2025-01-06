@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useNinjaId } from '../composables/input-id';
+
 defineOptions({
   inheritAttrs: false,
 })

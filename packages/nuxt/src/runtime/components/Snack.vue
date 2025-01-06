@@ -4,6 +4,8 @@ import { BaseSnack as theme } from '@shuriken-ui/theme-iga';
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 
+import { useNuiConfig } from '../composables/default-property';
+
 const props = withDefaults(defineProps<BaseSnackProps>(), {
   label: '',
   icon: undefined,

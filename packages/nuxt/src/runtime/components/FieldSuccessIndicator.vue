@@ -3,6 +3,8 @@ import type { BaseFieldSuccessIndicator } from '../types';
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 
+import { useNuiConfig } from '../composables/default-property';
+
 import { injectBaseFieldContext } from './Field.vue'
 
 const props = withDefaults(defineProps<BaseFieldSuccessIndicator>(), {

@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import type { BaseThemeToggleProps } from '../types';
 import { BaseThemeToggle as theme } from '@shuriken-ui/theme-iga';
-
 import { useMounted } from '@vueuse/core'
+
+import { useNinjaId } from '../composables/input-id';
+import { useNuiConfig } from '../composables/default-property';
 
 const props = withDefaults(defineProps<BaseThemeToggleProps>(), {
   id: undefined,

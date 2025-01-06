@@ -3,6 +3,8 @@ import type { BaseSwitchThinEmits, BaseSwitchThinProps, BaseSwitchThinSlots } fr
 import { BaseSwitchThin as theme } from '@shuriken-ui/theme-iga';
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
+import { useNinjaId } from '../composables/input-id';
+import { useNuiConfig } from '../composables/default-property';
 
 defineOptions({
   inheritAttrs: false,

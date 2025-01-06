@@ -13,6 +13,7 @@ import type { BaseDropdownProps, BaseDropdownEmits, BaseDropdownSlots } from '..
 import { BaseDropdown as theme } from '@shuriken-ui/theme-iga';
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardPropsEmits } from 'reka-ui'
+import { useNuiConfig } from '../composables/default-property';
 
 defineOptions({
   inheritAttrs: false,

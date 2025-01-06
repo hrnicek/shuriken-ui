@@ -2,6 +2,9 @@
 import type { BaseSelectContext } from '../types';
 import { createContext } from 'reka-ui'
 
+import { useNinjaId } from '../composables/input-id';
+import { useNuiConfig } from '../composables/default-property';
+
 export const [
   injectBaseSelectContext,
   provideBaseSelectContext,

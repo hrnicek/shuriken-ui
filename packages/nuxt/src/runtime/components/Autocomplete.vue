@@ -1,6 +1,7 @@
 <script lang="ts">
 import type { BaseAutocompleteContext } from '../types';
 import { createContext } from 'reka-ui'
+import { useNuiConfig } from '../composables/default-property';
 
 export const [
   injectBaseAutocompleteContext,

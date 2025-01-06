@@ -2,6 +2,9 @@
 import type { BaseFullscreenDropfileProps, BaseFullscreenDropfileEmits, BaseFullscreenDropfileSlots } from '../types'
 import { BaseFullscreenDropfile as theme } from '@shuriken-ui/theme-iga'
 
+import { useNinjaId } from '../composables/input-id';
+
+
 const props = withDefaults(defineProps<BaseFullscreenDropfileProps>(), {
   label: 'Drop your files',
   icon: '',

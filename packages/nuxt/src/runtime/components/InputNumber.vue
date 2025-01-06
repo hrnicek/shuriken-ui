@@ -4,6 +4,9 @@ import { BaseInputNumber as theme } from '@shuriken-ui/theme-iga';
 import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 
+import { useNinjaId } from '../composables/input-id';
+import { useNuiConfig } from '../composables/default-property';
+
 defineOptions({
   inheritAttrs: false,
 })

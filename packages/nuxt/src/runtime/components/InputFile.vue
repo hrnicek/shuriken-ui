@@ -2,6 +2,9 @@
 import type { BaseInputFileProps } from '../types';
 import { BaseInputFile as theme } from '@shuriken-ui/theme-iga';
 
+import { useNinjaId } from '../composables/input-id';
+
+
 const i18n = {
   empty: 'No file chosen',
   invalid: 'Invalid file selected',

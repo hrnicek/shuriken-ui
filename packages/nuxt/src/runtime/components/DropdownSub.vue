@@ -6,6 +6,8 @@ import { injectBaseDropdownContext } from './Dropdown.vue'
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 
+import { useNuiConfig } from '../composables/default-property';
+
 const props = defineProps<BaseDropdownSubProps>()
 const emits = defineEmits<BaseDropdownSubEmits>()
 const slots = defineSlots<BaseDropdownSubSlots>()
