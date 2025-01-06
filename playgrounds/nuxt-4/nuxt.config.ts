@@ -3,8 +3,8 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
-  extends: ['@shuriken-ui/nuxt'],
   modules: [
+    '@shuriken-ui/nuxt',
     '@nuxt/fonts',
   ],
   css: ['~/assets/tailwind.css'],
