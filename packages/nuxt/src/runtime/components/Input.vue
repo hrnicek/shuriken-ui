@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseInputProps } from '@shuriken-ui/types'
+import type { BaseInputProps } from '../types'
 import { BaseInput as theme } from '@shuriken-ui/theme-iga'
 
 const props = withDefaults(defineProps<BaseInputProps>(), {

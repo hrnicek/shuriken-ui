@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseSelectSeparatorProps } from '@shuriken-ui/types';
+import type { BaseSelectSeparatorProps } from '../types';
 import { useForwardProps } from 'reka-ui';
 
 const props = withDefaults(defineProps<BaseSelectSeparatorProps>(), {})

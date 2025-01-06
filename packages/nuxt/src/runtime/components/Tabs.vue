@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { BaseTabsContext } from '@shuriken-ui/types';
+import type { BaseTabsContext } from '../types';
 import { createContext } from 'reka-ui'
 
 export const [
@@ -9,7 +9,7 @@ export const [
 </script>
 
 <script setup lang="ts">
-import type { BaseTabsProps, BaseTabsEmits, BaseTabsSlots } from '@shuriken-ui/types';
+import type { BaseTabsProps, BaseTabsEmits, BaseTabsSlots } from '../types';
 import { BaseTabs as theme } from '@shuriken-ui/theme-iga';
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'

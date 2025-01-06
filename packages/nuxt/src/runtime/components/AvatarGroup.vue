@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseAvatarGroupProps, BaseAvatarGroupSlots } from '@shuriken-ui/types'
+import type { BaseAvatarGroupProps, BaseAvatarGroupSlots } from '../types'
 import { BaseAvatarGroup as theme } from '@shuriken-ui/theme-iga'
 
 import { useForwardProps } from 'reka-ui'

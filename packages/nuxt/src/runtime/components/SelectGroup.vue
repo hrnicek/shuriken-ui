@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseSelectGroupProps, BaseSelectGroupSlots } from '@shuriken-ui/types';
+import type { BaseSelectGroupProps, BaseSelectGroupSlots } from '../types';
 import { useForwardProps } from 'reka-ui';
 
 const props = withDefaults(defineProps<BaseSelectGroupProps>(), {})

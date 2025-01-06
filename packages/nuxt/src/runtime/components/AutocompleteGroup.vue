@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseAutocompleteGroupProps, BaseAutocompleteGroupSlots } from '@shuriken-ui/types';
+import type { BaseAutocompleteGroupProps, BaseAutocompleteGroupSlots } from '../types';
 import { useForwardProps } from 'reka-ui';
 
 const props = withDefaults(defineProps<BaseAutocompleteGroupProps>(), {})

@@ -1,4 +1,4 @@
-import type { BaseSnackConfig, BaseSnackProps } from "@shuriken-ui/types"
+import type { BaseSnackConfig, BaseSnackProps } from "@shuriken-ui/nuxt"
 
 export const sizes = {
   xs: 'h-6',

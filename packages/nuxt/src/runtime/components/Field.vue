@@ -1,6 +1,6 @@
 <script lang="ts">
 import { createContext } from 'reka-ui'
-import type { BaseFieldContext } from '@shuriken-ui/types';
+import type { BaseFieldContext } from '../types';
 
 export const [
   injectBaseFieldContext,
@@ -9,7 +9,7 @@ export const [
 </script>
 
 <script setup lang="ts">
-import type { BaseFieldProps, BaseFieldSlots } from '@shuriken-ui/types';
+import type { BaseFieldProps, BaseFieldSlots } from '../types';
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseProgressEmits, BaseProgressProps, BaseProgressSlots } from '@shuriken-ui/types';
+import type { BaseProgressEmits, BaseProgressProps, BaseProgressSlots } from '../types';
 import { BaseProgress as theme } from '@shuriken-ui/theme-iga';
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'

@@ -1,4 +1,4 @@
-import type { RouteLocationRaw } from 'vue-router'
+import type { RouteLocationRaw } from '#vue-router'
 
 export interface BaseButtonProps {
   /** The location to which the button should navigate when clicked. This is only applicable if the button is a link. */

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseTabsContentProps, BaseTabsContentSlots } from '@shuriken-ui/types';
+import type { BaseTabsContentProps, BaseTabsContentSlots } from '../types';
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 

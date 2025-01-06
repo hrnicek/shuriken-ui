@@ -1,4 +1,4 @@
-import type { BaseAvatarConfig, BaseAvatarProps } from '@shuriken-ui/types'
+import type { BaseAvatarConfig, BaseAvatarProps } from '@shuriken-ui/nuxt'
 
 export const sizes = {
   'xxs': 'size-6',

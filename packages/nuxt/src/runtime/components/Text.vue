@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseTextProps, BaseTextSlots } from '@shuriken-ui/types';
+import type { BaseTextProps, BaseTextSlots } from '../types';
 import { BaseText as theme } from '@shuriken-ui/theme-iga';
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'

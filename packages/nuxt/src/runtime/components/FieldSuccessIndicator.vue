@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseFieldSuccessIndicator } from '@shuriken-ui/types';
+import type { BaseFieldSuccessIndicator } from '../types';
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 

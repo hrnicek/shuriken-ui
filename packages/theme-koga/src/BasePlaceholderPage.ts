@@ -1,4 +1,4 @@
-import type { BasePlaceholderPageConfig, BasePlaceholderPageProps } from "@shuriken-ui/types"
+import type { BasePlaceholderPageConfig, BasePlaceholderPageProps } from "@shuriken-ui/nuxt"
 
 export const sizes = {
   xs: 'max-w-xs',

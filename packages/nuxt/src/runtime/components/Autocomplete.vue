@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { BaseAutocompleteContext } from '@shuriken-ui/types';
+import type { BaseAutocompleteContext } from '../types';
 import { createContext } from 'reka-ui'
 
 export const [
@@ -9,7 +9,7 @@ export const [
 </script>
 
 <script setup lang="ts" generic="T extends AcceptableValue = AcceptableValue">
-import type { BaseAutocompleteProps, BaseAutocompleteEmits, BaseAutocompleteSlots } from '@shuriken-ui/types';
+import type { BaseAutocompleteProps, BaseAutocompleteEmits, BaseAutocompleteSlots } from '../types';
 import type { AcceptableValue } from 'reka-ui'
 import { BaseAutocomplete as theme } from '@shuriken-ui/theme-iga';
 import { defu } from 'defu'

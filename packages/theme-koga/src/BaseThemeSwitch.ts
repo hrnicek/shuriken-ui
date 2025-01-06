@@ -1,4 +1,4 @@
-import type { BaseThemeSwitchConfig, BaseThemeSwitchProps } from "@shuriken-ui/types"
+import type { BaseThemeSwitchConfig, BaseThemeSwitchProps } from "@shuriken-ui/nuxt"
 
 export const variants = {
   'default': 'bg-white dark:bg-muted-800 border border-muted-300 dark:border-muted-700',

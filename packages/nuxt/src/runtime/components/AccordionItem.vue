@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseAccordionItemProps, BaseAccordionItemSlots } from '@shuriken-ui/types'
+import type { BaseAccordionItemProps, BaseAccordionItemSlots } from '../types'
 import { BaseAccordion as theme } from '@shuriken-ui/theme-iga'
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'

@@ -1,4 +1,4 @@
-import type { BaseDropdownContext } from "@shuriken-ui/types"
+import type { BaseDropdownContext } from "@shuriken-ui/nuxt"
 
 export const variants = {
   'default': 'border-muted-200 dark:border-muted-800',

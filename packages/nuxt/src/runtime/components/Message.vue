@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseMessageProps, BaseMessageEmits, BaseMessageSlots } from '@shuriken-ui/types';
+import type { BaseMessageProps, BaseMessageEmits, BaseMessageSlots } from '../types';
 import { BaseMessage as theme } from '@shuriken-ui/theme-iga';
 
 const props = withDefaults(defineProps<BaseMessageProps>(), {

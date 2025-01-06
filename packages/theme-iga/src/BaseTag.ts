@@ -1,4 +1,4 @@
-import type { BaseTagConfig, BaseTagProps } from "@shuriken-ui/types"
+import type { BaseTagConfig, BaseTagProps } from "@shuriken-ui/nuxt"
 
 export const variants = {
   'default': 'bg-white/10 dark:bg-muted-950/10 text-muted-400 dark:text-muted-200 ring-1 ring-inset ring-muted-400/20 dark:ring-muted-200/20',

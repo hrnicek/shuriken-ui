@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseCheckboxProps, BaseCheckboxEmits, BaseCheckboxSlots } from '@shuriken-ui/types';
+import type { BaseCheckboxProps, BaseCheckboxEmits, BaseCheckboxSlots } from '../types';
 import { BaseCheckbox as theme } from '@shuriken-ui/theme-iga';
 import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'

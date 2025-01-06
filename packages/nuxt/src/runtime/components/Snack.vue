@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseSnackProps, BaseSnackEmits, BaseSnackSlots } from '@shuriken-ui/types';
+import type { BaseSnackProps, BaseSnackEmits, BaseSnackSlots } from '../types';
 import { BaseSnack as theme } from '@shuriken-ui/theme-iga';
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'

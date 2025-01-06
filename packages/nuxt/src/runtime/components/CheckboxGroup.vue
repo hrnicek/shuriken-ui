@@ -1,5 +1,5 @@
 <script setup lang="ts" generic="T extends AcceptableValue = AcceptableValue">
-import type { BaseCheckboxGroupProps, BaseCheckboxGroupEmits, BaseCheckboxGroupSlots } from '@shuriken-ui/types';
+import type { BaseCheckboxGroupProps, BaseCheckboxGroupEmits, BaseCheckboxGroupSlots } from '../types';
 import type { AcceptableValue } from 'reka-ui'
 import { useForwardPropsEmits } from 'reka-ui'
 

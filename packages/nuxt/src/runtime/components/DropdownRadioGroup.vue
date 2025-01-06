@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseDropdownRadioGroupProps, BaseDropdownRadioGroupEmits, BaseDropdownRadioGroupSlots } from '@shuriken-ui/types';
+import type { BaseDropdownRadioGroupProps, BaseDropdownRadioGroupEmits, BaseDropdownRadioGroupSlots } from '../types';
 import { useForwardPropsEmits } from 'reka-ui';
 
 const props = withDefaults(defineProps<BaseDropdownRadioGroupProps>(), {

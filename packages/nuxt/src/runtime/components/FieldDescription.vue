@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseFieldDescription } from '@shuriken-ui/types';
+import type { BaseFieldDescription } from '../types';
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 

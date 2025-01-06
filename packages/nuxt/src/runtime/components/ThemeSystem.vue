@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseThemeSystemProps } from '@shuriken-ui/types';
+import type { BaseThemeSystemProps } from '../types';
 import { BaseThemeSystem as theme } from '@shuriken-ui/theme-iga';
 import { useMounted } from '@vueuse/core'
 

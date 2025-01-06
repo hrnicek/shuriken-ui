@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseTabsTriggerProps, BaseTabsTriggerSlots } from '@shuriken-ui/types';
+import type { BaseTabsTriggerProps, BaseTabsTriggerSlots } from '../types';
 import { BaseTabsTrigger as theme } from '@shuriken-ui/theme-iga';
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'

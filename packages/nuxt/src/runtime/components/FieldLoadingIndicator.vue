@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseFieldLoadingIndicator } from '@shuriken-ui/types';
+import type { BaseFieldLoadingIndicator } from '../types';
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 

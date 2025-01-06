@@ -1,5 +1,5 @@
 
-import type { BaseButtonConfig, BaseButtonProps } from '@shuriken-ui/types'
+import type { BaseButtonConfig, BaseButtonProps } from '@shuriken-ui/nuxt'
 
 export const sizes = {
   'sm': 'h-8 px-3 py-1 text-sm',

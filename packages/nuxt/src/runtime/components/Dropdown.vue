@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { BaseDropdownContext } from '@shuriken-ui/types';
+import type { BaseDropdownContext } from '../types';
 import { createContext } from 'reka-ui'
 
 export const [
@@ -9,7 +9,7 @@ export const [
 </script>
 
 <script setup lang="ts">
-import type { BaseDropdownProps, BaseDropdownEmits, BaseDropdownSlots } from '@shuriken-ui/types';
+import type { BaseDropdownProps, BaseDropdownEmits, BaseDropdownSlots } from '../types';
 import { BaseDropdown as theme } from '@shuriken-ui/theme-iga';
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardPropsEmits } from 'reka-ui'

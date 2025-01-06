@@ -3,6 +3,8 @@ import { createResolver, defineNuxtModule, addComponentsDir, addImportsDir, inst
 import tailwindcss from '@tailwindcss/vite'
 import defu from 'defu'
 
+export * from './runtime/types'
+
 export interface ModuleOptions {
   /**
    * Prefix for components

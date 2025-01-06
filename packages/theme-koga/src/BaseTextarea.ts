@@ -1,4 +1,4 @@
-import type { BaseTextareaConfig, BaseTextareaProps } from "@shuriken-ui/types"
+import type { BaseTextareaConfig, BaseTextareaProps } from "@shuriken-ui/nuxt"
 
 export const radiuses = {
   none: '',

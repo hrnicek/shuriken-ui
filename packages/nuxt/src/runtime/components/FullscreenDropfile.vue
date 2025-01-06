@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseFullscreenDropfileProps, BaseFullscreenDropfileEmits, BaseFullscreenDropfileSlots } from '@shuriken-ui/types'
+import type { BaseFullscreenDropfileProps, BaseFullscreenDropfileEmits, BaseFullscreenDropfileSlots } from '../types'
 import { BaseFullscreenDropfile as theme } from '@shuriken-ui/theme-iga'
 
 const props = withDefaults(defineProps<BaseFullscreenDropfileProps>(), {

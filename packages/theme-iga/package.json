@@ -8,7 +8,7 @@
     "directory": "packages/theme-iga"
   },
   "devDependencies": {
-    "@shuriken-ui/types": "workspace:*"
+    "@shuriken-ui/nuxt": "workspace:*"
   },
   "exports": {
     ".": "./src/index.ts"

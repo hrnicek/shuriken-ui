@@ -1,4 +1,4 @@
-import type { BaseCheckboxConfig, BaseCheckboxProps } from "@shuriken-ui/types";
+import type { BaseCheckboxConfig, BaseCheckboxProps } from "@shuriken-ui/nuxt";
 
 export const variants = {
   'default': 'bg-white dark:bg-muted-700 border-1 border-muted-300 dark:border-muted-700 text-muted-700 dark:text-muted-300',

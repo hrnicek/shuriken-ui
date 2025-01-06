@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseInputFileProps } from '@shuriken-ui/types';
+import type { BaseInputFileProps } from '../types';
 import { BaseInputFile as theme } from '@shuriken-ui/theme-iga';
 
 const i18n = {

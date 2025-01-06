@@ -1,4 +1,4 @@
-import type { BaseAvatarGroupConfig, BaseAvatarGroupProps } from '@shuriken-ui/types'
+import type { BaseAvatarGroupConfig, BaseAvatarGroupProps } from '@shuriken-ui/nuxt'
 
 export { sizes, radiuses } from './BaseAvatar'
 

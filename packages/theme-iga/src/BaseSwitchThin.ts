@@ -1,4 +1,4 @@
-import type { BaseSwitchThinConfig, BaseSwitchThinProps } from "@shuriken-ui/types"
+import type { BaseSwitchThinConfig, BaseSwitchThinProps } from "@shuriken-ui/nuxt"
 
 export const trackVariants = {
   'default': 'peer-data-[state=checked]:bg-muted-500 dark:peer-data-[state=checked]:bg-muted-800 bg-muted-300 dark:bg-muted-900',

@@ -1,4 +1,4 @@
-import type { BaseProgressConfig, BaseProgressProps } from "@shuriken-ui/types"
+import type { BaseProgressConfig, BaseProgressProps } from "@shuriken-ui/nuxt"
 
 export const variants = {
   'primary': 'bg-primary-base',

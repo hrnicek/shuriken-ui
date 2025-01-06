@@ -1,4 +1,4 @@
-import type { BaseMessageConfig, BaseMessageProps } from "@shuriken-ui/types"
+import type { BaseMessageConfig, BaseMessageProps } from "@shuriken-ui/nuxt"
 
 export const radiuses = {
   none: '',

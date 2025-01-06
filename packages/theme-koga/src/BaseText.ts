@@ -1,4 +1,4 @@
-import type { BaseTextConfig, BaseTextProps } from "@shuriken-ui/types"
+import type { BaseTextConfig, BaseTextProps } from "@shuriken-ui/nuxt"
 
 export const sizes = {
   'xs': 'text-xs',

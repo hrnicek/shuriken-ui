@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseDropdownCheckboxProps, BaseDropdownCheckboxEmits, BaseDropdownCheckboxSlots} from '@shuriken-ui/types';
+import type { BaseDropdownCheckboxProps, BaseDropdownCheckboxEmits, BaseDropdownCheckboxSlots} from '../types';
 import { BaseDropdownItem as theme } from '@shuriken-ui/theme-iga';
 
 import { useForwardPropsEmits } from 'reka-ui'

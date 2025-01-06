@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseTextareaProps } from '@shuriken-ui/types';
+import type { BaseTextareaProps } from '../types';
 import { BaseTextarea as theme } from '@shuriken-ui/theme-iga';
 
 defineOptions({

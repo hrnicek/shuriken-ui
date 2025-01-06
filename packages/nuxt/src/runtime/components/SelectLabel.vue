@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseSelectLabelProps, BaseSelectLabelSlots } from '@shuriken-ui/types';
+import type { BaseSelectLabelProps, BaseSelectLabelSlots } from '../types';
 import { useForwardProps } from 'reka-ui';
 import { reactiveOmit } from '@vueuse/core'
 

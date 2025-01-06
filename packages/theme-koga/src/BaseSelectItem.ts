@@ -1,4 +1,4 @@
-import type { BaseSelectContext } from '@shuriken-ui/types'
+import type { BaseSelectContext } from '@shuriken-ui/nuxt'
 
 export { radiuses } from './BaseSelect'
 export const variants = {

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseFieldError } from '@shuriken-ui/types';
+import type { BaseFieldError } from '../types';
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseAutocompleteItemProps, BaseAutocompleteItemEmits, BaseAutocompleteItemSlots } from '@shuriken-ui/types';
+import type { BaseAutocompleteItemProps, BaseAutocompleteItemEmits, BaseAutocompleteItemSlots } from '../types';
 import { BaseAutocompleteItem as theme } from '@shuriken-ui/theme-iga';
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'

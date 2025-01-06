@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseBreadcrumbProps, BaseBreadcrumbSlots } from '@shuriken-ui/types'
+import type { BaseBreadcrumbProps, BaseBreadcrumbSlots } from '../types'
 import { BaseBreadcrumb as theme } from '@shuriken-ui/theme-iga'
 
 const props = withDefaults(defineProps<BaseBreadcrumbProps>(), {

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseButtonProps, BaseButtonSlots } from '@shuriken-ui/types'
+import type { BaseButtonProps, BaseButtonSlots } from '../types'
 import { BaseButton as theme } from '@shuriken-ui/theme-iga'
 
 const props = withDefaults(defineProps<BaseButtonProps>(), {

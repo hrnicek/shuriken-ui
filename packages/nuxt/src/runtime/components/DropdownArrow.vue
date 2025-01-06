@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseDropdownArrowProps } from '@shuriken-ui/types';
+import type { BaseDropdownArrowProps } from '../types';
 import { BaseDropdownArrow as theme } from '@shuriken-ui/theme-iga';
 import { useForwardProps } from 'reka-ui';
 import { injectBaseDropdownContext } from './Dropdown.vue'

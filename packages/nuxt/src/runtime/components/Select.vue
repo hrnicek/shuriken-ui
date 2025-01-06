@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { BaseSelectContext } from '@shuriken-ui/types';
+import type { BaseSelectContext } from '../types';
 import { createContext } from 'reka-ui'
 
 export const [
@@ -9,7 +9,7 @@ export const [
 </script>
 
 <script setup lang="ts" generic="T extends AcceptableValue = AcceptableValue">
-import type { BaseSelectProps, BaseSelectEmits, BaseSelectSlots } from '@shuriken-ui/types';
+import type { BaseSelectProps, BaseSelectEmits, BaseSelectSlots } from '../types';
 import type { AcceptableValue } from 'reka-ui'
 import { BaseSelect as theme } from '@shuriken-ui/theme-iga';
 import { defu } from 'defu'

@@ -4,5 +4,8 @@
   "private": true,
   "type": "module",
   "packageManager": "pnpm@9.15.0",
-  "dependencies": {}
+  "dependencies": {},
+  "resolutions": {
+    "typescript": "5.6.3"
+  }
 }

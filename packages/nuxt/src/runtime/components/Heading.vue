@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseHeadingProps, BaseHeadingSlots } from '@shuriken-ui/types';
+import type { BaseHeadingProps, BaseHeadingSlots } from '../types';
 import { BaseHeading as theme } from '@shuriken-ui/theme-iga';
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'

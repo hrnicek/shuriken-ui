@@ -1,4 +1,4 @@
-import type { BaseSwitchBallConfig, BaseSwitchBallProps } from "@shuriken-ui/types"
+import type { BaseSwitchBallConfig, BaseSwitchBallProps } from "@shuriken-ui/nuxt"
 
 export const trackVariants = {
   'default': 'peer-data-[state=checked]:bg-muted-400 dark:peer-data-[state=checked]:bg-muted-700 bg-muted-300 dark:bg-muted-600',

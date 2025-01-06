@@ -1,4 +1,4 @@
-import type { BaseTabsTriggerProps } from "@shuriken-ui/types"
+import type { BaseTabsTriggerProps } from "@shuriken-ui/nuxt"
 
 export { types } from './BaseTabs'
 

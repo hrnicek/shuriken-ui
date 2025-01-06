@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseDropdownItemProps, BaseDropdownItemEmits, BaseDropdownItemSlots } from '@shuriken-ui/types';
+import type { BaseDropdownItemProps, BaseDropdownItemEmits, BaseDropdownItemSlots } from '../types';
 import { BaseDropdownItem as theme } from '@shuriken-ui/theme-iga';
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'

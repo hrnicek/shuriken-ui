@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseInputNumberProps, BaseInputNumberEmits, BaseInputNumberSlots } from '@shuriken-ui/types';
+import type { BaseInputNumberProps, BaseInputNumberEmits, BaseInputNumberSlots } from '../types';
 import { BaseInputNumber as theme } from '@shuriken-ui/theme-iga';
 import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'

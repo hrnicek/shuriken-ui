@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BaseParagraphProps, BaseParagraphSlots } from '@shuriken-ui/types';
+import type { BaseParagraphProps, BaseParagraphSlots } from '../types';
 import { BaseParagraph as theme } from '@shuriken-ui/theme-iga';
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'

@@ -1,4 +1,4 @@
-import type { BasePaginationConfig, BasePaginationProps } from "@shuriken-ui/types"
+import type { BasePaginationConfig, BasePaginationProps } from "@shuriken-ui/nuxt"
 
 export const sizes = {
   sm: 'size-8',
