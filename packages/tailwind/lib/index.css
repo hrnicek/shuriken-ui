@@ -7,10 +7,12 @@
 @import './css/mask.css';
 @import './css/slimscroll.css';
 
-.dark {
-  color-scheme: dark;
-}
-.nui-no-transition * {
-  transition-property: none !important;
-  transition-duration: 0 !important;
+@layer base {
+  .dark {
+    color-scheme: dark;
+  }
+  .nui-no-transition * {
+    transition-property: none !important;
+    transition-duration: 0 !important;
+  }
 }

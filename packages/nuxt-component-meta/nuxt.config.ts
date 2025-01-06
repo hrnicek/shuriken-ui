@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     globalsOnly: false,
     debug: 2,
     exclude: [
-      (component) => !component.pascalName.startsWith('Base'),
+      (component: any) => !component.pascalName.startsWith('Base'),
     ],
     checkerOptions: {
       schema: {
