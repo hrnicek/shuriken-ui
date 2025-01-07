@@ -43,6 +43,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['ellipsis', 'variant',
         :class="[
           props.variant && theme.variants[props.variant],
           props.rounded && theme.radiuses[props.rounded],
+          props.wrapped ? 'p-1' : '',
         ]"
       >
         <slot name="before-pagination" />
@@ -89,7 +90,8 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['ellipsis', 'variant',
         class="flex items-center justify-end gap-1 enabled:cursor-pointer"
         :class="[
           props.variant && theme.variants[props.variant],
-          props.rounded && theme.radiuses[props.rounded], 
+          props.rounded && theme.radiuses[props.rounded],
+          props.wrapped ? 'p-1' : '', 
         ]"
       >
         <slot name="before-navigation" />
