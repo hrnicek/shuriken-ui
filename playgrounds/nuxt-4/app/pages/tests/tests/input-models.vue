@@ -42,6 +42,7 @@ const select2 = ref()
 const textarea1 = ref()
 const textarea2 = ref<string | undefined>('lorem ipsum dolor sit amet\nconsectetur adipiscing elit ...')
 const textarea3 = ref()
+const slider1 = ref([12, 42])
 </script>
 
 <template>
@@ -631,6 +632,23 @@ inputFile1: {{ inputFile1?.item?.(0)?.name }}({{ typeof inputFile1 }})</pre>
           <pre>textarea3: {{ textarea3 }}({{ typeof textarea3 }})</pre>
           <BaseButton @click="textarea3 = undefined">
             reset
+          </BaseButton>
+        </BaseCard>
+      </div>
+    </NuiPreview>
+
+    <NuiPreview title="BaseSlider" description="BaseSlider test">
+      <div class="grid grid-cols-4 gap-6">
+        <div class="col-span-2">
+          <BaseSlider ref="slider1Ref" v-model="slider1" />
+        </div>
+        <BaseCard class="col-span-2 p-2">
+          <pre>slider1: {{ slider1 }}({{ typeof slider1 }})</pre>
+          <BaseButton @click="slider1 = undefined">
+            reset
+          </BaseButton>
+          <BaseButton @click="$refs?.slider1Ref?.$el.focus()">
+            focus
           </BaseButton>
         </BaseCard>
       </div>
