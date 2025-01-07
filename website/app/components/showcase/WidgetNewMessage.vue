@@ -4,15 +4,20 @@
     class="p-6 shadow-sm shadow-muted-200 dark:shadow-muted-800"
   >
     <div class="mb-6 flex items-center justify-between">
-      <BaseHeading
-        as="h3"
-        size="md"
-        weight="semibold"
-        lead="tight"
-        class="text-muted-800 dark:text-white"
-      >
-        <span>New Message</span>
-      </BaseHeading>
+      <div class="space-y-1">
+        <BaseHeading
+          as="h3"
+          size="md"
+          weight="semibold"
+          lead="tight"
+          class="text-muted-800 dark:text-white"
+        >
+          <span>New Message</span>
+        </BaseHeading>
+        <BaseParagraph size="sm" class="text-muted-600 dark:text-muted-400">
+          You have received a new message
+        </BaseParagraph>
+      </div>
       <div class="relative">
         <BaseChip size="sm" placement="top-end" :offset="2" color="custom" pulse class="text-muted-900! dark:text-muted-100!">
           <div class="flex items-center justify-center rounded-full size-6 ring-1 ring-muted-900/5">

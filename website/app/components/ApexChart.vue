@@ -30,10 +30,13 @@ const { stop } = useIntersectionObserver(target, ([entry]) => {
   <div ref="target">
     <div
       v-if="!isLoaded && !targetIsVisible"
-      class="m-4 w-[calc(100%-32px)]"
+      class="m-4 w-[calc(100%-32px)] flex items-center justify-center"
       :style="{ height: `${height - 32}px` }"
     >
-      Chart loading...
+      <div class="text-center">
+        <Icon name="nui-icon:spiner" class="text-base text-current" />
+        <p>Chart loading...</p>
+      </div>
     </div>
     <ClientOnly>
       <LazyApexCharts

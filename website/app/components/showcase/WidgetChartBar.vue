@@ -3,7 +3,7 @@ const demoBar = reactive(useDemoBar())
 
 function useDemoBar() {
   const type = 'bar'
-  const height = 180
+  const height = 80
 
   const options = {
     chart: {
@@ -17,7 +17,7 @@ function useDemoBar() {
     plotOptions: {
       bar: {
         borderRadius: 4,
-        columnWidth: "85%",
+        columnWidth: "80%",
         dataLabels: {
           position: 'top', // top, center, bottom
         },
@@ -74,7 +74,7 @@ function useDemoBar() {
       },
       labels: {
         show: false,
-        formatter: asPercent,
+        formatter: asDollar,
       },
     },
     colors: ['var(--chart-color-base)'],
@@ -86,8 +86,8 @@ function useDemoBar() {
 
   const series = shallowRef([
     {
-      name: 'Inflation',
-      data: [2.3, 3.1, 4.0, 4.8, 3.6, 3.2, 2.3],
+      name: 'Expenses',
+      data: [200.31, 309.12, 427.89, 438.82, 354.62, 339.29, 257.38],
     },
   ])
 
@@ -102,18 +102,33 @@ function useDemoBar() {
 
 <template>
   <div class="relative">
-    <BaseCard class="p-6">
+    <BaseCard rounded="lg" class="p-6 shadow-sm shadow-muted-200 dark:shadow-muted-800">
       <!-- Title -->
-      <div class="-mb-6">
-        <BaseHeading
-          as="h3"
-          size="md"
-          weight="semibold"
+      <div class="mb-4">
+        <BaseParagraph
+          size="sm"
+          weight="medium"
           lead="tight"
-          class="text-muted-800 dark:text-white"
+          class="text-muted-600 dark:text-muted-400 mb-4"
         >
-          <span>Bar Chart</span>
-        </BaseHeading>
+          <span>Expenses</span>
+        </BaseParagraph>
+        <BaseParagraph
+          size="2xl"
+          weight="bold"
+          lead="none"
+          class="text-muted-900 dark:text-white mb-2"
+        >
+          <span>$5,216.72</span>
+        </BaseParagraph>
+        <BaseParagraph
+          size="xs"
+          weight="medium"
+          lead="tight"
+          class="text-muted-500"
+        >
+          <span>+131% since last month</span>
+        </BaseParagraph>
       </div>
       <ApexChart v-bind="demoBar" />
     </BaseCard>
