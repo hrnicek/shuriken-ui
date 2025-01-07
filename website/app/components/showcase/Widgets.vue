@@ -15,8 +15,14 @@
         <div class="space-y-4 xl:space-y-4">
           <!--Item-->
           <ShowcaseWidgetTeam />
+          <!--Item-->
+          <ShowcaseWidgetSettings />
+          <!--Item-->
+          <ShowcaseWidgetCreditForm />
         </div>
         <div class="space-y-4 xl:space-y-4">
+          <!--Item-->
+          <ShowcaseWidgetChartGauge />
           <!--Item-->
           <ShowcaseWidgetNewMessage />
         </div>
@@ -34,6 +40,10 @@
         <div class="pt-3 sm:col-span-2 xl:pt-3">
           <ShowcaseWidgetChartLines />
         </div>
+      </div>
+      <!--Item-->
+      <div class="hidden md:block">
+        <ShowcaseWidgetTable />
       </div>
     </div>
   </div>

@@ -55,5 +55,19 @@
         19 minutes ago
       </BaseParagraph>
     </div>
+    <div class="mt-6">
+      <form action="" class="space-y-1">
+        <BaseTextarea
+          v-model="value"
+          size="md"
+          placeholder="Reply to Christina..."
+          variant="muted"
+          autogrow
+        />
+        <BaseButton variant="dark" rounded="md" class="w-full">
+          Send Message
+        </BaseButton>
+      </form>
+    </div>
   </BaseCard>
 </template>

@@ -3,7 +3,7 @@ const demoArea = reactive(useDemoArea())
 
 function useDemoArea() {
   const type = 'area'
-  const height = 130
+  const height = 195
 
   const options = {
     chart: {
