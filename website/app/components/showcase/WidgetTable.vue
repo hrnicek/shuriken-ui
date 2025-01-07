@@ -24,17 +24,29 @@ const suppliers = ref([
     pending: 753.46,
     status: 'delayed'
   },
+  {
+    name: 'Fresh Produce',
+    email: 'buy@freshme.fd',
+    pending: 1284.56,
+    status: 'ontime'
+  },
+  {
+    name: 'Healthy Harvest',
+    email: 'contact@hh.co',
+    pending: 692.79,
+    status: 'canceled'
+  },
 ])
 
 const columns = ref([
   {
-    key: 'name',
-    label: 'Name',
+    key: 'email',
+    label: 'Email',
     active: true,
   },
   {
-    key: 'email',
-    label: 'Email',
+    key: 'status',
+    label: 'Status',
     active: true,
   },
   {
@@ -83,10 +95,10 @@ const page = computed({
           lead="tight"
           class="text-muted-800 dark:text-white"
         >
-          <span>Table</span>
+          <span>Suppliers</span>
         </BaseHeading>
         <BaseParagraph size="sm" class="text-muted-600 dark:text-muted-400">
-          Enter your credit card information
+          <span>Manage your suppliers and orders</span>
         </BaseParagraph>
       </div>
     </div>
@@ -139,8 +151,10 @@ const page = computed({
             <thead>
               <tr class="border-b border-muted-300 dark:border-muted-800">
                 <th class="font-sans font-medium text-start text-muted-500 dark:text-muted-400 h-10 px-4 align-middle">Name</th>
-                <th class="font-sans font-medium text-start text-muted-500 dark:text-muted-400 h-10 px-4 align-middle">Email</th>
-                <th class="font-sans font-medium text-start text-muted-500 dark:text-muted-400 h-10 px-4 align-middle">Pending</th>
+                <th v-if="activeColumns.includes('email')" class="font-sans font-medium text-start text-muted-500 dark:text-muted-400 h-10 px-4 align-middle">Email</th>
+                <th v-if="activeColumns.includes('status')" class="font-sans font-medium text-start text-muted-500 dark:text-muted-400 h-10 px-4 align-middle">Status</th>
+                <th v-if="activeColumns.includes('pending')" class="font-sans font-medium text-start text-muted-500 dark:text-muted-400 h-10 px-4 align-middle">Pending</th>
+                <th class="font-sans font-medium text-start text-muted-500 dark:text-muted-400 h-10 px-4 align-middle"></th>
               </tr>
             </thead>
             <tbody>
@@ -154,15 +168,55 @@ const page = computed({
                     {{ supplier.name }}
                   </BaseParagraph>
                 </td>
-                <td class="text-start h-11 px-4 align-middle">
+                <td v-if="activeColumns.includes('email')" class="text-start h-11 px-4 align-middle">
                   <BaseParagraph size="xs" class="text-muted-700 dark:text-muted-400 font-medium">
                     <a :href="`mailto:${supplier.email}`" class="hover:text-muted-900 hover:underline underline-offset-4">{{ supplier.email }}</a>
                   </BaseParagraph>
                 </td>
-                <td class="text-start h-11 px-4 align-middle">
-                  <BaseParagraph size="sm" class="text-muted-900 font-semibold dark:text-muted-100">
+                <td v-if="activeColumns.includes('status')" class="text-start h-11 px-4 align-middle">
+                  <div class="inline-block relative">
+                    <BaseChip 
+                      size="xs" 
+                      color="custom" 
+                      :class="[
+                        supplier.status === 'ontime' ? 'text-muted-900 dark:text-white' : 'text-transparent',
+                      ]" 
+                      :pulse="supplier.status === 'ontime'" 
+                      :offset="2"
+                    >
+                      <BaseTag rounded="full">{{ supplier.status }}</BaseTag>
+                    </BaseChip>
+                  </div>
+                </td>
+                <td v-if="activeColumns.includes('pending')" class="text-start h-11 px-4 align-middle">
+                  <BaseParagraph size="sm" class="text-muted-900 font-medium dark:text-muted-100">
                     ${{ supplier.pending.toFixed(2) }}
                   </BaseParagraph>
+                </td>
+                <td class="text-start h-11 px-4 align-middle">
+                  <BaseDropdown
+                    :bindings="{
+                      content: {
+                        sideOffset: 10,
+                        align: 'end',
+                      }
+                    }"
+                  >
+                    <template #button>
+                      <BaseButton
+                        variant="ghost"
+                        size="icon-sm"
+                        rounded="md"
+                      >
+                        <Icon name="lucide:more-horizontal" class="size-4" />
+                      </BaseButton>
+                    </template>
+                    
+                    <BaseDropdownItem>Copy email</BaseDropdownItem> 
+                    <BaseDropdownItem>View details</BaseDropdownItem> 
+                    <BaseDropdownSeparator />
+                    <BaseDropdownItem>Cancel order</BaseDropdownItem> 
+                  </BaseDropdown>
                 </td>
               </tr>
             </tbody>
