@@ -14,7 +14,7 @@
         <span>New Message</span>
       </BaseHeading>
       <div class="relative">
-        <BaseChip size="sm" placement="top-end" :offset="2" pulse>
+        <BaseChip size="sm" placement="top-end" :offset="2" color="custom" pulse class="text-muted-900! dark:text-muted-100!">
           <div class="flex items-center justify-center rounded-full size-6 ring-1 ring-muted-900/5">
             <span class="font-medium text-xs text-muted-900 dark:text-muted-100">1</span>
           </div>

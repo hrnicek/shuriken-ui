@@ -33,6 +33,12 @@
   --color-muted-800: var(--color-neutral-800);
   --color-muted-900: var(--color-neutral-900);
   --color-muted-950: var(--color-neutral-950);
+
+  --chart-color-base: var(--color-muted-900);
+}
+
+.dark {
+  --chart-color-base: var(--color-muted-100);
 }
 
 .gridlines {

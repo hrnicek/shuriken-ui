@@ -76,11 +76,22 @@
 }
 
 .apexcharts-tooltip {
-  @apply !shadow-xl !shadow-muted-400/10 dark:!shadow-none;
+  @apply shadow-xl! shadow-muted-400/10! dark:shadow-none!;
+}
+
+.apexcharts-xaxistooltip {
+  @apply border border-muted-300! dark:border-muted-700!;
+}
+
+.apexcharts-xaxistooltip-top:before {
+  border-top-color: var(--color-muted-300) !important;
+}
+.dark .apexcharts-xaxistooltip-top:before {
+  border-top-color: var(--color-muted-700) !important;
 }
 
 .apexcharts-tooltip.apexcharts-theme-light {
-  @apply border border-muted-200 dark:border-muted-700 bg-white dark:bg-muted-800 text-muted-700 dark:text-muted-100;
+  @apply border border-muted-300 dark:border-muted-700 bg-white dark:bg-muted-800 text-muted-700 dark:text-muted-100;
 }
 
 .apexcharts-tooltip.apexcharts-theme-light .apexcharts-tooltip-title {

@@ -3,16 +3,21 @@ const demoBar = reactive(useDemoBar())
 
 function useDemoBar() {
   const type = 'bar'
-  const height = 280
+  const height = 180
 
   const options = {
     chart: {
       toolbar: {
         show: false,
       },
+      sparkline: {
+        enabled: true
+      }
     },
     plotOptions: {
       bar: {
+        borderRadius: 4,
+        columnWidth: "85%",
         dataLabels: {
           position: 'top', // top, center, bottom
         },
@@ -36,11 +41,6 @@ function useDemoBar() {
         'May',
         'Jun',
         'Jul',
-        'Aug',
-        'Sep',
-        'Oct',
-        'Nov',
-        'Dec',
       ],
       position: 'top',
       axisBorder: {
@@ -77,7 +77,7 @@ function useDemoBar() {
         formatter: asPercent,
       },
     },
-    colors: ['var(--color-primary-500)', 'var(--color-success-500)', 'var(--color-info-500)', 'var(--color-warning-500)'],
+    colors: ['var(--chart-color-base)'],
     title: {
       text: '',
       align: 'left',
@@ -87,7 +87,7 @@ function useDemoBar() {
   const series = shallowRef([
     {
       name: 'Inflation',
-      data: [2.3, 3.1, 4.0, 10.1, 4.0, 3.6, 3.2, 2.3, 1.4, 0.8, 0.5, 0.2],
+      data: [2.3, 3.1, 4.0, 4.8, 3.6, 3.2, 2.3],
     },
   ])
 
@@ -104,7 +104,7 @@ function useDemoBar() {
   <div class="relative">
     <BaseCard class="p-6">
       <!-- Title -->
-      <div class="mb-6">
+      <div class="-mb-6">
         <BaseHeading
           as="h3"
           size="md"
