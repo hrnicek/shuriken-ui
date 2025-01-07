@@ -21,8 +21,8 @@ export const radiuses = {
 } as const satisfies Record<NonNullable<BasePaginationProps['rounded']>, string>
 
 export const variants = {
-  primary: 'p-1 bg-muted-100 dark:bg-muted-950 border border-muted-200 dark:border-muted-800',
-  dark: 'p-1 bg-muted-100 dark:bg-muted-950 border border-muted-200 dark:border-muted-800'
+  primary: 'bg-muted-100 dark:bg-muted-950 border border-muted-200 dark:border-muted-800',
+  dark: 'bg-muted-100 dark:bg-muted-950 border border-muted-200 dark:border-muted-800'
 } as const satisfies Record<NonNullable<BasePaginationProps['variant']>, string>
 
 export const itemVariants = {
