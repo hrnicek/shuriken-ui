@@ -61,5 +61,4 @@ export type BasePaginationConfig = {
   variant: NonNullable<BasePaginationProps['variant']>
   size: NonNullable<BasePaginationProps['size']>
   rounded: NonNullable<BasePaginationProps['rounded']>
-  wrapped: NonNullable<BasePaginationProps['wrapped']>
 }

@@ -13,7 +13,6 @@ const props = withDefaults(defineProps<BasePaginationProps>(), {
   variant: theme.defaults.variant,
   size: theme.defaults.size,
   rounded: theme.defaults.rounded,
-  wrapped: theme.defaults.wrapped,
 
   bindings: () => ({}),
 })
@@ -23,7 +22,7 @@ const slots = defineSlots<BasePaginationSlots>()
 const iconPrevious = useNuiConfig('icon', 'chevronLeft')
 const iconNext = useNuiConfig('icon', 'chevronRight')
 
-const forward = useForwardPropsEmits(reactiveOmit(props, ['ellipsis', 'variant', 'size', 'rounded', 'wrapped', 'bindings']), emits)
+const forward = useForwardPropsEmits(reactiveOmit(props, ['ellipsis', 'variant', 'size', 'rounded', 'bindings']), emits)
 </script>
 
 <template>
@@ -43,7 +42,6 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['ellipsis', 'variant',
         :class="[
           props.variant && theme.variants[props.variant],
           props.rounded && theme.radiuses[props.rounded],
-          props.wrapped ? 'p-1' : '',
         ]"
       >
         <slot name="before-pagination" />
@@ -90,8 +88,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['ellipsis', 'variant',
         class="flex items-center justify-end gap-1 enabled:cursor-pointer"
         :class="[
           props.variant && theme.variants[props.variant],
-          props.rounded && theme.radiuses[props.rounded],
-          props.wrapped ? 'p-1' : '', 
+          props.rounded && theme.radiuses[props.rounded], 
         ]"
       >
         <slot name="before-navigation" />
@@ -105,7 +102,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['ellipsis', 'variant',
             props.size && theme.heights[props.size],
           ]">
           <slot name="previous-icon">
-            <Icon :name="iconPrevious" class="text-lg" />
+            <Icon :name="iconPrevious" class="text-base" />
           </slot>
         </PaginationPrev>
 
@@ -118,7 +115,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['ellipsis', 'variant',
             props.size && theme.heights[props.size],
           ]">
           <slot name="next-icon">
-            <Icon :name="iconNext" class="text-lg" />
+            <Icon :name="iconNext" class="text-base" />
           </slot>
         </PaginationNext>
         <slot name="after-navigation" />
