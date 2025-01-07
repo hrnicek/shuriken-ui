@@ -11,7 +11,7 @@ const states = ['idle', 'loading', 'success', 'error'] as const
 const value0 = ref()
 const value1 = ref('1')
 const value2 = ref('')
-const value3 = ref('')
+const valueSliderRange = ref([3, 42, 84])
 </script>
 
 <template>
@@ -847,6 +847,60 @@ const value3 = ref('')
             <div>
               <BaseFieldController>
                 <BaseSwitchBall />
+              </BaseFieldController>
+              <BaseFieldError>
+                The input is invalid because ...
+              </BaseFieldError>
+            </div>
+          </BaseField>
+
+          <BaseField class="grid grid-cols-subgrid col-span-3 mb-4" required state="error">
+            <div class="relative flex flex-col gap-1 mb-4">
+              <BaseFieldLabel>
+                <span>Slider</span> 
+                <BaseFieldRequiredIndicator  />
+              </BaseFieldLabel>
+              <BaseFieldDescription>
+                Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
+                <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
+              </BaseFieldDescription>
+              <div class="absolute z-0 end-0 top-0 pointer-events-none" >
+                <BaseFieldLoadingIndicator/>
+                <BaseFieldSuccessIndicator />
+                <BaseFieldErrorIndicator />
+              </div>
+            </div>
+
+            <div>
+              <BaseFieldController>
+                <BaseSlider />
+              </BaseFieldController>
+              <BaseFieldError>
+                The input is invalid because ...
+              </BaseFieldError>
+            </div>
+          </BaseField>
+
+          <BaseField class="grid grid-cols-subgrid col-span-3 mb-4" required state="error">
+            <div class="relative flex flex-col gap-1 mb-4">
+              <BaseFieldLabel>
+                <span>Slider range</span> 
+                <BaseFieldRequiredIndicator  />
+              </BaseFieldLabel>
+              <BaseFieldDescription>
+                Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
+                <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
+              </BaseFieldDescription>
+              <div class="absolute z-0 end-0 top-0 pointer-events-none" >
+                <BaseFieldLoadingIndicator/>
+                <BaseFieldSuccessIndicator />
+                <BaseFieldErrorIndicator />
+              </div>
+            </div>
+
+            <div>
+              <BaseFieldController>
+                <BaseSlider variant="dark" v-model="valueSliderRange" />
               </BaseFieldController>
               <BaseFieldError>
                 The input is invalid because ...
