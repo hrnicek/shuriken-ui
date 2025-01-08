@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { BaseAvatarProps, BaseAvatarSlots } from '../types'
-import { BaseAvatar as theme } from '@shuriken-ui/theme-iga'
+import { BaseAvatar as theme } from '#build/shuriken-ui/theme'
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 import { computed } from 'vue'

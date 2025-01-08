@@ -10,7 +10,7 @@ export const [
 
 <script setup lang="ts">
 import type { BaseDropdownProps, BaseDropdownEmits, BaseDropdownSlots } from '../types';
-import { BaseDropdown as theme } from '@shuriken-ui/theme-iga';
+import { BaseDropdown as theme } from '#build/shuriken-ui/theme';
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardPropsEmits } from 'reka-ui'
 import { useNuiConfig } from '../composables/default-property';

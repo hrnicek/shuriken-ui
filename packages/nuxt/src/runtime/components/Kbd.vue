@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { BaseKbdProps, BaseKbdSlots } from '../types';
-import { BaseKbd as theme } from '@shuriken-ui/theme-iga';
+import { BaseKbd as theme } from '#build/shuriken-ui/theme';
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 

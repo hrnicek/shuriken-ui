@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { BaseProgressCircleEmits, BaseProgressCircleProps, BaseProgressCircleSlots } from '../types';
-import { BaseProgressCircle as theme } from '@shuriken-ui/theme-iga';
+import { BaseProgressCircle as theme } from '#build/shuriken-ui/theme';
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 

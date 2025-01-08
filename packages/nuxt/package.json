@@ -16,9 +16,13 @@
     },
     "./runtime/*": "./dist/runtime/*"
   },
+  "imports": {
+    "#build/shuriken-ui/*": "./.nuxt/shuriken-ui/*.ts"
+  },
   "main": "./dist/module.cjs",
   "types": "./dist/types.d.ts",
   "files": [
+    ".nuxt/shuriken-ui",
     "dist"
   ],
   "scripts": {
@@ -29,7 +33,6 @@
   "dependencies": {
     "@nuxt/icon": "^1.9.1",
     "@nuxtjs/color-mode": "^3.5.2",
-    "@shuriken-ui/theme-iga": "workspace:*",
     "@tailwindcss/vite": "catalog:",
     "@vue/shared": "^3.5.13",
     "@vueuse/core": "^12.0.0",
@@ -39,8 +42,15 @@
   },
   "peerDependencies": {
     "@shuriken-ui/tailwind": "workspace:*",
+    "@shuriken-ui/theme-iga": "workspace:*",
+    "@shuriken-ui/theme-koga": "workspace:*",
     "tailwindcss": "catalog:",
     "typescript": "catalog:"
+  },
+  "peerDependenciesMeta": {
+    "@shuriken-ui/theme-koga": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@nuxt/kit": "^3.14.1592",

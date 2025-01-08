@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { BaseThemeSystemProps } from '../types';
-import { BaseThemeSystem as theme } from '@shuriken-ui/theme-iga';
+import { BaseThemeSystem as theme } from '#build/shuriken-ui/theme';
 import { useMounted } from '@vueuse/core'
 import { computed } from 'vue'
 import { useColorMode } from '#imports'

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { BaseFullscreenDropfileProps, BaseFullscreenDropfileEmits, BaseFullscreenDropfileSlots } from '../types'
-import { BaseFullscreenDropfile as theme } from '@shuriken-ui/theme-iga'
+import { BaseFullscreenDropfile as theme } from '#build/shuriken-ui/theme'
 import { useAttrs, ref, onMounted, onBeforeUnmount } from 'vue'
 
 import { useNinjaId } from '../composables/input-id';

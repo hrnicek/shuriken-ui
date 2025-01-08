@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { BaseTagProps, BaseTagSlots } from '../types';
-import { BaseTag as theme } from '@shuriken-ui/theme-iga';
+import { BaseTag as theme } from '#build/shuriken-ui/theme';
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 
