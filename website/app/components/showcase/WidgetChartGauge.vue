@@ -18,7 +18,7 @@ function useDemoGauge() {
         show: false,
       },
     },
-    colors: ['var(--chart-color-base)'],
+    colors: ['var(--color-chart-base)'],
     plotOptions: {
       radialBar: {
         startAngle: -90,

@@ -24,7 +24,7 @@ function useDemoArea() {
       width: [2, 2, 2],
       curve: 'smooth',
     },
-    colors: ['var(--chart-color-base)'],
+    colors: ['var(--color-chart-base)'],
     title: {
       text: '',
       align: 'left',

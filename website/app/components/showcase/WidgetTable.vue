@@ -157,6 +157,23 @@ const page = computed({
                 <th class="font-sans font-medium text-start text-muted-500 dark:text-muted-400 h-10 px-4 align-middle"></th>
               </tr>
             </thead>
+            <tbody v-if="filteredSuppliers.length === 0">
+              <tr>
+                <td class="text-center px-4 align-middle" colspan="100%">
+                  <div class="flex flex-col gap-3 py-20">
+                    <div class="text-center">
+                      <Icon name="arcticons:anycubic" class="size-10 mx-auto mb-4 text-muted-500" aria-hidden="true" />
+                      <BaseHeading as="h3" size="md" class="font-semibold text-muted-900 dark:text-white">
+                        No results found
+                      </BaseHeading>
+                      <BaseParagraph size="sm" class="text-muted-600 dark:text-muted-400 max-w-xs mx-auto">
+                        Try adjusting your search or filter to find what you're looking for.
+                      </BaseParagraph>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
             <tbody>
               <tr
                 v-for="supplier in filteredSuppliers"

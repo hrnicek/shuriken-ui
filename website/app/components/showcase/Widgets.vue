@@ -47,6 +47,10 @@
       <div class="hidden md:block">
         <ShowcaseWidgetTable />
       </div>
+      <!--Item-->
+      <div class="hidden md:block">
+        <ShowcaseWidgetDirectory />
+      </div>
     </div>
   </div>
 </template>

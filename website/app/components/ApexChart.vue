@@ -33,9 +33,8 @@ const { stop } = useIntersectionObserver(target, ([entry]) => {
       class="m-4 w-[calc(100%-32px)] flex items-center justify-center"
       :style="{ height: `${height - 32}px` }"
     >
-      <div class="text-center">
-        <Icon name="nui-icon:spiner" class="text-base text-current" />
-        <p>Chart loading...</p>
+      <div class="flex items-center justify-center">
+        <Icon name="nui-icon:spiner" class="text-2xl size-8 text-current" />
       </div>
     </div>
     <ClientOnly>
@@ -46,10 +45,10 @@ const { stop } = useIntersectionObserver(target, ([entry]) => {
       />
       <div
         v-else
-        class="m-4 w-[calc(100%-32px)]"
+        class="m-4 w-[calc(100%-32px)] text-center"
         :style="{ height: `${height - 32}px` }"
       >
-        Chart loading...
+        Failed to load chart...
       </div>
     </ClientOnly>
   </div>

@@ -17,7 +17,7 @@ function useDemoLine() {
         enabled: true
       }
     },
-    colors: ['var(--chart-color-base)'],
+    colors: ['var(--color-chart-base)'],
     dataLabels: {
       enabled: false,
     },

@@ -43,7 +43,7 @@ const checked = ref(false)
       <!-- 'or' divider -->
       <div class="flex-100 mt-8 flex items-center">
         <hr
-          class="border-muted-200/60 dark:border-muted-700 flex-auto border-t-2"
+          class="border-muted-200/60 dark:border-muted-800 flex-auto border-t-2"
         >
         <span
           class="text-muted-400 dark:text-muted-500 px-4 text-sm font-sans font-medium"
@@ -51,7 +51,7 @@ const checked = ref(false)
           OR
         </span>
         <hr
-          class="border-muted-200/60 dark:border-muted-700 flex-auto border-t-2"
+          class="border-muted-200/60 dark:border-muted-800 flex-auto border-t-2"
         >
       </div>
       <!-- Form section -->
@@ -126,7 +126,7 @@ const checked = ref(false)
             </div>
 
             <!-- Submit -->
-            <div class="mt-6">
+            <div class="mt-8">
               <div class="block w-full rounded-md shadow-sm">
                 <BaseButton
                   type="submit"

@@ -77,7 +77,7 @@ function useDemoBar() {
         formatter: asDollar,
       },
     },
-    colors: ['var(--chart-color-base)'],
+    colors: ['var(--color-chart-base)'],
     title: {
       text: '',
       align: 'left',

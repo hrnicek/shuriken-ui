@@ -34,11 +34,11 @@
   --color-muted-900: var(--color-neutral-900);
   --color-muted-950: var(--color-neutral-950);
 
-  --chart-color-base: var(--color-muted-900);
+  --color-chart-base: var(--color-muted-900);
 }
 
 .dark {
-  --chart-color-base: var(--color-muted-100);
+  --color-chart-base: var(--color-muted-100);
 }
 
 body {
@@ -63,4 +63,14 @@ body {
 
 [data-reka-popper-content-wrapper] {
   z-index: 9999 !important;
+}
+
+.content-transform {
+  transform-origin: center top;
+  transition-property: transform, border-radius;
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
+  border-radius: 12px;
+  overflow: hidden !important;
+  transform: scale(0.9474747474747475) translate3d(0, calc(env(safe-area-inset-top) + 14px), 0);
 }

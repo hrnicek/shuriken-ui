@@ -73,6 +73,7 @@ const team = [
                 :bindings="{
                   content: {
                     sideOffset: 10,
+                    align: 'end',
                   }
                 }"
               >
@@ -80,16 +81,16 @@ const team = [
                   <BaseButton
                     variant="ghost"
                     size="sm"
-                    class="group"
+                    class="group cursor-pointer"
                   >
-                    {{ member.role }} <Icon name="lucide:chevron-down" class="block h-4 w-4 ms-2 transition-transform group-data-[state=open]:rotate-45" />
+                    {{ member.role }} <Icon name="lucide:chevron-down" class="block h-4 w-4 ms-2 transition-transform group-data-[state=open]:rotate-180" />
                   </BaseButton>
                 </template>
                 
-                <BaseDropdownItem>Profile</BaseDropdownItem> 
-                <BaseDropdownItem>Projects</BaseDropdownItem> 
-                <BaseDropdownItem>Team</BaseDropdownItem> 
-                <BaseDropdownItem>Settings</BaseDropdownItem> 
+                <BaseDropdownItem>Admin</BaseDropdownItem> 
+                <BaseDropdownItem>Manager</BaseDropdownItem> 
+                <BaseDropdownItem>Member</BaseDropdownItem> 
+                <BaseDropdownItem>Reader</BaseDropdownItem> 
               </BaseDropdown>
             </div>
           </div>

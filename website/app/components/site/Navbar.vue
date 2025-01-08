@@ -1,38 +1,57 @@
 <script setup lang="ts">
-import packagejson from '~/package.json'
+// import packagejson from '~/package.json'
 
 const { data } = await useFetch('/api/versions')
 
-const mobileOpen = ref(false)
+const { isMobileOpen } = useLayoutDefaultContext()
 const { x, y } = useWindowScroll()
 </script>
 
 <template>
   <header
-    class="fixed start-0 top-0 z-40 w-full border-b border-muted-200 dark:border-muted-800/80 px-4 transition-all duration-300 md:px-6"
+    class="sticky start-0 top-0 z-40 w-full border-b border-muted-200 dark:border-muted-800/80 px-4 transition-all duration-300 md:px-6"
     :class="[
       y > 60 ? 'bg-white/95 dark:bg-muted-950' : '',
-      mobileOpen ? 'bg-white/95! dark:bg-muted-950!' : '',
+      isMobileOpen ? 'bg-white/95! dark:bg-muted-950!' : '',
     ]"
   >
     <div class="mx-auto max-w-[1536px]">
-      <div class="flex h-14 items-center gap-x-12">
+      <div class="flex h-14 items-center gap-x-3">
+        <!--Menu-->
+        <div class="lg:hidden">
+          <BaseButton
+            size="icon-sm"
+            variant="ghost"
+            rounded="md"
+            @click="isMobileOpen = !isMobileOpen"
+          >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="!size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5"></path>
+          </svg>
+          </BaseButton>
+        </div>
         <!--Logo-->
-        <div class="shrink-0">
+        <div class="shrink-0 lg:me-12">
           <NuxtLink
             to="/"
             class="block"
           >
             <LogoText
-              class="h-7 w-auto transition-colors duration-300"
+              class="h-7 w-auto hidden md:block transition-colors duration-300"
               :class="[
                 y > 60 ? 'text-muted-950 dark:text-white' : 'text-muted-950/80 dark:text-muted-200', 
-                mobileOpen ? 'text-muted-950! dark:text-white!' : '']"
+                isMobileOpen ? 'text-muted-950! dark:text-white!' : '']"
+            />
+            <Logo
+              class="size-7 block md:hidden w-auto transition-colors duration-300"
+              :class="[
+                y > 60 ? 'text-muted-950 dark:text-white' : 'text-muted-950/80 dark:text-muted-200', 
+                isMobileOpen ? 'text-muted-950! dark:text-white!' : '']"
             />
           </NuxtLink>
         </div>
         <!--Links-->
-        <div class="flex items-center gap-x-8">
+        <div class="hidden lg:flex items-center gap-x-8">
           <NuxtLink to="/" class="text-sm text-muted-900 dark:text-white">Docs</NuxtLink>
           <NuxtLink to="/" class="text-sm text-muted-900 dark:text-white">Components</NuxtLink>
           <NuxtLink to="/" class="text-sm text-muted-900 dark:text-white">Blocks</NuxtLink>
@@ -41,7 +60,7 @@ const { x, y } = useWindowScroll()
         </div>
         <!--Actions-->
         <div class="ms-auto flex items-center justify-end gap-x-3">
-          <div role="button" class="cursor-pointer h-8 w-48 flex items-center justify-between bg-muted-50 text-muted-400 hover:text-muted-600 hover:ring-muted-300 gap-2 ps-3 pe-1 py-1 rounded-md ring-1 ring-muted-200 transition-colors duration-300" @click="searchOpen = true">
+          <div role="button" class="cursor-pointer h-8 w-48 flex items-center justify-between bg-muted-50 text-muted-400 hover:text-muted-600 hover:ring-muted-300 gap-2 ps-3 pe-1 py-1 rounded-md ring-1 ring-muted-200 transition-colors duration-300">
             <div class="pointer-events-none">
               <span class="font-sans text-sm">
                 Search docs...
