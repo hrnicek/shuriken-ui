@@ -110,7 +110,7 @@
           </div>
           <div class="relative">
             <BaseFieldController>
-              <BaseSelect v-model="value0" placeholder="Month">
+              <BaseSelect placeholder="Month">
                 <BaseSelectItem value="1">01</BaseSelectItem>
                 <BaseSelectItem value="2">02</BaseSelectItem>
                 <BaseSelectItem value="3">03</BaseSelectItem>
@@ -144,7 +144,7 @@
           </div>
           <div class="relative">
             <BaseFieldController>
-              <BaseSelect v-model="value0" placeholder="Year">
+              <BaseSelect placeholder="Year">
                 <BaseSelectItem value="2025">2025</BaseSelectItem>
                 <BaseSelectItem value="2026">2026</BaseSelectItem>
                 <BaseSelectItem value="2027">2027</BaseSelectItem>

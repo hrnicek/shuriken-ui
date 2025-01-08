@@ -25,6 +25,8 @@
           <ShowcaseWidgetChartGauge />
           <!--Item-->
           <ShowcaseWidgetNewMessage />
+          <!--Item-->
+          <ShowcaseWidgetLoginForm />
         </div>
       </div>
     </div>
