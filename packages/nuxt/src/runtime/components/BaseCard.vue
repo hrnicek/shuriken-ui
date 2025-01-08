@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { BaseCardProps, BaseCardSlots } from '../types'
-import { BaseCard as theme } from '@shuriken-ui/theme-iga'
+import { BaseCard as theme } from '#build/shuriken-ui/theme'
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 

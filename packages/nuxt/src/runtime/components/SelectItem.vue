@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { BaseSelectItemProps, BaseSelectItemSlots } from '../types';
-import { BaseSelectItem as theme } from '@shuriken-ui/theme-iga';
+import { BaseSelectItem as theme } from '#build/shuriken-ui/theme';
 import { useForwardProps } from 'reka-ui'
 import { injectBaseSelectContext } from './Select.vue'
 

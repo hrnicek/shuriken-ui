@@ -1,5 +1,5 @@
 
-import { createResolver, defineNuxtModule, addComponentsDir, addImportsDir, installModule, hasNuxtModule, addVitePlugin } from '@nuxt/kit'
+import { createResolver, defineNuxtModule, addComponentsDir, addImportsDir, installModule, hasNuxtModule, addVitePlugin, addTemplate } from '@nuxt/kit'
 import tailwindcss from '@tailwindcss/vite'
 import defu from 'defu'
 
@@ -11,6 +11,12 @@ export interface ModuleOptions {
    * @default `Base`
    */
   prefix?: string
+
+  /**
+   * Theme for the app
+   * @default `@shuriken-ui/theme-iga`
+   */
+  theme?: '@shuriken-ui/theme-iga' | '@shuriken-ui/theme-koga' | ({} & string) 
 }
 
 const defaultAppConfig = {
@@ -43,6 +49,7 @@ export default defineNuxtModule<ModuleOptions>({
   },
   defaults: {
     prefix: 'Base',
+    theme: '@shuriken-ui/theme-iga',
   },
   async setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url)
@@ -81,5 +88,13 @@ export default defineNuxtModule<ModuleOptions>({
     })
 
     addImportsDir(resolve('./runtime/composables'))
+
+    addTemplate({
+      filename: 'shuriken-ui/theme.ts',
+      write: true,
+      getContents: () => {
+        return `export * from '${options.theme}'`
+      }
+    })
   },
 })

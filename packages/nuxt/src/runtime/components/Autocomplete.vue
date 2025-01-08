@@ -12,7 +12,7 @@ export const [
 <script setup lang="ts" generic="T extends AcceptableValue = AcceptableValue">
 import type { BaseAutocompleteProps, BaseAutocompleteEmits, BaseAutocompleteSlots } from '../types';
 import type { AcceptableValue } from 'reka-ui'
-import { BaseAutocomplete as theme } from '@shuriken-ui/theme-iga';
+import { BaseAutocomplete as theme } from '#build/shuriken-ui/theme';
 import { defu } from 'defu'
 import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'

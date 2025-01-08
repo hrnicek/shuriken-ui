@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { BaseThemeSwitchProps } from '../types';
-import { BaseThemeSwitch as theme } from '@shuriken-ui/theme-iga';
+import { BaseThemeSwitch as theme } from '#build/shuriken-ui/theme';
 import { useMounted } from '@vueuse/core'
 import { useColorMode } from '#imports'
 import { computed } from 'vue'

@@ -11,6 +11,8 @@
     "@nuxt/fonts": "^0.10.3",
     "@shuriken-ui/nuxt": "workspace:*",
     "@shuriken-ui/tailwind": "workspace:*",
+    "@shuriken-ui/theme-koga": "workspace:*",
+    "@shuriken-ui/theme-iga": "workspace:*",
     "nuxt": "catalog:",
     "typescript": "catalog:",
     "tailwindcss": "catalog:"

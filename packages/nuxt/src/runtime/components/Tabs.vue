@@ -10,7 +10,7 @@ export const [
 
 <script setup lang="ts">
 import type { BaseTabsProps, BaseTabsEmits, BaseTabsSlots } from '../types';
-import { BaseTabs as theme } from '@shuriken-ui/theme-iga';
+import { BaseTabs as theme } from '#build/shuriken-ui/theme';
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 

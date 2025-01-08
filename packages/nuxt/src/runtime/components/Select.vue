@@ -14,7 +14,7 @@ export const [
 <script setup lang="ts" generic="T extends AcceptableValue = AcceptableValue">
 import type { BaseSelectProps, BaseSelectEmits, BaseSelectSlots } from '../types';
 import type { AcceptableValue } from 'reka-ui'
-import { BaseSelect as theme } from '@shuriken-ui/theme-iga';
+import { BaseSelect as theme } from '#build/shuriken-ui/theme';
 import { defu } from 'defu'
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'

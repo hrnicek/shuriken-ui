@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { BaseInputProps } from '../types'
-import { BaseInput as theme } from '@shuriken-ui/theme-iga'
+import { BaseInput as theme } from '#build/shuriken-ui/theme'
 
 import { useNinjaId } from '../composables/input-id';
 

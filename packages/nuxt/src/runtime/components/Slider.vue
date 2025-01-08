@@ -2,7 +2,7 @@
 import { useForwardPropsEmits, useForwardExpose } from 'reka-ui';
 import { useAttrs } from 'vue'
 import type { BaseSliderProps, BaseSliderEmits, BaseSliderSlots } from '../types';
-import { BaseSlider as theme } from '@shuriken-ui/theme-iga';
+import { BaseSlider as theme } from '#build/shuriken-ui/theme';
 
 defineOptions({
   inheritAttrs: false,
