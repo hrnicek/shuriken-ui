@@ -2,7 +2,10 @@
 const links = [
   { title: 'UI Widgets', to: '/' },
   { title: 'Dashboard', to: '/examples/dashboard' },
-  { title: 'Messaging', to: '/examples/inbox' },
+  { title: 'Messaging', to: '/examples/messaging' },
+  { title: 'Kanban', to: '/examples/inbox' },
+  { title: 'Forms', to: '/examples/inbox' },
+  { title: 'Music', to: '/examples/inbox' },
 ]
 
 const { isMobileOpen } = createLayoutDefaultContext()
