@@ -17,7 +17,6 @@ const forward = useForwardProps(reactiveOmit(props, ['rounded', 'shadow', 'varia
 <template>
   <Primitive 
     v-bind="forward"
-    class="w-full"
     :class="[
       props.rounded && theme.radiuses[props.rounded],
       props.variant && theme.variants[props.variant],
