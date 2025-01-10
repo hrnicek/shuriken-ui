@@ -22,232 +22,210 @@ const directory: any = {
       name: 'Clark Atkinson',
       email: 'clark.atkinson@mail.com',
       title: 'Frontend Developer',
-      status: 'offline',
-      photo: '/img/people/27.jpg',},
+      status: 'online',
+      photo: '/img/people/27.jpg',
+    },
     {
       id: 4,
-      name: 'Fabricio Andrews',
-      email: 'fabricio.andrews@mail.com',
+      name: 'Elen Adkins',
+      email: 'elen.adkins@mail.com',
       title: 'Backend Developer',
-      status: 'offline',
-      photo:
-        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      status: 'online',
+      photo: '/img/people/52.jpg',
     },
   ],
   B: [
     {
       id: 5,
-      name: 'Angela Beaver',
-      email: 'angela.beaver@mail.com',
+      name: 'Thomas Bertolino',
+      email: 'thomas.bertolino@mail.com',
       title: 'UI Designer',
       status: 'offline',
-      photo:
-        'https://images.unsplash.com/photo-1501031170107-cfd33f0cbdcc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      photo: '/img/people/49.jpg',
     },
     {
       id: 6,
-      name: 'Yvette Blanchard',
-      email: 'yvette.blanchard@mail.com',
+      name: 'Amber Brenning',
+      email: 'amber.brenning@mail.com',
       title: 'QA Engineer',
       status: 'offline',
-      photo:
-        'https://images.unsplash.com/photo-1506980595904-70325b7fdd90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      photo: '/img/people/30.jpg',
     },
     {
       id: 7,
-      name: 'Lawrence Brooks',
-      email: 'lawrence.brooks@mail.com',
+      name: 'Nicoletta Barone',
+      email: 'nicoletta.barone@mail.com',
       title: 'DevOps Engineer',
-      status: 'offline',
-      photo:
-        'https://images.unsplash.com/photo-1513910367299-bce8d8a0ebf6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      status: 'online',
+      photo: '/img/people/17.jpg',
     },
   ],
   C: [
     {
       id: 8,
-      name: 'Jeffrey Clark',
-      email: 'jeffrey.clark@mail.com',
+      name: 'William Cheller',
+      email: 'william.cheller@mail.com',
       title: 'Fullstack Developer',
-      status: 'offline',
-      photo:
-        'https://images.unsplash.com/photo-1517070208541-6ddc4d3efbcb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      status: 'online',
+      photo: '/img/people/37.jpg',
     },
     {
       id: 9,
-      name: 'Kathryn Cooper',
-      email: 'kathryn.cooper@mail.com',
+      name: 'Luis Espinoza',
+      email: 'luis.espinoza@mail.com',
       title: 'Product Manager',
       status: 'offline',
-      photo:
-        'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      photo: '/img/people/43.jpg',
     },
   ],
   E: [
     {
       id: 10,
-      name: 'Alicia Edwards',
-      email: 'alicia.edwards@mail.com',
+      name: 'Lauren Edwards',
+      email: 'lauren.edwards@mail.com',
       title: 'Data Analyst',
-      status: 'offline',
-      photo:
-        'https://images.unsplash.com/photo-1509783236416-c9ad59bae472?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      status: 'online',
+      photo: '/img/people/46.jpg',
     },
     {
       id: 11,
-      name: 'Benjamin Emerson',
-      email: 'benjamin.emerson@mail.com',
+      name: 'Lakisha Erics',
+      email: 'lakisha.erics@mail.com',
       title: 'Software Engineer',
       status: 'offline',
-      photo:
-        'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      photo: '/img/people/48.jpg',
     },
     {
       id: 12,
-      name: 'Jillian Erics',
-      email: 'jillian.erics@mail.com',
+      name: 'Robert Emerson',
+      email: 'robert.emerson@mail.com',
       title: 'UI/UX Designer',
       status: 'offline',
-      photo:
-        'https://images.unsplash.com/photo-1504703395950-b89145a5425b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      photo: '/img/people/22.jpg',
     },
     {
       id: 13,
-      name: 'Chelsea Evans',
-      email: 'chelsea.evans@mail.com',
+      name: 'Ryona Elkervez',
+      email: 'ryona.elkervez@mail.com',
       title: 'Product Designer',
       status: 'offline',
-      photo:
-        'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      photo: '/img/people/28.jpg',
     },
   ],
   G: [
     {
       id: 14,
-      name: 'Michael Gillard',
-      email: 'micheal.gillard@mail.com',
+      name: 'Sally Grinson',
+      email: 'sally.grinson@mail.com',
       title: 'Product Manager',
       status: 'offline',
-      photo:
-        'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      photo: '/img/people/11.jpg',
     },
     {
       id: 15,
-      name: 'Dries Giuessepe',
-      email: 'dries.giuessepe@mail.com',
+      name: 'Emilia Galieni',
+      email: 'emilia.galieni@mail.com',
       title: 'Software Engineer',
       status: 'offline',
-      photo:
-        'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      photo: '/img/people/21.jpg',
     },
   ],
   M: [
     {
       id: 16,
-      name: 'Jenny Harrison',
-      email: 'jenny.harrison@mail.com',
+      name: 'John Maynard',
+      email: 'john.maynard@mail.com',
       title: 'QA Engineer',
       status: 'offline',
-      photo:
-        'https://images.unsplash.com/photo-1507101105822-7472b28e22ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      photo: '/img/people/23.jpg',
     },
     {
       id: 17,
-      name: 'Lindsay Hatley',
-      email: 'lindsay.hatley@mail.com',
+      name: 'Billie Murphy',
+      email: 'billie.murphy@mail.com',
       title: 'Frontend Developer',
-      status: 'offline',
-      photo:
-        'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      status: 'online',
+      photo: '/img/people/34.jpg',
     },
     {
       id: 18,
-      name: 'Anna Hill',
-      email: 'anna.hill@mail.com',
+      name: 'Beth Miller',
+      email: 'beth.miller@mail.com',
       title: 'Backend Developer',
-      status: 'offline',
-      photo:
-        'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      status: 'online',
+      photo: '/img/people/42.jpg',
     },
   ],
   S: [
     {
       id: 19,
-      name: 'Courtney Samuels',
-      email: 'courtney.samuels@mail.com',
+      name: 'Joshua Settler',
+      email: 'joshua.settler@mail.com',
       title: 'UI Designer',
       status: 'offline',
-      photo:
-        'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      photo: '/img/people/6.jpg',
     },
     {
       id: 20,
-      name: 'Tom Simpson',
-      email: 'tom.simpson@mail.com',
+      name: 'Henry Smith',
+      email: 'henry.smith@mail.com',
       title: 'QA Engineer',
       status: 'offline',
-      photo:
-        'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      photo: '/img/people/19.jpg',
     },
   ],
   T: [
     {
       id: 21,
-      name: 'Floyd Thompson',
-      email: 'floyd.thompson@mail.com',
+      name: 'Gavin Thompson',
+      email: 'gavin.thompson@mail.com',
       title: 'Product Designer',
       status: 'offline',
-      photo:
-        'https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      photo: '/img/people/39.jpg',
     },
     {
       id: 22,
-      name: 'Leonard Timmons',
-      email: 'leonard.timmons@mail.com',
+      name: 'Esteban Tovar',
+      email: 'esteban.tovar@mail.com',
       title: 'Product Manager',
       status: 'offline',
-      photo:
-        'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      photo: '/img/people/59.jpg',
     },
     {
       id: 23,
-      name: 'Whitney Trudeau',
-      email: 'whitney.trudeau@mail.com',
+      name: 'Myriam Toravela',
+      email: 'myriam.toravela@mail.com',
       title: 'Software Engineer',
-      status: 'offline',
-      photo:
-        'https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      status: 'online',
+      photo: '/img/people/56.jpg',
     },
   ],
   W: [
     {
       id: 24,
-      name: 'Kristin Watson',
-      email: 'kristin.watson@mail.com',
+      name: 'Edmund Walsh',
+      email: 'edmund.walsh@mail.com',
       title: 'Frontend Developer',
       status: 'offline',
-      photo:
-        'https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      photo: '/img/people/7.jpg',
     },
     {
       id: 25,
-      name: 'Emily Wilson',
-      email: 'emily.wilson@mail.com',
+      name: 'Brittany Wilson',
+      email: 'brittany.wilson@mail.com',
       title: 'Backend Developer',
       status: 'offline',
-      photo:
-        'https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      photo: '/img/people/14.jpg',
     },
   ],
   Y: [
     {
       id: 26,
-      name: 'Emma Young',
-      email: 'emma.young@mail.com',
+      name: 'George Yates',
+      email: 'george.yates@mail.com',
       title: 'UI/UX Designer',
       status: 'offline',
-      photo:
-        'https://images.unsplash.com/photo-1505840717430-882ce147ef2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      photo: '/img/people/47.jpg',
     },
   ],
 }
@@ -327,7 +305,7 @@ const filteredDirectory = computed(() => {
         </div>
       </div>
     </div>
-    <div v-else class="h-[370px]">
+    <div v-else class="h-[350px]">
       <div class="h-full overflow-y-auto pe-2 nui-slimscroll" aria-label="Directory">
         <div v-for="letter in Object.keys(filteredDirectory)" :key="letter" class="relative">
           <div class="sticky top-0 z-10 rounded-md border border-muted-200 dark:border-muted-800 bg-muted-50 dark:bg-muted-900 px-3 py-1.5 text-sm/6 font-semibold text-muted-900 dark:text-white">

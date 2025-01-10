@@ -57,8 +57,8 @@ const props = defineProps<{
     </div>
 
     <!--Logo-->
-    <div class="absolute bottom-7 end-5 flex">
-      <Logo class="text-muted-900 dark:text-white size-10" />
+    <div class="absolute bottom-6 end-5 flex">
+      <Logo id="logo-credit-card"  class="text-muted-900 dark:text-white size-10" />
     </div>
   </div>
 </template>

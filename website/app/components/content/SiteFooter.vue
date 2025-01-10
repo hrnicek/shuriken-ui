@@ -20,7 +20,7 @@ const appConfig = useAppConfig()
         <div class="flex flex-col gap-y-6 md:flex-row md:items-center md:justify-between">
           <div class="flex flex-col items-start">
             <div class="w-36">
-              <LogoText class="text-muted-400 dark:text-muted-100" />
+              <LogoText id="logo-text-footer"  class="text-muted-400 dark:text-muted-100" />
             </div>
             <BaseParagraph
               size="sm"

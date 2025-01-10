@@ -58,7 +58,6 @@
     <div class="mt-6">
       <form action="" class="space-y-1">
         <BaseTextarea
-          v-model="value"
           size="md"
           placeholder="Reply to Christina..."
           variant="muted"

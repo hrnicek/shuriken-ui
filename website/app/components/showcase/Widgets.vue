@@ -20,7 +20,7 @@
           <!--Item-->
           <ShowcaseWidgetCreditForm />
         </div>
-        <div class="ptablet:grid ptablet:grid-cols-2 space-y-4 xl:space-y-4">
+        <div class="md:landscape:hidden lg:landscape:block lg:portrait:hidden space-y-4 xl:space-y-4">
           <!--Item-->
           <ShowcaseWidgetChartGauge />
           <!--Item-->

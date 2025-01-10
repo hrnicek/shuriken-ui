@@ -78,8 +78,8 @@ const { data } = await useFetch('/api/versions')
         </div>
         <div class="flex grow items-center justify-center">
           <NuxtLink to="/" class="text-muted-600 transition-colors duration-300 hover:text-primary-600 dark:text-muted-100 dark:hover:text-primary-500">
-            <LogoText class="hidden h-8 w-auto md:block" />
-            <Logo class="block h-10 w-auto md:hidden" />
+            <LogoText id="logo-text-hero"  class="hidden h-8 w-auto md:block" />
+            <Logo id="logo-hero"  class="block h-10 w-auto md:hidden" />
           </NuxtLink>
         </div>
         <div class="flex w-1/5 shrink-0 items-center justify-end">

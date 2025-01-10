@@ -37,12 +37,14 @@ const { x, y } = useWindowScroll()
             class="block"
           >
             <LogoText
+              id="logo-text-navbar" 
               class="h-7 w-auto hidden md:block transition-colors duration-300"
               :class="[
                 y > 60 ? 'text-muted-950 dark:text-white' : 'text-muted-950/80 dark:text-muted-200', 
                 isMobileOpen ? 'text-muted-950! dark:text-white!' : '']"
             />
             <Logo
+              id="logo-navbar" 
               class="size-7 block md:hidden w-auto transition-colors duration-300"
               :class="[
                 y > 60 ? 'text-muted-950 dark:text-white' : 'text-muted-950/80 dark:text-muted-200', 
@@ -60,7 +62,7 @@ const { x, y } = useWindowScroll()
         </div>
         <!--Actions-->
         <div class="ms-auto flex items-center justify-end gap-x-3">
-          <div role="button" class="cursor-pointer h-8 w-48 flex items-center justify-between bg-muted-50 text-muted-400 hover:text-muted-600 hover:ring-muted-300 gap-2 ps-3 pe-1 py-1 rounded-md ring-1 ring-muted-200 transition-colors duration-300">
+          <div role="button" class="cursor-pointer h-8 w-48 flex items-center justify-between bg-muted-50 dark:bg-muted-900 text-muted-400 hover:text-muted-600 dark:hover:text-muted-200 hover:ring-muted-300 dark:hover:ring-muted-700 gap-2 ps-3 pe-1 py-1 rounded-md ring-1 ring-muted-200 dark:ring-muted-800 transition-colors duration-300">
             <div class="pointer-events-none">
               <span class="font-sans text-sm">
                 Search docs...

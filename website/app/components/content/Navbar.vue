@@ -23,7 +23,8 @@ const { x, y } = useWindowScroll()
             title=""
             class=""
           >
-            <LogoText
+            <LogoText 
+              id="logo-text-navbar" 
               class="h-8 w-auto transition-colors duration-300"
               :class="[y > 60 ? 'text-primary-600 dark:text-primary-400' : 'text-muted-400 hover:!text-primary-600 dark:text-muted-500', mobileOpen ? '!text-primary-600 dark:!text-primary-400' : '']"
             />
