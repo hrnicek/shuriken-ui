@@ -30,8 +30,8 @@ const conversations = ref([
         attachments: [
           {
             type: 'link',
-            image: '/img/ux/13.png',
-            url: 'https://figma.com',
+            image: '/img/ui/2.png',
+            url: 'https://shurikenui.com',
             text: 'Figma design file by Christina',
           },
         ],
@@ -61,8 +61,8 @@ const conversations = ref([
         attachments: [
           {
             type: 'link',
-            image: '/img/ux/11.png',
-            url: 'https://waveapps.com',
+            image: '/img/ui/1.png',
+            url: 'https://shurikenui.com',
             text: 'Smart Accounting made easy for everyone',
           },
         ],
@@ -85,7 +85,7 @@ const conversations = ref([
     id: 2,
     user: {
       name: 'Hermann Mayer',
-      photo: '/img/people/16.jpg',
+      photo: '/img/people/18.jpg',
       role: 'Project Manager',
       bio: 'Hermann is a Project Manager based in Berlin. He has 10+ years of experience in the field.',
       age: 28,
@@ -152,7 +152,7 @@ const conversations = ref([
     id: 3,
     user: {
       name: 'Clarissa Miller',
-      photo: '/img/people/5.jpg',
+      photo: '/img/people/15.jpg',
       role: 'Product Manager',
       bio: 'Clarissa is a Product Manager based in Seattle. She has 10+ years of experience in the field.',
       age: 31,
@@ -219,7 +219,7 @@ const conversations = ref([
     id: 4,
     user: {
       name: 'Joshua Stevens',
-      photo: '/img/people/11.jpg',
+      photo: '/img/people/57.jpg',
       role: 'Frontend Developer',
       bio: 'Joshua is a Frontend Developer based in London. He has 10+ years of experience in the field',
       age: 43,
@@ -347,7 +347,7 @@ const conversations = ref([
     id: 6,
     user: {
       name: 'Carolin Kottmann',
-      photo: '/img/people/9.jpg',
+      photo: '/img/people/11.jpg',
       role: 'Product Manager',
       bio: 'Carolin is a Product manager based in Paris. She has 10+ years of experience in the field',
       age: 25,
@@ -413,10 +413,10 @@ const conversations = ref([
   {
     id: 7,
     user: {
-      name: 'Jonathan Keppler',
-      photo: '/img/people/8.jpg',
-      role: 'System Administrator',
-      bio: 'Jonathan is a System Administrator based in Miami. He has 10+ years of experience in the field.',
+      name: 'Elon Musk',
+      photo: '/img/people/60.jpg',
+      role: 'Entrepreneur',
+      bio: 'Elon is a serial entrepreneur and the founder of SpaceX and Tesla. He has 20+ years of experience in the field.',
       age: 41,
       location: 'Miami',
     },
@@ -566,26 +566,50 @@ async function submitMessage() {
 <template>
   <div>
     <BaseCard rounded="lg" class="shadow-sm shadow-muted-200 dark:shadow-muted-800 overflow-hidden">
-      <div class="w-full h-[815px] flex">
+      <div class="w-full h-[815px] flex flex-col lg:flex-row">
         <!--Sidebar-->
-        <div class="flex flex-col h-full w-16 bg-muted-50 dark:bg-muted-900/50 border-e border-muted-200 dark:border-muted-800">
+        <div class="flex lg:flex-col h-16 lg:h-full w-full lg:w-16 bg-muted-50 dark:bg-muted-900/50 border-e border-muted-200 dark:border-muted-800">
           <NuxtLink to="/examples/dashboard" class="h-14 w-16 flex items-center justify-center">
             <Logo class="size-8" />
           </NuxtLink>
+          <!--Menu-->
+          <div class="ms-auto lg:mt-auto">
+            <ul class="flex lg:block">
+              <li>
+                <a href="#" class="group/link h-14 w-16 flex items-center justify-center">
+                  <span class="size-9 rounded-xl flex items-center justify-center group-hover/link:bg-muted-200 dark:group-hover/link:bg-muted-800 text-muted-400 dark:text-muted-600 group-hover/link:text-muted-700 dark:group-hover/link:text-muted-200 transition-colors duration-300">
+                    <Icon name="lucide:search" class="size-4" />
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="group/link h-14 w-16 flex items-center justify-center">
+                  <span class="size-9 rounded-xl flex items-center justify-center group-hover/link:bg-muted-200 dark:group-hover/link:bg-muted-800 text-muted-400 dark:text-muted-600 group-hover/link:text-muted-700 dark:group-hover/link:text-muted-200 transition-colors duration-300">
+                    <Icon name="lucide:settings" class="size-4" />
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="group/link h-14 w-16 flex items-center justify-center">
+                  <BaseAvatar src="/img/people/29.jpg" size="xs" class="grayscale" />
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
         <!--Sidebar-->
-        <div class="flex flex-col h-full w-16 bg-white dark:bg-muted-950 border-e border-muted-200 dark:border-muted-800 overflow-x-hidden overflow-y-auto nui-slimscroll">
-          <div class="h-14 w-16 flex items-center justify-center">
+        <div class="shrink-0 flex lg:flex-col h-16 lg:h-full w-full lg:w-16 bg-white dark:bg-muted-950 border-b lg:border-e border-muted-200 dark:border-muted-800 overflow-x-auto lg:overflow-x-hidden overflow-y-hidden lg:overflow-y-auto nui-slimscroll">
+          <div class="shrink-0 h-16 lg:h-14 w-14 lg:w-16 flex items-center justify-center">
             <BaseButton size="icon-sm" rounded="full" variant="dark">
               <Icon name="lucide:plus" class="size-4" />
             </BaseButton>
           </div>
           <!-- List -->
-          <ul>
+          <ul class="flex lg:block">
             <li  v-for="conversation in conversations" :key="conversation.id">
               <button
                 type="button"
-                class="flex w-16 h-12 my-2 shrink-0 items-center justify-center border-e-2 enabled:cursor-pointer"
+                class="flex w-16 lg:w-16 h-16 lg:h-12 lg:my-2 shrink-0 items-center justify-center border-b-2 lg:border-b-0 lg:border-e-2 enabled:cursor-pointer"
                 :class="
                   activeConversation === conversation.id
                     ? 'border-muted-900 dark:border-white'
@@ -599,7 +623,7 @@ async function submitMessage() {
           </ul>
         </div>
         <!--Content-->
-        <div class="grow h-full flex flex-col">
+        <div class="grow max-h-[calc(100%_-_120px)] lg:max-h-full h-full flex flex-col">
           <div 
             ref="chatEl" 
             class="relative grow w-full px-4 md:px-6 pt-8 pb-16"
@@ -754,7 +778,9 @@ async function submitMessage() {
                           <img
                             :src="attachment.image"
                             :alt="attachment.text"
-                            class="rounded-xl"
+                            class="rounded-xl grayscale"
+                            width="304"
+                            height="202"
                           >
                         </div>
                         <NuxtLink
@@ -766,7 +792,9 @@ async function submitMessage() {
                           <img
                             :src="attachment.image"
                             :alt="attachment.text"
-                            class="rounded-xl"
+                            class="rounded-xl grayscale"
+                            width="304"
+                            height="202"
                           >
                           <div class="px-1 py-2">
                             <p
@@ -803,17 +831,17 @@ async function submitMessage() {
               </div>
             </div>
           </div>
-          <div class="w-full flex items-center pb-2 px-4 md:px-6 bg-white dark:bg-muted-950">
+          <div class="shrink-0 w-full flex items-center pb-2 px-4 md:px-6 bg-white dark:bg-muted-950">
             <BaseTextarea
               size="md"
-              placeholder="Reply to Christina..."
+              placeholder="Write a message..."
               variant="muted"
               autogrow
             />
           </div>
         </div>
         <!--Panel-->
-        <div class="w-80 h-full flex flex-col border-s border-muted-200 dark:border-muted-800 bg-muted-50 dark:bg-muted-900/50">
+        <div class="w-80 h-full hidden lg:flex flex-col border-s border-muted-200 dark:border-muted-800 bg-muted-50 dark:bg-muted-900/50">
           <div class="h-14 px-4 md:px-6 flex items-center">
             <BaseHeading
               tag="h3"

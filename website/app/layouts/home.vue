@@ -45,13 +45,13 @@ const { isMobileOpen } = createLayoutDefaultContext()
                 </div>
               </div>
               <!--Content-->
-              <div class="mt-12">
-                <div class="flex items-center gap-x-3 py-4 mb-6">
+              <div class="mt-12 overflow-hidden">
+                <div class="flex items-center gap-x-3 py-4 mb-6 overflow-x-auto">
                   <NuxtLink
                     v-for="link in links"
                     :key="link.title"
                     :to="link.to"
-                    class="inline-flex items-center justify-center text-center text-sm text-muted-500 dark:text-muted-400 hover:text-muted-700 dark:hover:text-muted-200 font-sans py-1.5 px-3 rounded-full"
+                    class="whitespace-nowrap inline-flex items-center justify-center text-center text-sm text-muted-500 dark:text-muted-400 hover:text-muted-700 dark:hover:text-muted-200 font-sans py-1.5 px-3 rounded-full"
                     exact-active-class="bg-muted-100 text-muted-900! dark:bg-muted-800 dark:text-white!"
                   >
                     {{ link.title }}
