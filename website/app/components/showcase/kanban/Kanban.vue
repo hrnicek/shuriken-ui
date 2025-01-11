@@ -173,16 +173,17 @@ function onDrop(column: ColumnContent, dropResult: any) {
                   </BaseDropdown>
                 </div>
               </div>
-
             </div>
           </nav>
         </div>
         <!--Submenu-->
         <div class="w-full bg-white transition-all duration-300 dark:bg-muted-950 overflow-hidden">
           <div class="flex items-center justify-between h-14 w-full px-4 md:px-6">
-            <BaseParagraph>{{ project.name }}</BaseParagraph>
+            <div>
+              <BaseParagraph weight="medium" class="text-muted-900 dark:text-white">{{ project.name }}</BaseParagraph>
+            </div>
             <div class="">
-              <BaseAvatarGroup :avatars="project.team" size="xs" />
+              <BaseAvatarGroup :avatars="project.team" size="xs" :limit="4" class="grayscale" />
             </div>
           </div>
         </div>
@@ -202,11 +203,12 @@ function onDrop(column: ColumnContent, dropResult: any) {
               }}</span>
               <!-- Column count -->
               <span
-                class="text-primary-500 dark:text-sunny ms-2 flex size-5 items-center justify-center text-sm font-semibold"
+                class="text-muted-600 dark:text-muted-400 ms-2 flex size-5 items-center justify-center text-sm font-semibold"
               >{{ column.tasks.length }}</span>
               <!-- Column action -->
-              <button
-                class="text-primary-500 dark:text-sunny hover:bg-primary-500/20 dark:hover:bg-sunny/20 ms-auto flex size-6 items-center justify-center rounded-full transition-colors duration-300"
+              <button 
+                type="button"
+                class="cursor-pointer text-muted-900 dark:text-white hover:bg-muted-900/20 dark:hover:bg-white/20 ms-auto flex size-6 items-center justify-center rounded-full transition-colors duration-300"
               >
                 <Icon name="lucide:plus" class="size-4" />
               </button>
@@ -247,7 +249,7 @@ function onDrop(column: ColumnContent, dropResult: any) {
                           >
                             Task #{{ task.id }}
                           </BaseTag>
-                          <BaseText size="xs" class="text-muted-400">
+                          <BaseText size="xs" weight="medium" class="text-muted-500 dark:text-muted-400">
                             {{
                               task.created
                             }}
@@ -269,9 +271,9 @@ function onDrop(column: ColumnContent, dropResult: any) {
                           <BaseAvatar
                             :src="task.assignee.src"
                             size="xxs"
-                            class="shrink-0"
+                            class="shrink-0 grayscale"
                           />
-                          <BaseText size="xs" class="text-muted-400">
+                          <BaseText size="xs" weight="medium" class="text-muted-600 dark:text-muted-400">
                             {{
                               task.assignee.tooltip
                             }}
@@ -285,7 +287,7 @@ function onDrop(column: ColumnContent, dropResult: any) {
                             } in checklist`"
                             data-nui-tooltip-position="start"
                           >
-                            <Icon name="lucide:check-circle" class="size-4" />
+                            <Icon name="solar:check-square-linear" class="size-4" />
                           </div>
                           <div
                             v-if="task.files.length > 0"
@@ -294,7 +296,7 @@ function onDrop(column: ColumnContent, dropResult: any) {
                             } uploaded`"
                             data-nui-tooltip-position="start"
                           >
-                            <Icon name="lucide:file" class="size-4" />
+                            <Icon name="solar:document-text-linear" class="size-4" />
                           </div>
                           <div
                             v-if="task.comments.length > 0"
@@ -303,7 +305,7 @@ function onDrop(column: ColumnContent, dropResult: any) {
                             }`"
                             data-nui-tooltip-position="start"
                           >
-                            <Icon name="lucide:message-circle" class="size-4" />
+                            <Icon name="solar:chat-round-unread-linear" class="size-4" />
                           </div>
                         </div>
                       </div>
@@ -321,7 +323,7 @@ function onDrop(column: ColumnContent, dropResult: any) {
                     <BaseHeading
                       as="h4"
                       size="md"
-                      weight="light"
+                      weight="medium"
                       class="mb-1"
                     >
                       <span>Nothing to show</span>
@@ -329,12 +331,12 @@ function onDrop(column: ColumnContent, dropResult: any) {
                     <BaseParagraph
                       size="xs"
                       lead="tight"
-                      class="text-muted-500 dark:text-muted-400 mx-auto max-w-[200px] !font-sans"
+                      class="text-muted-600 dark:text-muted-400 mx-auto max-w-[220px] !font-sans"
                     >
                       <span>There are no pending tasks to show in here for now.</span>
                     </BaseParagraph>
                     <button
-                      class="text-primary-500 dark:text-sunny mx-auto mt-2 flex items-center justify-center gap-1 font-sans text-xs underline-offset-4 hover:underline"
+                      class="text-muted-900 dark:text-white mx-auto mt-2 flex items-center justify-center gap-1 font-sans text-xs underline-offset-4 hover:underline"
                     >
                       <Icon name="lucide:plus" class="size-3" />
                       <span>New Task</span>
@@ -354,9 +356,9 @@ function onDrop(column: ColumnContent, dropResult: any) {
             <!-- Add button -->
             <div class="w-full">
               <button
-                class="text-muted-500 dark:text-muted-400 hover:text-primary-500 dark:hover:text-sunny border-muted-300 dark:border-muted-600 hover:border-primary-500 dark:hover:border-sunny flex h-12 w-full items-center justify-center gap-x-2 rounded-xl border-2 border-dashed px-6 font-sans transition-colors duration-300 hover:border-solid"
+                class="cursor-pointer text-muted-500 dark:text-muted-400 hover:text-muted-900 dark:hover:text-white border-muted-300 dark:border-muted-600 hover:border-muted-900 dark:hover:border-white flex h-12 w-full items-center justify-center gap-x-2 rounded-lg border-2 border-dashed px-6 font-sans transition-colors duration-300 hover:border-solid"
               >
-                <Icon name="ph:gear-six-duotone" class="size-4" />
+                <Icon name="solar:widget-add-linear" class="size-5" />
                 <span class="text-sm">Manage columns</span>
               </button>
             </div>
