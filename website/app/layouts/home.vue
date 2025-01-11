@@ -4,7 +4,7 @@ const links = [
   { title: 'Dashboard', to: '/examples/dashboard' },
   { title: 'Messaging', to: '/examples/messaging' },
   { title: 'Kanban', to: '/examples/kanban' },
-  { title: 'Forms', to: '/examples/inbox' },
+  { title: 'Settings', to: '/examples/forms' },
   { title: 'Music', to: '/examples/inbox' },
 ]
 

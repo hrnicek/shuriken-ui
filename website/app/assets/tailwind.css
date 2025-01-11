@@ -35,10 +35,12 @@
   --color-muted-950: var(--color-neutral-950);
 
   --color-chart-base: var(--color-muted-900);
+  --color-nuxt-loading-indicator: var(--color-muted-900);
 }
 
 .dark {
   --color-chart-base: var(--color-muted-100);
+  --color-nuxt-loading-indicator: var(--color-white);
 }
 
 body {

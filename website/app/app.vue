@@ -25,7 +25,7 @@ useSeoMeta({
 <template>
   <div>
     <NuxtRouteAnnouncer />
-    <NuxtLoadingIndicator color="var(--color-primary-500)" />
+    <NuxtLoadingIndicator color="var(--color-nuxt-loading-indicator)" />
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
