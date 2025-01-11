@@ -31,7 +31,6 @@ const avatarDisplay = computed(() => {
   <Primitive
     v-bind="forward"
     class="flex"
-    :class="[size && theme.sizes[size]]"
   >
     <slot>
       <div
