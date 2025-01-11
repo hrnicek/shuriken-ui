@@ -598,7 +598,7 @@ async function submitMessage() {
           </div>
         </div>
         <!--Sidebar-->
-        <div class="shrink-0 flex lg:flex-col h-16 lg:h-full w-full lg:w-16 bg-white dark:bg-muted-950 border-b lg:border-e border-muted-200 dark:border-muted-800 overflow-x-auto lg:overflow-x-hidden overflow-y-hidden lg:overflow-y-auto nui-slimscroll">
+        <div class="shrink-0 flex lg:flex-col h-16 lg:h-full w-full lg:w-16 bg-white dark:bg-muted-950 border-b lg:border-b-0 lg:border-e border-muted-200 dark:border-muted-800 overflow-x-auto lg:overflow-x-hidden overflow-y-hidden lg:overflow-y-auto nui-slimscroll">
           <div class="shrink-0 h-16 lg:h-14 w-14 lg:w-16 flex items-center justify-center">
             <BaseButton size="icon-sm" rounded="full" variant="dark">
               <Icon name="lucide:plus" class="size-4" />

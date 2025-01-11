@@ -6,6 +6,6 @@ definePageMeta({
 
 <template>
   <div>
-    Dashboard
+    <ShowcaseDashboard />
   </div>
 </template>
