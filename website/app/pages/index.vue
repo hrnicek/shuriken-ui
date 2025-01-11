@@ -6,6 +6,6 @@ definePageMeta({
 
 <template>
   <div>
-    <ShowcaseWidgets />
+    <ShowcaseWidgetGrid />
   </div>
 </template>

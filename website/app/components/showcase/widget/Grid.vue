@@ -40,7 +40,7 @@
         </div>
         <!--Item-->
         <div class="pt-3 sm:col-span-2 xl:pt-3">
-          <ShowcaseWidgetChartLines />
+          <ShowcaseWidgetChartArea />
         </div>
       </div>
       <!--Item-->
