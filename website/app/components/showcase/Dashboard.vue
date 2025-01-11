@@ -63,6 +63,100 @@ function setWorkspace(workspace: any) {
 }
 
 const progressCircle = ref(25)
+
+const areaChart = reactive(useareaChart())
+
+function useareaChart() {
+  const type = 'area'
+  const height = 250
+
+  const options = {
+    chart: {
+      zoom: {
+        enabled: false,
+      },
+      toolbar: {
+        show: false,
+      },
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    stroke: {
+      width: [2, 2, 2],
+      curve: 'smooth',
+    },
+    colors: ['var(--color-chart-base)'],
+    legend: {
+      show: false,
+      position: 'top',
+    },
+    grid: {
+      show: false,
+      padding: {
+        left: -10,
+        right: 0,
+        bottom: 10,
+      },
+    },
+    xaxis: {
+      type: 'datetime',
+      categories: [
+        '2024-09-19T00:00:00.000Z',
+        '2024-09-20T01:30:00.000Z',
+        '2024-09-21T02:30:00.000Z',
+        '2024-09-22T03:30:00.000Z',
+        '2024-09-23T04:30:00.000Z',
+        '2024-09-24T05:30:00.000Z',
+        '2024-09-25T06:30:00.000Z',
+      ],
+    },
+    yaxis: {
+      labels: {
+        show: false,
+        offsetX: -15,
+      },
+      axisBorder: {
+        show: false,
+      },
+      axisTicks: {
+        show: false,
+      },
+    },
+    fill: {
+    type: "gradient",
+      gradient: {
+        shade: "light",
+        type: "vertical",
+        shadeIntensity: 0,
+        opacityFrom: 0.5,
+        opacityTo: 0.1
+      }
+    },
+    tooltip: {
+      x: {
+        format: 'dd/MM/yy HH:mm',
+      },
+      y: {
+        formatter: (val: number) => `$${val}`,
+      },
+    },
+  }
+
+  const series = ref([
+    {
+      name: 'Balance',
+      data: [3143.16, 4298.49, 2876.54, 5183.76, 4232.87, 10876.56, 9543.12],
+    },
+  ])
+
+  return {
+    type,
+    height,
+    options,
+    series,
+  }
+}
 </script>
 
 <template>
@@ -88,10 +182,10 @@ const progressCircle = ref(25)
                       @click="openDropdown()"
                     >
                       <span class="flex w-full items-center gap-3 text-start">
-                        <BaseAvatar size="xxs" :src="selectedWorkspace.logo" class="grayscale" />
+                        <BaseAvatar size="xxs" :src="selectedWorkspace?.logo" class="grayscale" />
                         <div>
                           <BaseText size="sm" class="line-clamp-1 block text-muted-800 dark:text-muted-200">
-                            {{ selectedWorkspace.name }}
+                            {{ selectedWorkspace?.name }}
                           </BaseText>
                         </div>
                         <Icon
@@ -308,7 +402,7 @@ const progressCircle = ref(25)
             <div class="mt-4">
               <ul class="inline-flex items-center p-1 rounded-xl bg-muted-200/50 dark:bg-muted-800 text-sm text-muted-400 dark:text-muted-400">
                 <li>
-                  <a to="#" class="cursor-pointer inline-flex items-center justify-center px-3 py-1.5 bg-white rounded-lg font-medium text-muted-900 dark:text-white">
+                  <a to="#" class="cursor-pointer inline-flex items-center justify-center px-3 py-1.5 bg-white rounded-lg font-medium text-muted-900">
                     Overview
                   </a>
                 </li>
@@ -522,6 +616,46 @@ const progressCircle = ref(25)
                   </div>
                 </div>
               </BaseCard>
+            </div>
+          </div>
+          <div class="grid grid-cols-12 gap-4 mt-4">
+            <div class="lg:col-span-7 col-span-12 space-y-4">
+              <BaseCard
+                rounded="lg"
+                class="p-6 shadow-sm shadow-muted-200 dark:shadow-muted-800"
+              >
+                <div class="flex flex-col gap-4 pt-8">
+                  <BaseHeading
+                    as="h4"
+                    size="sm"
+                    weight="medium"
+                    lead="none"
+                    class="text-muted-400 uppercase"
+                  >
+                    Account Balance
+                  </BaseHeading>
+                  <p>
+                    <span
+                      class="text-muted-800 font-sans text-4xl font-medium before:text-xl before:content-['$'] dark:text-white"
+                    >
+                      9,543.12
+                    </span>
+                  </p>
+                  <div class="flex items-center gap-x-2">
+                    <Icon
+                      name="lucide:arrow-up"
+                      class="size-4"
+                    />
+                    <span class="text-muted-400 font-sans text-sm">
+                      $149.32 Today, Sep 25
+                    </span>
+                  </div>
+                </div>
+                <ApexChart v-bind="areaChart" />
+              </BaseCard>
+            </div>
+            <div class="lg:col-span-5 col-span-12 space-y-4">
+              <ShowcaseWidgetDirectory />
             </div>
           </div>
         </div>

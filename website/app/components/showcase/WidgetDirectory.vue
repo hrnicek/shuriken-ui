@@ -274,7 +274,7 @@ const filteredDirectory = computed(() => {
         <BaseField class="w-full">
           <div class="relative">
             <div class="flex w-full">
-              <div class="border-s border-y rounded-s-md border-muted-300 dark:border-muted-800 h-10 ps-3 pe-2 -me-2 flex items-center justify-center">
+              <div class="border-s border-y rounded-s-md border-muted-300 dark:border-muted-800 bg-white dark:bg-muted-900 h-10 ps-3 pe-2 -me-2 flex items-center justify-center">
                 <Icon name="lucide:search" class="size-4 text-muted-500" />
               </div>
               <div class="grow relative">
