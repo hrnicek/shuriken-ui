@@ -1,8 +1,6 @@
 
 <script setup lang="ts">
 const route = useRoute()
-
-// #region Demo data
 const home = route.fullPath
 const menuItems = [
   {
@@ -13,23 +11,24 @@ const menuItems = [
   {
     name: 'Customers',
     activePath: '/',
-    to: '/',
+    to: '#',
   },
   {
     name: 'Products',
     activePath: '/',
-    to: '/',
+    to: '#',
   },
   {
     name: 'Settings',
     activePath: '/',
-    to: '/',
+    to: '#',
   },
 ]
-// #endregion
 
-
-const progressCircle = ref(25)
+const transactions = ref(84)
+const profit = ref(26)
+const newCustomers = ref(12)
+const expenses = ref(46)
 </script>
 
 <template>
@@ -173,7 +172,7 @@ const progressCircle = ref(25)
                 <div class="flex gap-4">
                   <div class="relative">
                     <BaseProgressCircle
-                      v-model="progressCircle"
+                      v-model="transactions"
                       :size="64"
                       :thickness="1"
                       variant="dark"
@@ -221,7 +220,7 @@ const progressCircle = ref(25)
                 <div class="flex gap-4">
                   <div class="relative">
                     <BaseProgressCircle
-                      v-model="progressCircle"
+                      v-model="profit"
                       :size="64"
                       :thickness="1"
                       variant="dark"
@@ -269,7 +268,7 @@ const progressCircle = ref(25)
                 <div class="flex gap-4">
                   <div class="relative">
                     <BaseProgressCircle
-                      v-model="progressCircle"
+                      v-model="newCustomers"
                       :size="64"
                       :thickness="1"
                       variant="dark"
@@ -317,7 +316,7 @@ const progressCircle = ref(25)
                 <div class="flex gap-4">
                   <div class="relative">
                     <BaseProgressCircle
-                      v-model="progressCircle"
+                      v-model="expenses"
                       :size="64"
                       :thickness="1"
                       variant="dark"

@@ -2,7 +2,7 @@
 const workspaces = ref([
   {
     id: 1,
-    name: 'Marketing',
+    name: 'Business',
     logo: '/img/people/39.jpg',
   },
   {
