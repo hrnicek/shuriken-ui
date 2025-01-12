@@ -2,12 +2,12 @@
   <div class="py-6">
     <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
       <div>
-        <BaseCard rounded="lg" class="flex h-full items-center justify-center border-none !bg-primary-900 p-6 xs:py-16">
+        <BaseCard rounded="lg" variant="none" class="flex h-full items-center justify-center border-none bg-black dark:bg-muted-900 p-6 xs:py-16">
           <div class="flex w-full flex-col items-center">
             <BaseAvatar
               size="2xl"
-              src="/img/avatars/15.svg"
-              badge-src="/img/stacks/react.svg"
+              src="/img/people/42.jpg"
+              badge-src="/img/vector/stacks/photoshop.svg"
             />
             <div class="mx-auto mt-6 w-full max-w-xs text-center">
               <BaseHeading
@@ -16,7 +16,7 @@
                 weight="medium"
                 class="text-white"
               >
-                Josh Meyers
+                Helen Miller
               </BaseHeading>
               <BaseParagraph size="sm" class="text-white">
                 has accepted to join the project
@@ -24,7 +24,7 @@
               <div class="mt-4 flex flex-col gap-2">
                 <BaseButton
                   type="button"
-                  color="primary"
+                  variant="dark"
                   rounded="full"
                   class="w-full"
                 >
@@ -32,10 +32,9 @@
                 </BaseButton>
                 <BaseButton
                   type="button"
-                  variant="pastel"
-                  color="primary"
+                  variant="none"
                   rounded="full"
-                  class="w-full"
+                  class="w-full bg-white/15 hover:bg-white/10 text-white"
                 >
                   <span>Settings</span>
                 </BaseButton>
@@ -47,8 +46,7 @@
       <div>
         <BaseCard
           rounded="md"
-          color="default-contrast"
-          class="!border-muted-300 p-6 dark:!border-muted-800"
+          class="p-6"
         >
           <div class="mb-4">
             <BaseHeading
@@ -63,20 +61,19 @@
             </BaseParagraph>
           </div>
           <div class="space-y-3">
-            <BaseInput label="Title" placeholder="Ex: Banking website project" />
-            <BaseInput label="Subtitle" placeholder="Ex: For small businesses" />
-            <BaseTextarea label="Description" placeholder="Describe your project..." />
+            <BaseInput placeholder="Ex: Banking website project" />
+            <BaseInput placeholder="Ex: For small businesses" />
+            <BaseTextarea placeholder="Describe your project..." />
             <div class="py-2">
               <BaseSwitchBall
                 label="Visibility"
                 sublabel="Make this project public"
-                checked
               />
             </div>
             <div>
               <BaseButton
                 type="submit"
-                color="primary"
+                variant="dark"
                 rounded="md"
                 class="w-full"
               >

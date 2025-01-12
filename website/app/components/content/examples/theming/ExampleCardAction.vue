@@ -3,16 +3,16 @@
     <div class="w-full rounded-xl bg-muted-100 p-4 dark:bg-muted-900 md:py-8">
       <div class="mx-auto w-full max-w-md ">
         <BaseCard
-          class="!border-muted-300 p-4 dark:!border-muted-800 md:p-6"
+          class="p-4 md:p-6"
           color="default-contrast"
-          rounded="md"
+          rounded="lg"
         >
           <div class="flex flex-col py-2">
             <BaseAvatar
               class="mx-auto"
               size="xl"
-              src="/img/avatars/15.svg"
-              badge-src="/img/stacks/react.svg"
+              src="/img/people/19.jpg"
+              badge-src="/img/vector/stacks/js.svg"
             />
             <div class="mx-auto max-w-xs text-center">
               <BaseHeading
@@ -22,7 +22,7 @@
                 class="mt-4"
               >
                 Josh M. has invited you to the
-                <BaseLink to="#" class="text-primary-800">
+                <BaseLink to="#" class="hover:text-black! dark:hover:text-muted-100!">
                   Banking Solution Website
                 </BaseLink>
                 project.
@@ -31,24 +31,21 @@
             <div class="mx-auto max-w-sm">
               <div class="mt-6 flex items-center justify-center gap-3">
                 <BaseAvatar
-                  src="/img/avatars/25.svg"
+                  src="/img/people/29.jpg"
                   size="xs"
-                  data-nui-tooltip="Melany L."
                 />
                 <BaseAvatar
                   size="xs"
-                  text="OD"
-                  data-nui-tooltip="Oliver D."
-                  class="bg-primary-500/20 text-primary-500"
+                  text="H"
+                  class="bg-muted-100 dark:bg-muted-800 text-muted-700 dark:text-muted-300"
                 />
                 <BaseAvatar
-                  src="/img/avatars/16.svg"
+                  src="/img/people/36.jpg"
                   size="xs"
-                  data-nui-tooltip="Hermann M."
                 />
               </div>
               <div class="mt-2 text-center">
-                <BaseText size="xs" class="text-muted-400">
+                <BaseText size="xs" class="text-muted-600 dark:text-muted-400">
                   And 5 others are members of this project
                 </BaseText>
               </div>
@@ -58,7 +55,7 @@
                 </BaseButton>
                 <BaseButton
                   rounded="md"
-                  color="primary"
+                  variant="dark"
                   class="w-full"
                 >
                   Accept
