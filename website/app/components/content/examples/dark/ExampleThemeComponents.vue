@@ -4,6 +4,7 @@
       <div class="flex items-center gap-8">
         <BaseThemeToggle />
         <BaseThemeSwitch />
+        <BaseThemeSystem />
       </div>
     </div>
   </div>

@@ -8,17 +8,16 @@
       <div class="flex flex-col divide-y divide-dashed divide-muted-300 dark:divide-muted-800">
         <div class="flex w-full flex-col gap-6 p-4 md:flex-row md:items-center md:p-6">
           <div class="w-40">
-            <code class="rounded-sm bg-primary-500/10 px-1 py-0.5 text-sm text-primary-600">rounded="none"</code>
+            <BaseTag rounded="full">rounded="none"</BaseTag>
           </div>
           <BaseCard
-            color="default-contrast"
             rounded="none"
-            class="border-muted-300 p-4 dark:!border-muted-800 md:p-6"
+            class="grow border-muted-300 p-4 dark:!border-muted-800 md:p-6 shadow-sm shadow-muted-200 dark:shadow-muted-800"
           >
             <div class="flex gap-4">
               <BaseAvatar
                 rounded="none"
-                src="/img/avatars/15.svg"
+                src="/img/people/55.jpg"
                 size="sm"
               />
               <div class="grow">
@@ -30,12 +29,11 @@
                 <div class="mt-3 flex flex-col justify-between gap-y-3 md:flex-row md:items-center">
                   <BaseCheckbox
                     checked
-                    rounded="none"
-                    color="muted"
+                    variant="dark"
                     label="Notify friends"
                   />
                   <BaseButton
-                    color="primary"
+                    variant="dark"
                     rounded="none"
                     size="sm"
                     class="w-full md:w-24"
@@ -50,17 +48,16 @@
 
         <div class="flex w-full flex-col gap-6 p-4 md:flex-row md:items-center md:p-6">
           <div class="w-40">
-            <code class="rounded-sm bg-primary-500/10 px-1 py-0.5 text-sm text-primary-600">rounded="sm"</code>
+            <BaseTag rounded="full">rounded="sm"</BaseTag>
           </div>
           <BaseCard
-            color="default-contrast"
             rounded="sm"
-            class="border-muted-300 p-4 dark:!border-muted-800 md:p-6"
+            class="grow border-muted-300 p-4 dark:!border-muted-800 md:p-6 shadow-sm shadow-muted-200 dark:shadow-muted-800"
           >
             <div class="flex gap-4">
               <BaseAvatar
                 rounded="sm"
-                src="/img/avatars/15.svg"
+                src="/img/people/55.jpg"
                 size="sm"
               />
               <div class="grow">
@@ -72,12 +69,11 @@
                 <div class="mt-3 flex flex-col justify-between gap-y-3 md:flex-row md:items-center">
                   <BaseCheckbox
                     checked
-                    rounded="sm"
-                    color="muted"
+                    variant="dark"
                     label="Notify friends"
                   />
                   <BaseButton
-                    color="primary"
+                    variant="dark"
                     rounded="sm"
                     size="sm"
                     class="w-full md:w-24"
@@ -92,17 +88,16 @@
 
         <div class="flex w-full flex-col gap-6 p-4 md:flex-row md:items-center md:p-6">
           <div class="w-40">
-            <code class="rounded-sm bg-primary-500/10 px-1 py-0.5 text-sm text-primary-600">rounded="md"</code>
+            <BaseTag rounded="full">rounded="md"</BaseTag>
           </div>
           <BaseCard
-            color="default-contrast"
             rounded="md"
-            class="border-muted-300 p-4 dark:!border-muted-800 md:p-6"
+            class="grow border-muted-300 p-4 dark:!border-muted-800 md:p-6 shadow-sm shadow-muted-200 dark:shadow-muted-800"
           >
             <div class="flex gap-4">
               <BaseAvatar
                 rounded="md"
-                src="/img/avatars/15.svg"
+                src="/img/people/55.jpg"
                 size="sm"
               />
               <div class="grow">
@@ -114,12 +109,11 @@
                 <div class="mt-3 flex flex-col justify-between gap-y-3 md:flex-row md:items-center">
                   <BaseCheckbox
                     checked
-                    rounded="md"
-                    color="muted"
+                    variant="dark"
                     label="Notify friends"
                   />
                   <BaseButton
-                    color="primary"
+                    variant="dark"
                     rounded="md"
                     size="sm"
                     class="w-full md:w-24"
@@ -134,17 +128,16 @@
 
         <div class="flex w-full flex-col gap-6 p-4 md:flex-row md:items-center md:p-6">
           <div class="w-40">
-            <code class="rounded-sm bg-primary-500/10 px-1 py-0.5 text-sm text-primary-600">rounded="lg"</code>
+            <BaseTag rounded="full">rounded="lg"</BaseTag>
           </div>
           <BaseCard
-            color="default-contrast"
             rounded="lg"
-            class="border-muted-300 p-4 dark:!border-muted-800 md:p-6"
+            class="grow border-muted-300 p-4 dark:!border-muted-800 md:p-6 shadow-sm shadow-muted-200 dark:shadow-muted-800"
           >
             <div class="flex gap-4">
               <BaseAvatar
                 rounded="lg"
-                src="/img/avatars/15.svg"
+                src="/img/people/55.jpg"
                 size="sm"
               />
               <div class="grow">
@@ -156,12 +149,11 @@
                 <div class="mt-3 flex flex-col justify-between gap-y-3 md:flex-row md:items-center">
                   <BaseCheckbox
                     checked
-                    rounded="lg"
-                    color="muted"
+                    variant="dark"
                     label="Notify friends"
                   />
                   <BaseButton
-                    color="primary"
+                    variant="dark"
                     rounded="lg"
                     size="sm"
                     class="w-full md:w-24"
@@ -176,17 +168,16 @@
 
         <div class="flex w-full flex-col gap-6 p-4 md:flex-row md:items-center md:p-6">
           <div class="w-40">
-            <code class="rounded-sm bg-primary-500/10 px-1 py-0.5 text-sm text-primary-600">rounded="full"</code>
+            <BaseTag rounded="full">rounded="full"</BaseTag>
           </div>
           <BaseCard
-            color="default-contrast"
             rounded="lg"
-            class="border-muted-300 p-4 dark:!border-muted-800 md:p-6"
+            class="grow border-muted-300 p-4 dark:!border-muted-800 md:p-6 shadow-sm shadow-muted-200 dark:shadow-muted-800"
           >
             <div class="flex gap-4">
               <BaseAvatar
                 rounded="full"
-                src="/img/avatars/15.svg"
+                src="/img/people/55.jpg"
                 size="sm"
               />
               <div class="grow">
@@ -198,12 +189,11 @@
                 <div class="mt-3 flex flex-col justify-between gap-y-3 md:flex-row md:items-center">
                   <BaseCheckbox
                     checked
-                    rounded="full"
-                    color="muted"
+                    variant="dark"
                     label="Notify friends"
                   />
                   <BaseButton
-                    color="primary"
+                    variant="dark"
                     rounded="full"
                     size="sm"
                     class="w-full md:w-24"

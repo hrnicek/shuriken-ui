@@ -2,6 +2,7 @@
 const props = defineProps<{
   icon?: string
   title?: string
+  invert?: boolean
 }>()
 </script>
 
@@ -18,6 +19,7 @@ const props = defineProps<{
               v-if="props.icon"
               :name="props.icon"
               class="h-6 w-6 text-muted-500 dark:text-muted-600"
+              :class="props.invert && 'dark:invert'"
             />
           </slot>
         </div>
@@ -36,7 +38,7 @@ const props = defineProps<{
           <BaseParagraph
             v-if="'default' in $slots"
             size="sm"
-            class="text-muted-500 dark:text-muted-400"
+            class="text-muted-600 dark:text-muted-400"
           >
             <slot />
           </BaseParagraph>
