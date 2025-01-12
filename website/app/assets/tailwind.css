@@ -1,14 +1,15 @@
 @import 'tailwindcss';
 @import '@shuriken-ui/tailwind';
+@source "../../content";
 
 @variant dark (&:where(.dark, .dark *));
 
 @theme {
   --font-sans: Inter, sans-serif;
   --font-monospace: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  /* --font-alt: Karla, sans-serif; */
   --font-heading: var(--font-sans);
  
+  /* Primary color */
   --color-primary-50: var(--color-indigo-50);
   --color-primary-100: var(--color-indigo-100);
   --color-primary-200: var(--color-indigo-200);
@@ -21,7 +22,7 @@
   --color-primary-900: var(--color-indigo-900);
   --color-primary-950: var(--color-indigo-950);
 
-  /* neutral from tailwind as r g b */
+  /* Muted color */
   --color-muted-50: var(--color-neutral-50);
   --color-muted-100: var(--color-neutral-100);
   --color-muted-200: var(--color-neutral-200);
