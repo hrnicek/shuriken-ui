@@ -41,7 +41,7 @@ const links = computed(() => page.value?.body?.toc?.links || [])
             target="_blank"
             variant="dark"
             rounded="md"
-            class="w-full mt-4">
+            class="w-full mt-4 font-medium">
             Schedule a call
           </BaseButton>
         </BaseCard>
