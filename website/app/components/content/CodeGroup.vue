@@ -12,9 +12,9 @@ const activeTabIndex = ref(0)
 provide('code-group-context', true)
 
 // Computed
-const slots = useSlots()
+const slots = useSlots() as any
 const slotsContent = computed(() => slots.default?.() || [])
-const tabs = computed(() => slotsContent.value?.map?.((slot, index) => {
+const tabs = computed(() => slotsContent.value?.map?.((slot: any, index: any) => {
   return {
     filename: slot?.props?.filename || `${index}`,
     language: slot?.props?.language,
@@ -23,7 +23,7 @@ const tabs = computed(() => slotsContent.value?.map?.((slot, index) => {
     component: slot,
   }
 }))
-const selectedTab = computed(() => tabs.value.find((_, index) => index === activeTabIndex.value))
+const selectedTab = computed(() => tabs.value.find((_: any, index: any) => index === activeTabIndex.value))
 </script>
 
 <template>
