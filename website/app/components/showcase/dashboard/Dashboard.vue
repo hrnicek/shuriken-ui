@@ -132,7 +132,7 @@ const expenses = ref(46)
           <div class="mb-8">
             <BaseHeading
               as="h2"
-              size="3xl"
+              size="2xl"
               weight="medium"
               class="text-muted-900 dark:text-white">
               Dashboard
