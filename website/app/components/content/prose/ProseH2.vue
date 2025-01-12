@@ -4,7 +4,7 @@
     as="h2"
     size="2xl"
     weight="medium"
-    class="group/heading mb-1 mt-8"
+    class="group/heading mb-3 mt-8"
   >
     <a
       v-if="generate"

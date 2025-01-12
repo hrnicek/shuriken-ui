@@ -10,7 +10,7 @@ const links = computed(() => page.value?.body?.toc?.links || [])
 <template>
   <div class="hidden md:landscape:block lg:block">
     <div class="h-full">
-      <div class="sticky top-40 h-96">
+      <div class="relative">
         <div class="py-3 pe-4 rounded-md min-w-[200px]">
           <BaseHeading
             as="h2" size="sm" weight="medium"
@@ -29,6 +29,22 @@ const links = computed(() => page.value?.body?.toc?.links || [])
             </li>
           </ul>
         </div>
+      </div>
+      <div class="mt-6">
+        <BaseCard rounded="lg" class="w-64 shadow-sm shadow-muted-200 dark:shadow-muted-800 p-4">
+          <BaseHeading weight="medium">Hire us for your project on digisquad.io</BaseHeading>
+          <BaseParagraph size="sm" class="mt-2 text-muted-600 dark:text-muted-400">
+            We are a professional development team. Schedule a call with us to discuss your project requirements.
+          </BaseParagraph>
+          <BaseButton
+            href="https://digisquad.io"
+            target="_blank"
+            variant="dark"
+            rounded="md"
+            class="w-full mt-4">
+            Schedule a call
+          </BaseButton>
+        </BaseCard>
       </div>
     </div>
   </div>
