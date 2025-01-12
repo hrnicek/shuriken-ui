@@ -5,7 +5,7 @@ const links = [
   { title: 'Messaging', to: '/examples/messaging' },
   { title: 'Kanban', to: '/examples/kanban' },
   { title: 'Settings', to: '/examples/forms' },
-  { title: 'Music', to: '/examples/inbox' },
+  { title: 'Music', to: '/examples/music' },
 ]
 
 const { isMobileOpen } = createLayoutDefaultContext()
@@ -40,8 +40,8 @@ const { isMobileOpen } = createLayoutDefaultContext()
                   Shuriken UI is a modern, responsive, and customizable component library for Nuxt and Vue.
                 </BaseParagraph>
                 <div class="flex items-center gap-3 mt-4">
-                  <BaseButton rounded="md" variant="dark" class="w-full md:w-32">Explore</BaseButton>
-                  <BaseButton rounded="md" variant="ghost" class="w-full md:w-auto">Browse Blocks</BaseButton>
+                  <BaseButton rounded="md" variant="dark" class="w-full md:w-32">Components</BaseButton>
+                  <BaseButton rounded="md" variant="ghost" class="w-full md:w-auto">Browse Charts</BaseButton>
                 </div>
               </div>
               <!--Content-->

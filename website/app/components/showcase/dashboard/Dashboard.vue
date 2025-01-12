@@ -128,8 +128,8 @@ const expenses = ref(46)
           </div>
         </div>
         <!--Content-->
-        <div class="px-4 md:px-6 py-6 w-full">
-          <div class="mb-4">
+        <div class="px-4 md:px-6 pt-10 pb-6 w-full">
+          <div class="mb-8">
             <BaseHeading
               as="h2"
               size="3xl"

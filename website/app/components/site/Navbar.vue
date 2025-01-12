@@ -56,7 +56,7 @@ const { x, y } = useWindowScroll()
         <div class="hidden lg:flex items-center gap-x-8">
           <NuxtLink to="/" class="text-sm text-muted-900 dark:text-white">Docs</NuxtLink>
           <NuxtLink to="/" class="text-sm text-muted-900 dark:text-white">Components</NuxtLink>
-          <NuxtLink to="/" class="text-sm text-muted-900 dark:text-white">Blocks</NuxtLink>
+          <NuxtLink to="/" class="text-sm text-muted-900 dark:text-white">Charts</NuxtLink>
           <NuxtLink to="/" class="text-sm text-muted-900 dark:text-white">Playground</NuxtLink>
           <NuxtLink to="/" class="text-sm text-muted-900 dark:text-white">Colors</NuxtLink>
         </div>

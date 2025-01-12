@@ -6,6 +6,6 @@ definePageMeta({
 
 <template>
   <div>
-    Inbox
+    <ShowcaseMusic />
   </div>
 </template>
