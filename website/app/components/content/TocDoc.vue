@@ -22,7 +22,7 @@ const links = computed(() => page.value?.body?.toc?.links || [])
             <li v-for="link in links" :key="link.id" class="relative">
               <NuxtLink
                 :to="`#${link.id}`"
-                class="block text-sm leading-snug hover:underline underline-offset-4 hover:text-primary-500 dark:hover:text-primary-500 font-sans text-muted-600 dark:text-muted-400"
+                class="block text-sm leading-snug hover:underline underline-offset-4 hover:text-muted-900 dark:hover:text-white font-sans text-muted-600 dark:text-muted-400"
               >
                 {{ link.text }}
               </NuxtLink>
