@@ -57,6 +57,7 @@ const activeTab = computed(() => props.tabs[activeTabIndex.value])
       <BaseButton
         size="icon-sm"
         rounded="md"
+        class="cursor-pointer"
         :data-nui-tooltip="copied ? 'Copied!' : 'Copy'"
         data-nui-tooltip-position="start"
         :aria-label="copied ? 'Copied!' : 'Copy'"

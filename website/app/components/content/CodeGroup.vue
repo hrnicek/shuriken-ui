@@ -56,7 +56,7 @@ const selectedTab = computed(() => tabs.value.find((_: any, index: any) => index
             <div class="relative z-[2] h-full w-full bg-muted-50 dark:bg-muted-950 blur-xl"></div>
             <button
               type="button"
-              class="absolute bottom-8 start-0 end-0 mx-auto w-32 z-[3] py-1 px-4 flex items-center justify-center text-sm text-muted-500 hover:text-muted-800 dark:text-muted-400 dark:hover:text-muted-100 rounded-full border border-muted-300 dark:border-muted-700 hover:border-muted-200 dark:hover:border-muted-600 bg-white dark:bg-muted-800 transition-colors duration-300"
+              class="cursor-pointer absolute bottom-8 start-0 end-0 mx-auto w-32 z-[3] py-1 px-4 flex items-center justify-center text-sm text-muted-500 hover:text-muted-800 dark:text-muted-400 dark:hover:text-muted-100 rounded-full border border-muted-300 dark:border-muted-700 hover:border-muted-200 dark:hover:border-muted-600 bg-white dark:bg-muted-800 transition-colors duration-300"
               @click="expanded = !expanded"
             >
               <span>{{ expanded ? 'Collapse code' : 'Expand code' }}</span>

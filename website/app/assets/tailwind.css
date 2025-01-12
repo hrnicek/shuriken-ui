@@ -5,7 +5,7 @@
 
 @theme {
   --font-sans: Inter, sans-serif;
-  --font-monospace: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace,;
+  --font-monospace: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   /* --font-alt: Karla, sans-serif; */
   --font-heading: var(--font-sans);
  

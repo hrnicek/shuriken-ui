@@ -9,8 +9,7 @@ const props = defineProps<{
   <div class="py-6">
     <BaseCard
       rounded="md"
-      color="muted-contrast"
-      class="!border-muted-300 p-4 dark:!border-muted-800 md:p-6"
+      class="p-4 md:p-6 bg-muted-50 dark:bg-muted-950"
     >
       <div class="flex gap-3">
         <div v-if="'icon' in $slots || props.icon">
