@@ -64,7 +64,7 @@ const { forwardRef } = useForwardExpose()
         <Icon :name="iconIndeterminate" class="hidden group-data-[state=indeterminate]:block size-4 scale-90" />
       </CheckboxIndicator>
     </CheckboxRoot>
-    <div class="inline-flex flex-col">
+    <div class="inline-flex flex-col grow">
       <Label
         v-if="props.label || 'default' in $slots"
         :for="id"
