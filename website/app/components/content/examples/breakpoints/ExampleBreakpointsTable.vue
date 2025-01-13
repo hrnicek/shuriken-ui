@@ -6,11 +6,6 @@ const breakpoints = [
     value: 'min: 0px',
   },
   {
-    name: 'xs',
-    description: 'Phone only',
-    value: 'max: 639px',
-  },
-  {
     name: 'sm',
     description: 'Phone',
     value: 'min: 640px',
@@ -21,19 +16,9 @@ const breakpoints = [
     value: 'min: 768px',
   },
   {
-    name: 'ptablet',
-    description: 'Tablet (portrait)',
-    value: 'min: 768px / max: 1024px',
-  },
-  {
-    name: 'ltablet',
-    description: 'Tablet (landscape)',
-    value: 'min: 768px / max: 1024px',
-  },
-  {
     name: 'lg',
     description: 'Desktop (small)',
-    value: 'min: 1025px',
+    value: 'min: 1024px',
   },
   {
     name: 'xl',
