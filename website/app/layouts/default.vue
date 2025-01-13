@@ -16,7 +16,7 @@ const { data: navigation } = await useAsyncData('navigation', () => queryCollect
           <div class="relative z-10 mx-auto w-full max-w-[1536px] grow flex">
             <!--Start-->
             <div class="relative flex flex-col w-60 bg-white dark:bg-black border-e border-muted-200 dark:border-muted-800">
-              <ul class="fixed top-14 max-h-[calc(100dvh_-_3.5rem)] pt-10 pb-6 pe-4 overflow-y-auto nui-slimscroll">
+              <ul class="fixed top-12 max-h-[calc(100dvh_-_3rem)] pt-10 pb-6 pe-4 overflow-y-auto nui-slimscroll">
                 <li v-for="item in navigation" :key="item.path">
                   <div v-if="item.children">
                     <BaseHeading size="xs" weight="semibold" class="uppercase tracking-wide mt-10 ms-2.5 mb-2 text-muted-600 dark:text-muted-400">
