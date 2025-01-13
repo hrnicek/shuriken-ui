@@ -1,7 +1,5 @@
 @theme {
-  /* --font-sans: 'Titillium Web', sans-serif; */
-  /* --font-monospace: 'Titillium Web', sans-serif; */
-  --font-alt: var(--font-sans);
+  /** Fonts */
   --font-heading: var(--font-sans);
   
   /** Colors */
@@ -100,6 +98,9 @@
   --color-link: var(--color-primary-base);
   --color-ring: var(--color-muted-300);
 
+  --color-input-border: var(--color-muted-300);
+
+  /** Animations */
   --animate-nui-placeload: nui-placeload 1s linear infinite forwards;
   --animate-nui-progress-indeterminate: nui-progress-indeterminate 3s linear infinite forwards;
   --animate-nui-spin: spin 2s linear infinite;
