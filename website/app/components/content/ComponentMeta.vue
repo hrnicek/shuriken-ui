@@ -53,7 +53,7 @@ function wrapExternalLinks(string: string) {
               <tr class="border-t border-muted-300 text-sm dark:border-muted-800">
                 <td class="px-4 py-3">
                   <div class="flex items-center gap-1">
-                    <code class="rounded-sm bg-primary-500/20 px-1 text-[0.8rem] font-medium text-primary-600">{{ kebabCase(docs.model.name) }}</code>
+                    <code class="rounded-sm bg-primary-500/20 px-1 text-[0.8rem] font-medium text-primary-600 dark:text-primary-400">{{ kebabCase(docs.model.name) }}</code>
                     <div v-if="docs.model.description">
                       <BaseDropdown
                         color="default-contrast"
@@ -96,7 +96,7 @@ function wrapExternalLinks(string: string) {
                   </div>
                 </td>
                 <td class="px-4 py-3">
-                  <div class="flex items-center gap-1">
+                  <div class="flex items-center gap-1 font-mono text-muted-700 dark:text-muted-400">
                     <ComponentMetaCode>
                       {{ docs.model.type }}
                     </ComponentMetaCode>
@@ -132,7 +132,7 @@ function wrapExternalLinks(string: string) {
               >
                 <td class="px-4 py-3">
                   <div class="flex items-center gap-1">
-                    <code class="rounded-sm bg-primary-500/20 px-1 text-[0.8rem] font-medium text-primary-600">{{ kebabCase(prop.name) }}</code>
+                    <code class="rounded-sm bg-primary-500/20 px-1 text-[0.8rem] font-medium text-primary-600 dark:text-primary-400">{{ kebabCase(prop.name) }}</code>
                     <div v-if="prop.description">
                       <BaseDropdown
                         color="default-contrast"
@@ -145,7 +145,7 @@ function wrapExternalLinks(string: string) {
                           </button>
                         </template>
                         <div class="p-1">
-                          <BaseParagraph size="xs" class="text-muted-700 dark:text-muted-200">
+                          <BaseParagraph size="xs" class="text-muted-700 dark:text-muted-200 max-w-xs">
                             {{ prop.description }}
                           </BaseParagraph>
                         </div>
@@ -153,15 +153,15 @@ function wrapExternalLinks(string: string) {
                     </div>
                   </div>
                 </td>
-                <td class="px-4 py-3">
+                <td class="px-4 py-3 font-mono text-muted-700 dark:text-muted-400">
                   <div class="flex items-center gap-1">
                     <ComponentMetaCode>
                       {{ prop.type }}
                     </ComponentMetaCode>
                   </div>
                 </td>
-                <td class="px-4 py-3">
-                  <div class="flex items-center gap-1">
+                <td class="px-4 py-3 font-mono text-muted-700 dark:text-muted-400">
+                  <div class="flex items-center gap-1 text-primary-600 dark:text-primary-400">
                     <ComponentMetaCode>
                       {{ !prop.default || prop.default === 'undefined' ? 'undefined' : prop.default }}
                     </ComponentMetaCode>
@@ -229,7 +229,7 @@ function wrapExternalLinks(string: string) {
               >
                 <td class="px-4 py-3">
                   <div class="flex items-center gap-1">
-                    <code class="rounded-sm bg-primary-500/20 px-1 text-[0.8rem] font-medium text-primary-600">{{ kebabCase(event.name) }}</code>
+                    <code class="rounded-sm bg-primary-500/20 px-1 text-[0.8rem] font-medium text-primary-600 dark:text-primary-400">{{ kebabCase(event.name) }}</code>
                     <div v-if="event.description">
                       <BaseDropdown
                         color="default-contrast"
@@ -284,7 +284,7 @@ function wrapExternalLinks(string: string) {
               >
                 <td class="px-4 py-3">
                   <div class="flex items-center gap-1">
-                    <code class="rounded-sm bg-primary-500/20 px-1 text-[0.8rem] font-medium text-primary-600">#{{ slot.name }}</code>
+                    <code class="rounded-sm bg-primary-500/20 px-1 text-[0.8rem] font-medium text-primary-600 dark:text-primary-400">#{{ slot.name }}</code>
                   </div>
                 </td>
                 <td class="px-4 py-3">
@@ -320,7 +320,7 @@ function wrapExternalLinks(string: string) {
                 >
                   <td class="px-4 py-3">
                     <div class="flex items-center gap-1">
-                      <code class="rounded-sm bg-primary-500/20 px-1 text-[0.8rem] font-medium text-primary-600">{{ kebabCase(exposed.name) }}</code>
+                      <code class="rounded-sm bg-primary-500/20 px-1 text-[0.8rem] font-medium text-primary-600 dark:text-primary-400">{{ kebabCase(exposed.name) }}</code>
                       <div v-if="exposed.description">
                         <BaseDropdown
                           color="default-contrast"
