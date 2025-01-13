@@ -119,11 +119,19 @@ const loading = ref(true)
         title="Variant: default"
         description="Button component default variant"
       >
-        <div class="flex flex-wrap items-end gap-4">
+        <div class="flex flex-wrap items-end gap-4 mb-4">
           <BaseButton>
             This is a default button
           </BaseButton>
           <BaseButton size="icon-md" rounded="md">
+            <Icon name="ph:game-controller-duotone" class="size-5" />
+          </BaseButton>
+        </div>
+        <div class="flex flex-wrap items-end gap-4">
+          <BaseButton to="#">
+            This is a default link
+          </BaseButton>
+          <BaseButton size="icon-md" rounded="md"  to="#">
             <Icon name="ph:game-controller-duotone" class="size-5" />
           </BaseButton>
         </div>
@@ -133,11 +141,19 @@ const loading = ref(true)
         title="Variant: muted"
         description="Button muted variant"
       >
-        <div class="flex flex-wrap items-end gap-4">
+        <div class="flex flex-wrap items-end gap-4 mb-4">
           <BaseButton variant="muted">
             This is a muted button
           </BaseButton>
           <BaseButton variant="muted" size="icon-md" rounded="md">
+            <Icon name="ph:game-controller-duotone" class="size-5" />
+          </BaseButton>
+        </div>
+        <div class="flex flex-wrap items-end gap-4">
+          <BaseButton variant="muted" to="#">
+            This is a muted link
+          </BaseButton>
+          <BaseButton variant="muted" size="icon-md" rounded="md" to="#">
             <Icon name="ph:game-controller-duotone" class="size-5" />
           </BaseButton>
         </div>
@@ -147,9 +163,17 @@ const loading = ref(true)
         title="Variant: ghost"
         description="Button ghost variant"
       >
-        <div class="flex flex-wrap items-end gap-4">
+        <div class="flex flex-wrap items-end gap-4 mb-4">
           <BaseButton variant="ghost">
             This is a ghost button
+          </BaseButton>
+          <BaseButton variant="ghost" size="icon-md" rounded="md">
+            <Icon name="ph:game-controller-duotone" class="size-5" />
+          </BaseButton>
+        </div>
+        <div class="flex flex-wrap items-end gap-4">
+          <BaseButton variant="ghost" to="#">
+            This is a ghost link
           </BaseButton>
           <BaseButton variant="ghost" size="icon-md" rounded="md">
             <Icon name="ph:game-controller-duotone" class="size-5" />
@@ -161,11 +185,19 @@ const loading = ref(true)
         title="Variant: link"
         description="Button link variant"
       >
-        <div class="flex flex-wrap items-end gap-4">
+        <div class="flex flex-wrap items-end gap-4 mb-4">
           <BaseButton variant="link">
             This is a link button
           </BaseButton>
           <BaseButton variant="link" size="icon-md" rounded="md">
+            <Icon name="ph:game-controller-duotone" class="size-5" />
+          </BaseButton>
+        </div>
+        <div class="flex flex-wrap items-end gap-4">
+          <BaseButton variant="link" to="#">
+            This is a link link
+          </BaseButton>
+          <BaseButton variant="link" size="icon-md" rounded="md" to="#">
             <Icon name="ph:game-controller-duotone" class="size-5" />
           </BaseButton>
         </div>
@@ -175,11 +207,19 @@ const loading = ref(true)
         title="Variant: primary"
         description="Button component primary variant"
       >
-        <div class="flex flex-wrap items-end gap-4">
+        <div class="flex flex-wrap items-end gap-4 mb-4">
           <BaseButton variant="primary">
             This is a primary button
           </BaseButton>
           <BaseButton variant="primary" size="icon-md" rounded="md">
+            <Icon name="lucide:plus" class="size-4" />
+          </BaseButton>
+        </div>
+        <div class="flex flex-wrap items-end gap-4">
+          <BaseButton variant="primary" to="#">
+            This is a primary link
+          </BaseButton>
+          <BaseButton variant="primary" size="icon-md" rounded="md" to="#">
             <Icon name="lucide:plus" class="size-4" />
           </BaseButton>
         </div>
@@ -189,11 +229,19 @@ const loading = ref(true)
         title="Variant: dark"
         description="Button component dark variant"
       >
-        <div class="flex flex-wrap items-end gap-4">
+        <div class="flex flex-wrap items-end gap-4 mb-4">
           <BaseButton variant="dark">
             This is a dark button
           </BaseButton>
           <BaseButton variant="dark" size="icon-md" rounded="md">
+            <Icon name="lucide:plus" class="size-4" />
+          </BaseButton>
+        </div>
+        <div class="flex flex-wrap items-end gap-4">
+          <BaseButton variant="dark" to="#">
+            This is a dark link
+          </BaseButton>
+          <BaseButton variant="dark" size="icon-md" rounded="md" to="#">
             <Icon name="lucide:plus" class="size-4" />
           </BaseButton>
         </div>
@@ -203,11 +251,19 @@ const loading = ref(true)
         title="Variant: destructive"
         description="Button component destructive variant"
       >
-        <div class="flex flex-wrap items-end gap-4">
+        <div class="flex flex-wrap items-end gap-4 mb-4">
           <BaseButton variant="destructive">
             This is a destructive button
           </BaseButton>
           <BaseButton variant="destructive" size="icon-md" rounded="md">
+            <Icon name="lucide:trash-2" class="size-4" />
+          </BaseButton>
+        </div>
+        <div class="flex flex-wrap items-end gap-4">
+          <BaseButton variant="destructive" to="#">
+            This is a destructive link
+          </BaseButton>
+          <BaseButton variant="destructive" size="icon-md" rounded="md" to="#">
             <Icon name="lucide:trash-2" class="size-4" />
           </BaseButton>
         </div>
@@ -217,9 +273,14 @@ const loading = ref(true)
         title="Variant: custom"
         description="Button component custom variant"
       >
-        <div class="flex flex-wrap items-end gap-4">
+        <div class="flex flex-wrap items-end gap-4 mb-4">
           <BaseButton variant="none" class="bg-primary-500/10 text-primary-600">
             This is a custom button
+          </BaseButton>
+        </div>
+        <div class="flex flex-wrap items-end gap-4">
+          <BaseButton variant="none" class="bg-primary-500/10 text-primary-600" to="#">
+            This is a custom link
           </BaseButton>
         </div>
       </NuiPreview>

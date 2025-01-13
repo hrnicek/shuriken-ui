@@ -26,7 +26,7 @@ const { attributes, is } = useNinjaButton(props)
   <component
     :is
     v-bind="attributes"
-    class="focus-visible:nui-focus relative inline-flex justify-center items-center space-x-1 font-sans font-normal leading-5 no-underline transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed hover:shadow-none"
+    class="focus-visible:nui-focus enabled:cursor-pointer relative inline-flex justify-center items-center space-x-1 font-sans font-normal leading-5 no-underline transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed hover:shadow-none"
     :class="[
       variant && theme.variants[variant],
       size && theme.sizes[size],
