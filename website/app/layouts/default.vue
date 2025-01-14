@@ -18,8 +18,8 @@ const { data: navigation } = await useAsyncData('navigation', () => queryCollect
         <div class="bg-white dark:bg-black relative w-full grow flex flex-col">
           <div class="relative z-10 mx-auto w-full max-w-[1536px] grow flex">
             <!-- Start -->
-            <div class="relative flex flex-col w-60 bg-white dark:bg-black border-e border-muted-200 dark:border-muted-800">
-              <ul class="fixed top-12 max-h-[calc(100dvh_-_3rem)] pt-10 pb-6 pe-4 overflow-y-auto nui-slimscroll">
+            <div class="relative hidden lg:flex flex-col w-60 shrink-0 bg-white dark:bg-black border-e border-muted-200 dark:border-muted-800">
+              <ul class="fixed top-14 w-60 max-h-[calc(100dvh_-_3.5rem)] pt-10 pb-6 pe-4 overflow-y-auto nui-slimscroll">
                 <li
                   v-for="item in navigation"
                   :key="item.path"
@@ -75,7 +75,7 @@ const { data: navigation } = await useAsyncData('navigation', () => queryCollect
               </div>
             </div>
             <!-- End -->
-            <div class="relative flex flex-col w-72 bg-white dark:bg-black pe-6 py-6">
+            <div class="relative hidden lg:flex flex-col w-72 bg-white dark:bg-black pe-6 py-6">
               <div class="fixed top-20">
                 <TocDoc />
               </div>

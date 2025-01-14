@@ -88,7 +88,7 @@ function wrapExternalLinks(string: string) {
                           </BaseParagraph>
                           <BaseParagraph
                             size="xs"
-                            class="mb-2 text-muted-500 dark:text-muted-400"
+                            class="mb-2 text-muted-500 dark:text-muted-400 max-w-[200px]"
                           >
                             Additional info and tags like the default configuration value.
                           </BaseParagraph>
@@ -213,7 +213,7 @@ function wrapExternalLinks(string: string) {
                         <div class="p-1">
                           <BaseParagraph
                             size="xs"
-                            class="mb-2 text-muted-500 dark:text-muted-400"
+                            class="mb-2 text-muted-500 dark:text-muted-400 max-w-[200px]"
                           >
                             Additional info and tags like the default configuration value.
                           </BaseParagraph>

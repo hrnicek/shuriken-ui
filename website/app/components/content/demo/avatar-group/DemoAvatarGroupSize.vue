@@ -19,7 +19,7 @@ const people = [
 </script>
 
 <template>
-  <div class="flex flex-wrap items-end gap-4 p-4">
+  <div class="flex flex-wrap items-end gap-4 py-4 px-6">
     <BaseAvatarGroup
       size="md"
       :avatars="people"
