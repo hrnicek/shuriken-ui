@@ -2,32 +2,31 @@
   <div class="flex items-center justify-center px-4 pb-0 pt-4">
     <div class="w-full rounded-xl bg-muted-100 p-4 dark:bg-muted-900 md:p-8">
       <div class="max-w-md">
-        <BaseAccordion
-          :items="accordion"
-          rounded="sm"
-          exclusive
-        />
+        <BaseAccordion :items="accordion" type="multiple" />
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-const accordion = [
+const accordion = ref([
   {
+    value: 'item-1',
     title: 'Accordion Item 1',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quo tandem modo? Inde igitur, inquit, ordiendum est. Primum quid tu dicis breve? Duo Reges: constructio interrete.',
   },
   {
+    value: 'item-2',
     title: 'Accordion Item 2',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quo tandem modo? Inde igitur, inquit, ordiendum est. Primum quid tu dicis breve? Duo Reges: constructio interrete.',
   },
   {
+    value: 'item-3',
     title: 'Accordion Item 3',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quo tandem modo? Inde igitur, inquit, ordiendum est. Primum quid tu dicis breve? Duo Reges: constructio interrete.',
   },
-]
+])
 </script>

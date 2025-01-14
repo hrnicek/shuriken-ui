@@ -3,7 +3,7 @@
     <div class="w-full rounded-xl bg-muted-100 p-4 dark:bg-muted-900 md:p-8">
       <div class="max-w-md">
         <BaseCard rounded="md" class="p-6">
-          <BaseAccordion :items="accordion" rounded="sm" />
+          <BaseAccordion :items="accordion" type="single" rounded="sm" />
         </BaseCard>
       </div>
     </div>
@@ -11,21 +11,24 @@
 </template>
 
 <script setup lang="ts">
-const accordion = [
+const accordion = ref([
   {
+    value: 'item-1',
     title: 'Accordion Item 1',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quo tandem modo? Inde igitur, inquit, ordiendum est. Primum quid tu dicis breve? Duo Reges: constructio interrete.',
   },
   {
+    value: 'item-2',
     title: 'Accordion Item 2',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quo tandem modo? Inde igitur, inquit, ordiendum est. Primum quid tu dicis breve? Duo Reges: constructio interrete.',
   },
   {
+    value: 'item-3',
     title: 'Accordion Item 3',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quo tandem modo? Inde igitur, inquit, ordiendum est. Primum quid tu dicis breve? Duo Reges: constructio interrete.',
   },
-]
+])
 </script>
