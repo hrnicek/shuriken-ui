@@ -1,4 +1,4 @@
-import { defineNuxtLink } from '#app'
+import { defineNuxtLink } from '#imports'
 import { computed } from 'vue'
 import type { RouteLocationRaw } from 'vue-router'
 
