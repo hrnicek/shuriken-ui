@@ -4,78 +4,78 @@
       <BaseIconBox
         size="md"
         rounded="full"
-        variant="outline"
-        color="primary"
+        variant="none"
+        class="ring-1 ring-indigo-500 text-indigo-700 dark:text-indigo-400"
       >
         <Icon
-          name="ph:game-controller-duotone"
-          class="h-5 w-5"
+          name="solar:home-smile-angle-linear"
+          class="size-5"
         />
       </BaseIconBox>
       <BaseIconBox
         size="md"
         rounded="full"
-        variant="outline"
-        color="info"
+        variant="none"
+        class="ring-1 ring-green-500 text-green-700 dark:text-green-400"
       >
         <Icon
-          name="ph:cookie-duotone"
-          class="h-5 w-5"
+          name="solar:stopwatch-linear"
+          class="size-5"
         />
       </BaseIconBox>
       <BaseIconBox
         size="md"
         rounded="full"
-        variant="outline"
-        color="success"
+        variant="none"
+        class="ring-1 ring-yellow-400 text-yellow-700 dark:text-yellow-400"
       >
         <Icon
-          name="ph:leaf-duotone"
-          class="h-5 w-5"
+          name="solar:pulse-2-linear"
+          class="size-5"
         />
       </BaseIconBox>
       <BaseIconBox
         size="md"
         rounded="full"
-        variant="outline"
-        color="warning"
+        variant="none"
+        class="ring-1 ring-violet-500 text-violet-700 dark:text-violet-400"
       >
         <Icon
-          name="ph:storefront-duotone"
-          class="h-5 w-5"
+          name="solar:stars-minimalistic-linear"
+          class="size-5"
         />
       </BaseIconBox>
       <BaseIconBox
         size="md"
         rounded="full"
-        variant="outline"
-        color="danger"
+        variant="none"
+        class="ring-1 ring-red-500 text-red-700 dark:text-red-400"
       >
         <Icon
-          name="ph:skull-duotone"
-          class="h-5 w-5"
+          name="solar:bolt-linear"
+          class="size-5"
         />
       </BaseIconBox>
       <BaseIconBox
         size="md"
         rounded="full"
-        variant="outline"
-        color="dark"
+        variant="none"
+        class="ring-1 ring-lime-500 text-lime-700 dark:text-lime-400"
       >
         <Icon
-          name="ph:lightning-duotone"
-          class="h-5 w-5"
+          name="solar:widget-6-linear"
+          class="size-5"
         />
       </BaseIconBox>
       <BaseIconBox
         size="md"
         rounded="full"
-        variant="outline"
-        color="black"
+        variant="none"
+        class="ring-1 ring-amber-500 text-amber-700 dark:text-amber-400"
       >
         <Icon
-          name="ph:gauge-duotone"
-          class="h-5 w-5"
+          name="solar:videocamera-linear"
+          class="size-5"
         />
       </BaseIconBox>
     </div>
