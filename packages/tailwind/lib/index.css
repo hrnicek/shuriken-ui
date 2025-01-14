@@ -1,7 +1,7 @@
 @plugin '@tailwindcss/typography';
 
 @import './theme.css';
-@import './dark.css';
+@import './css/dark.css';
 
 @import './css/focus.css';
 @import './css/mark.css';
