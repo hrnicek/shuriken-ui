@@ -1,45 +1,30 @@
 <template>
   <div class="flex flex-wrap items-end gap-4 p-4">
-    <BaseAvatar size="xxs">
-      <NuxtImg
-        loading="lazy"
-        decoding="async"
-        src="/img/avatars/16.svg"
-        rounded="full"
-        alt=""
-      />
-    </BaseAvatar>
-    <BaseAvatar size="xs">
-      <NuxtImg
-        loading="lazy"
-        decoding="async"
-        src="/img/avatars/10.svg"
-        rounded="full"
-        alt=""
-      />
-    </BaseAvatar>
     <BaseAvatar
-      src="/img/avatars/25.svg"
-      rounded="full"
+      src="/img/people/36.jpg"
+      size="xxs"
     />
     <BaseAvatar
-      src="/img/avatars/24.svg"
-      rounded="full"
+      src="/img/people/42.jpg"
+      size="xs"
+    />
+    <BaseAvatar
+      src="/img/people/29.jpg"
+    />
+    <BaseAvatar
+      src="/img/people/11.jpg"
       size="md"
     />
     <BaseAvatar
-      src="/img/avatars/3.svg"
-      rounded="full"
+      src="/img/people/3.jpg"
       size="lg"
     />
     <BaseAvatar
-      src="/img/avatars/8.svg"
-      rounded="full"
+      src="/img/people/18.jpg"
       size="xl"
     />
     <BaseAvatar
-      src="/img/avatars/15.svg"
-      rounded="full"
+      src="/img/people/19.jpg"
       size="2xl"
     />
   </div>

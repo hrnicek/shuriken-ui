@@ -1,27 +1,27 @@
 <template>
   <div class="flex flex-wrap items-end gap-4 p-4">
     <BaseAvatar
-      src="/img/avatars/2.svg"
+      src="/img/people/39.jpg"
       rounded="none"
       size="md"
     />
     <BaseAvatar
-      src="/img/avatars/10.svg"
+      src="/img/people/46.jpg"
       rounded="sm"
       size="md"
     />
     <BaseAvatar
-      src="/img/avatars/25.svg"
+      src="/img/people/29.jpg"
       rounded="md"
       size="md"
     />
     <BaseAvatar
-      src="/img/avatars/24.svg"
+      src="/img/people/51.jpg"
       rounded="lg"
       size="md"
     />
     <BaseAvatar
-      src="/img/avatars/15.svg"
+      src="/img/people/43.jpg"
       rounded="full"
       size="md"
     />

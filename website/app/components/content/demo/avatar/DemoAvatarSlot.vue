@@ -7,18 +7,8 @@
       <NuxtImg
         loading="lazy"
         decoding="async"
-        src="/img/avatars/2.svg"
-        alt=""
-      />
-    </BaseAvatar>
-    <BaseAvatar
-      size="md"
-      rounded="lg"
-    >
-      <NuxtImg
-        loading="lazy"
-        decoding="async"
-        src="/img/avatars/10.svg"
+        src="/img/people/44.jpg"
+        class="rounded-full"
         alt=""
       />
     </BaseAvatar>

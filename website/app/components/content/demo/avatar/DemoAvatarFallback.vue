@@ -3,6 +3,11 @@
     <div class="flex items-end gap-2">
       <BaseAvatar
         size="md"
+        text="Z"
+        class="bg-muted-200 dark:bg-muted-800"
+      />
+      <BaseAvatar
+        size="md"
         text="L"
         class="bg-primary-500/20 text-primary-600"
       />
