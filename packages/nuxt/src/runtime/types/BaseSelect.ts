@@ -58,9 +58,10 @@ export interface BaseSelectProps<T = AcceptableValue> extends SelectRootProps<T>
   },
 }
 export interface BaseSelectEmits<T = AcceptableValue> extends SelectRootEmits<T> {}
-export type BaseSelectSlots = {
+export type BaseSelectSlots<T = AcceptableValue> = {
   default(): any
   label(): any
+  value(props: { selectedLabel: string[], modelValue: T | T[] }): any
 }
 export type BaseSelectConfig = {
   variant: NonNullable<BaseSelectProps['variant']>

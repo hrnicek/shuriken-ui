@@ -39,7 +39,7 @@ const props = withDefaults(defineProps<BaseSelectProps<T>>(), {
   bindings: () => ({}),
 })
 const emits = defineEmits<BaseSelectEmits<T>>()
-const slots = defineSlots<BaseSelectSlots>()
+const slots = defineSlots<BaseSelectSlots<T>>()
 
 const attrs = useAttrs()
 const id = useNinjaId(() => props.id)
@@ -80,7 +80,9 @@ provideBaseSelectContext({
       ]"
       v-bind="{ ...attrs, ...(bindings?.trigger || {}) }"
     >
-      <SelectValue :placeholder="props.placeholder" class="line-clamp-1" />
+      <SelectValue :placeholder="props.placeholder" class="line-clamp-1" v-slot="{ selectedLabel, modelValue }">
+        <slot name="value" v-bind="{ selectedLabel, modelValue }" />
+      </SelectValue>
       <Icon :name="iconChevronDown" class="size-4" :class="theme.triggerVariants[props.variant]" />
     </SelectTrigger>
 
