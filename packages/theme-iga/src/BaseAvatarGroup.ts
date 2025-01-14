@@ -15,15 +15,15 @@ export const spacings = {
 } as const satisfies Record<NonNullable<BaseAvatarGroupProps['size']>, string>
 
 export const counters = {
-  'xxs': '-ms-2 text-xs',
-  'xs': '-ms-2 text-sm',
-  'sm': '-ms-3 text-sm',
-  'md': '-ms-4 text-lg',
-  'lg': '-ms-5 text-xl',
-  'xl': '-ms-5 text-xl',
-  '2xl': '-ms-5 text-xl',
-  '3xl': '-ms-5 text-xl',
-  '4xl': '-ms-5 text-xl',
+  'xxs': 'not-first:-ms-2 text-xs',
+  'xs': 'not-first:-ms-2 text-sm',
+  'sm': 'not-first:-ms-3 text-sm',
+  'md': 'not-first:-ms-4 text-lg',
+  'lg': 'not-first:-ms-5 text-xl',
+  'xl': 'not-first:-ms-5 text-xl',
+  '2xl': 'not-first:-ms-5 text-xl',
+  '3xl': 'not-first:-ms-5 text-xl',
+  '4xl': 'not-first:-ms-5 text-xl',
 } as const satisfies Record<NonNullable<BaseAvatarGroupProps['size']>, string>
 
 export const defaults = {
