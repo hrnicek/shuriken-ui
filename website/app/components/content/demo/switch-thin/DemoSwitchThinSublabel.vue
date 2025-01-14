@@ -1,3 +1,7 @@
+<script setup lang="ts">
+const value = ref(true)
+</script>
+
 <template>
   <div class="flex items-center p-4">
     <BaseSwitchThin
@@ -8,7 +12,3 @@
     />
   </div>
 </template>
-
-<script setup lang="ts">
-const value = ref(true)
-</script>

@@ -1,29 +1,3 @@
-<template>
-  <div class="flex items-center p-4">
-    <div class="md:max-w-lg">
-      <BaseTreeSelect
-        :children="tree"
-        treeline
-        :icons="{
-          open: 'clarity:folder-open-line',
-          closed: 'clarity:folder-line',
-          item: 'clarity:file-line',
-          empty: 'clarity:alert-line',
-          pending: '',
-        }"
-        :classes="{
-          treeline: 'border-muted-300 dark:border-muted-700',
-          checkbox: { wrapper: '' },
-          emptyIcon: '',
-          itemIcon: '',
-          pendingIcon: '',
-          treeIcon: '',
-        }"
-      />
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 const tree = [
   {
@@ -68,3 +42,29 @@ const tree = [
   },
 ]
 </script>
+
+<template>
+  <div class="flex items-center p-4">
+    <div class="md:max-w-lg">
+      <BaseTreeSelect
+        :children="tree"
+        treeline
+        :icons="{
+          open: 'clarity:folder-open-line',
+          closed: 'clarity:folder-line',
+          item: 'clarity:file-line',
+          empty: 'clarity:alert-line',
+          pending: '',
+        }"
+        :classes="{
+          treeline: 'border-muted-300 dark:border-muted-700',
+          checkbox: { wrapper: '' },
+          emptyIcon: '',
+          itemIcon: '',
+          pendingIcon: '',
+          treeIcon: '',
+        }"
+      />
+    </div>
+  </div>
+</template>

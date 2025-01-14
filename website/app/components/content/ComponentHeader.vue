@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { joinURL, withQuery } from 'ufo'
+import { joinURL } from 'ufo'
 
 const props = withDefaults(defineProps<{
   category: string
@@ -23,9 +23,6 @@ const issueUrl = computed(() => {
 const sourceUrl = computed(() => {
   return joinURL(githubUrl.value, 'tree', appConfig.github.branch, props.category, props.fileName)
 })
-const storybookUrl = computed(() => withQuery(appConfig.storybookUrl, {
-  path: `/docs/${props.storybook}--docs/`,
-}))
 </script>
 
 <template>

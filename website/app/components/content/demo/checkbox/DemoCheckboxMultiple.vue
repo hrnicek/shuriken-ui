@@ -1,3 +1,7 @@
+<script setup lang="ts">
+const value = ref(['Option 1', 'Option 2'])
+</script>
+
 <template>
   <div class="flex items-center gap-8 p-4">
     <BaseCheckbox
@@ -37,7 +41,3 @@
     />
   </div>
 </template>
-
-<script setup lang="ts">
-const value = ref(['Option 1', 'Option 2'])
-</script>

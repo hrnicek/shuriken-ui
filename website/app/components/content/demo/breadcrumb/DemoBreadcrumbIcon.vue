@@ -1,12 +1,3 @@
-<template>
-  <div class="flex items-center px-4 pt-4">
-    <BaseBreadcrumb
-      :items="breadcrumb"
-      separator="dot"
-    />
-  </div>
-</template>
-
 <script setup lang="ts">
 const breadcrumb = [
   {
@@ -29,3 +20,12 @@ const breadcrumb = [
   },
 ]
 </script>
+
+<template>
+  <div class="flex items-center px-4 pt-4">
+    <BaseBreadcrumb
+      :items="breadcrumb"
+      separator="dot"
+    />
+  </div>
+</template>

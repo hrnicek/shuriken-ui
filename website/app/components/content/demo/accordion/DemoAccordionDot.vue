@@ -1,17 +1,3 @@
-<template>
-  <div class="flex items-center justify-center px-4 pb-0 pt-4">
-    <div class="w-full rounded-xl bg-muted-100 p-4 dark:bg-muted-900 md:p-8">
-      <div class="max-w-md">
-        <BaseAccordion
-          :items="accordion"
-          rounded="sm"
-          dot-color="dark"
-        />
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 const accordion = [
   {
@@ -28,3 +14,17 @@ const accordion = [
   },
 ]
 </script>
+
+<template>
+  <div class="flex items-center justify-center px-4 pb-0 pt-4">
+    <div class="w-full rounded-xl bg-muted-100 p-4 dark:bg-muted-900 md:p-8">
+      <div class="max-w-md">
+        <BaseAccordion
+          :items="accordion"
+          rounded="sm"
+          dot-color="dark"
+        />
+      </div>
+    </div>
+  </div>
+</template>

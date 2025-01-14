@@ -1,3 +1,7 @@
+<script setup lang="ts">
+const checked = ref(false)
+</script>
+
 <template>
   <div class="flex items-center p-4">
     <BaseCheckboxAnimated
@@ -7,7 +11,3 @@
     />
   </div>
 </template>
-
-<script setup lang="ts">
-const checked = ref(false)
-</script>

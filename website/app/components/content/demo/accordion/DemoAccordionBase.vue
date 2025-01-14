@@ -1,22 +1,3 @@
-<template>
-  <div class="flex items-center justify-center px-4 pb-0 pt-4">
-    <div class="w-full rounded-xl bg-muted-100 p-4 dark:bg-muted-900 md:p-8">
-      <div class="max-w-md">
-        <BaseCard
-          rounded="md"
-          class="p-6"
-        >
-          <BaseAccordion
-            :items="accordion"
-            type="single"
-            rounded="sm"
-          />
-        </BaseCard>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 const accordion = ref([
   {
@@ -39,3 +20,22 @@ const accordion = ref([
   },
 ])
 </script>
+
+<template>
+  <div class="flex items-center justify-center px-4 pb-0 pt-4">
+    <div class="w-full rounded-xl bg-muted-100 p-4 dark:bg-muted-900 md:p-8">
+      <div class="max-w-md">
+        <BaseCard
+          rounded="md"
+          class="p-6"
+        >
+          <BaseAccordion
+            :items="accordion"
+            type="single"
+            rounded="sm"
+          />
+        </BaseCard>
+      </div>
+    </div>
+  </div>
+</template>

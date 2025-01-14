@@ -10,7 +10,8 @@ const docs = await useDocumentationMeta(() => props.name as any)
  * Wrap https://... links in markdown with <a href="...">...</a>
  */
 function wrapExternalLinks(string: string) {
-  if (!string) return ''
+  if (!string)
+    return ''
   return string?.replace(/https?:\/\/[^\s)]+/g, url => `<a class="text-primary-600 dark:text-primary-400 hover:underline" href="${url}" rel="noopener noreferrer" target="_blank">${url}</a>`)
 }
 </script>

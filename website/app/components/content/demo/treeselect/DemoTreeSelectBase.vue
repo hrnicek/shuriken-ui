@@ -1,14 +1,3 @@
-<template>
-  <div class="flex items-center p-4">
-    <div class="md:max-w-lg">
-      <BaseTreeSelect
-        :children="tree"
-        treeline
-      />
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 const tree = [
   {
@@ -63,3 +52,14 @@ const tree = [
   },
 ]
 </script>
+
+<template>
+  <div class="flex items-center p-4">
+    <div class="md:max-w-lg">
+      <BaseTreeSelect
+        :children="tree"
+        treeline
+      />
+    </div>
+  </div>
+</template>

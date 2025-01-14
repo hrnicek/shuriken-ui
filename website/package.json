@@ -1,7 +1,7 @@
 {
   "name": "website",
-  "private": true,
   "type": "module",
+  "private": true,
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -11,6 +11,7 @@
     "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^3.14.0",
     "@iconify-json/akar-icons": "^1.2.1",
     "@iconify-json/cib": "^1.2.1",
     "@iconify-json/fa": "^1.2.0",

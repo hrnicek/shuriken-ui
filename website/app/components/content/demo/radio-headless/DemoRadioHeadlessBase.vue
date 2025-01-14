@@ -1,3 +1,7 @@
+<script setup lang="ts">
+const value = ref('value_1')
+</script>
+
 <template>
   <div class="flex items-center p-4">
     <div class="flex w-full items-end gap-6">
@@ -130,7 +134,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-const value = ref('value_1')
-</script>

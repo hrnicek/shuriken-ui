@@ -11,11 +11,6 @@ const props = defineProps<{
 }>()
 
 const activeTabIndexRef = ref()
-
-const { copy, copied, isSupported } = useClipboard({
-  source: () => activeTab.value?.code ?? '',
-})
-const activeTab = computed(() => props.tabs[activeTabIndexRef.value])
 </script>
 
 <template>

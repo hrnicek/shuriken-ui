@@ -1,3 +1,13 @@
+<script setup lang="ts">
+const values = reactive({
+  primary: true,
+  info: true,
+  success: true,
+  warning: true,
+  danger: true,
+})
+</script>
+
 <template>
   <div class="flex items-center gap-8 p-4">
     <BaseSwitchBall
@@ -27,13 +37,3 @@
     />
   </div>
 </template>
-
-<script setup lang="ts">
-const values = reactive({
-  primary: true,
-  info: true,
-  success: true,
-  warning: true,
-  danger: true,
-})
-</script>

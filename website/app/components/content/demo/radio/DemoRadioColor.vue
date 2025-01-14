@@ -1,3 +1,7 @@
+<script setup lang="ts">
+const value = ref('Option 2')
+</script>
+
 <template>
   <BaseRadioGroup
     v-model="value"
@@ -41,7 +45,3 @@
     />
   </BaseRadioGroup>
 </template>
-
-<script setup lang="ts">
-const value = ref('Option 2')
-</script>

@@ -3,7 +3,7 @@ import { components } from '~/constants/components'
 
 const activeTab = ref('nuxt')
 
-const handleTabs = (tab: string) => {
+function handleTabs(tab: string) {
   activeTab.value = tab
 }
 

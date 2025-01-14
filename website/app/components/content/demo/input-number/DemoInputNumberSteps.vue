@@ -1,3 +1,12 @@
+<script setup lang="ts">
+const fields = reactive({
+  first: 0.15,
+  second: 1.5,
+  third: 1.542312,
+  fourth: 1024,
+})
+</script>
+
 <template>
   <div class="flex items-center justify-center px-4 pb-0 pt-4">
     <div class="w-full rounded-xl bg-muted-100 p-4 dark:bg-muted-900">
@@ -44,12 +53,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-const fields = reactive({
-  first: 0.15,
-  second: 1.5,
-  third: 1.542312,
-  fourth: 1024,
-})
-</script>

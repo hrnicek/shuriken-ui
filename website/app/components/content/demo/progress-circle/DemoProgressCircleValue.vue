@@ -1,3 +1,7 @@
+<script setup lang="ts">
+const progressCircle = ref(25)
+</script>
+
 <template>
   <div class="max-w-sm p-4">
     <div class="max-w-xs space-y-4">
@@ -39,7 +43,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-const progressCircle = ref(25)
-</script>

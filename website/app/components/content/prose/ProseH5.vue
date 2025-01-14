@@ -1,3 +1,12 @@
+<script setup lang="ts">
+import { computed, useRuntimeConfig } from '#imports'
+
+const props = defineProps<{ id?: string }>()
+
+const { headings } = useRuntimeConfig().public.mdc
+const generate = computed(() => props.id && headings?.anchorLinks?.h5)
+</script>
+
 <template>
   <BaseHeading
     :id="id"
@@ -20,12 +29,3 @@
     <slot v-else />
   </BaseHeading>
 </template>
-
-<script setup lang="ts">
-import { computed, useRuntimeConfig } from '#imports'
-
-const props = defineProps<{ id?: string }>()
-
-const { headings } = useRuntimeConfig().public.mdc
-const generate = computed(() => props.id && headings?.anchorLinks?.h5)
-</script>

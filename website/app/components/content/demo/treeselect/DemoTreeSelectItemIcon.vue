@@ -1,23 +1,3 @@
-<template>
-  <div class="flex items-center p-4">
-    <div class="md:max-w-lg">
-      <BaseTreeSelect :children="tree">
-        <template #item-label="{ level, child, toggle }">
-          <BaseTreeSelectItem
-            :level="level"
-            :toggle="toggle"
-            :value="{
-              name: child.item.name,
-              text: child.item.text,
-              icon: child.item.icon,
-            }"
-          />
-        </template>
-      </BaseTreeSelect>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 const tree = [
   {
@@ -140,3 +120,23 @@ const tree = [
   },
 ]
 </script>
+
+<template>
+  <div class="flex items-center p-4">
+    <div class="md:max-w-lg">
+      <BaseTreeSelect :children="tree">
+        <template #item-label="{ level, child, toggle }">
+          <BaseTreeSelectItem
+            :level="level"
+            :toggle="toggle"
+            :value="{
+              name: child.item.name,
+              text: child.item.text,
+              icon: child.item.icon,
+            }"
+          />
+        </template>
+      </BaseTreeSelect>
+    </div>
+  </div>
+</template>

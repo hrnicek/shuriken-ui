@@ -1,3 +1,7 @@
+<script setup lang="ts">
+const value = ref('')
+</script>
+
 <template>
   <div class="flex items-center p-4">
     <BaseCheckbox
@@ -8,7 +12,3 @@
     />
   </div>
 </template>
-
-<script setup lang="ts">
-const value = ref('')
-</script>

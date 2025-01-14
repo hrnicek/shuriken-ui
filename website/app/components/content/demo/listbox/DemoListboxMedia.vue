@@ -1,25 +1,3 @@
-<template>
-  <div class="flex items-center justify-center px-4 pb-0 pt-4">
-    <div class="w-full rounded-xl bg-muted-100 p-4 dark:bg-muted-900 md:p-6">
-      <div class="max-w-xs">
-        <BaseListbox
-          v-model="value"
-          size="md"
-          rounded="md"
-          label="Hobbies"
-          :items="people"
-          :properties="{
-            value: 'id',
-            label: 'name',
-            sublabel: 'text',
-            media: 'media',
-          }"
-        />
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 const value = ref({
   id: 2,
@@ -61,3 +39,25 @@ const people = [
   },
 ]
 </script>
+
+<template>
+  <div class="flex items-center justify-center px-4 pb-0 pt-4">
+    <div class="w-full rounded-xl bg-muted-100 p-4 dark:bg-muted-900 md:p-6">
+      <div class="max-w-xs">
+        <BaseListbox
+          v-model="value"
+          size="md"
+          rounded="md"
+          label="Hobbies"
+          :items="people"
+          :properties="{
+            value: 'id',
+            label: 'name',
+            sublabel: 'text',
+            media: 'media',
+          }"
+        />
+      </div>
+    </div>
+  </div>
+</template>

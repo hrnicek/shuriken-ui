@@ -482,7 +482,6 @@ const conversations = ref([
 const chatEl = useTemplateRef<HTMLElement>('chatEl')
 const expanded = ref(false)
 const loading = ref(false)
-const search = ref('')
 const message = ref('')
 const messageLoading = ref(false)
 const activeConversation = ref(1)
@@ -874,14 +873,14 @@ async function submitMessage() {
               </div>
             </div>
           </div>
-          <div class="shrink-0 w-full flex items-center pb-2 px-4 md:px-6 bg-white dark:bg-muted-950">
+          <form class="shrink-0 w-full flex items-center pb-2 px-4 md:px-6 bg-white dark:bg-muted-950" @submit.prevent="submitMessage">
             <BaseTextarea
               size="md"
               placeholder="Write a message..."
               variant="muted"
               autogrow
             />
-          </div>
+          </form>
         </div>
         <!-- Panel -->
         <div class="w-80 h-full hidden lg:flex flex-col border-s border-muted-200 dark:border-muted-800 bg-muted-50 dark:bg-muted-900/50">

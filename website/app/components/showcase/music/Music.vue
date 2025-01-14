@@ -1,27 +1,4 @@
 <script setup lang="ts">
-interface Track {
-  id: string
-  title: string
-  duration: string
-  album: {
-    id: string
-    title: string
-    cover: string
-    year?: string
-  }
-  artist: {
-    name: string
-    picture: string
-  }
-  stats: {
-    listenCount: string
-    listened: boolean
-    likeCount: string
-    liked: boolean
-    playing?: boolean
-  }
-}
-
 interface Album {
   id: string
   title: string

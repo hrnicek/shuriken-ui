@@ -1,3 +1,15 @@
+<script setup lang="ts">
+const route = useRoute()
+const currentPage = computed(() => {
+  try {
+    return Number.parseInt(route.query.page as string) || 1
+  }
+  catch {
+    return 1
+  }
+})
+</script>
+
 <template>
   <div class="p-4">
     <BasePagination
@@ -10,15 +22,3 @@
     />
   </div>
 </template>
-
-<script setup lang="ts">
-const route = useRoute()
-const currentPage = computed(() => {
-  try {
-    return Number.parseInt(route.query.page as string) || 1
-  }
-  catch {
-    return 1
-  }
-})
-</script>

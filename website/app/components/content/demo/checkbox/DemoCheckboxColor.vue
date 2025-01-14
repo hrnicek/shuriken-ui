@@ -1,3 +1,15 @@
+<script setup lang="ts">
+const options = reactive({
+  first: true,
+  second: true,
+  third: true,
+  fourth: true,
+  fifth: true,
+  sixth: true,
+  seventh: true,
+})
+</script>
+
 <template>
   <div class="flex items-center gap-8 p-4">
     <BaseCheckbox
@@ -44,15 +56,3 @@
     />
   </div>
 </template>
-
-<script setup lang="ts">
-const options = reactive({
-  first: true,
-  second: true,
-  third: true,
-  fourth: true,
-  fifth: true,
-  sixth: true,
-  seventh: true,
-})
-</script>

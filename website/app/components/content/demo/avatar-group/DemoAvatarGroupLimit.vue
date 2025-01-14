@@ -1,13 +1,3 @@
-<template>
-  <div class="flex flex-wrap items-end gap-4 p-4">
-    <BaseAvatarGroup
-      size="sm"
-      :avatars="people"
-      :limit="8"
-    />
-  </div>
-</template>
-
 <script setup lang="ts">
 const people = [
   {
@@ -45,3 +35,13 @@ const people = [
   },
 ]
 </script>
+
+<template>
+  <div class="flex flex-wrap items-end gap-4 p-4">
+    <BaseAvatarGroup
+      size="sm"
+      :avatars="people"
+      :limit="8"
+    />
+  </div>
+</template>

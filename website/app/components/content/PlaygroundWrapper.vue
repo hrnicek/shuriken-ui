@@ -14,7 +14,7 @@ const defaultMuted = 'slate'
 const currentPrimary = ref(defaultPrimary)
 const currentMuted = ref(defaultMuted)
 
-const generate = () => {
+function generate() {
   isLoading.value = true
   setTimeout(() => {
     isModalOpen.value = true

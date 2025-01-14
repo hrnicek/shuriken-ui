@@ -36,7 +36,6 @@ const selectedTab = computed(() => tabs.value.find((_: any, index: any) => index
         <slot name="preview" />
 
         <CodeGroupHeader
-          ref="tabs-header"
           v-model:active-tab-index="activeTabIndex"
           :tabs
           :has-preview="!!slots.preview"

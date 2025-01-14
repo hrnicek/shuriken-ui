@@ -1,10 +1,10 @@
 <script setup lang="ts">
 // import packagejson from '~/package.json'
 
-const { data } = await useFetch('/api/versions')
+const { data: _versions } = await useFetch('/api/versions')
 
 const { isMobileOpen } = useLayoutDefaultContext()
-const { x, y } = useWindowScroll()
+const { y } = useWindowScroll()
 </script>
 
 <template>
@@ -68,23 +68,33 @@ const { x, y } = useWindowScroll()
           <NuxtLink
             to="/docs"
             class="text-sm text-muted-900 dark:text-white"
-          >Docs</NuxtLink>
+          >
+            Docs
+          </NuxtLink>
           <NuxtLink
             to="/"
             class="text-sm text-muted-900 dark:text-white"
-          >Components</NuxtLink>
+          >
+            Components
+          </NuxtLink>
           <NuxtLink
             to="/"
             class="text-sm text-muted-900 dark:text-white"
-          >Charts</NuxtLink>
+          >
+            Charts
+          </NuxtLink>
           <NuxtLink
             to="/"
             class="text-sm text-muted-900 dark:text-white"
-          >Playground</NuxtLink>
+          >
+            Playground
+          </NuxtLink>
           <NuxtLink
             to="/"
             class="text-sm text-muted-900 dark:text-white"
-          >Colors</NuxtLink>
+          >
+            Colors
+          </NuxtLink>
         </div>
         <!-- Actions -->
         <div class="ms-auto flex items-center justify-end gap-x-3">

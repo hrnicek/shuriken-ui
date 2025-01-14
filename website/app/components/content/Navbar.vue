@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import packagejson from '~/package.json'
-
 const { data } = await useFetch('/api/versions')
 
 const mobileOpen = ref(false)
-const { x, y } = useWindowScroll()
+const { y } = useWindowScroll()
 </script>
 
 <template>
