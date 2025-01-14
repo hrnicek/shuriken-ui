@@ -27,11 +27,12 @@ const accordion = ref([
       <div class="max-w-md">
         <BaseCard
           rounded="md"
-          class="p-6"
+          class="p-4"
         >
           <BaseAccordion
             :items="accordion"
             type="single"
+            collapsible
             rounded="sm"
           />
         </BaseCard>

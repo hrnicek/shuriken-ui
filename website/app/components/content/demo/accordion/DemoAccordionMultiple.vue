@@ -31,10 +31,7 @@ const accordion = ref([
         >
           <BaseAccordion
             :items="accordion"
-            type="single"
-            collapsible
-            rounded="sm"
-            action="chevron"
+            type="multiple"
           />
         </BaseCard>
       </div>
