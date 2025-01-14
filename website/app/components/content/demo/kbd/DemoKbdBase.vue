@@ -7,7 +7,10 @@
     >
       Ctrl
     </BaseKbd>
-    <Icon name="lucide:plus" class="h-3 w-3" />
+    <Icon
+      name="lucide:plus"
+      class="h-3 w-3"
+    />
     <BaseKbd
       color="default"
       size="sm"

@@ -7,7 +7,10 @@
         color="default"
         class="border border-muted-200 bg-white text-muted-500 dark:border-muted-600 dark:bg-muted-700"
       >
-        <Icon name="ph:nut-duotone" class="h-5 w-5" />
+        <Icon
+          name="ph:nut-duotone"
+          class="h-5 w-5"
+        />
       </BaseIconBox>
       <BaseIconBox
         size="md"
@@ -15,7 +18,10 @@
         color="default"
         class="border border-muted-200 bg-white text-muted-500 dark:border-muted-600 dark:bg-muted-700"
       >
-        <Icon name="ph:nut-duotone" class="h-5 w-5" />
+        <Icon
+          name="ph:nut-duotone"
+          class="h-5 w-5"
+        />
       </BaseIconBox>
     </div>
   </div>

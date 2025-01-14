@@ -22,7 +22,10 @@
           tooltip="Select files"
           @click="open"
         >
-          <Icon name="lucide:plus" class="absolute start-1/2 top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2" />
+          <Icon
+            name="lucide:plus"
+            class="absolute start-1/2 top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2"
+          />
 
           <span class="sr-only">Select files</span>
         </button>
@@ -32,7 +35,10 @@
           class="nui-focus relative flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-muted-200 bg-white text-muted-700 transition-colors duration-300 hover:border-primary-500 hover:text-primary-600 dark:border-muted-700 dark:bg-muted-800 dark:text-muted-200 dark:hover:border-primary-500 dark:hover:text-primary-600"
           tooltip="Start Upload"
         >
-          <Icon name="lucide:arrow-up" class="h-4 w-4" />
+          <Icon
+            name="lucide:arrow-up"
+            class="h-4 w-4"
+          />
 
           <span class="sr-only">Start Upload</span>
         </button>
@@ -56,7 +62,10 @@
           @keydown.enter.prevent="open"
         >
           <div class="p-5 text-center">
-            <Icon name="mdi-light:cloud-upload" class="mb-2 h-10 w-10 text-muted-400 transition-colors duration-300 group-hover:text-primary-500 group-focus:text-primary-500" />
+            <Icon
+              name="mdi-light:cloud-upload"
+              class="mb-2 h-10 w-10 text-muted-400 transition-colors duration-300 group-hover:text-primary-500 group-focus:text-primary-500"
+            />
 
             <h4 class="font-sans text-sm text-muted-400">
               Drop files to upload
@@ -75,8 +84,14 @@
           </div>
         </div>
 
-        <ul v-else class="mt-6 space-y-2">
-          <li v-for="file in files" :key="file.name">
+        <ul
+          v-else
+          class="mt-6 space-y-2"
+        >
+          <li
+            v-for="file in files"
+            :key="file.name"
+          >
             <div class="relative flex items-center justify-end gap-2 rounded-xl border border-muted-200 bg-white p-3 dark:border-muted-700 dark:bg-muted-800">
               <div class="flex items-center gap-2">
                 <div class="shrink-0">
@@ -111,7 +126,10 @@
                 </div>
               </div>
 
-              <div class="ms-auto w-32 px-4 transition-opacity duration-300" :class="'opacity-100'">
+              <div
+                class="ms-auto w-32 px-4 transition-opacity duration-300"
+                :class="'opacity-100'"
+              >
                 <BaseProgress
                   :value="0"
                   size="xs"
@@ -126,7 +144,10 @@
                   type="button"
                   tooltip="Cancel"
                 >
-                  <Icon name="lucide:slash" class="h-4 w-4" />
+                  <Icon
+                    name="lucide:slash"
+                    class="h-4 w-4"
+                  />
 
                   <span class="sr-only">Cancel</span>
                 </button>
@@ -136,7 +157,10 @@
                   type="button"
                   tooltip="Upload"
                 >
-                  <Icon name="lucide:arrow-up" class="h-4 w-4" />
+                  <Icon
+                    name="lucide:arrow-up"
+                    class="h-4 w-4"
+                  />
 
                   <span class="sr-only">Upload</span>
                 </button>
@@ -147,7 +171,10 @@
                   tooltip="Remove"
                   @click.prevent="remove(file)"
                 >
-                  <Icon name="lucide:x" class="h-4 w-4" />
+                  <Icon
+                    name="lucide:x"
+                    class="h-4 w-4"
+                  />
 
                   <span class="sr-only">Remove</span>
                 </button>

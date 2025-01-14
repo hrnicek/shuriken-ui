@@ -17,7 +17,10 @@
         </template>
 
         <div class="mt-2 flex justify-center gap-2">
-          <BaseButton rounded="lg" class="w-32">
+          <BaseButton
+            rounded="lg"
+            class="w-32"
+          >
             Cancel
           </BaseButton>
           <BaseButton

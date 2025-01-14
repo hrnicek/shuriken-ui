@@ -11,16 +11,28 @@
       </div>
 
       <div class="flex justify-between gap-2">
-        <BaseButtonAction :class="progressCircle === 25 && '!border-primary-500 !text-primary-500'" @click="progressCircle = 25">
+        <BaseButtonAction
+          :class="progressCircle === 25 && '!border-primary-500 !text-primary-500'"
+          @click="progressCircle = 25"
+        >
           25%
         </BaseButtonAction>
-        <BaseButtonAction :class="progressCircle === 50 && '!border-primary-500 !text-primary-500'" @click="progressCircle = 50">
+        <BaseButtonAction
+          :class="progressCircle === 50 && '!border-primary-500 !text-primary-500'"
+          @click="progressCircle = 50"
+        >
           50%
         </BaseButtonAction>
-        <BaseButtonAction :class="progressCircle === 75 && '!border-primary-500 !text-primary-500'" @click="progressCircle = 75">
+        <BaseButtonAction
+          :class="progressCircle === 75 && '!border-primary-500 !text-primary-500'"
+          @click="progressCircle = 75"
+        >
           75%
         </BaseButtonAction>
-        <BaseButtonAction :class="progressCircle === 100 && '!border-primary-500 !text-primary-500'" @click="progressCircle = 100">
+        <BaseButtonAction
+          :class="progressCircle === 100 && '!border-primary-500 !text-primary-500'"
+          @click="progressCircle = 100"
+        >
           100%
         </BaseButtonAction>
       </div>

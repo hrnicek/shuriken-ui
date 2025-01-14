@@ -565,48 +565,83 @@ async function submitMessage() {
 
 <template>
   <div>
-    <BaseCard rounded="lg" class="shadow-sm shadow-muted-200 dark:shadow-muted-800 overflow-hidden">
+    <BaseCard
+      rounded="lg"
+      class="shadow-sm shadow-muted-200 dark:shadow-muted-800 overflow-hidden"
+    >
       <div class="w-full h-[815px] flex flex-col lg:flex-row">
-        <!--Sidebar-->
+        <!-- Sidebar -->
         <div class="flex lg:flex-col h-16 lg:h-full w-full lg:w-16 bg-muted-50 dark:bg-muted-900/50 border-e border-muted-200 dark:border-muted-800">
-          <NuxtLink to="/examples/dashboard" class="h-14 w-16 flex items-center justify-center">
+          <NuxtLink
+            to="/examples/dashboard"
+            class="h-14 w-16 flex items-center justify-center"
+          >
             <Logo class="size-8" />
           </NuxtLink>
-          <!--Menu-->
+          <!-- Menu -->
           <div class="ms-auto lg:mt-auto">
             <ul class="flex lg:block">
               <li>
-                <a href="#" class="group/link h-14 w-16 flex items-center justify-center">
+                <a
+                  href="#"
+                  class="group/link h-14 w-16 flex items-center justify-center"
+                >
                   <span class="size-9 rounded-xl flex items-center justify-center group-hover/link:bg-muted-200 dark:group-hover/link:bg-muted-800 text-muted-400 dark:text-muted-600 group-hover/link:text-muted-700 dark:group-hover/link:text-muted-200 transition-colors duration-300">
-                    <Icon name="lucide:search" class="size-4" />
+                    <Icon
+                      name="lucide:search"
+                      class="size-4"
+                    />
                   </span>
                 </a>
               </li>
               <li>
-                <a href="#" class="group/link h-14 w-16 flex items-center justify-center">
+                <a
+                  href="#"
+                  class="group/link h-14 w-16 flex items-center justify-center"
+                >
                   <span class="size-9 rounded-xl flex items-center justify-center group-hover/link:bg-muted-200 dark:group-hover/link:bg-muted-800 text-muted-400 dark:text-muted-600 group-hover/link:text-muted-700 dark:group-hover/link:text-muted-200 transition-colors duration-300">
-                    <Icon name="lucide:settings" class="size-4" />
+                    <Icon
+                      name="lucide:settings"
+                      class="size-4"
+                    />
                   </span>
                 </a>
               </li>
               <li>
-                <a href="#" class="group/link h-14 w-16 flex items-center justify-center">
-                  <BaseAvatar src="/img/people/29.jpg" size="xs" class="grayscale" />
+                <a
+                  href="#"
+                  class="group/link h-14 w-16 flex items-center justify-center"
+                >
+                  <BaseAvatar
+                    src="/img/people/29.jpg"
+                    size="xs"
+                    class="grayscale"
+                  />
                 </a>
               </li>
             </ul>
           </div>
         </div>
-        <!--Sidebar-->
+        <!-- Sidebar -->
         <div class="shrink-0 flex lg:flex-col h-16 lg:h-full w-full lg:w-16 bg-white dark:bg-muted-950 border-b lg:border-b-0 lg:border-e border-muted-200 dark:border-muted-800 overflow-x-auto lg:overflow-x-hidden overflow-y-hidden lg:overflow-y-auto nui-slimscroll">
           <div class="shrink-0 h-16 lg:h-14 w-14 lg:w-16 flex items-center justify-center">
-            <BaseButton size="icon-sm" rounded="full" variant="dark">
-              <Icon name="lucide:plus" class="size-4" />
+            <BaseButton
+              size="icon-sm"
+              rounded="full"
+              variant="dark"
+            >
+              <Icon
+                name="lucide:plus"
+                class="size-4"
+              />
             </BaseButton>
           </div>
           <!-- List -->
           <ul class="flex lg:block">
-            <li  v-for="conversation in conversations" :key="conversation.id">
+            <li
+              v-for="conversation in conversations"
+              :key="conversation.id"
+            >
               <button
                 type="button"
                 class="flex w-16 lg:w-16 h-16 lg:h-12 lg:my-2 shrink-0 items-center justify-center border-b-2 lg:border-b-0 lg:border-e-2 enabled:cursor-pointer"
@@ -617,15 +652,20 @@ async function submitMessage() {
                 "
                 @click="selectConversation(conversation.id)"
               >
-                <BaseAvatar :src="conversation.user.photo" size="sm" :text="conversation.user.name.slice(0,1)" class="bg-muted-100 dark:bg-muted-800 grayscale" />
+                <BaseAvatar
+                  :src="conversation.user.photo"
+                  size="sm"
+                  :text="conversation.user.name.slice(0, 1)"
+                  class="bg-muted-100 dark:bg-muted-800 grayscale"
+                />
               </button>
             </li>
           </ul>
         </div>
-        <!--Content-->
+        <!-- Content -->
         <div class="grow max-h-[calc(100%_-_120px)] lg:max-h-full h-full flex flex-col">
-          <div 
-            ref="chatEl" 
+          <div
+            ref="chatEl"
             class="relative grow w-full px-4 md:px-6 pt-8 pb-16"
             :class="
               loading ? 'overflow-hidden' : 'overflow-x-hidden overflow-y-auto nui-slimscroll'
@@ -718,7 +758,10 @@ async function submitMessage() {
               </div>
             </div>
             <!-- Messages loop -->
-            <div v-if="!loading" class="space-y-12">
+            <div
+              v-if="!loading"
+              class="space-y-12"
+            >
               <div
                 v-for="(item, index) in selectedConversation?.messages"
                 :key="index"
@@ -735,7 +778,7 @@ async function submitMessage() {
                       :src="selectedConversation?.user.photo"
                       size="xs"
                       :text="selectedConversation?.user.name.slice(0, 1)"
-                      class="grayscale bg-muted-100 dark:bg-muted-800" 
+                      class="grayscale bg-muted-100 dark:bg-muted-800"
                     />
                     <BaseAvatar
                       v-else-if="item.type === 'sent'"
@@ -840,7 +883,7 @@ async function submitMessage() {
             />
           </div>
         </div>
-        <!--Panel-->
+        <!-- Panel -->
         <div class="w-80 h-full hidden lg:flex flex-col border-s border-muted-200 dark:border-muted-800 bg-muted-50 dark:bg-muted-900/50">
           <div class="h-14 px-4 md:px-6 flex items-center">
             <BaseHeading
@@ -854,7 +897,10 @@ async function submitMessage() {
           </div>
           <div class="w-full grow px-4 md:px-6">
             <!-- Loader -->
-            <div v-if="loading" class="mt-8">
+            <div
+              v-if="loading"
+              class="mt-8"
+            >
               <div class="mb-3 flex items-center justify-center">
                 <BasePlaceload
                   class="size-24 shrink-0 rounded-full"
@@ -883,10 +929,18 @@ async function submitMessage() {
               </div>
             </div>
             <!-- User details -->
-            <div v-else class="mt-8">
+            <div
+              v-else
+              class="mt-8"
+            >
               <div class="flex items-center justify-center">
                 <div class="relative">
-                  <BaseChip color="custom" class="text-muted-900 dark:text-white" pulse :offset="12">
+                  <BaseChip
+                    color="custom"
+                    class="text-muted-900 dark:text-white"
+                    pulse
+                    :offset="12"
+                  >
                     <BaseAvatar
                       :src="selectedConversation?.user.photo"
                       :alt="selectedConversation?.user.name"
@@ -905,7 +959,11 @@ async function submitMessage() {
                 >
                   <span>{{ selectedConversation?.user.name }}</span>
                 </BaseHeading>
-                <BaseParagraph size="xs" weight="medium" class="text-muted-600 dark:text-muted-400">
+                <BaseParagraph
+                  size="xs"
+                  weight="medium"
+                  class="text-muted-600 dark:text-muted-400"
+                >
                   <span>{{ selectedConversation?.user.role }}</span>
                 </BaseParagraph>
                 <div class="my-4">

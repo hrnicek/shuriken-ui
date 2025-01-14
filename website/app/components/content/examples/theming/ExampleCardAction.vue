@@ -22,7 +22,10 @@
                 class="mt-4"
               >
                 Josh M. has invited you to the
-                <BaseLink to="#" class="hover:text-black! dark:hover:text-muted-100!">
+                <BaseLink
+                  to="#"
+                  class="hover:text-black! dark:hover:text-muted-100!"
+                >
                   Banking Solution Website
                 </BaseLink>
                 project.
@@ -45,12 +48,18 @@
                 />
               </div>
               <div class="mt-2 text-center">
-                <BaseText size="xs" class="text-muted-600 dark:text-muted-400">
+                <BaseText
+                  size="xs"
+                  class="text-muted-600 dark:text-muted-400"
+                >
                   And 5 others are members of this project
                 </BaseText>
               </div>
               <div class="mt-6 flex items-center justify-between gap-2">
-                <BaseButton rounded="md" class="w-full">
+                <BaseButton
+                  rounded="md"
+                  class="w-full"
+                >
                   Decline
                 </BaseButton>
                 <BaseButton

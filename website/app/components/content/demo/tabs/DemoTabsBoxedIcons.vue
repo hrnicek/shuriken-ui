@@ -22,7 +22,10 @@
       ]"
     >
       <template #tab="{ activeValue }">
-        <p v-if="activeValue === 'team'" class="font-sans text-sm text-muted-500 dark:text-muted-400">
+        <p
+          v-if="activeValue === 'team'"
+          class="font-sans text-sm text-muted-500 dark:text-muted-400"
+        >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid iudicant sensus? Primum quid
           tu dicis breve? Etiam beatissimum? Ne discipulum abducam, times.
         </p>

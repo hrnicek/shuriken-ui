@@ -20,7 +20,10 @@ const appConfig = useAppConfig()
         <div class="flex flex-col gap-y-6 md:flex-row md:items-center md:justify-between">
           <div class="flex flex-col items-start">
             <div class="w-36">
-              <LogoText id="logo-text-footer"  class="text-muted-400 dark:text-muted-100" />
+              <LogoText
+                id="logo-text-footer"
+                class="text-muted-400 dark:text-muted-100"
+              />
             </div>
             <BaseParagraph
               size="sm"
@@ -56,12 +59,18 @@ const appConfig = useAppConfig()
             </BaseHeading>
             <ul class="flex flex-col gap-3 font-normal">
               <li>
-                <NuxtLink to="/" class="text-muted-500 underline-offset-4 transition-colors duration-200 hover:text-primary-600 hover:underline dark:text-muted-400 dark:hover:text-primary-400">
+                <NuxtLink
+                  to="/"
+                  class="text-muted-500 underline-offset-4 transition-colors duration-200 hover:text-primary-600 hover:underline dark:text-muted-400 dark:hover:text-primary-400"
+                >
                   Home
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="/docs/guide" class="text-muted-500 underline-offset-4 transition-colors duration-200 hover:text-primary-600 hover:underline dark:text-muted-400 dark:hover:text-primary-400">
+                <NuxtLink
+                  to="/docs/guide"
+                  class="text-muted-500 underline-offset-4 transition-colors duration-200 hover:text-primary-600 hover:underline dark:text-muted-400 dark:hover:text-primary-400"
+                >
                   Guide
                 </NuxtLink>
               </li>
@@ -199,11 +208,11 @@ const appConfig = useAppConfig()
                   Blog
                 </NuxtLink>
               </li>
-              <!--li>
+              <!-- li>
                 <NuxtLink to="#" class="text-muted-500 dark:text-muted-400 hover:text-primary-600 dark:hover:text-primary-400 hover:underline underline-offset-4 transition-colors duration-200">
                   Figma UI Kit
                 </NuxtLink>
-              </li-->
+              </li -->
               <li>
                 <NuxtLink
                   :to="`${appConfig.storybookUrl}?path=/docs/shuriken-ui-base-accordion--docs`"
@@ -360,11 +369,20 @@ const appConfig = useAppConfig()
       </div>
 
       <div class="flex w-full flex-col items-center justify-between gap-y-4 border-t border-muted-200 py-8 text-sm font-normal dark:border-muted-800 md:flex-row">
-        <BaseParagraph size="xs" class="text-muted-500 dark:text-muted-400">
+        <BaseParagraph
+          size="xs"
+          class="text-muted-500 dark:text-muted-400"
+        >
           &copy; Shuriken UI 2022-{{ date }}. All Rights Reserved
         </BaseParagraph>
-        <BaseParagraph size="sm" class="text-muted-500 dark:text-muted-400">
-          Made by <BaseLink to="https://cssninja.io" class="font-semibold">
+        <BaseParagraph
+          size="sm"
+          class="text-muted-500 dark:text-muted-400"
+        >
+          Made by <BaseLink
+            to="https://cssninja.io"
+            class="font-semibold"
+          >
             cssninja.io
           </BaseLink>
         </BaseParagraph>

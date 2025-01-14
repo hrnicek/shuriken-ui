@@ -18,7 +18,10 @@
               rounded="sm"
             >
               <template #start>
-                <BaseAvatar src="/img/avatars/4.svg" size="xs" />
+                <BaseAvatar
+                  src="/img/avatars/4.svg"
+                  size="xs"
+                />
               </template>
             </BaseDropdownItem>
             <BaseDropdownItem
@@ -29,7 +32,10 @@
               rounded="sm"
             >
               <template #start>
-                <BaseAvatar src="/img/avatars/3.svg" size="xs" />
+                <BaseAvatar
+                  src="/img/avatars/3.svg"
+                  size="xs"
+                />
               </template>
             </BaseDropdownItem>
             <BaseDropdownItem
@@ -40,7 +46,10 @@
               rounded="sm"
             >
               <template #start>
-                <BaseAvatar src="/img/avatars/18.svg" size="xs" />
+                <BaseAvatar
+                  src="/img/avatars/18.svg"
+                  size="xs"
+                />
               </template>
             </BaseDropdownItem>
             <BaseDropdownSeparator />
@@ -52,7 +61,10 @@
               rounded="sm"
             >
               <template #start>
-                <BaseAvatar src="/img/avatars/6.svg" size="xs" />
+                <BaseAvatar
+                  src="/img/avatars/6.svg"
+                  size="xs"
+                />
               </template>
             </BaseDropdownItem>
           </BaseDropdown>

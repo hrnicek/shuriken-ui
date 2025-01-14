@@ -9,7 +9,10 @@
               name="radio_custom"
               value="value_1"
             >
-              <BaseCard rounded="lg" class="relative border-2 p-5 peer-checked:!border-success-500 peer-checked:!bg-success-500/10 peer-checked:[&_.child]:!opacity-100">
+              <BaseCard
+                rounded="lg"
+                class="relative border-2 p-5 peer-checked:!border-success-500 peer-checked:!bg-success-500/10 peer-checked:[&_.child]:!opacity-100"
+              >
                 <div class="flex flex-col">
                   <h4 class="mb-3 font-sans text-sm font-medium uppercase leading-tight text-muted-500 dark:text-muted-200">
                     Starter
@@ -24,7 +27,10 @@
                   </div>
                 </div>
                 <div class="child absolute end-2 top-3 opacity-0">
-                  <Icon name="ph:check-circle-duotone" class="h-7 w-7 text-success-500" />
+                  <Icon
+                    name="ph:check-circle-duotone"
+                    class="h-7 w-7 text-success-500"
+                  />
                 </div>
               </BaseCard>
             </BaseRadioHeadless>
@@ -33,7 +39,10 @@
               name="radio_custom"
               value="value_2"
             >
-              <BaseCard rounded="lg" class="relative border-2 p-5 peer-checked:!border-success-500 peer-checked:!bg-success-500/10 peer-checked:[&_.child]:!opacity-100">
+              <BaseCard
+                rounded="lg"
+                class="relative border-2 p-5 peer-checked:!border-success-500 peer-checked:!bg-success-500/10 peer-checked:[&_.child]:!opacity-100"
+              >
                 <div class="flex flex-col">
                   <h4 class="mb-3 font-sans text-sm font-medium uppercase leading-tight text-muted-500 dark:text-muted-200">
                     Freelancer
@@ -48,7 +57,10 @@
                   </div>
                 </div>
                 <div class="child absolute end-2 top-3 opacity-0">
-                  <Icon name="ph:check-circle-duotone" class="h-7 w-7 text-success-500" />
+                  <Icon
+                    name="ph:check-circle-duotone"
+                    class="h-7 w-7 text-success-500"
+                  />
                 </div>
               </BaseCard>
             </BaseRadioHeadless>
@@ -57,7 +69,10 @@
               name="radio_custom"
               value="value_3"
             >
-              <BaseCard rounded="lg" class="relative border-2 p-5 peer-checked:!border-success-500 peer-checked:!bg-success-500/10 peer-checked:[&_.child]:!opacity-100">
+              <BaseCard
+                rounded="lg"
+                class="relative border-2 p-5 peer-checked:!border-success-500 peer-checked:!bg-success-500/10 peer-checked:[&_.child]:!opacity-100"
+              >
                 <div class="flex flex-col">
                   <h4 class="mb-3 font-sans text-sm font-medium uppercase leading-tight text-muted-500 dark:text-muted-200">
                     Business
@@ -72,7 +87,10 @@
                   </div>
                 </div>
                 <div class="child absolute end-2 top-3 opacity-0">
-                  <Icon name="ph:check-circle-duotone" class="h-7 w-7 text-success-500" />
+                  <Icon
+                    name="ph:check-circle-duotone"
+                    class="h-7 w-7 text-success-500"
+                  />
                 </div>
               </BaseCard>
             </BaseRadioHeadless>
@@ -81,7 +99,10 @@
               name="radio_custom"
               value="value_4"
             >
-              <BaseCard rounded="lg" class="relative border-2 p-5 peer-checked:!border-success-500 peer-checked:!bg-success-500/10 peer-checked:[&_.child]:!opacity-100">
+              <BaseCard
+                rounded="lg"
+                class="relative border-2 p-5 peer-checked:!border-success-500 peer-checked:!bg-success-500/10 peer-checked:[&_.child]:!opacity-100"
+              >
                 <div class="flex flex-col">
                   <h4 class="mb-3 font-sans text-sm font-medium uppercase leading-tight text-muted-500 dark:text-muted-200">
                     Enterprise
@@ -96,7 +117,10 @@
                   </div>
                 </div>
                 <div class="child absolute end-2 top-3 opacity-0">
-                  <Icon name="ph:check-circle-duotone" class="h-7 w-7 text-success-500" />
+                  <Icon
+                    name="ph:check-circle-duotone"
+                    class="h-7 w-7 text-success-500"
+                  />
                 </div>
               </BaseCard>
             </BaseRadioHeadless>

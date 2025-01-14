@@ -4,37 +4,37 @@ const suppliers = ref([
     name: 'Agro Supply',
     email: 'contact@agrosupply.co',
     pending: 879.12,
-    status: 'ontime'
+    status: 'ontime',
   },
   {
     name: 'Farmers Market',
     email: 'clients@farmersmarket.com',
     pending: 1548.97,
-    status: 'delayed'
+    status: 'delayed',
   },
   {
     name: 'Green Fields',
     email: 'supply@greenfields.com',
     pending: 2546.21,
-    status: 'ontime'
+    status: 'ontime',
   },
   {
     name: 'Organic Food',
     email: 'contact@organicfood.com',
     pending: 753.46,
-    status: 'delayed'
+    status: 'delayed',
   },
   {
     name: 'Fresh Produce',
     email: 'buy@freshme.fd',
     pending: 1284.56,
-    status: 'ontime'
+    status: 'ontime',
   },
   {
     name: 'Healthy Harvest',
     email: 'contact@hh.co',
     pending: 692.79,
-    status: 'canceled'
+    status: 'canceled',
   },
 ])
 
@@ -62,8 +62,8 @@ const filter = ref('')
 // Filter by name and email
 const filteredSuppliers = computed(() => {
   return suppliers.value.filter((supplier) => {
-    return supplier.name.toLowerCase().includes(filter.value.toLowerCase()) ||
-      supplier.email.toLowerCase().includes(filter.value.toLowerCase())
+    return supplier.name.toLowerCase().includes(filter.value.toLowerCase())
+      || supplier.email.toLowerCase().includes(filter.value.toLowerCase())
   })
 })
 
@@ -78,7 +78,6 @@ const page = computed({
     router.replace({ query: { ...route.query, page: value } })
   },
 })
-
 </script>
 
 <template>
@@ -97,7 +96,10 @@ const page = computed({
         >
           <span>Suppliers</span>
         </BaseHeading>
-        <BaseParagraph size="sm" class="text-muted-600 dark:text-muted-400">
+        <BaseParagraph
+          size="sm"
+          class="text-muted-600 dark:text-muted-400"
+        >
           <span>Manage your suppliers and orders</span>
         </BaseParagraph>
       </div>
@@ -109,17 +111,29 @@ const page = computed({
           <BaseField class="w-full">
             <div class="relative">
               <div class="flex w-full">
-                <BaseIconBox variant="default" size="xs" class="rounded-e-none border-e-0!">
-                  <Icon name="lucide:search" class="size-4 text-muted-500" />
+                <BaseIconBox
+                  variant="default"
+                  size="xs"
+                  class="rounded-e-none border-e-0!"
+                >
+                  <Icon
+                    name="lucide:search"
+                    class="size-4 text-muted-500"
+                  />
                 </BaseIconBox>
                 <div class="grow relative">
                   <BaseFieldController>
-                    <BaseInput v-model="filter" size="sm" class="border-s-none rounded-s-none" placeholder="Filter suppliers..." />
+                    <BaseInput
+                      v-model="filter"
+                      size="sm"
+                      class="border-s-none rounded-s-none"
+                      placeholder="Filter suppliers..."
+                    />
                   </BaseFieldController>
                 </div>
               </div>
-              <div class="absolute z-0 end-4 top-3 pointer-events-none" >
-                <BaseFieldLoadingIndicator/>
+              <div class="absolute z-0 end-4 top-3 pointer-events-none">
+                <BaseFieldLoadingIndicator />
                 <BaseFieldSuccessIndicator />
                 <BaseFieldErrorIndicator />
               </div>
@@ -131,12 +145,23 @@ const page = computed({
           <BaseField>
             <div class="relative">
               <BaseFieldController>
-                <BaseSelect v-model="activeColumns" multiple size="sm" placeholder="Columns">
-                  <BaseSelectItem v-for="column in columns" :key="column.key" :value="column.key">{{ column.label }}</BaseSelectItem>
+                <BaseSelect
+                  v-model="activeColumns"
+                  multiple
+                  size="sm"
+                  placeholder="Columns"
+                >
+                  <BaseSelectItem
+                    v-for="column in columns"
+                    :key="column.key"
+                    :value="column.key"
+                  >
+                    {{ column.label }}
+                  </BaseSelectItem>
                 </BaseSelect>
               </BaseFieldController>
-              <div class="absolute z-0 end-10 top-3 pointer-events-none" >
-                <BaseFieldLoadingIndicator/>
+              <div class="absolute z-0 end-10 top-3 pointer-events-none">
+                <BaseFieldLoadingIndicator />
                 <BaseFieldSuccessIndicator />
                 <BaseFieldErrorIndicator />
               </div>
@@ -150,23 +175,54 @@ const page = computed({
           <table class="w-full caption-bottom text-sm">
             <thead>
               <tr class="border-b border-muted-300 dark:border-muted-800">
-                <th class="font-sans font-medium text-start text-muted-500 dark:text-muted-400 h-10 px-4 align-middle">Name</th>
-                <th v-if="activeColumns.includes('email')" class="font-sans font-medium text-start text-muted-500 dark:text-muted-400 h-10 px-4 align-middle">Email</th>
-                <th v-if="activeColumns.includes('status')" class="font-sans font-medium text-start text-muted-500 dark:text-muted-400 h-10 px-4 align-middle">Status</th>
-                <th v-if="activeColumns.includes('pending')" class="font-sans font-medium text-start text-muted-500 dark:text-muted-400 h-10 px-4 align-middle">Pending</th>
-                <th class="font-sans font-medium text-start text-muted-500 dark:text-muted-400 h-10 px-4 align-middle"></th>
+                <th class="font-sans font-medium text-start text-muted-500 dark:text-muted-400 h-10 px-4 align-middle">
+                  Name
+                </th>
+                <th
+                  v-if="activeColumns.includes('email')"
+                  class="font-sans font-medium text-start text-muted-500 dark:text-muted-400 h-10 px-4 align-middle"
+                >
+                  Email
+                </th>
+                <th
+                  v-if="activeColumns.includes('status')"
+                  class="font-sans font-medium text-start text-muted-500 dark:text-muted-400 h-10 px-4 align-middle"
+                >
+                  Status
+                </th>
+                <th
+                  v-if="activeColumns.includes('pending')"
+                  class="font-sans font-medium text-start text-muted-500 dark:text-muted-400 h-10 px-4 align-middle"
+                >
+                  Pending
+                </th>
+                <th class="font-sans font-medium text-start text-muted-500 dark:text-muted-400 h-10 px-4 align-middle" />
               </tr>
             </thead>
             <tbody v-if="filteredSuppliers.length === 0">
               <tr>
-                <td class="text-center px-4 align-middle" colspan="100%">
+                <td
+                  class="text-center px-4 align-middle"
+                  colspan="100%"
+                >
                   <div class="flex flex-col gap-3 py-20">
                     <div class="text-center">
-                      <Icon name="arcticons:anycubic" class="size-10 mx-auto mb-4 text-muted-500" aria-hidden="true" />
-                      <BaseHeading as="h3" size="md" class="font-semibold text-muted-900 dark:text-white">
+                      <Icon
+                        name="arcticons:anycubic"
+                        class="size-10 mx-auto mb-4 text-muted-500"
+                        aria-hidden="true"
+                      />
+                      <BaseHeading
+                        as="h3"
+                        size="md"
+                        class="font-semibold text-muted-900 dark:text-white"
+                      >
                         No results found
                       </BaseHeading>
-                      <BaseParagraph size="sm" class="text-muted-600 dark:text-muted-400 max-w-xs mx-auto">
+                      <BaseParagraph
+                        size="sm"
+                        class="text-muted-600 dark:text-muted-400 max-w-xs mx-auto"
+                      >
                         Try adjusting your search or filter to find what you're looking for.
                       </BaseParagraph>
                     </div>
@@ -181,32 +237,55 @@ const page = computed({
                 class="border-t first:border-t-none border-muted-300 dark:border-muted-800"
               >
                 <td class="text-start h-11 px-4 align-middle">
-                  <BaseParagraph size="sm" class="text-muted-900 dark:text-muted-100 font-medium">
+                  <BaseParagraph
+                    size="sm"
+                    class="text-muted-900 dark:text-muted-100 font-medium"
+                  >
                     {{ supplier.name }}
                   </BaseParagraph>
                 </td>
-                <td v-if="activeColumns.includes('email')" class="text-start h-11 px-4 align-middle">
-                  <BaseParagraph size="xs" class="text-muted-700 dark:text-muted-400 font-medium">
-                    <a :href="`mailto:${supplier.email}`" class="hover:text-muted-900 hover:underline underline-offset-4">{{ supplier.email }}</a>
+                <td
+                  v-if="activeColumns.includes('email')"
+                  class="text-start h-11 px-4 align-middle"
+                >
+                  <BaseParagraph
+                    size="xs"
+                    class="text-muted-700 dark:text-muted-400 font-medium"
+                  >
+                    <a
+                      :href="`mailto:${supplier.email}`"
+                      class="hover:text-muted-900 hover:underline underline-offset-4"
+                    >{{ supplier.email }}</a>
                   </BaseParagraph>
                 </td>
-                <td v-if="activeColumns.includes('status')" class="text-start h-11 px-4 align-middle">
+                <td
+                  v-if="activeColumns.includes('status')"
+                  class="text-start h-11 px-4 align-middle"
+                >
                   <div class="inline-block relative">
-                    <BaseChip 
-                      size="xs" 
-                      color="custom" 
+                    <BaseChip
+                      size="xs"
+                      color="custom"
                       :class="[
                         supplier.status === 'ontime' ? 'text-muted-900 dark:text-white' : 'text-transparent',
-                      ]" 
-                      :pulse="supplier.status === 'ontime'" 
+                      ]"
+                      :pulse="supplier.status === 'ontime'"
                       :offset="2"
                     >
-                      <BaseTag rounded="full">{{ supplier.status }}</BaseTag>
+                      <BaseTag rounded="full">
+                        {{ supplier.status }}
+                      </BaseTag>
                     </BaseChip>
                   </div>
                 </td>
-                <td v-if="activeColumns.includes('pending')" class="text-start h-11 px-4 align-middle">
-                  <BaseParagraph size="sm" class="text-muted-900 font-medium dark:text-muted-100">
+                <td
+                  v-if="activeColumns.includes('pending')"
+                  class="text-start h-11 px-4 align-middle"
+                >
+                  <BaseParagraph
+                    size="sm"
+                    class="text-muted-900 font-medium dark:text-muted-100"
+                  >
                     ${{ supplier.pending.toFixed(2) }}
                   </BaseParagraph>
                 </td>
@@ -216,7 +295,7 @@ const page = computed({
                       content: {
                         sideOffset: 10,
                         align: 'end',
-                      }
+                      },
                     }"
                   >
                     <template #button>
@@ -225,14 +304,17 @@ const page = computed({
                         size="icon-sm"
                         rounded="md"
                       >
-                        <Icon name="lucide:more-horizontal" class="size-4" />
+                        <Icon
+                          name="lucide:more-horizontal"
+                          class="size-4"
+                        />
                       </BaseButton>
                     </template>
-                    
-                    <BaseDropdownItem>Copy email</BaseDropdownItem> 
-                    <BaseDropdownItem>View details</BaseDropdownItem> 
+
+                    <BaseDropdownItem>Copy email</BaseDropdownItem>
+                    <BaseDropdownItem>View details</BaseDropdownItem>
                     <BaseDropdownSeparator />
-                    <BaseDropdownItem>Cancel order</BaseDropdownItem> 
+                    <BaseDropdownItem>Cancel order</BaseDropdownItem>
                   </BaseDropdown>
                 </td>
               </tr>
@@ -243,9 +325,9 @@ const page = computed({
       <!-- Pagination -->
       <div class="relative">
         <BasePagination
+          v-model:page="page"
           :items-per-page="8"
           :total="512"
-          v-model:page="page"
           :sibling-count="1"
           rounded="md"
           size="sm"

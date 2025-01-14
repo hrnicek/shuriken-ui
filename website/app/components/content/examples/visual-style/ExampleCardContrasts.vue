@@ -14,12 +14,18 @@
             >
               Josh Meyers
             </BaseHeading>
-            <BaseParagraph size="xs" class="text-muted-500 dark:text-muted-400">
+            <BaseParagraph
+              size="xs"
+              class="text-muted-500 dark:text-muted-400"
+            >
               UI/UX Designer
             </BaseParagraph>
           </div>
         </BaseCard>
-        <BaseCard variant="muted" class="flex items-center gap-2 p-4">
+        <BaseCard
+          variant="muted"
+          class="flex items-center gap-2 p-4"
+        >
           <BaseAvatar src="/img/people/11.jpg" />
           <div>
             <BaseHeading
@@ -31,12 +37,18 @@
             >
               Janice Dakota
             </BaseHeading>
-            <BaseParagraph size="xs" class="text-muted-500 dark:text-muted-400">
+            <BaseParagraph
+              size="xs"
+              class="text-muted-500 dark:text-muted-400"
+            >
               Sales Manager
             </BaseParagraph>
           </div>
         </BaseCard>
-        <BaseCard variant="none" class="flex items-center gap-2 p-4 bg-primary-500/10 border border-primary-600">
+        <BaseCard
+          variant="none"
+          class="flex items-center gap-2 p-4 bg-primary-500/10 border border-primary-600"
+        >
           <BaseAvatar src="/img/people/44.jpg" />
           <div>
             <BaseHeading
@@ -48,12 +60,18 @@
             >
               Anna Lopez
             </BaseHeading>
-            <BaseParagraph size="xs" class="text-primary-500 dark:text-primary-400">
+            <BaseParagraph
+              size="xs"
+              class="text-primary-500 dark:text-primary-400"
+            >
               Project Manager
             </BaseParagraph>
           </div>
         </BaseCard>
-        <BaseCard variant="none" class="flex items-center gap-2 p-4 bg-muted-900 dark:bg-muted-50">
+        <BaseCard
+          variant="none"
+          class="flex items-center gap-2 p-4 bg-muted-900 dark:bg-muted-50"
+        >
           <BaseAvatar src="/img/people/51.jpg" />
           <div>
             <BaseHeading
@@ -65,7 +83,10 @@
             >
               Michael Jennings
             </BaseHeading>
-            <BaseParagraph size="xs" class="text-muted-200 dark:text-muted-600">
+            <BaseParagraph
+              size="xs"
+              class="text-muted-200 dark:text-muted-600"
+            >
               Product Designer
             </BaseParagraph>
           </div>

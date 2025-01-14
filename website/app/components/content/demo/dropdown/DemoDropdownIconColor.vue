@@ -16,7 +16,10 @@
               rounded="sm"
             >
               <template #start>
-                <Icon name="ph:user-duotone" class="me-2 block h-5 w-5" />
+                <Icon
+                  name="ph:user-duotone"
+                  class="me-2 block h-5 w-5"
+                />
               </template>
             </BaseDropdownItem>
             <BaseDropdownItem
@@ -27,7 +30,10 @@
               rounded="sm"
             >
               <template #start>
-                <Icon name="ph:briefcase-duotone" class="me-2 block h-5 w-5" />
+                <Icon
+                  name="ph:briefcase-duotone"
+                  class="me-2 block h-5 w-5"
+                />
               </template>
             </BaseDropdownItem>
             <BaseDropdownItem
@@ -38,7 +44,10 @@
               rounded="sm"
             >
               <template #start>
-                <Icon name="ph:users-four-duotone" class="me-2 block h-5 w-5" />
+                <Icon
+                  name="ph:users-four-duotone"
+                  class="me-2 block h-5 w-5"
+                />
               </template>
             </BaseDropdownItem>
             <BaseDropdownSeparator />
@@ -50,7 +59,10 @@
               rounded="sm"
             >
               <template #start>
-                <Icon name="ph:gear-six-duotone" class="me-2 block h-5 w-5" />
+                <Icon
+                  name="ph:gear-six-duotone"
+                  class="me-2 block h-5 w-5"
+                />
               </template>
             </BaseDropdownItem>
           </BaseDropdown>
@@ -68,7 +80,10 @@
               rounded="sm"
             >
               <template #start>
-                <Icon name="ph:user-duotone" class="me-2 block h-5 w-5" />
+                <Icon
+                  name="ph:user-duotone"
+                  class="me-2 block h-5 w-5"
+                />
               </template>
             </BaseDropdownItem>
             <BaseDropdownItem
@@ -79,7 +94,10 @@
               rounded="sm"
             >
               <template #start>
-                <Icon name="ph:briefcase-duotone" class="me-2 block h-5 w-5" />
+                <Icon
+                  name="ph:briefcase-duotone"
+                  class="me-2 block h-5 w-5"
+                />
               </template>
             </BaseDropdownItem>
             <BaseDropdownItem
@@ -90,7 +108,10 @@
               rounded="sm"
             >
               <template #start>
-                <Icon name="ph:users-four-duotone" class="me-2 block h-5 w-5" />
+                <Icon
+                  name="ph:users-four-duotone"
+                  class="me-2 block h-5 w-5"
+                />
               </template>
             </BaseDropdownItem>
             <BaseDropdownSeparator />
@@ -102,7 +123,10 @@
               rounded="sm"
             >
               <template #start>
-                <Icon name="ph:gear-six-duotone" class="me-2 block h-5 w-5" />
+                <Icon
+                  name="ph:gear-six-duotone"
+                  class="me-2 block h-5 w-5"
+                />
               </template>
             </BaseDropdownItem>
           </BaseDropdown>

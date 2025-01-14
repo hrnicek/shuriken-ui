@@ -10,23 +10,37 @@ const { data: navigation } = await useAsyncData('navigation', () => queryCollect
   <div class="bg-white dark:bg-black">
     <SiteNavbarMobile />
     <div :class="isMobileOpen ? 'bg-black lg:bg-white dark:lg:bg-black' : 'bg-white dark:bg-black'">
-      <div class="flex flex-col min-h-screen transition-all duration-300" :class="isMobileOpen ? 'content-transform' : ''">
+      <div
+        class="flex flex-col min-h-screen transition-all duration-300"
+        :class="isMobileOpen ? 'content-transform' : ''"
+      >
         <SiteNavbar />
         <div class="bg-white dark:bg-black relative w-full grow flex flex-col">
           <div class="relative z-10 mx-auto w-full max-w-[1536px] grow flex">
-            <!--Start-->
+            <!-- Start -->
             <div class="relative flex flex-col w-60 bg-white dark:bg-black border-e border-muted-200 dark:border-muted-800">
               <ul class="fixed top-12 max-h-[calc(100dvh_-_3rem)] pt-10 pb-6 pe-4 overflow-y-auto nui-slimscroll">
-                <li v-for="item in navigation" :key="item.path">
+                <li
+                  v-for="item in navigation"
+                  :key="item.path"
+                >
                   <div v-if="item.children">
-                    <BaseHeading size="xs" weight="semibold" class="uppercase tracking-wide mt-10 ms-2.5 mb-2 text-muted-600 dark:text-muted-400">
+                    <BaseHeading
+                      size="xs"
+                      weight="semibold"
+                      class="uppercase tracking-wide mt-10 ms-2.5 mb-2 text-muted-600 dark:text-muted-400"
+                    >
                       <span>{{ item.title }}</span>
                     </BaseHeading>
                     <div>
                       <ul>
-                        <li v-for="link in item.children" class="relative mt-1">
-                          <NuxtLink 
-                            :to="link.path" 
+                        <li
+                          v-for="link in item.children"
+                          :key="link.path"
+                          class="relative mt-1"
+                        >
+                          <NuxtLink
+                            :to="link.path"
                             class="flex h-8 items-center gap-4 rounded-full px-3 font-sans text-sm text-muted-700 transition-colors duration-300 hover:bg-muted-200/70 hover:text-muted-800 dark:text-muted-400 dark:hover:bg-muted-800 dark:hover:text-muted-100"
                             exact-active-class="font-medium bg-muted-200/70! text-muted-800! dark:bg-muted-800! dark:text-muted-100!"
                           >
@@ -36,9 +50,12 @@ const { data: navigation } = await useAsyncData('navigation', () => queryCollect
                       </ul>
                     </div>
                   </div>
-                  <div v-else class="mt-1">
-                    <NuxtLink 
-                      :to="item.path" 
+                  <div
+                    v-else
+                    class="mt-1"
+                  >
+                    <NuxtLink
+                      :to="item.path"
                       class="flex h-8 items-center gap-4 rounded-full px-3 font-sans text-sm text-muted-700 transition-colors duration-300 hover:bg-muted-200/70 hover:text-muted-800 dark:text-muted-400 dark:hover:bg-muted-800 dark:hover:text-muted-100"
                       exact-active-class="font-medium bg-muted-200/70! text-muted-800! dark:bg-muted-800! dark:text-muted-100!"
                     >
@@ -48,7 +65,7 @@ const { data: navigation } = await useAsyncData('navigation', () => queryCollect
                 </li>
               </ul>
             </div>
-            <!--Content-->
+            <!-- Content -->
             <div class="grow px-4 md:px-6 xl:px-8">
               <div class="w-full max-w-3xl mx-auto xl:px-6">
                 <slot />
@@ -57,7 +74,7 @@ const { data: navigation } = await useAsyncData('navigation', () => queryCollect
                 <DocSurround />
               </div>
             </div>
-            <!--End-->
+            <!-- End -->
             <div class="relative flex flex-col w-72 bg-white dark:bg-black pe-6 py-6">
               <div class="fixed top-20">
                 <TocDoc />

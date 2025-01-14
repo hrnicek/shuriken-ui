@@ -29,7 +29,10 @@
             class="h-20 w-20 rounded-full bg-muted-200 object-cover object-center dark:bg-muted-700/60"
           />
 
-          <div v-if="files?.length && files.item(0)" class="absolute bottom-0 end-0 z-20">
+          <div
+            v-if="files?.length && files.item(0)"
+            class="absolute bottom-0 end-0 z-20"
+          >
             <BaseButtonIcon
               size="sm"
               rounded="full"
@@ -37,18 +40,30 @@
               class="scale-90"
               @click="remove(files.item(0)!)"
             >
-              <Icon name="lucide:x" class="h-4 w-4" />
+              <Icon
+                name="lucide:x"
+                class="h-4 w-4"
+              />
             </BaseButtonIcon>
           </div>
 
-          <div v-else class="absolute bottom-0 end-0 z-20">
-            <div class="relative" data-nui-tooltip="Upload image">
+          <div
+            v-else
+            class="absolute bottom-0 end-0 z-20"
+          >
+            <div
+              class="relative"
+              data-nui-tooltip="Upload image"
+            >
               <BaseButtonIcon
                 size="sm"
                 rounded="full"
                 @click="open"
               >
-                <Icon name="lucide:plus" class="h-4 w-4" />
+                <Icon
+                  name="lucide:plus"
+                  class="h-4 w-4"
+                />
               </BaseButtonIcon>
             </div>
           </div>

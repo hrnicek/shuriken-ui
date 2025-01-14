@@ -89,7 +89,10 @@ const form = reactive({
 
 <template>
   <div>
-    <BaseCard rounded="lg" class="shadow-sm shadow-muted-200 dark:shadow-muted-800 overflow-hidden">
+    <BaseCard
+      rounded="lg"
+      class="shadow-sm shadow-muted-200 dark:shadow-muted-800 overflow-hidden"
+    >
       <div class="w-full h-[815px] flex flex-col lg:flex-row">
         <!-- Sidebar -->
         <aside
@@ -106,7 +109,10 @@ const form = reactive({
             </div>
           </div>
           <div class="mt-6 flex w-full flex-col items-center gap-4 px-4 pb-6">
-            <template v-for="(item, index) in menuItems" :key="item.name">
+            <template
+              v-for="(item, index) in menuItems"
+              :key="item.name"
+            >
               <CollapsibleRoot
                 v-if="item.children"
                 v-model:open="open"
@@ -119,13 +125,19 @@ const form = reactive({
                   <div
                     class="z-10 flex h-10 w-full items-center pe-4 ps-3"
                   >
-                    <Icon :name="item.icon" class="size-5 text-muted-300" />
+                    <Icon
+                      :name="item.icon"
+                      class="size-5 text-muted-300"
+                    />
                     <span class="ms-4 text-sm">{{ item.name }}</span>
                   </div>
                   <div
                     class="me-2 flex size-6 shrink-0 items-center justify-center rounded-xl text-muted-500 transition hover:text-white group-hover/button:bg-muted-900 dark:group-hover/button:bg-muted-950 group-data-[state=open]:-rotate-90"
                   >
-                    <Icon name="lucide:chevron-left" class="size-4 text-muted-300" />
+                    <Icon
+                      name="lucide:chevron-left"
+                      class="size-4 text-muted-300"
+                    />
                   </div>
                 </CollapsibleTrigger>
                 <CollapsibleContent class="flex w-full flex-col overflow-hidden ps-5 transition-all">
@@ -150,7 +162,10 @@ const form = reactive({
                 :to="item.to"
                 class="z-10 flex h-10 w-full items-center rounded-xl pe-4 ps-3 text-muted-500 hover:bg-muted-800/50 hover:text-white dark:hover:bg-muted-900/50"
               >
-                <Icon :name="item.icon" class="size-5 text-muted-300" />
+                <Icon
+                  :name="item.icon"
+                  class="size-5 text-muted-300"
+                />
                 <span class="ms-4 text-sm">{{ item.name }}</span>
               </NuxtLink>
             </template>
@@ -161,33 +176,50 @@ const form = reactive({
               class="z-10 flex h-10 w-full items-center rounded-xl pe-4 ps-3 text-muted-500 hover:bg-muted-800/50 hover:text-white dark:hover:bg-muted-900/50"
               exact-active-class="!bg-muted-800 dark:!bg-muted-900 !text-muted-100"
             >
-              <Icon name="solar:widget-add-linear" class="size-5 text-muted-300" />
+              <Icon
+                name="solar:widget-add-linear"
+                class="size-5 text-muted-300"
+              />
               <span class="ms-4 text-sm">Settings</span>
             </NuxtLink>
           </div>
         </aside>
         <!-- Content -->
         <div class="grow lg:max-h-full h-full flex flex-col">
-          <!--Header-->
+          <!-- Header -->
           <div class="shrink-0 h-16 flex items-center justify-between px-4 md:px-6">
             <div class="flex items-center gap-3">
-              <!--Menu-->
+              <!-- Menu -->
               <div class="lg:portrait:block lg:hidden">
                 <BaseButton
                   size="icon-sm"
                   variant="ghost"
                   rounded="md"
                 >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="!size-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5"></path>
-                </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="!size-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M3.75 9h16.5m-16.5 6.75h16.5"
+                    />
+                  </svg>
                 </BaseButton>
               </div>
               <!-- Workspace Dropdown -->
               <ShowcaseDashboardWorkspaceDropdown />
             </div>
             <div class="flex items-center justify-end gap-3">
-              <div role="button" class="cursor-pointer h-8 w-48 hidden md:flex items-center justify-between bg-white dark:bg-muted-900 text-muted-400 hover:text-muted-600 dark:hover:text-muted-200 hover:ring-muted-300 dark:hover:ring-muted-700 gap-2 ps-3 pe-1 py-1 rounded-md ring-1 ring-muted-200 dark:ring-muted-800 transition-colors duration-300">
+              <div
+                role="button"
+                class="cursor-pointer h-8 w-48 hidden md:flex items-center justify-between bg-white dark:bg-muted-900 text-muted-400 hover:text-muted-600 dark:hover:text-muted-200 hover:ring-muted-300 dark:hover:ring-muted-700 gap-2 ps-3 pe-1 py-1 rounded-md ring-1 ring-muted-200 dark:ring-muted-800 transition-colors duration-300"
+              >
                 <div class="pointer-events-none">
                   <span class="font-sans text-sm">
                     Search...
@@ -210,18 +242,23 @@ const form = reactive({
                   </BaseKbd>
                 </div>
               </div>
-              <BaseDropdown variant="default" :bindings="{
-                content: {
-                  align: 'end',
-                  sideOffset: 10,
-                }
-              }">
+              <BaseDropdown
+                variant="default"
+                :bindings="{
+                  content: {
+                    align: 'end',
+                    sideOffset: 10,
+                  },
+                }"
+              >
                 <template #button>
                   <button
                     type="button"
                   >
-
-                    <img src="/img/people/29.jpg" class="size-8 rounded-full object-cover grayscale" />
+                    <img
+                      src="/img/people/29.jpg"
+                      class="size-8 rounded-full object-cover grayscale"
+                    >
                   </button>
                 </template>
                 <BaseDropdownItem>Leads</BaseDropdownItem>
@@ -242,9 +279,9 @@ const form = reactive({
               </BaseDropdown>
             </div>
           </div>
-          <!--Content-->
+          <!-- Content -->
           <div class="grow w-full px-4 md:px-6 py-6">
-            <!--Title-->
+            <!-- Title -->
             <div class="max-w-md">
               <BaseHeading
                 as="h3"
@@ -263,7 +300,7 @@ const form = reactive({
                 Make sure to check your preferences and update your account settings, accordingly to your needs.
               </BaseParagraph>
             </div>
-            <!--Links-->
+            <!-- Links -->
             <div class="w-full overflow-x-auto pb-1 mt-8">
               <div class="border-muted-300 dark:border-muted-800 border-b">
                 <nav class="-mb-px flex space-x-10">
@@ -301,7 +338,7 @@ const form = reactive({
                 </nav>
               </div>
             </div>
-            <!--Content-->
+            <!-- Content -->
             <div>
               <div class="mt-6 space-y-1">
                 <BaseParagraph
@@ -337,7 +374,10 @@ const form = reactive({
                           mask="blob"
                           class="grayscale"
                         />
-                        <BaseButton rounded="md" size="sm">
+                        <BaseButton
+                          rounded="md"
+                          size="sm"
+                        >
                           Remove
                         </BaseButton>
                         <BaseButton
@@ -356,26 +396,34 @@ const form = reactive({
                     <div class="mt-2 sm:col-span-2 sm:mt-0">
                       <div class="grid grid-cols-1 gap-x-4 gap-y-5 sm:grid-cols-2">
                         <!-- First Name -->
-                        <BaseField required> 
+                        <BaseField required>
                           <div class="relative">
                             <BaseFieldController>
-                              <BaseInput v-model="form.firstName" rounded="md" placeholder="First Name" />
+                              <BaseInput
+                                v-model="form.firstName"
+                                rounded="md"
+                                placeholder="First Name"
+                              />
                             </BaseFieldController>
-                            <div class="absolute z-0 end-4 top-3 pointer-events-none" >
-                              <BaseFieldLoadingIndicator/>
+                            <div class="absolute z-0 end-4 top-3 pointer-events-none">
+                              <BaseFieldLoadingIndicator />
                               <BaseFieldSuccessIndicator />
                               <BaseFieldErrorIndicator />
                             </div>
                           </div>
                         </BaseField>
                         <!-- Last Name -->
-                        <BaseField required> 
+                        <BaseField required>
                           <div class="relative">
                             <BaseFieldController>
-                              <BaseInput v-model="form.lastName" rounded="md" placeholder="Last Name" />
+                              <BaseInput
+                                v-model="form.lastName"
+                                rounded="md"
+                                placeholder="Last Name"
+                              />
                             </BaseFieldController>
-                            <div class="absolute z-0 end-4 top-3 pointer-events-none" >
-                              <BaseFieldLoadingIndicator/>
+                            <div class="absolute z-0 end-4 top-3 pointer-events-none">
+                              <BaseFieldLoadingIndicator />
                               <BaseFieldSuccessIndicator />
                               <BaseFieldErrorIndicator />
                             </div>
@@ -389,13 +437,17 @@ const form = reactive({
                     <label class="text-muted-900 dark:text-muted-100 block font-sans text-sm font-medium sm:mt-px sm:pt-2"> Email Address </label>
                     <div class="mt-2 sm:col-span-2 sm:mt-0">
                       <!-- Last Name -->
-                      <BaseField required> 
+                      <BaseField required>
                         <div class="relative">
                           <BaseFieldController>
-                            <BaseInput v-model="form.email" rounded="md" placeholder="Email Address" />
+                            <BaseInput
+                              v-model="form.email"
+                              rounded="md"
+                              placeholder="Email Address"
+                            />
                           </BaseFieldController>
-                          <div class="absolute z-0 end-4 top-3 pointer-events-none" >
-                            <BaseFieldLoadingIndicator/>
+                          <div class="absolute z-0 end-4 top-3 pointer-events-none">
+                            <BaseFieldLoadingIndicator />
                             <BaseFieldSuccessIndicator />
                             <BaseFieldErrorIndicator />
                           </div>
@@ -438,12 +490,16 @@ const form = reactive({
                             </BaseButton>
                             <div class="grow relative">
                               <BaseFieldController>
-                                <BaseInput v-model="form.username" class="border-s-none rounded-s-none" placeholder="Username..." />
+                                <BaseInput
+                                  v-model="form.username"
+                                  class="border-s-none rounded-s-none"
+                                  placeholder="Username..."
+                                />
                               </BaseFieldController>
                             </div>
                           </div>
-                          <div class="absolute z-0 end-4 top-3 pointer-events-none" >
-                            <BaseFieldLoadingIndicator/>
+                          <div class="absolute z-0 end-4 top-3 pointer-events-none">
+                            <BaseFieldLoadingIndicator />
                             <BaseFieldSuccessIndicator />
                             <BaseFieldErrorIndicator />
                           </div>
@@ -466,12 +522,16 @@ const form = reactive({
                             </BaseButton>
                             <div class="grow relative">
                               <BaseFieldController>
-                                <BaseInput v-model="form.website" class="border-s-none rounded-s-none" placeholder="Website..." />
+                                <BaseInput
+                                  v-model="form.website"
+                                  class="border-s-none rounded-s-none"
+                                  placeholder="Website..."
+                                />
                               </BaseFieldController>
                             </div>
                           </div>
-                          <div class="absolute z-0 end-4 top-3 pointer-events-none" >
-                            <BaseFieldLoadingIndicator/>
+                          <div class="absolute z-0 end-4 top-3 pointer-events-none">
+                            <BaseFieldLoadingIndicator />
                             <BaseFieldSuccessIndicator />
                             <BaseFieldErrorIndicator />
                           </div>

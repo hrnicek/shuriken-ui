@@ -2,7 +2,11 @@
   <div class="py-6">
     <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
       <div>
-        <BaseCard rounded="lg" variant="none" class="flex h-full items-center justify-center border-none bg-black dark:bg-muted-900 p-6 xs:py-16">
+        <BaseCard
+          rounded="lg"
+          variant="none"
+          class="flex h-full items-center justify-center border-none bg-black dark:bg-muted-900 p-6 xs:py-16"
+        >
           <div class="flex w-full flex-col items-center">
             <BaseAvatar
               size="2xl"
@@ -18,7 +22,10 @@
               >
                 Helen Miller
               </BaseHeading>
-              <BaseParagraph size="sm" class="text-white">
+              <BaseParagraph
+                size="sm"
+                class="text-white"
+              >
                 has accepted to join the project
               </BaseParagraph>
               <div class="mt-4 flex flex-col gap-2">
@@ -56,7 +63,10 @@
             >
               <span>New Project</span>
             </BaseHeading>
-            <BaseParagraph size="xs" class="text-muted-400">
+            <BaseParagraph
+              size="xs"
+              class="text-muted-400"
+            >
               Create a new project
             </BaseParagraph>
           </div>

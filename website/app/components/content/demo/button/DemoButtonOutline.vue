@@ -6,22 +6,40 @@
           <BaseButton variant="outline">
             Button
           </BaseButton>
-          <BaseButton variant="outline" color="muted">
+          <BaseButton
+            variant="outline"
+            color="muted"
+          >
             Button
           </BaseButton>
-          <BaseButton variant="outline" color="primary">
+          <BaseButton
+            variant="outline"
+            color="primary"
+          >
             Button
           </BaseButton>
-          <BaseButton variant="outline" color="success">
+          <BaseButton
+            variant="outline"
+            color="success"
+          >
             Button
           </BaseButton>
-          <BaseButton variant="outline" color="info">
+          <BaseButton
+            variant="outline"
+            color="info"
+          >
             Button
           </BaseButton>
-          <BaseButton variant="outline" color="warning">
+          <BaseButton
+            variant="outline"
+            color="warning"
+          >
             Button
           </BaseButton>
-          <BaseButton variant="outline" color="danger">
+          <BaseButton
+            variant="outline"
+            color="danger"
+          >
             Button
           </BaseButton>
         </div>

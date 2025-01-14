@@ -22,7 +22,10 @@
           >
             Amber D.
           </BaseHeading>
-          <BaseParagraph size="xs" class="text-muted-400">
+          <BaseParagraph
+            size="xs"
+            class="text-muted-400"
+          >
             Joined 3 weeks ago
           </BaseParagraph>
         </div>

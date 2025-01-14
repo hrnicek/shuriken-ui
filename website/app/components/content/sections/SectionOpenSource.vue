@@ -39,16 +39,28 @@
           <div class="p-6 lg:p-8 lg:py-10">
             <div class="flex shrink-0 justify-start -space-x-4">
               <div class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-muted-900 ring-2 ring-white dark:ring-muted-950 md:h-12 md:w-12 lg:h-14 lg:w-14">
-                <Icon name="logos:tailwindcss-icon" class="h-6 w-6 text-white" />
+                <Icon
+                  name="logos:tailwindcss-icon"
+                  class="h-6 w-6 text-white"
+                />
               </div>
               <div class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-muted-900 ring-2 ring-white dark:ring-muted-950 md:h-12 md:w-12 lg:h-14 lg:w-14">
-                <Icon name="logos:react" class="h-6 w-6 text-white" />
+                <Icon
+                  name="logos:react"
+                  class="h-6 w-6 text-white"
+                />
               </div>
               <div class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-muted-900 ring-2 ring-white dark:ring-muted-950 md:h-12 md:w-12 lg:h-14 lg:w-14">
-                <Icon name="logos:nuxt-icon" class="h-6 w-6 text-white" />
+                <Icon
+                  name="logos:nuxt-icon"
+                  class="h-6 w-6 text-white"
+                />
               </div>
               <div class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-muted-900 ring-2 ring-white dark:ring-muted-950 md:h-12 md:w-12 lg:h-14 lg:w-14">
-                <Icon name="fa6-brands:github" class="h-8 w-8 text-white" />
+                <Icon
+                  name="fa6-brands:github"
+                  class="h-8 w-8 text-white"
+                />
               </div>
             </div>
 
@@ -78,7 +90,10 @@
               class="group/button mt-8 w-full gap-2 bg-muted-900 text-white hover:bg-muted-800 dark:bg-muted-900 dark:hover:bg-muted-800"
             >
               <span>Follow on Github</span>
-              <Icon name="lucide:arrow-right" class="h-4 w-4 transition-transform duration-300 group-hover/button:translate-x-2" />
+              <Icon
+                name="lucide:arrow-right"
+                class="h-4 w-4 transition-transform duration-300 group-hover/button:translate-x-2"
+              />
             </BaseButton>
           </div>
         </BaseCard>
@@ -112,7 +127,10 @@
                 alt=""
               />
               <div class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-muted-100 ring-2 ring-white dark:bg-muted-900 dark:ring-muted-950 md:h-12 md:w-12 lg:h-14 lg:w-14">
-                <Icon name="lucide:plus" class="h-5 w-5 text-muted-900 dark:text-white" />
+                <Icon
+                  name="lucide:plus"
+                  class="h-5 w-5 text-muted-900 dark:text-white"
+                />
               </div>
             </div>
 
@@ -142,7 +160,10 @@
               class="group/button mt-8 w-full gap-2 bg-muted-900 text-white hover:bg-muted-800 dark:bg-muted-900 dark:hover:bg-muted-800"
             >
               <span>Contribution Guide</span>
-              <Icon name="lucide:arrow-right" class="h-4 w-4 transition-transform duration-300 group-hover/button:translate-x-2" />
+              <Icon
+                name="lucide:arrow-right"
+                class="h-4 w-4 transition-transform duration-300 group-hover/button:translate-x-2"
+              />
             </BaseButton>
           </div>
         </BaseCard>
@@ -180,7 +201,10 @@
                 alt=""
               />
               <div class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-muted-100 ring-2 ring-white dark:bg-muted-900 dark:ring-muted-950 md:h-12 md:w-12 lg:h-14 lg:w-14">
-                <Icon name="lucide:plus" class="h-5 w-5 text-muted-900 dark:text-white" />
+                <Icon
+                  name="lucide:plus"
+                  class="h-5 w-5 text-muted-900 dark:text-white"
+                />
               </div>
             </div>
 
@@ -209,7 +233,10 @@
               rounded="lg"
               class="group/button mt-8 w-full gap-2 bg-muted-900 text-white hover:bg-muted-800 dark:bg-muted-900 dark:hover:bg-muted-800"
             >
-              <Icon name="fa6-brands:discord" class="h-4 w-4" />
+              <Icon
+                name="fa6-brands:discord"
+                class="h-4 w-4"
+              />
               <span>Join on Discord</span>
             </BaseButton>
           </div>
@@ -250,7 +277,10 @@
               class="group-hover/link:!border-muted-900 dark:group-hover/link:!border-muted-100"
             >
               <div class="px-8 py-6">
-                <Icon name="system-uicons:coffee" class="mx-auto h-12 w-12 text-muted-900 dark:text-muted-100 lg:mx-0" />
+                <Icon
+                  name="system-uicons:coffee"
+                  class="mx-auto h-12 w-12 text-muted-900 dark:text-muted-100 lg:mx-0"
+                />
                 <BaseHeading
                   as="h3"
                   size="lg"
@@ -283,7 +313,10 @@
               class="group-hover/link:!border-muted-900 dark:group-hover/link:!border-muted-100"
             >
               <div class="px-8 py-6">
-                <Icon name="system-uicons:graph-box" class="mx-auto h-12 w-12 text-muted-900 dark:text-muted-100 lg:mx-0" />
+                <Icon
+                  name="system-uicons:graph-box"
+                  class="mx-auto h-12 w-12 text-muted-900 dark:text-muted-100 lg:mx-0"
+                />
                 <BaseHeading
                   as="h3"
                   size="lg"

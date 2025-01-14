@@ -31,19 +31,31 @@
       >
         Kendra Wilson
       </BaseHeading>
-      <BaseParagraph size="xs" class="text-muted-400">
+      <BaseParagraph
+        size="xs"
+        class="text-muted-400"
+      >
         UI/UX Designer
       </BaseParagraph>
     </div>
     <div class="flex items-center justify-center gap-3">
       <div class="flex h-9 w-9 items-center justify-center rounded-full bg-muted-100 text-muted-800 dark:bg-muted-900 dark:text-muted-100">
-        <Icon name="simple-icons:adobeillustrator" class="h-4 w-4" />
+        <Icon
+          name="simple-icons:adobeillustrator"
+          class="h-4 w-4"
+        />
       </div>
       <div class="flex h-9 w-9 items-center justify-center rounded-full bg-muted-100 text-muted-800 dark:bg-muted-900 dark:text-muted-100">
-        <Icon name="cib:figma" class="h-4 w-4" />
+        <Icon
+          name="cib:figma"
+          class="h-4 w-4"
+        />
       </div>
       <div class="flex h-9 w-9 items-center justify-center rounded-full bg-muted-100 text-muted-800 dark:bg-muted-900 dark:text-muted-100">
-        <Icon name="fa-brands:sketch" class="h-4 w-4" />
+        <Icon
+          name="fa-brands:sketch"
+          class="h-4 w-4"
+        />
       </div>
     </div>
   </BaseCard>

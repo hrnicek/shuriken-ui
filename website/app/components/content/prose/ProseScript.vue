@@ -13,5 +13,5 @@ defineProps({
     default: '',
   },
 })
-const isDev = computed(() => process.dev)
+const isDev = computed(() => import.meta.dev)
 </script>

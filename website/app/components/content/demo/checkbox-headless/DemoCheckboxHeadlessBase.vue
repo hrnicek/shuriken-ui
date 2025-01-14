@@ -5,10 +5,19 @@
         <form class="mx-auto w-full">
           <fieldset class="w-full">
             <div class="grid gap-3 sm:grid-cols-3">
-              <BaseCheckboxHeadless v-model="value" value="team_member_1">
-                <BaseCard rounded="sm" class="border-2 p-4 opacity-50 peer-checked:!border-primary-500 peer-checked:opacity-100 peer-checked:[&_.child]:!text-primary-500">
+              <BaseCheckboxHeadless
+                v-model="value"
+                value="team_member_1"
+              >
+                <BaseCard
+                  rounded="sm"
+                  class="border-2 p-4 opacity-50 peer-checked:!border-primary-500 peer-checked:opacity-100 peer-checked:[&_.child]:!text-primary-500"
+                >
                   <div class="flex w-full items-center gap-2">
-                    <BaseAvatar size="xs" src="/img/avatars/10.svg" />
+                    <BaseAvatar
+                      size="xs"
+                      src="/img/avatars/10.svg"
+                    />
                     <div>
                       <BaseHeading
                         as="h4"
@@ -18,7 +27,10 @@
                       >
                         Kendra Wilson
                       </BaseHeading>
-                      <BaseText size="xs" class="text-muted-400">
+                      <BaseText
+                        size="xs"
+                        class="text-muted-400"
+                      >
                         Software Engineer
                       </BaseText>
                     </div>
@@ -28,10 +40,19 @@
                   </div>
                 </BaseCard>
               </BaseCheckboxHeadless>
-              <BaseCheckboxHeadless v-model="value" value="team_member_2">
-                <BaseCard rounded="sm" class="border-2 p-4 opacity-50 peer-checked:!border-primary-500 peer-checked:opacity-100 peer-checked:[&_.child]:!text-primary-500">
+              <BaseCheckboxHeadless
+                v-model="value"
+                value="team_member_2"
+              >
+                <BaseCard
+                  rounded="sm"
+                  class="border-2 p-4 opacity-50 peer-checked:!border-primary-500 peer-checked:opacity-100 peer-checked:[&_.child]:!text-primary-500"
+                >
                   <div class="flex w-full items-center gap-2">
-                    <BaseAvatar size="xs" src="/img/avatars/16.svg" />
+                    <BaseAvatar
+                      size="xs"
+                      src="/img/avatars/16.svg"
+                    />
                     <div>
                       <BaseHeading
                         as="h4"
@@ -41,7 +62,10 @@
                       >
                         Hermann Mayer
                       </BaseHeading>
-                      <BaseText size="xs" class="text-muted-400">
+                      <BaseText
+                        size="xs"
+                        class="text-muted-400"
+                      >
                         Sales Manager
                       </BaseText>
                     </div>
@@ -51,10 +75,19 @@
                   </div>
                 </BaseCard>
               </BaseCheckboxHeadless>
-              <BaseCheckboxHeadless v-model="value" value="team_member_3">
-                <BaseCard rounded="sm" class="border-2 p-4 opacity-50 peer-checked:!border-primary-500 peer-checked:opacity-100 peer-checked:[&_.child]:!text-primary-500">
+              <BaseCheckboxHeadless
+                v-model="value"
+                value="team_member_3"
+              >
+                <BaseCard
+                  rounded="sm"
+                  class="border-2 p-4 opacity-50 peer-checked:!border-primary-500 peer-checked:opacity-100 peer-checked:[&_.child]:!text-primary-500"
+                >
                   <div class="flex w-full items-center gap-2">
-                    <BaseAvatar size="xs" src="/img/avatars/25.svg" />
+                    <BaseAvatar
+                      size="xs"
+                      src="/img/avatars/25.svg"
+                    />
                     <div>
                       <BaseHeading
                         as="h4"
@@ -64,7 +97,10 @@
                       >
                         Melany Lawright
                       </BaseHeading>
-                      <BaseText size="xs" class="text-muted-400">
+                      <BaseText
+                        size="xs"
+                        class="text-muted-400"
+                      >
                         HR Manager
                       </BaseText>
                     </div>

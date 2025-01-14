@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { parseMarkdown } from '@nuxtjs/mdc/runtime'
-import { shades } from '~/utils/bundles/color-switcher'
 import { UseClipboard } from '@vueuse/components'
+import { shades } from '~/utils/bundles/color-switcher'
+
 const { rounded } = usePlayground()
 
 const isPanelOpen = ref(false)
 const isModalOpen = ref(false)
 const isLoading = ref(false)
-
 
 const defaultPrimary = 'violet'
 const defaultMuted = 'slate'
@@ -26,15 +26,15 @@ const tailwindConfig = computed(() => {
   let theme = ''
   let primaryTheme = ''
   let mutedTheme = ''
-  
+
   if (currentPrimary.value !== defaultPrimary) {
     for (const shade of shades) {
-      primaryTheme += `  --color-primary-${shade}: var(--color-${currentPrimary.value}-${shade});\n`;
+      primaryTheme += `  --color-primary-${shade}: var(--color-${currentPrimary.value}-${shade});\n`
     }
   }
   if (currentMuted.value !== defaultMuted) {
     for (const shade of shades) {
-      mutedTheme += `  --color-muted-${shade}: var(--color-${currentMuted.value}-${shade});\n`;
+      mutedTheme += `  --color-muted-${shade}: var(--color-${currentMuted.value}-${shade});\n`
     }
   }
 
@@ -640,13 +640,19 @@ const { data: appAst } = useAsyncData('app-markdown', () => parseMarkdown([
                 @primary-changed="(color) => (currentPrimary = color)"
                 @muted-changed="(color) => (currentMuted = color)"
               />
-              <div class="fixed end-5 top-24 z-50 transition-transform duration-300 md:end-7 lg:hidden" :class="!isPanelOpen ? 'translate-x-0' : 'translate-x-16'">
+              <div
+                class="fixed end-5 top-24 z-50 transition-transform duration-300 md:end-7 lg:hidden"
+                :class="!isPanelOpen ? 'translate-x-0' : 'translate-x-16'"
+              >
                 <BaseButtonIcon
                   size="sm"
                   rounded="lg"
                   @click="() => (isPanelOpen = true)"
                 >
-                  <Icon name="mingcute:drop-fill" class="h-4 w-4 text-primary-500" />
+                  <Icon
+                    name="mingcute:drop-fill"
+                    class="h-4 w-4 text-primary-500"
+                  />
                 </BaseButtonIcon>
               </div>
             </div>
@@ -686,10 +692,20 @@ const { data: appAst } = useAsyncData('app-markdown', () => parseMarkdown([
           ]"
         >
           <template #tab="{ activeValue }">
-            <div v-if="activeValue === 'tailwind'" class="relative font-mono text-sm text-muted-500 dark:text-muted-400">
-              <ContentRenderer v-if="tailwindAst" :value="tailwindAst" class="rounded-xl bg-muted-100 px-6 py-3 dark:bg-muted-950" />
+            <div
+              v-if="activeValue === 'tailwind'"
+              class="relative font-mono text-sm text-muted-500 dark:text-muted-400"
+            >
+              <ContentRenderer
+                v-if="tailwindAst"
+                :value="tailwindAst"
+                class="rounded-xl bg-muted-100 px-6 py-3 dark:bg-muted-950"
+              />
               <div class="absolute end-3 top-3">
-                <UseClipboard v-slot="{ copy, copied }" :source="tailwindConfig">
+                <UseClipboard
+                  v-slot="{ copy, copied }"
+                  :source="tailwindConfig"
+                >
                   <BaseButtonIcon
                     size="sm"
                     rounded="md"
@@ -713,10 +729,20 @@ const { data: appAst } = useAsyncData('app-markdown', () => parseMarkdown([
               </div>
             </div>
 
-            <div v-else-if="activeValue === 'config'" class="relative font-mono text-sm text-muted-500 dark:text-muted-400">
-              <ContentRenderer v-if="appAst" :value="appAst" class="rounded-xl bg-muted-100 px-6 py-3 dark:bg-muted-950" />
+            <div
+              v-else-if="activeValue === 'config'"
+              class="relative font-mono text-sm text-muted-500 dark:text-muted-400"
+            >
+              <ContentRenderer
+                v-if="appAst"
+                :value="appAst"
+                class="rounded-xl bg-muted-100 px-6 py-3 dark:bg-muted-950"
+              />
               <div class="absolute end-3 top-3">
-                <UseClipboard v-slot="{ copy, copied }" :source="appConfig">
+                <UseClipboard
+                  v-slot="{ copy, copied }"
+                  :source="appConfig"
+                >
                   <BaseButtonIcon
                     size="sm"
                     rounded="md"
@@ -766,28 +792,94 @@ const { data: appAst } = useAsyncData('app-markdown', () => parseMarkdown([
                 d="M15.5 1024V0M79.5 1024V0M143.5 1024V0M207.5 1024V0M271.5 1024V0M335.5 1024V0M399.5 1024V0M463.5 1024V0M527.5 1024V0M591.5 1024V0M655.5 1024V0M719.5 1024V0M783.5 1024V0M847.5 1024V0M911.5 1024V0M975.5 1024V0M1039.5 1024V0M1103.5 1024V0M1167.5 1024V0M1231.5 1024V0M1295.5 1024V0M1359.5 1024V0M1423.5 1024V0M0 31.5H1440M0 95.5H1440M0 159.5H1440M0 223.5H1440M0 287.5H1440M0 351.5H1440M0 415.5H1440M0 479.5H1440M0 543.5H1440M0 607.5H1440M0 671.5H1440M0 735.5H1440M0 799.5H1440M0 863.5H1440M0 927.5H1440M0 991.5H1440"
                 class="stroke-current text-muted-100 dark:text-muted-800/50"
               />
-              <path d="M272 160H335V223H272V160Z" class="fill-current text-muted-50 dark:text-muted-800/20" />
-              <path d="M1168 800H1231V863H1168V800Z" class="fill-current text-muted-50 dark:text-muted-800/20" />
-              <path d="M528 96H591V159H528V96Z" class="fill-current text-muted-50 dark:text-muted-800/20" />
-              <path d="M1104 160H1167V223H1104V160Z" class="fill-current text-muted-50 dark:text-muted-800/20" />
-              <path d="M1232 352H1295V415H1232V352Z" class="fill-current text-muted-50 dark:text-muted-800/20" />
-              <path d="M1040 672H1103V735H1040V672Z" class="fill-current text-muted-50 dark:text-muted-800/20" />
-              <path d="M784 800H847V863H784V800Z" class="fill-current text-muted-50 dark:text-muted-800/20" />
-              <path d="M336 480H399V543H336V480Z" class="fill-current text-muted-50 dark:text-muted-800/20" />
-              <path d="M208 800H271V863H208V800Z" class="fill-current text-muted-50 dark:text-muted-800/20" />
-              <path d="M464 736H527V799H464V736Z" class="fill-current text-muted-50 dark:text-muted-800/20" />
-              <path d="M336 224H399V287H336V224Z" class="fill-current text-muted-50 dark:text-muted-800/20" />
-              <path d="M976 287H1039V350H976V287Z" class="fill-current text-muted-50 dark:text-muted-800/20" />
-              <path d="M720 864H783V927H720V864Z" class="fill-current text-muted-50 dark:text-muted-800/20" />
-              <path d="M1232 480H1295V543H1232V480Z" class="fill-current text-muted-50 dark:text-muted-800/20" />
-              <path d="M1168 544H1231V607H1168V544Z" class="fill-current text-muted-50 dark:text-muted-800/20" />
-              <path d="M784 224H847V287H784V224Z" class="fill-current text-muted-50 dark:text-muted-800/20" />
-              <path d="M208 352H271V415H208V352Z" class="fill-current text-muted-50 dark:text-muted-800/20" />
-              <path d="M272 608H335V671H272V608Z" class="fill-current text-muted-50 dark:text-muted-800/20" />
-              <path d="M144 480H207V543H144V480Z" class="fill-current text-muted-50 dark:text-muted-800/20" />
-              <path d="M848 32H911V95H848V32Z" class="fill-current text-muted-50 dark:text-muted-800/20" />
-              <path d="M528 352H591V415H528V352Z" class="fill-current text-muted-50 dark:text-muted-800/20" />
-              <path d="M912 480H975V543H912V480Z" class="fill-current text-muted-50 dark:text-muted-800/20" />
+              <path
+                d="M272 160H335V223H272V160Z"
+                class="fill-current text-muted-50 dark:text-muted-800/20"
+              />
+              <path
+                d="M1168 800H1231V863H1168V800Z"
+                class="fill-current text-muted-50 dark:text-muted-800/20"
+              />
+              <path
+                d="M528 96H591V159H528V96Z"
+                class="fill-current text-muted-50 dark:text-muted-800/20"
+              />
+              <path
+                d="M1104 160H1167V223H1104V160Z"
+                class="fill-current text-muted-50 dark:text-muted-800/20"
+              />
+              <path
+                d="M1232 352H1295V415H1232V352Z"
+                class="fill-current text-muted-50 dark:text-muted-800/20"
+              />
+              <path
+                d="M1040 672H1103V735H1040V672Z"
+                class="fill-current text-muted-50 dark:text-muted-800/20"
+              />
+              <path
+                d="M784 800H847V863H784V800Z"
+                class="fill-current text-muted-50 dark:text-muted-800/20"
+              />
+              <path
+                d="M336 480H399V543H336V480Z"
+                class="fill-current text-muted-50 dark:text-muted-800/20"
+              />
+              <path
+                d="M208 800H271V863H208V800Z"
+                class="fill-current text-muted-50 dark:text-muted-800/20"
+              />
+              <path
+                d="M464 736H527V799H464V736Z"
+                class="fill-current text-muted-50 dark:text-muted-800/20"
+              />
+              <path
+                d="M336 224H399V287H336V224Z"
+                class="fill-current text-muted-50 dark:text-muted-800/20"
+              />
+              <path
+                d="M976 287H1039V350H976V287Z"
+                class="fill-current text-muted-50 dark:text-muted-800/20"
+              />
+              <path
+                d="M720 864H783V927H720V864Z"
+                class="fill-current text-muted-50 dark:text-muted-800/20"
+              />
+              <path
+                d="M1232 480H1295V543H1232V480Z"
+                class="fill-current text-muted-50 dark:text-muted-800/20"
+              />
+              <path
+                d="M1168 544H1231V607H1168V544Z"
+                class="fill-current text-muted-50 dark:text-muted-800/20"
+              />
+              <path
+                d="M784 224H847V287H784V224Z"
+                class="fill-current text-muted-50 dark:text-muted-800/20"
+              />
+              <path
+                d="M208 352H271V415H208V352Z"
+                class="fill-current text-muted-50 dark:text-muted-800/20"
+              />
+              <path
+                d="M272 608H335V671H272V608Z"
+                class="fill-current text-muted-50 dark:text-muted-800/20"
+              />
+              <path
+                d="M144 480H207V543H144V480Z"
+                class="fill-current text-muted-50 dark:text-muted-800/20"
+              />
+              <path
+                d="M848 32H911V95H848V32Z"
+                class="fill-current text-muted-50 dark:text-muted-800/20"
+              />
+              <path
+                d="M528 352H591V415H528V352Z"
+                class="fill-current text-muted-50 dark:text-muted-800/20"
+              />
+              <path
+                d="M912 480H975V543H912V480Z"
+                class="fill-current text-muted-50 dark:text-muted-800/20"
+              />
             </g>
           </svg>
         </div>

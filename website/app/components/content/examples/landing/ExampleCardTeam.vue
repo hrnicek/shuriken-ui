@@ -20,7 +20,10 @@
         <ul class="flex w-full items-center gap-1">
           <li class="flex flex-col items-center space-y-1 px-2">
             <div class="flex items-center justify-center">
-              <a class href="#">
+              <a
+                class
+                href="#"
+              >
                 <BaseAvatar
                   src="/img/photo/avatars/56.jpg"
                   badge-src="/img/stacks/react.svg"
@@ -39,7 +42,10 @@
 
           <li class="flex flex-col items-center space-y-1 px-2">
             <div class="flex items-center justify-center">
-              <a class href="#">
+              <a
+                class
+                href="#"
+              >
                 <BaseAvatar
                   src="/img/photo/avatars/17.jpg"
                   badge-src="/img/stacks/html5.svg"
@@ -58,7 +64,10 @@
 
           <li class="flex flex-col items-center space-y-1 px-2">
             <div class="flex items-center justify-center">
-              <a class href="#">
+              <a
+                class
+                href="#"
+              >
                 <BaseAvatar
                   src="/img/photo/avatars/37.jpg"
                   badge-src="/img/stacks/javascript.svg"
@@ -73,7 +82,10 @@
 
           <li class="flex flex-col items-center space-y-1 px-2">
             <div class="flex items-center justify-center">
-              <a class href="#">
+              <a
+                class
+                href="#"
+              >
                 <BaseAvatar
                   src="/img/photo/avatars/19.jpg"
                   badge-src="/img/stacks/vuejs.svg"

@@ -18,7 +18,10 @@
                 data-nui-tooltip="Save"
                 class="absolute end-0 top-0 z-[1] flex h-10 w-10 items-center justify-center text-muted-400 transition-colors duration-300 hover:text-primary-500"
               >
-                <Icon name="lucide:save" class="h-4 w-4" />
+                <Icon
+                  name="lucide:save"
+                  class="h-4 w-4"
+                />
               </button>
             </template>
           </BaseInput>

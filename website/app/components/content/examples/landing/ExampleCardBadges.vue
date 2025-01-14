@@ -7,10 +7,16 @@
       >
         Badge
       </BaseTag>
-      <BaseTag color="muted" rounded="lg">
+      <BaseTag
+        color="muted"
+        rounded="lg"
+      >
         Badge
       </BaseTag>
-      <BaseTag color="default" rounded="full">
+      <BaseTag
+        color="default"
+        rounded="full"
+      >
         Badge
       </BaseTag>
     </div>

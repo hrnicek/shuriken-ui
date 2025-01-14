@@ -7,7 +7,10 @@
         variant="outline"
         color="primary"
       >
-        <Icon name="ph:game-controller-duotone" class="h-5 w-5" />
+        <Icon
+          name="ph:game-controller-duotone"
+          class="h-5 w-5"
+        />
       </BaseIconBox>
       <BaseIconBox
         size="md"
@@ -15,7 +18,10 @@
         variant="outline"
         color="info"
       >
-        <Icon name="ph:cookie-duotone" class="h-5 w-5" />
+        <Icon
+          name="ph:cookie-duotone"
+          class="h-5 w-5"
+        />
       </BaseIconBox>
       <BaseIconBox
         size="md"
@@ -23,7 +29,10 @@
         variant="outline"
         color="success"
       >
-        <Icon name="ph:leaf-duotone" class="h-5 w-5" />
+        <Icon
+          name="ph:leaf-duotone"
+          class="h-5 w-5"
+        />
       </BaseIconBox>
       <BaseIconBox
         size="md"
@@ -31,7 +40,10 @@
         variant="outline"
         color="warning"
       >
-        <Icon name="ph:storefront-duotone" class="h-5 w-5" />
+        <Icon
+          name="ph:storefront-duotone"
+          class="h-5 w-5"
+        />
       </BaseIconBox>
       <BaseIconBox
         size="md"
@@ -39,7 +51,10 @@
         variant="outline"
         color="danger"
       >
-        <Icon name="ph:skull-duotone" class="h-5 w-5" />
+        <Icon
+          name="ph:skull-duotone"
+          class="h-5 w-5"
+        />
       </BaseIconBox>
       <BaseIconBox
         size="md"
@@ -47,7 +62,10 @@
         variant="outline"
         color="dark"
       >
-        <Icon name="ph:lightning-duotone" class="h-5 w-5" />
+        <Icon
+          name="ph:lightning-duotone"
+          class="h-5 w-5"
+        />
       </BaseIconBox>
       <BaseIconBox
         size="md"
@@ -55,7 +73,10 @@
         variant="outline"
         color="black"
       >
-        <Icon name="ph:gauge-duotone" class="h-5 w-5" />
+        <Icon
+          name="ph:gauge-duotone"
+          class="h-5 w-5"
+        />
       </BaseIconBox>
     </div>
   </div>

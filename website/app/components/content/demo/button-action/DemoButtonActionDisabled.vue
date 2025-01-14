@@ -3,19 +3,34 @@
     <div class="w-full rounded-xl bg-muted-100 p-4 dark:bg-muted-900">
       <div class="flex items-center">
         <div class="flex flex-wrap items-end gap-4">
-          <BaseButtonAction rounded="none" disabled>
+          <BaseButtonAction
+            rounded="none"
+            disabled
+          >
             Action
           </BaseButtonAction>
-          <BaseButtonAction rounded="sm" disabled>
+          <BaseButtonAction
+            rounded="sm"
+            disabled
+          >
             Action
           </BaseButtonAction>
-          <BaseButtonAction rounded="md" disabled>
+          <BaseButtonAction
+            rounded="md"
+            disabled
+          >
             Action
           </BaseButtonAction>
-          <BaseButtonAction rounded="lg" disabled>
+          <BaseButtonAction
+            rounded="lg"
+            disabled
+          >
             Action
           </BaseButtonAction>
-          <BaseButtonAction rounded="full" disabled>
+          <BaseButtonAction
+            rounded="full"
+            disabled
+          >
             Action
           </BaseButtonAction>
         </div>

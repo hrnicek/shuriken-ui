@@ -32,7 +32,10 @@ const props = defineProps<{
                   <span class="relative inline-flex h-2 w-2 rounded-full bg-destructive-500" />
                 </span>
               </div>
-              <BaseParagraph size="sm" class="px-1 leading-loose text-muted-500 dark:text-muted-400 lg:mt-2 lg:leading-normal ltablet:mt-2 ltablet:leading-normal">
+              <BaseParagraph
+                size="sm"
+                class="px-1 leading-loose text-muted-500 dark:text-muted-400 lg:mt-2 lg:leading-normal ltablet:mt-2 ltablet:leading-normal"
+              >
                 {{ props.releaseDate }}
               </BaseParagraph>
             </div>

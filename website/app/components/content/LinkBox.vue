@@ -7,7 +7,10 @@ const props = defineProps<{
 </script>
 
 <template>
-  <NuxtLink :to="props.to" class="group/link">
+  <NuxtLink
+    :to="props.to"
+    class="group/link"
+  >
     <BaseCard
       color="default-contrast"
       rounded="md"

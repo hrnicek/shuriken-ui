@@ -18,7 +18,10 @@ function wrapExternalLinks(string: string) {
 <template>
   <div class="py-6">
     <div class="relative space-y-10">
-      <div v-if="docs.noOptions" class="mx-auto w-full">
+      <div
+        v-if="docs.noOptions"
+        class="mx-auto w-full"
+      >
         <div class="flex items-center justify-center p-6">
           <div class="mt-10 text-center">
             <BaseHeading
@@ -28,7 +31,10 @@ function wrapExternalLinks(string: string) {
             >
               No options available
             </BaseHeading>
-            <BaseParagraph size="sm" class="mt-2 text-muted-500 dark:text-muted-400">
+            <BaseParagraph
+              size="sm"
+              class="mt-2 text-muted-500 dark:text-muted-400"
+            >
               This component doesn't have any props.
             </BaseParagraph>
           </div>
@@ -36,7 +42,10 @@ function wrapExternalLinks(string: string) {
       </div>
 
       <!-- Model display -->
-      <div v-if="docs.model" class="mx-auto w-full">
+      <div
+        v-if="docs.model"
+        class="mx-auto w-full"
+      >
         <div class="overflow-x-auto rounded-md border border-muted-300 bg-white dark:border-muted-800 dark:bg-muted-950">
           <table class="w-full">
             <thead>
@@ -63,14 +72,23 @@ function wrapExternalLinks(string: string) {
                       >
                         <template #button>
                           <button type="button">
-                            <Icon name="mingcute:information-line" class="h-4 w-4 text-muted-500" />
+                            <Icon
+                              name="mingcute:information-line"
+                              class="h-4 w-4 text-muted-500"
+                            />
                           </button>
                         </template>
                         <div class="p-1">
-                          <BaseParagraph size="xs" class="text-muted-700 dark:text-muted-200">
+                          <BaseParagraph
+                            size="xs"
+                            class="text-muted-700 dark:text-muted-200"
+                          >
                             {{ docs.model.description }}
                           </BaseParagraph>
-                          <BaseParagraph size="xs" class="mb-2 text-muted-500 dark:text-muted-400">
+                          <BaseParagraph
+                            size="xs"
+                            class="mb-2 text-muted-500 dark:text-muted-400"
+                          >
                             Additional info and tags like the default configuration value.
                           </BaseParagraph>
                           <div
@@ -78,7 +96,10 @@ function wrapExternalLinks(string: string) {
                             :key="tag.name"
                             class="flex gap-1"
                           >
-                            <BaseParagraph size="xs" class="text-muted-700 dark:text-muted-200">
+                            <BaseParagraph
+                              size="xs"
+                              class="text-muted-700 dark:text-muted-200"
+                            >
                               @{{ tag.name }}:
                             </BaseParagraph>
                             <BaseParagraph
@@ -108,7 +129,10 @@ function wrapExternalLinks(string: string) {
         </div>
       </div>
       <!-- Props display -->
-      <div v-if="docs.props?.length > 0" class="w-full">
+      <div
+        v-if="docs.props?.length > 0"
+        class="w-full"
+      >
         <div class="overflow-x-auto rounded-md border border-muted-300 bg-white dark:border-muted-800 dark:bg-muted-950">
           <table class="w-full">
             <thead>
@@ -141,11 +165,17 @@ function wrapExternalLinks(string: string) {
                       >
                         <template #button>
                           <button type="button">
-                            <Icon name="mingcute:information-line" class="h-4 w-4 text-muted-500" />
+                            <Icon
+                              name="mingcute:information-line"
+                              class="h-4 w-4 text-muted-500"
+                            />
                           </button>
                         </template>
                         <div class="p-1">
-                          <BaseParagraph size="xs" class="text-muted-700 dark:text-muted-200 max-w-xs">
+                          <BaseParagraph
+                            size="xs"
+                            class="text-muted-700 dark:text-muted-200 max-w-xs"
+                          >
                             {{ prop.description }}
                           </BaseParagraph>
                         </div>
@@ -173,11 +203,17 @@ function wrapExternalLinks(string: string) {
                       >
                         <template #button>
                           <button type="button">
-                            <Icon name="mingcute:information-line" class="h-4 w-4 text-muted-500" />
+                            <Icon
+                              name="mingcute:information-line"
+                              class="h-4 w-4 text-muted-500"
+                            />
                           </button>
                         </template>
                         <div class="p-1">
-                          <BaseParagraph size="xs" class="mb-2 text-muted-500 dark:text-muted-400">
+                          <BaseParagraph
+                            size="xs"
+                            class="mb-2 text-muted-500 dark:text-muted-400"
+                          >
                             Additional info and tags like the default configuration value.
                           </BaseParagraph>
                           <div
@@ -185,7 +221,10 @@ function wrapExternalLinks(string: string) {
                             :key="tag.name"
                             class="flex gap-1"
                           >
-                            <BaseParagraph size="xs" class="text-muted-700 dark:text-muted-200">
+                            <BaseParagraph
+                              size="xs"
+                              class="text-muted-700 dark:text-muted-200"
+                            >
                               @{{ tag.name }}:
                             </BaseParagraph>
                             <BaseParagraph
@@ -208,7 +247,10 @@ function wrapExternalLinks(string: string) {
         </div>
       </div>
       <!-- Events display -->
-      <div v-if="docs.events?.length > 0" class="mx-auto mt-10 w-full">
+      <div
+        v-if="docs.events?.length > 0"
+        class="mx-auto mt-10 w-full"
+      >
         <div class="overflow-x-auto rounded-md border border-muted-300 bg-white dark:border-muted-800 dark:bg-muted-950">
           <table class="w-full">
             <thead>
@@ -238,11 +280,17 @@ function wrapExternalLinks(string: string) {
                       >
                         <template #button>
                           <button type="button">
-                            <Icon name="mingcute:information-line" class="h-4 w-4 text-muted-500" />
+                            <Icon
+                              name="mingcute:information-line"
+                              class="h-4 w-4 text-muted-500"
+                            />
                           </button>
                         </template>
                         <div class="p-1">
-                          <BaseParagraph size="xs" class="text-muted-700 dark:text-muted-200">
+                          <BaseParagraph
+                            size="xs"
+                            class="text-muted-700 dark:text-muted-200"
+                          >
                             {{ event.description }}
                           </BaseParagraph>
                         </div>
@@ -263,7 +311,10 @@ function wrapExternalLinks(string: string) {
         </div>
       </div>
       <!-- Slots display -->
-      <div v-if="docs.slots?.length > 0" class="mx-auto mt-10 w-full">
+      <div
+        v-if="docs.slots?.length > 0"
+        class="mx-auto mt-10 w-full"
+      >
         <div class="overflow-x-auto rounded-md border border-muted-300 bg-white dark:border-muted-800 dark:bg-muted-950">
           <table class="w-full">
             <thead>
@@ -299,7 +350,10 @@ function wrapExternalLinks(string: string) {
           </table>
         </div>
         <!-- Exposed display -->
-        <div v-if="docs.exposed?.length > 0" class="mx-auto mt-10 w-full">
+        <div
+          v-if="docs.exposed?.length > 0"
+          class="mx-auto mt-10 w-full"
+        >
           <div class="overflow-x-auto rounded-md border border-muted-300 bg-white dark:border-muted-800 dark:bg-muted-950">
             <table class="w-full">
               <thead>
@@ -329,11 +383,17 @@ function wrapExternalLinks(string: string) {
                         >
                           <template #button>
                             <button type="button">
-                              <Icon name="mingcute:information-line" class="h-4 w-4 text-muted-500" />
+                              <Icon
+                                name="mingcute:information-line"
+                                class="h-4 w-4 text-muted-500"
+                              />
                             </button>
                           </template>
                           <div class="p-1">
-                            <BaseParagraph size="xs" class="text-muted-700 dark:text-muted-200">
+                            <BaseParagraph
+                              size="xs"
+                              class="text-muted-700 dark:text-muted-200"
+                            >
                               {{ exposed.description }}
                             </BaseParagraph>
                           </div>

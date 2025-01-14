@@ -1,6 +1,9 @@
 <template>
   <div>
-    <pre class="relative w-full" :class="$props.class"><slot /></pre>
+    <pre
+      class="relative w-full"
+      :class="$props.class"
+    ><slot /></pre>
   </div>
 </template>
 

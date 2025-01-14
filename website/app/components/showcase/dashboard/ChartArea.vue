@@ -59,14 +59,14 @@ function useareaChart() {
       },
     },
     fill: {
-    type: "gradient",
+      type: 'gradient',
       gradient: {
-        shade: "light",
-        type: "vertical",
+        shade: 'light',
+        type: 'vertical',
         shadeIntensity: 0,
         opacityFrom: 0.5,
-        opacityTo: 0.1
-      }
+        opacityTo: 0.1,
+      },
     },
     tooltip: {
       x: {
@@ -109,7 +109,12 @@ function useareaChart() {
       >
         Account Balance
       </BaseHeading>
-      <BaseParagraph size="3xl" weight="bold" lead="none" class="text-muted-800 dark:text-white">
+      <BaseParagraph
+        size="3xl"
+        weight="bold"
+        lead="none"
+        class="text-muted-800 dark:text-white"
+      >
         $9,543.12
       </BaseParagraph>
       <div class="flex items-center gap-x-2">

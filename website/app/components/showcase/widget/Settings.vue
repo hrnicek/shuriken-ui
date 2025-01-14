@@ -43,14 +43,20 @@ const preferences = ref([
         >
           <span>Settings</span>
         </BaseHeading>
-        <BaseParagraph size="sm" class="text-muted-600 dark:text-muted-400">
+        <BaseParagraph
+          size="sm"
+          class="text-muted-600 dark:text-muted-400"
+        >
           Manage your preferences here
         </BaseParagraph>
       </div>
     </div>
     <div>
       <ul class="space-y-4">
-        <li v-for="preference in preferences" :key="preference.id">
+        <li
+          v-for="preference in preferences"
+          :key="preference.id"
+        >
           <div class="flex items-center">
             <div class="font-sans">
               <p class="block text-sm font-medium text-muted-800 dark:text-muted-100">
@@ -62,8 +68,8 @@ const preferences = ref([
             </div>
             <div class="ms-auto">
               <BaseSwitchBall
-                v-model="preference.checked"
                 :id="preference.id"
+                v-model="preference.checked"
                 variant="dark"
               />
             </div>
@@ -71,7 +77,10 @@ const preferences = ref([
         </li>
       </ul>
       <div class="mt-6">
-        <BaseButton rounded="md" class="w-full">
+        <BaseButton
+          rounded="md"
+          class="w-full"
+        >
           Save Preferences
         </BaseButton>
       </div>

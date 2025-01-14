@@ -17,7 +17,7 @@ const { x, y } = useWindowScroll()
   >
     <div class="mx-auto max-w-[1536px]">
       <div class="flex h-14 items-center gap-x-3">
-        <!--Menu-->
+        <!-- Menu -->
         <div class="lg:hidden">
           <BaseButton
             size="icon-sm"
@@ -25,44 +25,73 @@ const { x, y } = useWindowScroll()
             rounded="md"
             @click="isMobileOpen = !isMobileOpen"
           >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="!size-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5"></path>
-          </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="!size-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 9h16.5m-16.5 6.75h16.5"
+              />
+            </svg>
           </BaseButton>
         </div>
-        <!--Logo-->
+        <!-- Logo -->
         <div class="shrink-0 lg:me-12">
           <NuxtLink
             to="/"
             class="block"
           >
             <LogoText
-              id="logo-text-navbar" 
+              id="logo-text-navbar"
               class="h-7 w-auto hidden md:block transition-colors duration-300"
               :class="[
-                y > 60 ? 'text-muted-950 dark:text-white' : 'text-muted-950/80 dark:text-muted-200', 
+                y > 60 ? 'text-muted-950 dark:text-white' : 'text-muted-950/80 dark:text-muted-200',
                 isMobileOpen ? 'text-muted-950! dark:text-white!' : '']"
             />
             <Logo
-              id="logo-navbar" 
+              id="logo-navbar"
               class="size-7 block md:hidden w-auto transition-colors duration-300"
               :class="[
-                y > 60 ? 'text-muted-950 dark:text-white' : 'text-muted-950/80 dark:text-muted-200', 
+                y > 60 ? 'text-muted-950 dark:text-white' : 'text-muted-950/80 dark:text-muted-200',
                 isMobileOpen ? 'text-muted-950! dark:text-white!' : '']"
             />
           </NuxtLink>
         </div>
-        <!--Links-->
+        <!-- Links -->
         <div class="hidden lg:flex items-center gap-x-8">
-          <NuxtLink to="/docs" class="text-sm text-muted-900 dark:text-white">Docs</NuxtLink>
-          <NuxtLink to="/" class="text-sm text-muted-900 dark:text-white">Components</NuxtLink>
-          <NuxtLink to="/" class="text-sm text-muted-900 dark:text-white">Charts</NuxtLink>
-          <NuxtLink to="/" class="text-sm text-muted-900 dark:text-white">Playground</NuxtLink>
-          <NuxtLink to="/" class="text-sm text-muted-900 dark:text-white">Colors</NuxtLink>
+          <NuxtLink
+            to="/docs"
+            class="text-sm text-muted-900 dark:text-white"
+          >Docs</NuxtLink>
+          <NuxtLink
+            to="/"
+            class="text-sm text-muted-900 dark:text-white"
+          >Components</NuxtLink>
+          <NuxtLink
+            to="/"
+            class="text-sm text-muted-900 dark:text-white"
+          >Charts</NuxtLink>
+          <NuxtLink
+            to="/"
+            class="text-sm text-muted-900 dark:text-white"
+          >Playground</NuxtLink>
+          <NuxtLink
+            to="/"
+            class="text-sm text-muted-900 dark:text-white"
+          >Colors</NuxtLink>
         </div>
-        <!--Actions-->
+        <!-- Actions -->
         <div class="ms-auto flex items-center justify-end gap-x-3">
-          <div role="button" class="cursor-pointer h-8 w-48 flex items-center justify-between bg-muted-50 dark:bg-muted-900 text-muted-400 hover:text-muted-600 dark:hover:text-muted-200 hover:ring-muted-300 dark:hover:ring-muted-700 gap-2 ps-3 pe-1 py-1 rounded-md ring-1 ring-muted-200 dark:ring-muted-800 transition-colors duration-300">
+          <div
+            role="button"
+            class="cursor-pointer h-8 w-48 flex items-center justify-between bg-muted-50 dark:bg-muted-900 text-muted-400 hover:text-muted-600 dark:hover:text-muted-200 hover:ring-muted-300 dark:hover:ring-muted-700 gap-2 ps-3 pe-1 py-1 rounded-md ring-1 ring-muted-200 dark:ring-muted-800 transition-colors duration-300"
+          >
             <div class="pointer-events-none">
               <span class="font-sans text-sm">
                 Search docs...
@@ -85,8 +114,15 @@ const { x, y } = useWindowScroll()
               </BaseKbd>
             </div>
           </div>
-          <BaseButton size="icon-sm" variant="ghost" rounded="md">
-            <Icon name="fa6-brands:github" class="size-5 text-sm" />
+          <BaseButton
+            size="icon-sm"
+            variant="ghost"
+            rounded="md"
+          >
+            <Icon
+              name="fa6-brands:github"
+              class="size-5 text-sm"
+            />
           </BaseButton>
           <div class="scale-75 -ms-2">
             <BaseThemeSwitch />

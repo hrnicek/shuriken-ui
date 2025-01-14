@@ -40,19 +40,32 @@ const team = [
         >
           <span>Team</span>
         </BaseHeading>
-        <BaseParagraph size="sm" class="text-muted-600 dark:text-muted-400">
+        <BaseParagraph
+          size="sm"
+          class="text-muted-600 dark:text-muted-400"
+        >
           Manage member permissions
         </BaseParagraph>
       </div>
       <div class="relative">
-        <BaseButton size="icon-sm" variant="dark" rounded="full">
-          <Icon name="lucide:plus" class="size-4" />
+        <BaseButton
+          size="icon-sm"
+          variant="dark"
+          rounded="full"
+        >
+          <Icon
+            name="lucide:plus"
+            class="size-4"
+          />
         </BaseButton>
       </div>
     </div>
     <div>
       <ul class="space-y-6 mb-3">
-        <li v-for="member in team" :key="member.id">
+        <li
+          v-for="member in team"
+          :key="member.id"
+        >
           <div class="flex items-center gap-2">
             <BaseAvatar
               size="xs"
@@ -74,7 +87,7 @@ const team = [
                   content: {
                     sideOffset: 10,
                     align: 'end',
-                  }
+                  },
                 }"
               >
                 <template #button>
@@ -83,14 +96,17 @@ const team = [
                     size="sm"
                     class="group cursor-pointer"
                   >
-                    {{ member.role }} <Icon name="lucide:chevron-down" class="block h-4 w-4 ms-2 transition-transform group-data-[state=open]:rotate-180" />
+                    {{ member.role }} <Icon
+                      name="lucide:chevron-down"
+                      class="block h-4 w-4 ms-2 transition-transform group-data-[state=open]:rotate-180"
+                    />
                   </BaseButton>
                 </template>
-                
-                <BaseDropdownItem>Admin</BaseDropdownItem> 
-                <BaseDropdownItem>Manager</BaseDropdownItem> 
-                <BaseDropdownItem>Member</BaseDropdownItem> 
-                <BaseDropdownItem>Reader</BaseDropdownItem> 
+
+                <BaseDropdownItem>Admin</BaseDropdownItem>
+                <BaseDropdownItem>Manager</BaseDropdownItem>
+                <BaseDropdownItem>Member</BaseDropdownItem>
+                <BaseDropdownItem>Reader</BaseDropdownItem>
               </BaseDropdown>
             </div>
           </div>

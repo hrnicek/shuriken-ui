@@ -3,7 +3,10 @@
     <div class="w-full rounded-xl bg-muted-100 p-4 dark:bg-muted-900">
       <div class="flex items-center">
         <div class="flex flex-wrap items-end gap-4">
-          <BaseButton to="https://google.com" size="md">
+          <BaseButton
+            to="https://google.com"
+            size="md"
+          >
             Google.com
           </BaseButton>
         </div>

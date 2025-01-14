@@ -8,9 +8,15 @@
               View
             </BaseButtonAction>
             <BaseButtonAction rounded="md">
-              <Icon name="ph:pen" class="h-4 w-4" />
+              <Icon
+                name="ph:pen"
+                class="h-4 w-4"
+              />
             </BaseButtonAction>
-            <BaseButtonAction muted rounded="md">
+            <BaseButtonAction
+              muted
+              rounded="md"
+            >
               Muted
             </BaseButtonAction>
             <BaseDropdown label="plus">
@@ -22,7 +28,10 @@
               <BaseDropdownItem> Edit </BaseDropdownItem>
               <BaseDropdownItem> Cancel </BaseDropdownItem>
             </BaseDropdown>
-            <BaseButtonAction disabled rounded="md">
+            <BaseButtonAction
+              disabled
+              rounded="md"
+            >
               Disabled
             </BaseButtonAction>
             <BaseButtonAction rounded="md">

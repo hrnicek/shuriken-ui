@@ -31,11 +31,13 @@ function setWorkspace(workspace: any) {
   selectedWorkspace.value = workspace
   open.value = false
 }
-
 </script>
 
 <template>
-  <div ref="target" class="group/workspace relative z-10 ms-auto w-full max-w-[170px] md:ms-0 me-4 md:me-0 md:max-w-[240px]">
+  <div
+    ref="target"
+    class="group/workspace relative z-10 ms-auto w-full max-w-[170px] md:ms-0 me-4 md:me-0 md:max-w-[240px]"
+  >
     <button
       type="button"
       class="w-full max-w-[170px] rounded-lg py-1.5 pe-3 ps-2 border border-muted-200 dark:border-muted-800 transition-colors duration-300 group-hover/workspace:bg-muted-100 dark:group-hover/workspace:bg-muted-900/60 md:max-w-[240px]"
@@ -43,9 +45,16 @@ function setWorkspace(workspace: any) {
       @click="openDropdown()"
     >
       <span class="flex w-full items-center gap-3 text-start">
-        <BaseAvatar size="xxs" :src="selectedWorkspace?.logo" class="grayscale" />
+        <BaseAvatar
+          size="xxs"
+          :src="selectedWorkspace?.logo"
+          class="grayscale"
+        />
         <div>
-          <BaseText size="sm" class="line-clamp-1 block text-muted-800 dark:text-muted-200">
+          <BaseText
+            size="sm"
+            class="line-clamp-1 block text-muted-800 dark:text-muted-200"
+          >
             {{ selectedWorkspace?.name }}
           </BaseText>
         </div>
@@ -72,10 +81,20 @@ function setWorkspace(workspace: any) {
           <div>
             <div class="font-sans flex items-center border-b border-muted-200 dark:border-muted-800">
               <div class="shrink-0 size-8 flex items-center justify-center">
-                <Icon name="lucide:search" class="size-4 text-muted-400 dark:text-muted-100" />
+                <Icon
+                  name="lucide:search"
+                  class="size-4 text-muted-400 dark:text-muted-100"
+                />
               </div>
-              <input type="text" class="h-10 px-2 w-full border-none outline-none bg-transparent text-sm text-muted-700 dark:text-muted-100" placeholder="Find workspace..." />
-              <button type="button" class="me-2 ms-auto rounded-lg border border-muted-200 px-2 py-0.5 dark:border-muted-800">
+              <input
+                type="text"
+                class="h-10 px-2 w-full border-none outline-none bg-transparent text-sm text-muted-700 dark:text-muted-100"
+                placeholder="Find workspace..."
+              >
+              <button
+                type="button"
+                class="me-2 ms-auto rounded-lg border border-muted-200 px-2 py-0.5 dark:border-muted-800"
+              >
                 <BaseText size="xs">
                   Esc
                 </BaseText>
@@ -92,13 +111,20 @@ function setWorkspace(workspace: any) {
               </BaseHeading>
               <div class="my-3 xs:nui-slimscroll xs:max-h-[128px] xs:min-h-[128px]">
                 <ul class="space-y-1">
-                  <li v-for="workspace in workspaces" :key="workspace.id">
+                  <li
+                    v-for="workspace in workspaces"
+                    :key="workspace.id"
+                  >
                     <button
                       type="button"
                       class="flex w-full items-center gap-2 rounded-lg py-2 pe-4 ps-2 transition-colors duration-200 hover:bg-muted-100 dark:hover:bg-muted-800"
                       @click="setWorkspace(workspace)"
                     >
-                      <BaseAvatar size="xxs" :src="workspace.logo" class="grayscale" />
+                      <BaseAvatar
+                        size="xxs"
+                        :src="workspace.logo"
+                        class="grayscale"
+                      />
                       <BaseText size="sm">
                         {{ workspace.name }}
                       </BaseText>
@@ -112,8 +138,14 @@ function setWorkspace(workspace: any) {
                 </ul>
               </div>
               <div class="mt-auto">
-                <BaseButton rounded="md" class="w-full">
-                  <Icon name="lucide:plus" class="size-4" />
+                <BaseButton
+                  rounded="md"
+                  class="w-full"
+                >
+                  <Icon
+                    name="lucide:plus"
+                    class="size-4"
+                  />
                   <span>Create Workspace</span>
                 </BaseButton>
               </div>
@@ -122,10 +154,20 @@ function setWorkspace(workspace: any) {
           <div class="block">
             <div class="font-sans flex items-center border-b border-muted-200 dark:border-muted-800">
               <div class="shrink-0 size-8 flex items-center justify-center">
-                <Icon name="lucide:search" class="size-4 text-muted-400 dark:text-muted-100" />
+                <Icon
+                  name="lucide:search"
+                  class="size-4 text-muted-400 dark:text-muted-100"
+                />
               </div>
-              <input type="text" class="h-10 px-2 w-full border-none outline-none bg-transparent text-sm text-muted-700 dark:text-muted-100" placeholder="Find project..." />
-              <button type="button" class="me-2 ms-auto rounded-lg border border-muted-200 px-2 py-0.5 dark:border-muted-800">
+              <input
+                type="text"
+                class="h-10 px-2 w-full border-none outline-none bg-transparent text-sm text-muted-700 dark:text-muted-100"
+                placeholder="Find project..."
+              >
+              <button
+                type="button"
+                class="me-2 ms-auto rounded-lg border border-muted-200 px-2 py-0.5 dark:border-muted-800"
+              >
                 <BaseText size="xs">
                   Esc
                 </BaseText>
@@ -144,10 +186,16 @@ function setWorkspace(workspace: any) {
                 <ul>
                   <li>
                     <div>
-                      <BaseHeading size="sm" weight="medium">
+                      <BaseHeading
+                        size="sm"
+                        weight="medium"
+                      >
                         No projects yet
                       </BaseHeading>
-                      <BaseParagraph size="xs" class="text-muted-400">
+                      <BaseParagraph
+                        size="xs"
+                        class="text-muted-400"
+                      >
                         This workspace has no projects.
                       </BaseParagraph>
                     </div>
@@ -160,7 +208,10 @@ function setWorkspace(workspace: any) {
                   variant="dark"
                   class="w-full"
                 >
-                  <Icon name="lucide:plus" class="size-4" />
+                  <Icon
+                    name="lucide:plus"
+                    class="size-4"
+                  />
                   <span>Create Project</span>
                 </BaseButton>
               </div>

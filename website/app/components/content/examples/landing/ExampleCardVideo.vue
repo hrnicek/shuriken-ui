@@ -15,7 +15,10 @@
         class="h-full w-full rounded-xl object-cover"
       />
       <button class="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-muted-900 shadow-lg dark:bg-muted-950">
-        <Icon name="mingcute:play-fill" class="text-white" />
+        <Icon
+          name="mingcute:play-fill"
+          class="text-white"
+        />
       </button>
     </div>
     <div class="ml-4">
@@ -28,24 +31,42 @@
       >
         Karina Spiegler
       </BaseHeading>
-      <BaseParagraph size="sm" class="mb-1 text-muted-400">
+      <BaseParagraph
+        size="sm"
+        class="mb-1 text-muted-400"
+      >
         74 tracks
       </BaseParagraph>
       <ul class="flex">
         <li>
-          <Icon name="pepicons:star-filled" class="inline-block text-base text-yellow-400" />
+          <Icon
+            name="pepicons:star-filled"
+            class="inline-block text-base text-yellow-400"
+          />
         </li>
         <li>
-          <Icon name="pepicons:star-filled" class="inline-block text-base text-yellow-400" />
+          <Icon
+            name="pepicons:star-filled"
+            class="inline-block text-base text-yellow-400"
+          />
         </li>
         <li>
-          <Icon name="pepicons:star-filled" class="inline-block text-base text-yellow-400" />
+          <Icon
+            name="pepicons:star-filled"
+            class="inline-block text-base text-yellow-400"
+          />
         </li>
         <li>
-          <Icon name="pepicons:star-filled" class="inline-block text-base text-yellow-400" />
+          <Icon
+            name="pepicons:star-filled"
+            class="inline-block text-base text-yellow-400"
+          />
         </li>
         <li>
-          <Icon name="pepicons:star-filled" class="inline-block text-base text-yellow-400" />
+          <Icon
+            name="pepicons:star-filled"
+            class="inline-block text-base text-yellow-400"
+          />
         </li>
       </ul>
     </div>

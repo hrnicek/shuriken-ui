@@ -1,17 +1,29 @@
 <template>
   <div class="flex items-center justify-center px-4 pb-0 pt-4">
-    <div class="relative w-full overflow-hidden rounded-xl bg-muted-100 p-4 dark:bg-muted-900" style="min-height: 540px;">
+    <div
+      class="relative w-full overflow-hidden rounded-xl bg-muted-100 p-4 dark:bg-muted-900"
+      style="min-height: 540px;"
+    >
       <dialog
         open
         class="nui-modal-md open:nui-modal"
         style="position: absolute !important; height: 100%; width: 100%; top: 0; left: 0; z-index: 9999;"
       >
         <div class="nui-modal-inner relative start-0 top-0 h-full w-full">
-          <div class="nui-modal-backdrop" style="position: absolute !important" />
-          <div class="nui-modal-content" style="position: absolute !important">
+          <div
+            class="nui-modal-backdrop"
+            style="position: absolute !important"
+          />
+          <div
+            class="nui-modal-content"
+            style="position: absolute !important"
+          >
             <div class="nui-modal-content-inner">
               <div class="nui-modal-content-panel">
-                <div class="nui-card nui-card-default nui-card-rounded-sm" shape="smooth">
+                <div
+                  class="nui-card nui-card-default nui-card-rounded-sm"
+                  shape="smooth"
+                >
                   <div class="flex items-center justify-between p-4 md:p-6">
                     <h3 class="nui-heading nui-heading-lg nui-heading-weight-medium nui-heading-lead-normal text-muted-900 dark:text-white">
                       Invitation
@@ -57,11 +69,17 @@
                   </div>
                   <div class="p-4 md:p-6">
                     <div class="flex w-full justify-end gap-x-2">
-                      <button class="nui-button-rounded-md nui-button-default nui-button nui-button-medium nui-button-solid" flavor="solid">
+                      <button
+                        class="nui-button-rounded-md nui-button-default nui-button nui-button-medium nui-button-solid"
+                        flavor="solid"
+                      >
                         Cancel
                       </button>
 
-                      <button class="nui-button-rounded-md nui-button-primary nui-button nui-button-medium nui-button-solid" flavor="solid">
+                      <button
+                        class="nui-button-rounded-md nui-button-primary nui-button nui-button-medium nui-button-solid"
+                        flavor="solid"
+                      >
                         Confirm
                       </button>
                     </div>

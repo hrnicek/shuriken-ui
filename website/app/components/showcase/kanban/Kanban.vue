@@ -1,4 +1,3 @@
-
 <script setup lang="ts">
 import { Container, Draggable } from 'vue3-smooth-dnd'
 import { project } from '~/data/kanban'
@@ -98,16 +97,22 @@ function onDrop(column: ColumnContent, dropResult: any) {
 
 <template>
   <div>
-    <BaseCard rounded="lg" class="shadow-sm shadow-muted-200 dark:shadow-muted-800 overflow-hidden">
+    <BaseCard
+      rounded="lg"
+      class="shadow-sm shadow-muted-200 dark:shadow-muted-800 overflow-hidden"
+    >
       <div class="w-full h-[825px] flex flex-col">
-        <!--Navigation-->
+        <!-- Navigation -->
         <div class="w-full bg-white transition-all duration-300 dark:bg-muted-950 border-b border-muted-200 dark:border-muted-800">
           <nav class="relative mx-auto w-full px-4 md:px-6">
             <div class="flex w-full items-center justify-between h-16 flex-row">
               <div class="grow w-auto">
                 <div class="flex h-16 w-full items-center gap-x-4">
-                  <!--Logo-->
-                  <NuxtLink to="/" class="flex items-center justify-center">
+                  <!-- Logo -->
+                  <NuxtLink
+                    to="/"
+                    class="flex items-center justify-center"
+                  >
                     <Logo class="size-8 text-muted-900 dark:text-white" />
                   </NuxtLink>
                   <!-- Workspace Dropdown -->
@@ -116,9 +121,12 @@ function onDrop(column: ColumnContent, dropResult: any) {
               </div>
               <!-- Menu -->
               <div class="row items-center transition-colors duration-300 dark:bg-muted-950 z-0 block bg-transparent">
-                <!--Toolbar-->
+                <!-- Toolbar -->
                 <div class="flex items-center justify-end gap-2">
-                  <div role="button" class="cursor-pointer h-8 w-48 hidden md:flex items-center justify-between bg-white dark:bg-muted-900 text-muted-400 hover:text-muted-600 dark:hover:text-muted-200 hover:ring-muted-300 dark:hover:ring-muted-700 gap-2 ps-3 pe-1 py-1 rounded-md ring-1 ring-muted-200 dark:ring-muted-800 transition-colors duration-300">
+                  <div
+                    role="button"
+                    class="cursor-pointer h-8 w-48 hidden md:flex items-center justify-between bg-white dark:bg-muted-900 text-muted-400 hover:text-muted-600 dark:hover:text-muted-200 hover:ring-muted-300 dark:hover:ring-muted-700 gap-2 ps-3 pe-1 py-1 rounded-md ring-1 ring-muted-200 dark:ring-muted-800 transition-colors duration-300"
+                  >
                     <div class="pointer-events-none">
                       <span class="font-sans text-sm">
                         Search...
@@ -141,18 +149,23 @@ function onDrop(column: ColumnContent, dropResult: any) {
                       </BaseKbd>
                     </div>
                   </div>
-                  <BaseDropdown variant="default" :bindings="{
-                    content: {
-                      align: 'end',
-                      sideOffset: 10,
-                    }
-                  }">
+                  <BaseDropdown
+                    variant="default"
+                    :bindings="{
+                      content: {
+                        align: 'end',
+                        sideOffset: 10,
+                      },
+                    }"
+                  >
                     <template #button>
                       <button
                         type="button"
                       >
-
-                        <img src="/img/people/29.jpg" class="size-8 rounded-full object-cover grayscale" />
+                        <img
+                          src="/img/people/29.jpg"
+                          class="size-8 rounded-full object-cover grayscale"
+                        >
                       </button>
                     </template>
                     <BaseDropdownItem>Leads</BaseDropdownItem>
@@ -176,18 +189,28 @@ function onDrop(column: ColumnContent, dropResult: any) {
             </div>
           </nav>
         </div>
-        <!--Submenu-->
+        <!-- Submenu -->
         <div class="w-full bg-white transition-all duration-300 dark:bg-muted-950 overflow-hidden">
           <div class="flex items-center justify-between h-14 w-full px-4 md:px-6">
             <div>
-              <BaseParagraph weight="medium" class="text-muted-900 dark:text-white">{{ project.name }}</BaseParagraph>
+              <BaseParagraph
+                weight="medium"
+                class="text-muted-900 dark:text-white"
+              >
+                {{ project.name }}
+              </BaseParagraph>
             </div>
             <div class="">
-              <BaseAvatarGroup :avatars="project.team" size="xs" :limit="4" class="grayscale" />
+              <BaseAvatarGroup
+                :avatars="project.team"
+                size="xs"
+                :limit="4"
+                class="grayscale"
+              />
             </div>
           </div>
         </div>
-        <!--Content-->
+        <!-- Content -->
         <div class="grow h-[calc(100%_-_7.5rem)] flex w-full ps-4 md:ps-6 space-x-6 bg-white overflow-x-auto nui-slimscroll transition-all duration-300 dark:bg-muted-950">
           <!-- Column -->
           <div
@@ -206,11 +229,14 @@ function onDrop(column: ColumnContent, dropResult: any) {
                 class="text-muted-600 dark:text-muted-400 ms-2 flex size-5 items-center justify-center text-sm font-semibold"
               >{{ column.tasks.length }}</span>
               <!-- Column action -->
-              <button 
+              <button
                 type="button"
                 class="cursor-pointer text-muted-900 dark:text-white hover:bg-muted-900/20 dark:hover:bg-white/20 ms-auto flex size-6 items-center justify-center rounded-full transition-colors duration-300"
               >
-                <Icon name="lucide:plus" class="size-4" />
+                <Icon
+                  name="lucide:plus"
+                  class="size-4"
+                />
               </button>
             </div>
             <!-- Scrollable area -->
@@ -230,7 +256,10 @@ function onDrop(column: ColumnContent, dropResult: any) {
               >
                 <!-- Board card -->
                 <template v-if="column.tasks.length > 0">
-                  <Draggable v-for="task in column.tasks" :key="task.id">
+                  <Draggable
+                    v-for="task in column.tasks"
+                    :key="task.id"
+                  >
                     <div
                       role="button"
                       tabindex="0"
@@ -249,7 +278,11 @@ function onDrop(column: ColumnContent, dropResult: any) {
                           >
                             Task #{{ task.id }}
                           </BaseTag>
-                          <BaseText size="xs" weight="medium" class="text-muted-500 dark:text-muted-400">
+                          <BaseText
+                            size="xs"
+                            weight="medium"
+                            class="text-muted-500 dark:text-muted-400"
+                          >
                             {{
                               task.created
                             }}
@@ -273,7 +306,11 @@ function onDrop(column: ColumnContent, dropResult: any) {
                             size="xxs"
                             class="shrink-0 grayscale"
                           />
-                          <BaseText size="xs" weight="medium" class="text-muted-600 dark:text-muted-400">
+                          <BaseText
+                            size="xs"
+                            weight="medium"
+                            class="text-muted-600 dark:text-muted-400"
+                          >
                             {{
                               task.assignee.tooltip
                             }}
@@ -287,7 +324,10 @@ function onDrop(column: ColumnContent, dropResult: any) {
                             } in checklist`"
                             data-nui-tooltip-position="start"
                           >
-                            <Icon name="solar:check-square-linear" class="size-4" />
+                            <Icon
+                              name="solar:check-square-linear"
+                              class="size-4"
+                            />
                           </div>
                           <div
                             v-if="task.files.length > 0"
@@ -296,7 +336,10 @@ function onDrop(column: ColumnContent, dropResult: any) {
                             } uploaded`"
                             data-nui-tooltip-position="start"
                           >
-                            <Icon name="solar:document-text-linear" class="size-4" />
+                            <Icon
+                              name="solar:document-text-linear"
+                              class="size-4"
+                            />
                           </div>
                           <div
                             v-if="task.comments.length > 0"
@@ -305,7 +348,10 @@ function onDrop(column: ColumnContent, dropResult: any) {
                             }`"
                             data-nui-tooltip-position="start"
                           >
-                            <Icon name="solar:chat-round-unread-linear" class="size-4" />
+                            <Icon
+                              name="solar:chat-round-unread-linear"
+                              class="size-4"
+                            />
                           </div>
                         </div>
                       </div>
@@ -317,7 +363,10 @@ function onDrop(column: ColumnContent, dropResult: any) {
                   <div
                     class="text-muted-400 mt-10 flex items-center justify-center"
                   >
-                    <Icon name="ph:kanban-thin" class="size-12" />
+                    <Icon
+                      name="ph:kanban-thin"
+                      class="size-12"
+                    />
                   </div>
                   <div class="mt-2 text-center">
                     <BaseHeading
@@ -338,7 +387,10 @@ function onDrop(column: ColumnContent, dropResult: any) {
                     <button
                       class="text-muted-900 dark:text-white mx-auto mt-2 flex items-center justify-center gap-1 font-sans text-xs underline-offset-4 hover:underline"
                     >
-                      <Icon name="lucide:plus" class="size-3" />
+                      <Icon
+                        name="lucide:plus"
+                        class="size-3"
+                      />
                       <span>New Task</span>
                     </button>
                   </div>
@@ -358,14 +410,17 @@ function onDrop(column: ColumnContent, dropResult: any) {
               <button
                 class="cursor-pointer text-muted-500 dark:text-muted-400 hover:text-muted-900 dark:hover:text-white border-muted-300 dark:border-muted-600 hover:border-muted-900 dark:hover:border-white flex h-12 w-full items-center justify-center gap-x-2 rounded-lg border-2 border-dashed px-6 font-sans transition-colors duration-300 hover:border-solid"
               >
-                <Icon name="solar:widget-add-linear" class="size-5" />
+                <Icon
+                  name="solar:widget-add-linear"
+                  class="size-5"
+                />
                 <span class="text-sm">Manage columns</span>
               </button>
             </div>
           </div>
           <div class="w-6 shrink-0" />
-            </div>
-          </div>
+        </div>
+      </div>
     </BaseCard>
   </div>
 </template>

@@ -34,7 +34,10 @@ const { stop } = useIntersectionObserver(target, ([entry]) => {
       :style="{ height: `${height - 32}px` }"
     >
       <div class="flex items-center justify-center">
-        <Icon name="nui-icon:spiner" class="text-2xl size-8 text-current" />
+        <Icon
+          name="nui-icon:spiner"
+          class="text-2xl size-8 text-current"
+        />
       </div>
     </div>
     <ClientOnly>

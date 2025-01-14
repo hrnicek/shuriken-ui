@@ -42,7 +42,7 @@ const weights = [
           </tr>
         </thead>
         <tbody>
-          <!--Row-->
+          <!-- Row -->
           <tr
             v-for="weight in weights"
             :key="weight.name"

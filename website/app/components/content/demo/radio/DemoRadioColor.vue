@@ -1,5 +1,8 @@
 <template>
-  <BaseRadioGroup v-model="value" class="flex flex-wrap items-center gap-8 p-4">
+  <BaseRadioGroup
+    v-model="value"
+    class="flex flex-wrap items-center gap-8 p-4"
+  >
     <BaseRadio
       name="radio_base"
       label="Option 2"

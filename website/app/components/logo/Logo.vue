@@ -19,7 +19,10 @@ const { id } = defineProps<{
         />
       </clipPath>
     </defs>
-    <g :clip-path="`url(#${id}-clippath-sm)`" class="fill-current"><rect
+    <g
+      :clip-path="`url(#${id}-clippath-sm)`"
+      class="fill-current"
+    ><rect
       x="6.83"
       y="-1.59"
       width="156.17"

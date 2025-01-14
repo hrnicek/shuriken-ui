@@ -14,8 +14,8 @@ function useDemoArea() {
         show: false,
       },
       sparkline: {
-        enabled: true
-      }
+        enabled: true,
+      },
     },
     dataLabels: {
       enabled: false,
@@ -50,14 +50,14 @@ function useDemoArea() {
       opposite: true,
     },
     fill: {
-    type: "gradient",
+      type: 'gradient',
       gradient: {
-        shade: "light",
-        type: "vertical",
+        shade: 'light',
+        type: 'vertical',
         shadeIntensity: 0,
         opacityFrom: 0.5,
-        opacityTo: 0.1
-      }
+        opacityTo: 0.1,
+      },
     },
     legend: {
       horizontalAlign: 'left',
@@ -95,7 +95,10 @@ function useDemoArea() {
 
 <template>
   <div class="relative">
-    <BaseCard rounded="lg" class="p-6 shadow-sm shadow-muted-200 dark:shadow-muted-800">
+    <BaseCard
+      rounded="lg"
+      class="p-6 shadow-sm shadow-muted-200 dark:shadow-muted-800"
+    >
       <!-- Title -->
       <div class="mb-4">
         <BaseParagraph

@@ -30,7 +30,7 @@ const typefaces = [
           </tr>
         </thead>
         <tbody>
-          <!--Row-->
+          <!-- Row -->
           <tr
             v-for="typeface in typefaces"
             :key="typeface.name"

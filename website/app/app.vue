@@ -2,7 +2,7 @@
 const appConfig = useAppConfig()
 
 useHead({
-  titleTemplate: (title) => title ? `${title} | Shuriken UI` : 'Shuriken UI',
+  titleTemplate: title => title ? `${title} | Shuriken UI` : 'Shuriken UI',
   htmlAttrs: {
     lang: 'en',
   },

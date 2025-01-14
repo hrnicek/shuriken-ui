@@ -1,12 +1,21 @@
 <template>
   <div class="flex flex-col space-y-2 px-4 pt-4">
-    <BaseBreadcrumb :items="breadcrumb" color="primary">
+    <BaseBreadcrumb
+      :items="breadcrumb"
+      color="primary"
+    >
       /
     </BaseBreadcrumb>
-    <BaseBreadcrumb :items="breadcrumb" color="dark">
+    <BaseBreadcrumb
+      :items="breadcrumb"
+      color="dark"
+    >
       /
     </BaseBreadcrumb>
-    <BaseBreadcrumb :items="breadcrumb" color="black">
+    <BaseBreadcrumb
+      :items="breadcrumb"
+      color="black"
+    >
       /
     </BaseBreadcrumb>
   </div>

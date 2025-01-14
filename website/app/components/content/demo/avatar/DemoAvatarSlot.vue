@@ -1,6 +1,9 @@
 <template>
   <div class="flex flex-wrap items-end gap-4 p-4">
-    <BaseAvatar size="md" rounded="full">
+    <BaseAvatar
+      size="md"
+      rounded="full"
+    >
       <NuxtImg
         loading="lazy"
         decoding="async"
@@ -8,7 +11,10 @@
         alt=""
       />
     </BaseAvatar>
-    <BaseAvatar size="md" rounded="lg">
+    <BaseAvatar
+      size="md"
+      rounded="lg"
+    >
       <NuxtImg
         loading="lazy"
         decoding="async"

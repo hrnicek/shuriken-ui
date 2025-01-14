@@ -24,8 +24,8 @@ function useDemoGauge() {
         startAngle: -90,
         endAngle: 90,
         hollow: {
-            margin: 0,
-            size: "40%",
+          margin: 0,
+          size: '40%',
         },
         track: {
           background: '#e7e7e7',

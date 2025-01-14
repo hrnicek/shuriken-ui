@@ -1,6 +1,9 @@
 <template>
   <div class="mx-auto max-w-3xl py-6">
-    <BaseProse rounded="md" class="prose-md">
+    <BaseProse
+      rounded="md"
+      class="prose-md"
+    >
       <h1>Typography prose</h1>
       <p class="lead">
         Until now, trying to style an article, document, or blog post with Tailwind has been a tedious task that required a keen eye for typography and a lot of complex custom CSS.

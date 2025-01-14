@@ -18,7 +18,10 @@
         alt=""
       />
     </BaseAvatar>
-    <BaseAvatar src="/img/avatars/25.svg" rounded="full" />
+    <BaseAvatar
+      src="/img/avatars/25.svg"
+      rounded="full"
+    />
     <BaseAvatar
       src="/img/avatars/24.svg"
       rounded="full"

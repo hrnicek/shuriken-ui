@@ -1,10 +1,6 @@
 // import exposeColors from './tailwind/plugin-expose-colors'
 
 export default defineNuxtConfig({
-  compatibilityDate: '2024-11-25',
-  future: {
-    compatibilityVersion: 4,
-  },
   // ssr: false,
   modules: [
     '@shuriken-ui/nuxt',
@@ -13,6 +9,7 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@vueuse/nuxt',
     'nuxt-component-meta',
+    '@nuxt/eslint',
   ],
   css: ['~/assets/tailwind.css'],
   content: {
@@ -23,19 +20,28 @@ export default defineNuxtConfig({
           theme: {
             default: 'github-light',
             dark: 'github-dark',
-          }
-        }
-      }
+          },
+        },
+      },
     },
     renderer: {
       anchorLinks: true,
     },
   },
+  future: {
+    compatibilityVersion: 4,
+  },
+  compatibilityDate: '2024-11-25',
   componentMeta: {
     metaSources: ['@shuriken-ui/nuxt-component-meta'],
     exclude: [
       // Disable parsing components in the project, only use static ones.
       () => true,
     ],
+  },
+  eslint: {
+    config: {
+      stylistic: true, // <---
+    },
   },
 })

@@ -8,7 +8,9 @@
       <div class="flex flex-col divide-y divide-dashed divide-muted-300 dark:divide-muted-800">
         <div class="flex w-full flex-col gap-6 p-4 md:flex-row md:items-center md:p-6">
           <div class="w-40">
-            <BaseTag rounded="full">rounded="none"</BaseTag>
+            <BaseTag rounded="full">
+              rounded="none"
+            </BaseTag>
           </div>
           <BaseCard
             rounded="none"
@@ -48,7 +50,9 @@
 
         <div class="flex w-full flex-col gap-6 p-4 md:flex-row md:items-center md:p-6">
           <div class="w-40">
-            <BaseTag rounded="full">rounded="sm"</BaseTag>
+            <BaseTag rounded="full">
+              rounded="sm"
+            </BaseTag>
           </div>
           <BaseCard
             rounded="sm"
@@ -88,7 +92,9 @@
 
         <div class="flex w-full flex-col gap-6 p-4 md:flex-row md:items-center md:p-6">
           <div class="w-40">
-            <BaseTag rounded="full">rounded="md"</BaseTag>
+            <BaseTag rounded="full">
+              rounded="md"
+            </BaseTag>
           </div>
           <BaseCard
             rounded="md"
@@ -128,7 +134,9 @@
 
         <div class="flex w-full flex-col gap-6 p-4 md:flex-row md:items-center md:p-6">
           <div class="w-40">
-            <BaseTag rounded="full">rounded="lg"</BaseTag>
+            <BaseTag rounded="full">
+              rounded="lg"
+            </BaseTag>
           </div>
           <BaseCard
             rounded="lg"
@@ -168,7 +176,9 @@
 
         <div class="flex w-full flex-col gap-6 p-4 md:flex-row md:items-center md:p-6">
           <div class="w-40">
-            <BaseTag rounded="full">rounded="full"</BaseTag>
+            <BaseTag rounded="full">
+              rounded="full"
+            </BaseTag>
           </div>
           <BaseCard
             rounded="lg"

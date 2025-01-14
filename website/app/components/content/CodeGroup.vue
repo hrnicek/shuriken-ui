@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineOptions({
-  inheritAttrs: false
+  inheritAttrs: false,
 })
 
 const props = defineProps<{
@@ -29,14 +29,17 @@ const selectedTab = computed(() => tabs.value.find((_: any, index: any) => index
 <template>
   <div class="py-6">
     <div class="relative group/code w-full bg-white dark:bg-muted-950 rounded-lg overflow-hidden border !border-muted-300 dark:!border-muted-800">
-      <div class="flex flex-col" :class="{'first-tab': activeTabIndex === 0}">
+      <div
+        class="flex flex-col"
+        :class="{ 'first-tab': activeTabIndex === 0 }"
+      >
         <slot name="preview" />
 
-        <CodeGroupHeader 
+        <CodeGroupHeader
           ref="tabs-header"
+          v-model:active-tab-index="activeTabIndex"
           :tabs
-          v-model:activeTabIndex="activeTabIndex"
-          :hasPreview="!!slots.preview"
+          :has-preview="!!slots.preview"
         />
 
         <div
@@ -53,7 +56,7 @@ const selectedTab = computed(() => tabs.value.find((_: any, index: any) => index
               props.expandable ? '' : 'hidden',
             ]"
           >
-            <div class="relative z-[2] h-full w-full bg-muted-50 dark:bg-muted-950 blur-xl"></div>
+            <div class="relative z-[2] h-full w-full bg-muted-50 dark:bg-muted-950 blur-xl" />
             <button
               type="button"
               class="cursor-pointer absolute bottom-8 start-0 end-0 mx-auto w-32 z-[3] py-1 px-4 flex items-center justify-center text-sm text-muted-500 hover:text-muted-800 dark:text-muted-400 dark:hover:text-muted-100 rounded-full border border-muted-300 dark:border-muted-700 hover:border-muted-200 dark:hover:border-muted-600 bg-white dark:bg-muted-800 transition-colors duration-300"
@@ -70,7 +73,10 @@ const selectedTab = computed(() => tabs.value.find((_: any, index: any) => index
               props.expandable ? 'pt-4 pb-16' : 'py-4',
             ]"
           >
-            <component :is="selectedTab?.component" :key="activeTabIndex" />
+            <component
+              :is="selectedTab?.component"
+              :key="activeTabIndex"
+            />
           </div>
         </div>
       </div>

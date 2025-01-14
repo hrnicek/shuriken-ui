@@ -59,7 +59,10 @@ const customers = [
             >
               <div class="flex items-center justify-between gap-4">
                 <div class="flex items-center space-x-2">
-                  <BaseAvatar src="/img/photo/avatars/29.jpg" size="sm" />
+                  <BaseAvatar
+                    src="/img/photo/avatars/29.jpg"
+                    size="sm"
+                  />
                   <div>
                     <BaseHeading
                       as="h3"
@@ -81,7 +84,10 @@ const customers = [
                 </div>
 
                 <div class="flex items-center space-x-2">
-                  <Icon name="lucide:shopping-cart" class="h-4 w-4 text-muted-100" />
+                  <Icon
+                    name="lucide:shopping-cart"
+                    class="h-4 w-4 text-muted-100"
+                  />
                   <BaseText
                     size="sm"
                     weight="medium"
@@ -109,20 +115,26 @@ const customers = [
                 >
                   Top Customers
                 </BaseHeading>
-                <BaseParagraph size="sm" class="text-muted-500 dark:text-muted-400">
+                <BaseParagraph
+                  size="sm"
+                  class="text-muted-500 dark:text-muted-400"
+                >
                   <BaseLink to="/">
                     View All
                   </BaseLink>
                 </BaseParagraph>
               </div>
               <div class="space-y-6">
-                <!--Loop-->
+                <!-- Loop -->
                 <div
                   v-for="customer in customers"
                   :key="customer.name"
                   class="flex items-center gap-3 transition-all duration-300"
                 >
-                  <BaseAvatar :src="customer.avatar" size="xs" />
+                  <BaseAvatar
+                    :src="customer.avatar"
+                    size="xs"
+                  />
                   <div>
                     <BaseHeading
                       size="sm"
@@ -132,7 +144,10 @@ const customers = [
                     >
                       {{ customer.name }}
                     </BaseHeading>
-                    <BaseParagraph size="xs" class="text-muted-500 dark:text-muted-400">
+                    <BaseParagraph
+                      size="xs"
+                      class="text-muted-500 dark:text-muted-400"
+                    >
                       {{ customer.email }}
                     </BaseParagraph>
                   </div>
@@ -144,7 +159,10 @@ const customers = [
                     >
                       ${{ customer.spent }}
                     </BaseHeading>
-                    <BaseParagraph size="xs" class="text-muted-500 dark:text-muted-400">
+                    <BaseParagraph
+                      size="xs"
+                      class="text-muted-500 dark:text-muted-400"
+                    >
                       {{ customer.location }}
                     </BaseParagraph>
                   </div>
@@ -181,7 +199,10 @@ const customers = [
               class="group/button w-full bg-muted-900 text-white hover:bg-muted-800 dark:bg-muted-950 dark:hover:bg-muted-800 sm:w-64"
             >
               <span>Get Started</span>
-              <Icon name="lucide:arrow-right" class="h-4 w-4 transition-transform duration-300 group-hover/button:translate-x-2" />
+              <Icon
+                name="lucide:arrow-right"
+                class="h-4 w-4 transition-transform duration-300 group-hover/button:translate-x-2"
+              />
             </BaseButton>
           </div>
         </div>
@@ -200,7 +221,10 @@ const customers = [
             <div class="block text-center">
               <div class="mb-1 flex h-16 w-16 items-center justify-center rounded-full border border-muted-200 bg-white dark:border-muted-700 dark:bg-muted-800">
                 <div class="flex h-14 w-14 items-center justify-center rounded-full border-2 border-muted-200 dark:border-muted-700">
-                  <Icon name="logos:nuxt-icon" class="relative h-7 w-7 opacity-60 grayscale" />
+                  <Icon
+                    name="logos:nuxt-icon"
+                    class="relative h-7 w-7 opacity-60 grayscale"
+                  />
                 </div>
               </div>
               <BaseText
@@ -215,7 +239,10 @@ const customers = [
             <div class="block text-center">
               <div class="mb-1 flex h-16 w-16 items-center justify-center rounded-full border border-muted-200 bg-white dark:border-muted-700 dark:bg-muted-800">
                 <div class="flex h-14 w-14 items-center justify-center rounded-full border-2 border-muted-200 dark:border-muted-700">
-                  <Icon name="logos:react" class="relative h-7 w-7 opacity-60 grayscale" />
+                  <Icon
+                    name="logos:react"
+                    class="relative h-7 w-7 opacity-60 grayscale"
+                  />
                 </div>
               </div>
               <BaseText
@@ -230,7 +257,10 @@ const customers = [
             <div class="block text-center">
               <div class="mb-1 flex h-16 w-16 items-center justify-center rounded-full border border-muted-200 bg-white dark:border-muted-700 dark:bg-muted-800">
                 <div class="flex h-14 w-14 items-center justify-center rounded-full border-2 border-muted-200 dark:border-muted-700">
-                  <Icon name="logos:nextjs-icon" class="relative h-7 w-7 opacity-60 grayscale" />
+                  <Icon
+                    name="logos:nextjs-icon"
+                    class="relative h-7 w-7 opacity-60 grayscale"
+                  />
                 </div>
               </div>
               <BaseText
@@ -245,7 +275,10 @@ const customers = [
             <div class="block text-center">
               <div class="mb-1 flex h-16 w-16 items-center justify-center rounded-full border border-muted-200 bg-white dark:border-muted-700 dark:bg-muted-800">
                 <div class="flex h-14 w-14 items-center justify-center rounded-full border-2 border-muted-200 dark:border-muted-700">
-                  <Icon name="vscode-icons:file-type-html" class="relative h-7 w-7 opacity-60 grayscale" />
+                  <Icon
+                    name="vscode-icons:file-type-html"
+                    class="relative h-7 w-7 opacity-60 grayscale"
+                  />
                 </div>
               </div>
               <BaseText

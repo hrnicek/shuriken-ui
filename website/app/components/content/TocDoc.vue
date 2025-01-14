@@ -15,13 +15,19 @@ const links = computed(() => page.value?.body?.toc?.links || [])
       <div class="relative">
         <div class="py-3 pe-4 rounded-md min-w-[200px]">
           <BaseHeading
-            as="h2" size="sm" weight="medium"
+            as="h2"
+            size="sm"
+            weight="medium"
             class="pb-4"
           >
             On This Page
           </BaseHeading>
           <ul class="space-y-3">
-            <li v-for="link in links" :key="link.id" class="relative">
+            <li
+              v-for="link in links"
+              :key="link.id"
+              class="relative"
+            >
               <NuxtLink
                 :to="`#${link.id}`"
                 class="block text-sm leading-snug hover:underline underline-offset-4 hover:text-muted-900 dark:hover:text-white font-sans text-muted-600 dark:text-muted-400"
@@ -33,9 +39,17 @@ const links = computed(() => page.value?.body?.toc?.links || [])
         </div>
       </div>
       <div class="mt-6">
-        <BaseCard rounded="lg" class="w-64 shadow-sm shadow-muted-200 dark:shadow-muted-800 p-4">
-          <BaseHeading weight="medium">Hire us for your project on digisquad.io</BaseHeading>
-          <BaseParagraph size="sm" class="mt-2 text-muted-600 dark:text-muted-400">
+        <BaseCard
+          rounded="lg"
+          class="w-64 shadow-sm shadow-muted-200 dark:shadow-muted-800 p-4"
+        >
+          <BaseHeading weight="medium">
+            Hire us for your project on digisquad.io
+          </BaseHeading>
+          <BaseParagraph
+            size="sm"
+            class="mt-2 text-muted-600 dark:text-muted-400"
+          >
             We are a professional development team. Schedule a call with us to discuss your project requirements.
           </BaseParagraph>
           <BaseButton
@@ -43,7 +57,8 @@ const links = computed(() => page.value?.body?.toc?.links || [])
             target="_blank"
             variant="dark"
             rounded="md"
-            class="w-full mt-4 font-medium">
+            class="w-full mt-4 font-medium"
+          >
             Schedule a call
           </BaseButton>
         </BaseCard>

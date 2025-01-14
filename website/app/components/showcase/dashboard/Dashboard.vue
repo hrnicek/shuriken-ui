@@ -1,4 +1,3 @@
-
 <script setup lang="ts">
 const route = useRoute()
 const home = route.fullPath
@@ -33,16 +32,22 @@ const expenses = ref(46)
 
 <template>
   <div>
-    <BaseCard rounded="lg" class="shadow-sm shadow-muted-200 dark:shadow-muted-800 overflow-hidden">
+    <BaseCard
+      rounded="lg"
+      class="shadow-sm shadow-muted-200 dark:shadow-muted-800 overflow-hidden"
+    >
       <div class="w-full h-[825px] flex flex-col">
-        <!--Navigation-->
+        <!-- Navigation -->
         <div class="w-full bg-white transition-all duration-300 dark:bg-muted-950">
           <nav class="relative mx-auto w-full px-4 md:px-6">
             <div class="flex w-full items-center justify-between h-16 flex-row">
               <div class="grow w-auto">
                 <div class="flex h-16 w-full items-center gap-x-4">
-                  <!--Logo-->
-                  <NuxtLink to="/" class="flex items-center justify-center">
+                  <!-- Logo -->
+                  <NuxtLink
+                    to="/"
+                    class="flex items-center justify-center"
+                  >
                     <Logo class="size-8 text-muted-900 dark:text-white" />
                   </NuxtLink>
                   <!-- Workspace Dropdown -->
@@ -51,9 +56,12 @@ const expenses = ref(46)
               </div>
               <!-- Menu -->
               <div class="row items-center transition-colors duration-300 dark:bg-muted-950 z-0 block bg-transparent">
-                <!--Toolbar-->
+                <!-- Toolbar -->
                 <div class="flex items-center justify-end gap-2">
-                  <div role="button" class="cursor-pointer h-8 w-48 hidden md:flex items-center justify-between bg-white dark:bg-muted-900 text-muted-400 hover:text-muted-600 dark:hover:text-muted-200 hover:ring-muted-300 dark:hover:ring-muted-700 gap-2 ps-3 pe-1 py-1 rounded-md ring-1 ring-muted-200 dark:ring-muted-800 transition-colors duration-300">
+                  <div
+                    role="button"
+                    class="cursor-pointer h-8 w-48 hidden md:flex items-center justify-between bg-white dark:bg-muted-900 text-muted-400 hover:text-muted-600 dark:hover:text-muted-200 hover:ring-muted-300 dark:hover:ring-muted-700 gap-2 ps-3 pe-1 py-1 rounded-md ring-1 ring-muted-200 dark:ring-muted-800 transition-colors duration-300"
+                  >
                     <div class="pointer-events-none">
                       <span class="font-sans text-sm">
                         Search...
@@ -76,18 +84,23 @@ const expenses = ref(46)
                       </BaseKbd>
                     </div>
                   </div>
-                  <BaseDropdown variant="default" :bindings="{
-                    content: {
-                      align: 'end',
-                      sideOffset: 10,
-                    }
-                  }">
+                  <BaseDropdown
+                    variant="default"
+                    :bindings="{
+                      content: {
+                        align: 'end',
+                        sideOffset: 10,
+                      },
+                    }"
+                  >
                     <template #button>
                       <button
                         type="button"
                       >
-
-                        <img src="/img/people/29.jpg" class="size-8 rounded-full object-cover grayscale" />
+                        <img
+                          src="/img/people/29.jpg"
+                          class="size-8 rounded-full object-cover grayscale"
+                        >
                       </button>
                     </template>
                     <BaseDropdownItem>Leads</BaseDropdownItem>
@@ -127,35 +140,48 @@ const expenses = ref(46)
             </div>
           </div>
         </div>
-        <!--Content-->
+        <!-- Content -->
         <div class="px-4 md:px-6 pt-10 pb-6 w-full">
           <div class="mb-8">
             <BaseHeading
               as="h2"
               size="2xl"
               weight="medium"
-              class="text-muted-900 dark:text-white">
+              class="text-muted-900 dark:text-white"
+            >
               Dashboard
             </BaseHeading>
             <div class="mt-4">
               <ul class="inline-flex items-center p-1 rounded-xl bg-muted-200/50 dark:bg-muted-800 text-sm text-muted-400 dark:text-muted-400">
                 <li>
-                  <a to="#" class="cursor-pointer inline-flex items-center justify-center px-3 py-1.5 bg-white rounded-lg font-medium text-muted-900">
+                  <a
+                    to="#"
+                    class="cursor-pointer inline-flex items-center justify-center px-3 py-1.5 bg-white rounded-lg font-medium text-muted-900"
+                  >
                     Overview
                   </a>
                 </li>
                 <li>
-                  <a to="#" class="cursor-pointer inline-flex items-center justify-center px-3 py-1.5 text-muted-400 dark:text-muted-400 hover:text-muted-500 dark:hover:text-muted-500">
+                  <a
+                    to="#"
+                    class="cursor-pointer inline-flex items-center justify-center px-3 py-1.5 text-muted-400 dark:text-muted-400 hover:text-muted-500 dark:hover:text-muted-500"
+                  >
                     Performance
                   </a>
                 </li>
                 <li>
-                  <a to="#" class="cursor-pointer inline-flex items-center justify-center px-3 py-1.5 text-muted-400 dark:text-muted-400 hover:text-muted-500 dark:hover:text-muted-500">
+                  <a
+                    to="#"
+                    class="cursor-pointer inline-flex items-center justify-center px-3 py-1.5 text-muted-400 dark:text-muted-400 hover:text-muted-500 dark:hover:text-muted-500"
+                  >
                     Statistics
                   </a>
                 </li>
                 <li>
-                  <a to="#" class="cursor-pointer inline-flex items-center justify-center px-3 py-1.5 text-muted-400 dark:text-muted-400 hover:text-muted-500 dark:hover:text-muted-500">
+                  <a
+                    to="#"
+                    class="cursor-pointer inline-flex items-center justify-center px-3 py-1.5 text-muted-400 dark:text-muted-400 hover:text-muted-500 dark:hover:text-muted-500"
+                  >
                     Reports
                   </a>
                 </li>
@@ -363,12 +389,21 @@ const expenses = ref(46)
             <div class="lg:col-span-5 col-span-12 space-y-4">
               <div class="grid grid-cols-2 gap-4">
                 <div class="relative">
-                  <BaseCard rounded="lg" class="p-6 shadow-sm shadow-muted-200 dark:shadow-muted-800">
+                  <BaseCard
+                    rounded="lg"
+                    class="p-6 shadow-sm shadow-muted-200 dark:shadow-muted-800"
+                  >
                     <div class="mb-4 flex items-center">
                       <div class="flex items-center gap-2">
                         <BaseTag rounded="full">
                           <span class="inline-flex items-center gap-1">
-                            <BaseChip position="static" size="xs" color="custom" pulse class="text-muted-900 dark:text-white" />
+                            <BaseChip
+                              position="static"
+                              size="xs"
+                              color="custom"
+                              pulse
+                              class="text-muted-900 dark:text-white"
+                            />
                             <span>Trending</span>
                           </span>
                         </BaseTag>
@@ -379,7 +414,7 @@ const expenses = ref(46)
                             content: {
                               sideOffset: 10,
                               align: 'end',
-                            }
+                            },
                           }"
                         >
                           <template #button>
@@ -388,10 +423,13 @@ const expenses = ref(46)
                               size="icon-sm"
                               rounded="md"
                             >
-                              <Icon name="lucide:more-horizontal" class="size-4" />
+                              <Icon
+                                name="lucide:more-horizontal"
+                                class="size-4"
+                              />
                             </BaseButton>
                           </template>
-                        
+
                           <BaseDropdownItem>View details</BaseDropdownItem>
                           <BaseDropdownItem>View history</BaseDropdownItem>
                           <BaseDropdownSeparator />
@@ -405,7 +443,10 @@ const expenses = ref(46)
                       />
                     </div>
                     <div class="flex items-center gap-3">
-                      <Icon name="logos:github-icon" class="size-5 grayscale" />
+                      <Icon
+                        name="logos:github-icon"
+                        class="size-5 grayscale"
+                      />
                       <div>
                         <BaseHeading
                           as="h4"
@@ -418,7 +459,9 @@ const expenses = ref(46)
                         </BaseHeading>
                       </div>
                       <div class="ms-auto flex items-center gap-1">
-                        <BaseText size="lg" weight="medium"
+                        <BaseText
+                          size="lg"
+                          weight="medium"
                           class="text-black dark:text-white"
                         >
                           $119.21
@@ -428,7 +471,10 @@ const expenses = ref(46)
                   </BaseCard>
                 </div>
                 <div class="relative">
-                  <BaseCard rounded="lg" class="p-6 shadow-sm shadow-muted-200 dark:shadow-muted-800">
+                  <BaseCard
+                    rounded="lg"
+                    class="p-6 shadow-sm shadow-muted-200 dark:shadow-muted-800"
+                  >
                     <div class="mb-4 flex items-center">
                       <div class="ms-auto">
                         <BaseDropdown
@@ -436,7 +482,7 @@ const expenses = ref(46)
                             content: {
                               sideOffset: 10,
                               align: 'end',
-                            }
+                            },
                           }"
                         >
                           <template #button>
@@ -445,10 +491,13 @@ const expenses = ref(46)
                               size="icon-sm"
                               rounded="md"
                             >
-                              <Icon name="lucide:more-horizontal" class="size-4" />
+                              <Icon
+                                name="lucide:more-horizontal"
+                                class="size-4"
+                              />
                             </BaseButton>
                           </template>
-                        
+
                           <BaseDropdownItem>View details</BaseDropdownItem>
                           <BaseDropdownItem>View history</BaseDropdownItem>
                           <BaseDropdownSeparator />
@@ -462,7 +511,10 @@ const expenses = ref(46)
                       />
                     </div>
                     <div class="flex items-center gap-2">
-                      <Icon name="logos:nuxt-icon" class="size-5 grayscale" />
+                      <Icon
+                        name="logos:nuxt-icon"
+                        class="size-5 grayscale"
+                      />
                       <div>
                         <BaseHeading
                           as="h4"
@@ -475,7 +527,9 @@ const expenses = ref(46)
                         </BaseHeading>
                       </div>
                       <div class="ms-auto flex items-center gap-1">
-                        <BaseText size="lg" weight="medium"
+                        <BaseText
+                          size="lg"
+                          weight="medium"
                           class="text-black dark:text-white"
                         >
                           $92.39
@@ -485,7 +539,10 @@ const expenses = ref(46)
                   </BaseCard>
                 </div>
                 <div class="relative">
-                  <BaseCard rounded="lg" class="p-6 shadow-sm shadow-muted-200 dark:shadow-muted-800">
+                  <BaseCard
+                    rounded="lg"
+                    class="p-6 shadow-sm shadow-muted-200 dark:shadow-muted-800"
+                  >
                     <div class="mb-4 flex items-center">
                       <div class="ms-auto">
                         <BaseDropdown
@@ -493,7 +550,7 @@ const expenses = ref(46)
                             content: {
                               sideOffset: 10,
                               align: 'end',
-                            }
+                            },
                           }"
                         >
                           <template #button>
@@ -502,10 +559,13 @@ const expenses = ref(46)
                               size="icon-sm"
                               rounded="md"
                             >
-                              <Icon name="lucide:more-horizontal" class="size-4" />
+                              <Icon
+                                name="lucide:more-horizontal"
+                                class="size-4"
+                              />
                             </BaseButton>
                           </template>
-                        
+
                           <BaseDropdownItem>View details</BaseDropdownItem>
                           <BaseDropdownItem>View history</BaseDropdownItem>
                           <BaseDropdownSeparator />
@@ -519,7 +579,10 @@ const expenses = ref(46)
                       />
                     </div>
                     <div class="flex items-center gap-3">
-                      <Icon name="logos:tailwindcss-icon" class="size-5 grayscale" />
+                      <Icon
+                        name="logos:tailwindcss-icon"
+                        class="size-5 grayscale"
+                      />
                       <div>
                         <BaseHeading
                           as="h4"
@@ -532,7 +595,9 @@ const expenses = ref(46)
                         </BaseHeading>
                       </div>
                       <div class="ms-auto flex items-center gap-1">
-                        <BaseText size="lg" weight="medium"
+                        <BaseText
+                          size="lg"
+                          weight="medium"
                           class="text-black dark:text-white"
                         >
                           $513.19
@@ -542,7 +607,10 @@ const expenses = ref(46)
                   </BaseCard>
                 </div>
                 <div class="relative">
-                  <BaseCard rounded="lg" class="p-6 shadow-sm shadow-muted-200 dark:shadow-muted-800">
+                  <BaseCard
+                    rounded="lg"
+                    class="p-6 shadow-sm shadow-muted-200 dark:shadow-muted-800"
+                  >
                     <div class="mb-4 flex items-center">
                       <div class="ms-auto">
                         <BaseDropdown
@@ -550,7 +618,7 @@ const expenses = ref(46)
                             content: {
                               sideOffset: 10,
                               align: 'end',
-                            }
+                            },
                           }"
                         >
                           <template #button>
@@ -559,10 +627,13 @@ const expenses = ref(46)
                               size="icon-sm"
                               rounded="md"
                             >
-                              <Icon name="lucide:more-horizontal" class="size-4" />
+                              <Icon
+                                name="lucide:more-horizontal"
+                                class="size-4"
+                              />
                             </BaseButton>
                           </template>
-                        
+
                           <BaseDropdownItem>View details</BaseDropdownItem>
                           <BaseDropdownItem>View history</BaseDropdownItem>
                           <BaseDropdownSeparator />
@@ -576,7 +647,10 @@ const expenses = ref(46)
                       />
                     </div>
                     <div class="flex items-center gap-3">
-                      <Icon name="logos:react" class="size-5 grayscale" />
+                      <Icon
+                        name="logos:react"
+                        class="size-5 grayscale"
+                      />
                       <div>
                         <BaseHeading
                           as="h4"
@@ -589,7 +663,9 @@ const expenses = ref(46)
                         </BaseHeading>
                       </div>
                       <div class="ms-auto flex items-center gap-1">
-                        <BaseText size="lg" weight="medium"
+                        <BaseText
+                          size="lg"
+                          weight="medium"
                           class="text-black dark:text-white"
                         >
                           $362.14

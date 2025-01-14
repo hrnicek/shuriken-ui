@@ -14,8 +14,8 @@ function useDemoLine() {
         show: false,
       },
       sparkline: {
-        enabled: true
-      }
+        enabled: true,
+      },
     },
     colors: ['var(--color-chart-base)'],
     dataLabels: {
@@ -74,7 +74,10 @@ function useDemoLine() {
 
 <template>
   <div class="relative">
-    <BaseCard rounded="lg" class="p-6 shadow-sm shadow-muted-200 dark:shadow-muted-800">
+    <BaseCard
+      rounded="lg"
+      class="p-6 shadow-sm shadow-muted-200 dark:shadow-muted-800"
+    >
       <!-- Title -->
       <div class="mb-4">
         <BaseParagraph

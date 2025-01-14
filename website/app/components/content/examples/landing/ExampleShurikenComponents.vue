@@ -8,14 +8,32 @@ const swicthBall = ref(true)
     <!-- Row -->
     <div class="relative z-20 col-span-12">
       <div class="flex items-end gap-2">
-        <BaseButtonIcon size="lg" rounded="lg">
-          <Icon name="octicon:typography-16" class="h-5 w-5" />
+        <BaseButtonIcon
+          size="lg"
+          rounded="lg"
+        >
+          <Icon
+            name="octicon:typography-16"
+            class="h-5 w-5"
+          />
         </BaseButtonIcon>
-        <BaseButtonIcon size="md" rounded="lg">
-          <Icon name="mingcute:alarm-2-line" class="h-5 w-5" />
+        <BaseButtonIcon
+          size="md"
+          rounded="lg"
+        >
+          <Icon
+            name="mingcute:alarm-2-line"
+            class="h-5 w-5"
+          />
         </BaseButtonIcon>
-        <BaseButtonIcon size="sm" rounded="lg">
-          <Icon name="lucide:file-question" class="h-4 w-4" />
+        <BaseButtonIcon
+          size="sm"
+          rounded="lg"
+        >
+          <Icon
+            name="lucide:file-question"
+            class="h-4 w-4"
+          />
         </BaseButtonIcon>
       </div>
     </div>
@@ -62,7 +80,10 @@ const swicthBall = ref(true)
           rounded="lg"
           color="default"
         >
-          <Icon name="ph:lightning-duotone" class="h-6 w-6" />
+          <Icon
+            name="ph:lightning-duotone"
+            class="h-6 w-6"
+          />
         </BaseIconBox>
         <BaseIconBox
           size="md"
@@ -71,7 +92,10 @@ const swicthBall = ref(true)
           color="primary"
           variant="pastel"
         >
-          <Icon name="ph:subtract-duotone" class="h-5 w-5" />
+          <Icon
+            name="ph:subtract-duotone"
+            class="h-5 w-5"
+          />
         </BaseIconBox>
       </div>
     </div>

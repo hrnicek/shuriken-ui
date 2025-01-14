@@ -3,7 +3,10 @@
     <div class="flex items-center justify-center px-4 pb-0 pt-4">
       <div class="w-full rounded-xl bg-muted-100 p-4 dark:bg-muted-900 md:p-8">
         <div class="max-w-full">
-          <BaseCard rounded="sm" class="p-6">
+          <BaseCard
+            rounded="sm"
+            class="p-6"
+          >
             <div class="nui-slimscroll h-64 space-y-4 overflow-y-auto pe-4">
               <p class="nui-text-sm nui-text text-muted-400">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Universa enim illorum ratione cum tota vestra confligendum puto. Fortemne possumus dicere eundem illum Torquatum? Bonum patria:

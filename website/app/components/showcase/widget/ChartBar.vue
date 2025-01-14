@@ -11,13 +11,13 @@ function useDemoBar() {
         show: false,
       },
       sparkline: {
-        enabled: true
-      }
+        enabled: true,
+      },
     },
     plotOptions: {
       bar: {
         borderRadius: 4,
-        columnWidth: "80%",
+        columnWidth: '80%',
         dataLabels: {
           position: 'top', // top, center, bottom
         },
@@ -102,7 +102,10 @@ function useDemoBar() {
 
 <template>
   <div class="relative">
-    <BaseCard rounded="lg" class="p-6 shadow-sm shadow-muted-200 dark:shadow-muted-800">
+    <BaseCard
+      rounded="lg"
+      class="p-6 shadow-sm shadow-muted-200 dark:shadow-muted-800"
+    >
       <!-- Title -->
       <div class="mb-4">
         <BaseParagraph

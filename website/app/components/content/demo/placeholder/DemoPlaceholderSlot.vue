@@ -1,7 +1,10 @@
 <template>
   <div class="flex items-center justify-center px-4 pb-0 pt-4">
     <div class="w-full rounded-xl bg-muted-100 p-4 dark:bg-muted-900 md:p-6">
-      <BasePlaceholderPage title="Get Notified" subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Erat enim Polemonis. Duo Reges.">
+      <BasePlaceholderPage
+        title="Get Notified"
+        subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Erat enim Polemonis. Duo Reges."
+      >
         <template #image>
           <NuxtImg
             loading="lazy"
@@ -17,7 +20,10 @@
             rounded="md"
             placeholder="Enter your email"
           />
-          <BaseButton color="primary" rounded="md">
+          <BaseButton
+            color="primary"
+            rounded="md"
+          >
             Subscribe
           </BaseButton>
         </div>

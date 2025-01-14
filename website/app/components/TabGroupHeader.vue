@@ -10,13 +10,12 @@ const props = defineProps<{
   }[]
 }>()
 
-const activeTabIndex = ref()
-// const activeTabIndex = useVModel(props, 'activeTabIndex')
+const activeTabIndexRef = ref()
 
 const { copy, copied, isSupported } = useClipboard({
   source: () => activeTab.value?.code ?? '',
 })
-const activeTab = computed(() => props.tabs[activeTabIndex.value])
+const activeTab = computed(() => props.tabs[activeTabIndexRef.value])
 </script>
 
 <template>
@@ -29,11 +28,11 @@ const activeTab = computed(() => props.tabs[activeTabIndex.value])
       class="group/button text-sm"
       :class="[
         tabs.length > 1 ? 'border-b-2' : 'cursor-default',
-        tabs.length > 1 && index === activeTabIndex ? 'border-muted-800 dark:border-muted-100' : 'border-transparent',
-        index === activeTabIndex ? 'font-medium text-muted-800 dark:text-muted-100' : 'text-muted-400 hover:text-muted-500 dark:hover:text-muted-300',
+        tabs.length > 1 && index === activeTabIndexRef ? 'border-muted-800 dark:border-muted-100' : 'border-transparent',
+        index === activeTabIndexRef ? 'font-medium text-muted-800 dark:text-muted-100' : 'text-muted-400 hover:text-muted-500 dark:hover:text-muted-300',
       ]"
-      @click="() => (activeTabIndex = index)"
-      @keydown.enter.prevent="() => (activeTabIndex = index)"
+      @click="() => (activeTabIndexRef = index)"
+      @keydown.enter.prevent="() => (activeTabIndexRef = index)"
     >
       <span
         v-if="tab.filename"

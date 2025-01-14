@@ -6,28 +6,40 @@
         rounded="md"
         disabled
       >
-        <Icon name="ph:game-controller-duotone" class="h-4 w-4" />
+        <Icon
+          name="ph:game-controller-duotone"
+          class="h-4 w-4"
+        />
       </BaseButtonIcon>
       <BaseButtonIcon
         size="md"
         rounded="md"
         disabled
       >
-        <Icon name="ph:game-controller-duotone" class="h-5 w-5" />
+        <Icon
+          name="ph:game-controller-duotone"
+          class="h-5 w-5"
+        />
       </BaseButtonIcon>
       <BaseButtonIcon
         size="lg"
         rounded="md"
         disabled
       >
-        <Icon name="ph:game-controller-duotone" class="h-6 w-6" />
+        <Icon
+          name="ph:game-controller-duotone"
+          class="h-6 w-6"
+        />
       </BaseButtonIcon>
       <BaseButtonIcon
         size="xl"
         rounded="md"
         disabled
       >
-        <Icon name="ph:game-controller-duotone" class="h-7 w-7" />
+        <Icon
+          name="ph:game-controller-duotone"
+          class="h-7 w-7"
+        />
       </BaseButtonIcon>
     </div>
   </div>

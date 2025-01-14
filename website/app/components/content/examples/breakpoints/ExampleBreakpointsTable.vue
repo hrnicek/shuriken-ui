@@ -48,7 +48,7 @@ const breakpoints = [
           </tr>
         </thead>
         <tbody>
-          <!--Row-->
+          <!-- Row -->
           <tr
             v-for="breakpoint in breakpoints"
             :key="breakpoint.name"

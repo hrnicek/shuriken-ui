@@ -1,6 +1,9 @@
 <template>
   <div class="flex flex-wrap items-end gap-4 p-4">
-    <BaseAvatarGroup size="md" :avatars="people" />
+    <BaseAvatarGroup
+      size="md"
+      :avatars="people"
+    />
   </div>
 </template>
 

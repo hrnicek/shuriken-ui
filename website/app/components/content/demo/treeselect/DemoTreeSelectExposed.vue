@@ -9,15 +9,24 @@
       />
 
       <div class="mt-6 flex gap-2">
-        <BaseButton size="sm" @click="toggleAll">
+        <BaseButton
+          size="sm"
+          @click="toggleAll"
+        >
           toggle selection
         </BaseButton>
 
-        <BaseButton size="sm" @click="selectAll">
+        <BaseButton
+          size="sm"
+          @click="selectAll"
+        >
           select all selection
         </BaseButton>
 
-        <BaseButton size="sm" @click="unselectAll">
+        <BaseButton
+          size="sm"
+          @click="unselectAll"
+        >
           unselect all selection
         </BaseButton>
       </div>

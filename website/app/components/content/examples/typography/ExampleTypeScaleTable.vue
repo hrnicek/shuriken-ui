@@ -102,7 +102,7 @@ const scales = [
           </tr>
         </thead>
         <tbody>
-          <!--Row-->
+          <!-- Row -->
           <tr
             v-for="scale in scales"
             :key="scale.step"

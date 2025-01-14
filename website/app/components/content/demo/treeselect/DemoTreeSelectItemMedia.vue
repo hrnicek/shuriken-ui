@@ -1,7 +1,10 @@
 <template>
   <div class="flex items-center p-4">
     <div class="md:max-w-lg">
-      <BaseTreeSelect :children="tree" treeline>
+      <BaseTreeSelect
+        :children="tree"
+        treeline
+      >
         <template #item-label="{ level, child, toggle }">
           <BaseTreeSelectItem
             :level="level"

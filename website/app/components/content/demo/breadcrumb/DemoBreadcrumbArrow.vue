@@ -1,7 +1,10 @@
 <template>
   <div class="flex items-center px-4 pt-4">
     <BaseBreadcrumb :items="breadcrumb">
-      <Icon name="lucide:arrow-right" class="block h-3 w-3" />
+      <Icon
+        name="lucide:arrow-right"
+        class="block h-3 w-3"
+      />
     </BaseBreadcrumb>
   </div>
 </template>
