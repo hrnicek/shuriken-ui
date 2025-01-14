@@ -45,6 +45,16 @@ export interface BaseInputFileProps {
    * @default 'md'
    */
   size?: 'sm' | 'md' | 'lg' | 'xl'
+
+  /**
+   * Optional classes to pass to the inner components.
+   */
+  classes?: {
+    root?: string | string[]
+    button?: string | string[]
+    text?: string | string[]
+    placeholder?: string | string[]
+  }
 }
 export type BaseInputFileConfig = {
   variant: NonNullable<BaseInputFileProps['variant']>

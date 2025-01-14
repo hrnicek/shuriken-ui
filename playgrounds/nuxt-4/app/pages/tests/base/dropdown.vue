@@ -515,7 +515,7 @@ const selection = ref('first')
           <BaseDropdown label="Dropdown" rounded="md">
             <div class="flex justify-center p-4 mb-3 w-72 rounded-lg bg-muted-100 dark:bg-muted-900/80">
               <div class="text-center">
-                <BaseChip size="md" placement="top-end" :offset="7" color="red">
+                <BaseChip size="md" placement="top-end" :offset="7" color="custom" class="bg-red-500 dark:bg-red-400">
                   <BaseAvatar
                     src="https://tairo.cssninja.io/img/avatars/3.svg"
                     size="lg"

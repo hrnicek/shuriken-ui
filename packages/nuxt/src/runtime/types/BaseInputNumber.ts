@@ -34,6 +34,15 @@ export interface BaseInputNumberProps extends NumberFieldRootProps {
    * @default 'md'
    */
   size?: 'sm' | 'md' | 'lg' | 'xl'
+
+  /**
+   * Optional classes to pass to the inner components.
+   */
+  classes?: {
+    root?: string | string[]
+    button?: string | string[]
+    buttonWrapper?: string | string[]
+  }
 }
 export interface BaseInputNumberEmits extends NumberFieldRootEmits {}
 export type BaseInputNumberSlots = {}

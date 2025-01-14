@@ -18,18 +18,21 @@ const props = withDefaults(defineProps<BaseRadioProps>(), {
   label: undefined,
 
   variant: theme.defaults.variant,
+
+  classes: () => ({}),
 })
 const emits = defineEmits<BaseRadioEmits>()
 const slots = defineSlots<BaseRadioSlots>()
 
 const attrs = useAttrs()
 const id = useNinjaId(() => props.id)
-const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'variant']), emits)
+const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'variant', 'classes']), emits)
 </script>
 
 <template>
   <div
     class="relative inline-flex items-start gap-1"
+    :class="props.classes.root"
   >
     <RadioGroupItem
       :id
@@ -38,15 +41,22 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'varian
       :class="theme.boxVariants[variant]"
     >
       <RadioGroupIndicator
-        :class="theme.dotVariants[variant]" 
         class="pointer-events-none z-10 block group-data-[state=unchecked]/radio:scale-0 roup-data-[state=checked]/radio:scale-100 rounded-full size-1 bg-current dark:bg-current starting:opacity-0 transition-opacity duration-150"
+        :class="[
+          theme.dotVariants[variant],
+          props.classes.indicator
+        ]"
       />
     </RadioGroupItem>
-    <div class="inline-flex flex-col grow">
+    <div
+      class="inline-flex flex-col grow"
+      :class="props.classes.labelWrapper"
+    >
       <Label
         v-if="props.label || 'default' in $slots"
         :for="id"
         class=" ms-1 cursor-pointer select-none font-sans text-sm text-muted-600 dark:text-muted-400"
+        :class="props.classes.label"
       >
         <slot>{{ props.label }}</slot>
       </Label>

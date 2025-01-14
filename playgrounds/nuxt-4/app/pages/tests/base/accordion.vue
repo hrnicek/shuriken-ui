@@ -32,8 +32,9 @@ const accordion = ref([
   <div>
     <NuiPreviewContainer title="BaseAccordion">
       <NuiPreview title="Default" description="Default accordion style">
-        <div class="md:max-w-lg">
+        <div class="md:max-w-lg flex flex-row gap-6">
           <BaseAccordion :items="accordion" type="multiple" />
+          <BaseAccordion :items="accordion" type="single" />
         </div>
       </NuiPreview>
       <NuiPreview title="Slots" description="Accordion available slots">

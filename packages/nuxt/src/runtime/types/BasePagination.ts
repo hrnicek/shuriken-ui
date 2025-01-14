@@ -38,11 +38,11 @@ export interface BasePaginationProps extends PaginationRootProps {
    * Optional bindings to pass to the inner components.
    */
   bindings?: {
-    list?: PaginationListProps & Record<string, any>
-    item?: PaginationListItemProps & Record<string, any>
-    ellipsis?: PaginationEllipsisProps & Record<string, any>
-    prev?: PaginationPrevProps & Record<string, any>
-    next?: PaginationNextProps & Record<string, any>
+    list?: PaginationListProps
+    item?: PaginationListItemProps
+    ellipsis?: PaginationEllipsisProps
+    prev?: PaginationPrevProps
+    next?: PaginationNextProps
   }
 }
 export interface BasePaginationEmits extends PaginationRootEmits {}

@@ -20,6 +20,17 @@ export interface BaseSwitchBallProps extends SwitchRootProps {
    * @default 'default'
    */
    variant?: 'default' | 'primary' | 'dark' | 'none'
+
+  /**
+   * Optional classes to pass to the inner components.
+   */
+  classes?: {
+    root?: string | string[]
+    thumb?: string | string[]
+    track?: string | string[]
+    icon?: string | string[]
+    label?: string | string[]
+  }
 }
 export interface BaseSwitchBallEmits extends SwitchRootEmits {}
 export type BaseSwitchBallSlots = {

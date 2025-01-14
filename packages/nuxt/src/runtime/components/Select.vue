@@ -37,9 +37,10 @@ const props = withDefaults(defineProps<BaseSelectProps<T>>(), {
   dir: undefined,
 
   bindings: () => ({}),
+  classes: () => ({}),
 })
 const emits = defineEmits<BaseSelectEmits<T>>()
-const slots = defineSlots<BaseSelectSlots>()
+const slots = defineSlots<BaseSelectSlots<T>>()
 
 const attrs = useAttrs()
 const id = useNinjaId(() => props.id)
@@ -59,6 +60,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, [
   'size',
   'preset',
   'bindings',
+  'classes',
 ]), emits) as any
 const { forwardRef } = useForwardExpose()
 
@@ -80,8 +82,22 @@ provideBaseSelectContext({
       ]"
       v-bind="{ ...attrs, ...(bindings?.trigger || {}) }"
     >
-      <SelectValue :placeholder="props.placeholder" class="line-clamp-1" />
-      <Icon :name="iconChevronDown" class="size-4" :class="theme.triggerVariants[props.variant]" />
+      <SelectValue
+        :placeholder="props.placeholder"
+        class="line-clamp-1"
+        :class="props.classes.text"
+        v-slot="{ selectedLabel, modelValue }"
+      >
+        <slot name="value" v-bind="{ selectedLabel, modelValue }" />
+      </SelectValue>
+      <Icon
+        :name="iconChevronDown"
+        class="size-4"
+        :class="[
+          theme.triggerVariants[props.variant],
+          props.classes.icon,
+        ]"
+      />
     </SelectTrigger>
 
     <SelectPortal v-bind="bindings?.portal">
@@ -90,6 +106,7 @@ provideBaseSelectContext({
         :class="[
           theme.portalVariants[props.variant],
           theme.portalRadiuses[props.rounded],
+          props.classes.content,
         ]"
         v-bind="bindings?.content"
       >
@@ -97,12 +114,17 @@ provideBaseSelectContext({
           class="flex items-center justify-center h-[25px] bg-white cursor-default"
           :class="[
             theme.portalRadiuses[props.rounded],
+            props.classes.buttonUp,
           ]"
         >
           <Icon :name="iconChevronUp" />
         </SelectScrollUpButton>
 
-        <SelectViewport v-bind="bindings?.viewport" class="p-[5px]">
+        <SelectViewport
+          v-bind="bindings?.viewport"
+          class="p-[5px]"
+          :class="props.classes.viewport"
+        >
           <slot />
         </SelectViewport> 
 
@@ -110,6 +132,7 @@ provideBaseSelectContext({
           class="flex items-center justify-center h-[25px] bg-white cursor-default"
           :class="[
             theme.portalRadiuses[props.rounded],
+            props.classes.buttonDown,
           ]"
         >
           <Icon :name="iconChevronDown" />

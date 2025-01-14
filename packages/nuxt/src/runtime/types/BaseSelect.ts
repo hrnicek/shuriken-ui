@@ -51,16 +51,29 @@ export interface BaseSelectProps<T = AcceptableValue> extends SelectRootProps<T>
    * Optional bindings to pass to the inner components.
    */
   bindings?: {
-    trigger?: SelectTriggerProps & Record<string, any>
-    portal?: SelectPortalProps & Record<string, any>
-    content?: SelectContentProps & Record<string, any>
-    viewport?: SelectViewportProps & Record<string, any>
+    trigger?: SelectTriggerProps
+    portal?: SelectPortalProps
+    content?: SelectContentProps
+    viewport?: SelectViewportProps
+  },
+
+  /**
+   * Optional classes to pass to the inner components.
+   */
+  classes?: {
+    text?: string | string[]
+    icon?: string | string[]
+    content?: string | string[]
+    buttonUp?: string | string[]
+    buttonDown?: string | string[]
+    viewport?: string | string[]
   },
 }
 export interface BaseSelectEmits<T = AcceptableValue> extends SelectRootEmits<T> {}
-export type BaseSelectSlots = {
+export type BaseSelectSlots<T = AcceptableValue> = {
   default(): any
   label(): any
+  value(props: { selectedLabel: string[], modelValue: T | T[] }): any
 }
 export type BaseSelectConfig = {
   variant: NonNullable<BaseSelectProps['variant']>

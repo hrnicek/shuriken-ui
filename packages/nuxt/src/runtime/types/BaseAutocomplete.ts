@@ -51,13 +51,25 @@ export interface BaseAutocompleteProps<T = AcceptableValue> extends ComboboxRoot
    * Optional bindings to pass to the inner components.
    */
   bindings?: {
-    anchor?: ComboboxAnchorProps & Record<string, any>
-    cancel?: ComboboxCancelProps & Record<string, any>
-    trigger?: ComboboxTriggerProps & Record<string, any>
-    portal?: ComboboxPortalProps & Record<string, any>
-    content?: ComboboxContentProps & Record<string, any>
-    viewport?: ComboboxViewportProps & Record<string, any>
-    empty?: ComboboxEmptyProps & Record<string, any>
+    anchor?: ComboboxAnchorProps
+    trigger?: ComboboxTriggerProps
+    portal?: ComboboxPortalProps
+    content?: ComboboxContentProps
+    viewport?: ComboboxViewportProps
+    empty?: ComboboxEmptyProps
+  }
+
+  /**
+   * Optional classes to pass to the inner components.
+   */
+  classes?: {
+    root?: string | string[]
+    anchor?: string | string[]
+    cancel?: string | string[]
+    trigger?: string | string[]
+    content?: string | string[]
+    viewport?: string | string[]
+    empty?: string | string[]
   }
 }
 export interface BaseAutocompleteEmits<T = AcceptableValue> extends ComboboxRootEmits<T> {}

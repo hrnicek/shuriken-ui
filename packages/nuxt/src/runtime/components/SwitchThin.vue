@@ -21,19 +21,22 @@ const props = withDefaults(defineProps<BaseSwitchThinProps>(), {
   modelValue: undefined,
   name: undefined,
   value: undefined,
+
+  classes: () => ({}),
 })
 const emits = defineEmits<BaseSwitchThinEmits>()
 const slots = defineSlots<BaseSwitchThinSlots>()
 
 const id = useNinjaId(() => props.id)
 const attrs = useAttrs()
-const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'sublabel', 'variant']), emits)
+const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'sublabel', 'variant', 'classes']), emits)
 const { forwardRef } = useForwardExpose()
 </script>
 
 <template>
   <span
     class="flex cursor-pointer items-center"
+    :class="props.classes.root"
   >
     <SwitchRoot
       :id
@@ -43,14 +46,25 @@ const { forwardRef } = useForwardExpose()
     >
       <SwitchThumb
         class="peer data-[state=checked]:-translate-y-1/2 data-[state=checked]:translate-x-full data-[state=checked]:rtl:-translate-x-full absolute -start-1 top-1/2 -translate-y-1/2 flex items-center justify-center rounded-full size-6 transition-all duration-300"
-        :class="theme.handleVariants[props.variant]"
+        :class="[
+          theme.handleVariants[props.variant],
+          props.classes.thumb,
+        ]"
       />
       <span
         class="block h-4 w-10 rounded-full transition-all duration-300"
-        :class="theme.trackVariants[props.variant]"
+        :class="[
+          theme.trackVariants[props.variant],
+          props.classes.track,
+        ]"
       />
     </SwitchRoot>
-    <Label :for="id" v-if="props.sublabel || 'sublabel' in slots" class="ms-3 select-none">
+    <Label
+      v-if="props.sublabel || 'sublabel' in slots"
+      :for="id"
+      class="ms-3 select-none"
+      :class="props.classes.label"
+    >
       <span class="block cursor-pointer font-sans text-sm text-muted-600 dark:text-white">
         <slot>{{ props.label }}</slot>
       </span>
@@ -58,7 +72,12 @@ const { forwardRef } = useForwardExpose()
         <slot name="sublabel">{{ props.sublabel }}</slot>
       </span>
     </Label>
-    <Label :for="id" v-else class="relative ms-3 cursor-pointer select-none font-sans text-sm text-muted-600 dark:text-white">
+    <Label 
+      v-else
+      :for="id"
+      class="relative ms-3 cursor-pointer select-none font-sans text-sm text-muted-600 dark:text-white"
+      :class="props.classes.label"
+    >
       <slot>{{ props.label }}</slot>
     </Label>
   </span>

@@ -17,7 +17,17 @@ export interface BaseSwitchThinProps extends SwitchRootProps {
   /**
    * Main color of the switch.
    */
-   variant?: 'default' | 'primary' | 'dark' | 'none'
+  variant?: 'default' | 'primary' | 'dark' | 'none'
+
+  /**
+   * Optional classes to pass to the inner components.
+   */
+  classes?: {
+    root?: string | string[]
+    thumb?: string | string[]
+    track?: string | string[]
+    label?: string | string[]
+  }
 }
 export interface BaseSwitchThinEmits extends SwitchRootEmits {}
 export type BaseSwitchThinSlots = {
