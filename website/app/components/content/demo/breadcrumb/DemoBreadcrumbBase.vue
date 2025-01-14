@@ -3,7 +3,6 @@ const breadcrumb = [
   {
     label: 'Home',
     hideLabel: false,
-    icon: 'lucide:home',
     to: '#',
   },
   {
@@ -21,9 +20,6 @@ const breadcrumb = [
 
 <template>
   <div class="flex items-center px-4 pt-4">
-    <BaseBreadcrumb
-      :items="breadcrumb"
-      separator="dot"
-    />
+    <BaseBreadcrumb :items="breadcrumb" />
   </div>
 </template>

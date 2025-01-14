@@ -22,19 +22,13 @@ const breadcrumb = [
   <div class="flex flex-col space-y-2 px-4 pt-4">
     <BaseBreadcrumb
       :items="breadcrumb"
-      color="primary"
+      variant="primary"
     >
       /
     </BaseBreadcrumb>
     <BaseBreadcrumb
       :items="breadcrumb"
-      color="dark"
-    >
-      /
-    </BaseBreadcrumb>
-    <BaseBreadcrumb
-      :items="breadcrumb"
-      color="black"
+      variant="dark"
     >
       /
     </BaseBreadcrumb>
