@@ -3,64 +3,51 @@
     <div class="w-full rounded-xl bg-muted-100 p-4 dark:bg-muted-900">
       <div class="flex items-center">
         <div class="flex w-full justify-start gap-8">
-          <BaseDropdown
-            variant="button"
-            label="Dropdown"
-            orientation="start"
-          >
+          <BaseDropdown label="Dropdown" rounded="md">
             <BaseDropdownItem
-              to="#"
               title="Lana Jensen"
               text="Software Engineer"
-              color="default"
-              rounded="sm"
+              class="w-80"
             >
               <template #start>
                 <BaseAvatar
-                  src="/img/avatars/4.svg"
+                  src="/img/people/36.jpg"
                   size="xs"
                 />
               </template>
             </BaseDropdownItem>
+
             <BaseDropdownItem
-              to="#"
               title="Shawn Miller"
               text="Product Manager"
-              color="default"
-              rounded="sm"
             >
               <template #start>
                 <BaseAvatar
-                  src="/img/avatars/3.svg"
+                  src="/img/people/18.jpg"
                   size="xs"
                 />
               </template>
             </BaseDropdownItem>
+
             <BaseDropdownItem
-              to="#"
               title="John Marynski"
               text="Sales Manager"
-              color="default"
-              rounded="sm"
             >
               <template #start>
                 <BaseAvatar
-                  src="/img/avatars/18.svg"
+                  src="/img/people/16.jpg"
                   size="xs"
                 />
               </template>
             </BaseDropdownItem>
-            <BaseDropdownSeparator />
+
             <BaseDropdownItem
-              to="#"
               title="Garry Porter"
               text="CEO - Founder"
-              color="default"
-              rounded="sm"
             >
               <template #start>
                 <BaseAvatar
-                  src="/img/avatars/6.svg"
+                  src="/img/people/6.jpg"
                   size="xs"
                 />
               </template>

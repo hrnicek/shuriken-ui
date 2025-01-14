@@ -3,66 +3,39 @@
     <div class="w-full rounded-xl bg-muted-100 p-4 dark:bg-muted-900">
       <div class="flex items-center">
         <div class="flex w-full justify-start gap-8">
-          <BaseDropdown
-            variant="button"
-            label="Dropdown"
-            orientation="start"
-          >
+          <BaseDropdown label="Dropdown" rounded="md">
             <BaseDropdownItem
-              to="#"
               title="Profile"
               text="View your profile"
-              color="dark"
-              rounded="sm"
+              class="w-72"
             >
               <template #start>
-                <Icon
-                  name="ph:user-duotone"
-                  class="me-2 block h-5 w-5"
-                />
+                <Icon name="solar:user-rounded-linear" class="me-2 block text-[1.15rem]" />
               </template>
             </BaseDropdownItem>
             <BaseDropdownItem
-              to="#"
               title="Projects"
               text="View your projects"
-              color="dark"
-              rounded="sm"
             >
               <template #start>
-                <Icon
-                  name="ph:briefcase-duotone"
-                  class="me-2 block h-5 w-5"
-                />
+                <Icon name="solar:case-linear" class="me-2 block text-[1.15rem]" />
               </template>
             </BaseDropdownItem>
             <BaseDropdownItem
-              to="#"
               title="Team"
               text="Manage your team"
-              color="dark"
-              rounded="sm"
             >
               <template #start>
-                <Icon
-                  name="ph:users-four-duotone"
-                  class="me-2 block h-5 w-5"
-                />
+                <Icon name="solar:widget-3-linear" class="me-2 block text-[1.15rem]" />
               </template>
             </BaseDropdownItem>
             <BaseDropdownSeparator />
             <BaseDropdownItem
-              to="#"
               title="Settings"
               text="Set your preferences"
-              color="dark"
-              rounded="sm"
             >
               <template #start>
-                <Icon
-                  name="ph:gear-six-duotone"
-                  class="me-2 block h-5 w-5"
-                />
+                <Icon name="solar:settings-linear" class="me-2 block text-[1.15rem]" />
               </template>
             </BaseDropdownItem>
           </BaseDropdown>
