@@ -29,9 +29,18 @@ export interface BaseAccordionItemProps extends AccordionItemProps {
    * Optional bindings to pass to the inner components.
    */
   bindings?: {
-    header?: AccordionHeaderProps & Record<string, any>
-    content?: AccordionContentProps & Record<string, any>
-    trigger?: AccordionTriggerProps & Record<string, any>
+    header?: AccordionHeaderProps
+    content?: AccordionContentProps
+    trigger?: AccordionTriggerProps
+  }
+
+  /**
+   * Optional classes to pass to the inner components.
+   */
+  classes?: {
+    header?: string | string[]
+    content?: string | string[]
+    trigger?: string | string[]
   }
 }
 

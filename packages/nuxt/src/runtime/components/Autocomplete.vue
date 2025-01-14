@@ -35,6 +35,7 @@ const props = withDefaults(defineProps<BaseAutocompleteProps<T>>(), {
   by: undefined,
 
   bindings: () => ({}),
+  classes: () => ({}),
 })
 
 const emits = defineEmits<BaseAutocompleteEmits<T>>()
@@ -45,7 +46,7 @@ const iconClose = useNuiConfig('icon', 'close')
 const iconChevronDown = useNuiConfig('icon', 'chevronDown')
 const bindings = computed(() => defu(props.bindings, theme.presets[props.preset]))
 
-const forward = useForwardPropsEmits(reactiveOmit(props, ['variant', 'rounded', 'size', 'preset', 'bindings']), emits)
+const forward = useForwardPropsEmits(reactiveOmit(props, ['variant', 'rounded', 'size', 'preset', 'bindings', 'classes']), emits)
 const { forwardRef } = useForwardExpose()
 
 provideBaseAutocompleteContext({
@@ -59,6 +60,9 @@ provideBaseAutocompleteContext({
   <ComboboxRoot
     v-bind="forward"
     class="w-full relative"
+    :class="[
+      props.classes.root,
+    ]"
   >
     <ComboboxAnchor
       class="has-focus-visible:nui-focus w-full flex min-w-[160px] items-center justify-between leading-none gap-[5px] outline-none disabled:cursor-not-allowed has-disabled:opacity-50 has-aria-invalid:border-destructive-base! group"
@@ -66,6 +70,7 @@ provideBaseAutocompleteContext({
         props.rounded && theme.radiuses[props.rounded],
         props.size && theme.sizes[props.size],
         props.variant && theme.variants[props.variant],
+        props.classes.anchor,
       ]"
       v-bind="bindings.anchor"
     >
@@ -75,6 +80,7 @@ provideBaseAutocompleteContext({
       <ComboboxCancel
         v-if="props.clearable"
         class="opacity-0 group-focus-within:opacity-100 transition-opacity duration-100"
+        :class="props.classes.cancel"
         as-child
       >
         <Icon
@@ -88,6 +94,7 @@ provideBaseAutocompleteContext({
           disabled: props.disabled,
           ...(bindings.trigger || {}),
         }"
+        :class="props.classes.trigger"
       >
         <Icon
           :name="iconChevronDown"
@@ -105,15 +112,18 @@ provideBaseAutocompleteContext({
           props.rounded !== 'full' && theme.radiuses[props.rounded],
           props.rounded === 'full' && 'rounded-xl',
           props.variant && theme.portalVariants[props.variant],
+          props.classes.content,
         ]"
       >
         <ComboboxViewport
           class="p-[5px] nui-slimscroll"
           v-bind="bindings.viewport"
+          :class="props.classes.viewport"
         >
           <ComboboxEmpty
             class="text-muted-500 text-xs font-medium text-center py-2"
             v-bind="bindings.empty"
+            :class="props.classes.empty"
           >
             <slot name="empty" />
           </ComboboxEmpty>

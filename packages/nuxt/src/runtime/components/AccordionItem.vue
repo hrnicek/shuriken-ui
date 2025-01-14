@@ -9,6 +9,7 @@ const props = withDefaults(defineProps<BaseAccordionItemProps>(), {
   action: theme.defaults.action,
   variant: theme.defaults.variant,
   bindings: () => ({}),
+  classes: () => ({}),
 })
 
 const slots = defineSlots<BaseAccordionItemSlots>()
@@ -16,7 +17,7 @@ const slots = defineSlots<BaseAccordionItemSlots>()
 const iconChevron = useNuiConfig('icon', 'chevronDown')
 const iconPlus = useNuiConfig('icon', 'plus')
 
-const forward = useForwardProps(reactiveOmit(props, ['title', 'content', 'variant', 'action', 'bindings']))
+const forward = useForwardProps(reactiveOmit(props, ['title', 'content', 'variant', 'action', 'bindings', 'classes']))
 </script>
 
 <template>
@@ -27,28 +28,27 @@ const forward = useForwardProps(reactiveOmit(props, ['title', 'content', 'varian
     <AccordionHeader
       v-bind="props.bindings?.header"
       class="cursor-pointer list-none outline-none"
+      :class="props.classes.header"
     >
       <AccordionTrigger
         v-bind="props.bindings?.trigger"
-        class="flex group/trigger items-center justify-between w-full py-3 rounded-md px-4 cursor-pointer focus-visible:nui-focus"
+        class="flex group/trigger items-center text-sm weight-medium leading-none text-muted-800 dark:text-white justify-between w-full py-3 rounded-md px-4 cursor-pointer focus-visible:nui-focus"
         :class="[
           props.variant === 'default' && 'hover:bg-muted-50 dark:hover:bg-muted-800',
+          props.classes.trigger,
         ]" 
       >
-        <div 
-          class="text-sm weight-medium leading-none text-muted-800 dark:text-white"
-        >
+        <div>
           <slot name="title">{{ props.title }}</slot>
         </div>
-
-        <div
-          class="ms-2 text-muted-500 dark:text-muted-300 flex items-center justify-center size-5 transition-all duration-300"
-          :class="[
-            props.action === 'chevron' && 'group-data-[state=open]/trigger:rotate-180',
-            props.action === 'plus' && 'group-data-[state=open]/trigger:rotate-45',
-          ]"
-        >
-          <slot name="action">
+        <slot name="action">
+          <div
+            class="ms-2 text-muted-500 dark:text-muted-300 flex items-center justify-center size-5 transition-all duration-300"
+            :class="[
+              props.action === 'chevron' && 'group-data-[state=open]/trigger:rotate-180',
+              props.action === 'plus' && 'group-data-[state=open]/trigger:rotate-45',
+            ]"
+          >
             <BaseChip
               v-if="props.action === 'dot'"
               position="static"
@@ -66,17 +66,16 @@ const forward = useForwardProps(reactiveOmit(props, ['title', 'content', 'varian
               :name="iconPlus"
               class="text-base"
             />
-          </slot>
-        </div>
+          </div>
+        </slot>
       </AccordionTrigger>
     </AccordionHeader>
     <AccordionContent 
       v-bind="props.bindings?.content"
-      class="px-4 pb-4 font-sans text-sm text-muted-500 dark:text-muted-400" 
+      class="px-4 mt-3 pb-4 font-sans text-sm text-muted-500 dark:text-muted-400 leading-tight"
+      :class="props.classes.content"
     >
-      <div class="mt-3 text-sm leading-tight">
-        <slot>{{ props.content }}</slot>
-      </div>
+      <slot>{{ props.content }}</slot>
     </AccordionContent>
   </AccordionItem>
 </template>

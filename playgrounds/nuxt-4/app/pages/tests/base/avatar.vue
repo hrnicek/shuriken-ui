@@ -161,9 +161,10 @@ definePageMeta({
           <BaseAvatar
             src="https://tairo.cssninja.io/img/avatars/hth3.svg"
             size="lg"
-            text="ER"
             class="bg-yellow-400/20 text-yellow-500"
-          />
+          >
+            LONGTEST
+          </BaseAvatar>
           <BaseAvatar
             src="https://tairo.cssninja.io/img/avatars/2trht.svg"
             size="lg"

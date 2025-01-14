@@ -17,7 +17,7 @@ const props = withDefaults(defineProps<BaseAvatarProps>(), {
 })
 const slots = defineSlots<BaseAvatarSlots>()
 
-const forward = useForwardProps(reactiveOmit(props, ['src', 'srcDark', 'badgeSrc', 'text', 'size', 'rounded', 'mask', 'bindings']))
+const forward = useForwardProps(reactiveOmit(props, ['src', 'srcDark', 'badgeSrc', 'text', 'size', 'rounded', 'mask', 'bindings', 'classes']))
 
 const badgePosition = computed(() => {
   if (props.rounded === 'full') {
@@ -49,38 +49,41 @@ const badgePosition = computed(() => {
         && `nui-mask ${theme.masks[props.mask]}`,
     ]"
   >
-    <div class="relative flex items-center justify-center overflow-hidden text-center h-full w-full transition-all duration-300">
+    <AvatarImage
+      v-if="props.src"
+      v-bind="props.bindings?.image"
+      :src="props.src"
+      class="object-cover h-full max-h-full w-full max-w-full shadow-xs"
+      :class="[
+        props.rounded && theme.radiuses[props.rounded],
+        props.srcDark ? 'dark:hidden' : '',
+        props.classes.image,
+      ]"
+    />
+
+    <AvatarImage
+      v-if="props.src && props.srcDark"
+      v-bind="props.bindings?.dark"
+      :src="props.srcDark"
+      class="object-cover h-full max-h-full w-full max-w-full shadow-xs hidden dark:block"
+      :class="[
+        props.rounded && theme.radiuses[props.rounded],
+        props.classes.image,
+      ]"
+    />
+
+    <AvatarFallback
+      v-bind="props.bindings?.fallback"
+      class="font-sans font-medium text-center uppercase line-clamp-1 break-all"
+      :class="[
+        theme.textSizes[props.size],
+        props.classes.fallback,
+      ]"
+    >
       <slot>
-        <AvatarImage
-          v-if="props.src"
-          v-bind="props.bindings?.image"
-          :src="props.src"
-          class="object-cover h-full max-h-full w-full max-w-full shadow-xs"
-          :class="[
-            props.rounded && theme.radiuses[props.rounded],
-            props.srcDark ? 'dark:hidden' : '',
-          ]"
-        />
-
-        <AvatarImage
-          v-if="props.src && props.srcDark"
-          v-bind="props.bindings?.dark"
-          :src="props.srcDark"
-          class="object-cover h-full max-h-full w-full max-w-full shadow-xs hidden dark:block"
-          :class="[props.rounded && theme.radiuses[props.rounded]]"
-        />
-
-        <AvatarFallback
-          v-bind="props.bindings?.fallback"
-          class="font-sans font-medium text-center uppercase"
-          :class="[
-            theme.textSizes[props.size]
-          ]"
-        >
-          {{ props.text }}
-        </AvatarFallback>
+        {{ props.text }}
       </slot>
-    </div>
+    </AvatarFallback>
 
     <div
       v-if="'badge' in $slots || props.badgeSrc"
@@ -88,6 +91,7 @@ const badgePosition = computed(() => {
       :class="[
         theme.badgeSize[props.size],
         badgePosition,
+        props.classes.badge,
       ]"
     >
       <slot name="badge">

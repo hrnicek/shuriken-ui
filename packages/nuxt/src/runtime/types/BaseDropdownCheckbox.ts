@@ -33,7 +33,7 @@ export interface BaseDropdownCheckboxProps extends DropdownMenuCheckboxItemProps
    * Optional bindings to pass to the inner components.
    */
   bindings?: {
-    indicator?: DropdownMenuItemIndicatorProps & Record<string, any>
+    indicator?: DropdownMenuItemIndicatorProps
   }
 }
 export interface BaseDropdownCheckboxEmits extends DropdownMenuCheckboxItemEmits {}

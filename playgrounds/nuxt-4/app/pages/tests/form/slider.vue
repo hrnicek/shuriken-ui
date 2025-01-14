@@ -24,7 +24,15 @@ const valueRange = ref([35, 65])
           <BaseSlider :default-value="[42]" />
           <BaseSlider variant="primary" :default-value="[42]" />
           <BaseSlider variant="dark" :default-value="[42]" />
-          <BaseSlider variant="none" class="text-pink-500" :default-value="[42]" />
+          <BaseSlider 
+            variant="none" 
+            :default-value="[42]" 
+            class="text-pink-500"
+            :classes="{ 
+              tooltip: 'bg-pink-100! dark:bg-pink-900! text-pink-900! dark:text-pink-50!', 
+              tooltipArrow: 'fill-pink-100! dark:fill-pink-900!',
+            }" 
+          />
           
           <BaseSlider :default-value="[42]" disabled />
           <BaseSlider variant="primary" :model-value="[42]" disabled />

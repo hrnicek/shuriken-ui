@@ -24,6 +24,8 @@ const props = withDefaults(defineProps<BaseInputNumberProps>(), {
   formatOptions: undefined,
   modelValue: undefined,
   name: undefined,
+
+  classes: () => ({}),
 })
 const emits = defineEmits<BaseInputNumberEmits>()
 const slots = defineSlots<BaseInputNumberSlots>()
@@ -34,7 +36,7 @@ const id = useNinjaId(() => props.id)
 const iconIncrement = useNuiConfig('icon', 'plus')
 const iconDecrement = useNuiConfig('icon', 'minus')
 
-const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'variant', 'rounded', 'size', 'placeholder']), emits)
+const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'variant', 'rounded', 'size', 'placeholder', 'classes']), emits)
 const { forwardRef } = useForwardExpose()
 </script>
 
@@ -46,6 +48,7 @@ const { forwardRef } = useForwardExpose()
     :class="[
       theme.variants[props.variant],
       theme.radiuses[props.rounded],
+      props.classes.root,
     ]"
   >
     <NumberFieldDecrement 
@@ -53,12 +56,14 @@ const { forwardRef } = useForwardExpose()
       :class="[
         theme.buttonSizes[props.size],
         theme.radiuses[props.rounded],
+        props.classes.buttonWrapper,
       ]"
     >
       <span class="h-full w-full flex items-center justify-center transition-colors duration-300"
         :class="[
           theme.radiuses[props.rounded],
           theme.buttonVariants[props.variant],
+          props.classes.button,
         ]"  
       >
         <Icon :name="iconDecrement" />
@@ -81,6 +86,7 @@ const { forwardRef } = useForwardExpose()
       class="flex items-center justify-center shrink-0 p-1 group/button disabled:cursor-not-allowed cursor-pointer"
       :class="[
         theme.buttonSizes[props.size],
+        props.classes.buttonWrapper,
       ]"
     >
       <span
@@ -88,6 +94,7 @@ const { forwardRef } = useForwardExpose()
         :class="[
           theme.radiuses[props.rounded],
           theme.buttonVariants[props.variant],
+          props.classes.button,
         ]"  
       >
         <Icon :name="iconIncrement" />

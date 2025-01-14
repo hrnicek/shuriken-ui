@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useForwardPropsEmits, useForwardExpose } from 'reka-ui';
 import { useAttrs } from 'vue'
+import { reactiveOmit } from '@vueuse/core'
 import type { BaseSliderProps, BaseSliderEmits, BaseSliderSlots } from '../types';
 import { BaseSlider as theme } from '#build/shuriken-ui/theme';
 
@@ -10,12 +11,14 @@ defineOptions({
 
 const props = withDefaults(defineProps<BaseSliderProps>(), {
   variant: theme.defaults.variant,
+
+  classes: () => ({}),
 })
 const emits = defineEmits<BaseSliderEmits>()
 const slots = defineSlots<BaseSliderSlots>()
 const attrs = useAttrs()
 
-const forward = useForwardPropsEmits(props, emits)
+const forward = useForwardPropsEmits(reactiveOmit(props, ['classes']), emits)
 const { forwardRef } = useForwardExpose()
 </script>
 
@@ -34,6 +37,7 @@ const { forwardRef } = useForwardExpose()
         :class="[
           props.orientation === 'vertical' ? 'w-2' : 'h-2',
           theme.trackVariants[props.variant],
+          props.classes.track,
         ]"
       >
         <SliderRange
@@ -41,6 +45,7 @@ const { forwardRef } = useForwardExpose()
           :class="[
             props.orientation === 'vertical' ? 'w-full' : 'h-full',
             theme.rangeVariants[props.variant],
+            props.classes.range,
           ]"
         />
       </SliderTrack>
@@ -54,7 +59,10 @@ const { forwardRef } = useForwardExpose()
           <SliderThumb
             :ref="forwardRef"
             class="block size-5 rounded-full"
-            :class="theme.thumbVariants[props.variant]"
+            :class="[
+              theme.thumbVariants[props.variant],    
+              props.classes.thumb,
+            ]"
           />
         </TooltipTrigger>
 
@@ -62,12 +70,16 @@ const { forwardRef } = useForwardExpose()
           <TooltipContent
             class="bg-white dark:bg-muted-700 px-2 py-1 rounded-sm text-xs font-sans font-medium ring-1 ring-muted-900/10"
             :side-offset="6"
+            :class="props.classes.tooltip"
           >
             <span>
               <slot :value>{{ value }}</slot>
             </span>
 
-            <TooltipArrow class="fill-white dark:fill-muted-700 stroke-muted-900/10" />
+            <TooltipArrow 
+              class="fill-white dark:fill-muted-700 stroke-muted-900/10"
+              :class="props.classes.tooltipArrow"
+            />
           </TooltipContent>
         </TooltipPortal>
       </TooltipRoot>

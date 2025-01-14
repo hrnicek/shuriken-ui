@@ -3,10 +3,6 @@ import type { BaseTextareaProps } from '../types';
 import { BaseTextarea as theme } from '#build/shuriken-ui/theme';
 import { useNinjaId } from '../composables/input-id';
 
-defineOptions({
-  inheritAttrs: false,
-})
-
 const props = withDefaults(defineProps<BaseTextareaProps>(), {
   id: undefined,
   name: undefined,
@@ -51,8 +47,6 @@ function onChange(event: Event) {
 <template>
   <textarea
     :id
-    ref="textareaRef"
-    v-bind="$attrs"
     class="focus-visible:nui-focus w-full p-2 text-sm disabled:cursor-not-allowed disabled:opacity-50 nui-slimscroll aria-invalid:border-destructive-base!"
     :class="[
       props.autogrow && 'field-sizing-content',

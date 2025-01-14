@@ -28,7 +28,9 @@ const props = withDefaults(defineProps<BaseDropdownProps>(), {
 
   variant: theme.defaults.variant,
   rounded: theme.defaults.rounded,
+
   bindings: () => ({}),
+  classes: () => ({}),
 })
 const emits = defineEmits<BaseDropdownEmits>()
 const slots = defineSlots<BaseDropdownSlots>()
@@ -36,7 +38,7 @@ const slots = defineSlots<BaseDropdownSlots>()
 const attrs = useAttrs()
 
 const iconChevronDown = useNuiConfig('icon', 'chevronDown')
-const forward = useForwardPropsEmits(reactiveOmit(props, ['label', 'disabled', 'variant', 'rounded', 'bindings']), emits)
+const forward = useForwardPropsEmits(reactiveOmit(props, ['label', 'disabled', 'variant', 'rounded', 'bindings', 'classes']), emits)
 
 provideBaseDropdownContext({
   variant: props.variant,
@@ -80,6 +82,7 @@ provideBaseDropdownContext({
         :class="[
           props.rounded && theme.radiuses[props.rounded],
           props.variant && theme.variants[props.variant],
+          props.classes.content,
         ]"
       >
         <slot />
