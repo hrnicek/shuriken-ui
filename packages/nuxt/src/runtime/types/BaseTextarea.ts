@@ -42,16 +42,8 @@ export interface BaseTextareaProps {
    * @default 'md'
    */
   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
-
-  /**
-   * The size of the textarea.
-   *
-   * @default 'md'
-   */
-  size?: 'sm' | 'md' | 'lg'
 }
 export type BaseTextareaConfig = {
   variant: NonNullable<BaseTextareaProps['variant']>
   rounded: NonNullable<BaseTextareaProps['rounded']>
-  size: NonNullable<BaseTextareaProps['size']>
 }

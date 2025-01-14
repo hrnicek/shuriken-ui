@@ -1,10 +1,11 @@
 import type { BaseTagConfig, BaseTagProps } from "@shuriken-ui/nuxt"
 
 export const variants = {
-  'default': 'bg-white/10 dark:bg-muted-950/10 text-muted-400 dark:text-muted-200 ring-1 ring-inset ring-muted-400/20 dark:ring-muted-200/20',
-  'muted': 'bg-muted-400/10 dark:bg-muted-950/10 text-muted-400 dark:text-muted-200 ring-1 ring-inset ring-muted-400/20 dark:ring-muted-200/20',
-  'primary': 'bg-primary-400/10 text-primary-base dark:text-primary-light ring-1 ring-inset ring-primary-400/20',
-  'none': ''
+  default: 'bg-tag-default-bg/10 text-tag-default-text ring-1 ring-inset ring-tag-default-border/20',
+  muted: 'bg-tag-muted-bg/10 text-tag-muted-text ring-1 ring-inset ring-tag-muted-border/20',
+  primary: 'bg-primary-light/10 text-primary-base dark:text-primary-light ring-1 ring-inset ring-primary-light/20',
+  dark: 'bg-tag-dark-bg/10 text-tag-dark-text ring-1 ring-inset ring-tag-dark-border/20',
+  none: ''
 } as const satisfies Record<NonNullable<BaseTagProps['variant']>, string>
 
 export const radiuses = {

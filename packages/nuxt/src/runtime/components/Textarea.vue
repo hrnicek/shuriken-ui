@@ -12,7 +12,6 @@ const props = withDefaults(defineProps<BaseTextareaProps>(), {
   name: undefined,
 
   rounded: theme.defaults.rounded,
-  size: theme.defaults.size,
   variant: theme.defaults.variant,
 
   label: undefined,

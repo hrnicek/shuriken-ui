@@ -1,31 +1,19 @@
 import type { BaseSelectConfig, BaseSelectProps } from "@shuriken-ui/nuxt"
 
 export const variants = {
-  default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 data-placeholder:text-muted-300 dark:data-placeholder:text-muted-700',
-  muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 data-placeholder:text-muted-300 dark:data-placeholder:text-muted-700',
+  default: 'bg-input-default-bg border-input-default-border border text-input-default-text data-placeholder:text-input-default-placeholder',
+  muted: 'bg-input-muted-bg border-input-muted-border border text-input-muted-text data-placeholder:text-input-muted-placeholder',
 } as const satisfies Record<NonNullable<BaseSelectProps['variant']>, string>
 
-// @todo: low-contrast-theme
-// export const variants = {
-//   'default': 'bg-white dark:bg-muted-800 border-muted-300 dark:border-muted-700 border text-muted-500 data-placeholder:text-muted-300 dark:data-placeholder:text-muted-700',
-//   'muted': 'bg-muted-50 dark:bg-muted-800 border-muted-300 dark:border-muted-700 border text-muted-500 data-placeholder:text-muted-300 dark:data-placeholder:text-muted-700',
-// } as const  satisfies Record<NonNullable<BaseSelectProps['variant']>, string>
-
 export const portalVariants = {
-  default: 'bg-white dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
-  muted: 'bg-muted-50 dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
+  default: 'bg-portal-default-bg border border-portal-default-border',
+  muted: 'bg-portal-muted-bg border border-portal-muted-border',
 } as const  satisfies Record<NonNullable<BaseSelectProps['variant']>, string>
 
 export const triggerVariants = {
-  default: 'text-muted-600 dark:text-muted-300',
-  muted: 'text-muted-600 dark:text-muted-300',
+  default: 'text-input-default-button-text',
+  muted: 'text-input-muted-button-text',
 } as const satisfies Record<NonNullable<BaseSelectProps['variant']>, string>
-
-// @todo: low-contrast-theme
-// const portalVariants = {
-//   'default': '',
-//   'muted': '',
-// } as const satisfies Record<NonNullable<BaseSelectProps['variant']>, string>
 
 export const sizes = {
   sm: 'h-8 text-xs px-2',

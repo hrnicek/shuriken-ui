@@ -9,8 +9,8 @@ const props = withDefaults(defineProps<BaseDropdownItemProps>(), {
   title: '',
   text: '',
 
-  variant: theme.defaults.variant,
-  rounded: theme.defaults.rounded,
+  variant: undefined,
+  rounded: undefined,
 })
 
 const emits = defineEmits<BaseDropdownItemEmits>()
@@ -26,8 +26,8 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'vari
     v-bind="forward"
     class="focus-visible:nui-focus flex w-full items-center justify-start gap-2 p-2 cursor-pointer text-start font-sans text-sm transition-colors duration-300"
     :class="[
-      context.rounded && theme.radiuses[context.rounded],
-      context.variant && theme.variants[context.variant],
+      (props.rounded || context.rounded) && theme.radiuses[props.rounded || context.rounded],
+      (props.variant || context.variant) && theme.variants[props.variant || context.variant],
       props.disabled && 'opacity-50 pointer-events-none',
     ]"
   >

@@ -96,6 +96,23 @@ definePageMeta({
       </NuiPreview>
 
       <NuiPreview
+        title="Variant: dark"
+        description="Tag dark variant"
+      >
+        <div class="flex flex-wrap items-end gap-3">
+          <BaseTag variant="dark" rounded="full" size="sm">
+            Label
+          </BaseTag>
+          <BaseTag variant="dark" rounded="full" size="md">
+            Label
+          </BaseTag>
+          <BaseTag variant="dark" rounded="full" size="lg">
+            Label
+          </BaseTag>
+        </div>
+      </NuiPreview>
+
+      <NuiPreview
         title="Custom variant"
         description="Tag custom variant"
       >

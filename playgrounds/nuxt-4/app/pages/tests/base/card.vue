@@ -145,45 +145,6 @@ definePageMeta({
           </BaseCard>
         </div>
       </NuiPreview>
-
-      <NuiPreview
-        title="Shadows"
-        description="Card component shadow types"
-      >
-        <div class="grid gap-4 md:grid-cols-2 max-w-3xl">
-          <BaseCard rounded="md" shadow="static" class="p-6">
-            <BaseHeading
-              as="h4"
-              size="sm"
-              weight="semibold"
-              lead="tight"
-              class="text-muted-800 mb-2 dark:text-white"
-            >
-              Static shadow
-            </BaseHeading>
-
-            <BaseParagraph size="sm" lead="tight" class="text-muted-400">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </BaseParagraph>
-          </BaseCard>
-
-          <BaseCard rounded="md" shadow="hover" class="p-6">
-            <BaseHeading
-              as="h4"
-              size="sm"
-              weight="semibold"
-              lead="tight"
-              class="text-muted-800 mb-2 dark:text-white"
-            >
-              Hover shadow
-            </BaseHeading>
-
-            <BaseParagraph size="sm" lead="tight" class="text-muted-400">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </BaseParagraph>
-          </BaseCard>
-        </div>
-      </NuiPreview>
     </NuiPreviewContainer>
   </div>
 </template>

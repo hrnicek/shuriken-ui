@@ -1,17 +1,19 @@
 import type { BaseProgressCircleConfig, BaseProgressCircleProps } from "@shuriken-ui/nuxt"
 
 export const variants = {
-  'primary': 'text-primary-base',
-  'dark': 'text-muted-900 dark:text-muted-100',
-  'none': '',
+  default: 'text-track-default-bg-active',
+  primary: 'text-primary-base',
+  dark: 'text-track-dark-bg-active',
+  none: '',
 } as const satisfies Record<NonNullable<BaseProgressCircleProps['variant']>, string>
 
 export const trackVariants = {
-  'primary': 'text-muted-200 dark:text-muted-900',
-  'dark': 'text-muted-200 dark:text-muted-900',
-  'none': '',
+  default: 'text-track-default-bg',
+  primary: 'text-track-default-bg',
+  dark: 'text-track-dark-bg',
+  none: '',
 } as const satisfies Record<NonNullable<BaseProgressCircleProps['variant']>, string>
 
 export const defaults = {
-  variant: 'primary',
+  variant: 'default',
 } as const satisfies BaseProgressCircleConfig

@@ -197,6 +197,11 @@ const progressCircle = ref(25)
       >
         <div class="max-w-xs space-y-4">
           <BaseProgress
+            title="Default progress bar"
+            size="sm"
+            :model-value="78"
+          />
+          <BaseProgress
             title="primary progress bar"
             size="sm"
             :model-value="78"

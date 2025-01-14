@@ -1,7 +1,7 @@
 import type { SliderRootProps, SliderRootEmits } from 'reka-ui'
 
 export interface BaseSliderProps extends SliderRootProps {
-  variant?: 'primary' | 'dark' | 'none'
+  variant?: 'default' | 'primary' | 'dark' | 'none'
 }
 
 export interface BaseSliderEmits extends SliderRootEmits {}
