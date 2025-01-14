@@ -1,10 +1,12 @@
 <script setup lang="ts">
-// import packagejson from '~/package.json'
+import { joinURL } from 'ufo'
+import packagejson from '../../../package.json'
 
-const { data: _versions } = await useFetch('/api/versions')
+const { data: versions } = await useFetch('/api/versions')
 
 const { isMobileOpen } = useLayoutDefaultContext()
 const { y } = useWindowScroll()
+const appConfig = useAppConfig()
 </script>
 
 <template>
@@ -42,7 +44,7 @@ const { y } = useWindowScroll()
           </BaseButton>
         </div>
         <!-- Logo -->
-        <div class="shrink-0 lg:me-12">
+        <div class="shrink-0 lg:me-12 flex items-center gap-x-2">
           <NuxtLink
             to="/"
             class="block"
@@ -62,6 +64,7 @@ const { y } = useWindowScroll()
                 isMobileOpen ? 'text-muted-950! dark:text-white!' : '']"
             />
           </NuxtLink>
+          <BaseTag v-if="versions" class="text-muted-700! dark:text-muted-100!">v{{ versions[0]?.version }}</BaseTag>
         </div>
         <!-- Links -->
         <div class="hidden lg:flex items-center gap-x-8">
@@ -72,7 +75,7 @@ const { y } = useWindowScroll()
             Docs
           </NuxtLink>
           <NuxtLink
-            to="/"
+            to="/docs/components"
             class="text-sm text-muted-900 dark:text-white"
           >
             Components
@@ -90,7 +93,7 @@ const { y } = useWindowScroll()
             Playground
           </NuxtLink>
           <NuxtLink
-            to="/"
+            to="/docs/theming/colors"
             class="text-sm text-muted-900 dark:text-white"
           >
             Colors
@@ -128,6 +131,9 @@ const { y } = useWindowScroll()
             size="icon-sm"
             variant="ghost"
             rounded="md"
+            :to="joinURL('https://github.com', appConfig.github.org)"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <Icon
               name="fa6-brands:github"

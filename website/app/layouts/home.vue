@@ -81,15 +81,17 @@ const { isMobileOpen } = createLayoutDefaultContext()
                     rounded="md"
                     variant="dark"
                     class="w-full md:w-32"
+                    to="/docs"
                   >
-                    Components
+                    Documentation
                   </BaseButton>
                   <BaseButton
                     rounded="md"
                     variant="ghost"
                     class="w-full md:w-auto"
+                    to="/docs/components"
                   >
-                    Browse Charts
+                    Components
                   </BaseButton>
                 </div>
               </div>
