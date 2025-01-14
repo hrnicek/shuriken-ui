@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
-
 const route = useRoute()
 const isMobileOpen = ref(false)
 
@@ -109,12 +107,15 @@ const form = reactive({
           </div>
           <div class="mt-6 flex w-full flex-col items-center gap-4 px-4 pb-6">
             <template v-for="(item, index) in menuItems" :key="item.name">
-              <Disclosure
+              <CollapsibleRoot
                 v-if="item.children"
-                v-slot="{ open }"
+                v-model:open="open"
                 :default-open="index === 0"
+                class="group w-full"
               >
-                <DisclosureButton class="group/button flex w-full items-center justify-between rounded-xl" :class="open ? 'bg-muted-800 dark:bg-muted-900 text-white' : 'text-muted-500 hover:bg-muted-800/50 dark:hover:bg-muted-900/50 hover:text-muted-100'">
+                <CollapsibleTrigger
+                  class="group/button flex w-full items-center justify-between rounded-xl group-data-[state=open]:bg-muted-800 dark:group-data-[state=open]:bg-muted-900 group-data-[state=open]:text-white group-data-[state=closed]:text-muted-500 group-data-[state=closed]:hover:bg-muted-800/50 dark:group-data-[state=closed]:hover:bg-muted-900/50 group-data-[state=closed]:hover:text-muted-100"
+                >
                   <div
                     class="z-10 flex h-10 w-full items-center pe-4 ps-3"
                   >
@@ -122,41 +123,28 @@ const form = reactive({
                     <span class="ms-4 text-sm">{{ item.name }}</span>
                   </div>
                   <div
-                    class="me-2 flex size-6 shrink-0 items-center justify-center rounded-xl text-muted-500 transition hover:text-white group-hover/button:bg-muted-900 dark:group-hover/button:bg-muted-950"
-                    :class="open ? '-rotate-90' : ''"
+                    class="me-2 flex size-6 shrink-0 items-center justify-center rounded-xl text-muted-500 transition hover:text-white group-hover/button:bg-muted-900 dark:group-hover/button:bg-muted-950 group-data-[state=open]:-rotate-90"
                   >
                     <Icon name="lucide:chevron-left" class="size-4 text-muted-300" />
                   </div>
-                </DisclosureButton>
-                <transition
-                  enter-active-class="transition-all duration-500 overflow-hidden"
-                  enter-from-class="transform max-h-0"
-                  enter-to-class="transform max-h-[9999px]"
-                  leave-active-class="transition-all duration-500 overflow-hidden"
-                  leave-from-class="transform max-h-[9999px]"
-                  leave-to-class="transform max-h-0"
-                >
-                  <DisclosurePanel
-                    as="div"
-                    class="-mt-4 flex w-full flex-col overflow-hidden ps-5 transition-all"
+                </CollapsibleTrigger>
+                <CollapsibleContent class="flex w-full flex-col overflow-hidden ps-5 transition-all">
+                  <div
+                    v-for="child in item.children"
+                    :key="child.name"
+                    class="relative mt-2 ps-4"
                   >
-                    <div
-                      v-for="child in item.children"
-                      :key="child.name"
-                      class="relative mt-2 ps-4"
+                    <div class="absolute bottom-4 left-0 h-16 w-4 rounded-bl-xl border-b-4 border-s-4 border-muted-800 dark:border-muted-900" />
+                    <NuxtLink
+                      :to="child.to"
+                      class="relative flex h-10 w-full items-center rounded-xl pe-4 ps-5 text-muted-500 hover:bg-muted-800/50 hover:text-white dark:hover:bg-muted-900/50"
+                      exact-active-class="!bg-muted-800 dark:!bg-muted-900 !text-muted-100"
                     >
-                      <div class="absolute bottom-4 left-0 h-16 w-4 rounded-bl-xl border-b-4 border-s-4 border-muted-800 dark:border-muted-900" />
-                      <NuxtLink
-                        :to="child.to"
-                        class="relative flex h-10 w-full items-center rounded-xl pe-4 ps-5 text-muted-500 hover:bg-muted-800/50 hover:text-white dark:hover:bg-muted-900/50"
-                        exact-active-class="!bg-muted-800 dark:!bg-muted-900 !text-muted-100"
-                      >
-                        <span class="text-sm">{{ child.name }}</span>
-                      </NuxtLink>
-                    </div>
-                  </DisclosurePanel>
-                </transition>
-              </Disclosure>
+                      <span class="text-sm">{{ child.name }}</span>
+                    </NuxtLink>
+                  </div>
+                </CollapsibleContent>
+              </CollapsibleRoot>
               <NuxtLink
                 v-else
                 :to="item.to"
