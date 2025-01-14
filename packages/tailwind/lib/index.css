@@ -1,6 +1,7 @@
 @plugin '@tailwindcss/typography';
 
 @import './theme.css';
+@import './dark.css';
 
 @import './css/focus.css';
 @import './css/mark.css';
@@ -8,9 +9,6 @@
 @import './css/slimscroll.css';
 
 @layer base {
-  .dark {
-    color-scheme: dark;
-  }
   .nui-no-transition * {
     transition-property: none !important;
     transition-duration: 0 !important;

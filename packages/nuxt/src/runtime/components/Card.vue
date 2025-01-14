@@ -5,13 +5,12 @@ import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 
 const props = withDefaults(defineProps<BaseCardProps>(), {
-  shadow: undefined,
   rounded: theme.defaults.rounded,
   variant: theme.defaults.variant,
 })
 const slots = defineSlots<BaseCardSlots>()
 
-const forward = useForwardProps(reactiveOmit(props, ['rounded', 'shadow', 'variant']))
+const forward = useForwardProps(reactiveOmit(props, ['rounded', 'variant']))
 </script>
 
 <template>
@@ -20,7 +19,6 @@ const forward = useForwardProps(reactiveOmit(props, ['rounded', 'shadow', 'varia
     :class="[
       props.rounded && theme.radiuses[props.rounded],
       props.variant && theme.variants[props.variant],
-      props.shadow && theme.shadows[props.shadow],
     ]"
   >
     <slot />

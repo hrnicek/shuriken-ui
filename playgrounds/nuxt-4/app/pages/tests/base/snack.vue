@@ -18,7 +18,7 @@ definePageMeta({
         </div>
       </NuiPreview>
 
-      <NuiPreview title="Color: default" description="Snack component default">
+      <NuiPreview title="Variant: default" description="Snack component default">
         <div class="flex flex-wrap items-end gap-4">
           <BaseSnack label="React" variant="default" />
           <BaseSnack label="Angular" variant="default" />
@@ -28,13 +28,43 @@ definePageMeta({
         </div>
       </NuiPreview>
 
-      <NuiPreview title="Color: muted" description="Snack component muted">
+      <NuiPreview title="Variant: muted" description="Snack component muted">
         <div class="flex flex-wrap items-end gap-4">
           <BaseSnack label="React" variant="muted" />
           <BaseSnack label="Angular" variant="muted" />
           <BaseSnack label="Vue" variant="muted" />
           <BaseSnack label="Html" variant="muted" />
           <BaseSnack label="Python" variant="muted" />
+        </div>
+      </NuiPreview>
+
+      <NuiPreview title="Variant: primary" description="Snack component primary">
+        <div class="flex flex-wrap items-end gap-4">
+          <BaseSnack label="React" variant="primary" />
+          <BaseSnack label="Angular" variant="primary" />
+          <BaseSnack label="Vue" variant="primary" />
+          <BaseSnack label="Html" variant="primary" />
+          <BaseSnack label="Python" variant="primary" />
+        </div>
+      </NuiPreview>
+
+      <NuiPreview title="Variant: dark" description="Snack component dark">
+        <div class="flex flex-wrap items-end gap-4">
+          <BaseSnack label="React" variant="dark" />
+          <BaseSnack label="Angular" variant="dark" />
+          <BaseSnack label="Vue" variant="dark" />
+          <BaseSnack label="Html" variant="dark" />
+          <BaseSnack label="Python" variant="dark" />
+        </div>
+      </NuiPreview>
+
+      <NuiPreview title="Variant: none" description="Snack component none">
+        <div class="flex flex-wrap items-end gap-4">
+          <BaseSnack label="React" variant="none" class="text-green-600 bg-green-500/10 ring-1 ring-green-600" />
+          <BaseSnack label="Angular" variant="none" class="text-green-600 bg-green-500/10 ring-1 ring-green-600" />
+          <BaseSnack label="Vue" variant="none" class="text-green-600 bg-green-500/10 ring-1 ring-green-600" />
+          <BaseSnack label="Html" variant="none" class="text-green-600 bg-green-500/10 ring-1 ring-green-600" />
+          <BaseSnack label="Python" variant="none" class="text-green-600 bg-green-500/10 ring-1 ring-green-600" />
         </div>
       </NuiPreview>
 

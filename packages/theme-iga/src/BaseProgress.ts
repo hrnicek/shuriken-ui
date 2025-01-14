@@ -1,15 +1,17 @@
 import type { BaseProgressConfig, BaseProgressProps } from "@shuriken-ui/nuxt"
 
 export const variants = {
-  'primary': 'bg-primary-base',
-  'dark': 'bg-muted-900 dark:bg-white',
-  'none': '',
+  default: 'bg-track-default-bg-active',
+  primary: 'bg-primary-base',
+  dark: 'bg-track-dark-bg-active',
+  none: '',
 } as const satisfies Record<NonNullable<BaseProgressProps['variant']>, string>
 
 export const trackVariants = {
-  'primary': 'bg-muted-200 dark:bg-muted-900',
-  'dark': 'bg-muted-200 dark:bg-muted-900',
-  'none': '',
+  default: 'bg-track-default-bg',
+  primary: 'bg-track-default-bg',
+  dark: 'bg-track-dark-bg',
+  none: '',
 } as const satisfies Record<NonNullable<BaseProgressProps['variant']>, string>
 
 export const radiuses = {
@@ -29,7 +31,7 @@ export const sizes = {
 } as const satisfies Record<NonNullable<BaseProgressProps['size']>, string>
 
 export const defaults = {
-  variant: 'primary',
+  variant: 'default',
   rounded: 'full',
   size: 'sm',
 } as const satisfies BaseProgressConfig

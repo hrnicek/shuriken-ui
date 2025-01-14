@@ -31,8 +31,11 @@ export const iconSizes = {
 } as const satisfies Record<NonNullable<BaseSnackProps['size']>, string>
 
 export const variants = {
-  'default': 'bg-white dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
-  'muted': 'bg-muted-200 dark:bg-muted-950',
+  default: 'bg-tag-default-bg/10 text-tag-default-text ring-1 ring-inset ring-tag-default-border/20',
+  muted: 'bg-tag-muted-bg/10 text-tag-muted-text ring-1 ring-inset ring-tag-muted-border/20',
+  primary: 'bg-primary-light/10 text-primary-base dark:text-primary-light ring-1 ring-inset ring-primary-light/20',
+  dark: 'bg-tag-dark-bg/10 text-tag-dark-text ring-1 ring-inset ring-tag-dark-border/20',
+  none: ''
 } as const satisfies Record<NonNullable<BaseSnackProps['variant']>, string>
 
 export const defaults = {

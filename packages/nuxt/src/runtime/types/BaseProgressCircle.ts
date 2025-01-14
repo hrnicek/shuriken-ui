@@ -24,7 +24,7 @@ export interface BaseProgressCircleProps extends ProgressRootProps {
    *
    * @default 'primary'
    */
-  variant?: 'primary' | 'dark' | 'none'
+  variant?: 'default' | 'primary' | 'dark' | 'none'
 }
 export interface BaseProgressCircleEmits extends ProgressRootEmits {}
 

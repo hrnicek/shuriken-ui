@@ -21,7 +21,7 @@ const selection = ref('first')
           <BaseDropdown variant="default" label="Default dropdown">
             <BaseDropdownItem>Leads</BaseDropdownItem>
             <BaseDropdownItem>Projects</BaseDropdownItem>
-            <BaseDropdownItem>Team</BaseDropdownItem>
+            <BaseDropdownItem variant="primary">Team</BaseDropdownItem>
             <BaseDropdownItem>Reports</BaseDropdownItem>
             <BaseDropdownItem>
               Settings

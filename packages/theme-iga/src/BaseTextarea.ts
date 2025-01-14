@@ -8,19 +8,12 @@ export const radiuses = {
   full: 'rounded-xl',
 } as const satisfies Record<NonNullable<BaseTextareaProps['rounded']>, string>
 
-export const sizes = {
-  sm: 'nui-textarea-sm',
-  md: 'nui-textarea-md',
-  lg: 'nui-textarea-lg',
-} as const satisfies Record<NonNullable<BaseTextareaProps['size']>, string>
-
 export const variants = {
-  default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-600 dark:text-muted-300 placeholder:text-muted-300 dark:placeholder:text-muted-700',
-  muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-600 border text-muted-600 dark:text-muted-300 placeholder:text-muted-300 dark:placeholder:text-muted-700',
+  default: 'bg-input-default-bg border-input-default-border border text-input-default-text placeholder:text-input-default-placeholder',
+  muted: 'bg-input-muted-bg border-input-muted-border border text-input-muted-text placeholder:text-input-muted-placeholder',
 } as const satisfies Record<NonNullable<BaseTextareaProps['variant']>, string>
 
 export const defaults = {
   variant: 'default',
   rounded: 'md',
-  size: 'md',
 } as const satisfies BaseTextareaConfig

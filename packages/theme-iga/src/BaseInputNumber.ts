@@ -1,13 +1,13 @@
 import type { BaseInputNumberConfig, BaseInputNumberProps } from "@shuriken-ui/nuxt"
 
 export const variants = {
-  default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border',
-  muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-800 border',
+  default: 'bg-input-default-bg border-input-default-border border',
+  muted: 'bg-input-muted-bg border-input-muted-border border',
 } as const  satisfies Record<NonNullable<BaseInputNumberProps['variant']>, string>
 
 export const inputVariants = {
-  default: 'text-muted-600 dark:text-muted-300 placeholder:text-muted-300 dark:placeholder:text-muted-700',
-  muted: 'text-muted-600 dark:text-muted-300 placeholder:text-muted-300 dark:placeholder:text-muted-700',
+  default: 'text-input-default-text placeholder:text-input-default-placeholder',
+  muted: 'text-input-muted-text placeholder:text-input-muted-placeholder',
 } as const  satisfies Record<NonNullable<BaseInputNumberProps['variant']>, string>
 
 export const sizes = {
@@ -41,8 +41,8 @@ export const buttonSizes = {
 } as const satisfies Record<NonNullable<BaseInputNumberProps['size']>, string>
 
 export const buttonVariants = {
-  default: 'bg-muted-100 group-data-[pressed]/button:bg-muted-200 dark:bg-muted-800 dark:group-data-[pressed]/button:bg-muted-700',
-  muted: 'bg-muted-200 group-data-[pressed]/button:bg-muted-300 dark:bg-muted-800 dark:group-data-[pressed]/button:bg-muted-700',
+  default: 'text-input-default-button-text bg-input-default-button-bg group-data-[pressed]/button:bg-input-default-button-bg-active',
+  muted: 'text-input-muted-button-text bg-input-muted-button-bg group-data-[pressed]/button:bg-input-muted-button-bg-active',
 } as const satisfies Record<NonNullable<BaseInputNumberProps['variant']>, string>
 
 export const defaults = {

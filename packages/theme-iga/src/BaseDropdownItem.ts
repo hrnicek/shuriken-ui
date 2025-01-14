@@ -2,9 +2,9 @@ import type { BaseDropdownItemConfig, BaseDropdownContext } from "@shuriken-ui/n
 
 export { radiuses } from './BaseDropdown'
 export const variants = {
-  'default': 'hover:bg-muted-100 dark:hover:bg-muted-900',
-  'muted': 'hover:bg-muted-200 dark:hover:bg-muted-900',
-  'primary': 'hover:bg-primary-500/10 dark:hover:bg-primary-500/20',
+  'default': 'hover:bg-portal-default-item-bg-active',
+  'muted': 'hover:bg-portal-muted-item-bg-active',
+  'primary': 'hover:bg-primary-base/10 dark:hover:bg-primary-base/20',
   'none': '',
 } as const satisfies Record<NonNullable<BaseDropdownContext['variant']>, string>
 

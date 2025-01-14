@@ -5,7 +5,7 @@ export interface BaseTagProps extends PrimitiveProps {
   /**
    * The variant of the tag.
    */
-  variant?: 'default' | 'muted' | 'primary' | 'none'
+  variant?: 'default' | 'muted' | 'primary' | 'dark' | 'none'
 
   /**
    * The size of the tag.

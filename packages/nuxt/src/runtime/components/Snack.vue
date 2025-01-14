@@ -50,7 +50,7 @@ const forward = useForwardProps(reactiveOmit(props, ['size', 'variant', 'label',
       <img :src="props.image" class="rounded-full" :class="theme.wrapperSizes[props.size]" alt="">
     </div>
     <span
-      class="font-sans text-muted-600 dark:text-muted-300"
+      class="font-sans"
       :class="[
         theme.textSizes[props.size],
       ]"
@@ -59,7 +59,7 @@ const forward = useForwardProps(reactiveOmit(props, ['size', 'variant', 'label',
     </span>
     <button
       type="button"
-      class="focus-visible:nui-focus cursor-pointer scale-75 flex items-center justify-center rounded-full text-muted-600 dark:text-muted-300 hover:text-destructive-base dark:hover:text-destructive-light hover:bg-muted-50 dark:hover:bg-white/10 transition-colors duration-200"
+      class="focus-visible:nui-focus cursor-pointer scale-75 flex items-center justify-center rounded-full hover:bg-current/15 dark:hover:bg-current/10 transition-colors duration-200"
       :class="[
         theme.wrapperSizes[props.size],
       ]"

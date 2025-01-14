@@ -7,7 +7,7 @@ export interface BaseProgressProps extends ProgressRootProps {
   /**
    * The variant of the progress bar.
    */
-  variant?: 'primary' | 'dark' | 'none'
+  variant?: 'default' | 'primary' | 'dark' | 'none'
 
   /**
    * The radius of the progress bar.

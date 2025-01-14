@@ -1,23 +1,23 @@
 import type { BaseSwitchBallConfig, BaseSwitchBallProps } from "@shuriken-ui/nuxt"
 
 export const trackVariants = {
-  'default': 'peer-data-[state=checked]:bg-muted-500 dark:peer-data-[state=checked]:bg-muted-800 bg-muted-300 dark:bg-muted-900',
-  'primary': 'peer-data-[state=checked]:bg-primary-base dark:peer-data-[state=checked]:bg-primary-base bg-muted-300 dark:bg-muted-600',
-  'dark': 'peer-data-[state=checked]:bg-muted-900 dark:peer-data-[state=checked]:bg-muted-100 bg-muted-300 dark:bg-muted-600',
+  'default': 'peer-data-[state=checked]:bg-track-default-bg-active bg-track-default-bg',
+  'primary': 'peer-data-[state=checked]:bg-primary-base dark:peer-data-[state=checked]:bg-primary-base bg-track-default-bg',
+  'dark': 'peer-data-[state=checked]:bg-track-dark-bg-active bg-track-dark-bg',
   'none': '',
 } as const satisfies Record<NonNullable<BaseSwitchBallProps['variant']>, string>
 
 export const handleVariants = {
-  'default': 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
-  'primary': 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
-  'dark': 'bg-white dark:bg-muted-700 border border-muted-300 dark:border-muted-600',
+  'default': 'bg-track-default-handle-bg border border-track-default-handle-border',
+  'primary': 'bg-track-default-handle-bg border border-track-default-handle-border',
+  'dark': 'bg-track-dark-handle-bg border border-track-dark-handle-border',
   'none': '',
 } as const satisfies Record<NonNullable<BaseSwitchBallProps['variant']>, string>
 
 export const iconVariants = {
-  'default': 'text-muted-100 dark:text-white',
-  'primary': 'text-white dark:text-white',
-  'dark': 'text-white dark:text-muted-900',
+  'default': 'text-track-default-bg-invert',
+  'primary': 'text-primary-invert',
+  'dark': 'text-track-dark-bg-invert',
   'none': '',
 } as const satisfies Record<NonNullable<BaseSwitchBallProps['variant']>, string>
 

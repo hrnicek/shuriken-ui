@@ -1,26 +1,26 @@
 import type { BaseAutocompleteConfig, BaseAutocompleteProps } from "@shuriken-ui/nuxt";
 
 export const variants = {
-  default: 'bg-white dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 text-muted-600 dark:text-muted-300',
-  muted: 'bg-muted-50 dark:bg-muted-900 border-muted-300 dark:border-muted-800 border text-muted-500 text-muted-600 dark:text-muted-300',
+  default: 'bg-input-default-bg border-input-default-border border',
+  muted: 'bg-input-muted-bg border-input-muted-border border',
   none: '',
 } as const satisfies Record<NonNullable<BaseAutocompleteProps['variant']>, string>
 
 export const portalVariants = {
-  default: 'bg-white dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
-  muted: 'bg-muted-50 dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
+  default: 'bg-portal-default-bg border border-portal-default-border',
+  muted: 'bg-portal-muted-bg border border-portal-muted-border',
   none: '',
 } as const satisfies Record<NonNullable<BaseAutocompleteProps['variant']>, string>
 
 export const inputVariants = {
-  default: 'text-muted-600 dark:text-muted-300 placeholder:text-muted-300 dark:placeholder:text-muted-700',
-  muted: 'text-muted-600 dark:text-muted-300 placeholder:text-muted-300 dark:placeholder:text-muted-700',
+  default: 'text-input-default-text placeholder:text-input-default-placeholder',
+  muted: 'text-input-muted-text placeholder:text-input-muted-placeholder',
   none: '',
 } as const satisfies Record<NonNullable<BaseAutocompleteProps['variant']>, string>
 
 export const triggerVariants = {
-  default: 'text-muted-600 dark:text-muted-300',
-  muted: 'text-muted-600 dark:text-muted-300',
+  default: 'text-input-default-button-text',
+  muted: 'text-input-muted-button-text',
   none: '',
 } as const satisfies Record<NonNullable<BaseAutocompleteProps['variant']>, string>
 
