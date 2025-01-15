@@ -87,7 +87,7 @@ provideBaseSelectContext({
       <SelectValue
         :placeholder="props.placeholder"
         :class="tm([
-          'line-clamp-1',
+          'line-clamp-1 leading-tight',
           props.classes.text,
         ])"
         v-slot="{ selectedLabel, modelValue }"
@@ -97,7 +97,7 @@ provideBaseSelectContext({
       <Icon
         :name="iconChevronDown"
         :class="tm([
-          'size-4',
+          'size-4 shrink-0',
           theme.triggerVariants[props.variant],
           props.classes.icon,
         ])"

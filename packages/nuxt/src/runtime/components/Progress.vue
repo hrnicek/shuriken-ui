@@ -37,7 +37,9 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['variant', 'rounded', 
         props.variant && theme.variants[props.variant],
         props.rounded && theme.radiuses[props.rounded],
       ]"
-      :style="typeof modelValue === 'number' && `transform: translateX(-${100 - modelValue}%)`"
+      :style="typeof modelValue === 'number' && `transform: translateX(-${(
+        100 - (modelValue / (props.max || 100) * 100)
+      )}%)`"
     />
   </ProgressRoot>
 </template>

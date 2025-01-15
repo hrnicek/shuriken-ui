@@ -7,8 +7,8 @@ export const variants = {
 } as const as Record<BaseSelectContext['variant'], string>
 
 export const sizes = {
-  sm: 'min-h-6',
-  md: 'min-h-8',
-  lg: 'min-h-10',
-  xl: 'min-h-12',
+  sm: 'min-h-6 text-xs',
+  md: 'min-h-8 text-sm',
+  lg: 'min-h-10 text-sm',
+  xl: 'min-h-12 text-base',
 } as const satisfies Record<NonNullable<BaseSelectContext['size']>, string>

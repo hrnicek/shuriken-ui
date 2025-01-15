@@ -118,11 +118,36 @@ const item = ref(items[0])
       <NuiPreview title="Select base" description="Select component radiuses">
         <div class="grid gap-6 md:max-w-xl md:grid-cols-2">
           <BaseSelect
-            v-model="options.first"
             rounded="none"
             placeholder="Select a hero"
             label="Rounded: none"
           >
+            <BaseSelectItem value="long">
+              A very very very very very very very very very very very very very very very very very very long label
+            </BaseSelectItem>
+            <BaseSelectItem value="long-2">
+              A-very-very-very-very-very-very-very-very-very-very-very-very-very-very-very-very-very-very-long-label
+            </BaseSelectItem>
+            <BaseSelectItem value="long-slot">
+              <div class="my-2">
+                <div class="text-sm font-medium textContent leading-none">
+                  A very very very very very very very very very very very very very very very very very very long label
+                </div>
+                <div class="text-sm opacity-60">
+                  lorem ipsum dolor sit amet consectetur adipiscing elit ...
+                </div>
+              </div>
+            </BaseSelectItem>
+            <BaseSelectItem value="long-slot-2">
+              <div class="my-2">
+                <div class="text-sm font-medium textContent leading-none">
+                  A-very-very-very-very-very-very-very-very-very-very-very-very-very-very-very-very-very-very-long-label
+                </div>
+                <div class="text-sm opacity-60">
+                  lorem ipsum dolor sit amet consectetur adipiscing elit ...
+                </div>
+              </div>
+            </BaseSelectItem>
             <BaseSelectItem value="Superman">
               Superman
             </BaseSelectItem>

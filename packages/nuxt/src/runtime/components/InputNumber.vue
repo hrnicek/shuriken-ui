@@ -76,7 +76,7 @@ const { forwardRef } = useForwardExpose()
       v-bind="attrs"
       :ref="forwardRef"
       :class="tm([
-        'outline-none text-center grow disabled:cursor-not-allowed',
+        'outline-none text-center grow disabled:cursor-not-allowed text-ellipsis',
         theme.inputVariants[props.variant],
         theme.spacings[props.size],
         theme.sizes[props.size],

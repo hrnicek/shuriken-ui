@@ -146,6 +146,12 @@ const fields = reactive({
             rounded="none"
             placeholder="Ex: nuxt"
           >
+            <BaseAutocompleteItem value="long">
+              A very very very very very very very very very very very very very very very very very very long label
+            </BaseAutocompleteItem>
+            <BaseAutocompleteItem value="A-very-very-very-very-very-very-very-very-very-very-very-very-very-very-very-very-very-very-long-label">
+              A-very-very-very-very-very-very-very-very-very-very-very-very-very-very-very-very-very-very-long-label
+            </BaseAutocompleteItem>
             <BaseAutocompleteItem v-for="item in frameworks" :key="item" :value="item">
               {{ item }}
             </BaseAutocompleteItem>

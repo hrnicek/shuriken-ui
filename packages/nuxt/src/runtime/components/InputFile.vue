@@ -101,7 +101,7 @@ defineExpose({
     <span
       v-if="textValue"
       :class="tm([
-        'flex-1 select-none truncate text-ellipsis',
+        'flex-1 select-none line-clamp-1 text-ellipsis break-all',
         props.classes.text
       ])"
     >
@@ -110,7 +110,7 @@ defineExpose({
     <span
       v-else
       :class="tm([
-        'flex-1 select-none truncate text-ellipsis',
+        'flex-1 select-none line-clamp-1 text-ellipsis break-all',
         theme.placeholderVariants[props.variant],
         props.classes.placeholder,
       ])"

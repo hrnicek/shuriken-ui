@@ -88,7 +88,7 @@ provideBaseAutocompleteContext({
         v-bind="attrs"
         :model-value="props.query"
         :class="tm([
-          'h-full w-full outline-none',
+          'h-full w-full outline-none text-ellipsis',
           theme.inputVariants[props.variant]
         ])"
         @update:model-value="(value: string) => {
