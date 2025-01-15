@@ -13,6 +13,16 @@ import type {
 
 export interface BaseAutocompleteProps<T = AcceptableValue> extends ComboboxRootProps<T> {
   /**
+   * The controlled value of the filter.
+   */
+  query?: string
+
+  /**
+   * The default query value when uncontrolled.
+   */
+  // defaultQuery?: string
+
+  /**
    * The variant of the autocomplete
    *
    * @default 'default'
@@ -72,11 +82,36 @@ export interface BaseAutocompleteProps<T = AcceptableValue> extends ComboboxRoot
     empty?: string | string[]
   }
 }
-export interface BaseAutocompleteEmits<T = AcceptableValue> extends ComboboxRootEmits<T> {}
-export type BaseAutocompleteSlots = {
+export interface BaseAutocompleteEmits<T = AcceptableValue> extends ComboboxRootEmits<T> {
+  'update:query': [value: string]
+}
+export type BaseAutocompleteSlots<T = AcceptableValue> = {
   default(): any
-  input(): any
-  empty(): any
+  empty(props: {
+    open: boolean
+    query: string
+    modelValue: T | T[]
+  }): any
+  'content-start'(props: {
+    open: boolean
+    query: string
+    modelValue: T | T[]
+  }): any
+  'content-end'(props: {
+    open: boolean
+    query: string
+    modelValue: T | T[]
+  }): any
+  'viewport-start'(props: {
+    open: boolean
+    query: string
+    modelValue: T | T[]
+  }): any
+  'viewport-end'(props: {
+    open: boolean
+    query: string
+    modelValue: T | T[]
+  }): any
 }
 export type BaseAutocompleteConfig = {
   variant: NonNullable<BaseAutocompleteProps['variant']>

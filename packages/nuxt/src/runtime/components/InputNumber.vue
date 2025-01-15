@@ -7,6 +7,7 @@ import { useAttrs } from 'vue'
 
 import { useNinjaId } from '../composables/input-id';
 import { useNuiConfig } from '../composables/default-property';
+import { tm } from '../utils/tw-merge';
 
 defineOptions({
   inheritAttrs: false,
@@ -44,27 +45,29 @@ const { forwardRef } = useForwardExpose()
   <NumberFieldRoot
     :id
     v-bind="forward"
-    class="has-focus-visible:nui-focus relative w-full flex font-sans relative data-disabled:opacity-50 has-aria-invalid:border-destructive-base!"
-    :class="[
+    :class="tm([
+      'has-focus-visible:nui-focus relative w-full flex font-sans relative data-disabled:opacity-50 has-aria-invalid:border-destructive-base',
       theme.variants[props.variant],
       theme.radiuses[props.rounded],
+      theme.sizes[props.size],
       props.classes.root,
-    ]"
+    ])"
   >
     <NumberFieldDecrement 
-      class="flex items-center justify-center shrink-0 p-1 group/button disabled:cursor-not-allowed cursor-pointer"
-      :class="[
+      :class="tm([
+        'flex items-center justify-center shrink-0 p-1 group/button disabled:cursor-not-allowed cursor-pointer',
         theme.buttonSizes[props.size],
         theme.radiuses[props.rounded],
         props.classes.buttonWrapper,
-      ]"
+      ])"
     >
-      <span class="h-full w-full flex items-center justify-center transition-colors duration-300"
-        :class="[
+      <span
+        :class="tm([
+          'h-full w-full flex items-center justify-center transition-colors duration-300',
           theme.radiuses[props.rounded],
           theme.buttonVariants[props.variant],
           props.classes.button,
-        ]"  
+        ])"
       >
         <Icon :name="iconDecrement" />
       </span>
@@ -72,30 +75,30 @@ const { forwardRef } = useForwardExpose()
     <NumberFieldInput
       v-bind="attrs"
       :ref="forwardRef"
-      class="outline-none text-center grow disabled:cursor-not-allowed"
-      :class="[
+      :class="tm([
+        'outline-none text-center grow disabled:cursor-not-allowed text-ellipsis',
         theme.inputVariants[props.variant],
         theme.spacings[props.size],
         theme.sizes[props.size],
-      ]"
+      ])"
       :placeholder="props.placeholder"
       :inputmode="props.inputmode"
       :disabled="props.disabled"
     />
     <NumberFieldIncrement
-      class="flex items-center justify-center shrink-0 p-1 group/button disabled:cursor-not-allowed cursor-pointer"
-      :class="[
+      :class="tm([
+        'flex items-center justify-center shrink-0 p-1 group/button disabled:cursor-not-allowed cursor-pointer',
         theme.buttonSizes[props.size],
         props.classes.buttonWrapper,
-      ]"
+      ])"
     >
       <span
-        class="h-full w-full flex items-center justify-center transition-colors duration-300"
-        :class="[
+        :class="tm([
+          'h-full w-full flex items-center justify-center transition-colors duration-300',
           theme.radiuses[props.rounded],
           theme.buttonVariants[props.variant],
           props.classes.button,
-        ]"  
+        ])"  
       >
         <Icon :name="iconIncrement" />
       </span>

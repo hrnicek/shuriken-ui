@@ -118,11 +118,36 @@ const item = ref(items[0])
       <NuiPreview title="Select base" description="Select component radiuses">
         <div class="grid gap-6 md:max-w-xl md:grid-cols-2">
           <BaseSelect
-            v-model="options.first"
             rounded="none"
             placeholder="Select a hero"
             label="Rounded: none"
           >
+            <BaseSelectItem value="long">
+              A very very very very very very very very very very very very very very very very very very long label
+            </BaseSelectItem>
+            <BaseSelectItem value="long-2">
+              A-very-very-very-very-very-very-very-very-very-very-very-very-very-very-very-very-very-very-long-label
+            </BaseSelectItem>
+            <BaseSelectItem value="long-slot">
+              <div class="my-2">
+                <div class="text-sm font-medium textContent leading-none">
+                  A very very very very very very very very very very very very very very very very very very long label
+                </div>
+                <div class="text-sm opacity-60">
+                  lorem ipsum dolor sit amet consectetur adipiscing elit ...
+                </div>
+              </div>
+            </BaseSelectItem>
+            <BaseSelectItem value="long-slot-2">
+              <div class="my-2">
+                <div class="text-sm font-medium textContent leading-none">
+                  A-very-very-very-very-very-very-very-very-very-very-very-very-very-very-very-very-very-very-long-label
+                </div>
+                <div class="text-sm opacity-60">
+                  lorem ipsum dolor sit amet consectetur adipiscing elit ...
+                </div>
+              </div>
+            </BaseSelectItem>
             <BaseSelectItem value="Superman">
               Superman
             </BaseSelectItem>
@@ -505,6 +530,61 @@ const item = ref(items[0])
             multiple
           >
             <BaseSelectLabel>
+              <span>Marvel</span>
+            </BaseSelectLabel>
+            <BaseSelectItem value="Superman">
+              <div>Superman</div>
+              <div class="text-xs opacity-50">Marvel</div>
+            </BaseSelectItem>
+            <BaseSelectItem value="Batman">
+              <div>Batman</div>
+              <div class="text-xs opacity-50">Marvel</div>
+            </BaseSelectItem>
+            <BaseSelectLabel>
+              <div>DC</div>
+            </BaseSelectLabel>
+            <BaseSelectItem value="Magneto">
+              <div  class="flex flex-col items-start gap-0 py-2">
+                <div class="text-xs opacity-50">Marvel</div>
+                <div>Magneto</div>
+              </div>
+            </BaseSelectItem>
+            <BaseSelectItem value="Cyclops">
+              <div>Cyclops</div>
+              <div class="text-xs opacity-50">Marvel</div>
+            </BaseSelectItem>
+          </BaseSelect>
+        </div>
+      </NuiPreview>
+
+      
+      <NuiPreview title="Slots" description="Slots select">
+        <div class="grid gap-6 md:max-w-4xl md:grid-cols-3">
+          <BaseSelect
+            placeholder="Select some heroes"
+          >
+            <template #viewport-start>
+              <BaseCard variant="muted">
+                #viewport-start
+              </BaseCard>
+            </template>
+            <template #viewport-end>
+              <BaseCard variant="muted">
+                #viewport-end
+              </BaseCard>
+            </template>
+            <template #content-start>
+              <BaseCard>
+                #content-start
+              </BaseCard>
+            </template>
+            <template #content-end>
+              <BaseCard>
+                #content-end
+              </BaseCard>
+            </template>
+
+            <BaseSelectLabel>
               Marvel
             </BaseSelectLabel>
             <BaseSelectItem value="Superman">
@@ -516,15 +596,14 @@ const item = ref(items[0])
             <BaseSelectLabel>
               DC
             </BaseSelectLabel>
-            <BaseSelectItem value="Magneto">
-              Magneto
-            </BaseSelectItem>
-            <BaseSelectItem value="Cyclops">
-              Cyclops
+            
+            <BaseSelectItem v-for="hero in heros" :value="hero">
+              {{ hero }}
             </BaseSelectItem>
           </BaseSelect>
         </div>
       </NuiPreview>
+
     </NuiPreviewContainer>
   </div>
 </template>

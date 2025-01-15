@@ -60,6 +60,7 @@ export interface BaseAvatarProps extends AvatarRootProps {
   classes?: {
     root?: string | string[]
     image?: string | string[]
+    dark?: string | string[]
     fallback?: string | string[]
     badge?: string | string[]
   }

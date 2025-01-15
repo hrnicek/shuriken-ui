@@ -29,8 +29,8 @@ const valueRange = ref([35, 65])
             :default-value="[42]" 
             class="text-pink-500"
             :classes="{ 
-              tooltip: 'bg-pink-100! dark:bg-pink-900! text-pink-900! dark:text-pink-50!', 
-              tooltipArrow: 'fill-pink-100! dark:fill-pink-900!',
+              tooltip: 'bg-pink-100 dark:bg-pink-900 text-pink-900 dark:text-pink-50', 
+              tooltipArrow: 'fill-pink-100 dark:fill-pink-900',
             }" 
           />
           

@@ -4,6 +4,7 @@ import { BaseAccordion as theme } from '#build/shuriken-ui/theme'
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 import { useNuiConfig } from '../composables/default-property';
+import { tm } from '../utils/tw-merge'
 
 const props = withDefaults(defineProps<BaseAccordionItemProps>(), {
   action: theme.defaults.action,
@@ -27,27 +28,29 @@ const forward = useForwardProps(reactiveOmit(props, ['title', 'content', 'varian
   >
     <AccordionHeader
       v-bind="props.bindings?.header"
-      class="cursor-pointer list-none outline-none"
-      :class="props.classes.header"
+      :class="tm([
+        'cursor-pointer list-none outline-none',
+        props.classes.header,
+      ])"
     >
       <AccordionTrigger
         v-bind="props.bindings?.trigger"
-        class="flex group/trigger items-center text-sm weight-medium leading-none text-muted-800 dark:text-white justify-between w-full py-3 rounded-md px-4 cursor-pointer focus-visible:nui-focus"
-        :class="[
+        :class="tm([
+          'flex group/trigger items-center text-sm weight-medium leading-none text-muted-800 dark:text-white justify-between w-full py-3 rounded-md px-4 cursor-pointer focus-visible:nui-focus',
           props.variant === 'default' && 'hover:bg-muted-50 dark:hover:bg-muted-800',
           props.classes.trigger,
-        ]" 
+        ])" 
       >
         <div>
           <slot name="title">{{ props.title }}</slot>
         </div>
         <slot name="action">
           <div
-            class="ms-2 text-muted-500 dark:text-muted-300 flex items-center justify-center size-5 transition-all duration-300"
-            :class="[
+            :class="tm([
+              'ms-2 text-muted-500 dark:text-muted-300 flex items-center justify-center size-5 transition-all duration-300',
               props.action === 'chevron' && 'group-data-[state=open]/trigger:rotate-180',
               props.action === 'plus' && 'group-data-[state=open]/trigger:rotate-45',
-            ]"
+            ])"
           >
             <BaseChip
               v-if="props.action === 'dot'"
@@ -72,8 +75,10 @@ const forward = useForwardProps(reactiveOmit(props, ['title', 'content', 'varian
     </AccordionHeader>
     <AccordionContent 
       v-bind="props.bindings?.content"
-      class="px-4 mt-3 pb-4 font-sans text-sm text-muted-500 dark:text-muted-400 leading-tight"
-      :class="props.classes.content"
+      :class="tm([
+        'px-4 mt-3 pb-4 font-sans text-sm text-muted-500 dark:text-muted-400 leading-tight',
+        props.classes.content
+      ])"
     >
       <slot>{{ props.content }}</slot>
     </AccordionContent>

@@ -69,7 +69,7 @@ const valueSliderRange = ref([3, 42, 84])
               </div>
             </template>
           </BaseField>
-          
+
           <!-- BaseInput search -->
           <BaseField v-for="state in states" :key="state" :state="state" :disabled="alt === 'disabled'" :required="alt === 'full'"> 
             <div v-if="alt === 'full'" class="w-full inline-flex">
@@ -366,6 +366,11 @@ const valueSliderRange = ref([3, 42, 84])
                   clearable
                 >
                   <BaseAutocompleteItem value="1">Option 1</BaseAutocompleteItem>
+                  <BaseAutocompleteItem value="2">Option 2</BaseAutocompleteItem>
+                  <BaseAutocompleteItem value="3">Option 3</BaseAutocompleteItem>
+                  <BaseAutocompleteItem value="4">Option 4</BaseAutocompleteItem>
+                  <BaseAutocompleteItem value="5">Option 5</BaseAutocompleteItem>
+                  <BaseAutocompleteItem value="6">Option 6</BaseAutocompleteItem>
                 </BaseAutocomplete>
               </BaseFieldController>
               <div class="absolute z-0 end-10 top-3 pointer-events-none" >
@@ -647,6 +652,49 @@ const valueSliderRange = ref([3, 42, 84])
             </div>
           </BaseField>
 
+          <BaseField class="grid grid-cols-subgrid col-span-3"  required state="error">
+            <div class="flex flex-col justify-center gap-1 relative">
+              <BaseFieldLabel>
+                <span>Error</span> 
+                <BaseFieldRequiredIndicator  />
+              </BaseFieldLabel>
+              <BaseFieldDescription>
+                Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
+                <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
+              </BaseFieldDescription>
+              <div class="absolute z-0 end-0 top-0 pointer-events-none" >
+                <BaseFieldLoadingIndicator/>
+                <BaseFieldSuccessIndicator />
+                <BaseFieldErrorIndicator />
+              </div>
+            </div>
+
+            <div class="col-span-2">
+              <div class="relative">
+                <BaseFieldController>
+                  <BaseInput v-model="value2" />
+                </BaseFieldController>
+                <BaseFieldLoadingIndicator class="absolute z-0 end-4 top-3 pointer-events-none" />
+              </div>
+              <BaseFieldError>
+                The input is invalid because ...
+              </BaseFieldError>
+            </div>
+          </BaseField>
+
+          <BaseField class="col-span-3">
+            <div class="relative">
+              <BaseFieldController>
+                <BaseInput placeholder="Firstname" />
+              </BaseFieldController>
+              <div class="absolute z-0 end-4 top-3 pointer-events-none" >
+                <BaseFieldLoadingIndicator/>
+                <BaseFieldSuccessIndicator />
+                <BaseFieldErrorIndicator />
+              </div>
+            </div>
+          </BaseField>
+          
           <BaseField class="grid grid-cols-subgrid col-span-3"  required state="error">
             <div class="flex flex-col justify-center gap-1 relative">
               <BaseFieldLabel>

@@ -117,6 +117,8 @@ const hobbies: Hobby[] = [
 const multipleValue = ref<string[]>(['Nuxt', 'Vue.js'])
 const multiplePerson = ref<Person[]>([persons[1]!])
 
+const query = ref('query-base')
+
 const fields = reactive({
   first: '',
   second: '',
@@ -144,6 +146,12 @@ const fields = reactive({
             rounded="none"
             placeholder="Ex: nuxt"
           >
+            <BaseAutocompleteItem value="long">
+              A very very very very very very very very very very very very very very very very very very long label
+            </BaseAutocompleteItem>
+            <BaseAutocompleteItem value="A-very-very-very-very-very-very-very-very-very-very-very-very-very-very-very-very-very-very-long-label">
+              A-very-very-very-very-very-very-very-very-very-very-very-very-very-very-very-very-very-very-long-label
+            </BaseAutocompleteItem>
             <BaseAutocompleteItem v-for="item in frameworks" :key="item" :value="item">
               {{ item }}
             </BaseAutocompleteItem>
@@ -609,20 +617,71 @@ const fields = reactive({
         </div>
       </NuiPreview>
 
-      <NuiPreview title="Allow create" description="Allow to create new items">
+      <NuiPreview title="Slots" description="Slots">
         <div class="grid grid-cols-4 gap-4 w-full max-w-5xl">
           <BaseAutocomplete
-            v-model="fields.thirteenth"
-            allow-create
-            placeholder="Allow create"
-          />
-          <BaseAutocomplete
-            v-model="fields.thirteenth"
-            allow-create
-            hide-create-prompt
-            variant="muted"
             placeholder="Hide create prompt"
-          />
+          >
+            <template #empty>
+              <BaseCard variant="muted">
+                #empty
+              </BaseCard>
+            </template>
+            <template #viewport-start="{ query}">
+              <BaseCard variant="muted">
+                #viewport-start { {{ query }} }
+              </BaseCard>
+            </template>
+            <template #viewport-end>
+              <BaseCard variant="muted">
+                #viewport-end
+              </BaseCard>
+            </template>
+            <template #content-start>
+              <BaseCard>
+                #content-start
+              </BaseCard>
+            </template>
+            <template #content-end>
+              <BaseCard>
+                #content-end
+              </BaseCard>
+            </template>
+            <BaseAutocompleteItem v-for="item in persons" :key="item.id" :value="item">
+              {{ item.name }}
+            </BaseAutocompleteItem>
+          </BaseAutocomplete>
+
+          <BaseButton @click="() => query = 'nuxt'">
+            Set query
+          </BaseButton>
+
+          <BaseAutocomplete
+            placeholder="Hide create prompt"
+            v-model:query="query"
+          >
+            <BaseAutocompleteItem v-for="item in persons" :key="item.id" :value="item">
+              {{ item.name }}
+            </BaseAutocompleteItem>
+          </BaseAutocomplete>
+
+          <BaseAutocomplete
+            placeholder="Hide create prompt"
+            default-query="default-query"
+          >
+            <BaseAutocompleteItem v-for="item in persons" :key="item.id" :value="item">
+              {{ item.name }}
+            </BaseAutocompleteItem>
+          </BaseAutocomplete>
+
+          <BaseAutocomplete
+            placeholder="Hide create prompt"
+            query="query"
+          >
+            <BaseAutocompleteItem v-for="item in persons" :key="item.id" :value="item">
+              {{ item.name }}
+            </BaseAutocompleteItem>
+          </BaseAutocomplete>
         </div>
       </NuiPreview>
     </NuiPreviewContainer>

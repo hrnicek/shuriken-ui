@@ -7,6 +7,7 @@ import { useAttrs } from 'vue'
 
 import { useNinjaId } from '../composables/input-id';
 import { useNuiConfig } from '../composables/default-property';
+import { tm } from '../utils/tw-merge';
 
 defineOptions({
   inheritAttrs: false,
@@ -38,8 +39,10 @@ const { forwardRef } = useForwardExpose()
 
 <template>
   <span
-    class="flex items-center"
-    :class="props.classes.root"
+    :class="tm([
+      'flex items-center',
+      props.classes.root
+    ])"
   >
     <SwitchRoot 
       :id 
@@ -48,33 +51,35 @@ const { forwardRef } = useForwardExpose()
       class="group/switch relative focus:nui-focus rounded-full"
     >
       <SwitchThumb
-        class="peer data-[state=checked]:translate-x-full data-[state=checked]:rtl:-translate-x-full absolute start-0.5 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center rounded-full shadow focus:w-6 size-5 transition-all duration-300"
-        :class="[
+        :class="tm([
+          'peer data-[state=checked]:translate-x-full data-[state=checked]:rtl:-translate-x-full absolute start-0.5 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center rounded-full shadow focus:w-6 size-5 transition-all duration-300',
           theme.handleVariants[props.variant],
           props.classes.thumb,
-        ]"
+        ])"
       />
       <span 
-        class="block h-6 w-11 rounded-full transition-all duration-300"
-        :class="[
+        :class="tm([
+          'block h-6 w-11 rounded-full transition-all duration-300',
           theme.trackVariants[props.variant],
           props.classes.track,
-        ]"
+        ])"
       />
       <Icon 
         :name="iconCheck"
-        class="peer-data-[state=checked]:-translate-y-1/2 peer-data-[state=checked]:opacity-100 peer-data-[state=checked]:block pointer-events-none absolute start-2 top-1/2 z-10 translate-y-0 fill-current opacity-0 h-2.5 w-2.5 transition-all duration-300"
-        :class="[
+        :class="tm([
+          'peer-data-[state=checked]:-translate-y-1/2 peer-data-[state=checked]:opacity-100 peer-data-[state=checked]:block pointer-events-none absolute start-2 top-1/2 z-10 translate-y-0 fill-current opacity-0 h-2.5 w-2.5 transition-all duration-300',
           theme.iconVariants[props.variant],
           props.classes.track,
-        ]"
+        ])"
       />
     </SwitchRoot>
     <Label
       v-if="props.sublabel || 'sublabel' in slots"
       :for="id"
-      class="ms-3 select-none"
-      :class="props.classes.label"
+      :class="tm([
+        'ms-3 select-none',
+        props.classes.label
+      ])"
     >
       <span class="block cursor-pointer font-sans text-sm text-muted-600 dark:text-white">
         <slot>{{ props.label }}</slot>
@@ -86,8 +91,10 @@ const { forwardRef } = useForwardExpose()
     <Label 
       v-else
       :for="id"
-      class="relative ms-3 cursor-pointer select-none font-sans text-sm text-muted-600 dark:text-white"
-      :class="props.classes.label"
+      :class="tm([
+        'relative ms-3 cursor-pointer select-none font-sans text-sm text-muted-600 dark:text-white',
+        props.classes.label
+      ])"
     >
       <slot>{{ props.label }}</slot>
     </Label>

@@ -4,6 +4,7 @@ import { createContext } from 'reka-ui'
 
 import { useNinjaId } from '../composables/input-id';
 import { useNuiConfig } from '../composables/default-property';
+import { tm } from '../utils/tw-merge';
 
 export const [
   injectBaseSelectContext,
@@ -67,6 +68,7 @@ const { forwardRef } = useForwardExpose()
 provideBaseSelectContext({
   variant: props.variant,
   rounded: props.rounded,
+  size: props.size,
 })
 </script>
 
@@ -84,59 +86,69 @@ provideBaseSelectContext({
     >
       <SelectValue
         :placeholder="props.placeholder"
-        class="line-clamp-1"
-        :class="props.classes.text"
+        :class="tm([
+          'line-clamp-1 leading-tight',
+          props.classes.text,
+        ])"
         v-slot="{ selectedLabel, modelValue }"
       >
         <slot name="value" v-bind="{ selectedLabel, modelValue }" />
       </SelectValue>
       <Icon
         :name="iconChevronDown"
-        class="size-4"
-        :class="[
+        :class="tm([
+          'size-4 shrink-0',
           theme.triggerVariants[props.variant],
           props.classes.icon,
-        ]"
+        ])"
       />
     </SelectTrigger>
 
     <SelectPortal v-bind="bindings?.portal">
       <SelectContent
-        class="data-[side=bottom]:shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20 z-[100]"
-        :class="[
+        :class="tm([
+          'data-[side=bottom]:shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20 z-[100]',
           theme.portalVariants[props.variant],
           theme.portalRadiuses[props.rounded],
           props.classes.content,
-        ]"
+        ])"
         v-bind="bindings?.content"
       >
+        <slot name="content-start" />
+
         <SelectScrollUpButton
-          class="flex items-center justify-center h-[25px] bg-white cursor-default"
-          :class="[
+          :class="tm([
+            'flex items-center justify-center h-[25px] bg-white cursor-default',
             theme.portalRadiuses[props.rounded],
             props.classes.buttonUp,
-          ]"
+          ])"
         >
           <Icon :name="iconChevronUp" />
         </SelectScrollUpButton>
 
         <SelectViewport
           v-bind="bindings?.viewport"
-          class="p-[5px]"
-          :class="props.classes.viewport"
+          :class="tm([
+            'p-[5px]',
+            props.classes.viewport
+          ])"
         >
+          <slot name="viewport-start" />
           <slot />
+          <slot name="viewport-end" />
         </SelectViewport> 
 
         <SelectScrollDownButton
-          class="flex items-center justify-center h-[25px] bg-white cursor-default"
-          :class="[
+          :class="tm([
+            'flex items-center justify-center h-[25px] bg-white cursor-default',
             theme.portalRadiuses[props.rounded],
             props.classes.buttonDown,
-          ]"
+          ])"
         >
           <Icon :name="iconChevronDown" />
         </SelectScrollDownButton>
+
+        <slot name="content-end" />
       </SelectContent>
     </SelectPortal>
   </SelectRoot>

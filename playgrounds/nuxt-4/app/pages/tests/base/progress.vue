@@ -26,6 +26,26 @@ const progressCircle = ref(25)
               size="sm"
               rounded="md"
               :class="
+                progress === 0 && '!border-primary-500 !text-primary-500'
+              "
+              @click="progress = 0"
+            >
+              0%
+            </BaseButton>
+            <BaseButton
+              size="sm"
+              rounded="md"
+              :class="
+                progress === 1 && '!border-primary-500 !text-primary-500'
+              "
+              @click="progress = 1"
+            >
+              1%
+            </BaseButton>
+            <BaseButton
+              size="sm"
+              rounded="md"
+              :class="
                 progress === 25 && '!border-primary-500 !text-primary-500'
               "
               @click="progress = 25"
@@ -63,6 +83,36 @@ const progressCircle = ref(25)
               100%
             </BaseButton>
           </div>
+        </div>
+      </NuiPreview>
+      <NuiPreview title="With max" description="Custom max value">
+        <div class="max-w-xs space-y-4">
+            <BaseProgressCircle
+              title="Static progress bar with max value"
+              :size="55"
+              :model-value="1"
+              :max="2"
+            />
+
+            <BaseProgressCircle
+              title="Static progress bar with max value"
+              :size="55"
+              :model-value="1"
+              :max="1"
+            />
+
+            <BaseProgress
+              title="Static progress bar with max value"
+              size="sm"
+              :model-value="1"
+              :max="2"
+            />
+            <BaseProgress
+              title="Static progress bar with max value"
+              size="sm"
+              :model-value="1"
+              :max="1"
+            />
         </div>
       </NuiPreview>
 
@@ -111,6 +161,26 @@ const progressCircle = ref(25)
             />
           </div>
           <div class="flex justify-between gap-2">
+            <BaseButton
+              size="sm"
+              rounded="md"
+              :class="
+                progressCircle === 0 && '!border-primary-500 !text-primary-500'
+              "
+              @click="progressCircle = 0"
+            >
+              0%
+            </BaseButton>
+            <BaseButton
+              size="sm"
+              rounded="md"
+              :class="
+                progressCircle === 1 && '!border-primary-500 !text-primary-500'
+              "
+              @click="progressCircle = 1"
+            >
+              1%
+            </BaseButton>
             <BaseButton
               size="sm"
               rounded="md"

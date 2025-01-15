@@ -48,11 +48,12 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['variant', 'size', 'th
         <circle
           class="stroke-current origin-center"
           :class="[
-            typeof modelValue === 'number' ? '-rotate-90 transition-[stroke-dasharray] duration-300' : 'animate-nui-spin',
+            typeof modelValue === 'number' ? '-rotate-90 transition-[stroke-dasharray,opacity] duration-300' : 'animate-nui-spin',
+            modelValue === 0 && 'opacity-0',
             props.variant && theme.variants[props.variant],
           ]"
           :stroke-width="props.thickness"
-          :stroke-dasharray="typeof modelValue === 'number' ? `${modelValue},100` : '0,100'"
+          :stroke-dasharray="typeof modelValue === 'number' ? `${(modelValue / (props.max || 100) * 100)},100` : '0,100'"
           stroke-dashoffset="0"
           stroke-linecap="round"
           fill="none"

@@ -74,6 +74,10 @@ export type BaseSelectSlots<T = AcceptableValue> = {
   default(): any
   label(): any
   value(props: { selectedLabel: string[], modelValue: T | T[] }): any
+  'content-start'(): any
+  'content-end'(): any
+  'viewport-start'(): any
+  'viewport-end'(): any
 }
 export type BaseSelectConfig = {
   variant: NonNullable<BaseSelectProps['variant']>
@@ -85,4 +89,5 @@ export type BaseSelectConfig = {
 export interface BaseSelectContext {
   variant: NonNullable<BaseSelectProps['variant']>
   rounded: NonNullable<BaseSelectProps['rounded']>
+  size: NonNullable<BaseSelectProps['size']>
 }
