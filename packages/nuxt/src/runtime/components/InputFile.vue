@@ -4,6 +4,7 @@ import { BaseInputFile as theme } from '#build/shuriken-ui/theme';
 import { useAttrs, computed, useTemplateRef } from 'vue'
 
 import { useNinjaId } from '../composables/input-id';
+import { tm } from '../utils/tw-merge';
 
 
 const i18n = {
@@ -73,44 +74,46 @@ defineExpose({
 <template>
   <label
     :tabindex="props.disabled ? -1 : 0"
-    class="group/file relative  px-1 py-1.5 gap-2 focus-within:nui-focus w-full flex cursor-pointer items-center overflow-hidden has-disabled:cursor-not-allowed has-disabled:opacity-50 font-sans transition-colors duration-300 has-aria-invalid:border-destructive-base!"
     :for="id"
-    :class="[
+    :class="tm([
+      'group/file relative px-1 py-1.5 gap-2 focus-within:nui-focus w-full flex cursor-pointer items-center overflow-hidden has-disabled:cursor-not-allowed has-disabled:opacity-50 font-sans transition-colors duration-300 has-aria-invalid:border-destructive-base',
       props.variant && theme.variants[props.variant],
       props.size && theme.sizes[props.size],
       props.rounded && theme.radiuses[props.rounded],
       props.classes.root,
-    ]"
+    ])"
     @keydown.enter.prevent="currentRef?.click()"
     @keydown.space.prevent="currentRef?.click()"
   >
     <div
-      class="h-full inline-flex items-center justify-center transition-colors duration-300 select-none shrink-0"
       :data-disabled="props.disabled ? 'true' : undefined"
-      :class="[
+      :class="tm([
+        'h-full inline-flex items-center justify-center transition-colors duration-300 select-none shrink-0',
         props.rounded && theme.radiuses[props.rounded],
         props.variant && theme.textVariants[props.variant],
         props.size && theme.textSpacings[props.size],
         props.classes.button,
-      ]"
+      ])"
     >
       Choose File
     </div>
 
     <span
       v-if="textValue"
-      class="flex-1 select-none truncate text-ellipsis"
-      :class="props.classes.text"
+      :class="tm([
+        'flex-1 select-none truncate text-ellipsis',
+        props.classes.text
+      ])"
     >
       {{ textValue }}
     </span>
     <span
       v-else
-      class="flex-1 select-none truncate text-ellipsis"
-      :class="[
+      :class="tm([
+        'flex-1 select-none truncate text-ellipsis',
         theme.placeholderVariants[props.variant],
         props.classes.placeholder,
-      ]"
+      ])"
     >
       {{ props.placeholder }}
     </span>

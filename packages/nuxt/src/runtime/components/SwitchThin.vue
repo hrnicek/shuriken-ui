@@ -5,6 +5,7 @@ import { reactiveOmit } from '@vueuse/core'
 import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
 import { useAttrs } from 'vue'
 import { useNinjaId } from '../composables/input-id';
+import { tm } from '../utils/tw-merge';
 
 defineOptions({
   inheritAttrs: false,
@@ -35,8 +36,10 @@ const { forwardRef } = useForwardExpose()
 
 <template>
   <span
-    class="flex cursor-pointer items-center"
-    :class="props.classes.root"
+    :class="tm([
+      'flex cursor-pointer items-center',
+      props.classes.root
+    ])"
   >
     <SwitchRoot
       :id
@@ -45,25 +48,27 @@ const { forwardRef } = useForwardExpose()
       class="focus:nui-focus relative block h-4 rounded-full cursor-pointer"
     >
       <SwitchThumb
-        class="peer data-[state=checked]:-translate-y-1/2 data-[state=checked]:translate-x-full data-[state=checked]:rtl:-translate-x-full absolute -start-1 top-1/2 -translate-y-1/2 flex items-center justify-center rounded-full size-6 transition-all duration-300"
-        :class="[
+        :class="tm([
+          'peer data-[state=checked]:-translate-y-1/2 data-[state=checked]:translate-x-full data-[state=checked]:rtl:-translate-x-full absolute -start-1 top-1/2 -translate-y-1/2 flex items-center justify-center rounded-full size-6 transition-all duration-300',
           theme.handleVariants[props.variant],
           props.classes.thumb,
-        ]"
+        ])"
       />
       <span
-        class="block h-4 w-10 rounded-full transition-all duration-300"
-        :class="[
+        :class="tm([
+          'block h-4 w-10 rounded-full transition-all duration-300',
           theme.trackVariants[props.variant],
           props.classes.track,
-        ]"
+        ])"
       />
     </SwitchRoot>
     <Label
       v-if="props.sublabel || 'sublabel' in slots"
       :for="id"
-      class="ms-3 select-none"
-      :class="props.classes.label"
+      :class="tm([
+        'ms-3 select-none',
+        props.classes.label
+      ])"
     >
       <span class="block cursor-pointer font-sans text-sm text-muted-600 dark:text-white">
         <slot>{{ props.label }}</slot>
@@ -75,8 +80,10 @@ const { forwardRef } = useForwardExpose()
     <Label 
       v-else
       :for="id"
-      class="relative ms-3 cursor-pointer select-none font-sans text-sm text-muted-600 dark:text-white"
-      :class="props.classes.label"
+      :class="tm([
+        'relative ms-3 cursor-pointer select-none font-sans text-sm text-muted-600 dark:text-white',
+        props.classes.label
+      ])"
     >
       <slot>{{ props.label }}</slot>
     </Label>

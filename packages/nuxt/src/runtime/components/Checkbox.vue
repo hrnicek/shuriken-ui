@@ -5,6 +5,7 @@ import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 import { useAttrs } from 'vue'
 
+import { tm } from '../utils/tw-merge'
 import { useNinjaId } from '../composables/input-id';
 import { useNuiConfig } from '../composables/default-property';
 
@@ -39,11 +40,11 @@ const { forwardRef } = useForwardExpose()
 
 <template>
   <div
-    class="relative inline-flex items-start gap-1"
-    :class="[
+    :class="tm([
+      'relative inline-flex items-start gap-1',
       props.disabled && 'opacity-50',
       props.classes.root,
-    ]"
+    ])"
   >
     <CheckboxRoot
       :id
@@ -53,33 +54,41 @@ const { forwardRef } = useForwardExpose()
     >
       <CheckboxIndicator
         force-mount
-        class="absolute start-0 top-0 z-0 flex items-center justify-center h-full w-full rounded-md group"
-        :class="[
+        :class="tm([
+          'absolute start-0 top-0 z-0 flex items-center justify-center h-full w-full rounded-md group',
           props.variant && theme.variants[props.variant],
           props.classes.indicator,
-        ]"
+        ])"
       >
         <Icon
           :name="iconCheck"
-          class="hidden group-data-[state=checked]:block size-4 scale-90 ease-out starting:scale-0 starting:opacity-0 transition-all duration-150"
-          :class="props.classes.icon"
+          :class="tm([
+            'hidden group-data-[state=checked]:block size-4 scale-90 ease-out starting:scale-0 starting:opacity-0 transition-all duration-150',
+            props.classes.icon,
+          ])"
         />
         <Icon
           :name="iconIndeterminate"
-          class="hidden group-data-[state=indeterminate]:block size-4 scale-90 ease-out starting:scale-0 starting:opacity-0 transition-all duration-150"
-          :class="props.classes.icon"
+          :class="tm([
+            'hidden group-data-[state=indeterminate]:block size-4 scale-90 ease-out starting:scale-0 starting:opacity-0 transition-all duration-150',
+            props.classes.icon,
+          ])"
         />
       </CheckboxIndicator>
     </CheckboxRoot>
     <div
-      class="inline-flex flex-col grow"
-      :class="props.classes.labelWrapper"
+      :class="tm([
+        'inline-flex flex-col grow',
+        props.classes.labelWrapper,
+      ])"
     >
       <Label
         v-if="props.label || 'default' in $slots"
         :for="id"
-        class="font-sans text-sm ms-1 cursor-pointer select-none text-muted-600 dark:text-muted-400"
-        :class="props.classes.label"
+        :class="tm([
+          'font-sans text-sm ms-1 cursor-pointer select-none text-muted-600 dark:text-muted-400',
+          props.classes.label
+        ])"
       >
         <slot>{{ props.label }}</slot>
       </Label>

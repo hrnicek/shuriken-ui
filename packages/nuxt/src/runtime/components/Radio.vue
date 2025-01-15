@@ -6,6 +6,7 @@ import { reactiveOmit } from '@vueuse/core'
 import { useAttrs } from 'vue'
 
 import { useNinjaId } from '../composables/input-id';
+import { tm } from '../utils/tw-merge';
 
 defineOptions({
   inheritAttrs: false,
@@ -31,8 +32,10 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'varian
 
 <template>
   <div
-    class="relative inline-flex items-start gap-1"
-    :class="props.classes.root"
+    :class="tm([
+      'relative inline-flex items-start gap-1',
+      props.classes.root,
+    ])"
   >
     <RadioGroupItem
       :id
@@ -41,22 +44,26 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'varian
       :class="theme.boxVariants[variant]"
     >
       <RadioGroupIndicator
-        class="pointer-events-none z-10 block group-data-[state=unchecked]/radio:scale-0 roup-data-[state=checked]/radio:scale-100 rounded-full size-1 bg-current dark:bg-current starting:opacity-0 transition-opacity duration-150"
-        :class="[
+        :class="tm([
+          'pointer-events-none z-10 block group-data-[state=unchecked]/radio:scale-0 roup-data-[state=checked]/radio:scale-100 rounded-full size-1 bg-current dark:bg-current starting:opacity-0 transition-opacity duration-150',
           theme.dotVariants[variant],
           props.classes.indicator
-        ]"
+        ])"
       />
     </RadioGroupItem>
     <div
-      class="inline-flex flex-col grow"
-      :class="props.classes.labelWrapper"
+      :class="tm([
+        'inline-flex flex-col grow',
+        props.classes.labelWrapper
+      ])"
     >
       <Label
         v-if="props.label || 'default' in $slots"
         :for="id"
-        class=" ms-1 cursor-pointer select-none font-sans text-sm text-muted-600 dark:text-muted-400"
-        :class="props.classes.label"
+        :class="tm([
+          'ms-1 cursor-pointer select-none font-sans text-sm text-muted-600 dark:text-muted-400',
+          props.classes.label
+        ])"
       >
         <slot>{{ props.label }}</slot>
       </Label>
