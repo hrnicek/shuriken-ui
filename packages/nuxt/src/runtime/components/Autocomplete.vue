@@ -10,13 +10,14 @@ export const [
 </script>
 
 <script setup lang="ts" generic="T extends AcceptableValue = AcceptableValue">
+import type { Ref } from 'vue'
 import type { BaseAutocompleteProps, BaseAutocompleteEmits, BaseAutocompleteSlots } from '../types';
 import type { AcceptableValue } from 'reka-ui'
 import { BaseAutocomplete as theme } from '#build/shuriken-ui/theme';
 import { defu } from 'defu'
 import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
-import { reactiveOmit } from '@vueuse/core'
-import { useAttrs, computed } from 'vue'
+import { useVModel, reactiveOmit } from '@vueuse/core'
+import { watch, useAttrs, computed } from 'vue'
 
 defineOptions({
   inheritAttrs: false,
@@ -26,6 +27,8 @@ const props = withDefaults(defineProps<BaseAutocompleteProps<T>>(), {
   rounded: theme.defaults.rounded,
   size: theme.defaults.size,
   preset: theme.defaults.preset,
+
+  query: undefined,
 
   defaultOpen: undefined,
   open: undefined,
@@ -39,8 +42,13 @@ const props = withDefaults(defineProps<BaseAutocompleteProps<T>>(), {
 })
 
 const emits = defineEmits<BaseAutocompleteEmits<T>>()
-const slots = defineSlots<BaseAutocompleteSlots>()
+const slots = defineSlots<BaseAutocompleteSlots<T>>()
 const attrs = useAttrs()
+
+const query = useVModel(props as { query?: string }, 'query', emits, {
+  // defaultValue: props.defaultQuery,
+  passive: (props.query === undefined) as false,
+})
 
 const iconClose = useNuiConfig('icon', 'close')
 const iconChevronDown = useNuiConfig('icon', 'chevronDown')
@@ -63,6 +71,7 @@ provideBaseAutocompleteContext({
     :class="[
       props.classes.root,
     ]"
+    v-slot="{ open, modelValue }"
   >
     <ComboboxAnchor
       class="has-focus-visible:nui-focus w-full flex min-w-[160px] items-center justify-between leading-none gap-[5px] outline-none disabled:cursor-not-allowed has-disabled:opacity-50 has-aria-invalid:border-destructive-base! group"
@@ -74,14 +83,20 @@ provideBaseAutocompleteContext({
       ]"
       v-bind="bindings.anchor"
     >
-      <slot name="input">
-        <ComboboxInput :ref="forwardRef" class="h-full w-full outline-none" :class="theme.inputVariants[props.variant]" v-bind="attrs" />
-      </slot>
+      <ComboboxInput
+        :ref="forwardRef"
+        v-bind="attrs"
+        :model-value="props.query"
+        class="h-full w-full outline-none"
+        :class="theme.inputVariants[props.variant]"
+        @update:model-value="(value: string) => {
+          query = value
+        }"
+      />
       <ComboboxCancel
         v-if="props.clearable"
         class="opacity-0 group-focus-within:opacity-100 transition-opacity duration-100"
         :class="props.classes.cancel"
-        as-child
       >
         <Icon
           :name="iconClose"
@@ -115,21 +130,27 @@ provideBaseAutocompleteContext({
           props.classes.content,
         ]"
       >
+        <slot name="content-start" v-bind="{ open, modelValue, query }" />
+
         <ComboboxViewport
           class="p-[5px] nui-slimscroll"
           v-bind="bindings.viewport"
           :class="props.classes.viewport"
         >
+          <slot name="viewport-start" v-bind="{ open, modelValue, query }" />
+
           <ComboboxEmpty
             class="text-muted-500 text-xs font-medium text-center py-2"
             v-bind="bindings.empty"
             :class="props.classes.empty"
           >
-            <slot name="empty" />
+            <slot name="empty" v-bind="{ open, modelValue, query }" />
           </ComboboxEmpty>
 
           <slot />
+          <slot name="viewport-end" v-bind="{ open, modelValue, query }" />
         </ComboboxViewport>
+        <slot name="content-end" v-bind="{ open, modelValue, query }" />
       </ComboboxContent>
     </ComboboxPortal>
   </ComboboxRoot>

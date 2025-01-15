@@ -48,6 +48,7 @@ const { forwardRef } = useForwardExpose()
     :class="[
       theme.variants[props.variant],
       theme.radiuses[props.rounded],
+      theme.sizes[props.size],
       props.classes.root,
     ]"
   >

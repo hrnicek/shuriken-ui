@@ -67,6 +67,7 @@ const { forwardRef } = useForwardExpose()
 provideBaseSelectContext({
   variant: props.variant,
   rounded: props.rounded,
+  size: props.size,
 })
 </script>
 
@@ -110,6 +111,8 @@ provideBaseSelectContext({
         ]"
         v-bind="bindings?.content"
       >
+        <slot name="content-start" />
+
         <SelectScrollUpButton
           class="flex items-center justify-center h-[25px] bg-white cursor-default"
           :class="[
@@ -125,7 +128,9 @@ provideBaseSelectContext({
           class="p-[5px]"
           :class="props.classes.viewport"
         >
+          <slot name="viewport-start" />
           <slot />
+          <slot name="viewport-end" />
         </SelectViewport> 
 
         <SelectScrollDownButton
@@ -137,6 +142,8 @@ provideBaseSelectContext({
         >
           <Icon :name="iconChevronDown" />
         </SelectScrollDownButton>
+
+        <slot name="content-end" />
       </SelectContent>
     </SelectPortal>
   </SelectRoot>
