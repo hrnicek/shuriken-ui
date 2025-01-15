@@ -11,6 +11,7 @@ export default withNuxt(
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
       'ts/ban-ts-comment': 'off',
+      'vue/block-order': 'off',
     },
   },
 )
