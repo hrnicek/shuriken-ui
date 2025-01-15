@@ -11,16 +11,16 @@ const states = ['idle', 'loading', 'success', 'error'] as const
             <div class="w-full inline-flex">
               <BaseFieldLabel class="flex items-center justify-between w-full">
                 <div>
-                  <span>Quantity</span>
+                  <span>Message</span>
                   <BaseFieldRequiredIndicator />
                 </div>
               </BaseFieldLabel>
             </div>
             <div class="relative">
               <BaseFieldController>
-                <BaseInputNumber placeholder="placeholder" />
+                <BaseTextarea placeholder="Write a message..." />
               </BaseFieldController>
-              <div class="absolute z-0 end-12 top-3 pointer-events-none">
+              <div class="absolute z-0 end-4 top-3 pointer-events-none">
                 <BaseFieldLoadingIndicator />
                 <BaseFieldSuccessIndicator />
                 <BaseFieldErrorIndicator />

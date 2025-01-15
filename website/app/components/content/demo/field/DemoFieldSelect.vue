@@ -1,5 +1,7 @@
 <script setup lang="ts">
 const states = ['idle', 'loading', 'success', 'error'] as const
+
+const value = ref('')
 </script>
 
 <template>
@@ -7,20 +9,33 @@ const states = ['idle', 'loading', 'success', 'error'] as const
     <div class="w-full rounded-xl bg-muted-100 p-4 dark:bg-muted-900/40">
       <div class="flex w-full items-center">
         <div class="w-full grid grid-cols-2 gap-4">
-          <BaseField v-for="state in states" :key="state" :state="state">
+          <BaseField v-for="state in states" :key="state">
             <div class="w-full inline-flex">
               <BaseFieldLabel class="flex items-center justify-between w-full">
                 <div>
-                  <span>Quantity</span>
+                  <span>Select an option</span>
                   <BaseFieldRequiredIndicator />
                 </div>
               </BaseFieldLabel>
             </div>
             <div class="relative">
               <BaseFieldController>
-                <BaseInputNumber placeholder="placeholder" />
+                <BaseSelect v-model="value" placeholder="Select a value...">
+                  <BaseSelectItem value="1">
+                    Option 1
+                  </BaseSelectItem>
+                  <BaseSelectItem value="2">
+                    Option 2
+                  </BaseSelectItem>
+                  <BaseSelectItem value="3">
+                    Option 3
+                  </BaseSelectItem>
+                  <BaseSelectItem value="4">
+                    Option 4
+                  </BaseSelectItem>
+                </BaseSelect>
               </BaseFieldController>
-              <div class="absolute z-0 end-12 top-3 pointer-events-none">
+              <div class="absolute z-0 end-10 top-3 pointer-events-none">
                 <BaseFieldLoadingIndicator />
                 <BaseFieldSuccessIndicator />
                 <BaseFieldErrorIndicator />

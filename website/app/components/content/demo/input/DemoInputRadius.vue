@@ -9,11 +9,7 @@ const value = ref('')
         <BaseInput
           v-model="value"
           rounded="full"
-          label="Username"
           placeholder="Ex: username"
-          :classes="{
-            wrapper: 'w-full',
-          }"
         />
       </div>
     </div>

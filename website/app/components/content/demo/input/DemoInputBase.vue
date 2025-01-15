@@ -9,12 +9,8 @@ const value = ref('')
         <div class="flex w-full max-w-xs items-end gap-4">
           <BaseInput
             v-model="value"
-            rounded="sm"
-            label="Username"
-            placeholder="Ex: username"
-            :classes="{
-              wrapper: 'w-full',
-            }"
+            rounded="md"
+            placeholder="Username"
           />
         </div>
       </div>

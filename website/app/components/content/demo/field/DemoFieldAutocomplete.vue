@@ -11,16 +11,38 @@ const states = ['idle', 'loading', 'success', 'error'] as const
             <div class="w-full inline-flex">
               <BaseFieldLabel class="flex items-center justify-between w-full">
                 <div>
-                  <span>Quantity</span>
+                  <span>Choose an option</span>
                   <BaseFieldRequiredIndicator />
                 </div>
               </BaseFieldLabel>
             </div>
             <div class="relative">
               <BaseFieldController>
-                <BaseInputNumber placeholder="placeholder" />
+                <BaseAutocomplete
+                  placeholder="autocomplete placeholder"
+                  clearable
+                >
+                  <BaseAutocompleteItem value="1">
+                    Option 1
+                  </BaseAutocompleteItem>
+                  <BaseAutocompleteItem value="2">
+                    Option 2
+                  </BaseAutocompleteItem>
+                  <BaseAutocompleteItem value="3">
+                    Option 3
+                  </BaseAutocompleteItem>
+                  <BaseAutocompleteItem value="4">
+                    Option 4
+                  </BaseAutocompleteItem>
+                  <BaseAutocompleteItem value="5">
+                    Option 5
+                  </BaseAutocompleteItem>
+                  <BaseAutocompleteItem value="6">
+                    Option 6
+                  </BaseAutocompleteItem>
+                </BaseAutocomplete>
               </BaseFieldController>
-              <div class="absolute z-0 end-12 top-3 pointer-events-none">
+              <div class="absolute z-0 end-10 top-3 pointer-events-none">
                 <BaseFieldLoadingIndicator />
                 <BaseFieldSuccessIndicator />
                 <BaseFieldErrorIndicator />

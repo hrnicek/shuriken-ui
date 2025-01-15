@@ -15,7 +15,6 @@ const fields = reactive({
             v-model="fields.first"
             size="sm"
             rounded="md"
-            label="Size: sm"
             placeholder="Ex: username"
           />
         </div>
@@ -25,7 +24,6 @@ const fields = reactive({
             v-model="fields.second"
             size="md"
             rounded="md"
-            label="Size: md"
             placeholder="Ex: username"
           />
         </div>
@@ -35,7 +33,6 @@ const fields = reactive({
             v-model="fields.third"
             size="lg"
             rounded="md"
-            label="Size: lg"
             placeholder="Ex: username"
           />
         </div>
