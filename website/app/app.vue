@@ -23,11 +23,11 @@ useSeoMeta({
 </script>
 
 <template>
-  <div>
+  <BaseProviders>
     <NuxtRouteAnnouncer />
     <NuxtLoadingIndicator color="var(--color-nuxt-loading-indicator)" />
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
-  </div>
+  </BaseProviders>
 </template>

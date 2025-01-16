@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const value = ref('')
+const value = ref(undefined)
 </script>
 
 <template>
@@ -7,32 +7,22 @@ const value = ref('')
     <div class="w-full rounded-xl bg-muted-100 p-4 dark:bg-muted-900">
       <div class="flex w-full items-center">
         <div class="flex w-full max-w-xs items-end gap-4">
-          <BaseSelect
-            v-model="value"
-            rounded="sm"
-            label="Select Hero"
-            :classes="{
-              wrapper: 'w-full',
-            }"
-          >
-            <option value="">
-              Select a hero
-            </option>
-            <option value="Superman">
+          <BaseSelect v-model="value" rounded="md" placeholder="Select a hero">
+            <BaseSelectItem value="Superman">
               Superman
-            </option>
-            <option value="Batman">
+            </BaseSelectItem>
+            <BaseSelectItem value="Batman">
               Batman
-            </option>
-            <option value="Iron man">
+            </BaseSelectItem>
+            <BaseSelectItem value="Iron man">
               Iron man
-            </option>
-            <option value="Magneto">
+            </BaseSelectItem>
+            <BaseSelectItem value="Magneto">
               Magneto
-            </option>
-            <option value="Cyclops">
+            </BaseSelectItem>
+            <BaseSelectItem value="Cyclops">
               Cyclops
-            </option>
+            </BaseSelectItem>
           </BaseSelect>
         </div>
       </div>
