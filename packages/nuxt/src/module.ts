@@ -96,5 +96,13 @@ export default defineNuxtModule<ModuleOptions>({
         return `export * from '${options.theme}'`
       }
     })
+
+    // Exclude packages that are available in ESM format
+    nuxt.options.vite.optimizeDeps ||= {}
+    nuxt.options.vite.optimizeDeps.exclude ||= []
+    nuxt.options.vite.optimizeDeps.exclude.push(
+      'reka-ui',
+      'tailwind-merge',
+    )
   },
 })

@@ -161,6 +161,18 @@
   --color-tag-dark-bg: var(--color-muted-900);
   --color-tag-dark-border: var(--color-muted-900);
   --color-tag-dark-text: var(--color-muted-900);
+
+  --color-popup-default-bg: var(--color-portal-default-bg);
+  --color-popup-default-border: var(--color-portal-default-border);
+  --color-popup-default-text: var(--color-portal-default-item-text);
+
+  --color-popup-muted-bg: var(--color-portal-muted-bg);
+  --color-popup-muted-border: var(--color-portal-muted-border);
+  --color-popup-muted-text: var(--color-portal-muted-item-text);
+
+  --color-popup-dark-bg: var(--color-muted-950);
+  --color-popup-dark-border: var(--color-muted-950);
+  --color-popup-dark-text: var(--color-white);
   
   /** Animations */
   --animate-nui-placeload: nui-placeload 1s linear infinite forwards;

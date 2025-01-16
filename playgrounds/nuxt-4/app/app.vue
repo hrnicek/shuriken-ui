@@ -14,10 +14,10 @@ useHead(() => ({
 </script>
 
 <template>
-  <div>
+  <BaseProviders>
     <NuxtLoadingIndicator />
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
-  </div>
+  </BaseProviders>
 </template>
