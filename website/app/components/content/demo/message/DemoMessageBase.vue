@@ -5,7 +5,7 @@
         icon
         rounded="md"
       >
-        A successful message.
+        A default message.
       </BaseMessage>
     </div>
   </div>

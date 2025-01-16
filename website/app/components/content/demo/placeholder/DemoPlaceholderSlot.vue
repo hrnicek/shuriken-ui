@@ -10,7 +10,7 @@
             loading="lazy"
             decoding="async"
             class="dark:invert"
-            src="/img/illustrations/placeholders/placeholder-3.svg"
+            src="/img/vector/placeholders/placeholder-3.svg"
             alt="placeholder-image"
           />
         </template>
@@ -21,7 +21,7 @@
             placeholder="Enter your email"
           />
           <BaseButton
-            color="primary"
+            variant="dark"
             rounded="md"
           >
             Subscribe

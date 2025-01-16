@@ -18,8 +18,9 @@ const page = computed({
       :items-per-page="8"
       :total="512"
       :sibling-count="2"
-      rounded="full"
-      variant="dark"
+      size="sm"
+      rounded="md"
+      variant="primary"
     />
   </div>
 </template>
