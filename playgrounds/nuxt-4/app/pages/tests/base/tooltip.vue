@@ -57,10 +57,10 @@ const loading = ref(true)
 
             <BaseTooltip>
               <template #content>
-                <span class="flex items-center gap-1">
+                <BaseLink href="#" class="flex items-center gap-1">
                   <Icon name="lucide:circle-help" />
-                  <span>Tooltip content</span>       
-                </span>
+                  <span>Tooltip link</span>       
+                </BaseLink>
               </template>
               <span 
                 tabindex="0"
@@ -105,6 +105,110 @@ const loading = ref(true)
               </BaseButton>
             </span>
           </BaseTooltip>
+        </div>
+      </NuiPreview>
+    </NuiPreviewContainer>
+
+    
+    <NuiPreviewContainer title="BasePopover">
+      <NuiPreview title="Button" description="Test popover">
+        <div class="flex flex-wrap items-end gap-4">
+          <BasePopover>
+            <BaseButton>
+              Button
+            </BaseButton>
+
+            <template #content>
+              <div class="ps-4 py-2 space-y-2 max-w-[200px]">
+                <BaseHeading>Popover content muted</BaseHeading>
+
+                <BaseTooltip content="Tooltip content" :bindings="{ content: { side: 'right' } }">
+                  <BaseInput size="sm" placeholder="First name" />
+                </BaseTooltip>
+                <BaseTooltip content="Tooltip content" :bindings="{ content: { side: 'right' } }">
+                  <BaseInput size="sm" placeholder="Last name" />
+                </BaseTooltip>
+
+                <BaseButton size="sm">
+                  Submit
+                </BaseButton>
+              </div>
+            </template>
+          </BasePopover>
+          
+          <BasePopover variant="muted">
+            <BaseButton>
+              Button
+            </BaseButton>
+
+            <template #content>
+              <div class="ps-4 py-2 space-y-2 max-w-[200px]">
+                <BaseHeading>Popover content muted</BaseHeading>
+
+                <BaseInput size="sm" placeholder="First name" />
+                <BaseInput size="sm" placeholder="Last name" />
+
+                <BaseButton size="sm">
+                  Submit
+                </BaseButton>
+              </div>
+            </template>
+          </BasePopover>
+
+          <BasePopover>
+            <BaseButton>
+              Button
+            </BaseButton>
+
+            <template #content>
+              <div class="ps-4 py-2 space-y-2">
+                <BaseHeading>Popover content muted</BaseHeading>
+
+                <BaseInput size="sm" placeholder="First name" />
+                <BaseInput size="sm" placeholder="Last name" />
+                <BaseInput size="sm" placeholder="Last name" />
+                <BaseInput size="sm" placeholder="Last name" />
+                <BaseInput size="sm" placeholder="Last name" />
+                <BaseInput size="sm" placeholder="Last name" />
+                <BaseInput size="sm" placeholder="Last name" />
+                <BaseInput size="sm" placeholder="Last name" />
+                <BaseInput size="sm" placeholder="Last name" />
+                <BaseInput size="sm" placeholder="Last name" />
+                <BaseInput size="sm" placeholder="Last name" />
+                <BaseInput size="sm" placeholder="Last name" />
+                <BaseInput size="sm" placeholder="Last name" />
+                <BaseInput size="sm" placeholder="Last name" />
+                <BaseInput size="sm" placeholder="Last name" />
+                <BaseInput size="sm" placeholder="Last name" />
+                <BaseInput size="sm" placeholder="Last name" />
+                <BaseInput size="sm" placeholder="Last name" />
+                <BaseInput size="sm" placeholder="Last name" />
+                <BaseInput size="sm" placeholder="Last name" />
+                <BaseInput size="sm" placeholder="Last name" />
+                <BaseInput size="sm" placeholder="Last name" />
+                <BaseInput size="sm" placeholder="Last name" />
+                <BaseInput size="sm" placeholder="Last name" />
+
+                <BaseButton size="sm">
+                  Submit
+                </BaseButton>
+              </div>
+            </template>
+          </BasePopover>
+
+          <BasePopover>
+            <button type="button" tabindex="0" class="focus-visible:nui-focus cursor-pointer rounded-full">
+              <BaseAvatar class="bg-muted-100 dark:bg-muted-800">
+                ?
+              </BaseAvatar>
+            </button>
+
+            <template #content>
+              <div class="pe-2 space-y-2 w-[180px]">
+                <BaseInputFile size="sm" :classes="{ root: 'border-0' }" />
+              </div>
+            </template>
+          </BasePopover>
         </div>
       </NuiPreview>
     </NuiPreviewContainer>
