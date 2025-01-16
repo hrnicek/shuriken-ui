@@ -6,19 +6,18 @@ const value = ref('')
   <div class="flex items-center justify-center px-4 pb-0 pt-4">
     <div class="w-full rounded-xl bg-muted-100 p-4 dark:bg-muted-900">
       <div class="flex w-full items-center">
-        <div class="flex w-full max-w-sm items-center">
+        <div class="w-full grid md:grid-cols-2 max-w-xl gap-4">
           <BaseTextarea
             v-model="value"
-            contrast="default-contrast"
-            label="Message"
-            rounded="sm"
-            placeholder="Write a message..."
-            rows="4"
-            :classes="{
-              wrapper: 'w-full',
-              textarea: 'resize-none overflow-hidden',
-            }"
-            autogrow
+            variant="default"
+            rounded="md"
+            placeholder="Ex: Write a message..."
+          />
+          <BaseTextarea
+            v-model="value"
+            variant="muted"
+            rounded="md"
+            placeholder="Ex: Write a message..."
           />
         </div>
       </div>

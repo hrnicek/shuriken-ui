@@ -9,16 +9,9 @@ const value = ref('')
         <div class="flex w-full max-w-sm items-center">
           <BaseTextarea
             v-model="value"
-            label="Message"
-            rounded="sm"
+            rounded="md"
             placeholder="Write a message..."
-            rows="4"
-            :classes="{
-              wrapper: 'w-full',
-              textarea: 'resize-none overflow-hidden',
-            }"
-            autogrow
-            error="Please enter a message"
+            aria-invalid="true"
           />
         </div>
       </div>

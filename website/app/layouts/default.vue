@@ -75,7 +75,7 @@ const { data: navigation } = await useAsyncData('navigation', () => queryCollect
               </div>
             </div>
             <!-- End -->
-            <div class="relative hidden lg:flex flex-col w-72 bg-white dark:bg-black pe-6 py-6">
+            <div class="relative hidden xl:flex flex-col w-72 bg-white dark:bg-black pe-6 py-6">
               <div class="fixed top-20">
                 <TocDoc />
               </div>
