@@ -15,8 +15,7 @@ const fields = reactive({
           <BaseInputNumber
             v-model="fields.first"
             rounded="md"
-            label="Temperature (°C)"
-            icon="carbon:temperature-celsius"
+            placeholder="Temperature (°C)"
             :min="-20"
             :max="20"
             :step="0.05"
@@ -25,8 +24,7 @@ const fields = reactive({
           <BaseInputNumber
             v-model="fields.second"
             rounded="md"
-            label="Temperature (°F)"
-            icon="carbon:temperature-fahrenheit"
+            placeholder="Temperature (°F)"
             :min="0"
             :step="0.5"
           />
@@ -34,8 +32,7 @@ const fields = reactive({
           <BaseInputNumber
             v-model="fields.third"
             rounded="md"
-            label="BTC"
-            icon="ic:sharp-currency-bitcoin"
+            placeholder="BTC"
             :min="0"
             :step="0.000001"
           />
@@ -43,8 +40,7 @@ const fields = reactive({
           <BaseInputNumber
             v-model="fields.fourth"
             rounded="md"
-            icon="material-symbols-light:encrypted-outline"
-            label="Bytes"
+            placeholder="Bytes"
             :min="0"
             :step="1024"
           />

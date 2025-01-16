@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // This is the computed value that will be used to display the current avatar
-const currentAvatar = computed(() => '/img/avatars/10.svg')
+const currentAvatar = computed(() => '/img/people/29.jpg')
 const inputFile = ref<FileList | null>(null)
 </script>
 
@@ -39,10 +39,9 @@ const inputFile = ref<FileList | null>(null)
             v-if="files?.length && files.item(0)"
             class="absolute bottom-0 end-0 z-20"
           >
-            <BaseButtonIcon
-              size="sm"
+            <BaseButton
+              size="icon-sm"
               rounded="full"
-              data-nui-tooltip="Remove image"
               class="scale-90"
               @click="remove(files.item(0)!)"
             >
@@ -50,7 +49,7 @@ const inputFile = ref<FileList | null>(null)
                 name="lucide:x"
                 class="h-4 w-4"
               />
-            </BaseButtonIcon>
+            </BaseButton>
           </div>
 
           <div
@@ -59,10 +58,9 @@ const inputFile = ref<FileList | null>(null)
           >
             <div
               class="relative"
-              data-nui-tooltip="Upload image"
             >
-              <BaseButtonIcon
-                size="sm"
+              <BaseButton
+                size="icon-sm"
                 rounded="full"
                 @click="open"
               >
@@ -70,7 +68,7 @@ const inputFile = ref<FileList | null>(null)
                   name="lucide:plus"
                   class="h-4 w-4"
                 />
-              </BaseButtonIcon>
+              </BaseButton>
             </div>
           </div>
         </div>

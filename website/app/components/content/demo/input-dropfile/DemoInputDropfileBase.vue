@@ -59,7 +59,7 @@ const uploadedFiles = ref<FileList | null>(null)
       >
         <div
           v-if="!files?.length"
-          class="group nui-focus cursor-pointer rounded-lg border-[3px] border-dashed border-muted-300 p-8 transition-colors duration-300 hover:border-muted-400 focus:border-muted-400 dark:border-muted-700 dark:hover:border-muted-600 dark:focus:border-muted-700"
+          class="group focus:nui-focus cursor-pointer rounded-lg border-[3px] border-dashed border-muted-300 p-8 transition-colors duration-300 hover:border-muted-400 focus:border-muted-400 dark:border-muted-700 dark:hover:border-muted-600 dark:focus:border-muted-700"
           tabindex="0"
           role="button"
           @click="open"
@@ -68,7 +68,7 @@ const uploadedFiles = ref<FileList | null>(null)
           <div class="p-5 text-center">
             <Icon
               name="mdi-light:cloud-upload"
-              class="mb-2 h-10 w-10 text-muted-400 transition-colors duration-300 group-hover:text-primary-500 group-focus:text-primary-500"
+              class="mx-auto mb-2 h-10 w-10 text-muted-400 transition-colors duration-300 group-hover:text-primary-500 group-focus:text-primary-500"
             />
 
             <h4 class="font-sans text-sm text-muted-400">

@@ -10,7 +10,7 @@ const file = ref<FileList | null>(null)
           <BaseInputFile
             v-model="file"
             rounded="md"
-            label="Upload a file"
+            placeholder="Choose file"
           />
         </div>
       </div>

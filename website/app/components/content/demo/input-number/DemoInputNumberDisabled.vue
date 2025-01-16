@@ -9,9 +9,17 @@ const value = ref(0)
         <div class="flex w-full max-w-sm items-end gap-4">
           <BaseInputNumber
             v-model="value"
-            size="md"
+            variant="default"
             rounded="md"
-            label="Quantity"
+            placeholder="Your rating"
+            disabled
+          />
+
+          <BaseInputNumber
+            v-model="value"
+            variant="muted"
+            rounded="md"
+            placeholder="Priority"
             disabled
           />
         </div>

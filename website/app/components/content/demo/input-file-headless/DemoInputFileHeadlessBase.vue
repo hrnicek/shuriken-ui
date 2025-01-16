@@ -13,7 +13,7 @@ const uploadedFiles = ref<FileList | null>(null)
         <div class="mb-4 flex items-center gap-2">
           <button
             type="button"
-            class="nui-focus relative flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-muted-200 bg-white text-muted-700 transition-colors duration-300 hover:border-primary-500 hover:text-primary-600 dark:border-muted-700 dark:bg-muted-800 dark:text-muted-200 dark:hover:border-primary-500 dark:hover:text-primary-600"
+            class="focus:nui-focus relative flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-muted-200 bg-white text-muted-700 transition-colors duration-300 hover:border-primary-500 hover:text-primary-600 dark:border-muted-700 dark:bg-muted-800 dark:text-muted-200 dark:hover:border-primary-500 dark:hover:text-primary-600"
             tooltip="Select files"
             @click="open"
           >
@@ -58,7 +58,7 @@ const uploadedFiles = ref<FileList | null>(null)
             <div class="p-5 text-center">
               <Icon
                 name="mdi-light:cloud-upload"
-                class="mb-2 h-10 w-10 text-muted-400 transition-colors duration-300 group-hover:text-primary-500 group-focus:text-primary-500"
+                class="mx-auto mb-2 h-10 w-10 text-muted-400 transition-colors duration-300 group-hover:text-primary-500 group-focus:text-primary-500"
               />
 
               <h4 class="font-sans text-sm text-muted-400">

@@ -9,9 +9,8 @@ const file = ref<FileList | null>(null)
         <div class="flex w-full max-w-xs items-end gap-4">
           <BaseInputFile
             v-model="file"
-            rounded="md"
-            label="Upload a file"
-            color-focus
+            rounded="full"
+            placeholder="Choose file"
           />
         </div>
       </div>
