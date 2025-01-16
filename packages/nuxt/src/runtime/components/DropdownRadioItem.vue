@@ -5,11 +5,14 @@ import { BaseDropdownItem as theme } from '#build/shuriken-ui/theme';
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 
+import { injectBaseDropdownContext } from './Dropdown.vue'
+
 const props = withDefaults(defineProps<BaseDropdownRadioItemProps>(), {
-  variant: undefined,
-  rounded: undefined,
   text: undefined,
   title: undefined,
+
+  variant: undefined,
+  rounded: undefined,
   
   disabled: undefined,
   textValue: undefined,
@@ -20,16 +23,18 @@ const props = withDefaults(defineProps<BaseDropdownRadioItemProps>(), {
 const emits = defineEmits<BaseDropdownRadioItemEmits>()
 const slots = defineSlots<BaseDropdownRadioItemSlots>()
 
+const context = injectBaseDropdownContext()
+
 const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'variant', 'rounded', 'bindings']), emits)
 </script>
 
 <template>
   <DropdownMenuRadioItem 
     v-bind="forward"
-    class="focus-visible:nui-focus flex w-full items-center justify-start gap-2 p-2 cursor-pointer text-start font-sans text-sm transition-colors duration-300 group/menu-radio-item"
+    class="focus-visible:nui-focus flex w-full items-center justify-start gap-2 p-2 cursor-pointer text-start font-sans text-sm transition-colors duration-100 group/menu-radio-item"
     :class="[
-      props.rounded && theme.radiuses[props.rounded],
-      props.variant && theme.variants[props.variant],
+      theme.radiuses[props.rounded || context.rounded],
+      theme.variants[props.variant || context.variant],
       props.disabled && 'opacity-50 pointer-events-none',
     ]"
   >

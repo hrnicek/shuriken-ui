@@ -60,9 +60,11 @@ export const presets = {
       position: 'popper',
       align: 'start',
       sideOffset: 6,
+      avoidCollisions: true,
+      collisionPadding: 20,
     },
     viewport: {
-      class: 'max-h-[calc(var(--reka-popper-available-height)_-_2rem)] min-w-[calc(var(--reka-combobox-trigger-width)-1px)]',
+      class: 'max-h-[var(--reka-popper-available-height)] min-w-[calc(var(--reka-combobox-trigger-width)-1px)]',
     },
   },
 } as const satisfies Record<NonNullable<BaseAutocompleteProps['preset']>, BaseAutocompleteProps['bindings']>

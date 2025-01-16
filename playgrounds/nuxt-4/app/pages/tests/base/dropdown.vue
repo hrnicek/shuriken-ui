@@ -88,7 +88,7 @@ const selection = ref('first')
             </BaseDropdownSub>
             <BaseDropdownItem>Projects</BaseDropdownItem> 
             <BaseDropdownItem>Team</BaseDropdownItem> 
-            <BaseDropdownSub>
+            <BaseDropdownSub variant="muted">
               <template #title>
                 Settings
               </template>
