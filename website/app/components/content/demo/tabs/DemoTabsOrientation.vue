@@ -1,9 +1,10 @@
 <template>
   <div class="flex items-center p-4">
-    <div class="w-full gap-8 grid grid-cols-2 max-w-3xl">
+    <div class="w-full max-w-6xl">
       <BaseTabs
         default-value="team"
-        variant="primary"
+        orientation="vertical"
+        variant="dark"
         :tabs="[
           { label: 'Team', value: 'team' },
           { label: 'Projects', value: 'projects' },
