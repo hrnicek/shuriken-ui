@@ -7,6 +7,11 @@ definePageMeta({
 })
 
 const loading = ref(true)
+
+const open = ref(false)
+function onSubmit() {
+  open.value = false
+}
 </script>
 
 <template>
@@ -113,13 +118,13 @@ const loading = ref(true)
     <NuiPreviewContainer title="BasePopover">
       <NuiPreview title="Button" description="Test popover">
         <div class="flex flex-wrap items-end gap-4">
-          <BasePopover>
+          <BasePopover modal v-model:open="open">
             <BaseButton>
-              Button
+              Button {{ open ? 'open' : 'closed' }}
             </BaseButton>
 
             <template #content>
-              <div class="ps-4 py-2 space-y-2 max-w-[200px]">
+              <form method="dialog" class="ps-4 py-2 space-y-2 max-w-[200px]" @submit.prevent="onSubmit">
                 <BaseHeading>Popover content muted</BaseHeading>
 
                 <BaseTooltip content="Tooltip content" :bindings="{ content: { side: 'right' } }">
@@ -129,17 +134,19 @@ const loading = ref(true)
                   <BaseInput size="sm" placeholder="Last name" />
                 </BaseTooltip>
 
-                <BaseButton size="sm">
+                <BaseButton size="sm" type="submit">
                   Submit
                 </BaseButton>
-              </div>
+              </form>
             </template>
           </BasePopover>
           
           <BasePopover variant="muted">
-            <BaseButton>
-              Button
-            </BaseButton>
+            <template #default="{ open }">
+              <BaseButton>
+                Button {{ open ? 'open' : 'closed' }}
+              </BaseButton>
+            </template>
 
             <template #content>
               <div class="ps-4 py-2 space-y-2 max-w-[200px]">
