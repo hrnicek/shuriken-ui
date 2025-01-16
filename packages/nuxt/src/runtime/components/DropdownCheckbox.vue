@@ -5,14 +5,16 @@ import { BaseDropdownItem as theme } from '#build/shuriken-ui/theme';
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 
+import { injectBaseDropdownContext } from './Dropdown.vue'
 import { useNuiConfig } from '../composables/default-property';
+
 
 const props = withDefaults(defineProps<BaseDropdownCheckboxProps>(), {
   title: '',
   text: '',
 
-  variant: theme.defaults.variant,
-  rounded: theme.defaults.rounded,
+  variant: undefined,
+  rounded: undefined,
 
   disabled: undefined,
   modelValue: undefined,
@@ -22,6 +24,7 @@ const props = withDefaults(defineProps<BaseDropdownCheckboxProps>(), {
 })
 const emits = defineEmits<BaseDropdownCheckboxEmits>()
 const slots = defineSlots<BaseDropdownCheckboxSlots>()
+const context = injectBaseDropdownContext()
 
 const iconCheck = useNuiConfig('icon', 'check')
 const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'variant', 'rounded', 'bindings']), emits)
@@ -30,10 +33,10 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'vari
 <template>
   <DropdownMenuCheckboxItem 
     v-bind="forward"
-    class="focus-visible:nui-focus flex w-full items-center justify-start gap-2 p-2 cursor-pointer text-start font-sans text-sm transition-colors duration-300 group/menu-checkbox-item"
+    class="focus-visible:nui-focus flex w-full items-center justify-start gap-2 p-2 cursor-pointer text-start font-sans text-sm transition-colors duration-100 group/menu-checkbox-item"
     :class="[
-      props.rounded && theme.radiuses[rounded],
-      props.variant && theme.variants[variant],
+      theme.radiuses[props.rounded || context.rounded],
+      theme.variants[props.variant || context.variant],
       props.disabled && 'opacity-50 pointer-events-none',
     ]"
   >

@@ -53,12 +53,12 @@ provideBaseDropdownContext({
       v-bind="{
         asChild: true,
         disabled: props.disabled,
-        ...attrs,
         ...(props.bindings?.trigger || {}),
       }"
     >
       <slot name="button">
         <BaseButton
+          v-bind="attrs"
           :rounded="props.rounded"
           class="group"
         >
@@ -77,10 +77,12 @@ provideBaseDropdownContext({
         v-bind="{
           align: 'start',
           sideOffset: 6,
+          avoidCollisions: true,
+          collisionPadding: 20,
           ...(props.bindings?.content || {}),
         }"
         :class="tm([
-          'min-w-52 focus:outline-none shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20 will-change-[opacity] duration-100 transition-opacity transition-discrete data-[state=open]:opacity-100 starting:data-[state=open]:opacity-0 p-2 space-y-1 max-h-[calc(var(--reka-popper-available-height)_-_2rem)] overflow-y-auto nui-slimscroll',
+          'min-w-52 focus:outline-none shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20 will-change-[opacity] duration-100 transition-opacity transition-discrete data-[state=open]:opacity-100 starting:data-[state=open]:opacity-0 p-2 space-y-1 max-h-[var(--reka-popper-available-height)] overflow-y-auto nui-slimscroll',
           props.rounded && theme.radiuses[props.rounded],
           props.variant && theme.variants[props.variant],
           props.classes.content,

@@ -12,8 +12,9 @@ const forward = useForwardProps(props);
 <template>
   <DropdownMenuArrow
     v-bind="forward"
-    class="relative z-10"
+    class="relative z-10 "
     :class="[
+      '-translate-[1px]',
       context.variant && theme.variants[context.variant]
     ]"
   />

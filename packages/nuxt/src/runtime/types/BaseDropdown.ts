@@ -18,7 +18,7 @@ export interface BaseDropdownProps extends DropdownMenuRootProps {
   disabled?: boolean
 
   /**
-   * The variant of the dropdown.buttonSize
+   * The variant of the dropdown content
    */
   variant?: 'default' | 'muted' | 'primary' | 'none'
 

@@ -24,10 +24,10 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'vari
 <template>
   <DropdownMenuItem
     v-bind="forward"
-    class="focus-visible:nui-focus flex w-full items-center justify-start gap-2 p-2 cursor-pointer text-start font-sans text-sm transition-colors duration-300"
+    class="focus-visible:nui-focus flex w-full items-center justify-start gap-2 p-2 cursor-pointer text-start font-sans text-sm transition-colors duration-100"
     :class="[
-      (props.rounded || context.rounded) && theme.radiuses[props.rounded || context.rounded],
-      (props.variant || context.variant) && theme.variants[props.variant || context.variant],
+      theme.radiuses[props.rounded || context.rounded],
+      theme.variants[props.variant || context.variant],
       props.disabled && 'opacity-50 pointer-events-none',
     ]"
   >
