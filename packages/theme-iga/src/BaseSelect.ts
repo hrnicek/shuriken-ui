@@ -45,7 +45,9 @@ export const presets = {
       position: 'popper',
       align: 'start',
       sideOffset: 6,
-      class: 'max-h-[calc(var(--reka-popper-available-height)_-_2rem)] min-w-[var(--reka-select-trigger-width)]',
+      avoidCollisions: true,
+      collisionPadding: 20,
+      class: 'max-h-[var(--reka-popper-available-height)] min-w-[var(--reka-select-trigger-width)]',
     },
   },
 } as const satisfies Record<NonNullable<BaseSelectProps['preset']>, BaseSelectProps['bindings']>
