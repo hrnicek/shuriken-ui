@@ -4,19 +4,19 @@
       label="Mike"
       color="default"
       size="xs"
-      image="/img/avatars/3.svg"
+      image="/img/people/19.jpg"
     />
     <BaseSnack
       label="Maya"
       color="default"
       size="sm"
-      image="/img/avatars/2.svg"
+      image="/img/people/44.jpg"
     />
     <BaseSnack
       label="John"
       color="default"
       size="md"
-      image="/img/avatars/11.svg"
+      image="/img/people/55.jpg"
     />
   </div>
 </template>

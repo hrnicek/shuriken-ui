@@ -8,7 +8,7 @@ const value = ref(true)
       v-model="value"
       label="Primary"
       sublabel="This is a primary switch"
-      color="primary"
+      variant="primary"
     />
   </div>
 </template>

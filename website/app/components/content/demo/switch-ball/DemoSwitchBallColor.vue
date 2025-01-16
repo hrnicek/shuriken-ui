@@ -1,39 +1,41 @@
 <script setup lang="ts">
-const values = reactive({
-  primary: true,
-  info: true,
-  success: true,
-  warning: true,
-  danger: true,
+const ballValues = reactive({
+  one: true,
+  two: true,
+  three: true,
+  four: true,
 })
 </script>
 
 <template>
-  <div class="flex items-center gap-8 p-4">
+  <div class="grid grid-cols-2 gap-6 md:max-w-3xl md:grid-cols-4 p-4">
     <BaseSwitchBall
-      v-model="values.primary"
-      label="Primary"
-      color="primary"
-    />
+      v-model="ballValues.one"
+      variant="none"
+      class="*:first:bg-white *:first:dark:bg-muted-700 *:first:border *:first:border-muted-300 *:first:dark:border-muted-600 *:last:text-white *:last:dark:text-white *:peer-data-[state=checked]:bg-green-500 *:dark:peer-data-[state=checked]:bg-green-500 *:bg-muted-300 *:dark:bg-muted-600"
+    >
+      Custom
+    </BaseSwitchBall>
     <BaseSwitchBall
-      v-model="values.info"
-      label="Info"
-      color="info"
-    />
+      v-model="ballValues.two"
+      variant="none"
+      class="*:first:bg-white *:first:dark:bg-muted-700 *:first:border *:first:border-muted-300 *:first:dark:border-muted-600 *:last:text-white *:last:dark:text-white *:peer-data-[state=checked]:bg-pink-500 *:dark:peer-data-[state=checked]:bg-pink-500 *:bg-muted-300 *:dark:bg-muted-600"
+    >
+      Custom
+    </BaseSwitchBall>
     <BaseSwitchBall
-      v-model="values.success"
-      label="Success"
-      color="success"
-    />
+      v-model="ballValues.three"
+      variant="none"
+      class="*:first:bg-white *:first:dark:bg-muted-700 *:first:border *:first:border-muted-300 *:first:dark:border-muted-600 *:last:text-white *:last:dark:text-white *:peer-data-[state=checked]:bg-amber-500 *:dark:peer-data-[state=checked]:bg-amber-500 *:bg-muted-300 *:dark:bg-muted-600"
+    >
+      Custom
+    </BaseSwitchBall>
     <BaseSwitchBall
-      v-model="values.warning"
-      label="Warning"
-      color="warning"
-    />
-    <BaseSwitchBall
-      v-model="values.danger"
-      label="Danger"
-      color="danger"
-    />
+      v-model="ballValues.four"
+      variant="none"
+      class="*:first:bg-white *:first:dark:bg-muted-700 *:first:border *:first:border-muted-300 *:first:dark:border-muted-600 *:last:text-white *:last:dark:text-white *:peer-data-[state=checked]:bg-violet-500 *:dark:peer-data-[state=checked]:bg-violet-500 *:bg-muted-300 *:dark:bg-muted-600"
+    >
+      Custom
+    </BaseSwitchBall>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const value = ref(true)
+const value = true
 </script>
 
 <template>
@@ -7,7 +7,7 @@ const value = ref(true)
     <BaseSwitchThin
       v-model="value"
       label="Label"
-      color="primary"
+      variant="dark"
     />
   </div>
 </template>

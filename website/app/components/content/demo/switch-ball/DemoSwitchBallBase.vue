@@ -1,13 +1,13 @@
 <script setup lang="ts">
-const value = ref(true)
+const value = true
 </script>
 
 <template>
   <div class="flex items-center p-4">
     <BaseSwitchBall
       v-model="value"
-      label="Primary"
-      color="primary"
+      label="Label"
+      variant="dark"
     />
   </div>
 </template>
