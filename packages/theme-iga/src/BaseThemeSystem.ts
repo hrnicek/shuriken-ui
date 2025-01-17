@@ -10,5 +10,5 @@ export const trackVariants = {
 
 export const defaults = {
   variant: 'default',
-  disableTransitions: false
+  transitions: false,
 } as const satisfies BaseThemeSystemConfig

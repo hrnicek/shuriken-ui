@@ -10,5 +10,5 @@ export const background = {
 
 export const defaults = {
   variant: 'default',
-  disableTransitions: false
+  transitions: false,
 } as const satisfies BaseThemeSwitchConfig

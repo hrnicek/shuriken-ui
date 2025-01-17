@@ -75,7 +75,7 @@ provideBaseAutocompleteContext({
   >
     <ComboboxAnchor
       :class="tm([
-        'has-focus-visible:nui-focus w-full flex min-w-[160px] items-center justify-between leading-none gap-[5px] outline-none disabled:cursor-not-allowed has-disabled:opacity-50 has-aria-invalid:border-destructive-base! group',
+        'has-focus-visible:nui-focus w-full flex min-w-[160px] items-center justify-between leading-none gap-[5px] outline-none disabled:cursor-not-allowed has-disabled:opacity-50 has-aria-invalid:border-destructive-base! has-aria-invalid:ring-destructive-base! group',
         props.rounded && theme.radiuses[props.rounded],
         props.size && theme.sizes[props.size],
         props.variant && theme.variants[props.variant],

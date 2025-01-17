@@ -46,7 +46,7 @@ const { forwardRef } = useForwardExpose()
     :id
     v-bind="forward"
     :class="tm([
-      'has-focus-visible:nui-focus relative w-full flex font-sans relative data-disabled:opacity-50 has-aria-invalid:border-destructive-base',
+      'has-focus-visible:nui-focus relative w-full flex font-sans relative data-disabled:opacity-50 has-aria-invalid:border-destructive-base! has-aria-invalid:ring-destructive-base!',
       theme.variants[props.variant],
       theme.radiuses[props.rounded],
       theme.sizes[props.size],

@@ -96,7 +96,6 @@
   --color-destructive-light: var(--color-destructive-500);
 
   --color-link: var(--color-primary-base);
-  --color-ring: var(--color-muted-300);
 
   --color-field-label: var(--color-muted-600);
   --color-field-description: var(--color-muted-500);
@@ -173,6 +172,9 @@
   --color-popup-dark-bg: var(--color-muted-950);
   --color-popup-dark-border: var(--color-muted-950);
   --color-popup-dark-text: var(--color-white);
+
+  --color-ring: var(--color-muted-200);
+  --opacity-ring: 100;
   
   /** Animations */
   --animate-nui-placeload: nui-placeload 1s linear infinite forwards;

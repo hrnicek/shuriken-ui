@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import type { Directive } from 'vue'
 import type { BaseInputProps } from '../types'
 import { BaseInput as theme } from '@shuriken-ui/theme-iga'
 
 import { useNuiId } from '../composables/useNuiId';
-
 
 const props = withDefaults(defineProps<BaseInputProps>(), {
   id: undefined,
@@ -39,32 +39,38 @@ function updateFromTarget(target: HTMLInputElement) {
   }
 }
 
-function onInput(event: Event) {
-  if (modelModifiers.lazy) {
-    return
-  }
+// Update input internal value without updating the DOM to improve performance 
+const vModelInput: Directive = {
+  created(el) {
+    el.addEventListener(modelModifiers.lazy ? 'change' : 'input', (event: InputEvent) => {
+      updateFromTarget(event.target as HTMLInputElement)
+    })
+  },
+  mounted(el, { value }) {
+    el.value = value == null ? '' : value
+  },
+  beforeUpdate(el, { value }) {
+    const current = el.value
+    if (value === current) {
+      return
+    }
 
-  updateFromTarget(event.target as HTMLInputElement)
-}
-
-function onChange(event: Event) {
-  updateFromTarget(event.target as HTMLInputElement)
+    el.value = value == null ? '' : value
+  },
 }
 </script>
 
 <template>
   <input
     :id="id"
+    v-model-input="modelValue"
     :type="props.type"
-    class="focus-visible:nui-focus w-full text-ellipsis font-sans disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive-base!"
+    class="focus-visible:nui-focus w-full text-ellipsis font-sans disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive-base! aria-invalid:ring-destructive-base!"
     :class="[
       props.variant && theme.variants[props.variant],
       props.size && theme.sizes[props.size],
       props.rounded && theme.radiuses[props.rounded],
     ]"
     :placeholder="props.placeholder"
-    :value="modelValue"
-    @input="onInput"
-    @change="onChange"
   >
 </template>

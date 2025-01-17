@@ -6,5 +6,5 @@ export const variants = {
 
 export const defaults = {
   variant: 'default',
-  disableTransitions: false
+  transitions: false,
 } as const satisfies BaseThemeToggleConfig

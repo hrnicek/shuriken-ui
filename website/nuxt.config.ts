@@ -44,4 +44,12 @@ export default defineNuxtConfig({
       standalone: false,
     },
   },
+  vite: {
+    optimizeDeps: {
+      include: [
+        'vue3-smooth-dnd',
+        'vue3-apexcharts',
+      ],
+    }
+  },
 })

@@ -597,22 +597,10 @@ const valueSliderRange = ref([3, 42, 84])
         <div class="grid grid-cols-3 gap-8 gap-x-10 max-w-2xl">
           <BaseField class="col-span-3">
             <div class="relative">
-              <BaseFieldController>
-                <BaseInput placeholder="Firstname" />
-              </BaseFieldController>
-              <div class="absolute z-0 end-4 top-3 pointer-events-none" >
-                <BaseFieldLoadingIndicator/>
-                <BaseFieldSuccessIndicator />
-                <BaseFieldErrorIndicator />
+              <div class="flex">
+                <BaseInput placeholder="Firstname" class="border-e-transparent! rounded-e-none!" />
+                <BaseInput placeholder="Lastname" class="rounded-s-none!" />
               </div>
-            </div>
-          </BaseField>
-
-          <BaseField class="col-span-3 mb-6">
-            <div class="relative">
-              <BaseFieldController>
-                <BaseInput placeholder="Lastname" />
-              </BaseFieldController>
               <div class="absolute z-0 end-4 top-3 pointer-events-none" >
                 <BaseFieldLoadingIndicator/>
                 <BaseFieldSuccessIndicator />

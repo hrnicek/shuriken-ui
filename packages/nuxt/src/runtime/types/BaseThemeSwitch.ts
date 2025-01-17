@@ -5,9 +5,9 @@ export interface BaseThemeSwitchProps {
   id?: string
 
   /**
-   * Disables transitions when toggling between light and dark mode.
+   * Enables transitions when toggling between light and dark mode.
    */
-  disableTransitions?: boolean
+  transitions?: boolean
 
   /**
    * The variant of the Switch.
@@ -17,5 +17,5 @@ export interface BaseThemeSwitchProps {
 
 export type BaseThemeSwitchConfig = {
   variant: NonNullable<BaseThemeSwitchProps['variant']>
-  disableTransitions: NonNullable<BaseThemeSwitchProps['disableTransitions']>
+  transitions: NonNullable<BaseThemeSwitchProps['transitions']>
 }

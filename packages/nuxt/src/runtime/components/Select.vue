@@ -76,7 +76,7 @@ provideBaseSelectContext({
   <SelectRoot :id v-bind="forward">
     <SelectTrigger
       :ref="forwardRef"
-      class="focus:nui-focus w-full flex items-center justify-between leading-none gap-[5px] outline-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive-base!"
+      class="focus:nui-focus w-full flex items-center justify-between leading-none gap-[5px] outline-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive-base! aria-invalid:ring-destructive-base!"
       :class="[
         theme.variants[props.variant],
         theme.sizes[props.size],

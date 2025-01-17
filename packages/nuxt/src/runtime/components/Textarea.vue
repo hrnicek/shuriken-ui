@@ -41,7 +41,7 @@ const vModelTextarea: Directive = {
     })
   },
   mounted(el, { value }) {
-    el.value = value
+    el.value = value == null ? '' : value
   },
   beforeUpdate(el, { value }) {
     const current = el.value
@@ -49,7 +49,7 @@ const vModelTextarea: Directive = {
       return
     }
 
-    el.value = value
+    el.value = value == null ? '' : value
   },
 }
 </script>
@@ -58,7 +58,7 @@ const vModelTextarea: Directive = {
   <textarea
     :id
     v-model-textarea="modelValue"
-    class="focus-visible:nui-focus w-full disabled:cursor-not-allowed disabled:opacity-50 nui-slimscroll aria-invalid:border-destructive-base!"
+    class="focus-visible:nui-focus w-full disabled:cursor-not-allowed disabled:opacity-50 nui-slimscroll aria-invalid:border-destructive-base! aria-invalid:ring-destructive-base!"
     :class="[
       props.autogrow && 'field-sizing-content',
       props.variant && theme.variants[props.variant],

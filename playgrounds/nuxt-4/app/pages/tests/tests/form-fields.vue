@@ -5,13 +5,15 @@ definePageMeta({
   description: 'Check how v-model works with components',
   section: 'tests',
 })
+const disabled = ref(false)
 </script>
 <template>
   <div>
     <NuiPreviewContainer title="Forms">
       <NuiPreview title="Form" description="Form sumbission">
         <form class=" max-w-2xl">
-          <fieldset class="grid grid-cols-2 gap-8" disabled>
+          <BaseCheckbox label="disable" v-model="disabled" />
+          <fieldset class="grid grid-cols-2 gap-8" :disabled>
             <BaseField name="first-name" required>
               <BaseFieldLabel>
                 <span>First name</span> 

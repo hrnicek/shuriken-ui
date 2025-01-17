@@ -8,7 +8,7 @@ import { useNuiConfig } from '../composables/useNuiConfig';
 
 const props = withDefaults(defineProps<BaseThemeSystemProps>(), {
   id: undefined,
-  disableTransitions: theme.defaults.disableTransitions,
+  transitions: theme.defaults.transitions,
   variant: theme.defaults.variant,
 })
 
@@ -27,14 +27,14 @@ const preference = computed({
   },
   set(value) {
     // disable transitions
-    if (import.meta.browser && props.disableTransitions) {
+    if (import.meta.browser && props.transitions === false) {
       document.documentElement.classList.add('nui-no-transition')
     }
 
     colorMode.preference = value
 
     // re-enable transitions
-    if (import.meta.browser && props.disableTransitions) {
+    if (import.meta.browser && props.transitions === false) {
       setTimeout(() => {
         document.documentElement.classList.remove('nui-no-transition')
       }, 0)

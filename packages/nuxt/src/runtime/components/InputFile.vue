@@ -76,7 +76,7 @@ defineExpose({
     :tabindex="props.disabled ? -1 : 0"
     :for="id"
     :class="tm([
-      'group/file relative px-1 py-1.5 gap-2 focus-within:nui-focus w-full flex cursor-pointer items-center overflow-hidden has-disabled:cursor-not-allowed has-disabled:opacity-50 font-sans transition-colors duration-300 has-aria-invalid:border-destructive-base',
+      'group/file relative px-1 py-1.5 gap-2 focus-within:nui-focus w-full flex cursor-pointer items-center overflow-hidden has-disabled:cursor-not-allowed has-disabled:opacity-50 font-sans transition-colors duration-300 has-aria-invalid:border-destructive-base! has-aria-invalid:ring-destructive-base!',
       props.variant && theme.variants[props.variant],
       props.size && theme.sizes[props.size],
       props.rounded && theme.radiuses[props.rounded],
