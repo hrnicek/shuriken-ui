@@ -4,9 +4,12 @@ import type {
   ConfigProviderProps,
 } from 'reka-ui'
 
+import type { BaseToastProviderProps } from './ToastProvider.vue'
+
 export interface BaseProviders {
   config?: ConfigProviderProps
   tooltip?: TooltipProviderProps
+  toast?: BaseToastProviderProps
 }
 </script>
 
@@ -17,13 +20,17 @@ defineOptions({
 
 const props = withDefaults(defineProps<BaseProviders>(), {
   tooltip: () => ({}),
+  config: () => ({}),
+  toast: () => ({}),
 })
 </script>
 
 <template>
   <ConfigProvider v-bind="props.config">
     <TooltipProvider v-bind="props.tooltip">
-      <slot />
+      <BaseToastProvider v-bind="props.toast">
+        <slot />
+      </BaseToastProvider>
     </TooltipProvider>
   </ConfigProvider>
 </template>

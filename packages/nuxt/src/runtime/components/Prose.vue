@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { BaseProseProps, BaseProseSlots } from '../types';
-import { BaseProse as theme } from '#build/shuriken-ui/theme';
+import { BaseProse as theme } from '@shuriken-ui/theme-iga';
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { BaseTextareaProps } from '../types';
-import { BaseTextarea as theme } from '#build/shuriken-ui/theme';
+import { BaseTextarea as theme } from '@shuriken-ui/theme-iga';
 import { useNinjaId } from '../composables/input-id';
 
 const props = withDefaults(defineProps<BaseTextareaProps>(), {

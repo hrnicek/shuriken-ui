@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { BaseMessageProps, BaseMessageEmits, BaseMessageSlots } from '../types';
-import { BaseMessage as theme } from '#build/shuriken-ui/theme';
+import { BaseMessage as theme } from '@shuriken-ui/theme-iga';
 
 import { useNuiConfig } from '../composables/default-property';
 

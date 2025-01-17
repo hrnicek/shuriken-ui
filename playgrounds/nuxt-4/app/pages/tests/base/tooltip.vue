@@ -6,7 +6,18 @@ definePageMeta({
   section: 'base',
 })
 
-const loading = ref(true)
+const loading = ref(false)
+
+const open = ref(false)
+function onSubmit() {
+  if (loading.value) return
+  loading.value = true
+
+  setTimeout(() => {
+    loading.value = false
+    open.value = false
+  }, 2000)
+}
 </script>
 
 <template>
@@ -64,7 +75,7 @@ const loading = ref(true)
               </template>
               <span 
                 tabindex="0"
-                class="outline-none focus-visible:text-primary-base hover:text-primary-base cursor-help underline decoration-dotted"
+                class="outline-none focus-visible:text-primary-base hover:text-primary-base cursor-help underline decoration-dotted underline-offset-4"
               >consectetur</span>
             </BaseTooltip>
             
@@ -113,33 +124,35 @@ const loading = ref(true)
     <NuiPreviewContainer title="BasePopover">
       <NuiPreview title="Button" description="Test popover">
         <div class="flex flex-wrap items-end gap-4">
-          <BasePopover>
+          <BasePopover modal v-model:open="open">
             <BaseButton>
-              Button
+              Button {{ open ? 'open' : 'closed' }}
             </BaseButton>
 
             <template #content>
-              <div class="ps-4 py-2 space-y-2 max-w-[200px]">
-                <BaseHeading>Popover content muted</BaseHeading>
+              <form method="dialog" class="ps-4 py-2 space-y-2 max-w-[200px]" @submit.prevent="onSubmit">
+                <BaseHeading>Popover content</BaseHeading>
 
                 <BaseTooltip content="Tooltip content" :bindings="{ content: { side: 'right' } }">
-                  <BaseInput size="sm" placeholder="First name" />
+                  <BaseInput size="sm" placeholder="First name" :disabled="loading" />
                 </BaseTooltip>
                 <BaseTooltip content="Tooltip content" :bindings="{ content: { side: 'right' } }">
-                  <BaseInput size="sm" placeholder="Last name" />
+                  <BaseInput size="sm" placeholder="Last name" :disabled="loading" />
                 </BaseTooltip>
 
-                <BaseButton size="sm">
+                <BaseButton size="sm" type="submit" :loading>
                   Submit
                 </BaseButton>
-              </div>
+              </form>
             </template>
           </BasePopover>
           
           <BasePopover variant="muted">
-            <BaseButton>
-              Button
-            </BaseButton>
+            <template #default="{ open }">
+              <BaseButton>
+                Button {{ open ? 'open' : 'closed' }}
+              </BaseButton>
+            </template>
 
             <template #content>
               <div class="ps-4 py-2 space-y-2 max-w-[200px]">

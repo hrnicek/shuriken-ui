@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { BaseSwitchThinEmits, BaseSwitchThinProps, BaseSwitchThinSlots } from '../types';
-import { BaseSwitchThin as theme } from '#build/shuriken-ui/theme';
+import { BaseSwitchThin as theme } from '@shuriken-ui/theme-iga';
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
 import { useAttrs } from 'vue'

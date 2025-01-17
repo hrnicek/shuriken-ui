@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { BaseChipProps, BaseChipSlots } from '../types'
-import { BaseChip as theme } from '#build/shuriken-ui/theme'
+import { BaseChip as theme } from '@shuriken-ui/theme-iga'
 
 const props = withDefaults(defineProps<BaseChipProps>(), {
   offsetY: undefined,
