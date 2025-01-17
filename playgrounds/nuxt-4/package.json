@@ -14,6 +14,6 @@
     "@shuriken-ui/theme-iga": "workspace:*",
     "nuxt": "catalog:",
     "tailwindcss": "catalog:",
-    "typescript": "5.6.3"
+    "typescript": "5.7.3"
   }
 }
