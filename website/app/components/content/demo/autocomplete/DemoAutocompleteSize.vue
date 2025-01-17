@@ -5,7 +5,13 @@ const fields = reactive({
   third: '',
 })
 
-const frameworks = ref(['Javascript', 'Nuxt', 'Vue.js', 'React.js', 'Angular', 'Alpine.js'])
+const frameworks = [
+  'Nuxt',
+  'Vue.js',
+  'React.js',
+  'Angular',
+  'Alpine.js',
+]
 </script>
 
 <template>
@@ -15,34 +21,40 @@ const frameworks = ref(['Javascript', 'Nuxt', 'Vue.js', 'React.js', 'Angular', '
         <div class="flex-1">
           <BaseAutocomplete
             v-model="fields.first"
-            :items="frameworks"
             size="sm"
             rounded="md"
-            label="Size: sm"
-            placeholder="Ex: javascript"
-          />
+            placeholder="Ex: nuxt"
+          >
+            <BaseAutocompleteItem v-for="item in frameworks" :key="item" :value="item">
+              {{ item }}
+            </BaseAutocompleteItem>
+          </BaseAutocomplete>
         </div>
 
         <div class="flex-1">
           <BaseAutocomplete
             v-model="fields.second"
-            :items="frameworks"
             size="md"
             rounded="md"
-            label="Size: md"
-            placeholder="Ex: javascript"
-          />
+            placeholder="Ex: nuxt"
+          >
+            <BaseAutocompleteItem v-for="item in frameworks" :key="item" :value="item">
+              {{ item }}
+            </BaseAutocompleteItem>
+          </BaseAutocomplete>
         </div>
 
         <div class="flex-1">
           <BaseAutocomplete
             v-model="fields.third"
-            :items="frameworks"
             size="lg"
             rounded="md"
-            label="Size: lg"
-            placeholder="Ex: javascript"
-          />
+            placeholder="Ex: nuxt"
+          >
+            <BaseAutocompleteItem v-for="item in frameworks" :key="item" :value="item">
+              {{ item }}
+            </BaseAutocompleteItem>
+          </BaseAutocomplete>
         </div>
       </div>
     </div>

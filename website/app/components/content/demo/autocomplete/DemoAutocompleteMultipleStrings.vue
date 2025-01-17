@@ -1,8 +1,5 @@
 <script setup lang="ts">
-const fields = reactive({
-  first: '',
-})
-
+const multipleValue = ref<string[]>(['Nuxt', 'Vue.js'])
 const frameworks = [
   'Nuxt',
   'Vue.js',
@@ -17,10 +14,10 @@ const frameworks = [
     <div class="w-full rounded-xl bg-muted-100 p-4 dark:bg-muted-900 md:p-6">
       <div class="max-w-xs">
         <BaseAutocomplete
-          v-model="fields.first"
+          v-model="multipleValue"
           rounded="md"
           placeholder="Ex: nuxt"
-          clearable
+          multiple
         >
           <BaseAutocompleteItem v-for="item in frameworks" :key="item" :value="item">
             {{ item }}
