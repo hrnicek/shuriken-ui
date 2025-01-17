@@ -14,7 +14,7 @@ useHead(() => ({
 </script>
 
 <template>
-  <BaseProviders>
+  <BaseProviders :toast="{ max: 2, position: 'top-start' }">
     <NuxtLoadingIndicator />
     <NuxtLayout>
       <NuxtPage />

@@ -6,11 +6,17 @@ definePageMeta({
   section: 'base',
 })
 
-const loading = ref(true)
+const loading = ref(false)
 
 const open = ref(false)
 function onSubmit() {
-  open.value = false
+  if (loading.value) return
+  loading.value = true
+
+  setTimeout(() => {
+    loading.value = false
+    open.value = false
+  }, 2000)
 }
 </script>
 
@@ -69,7 +75,7 @@ function onSubmit() {
               </template>
               <span 
                 tabindex="0"
-                class="outline-none focus-visible:text-primary-base hover:text-primary-base cursor-help underline decoration-dotted"
+                class="outline-none focus-visible:text-primary-base hover:text-primary-base cursor-help underline decoration-dotted underline-offset-4"
               >consectetur</span>
             </BaseTooltip>
             
@@ -125,16 +131,16 @@ function onSubmit() {
 
             <template #content>
               <form method="dialog" class="ps-4 py-2 space-y-2 max-w-[200px]" @submit.prevent="onSubmit">
-                <BaseHeading>Popover content muted</BaseHeading>
+                <BaseHeading>Popover content</BaseHeading>
 
                 <BaseTooltip content="Tooltip content" :bindings="{ content: { side: 'right' } }">
-                  <BaseInput size="sm" placeholder="First name" />
+                  <BaseInput size="sm" placeholder="First name" :disabled="loading" />
                 </BaseTooltip>
                 <BaseTooltip content="Tooltip content" :bindings="{ content: { side: 'right' } }">
-                  <BaseInput size="sm" placeholder="Last name" />
+                  <BaseInput size="sm" placeholder="Last name" :disabled="loading" />
                 </BaseTooltip>
 
-                <BaseButton size="sm" type="submit">
+                <BaseButton size="sm" type="submit" :loading>
                   Submit
                 </BaseButton>
               </form>
