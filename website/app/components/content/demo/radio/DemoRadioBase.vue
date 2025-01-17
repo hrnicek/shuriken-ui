@@ -3,25 +3,25 @@ const value = ref('Option 1')
 </script>
 
 <template>
-  <BaseRadioGroup
+  <BaseCheckboxGroup
     v-model="value"
     name="radio_base"
     class="grid grid-cols-2 gap-6 md:max-w-lg md:grid-cols-4 p-4"
   >
-    <BaseRadio
+    <BaseCheckbox
       label="Option 1"
       value="Option 1"
       variant="default"
     />
-    <BaseRadio
+    <BaseCheckbox
       label="Option 2"
       value="Option 2"
       variant="default"
     />
-    <BaseRadio
+    <BaseCheckbox
       value="Option 3"
       label="Option 3"
       variant="default"
     />
-  </BaseRadioGroup>
+  </BaseCheckboxGroup>
 </template>
