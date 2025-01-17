@@ -2,18 +2,36 @@
   <div class="py-6">
     <div class="flex w-full flex-col overflow-hidden rounded-xl md:flex-row">
       <div class="w-full bg-muted-50 p-6 dark:bg-muted-950">
-        <BaseCard color="default" class="flex flex-col items-center !border-muted-300 p-6 dark:!border-muted-700">
+        <BaseCard
+          color="default"
+          class="flex flex-col items-center !border-muted-300 p-6 dark:!border-muted-700"
+        >
           <BaseAvatar
-            src="/img/avatars/11.svg"
+            src="/img/people/25.jpg"
             size="xl"
-            badge-src="/img/stacks/react.svg"
+            badge-src="/img/vector/stacks/js.svg"
           />
           <div class="mb-2 mt-4 flex items-center justify-center gap-1">
-            <Icon name="uiw:star-on" class="h-3 w-3 text-yellow-400" />
-            <Icon name="uiw:star-on" class="h-3 w-3 text-yellow-400" />
-            <Icon name="uiw:star-on" class="h-3 w-3 text-yellow-400" />
-            <Icon name="uiw:star-on" class="h-3 w-3 text-yellow-400" />
-            <Icon name="uiw:star-on" class="h-3 w-3 text-yellow-400" />
+            <Icon
+              name="uiw:star-on"
+              class="h-3 w-3 text-yellow-400"
+            />
+            <Icon
+              name="uiw:star-on"
+              class="h-3 w-3 text-yellow-400"
+            />
+            <Icon
+              name="uiw:star-on"
+              class="h-3 w-3 text-yellow-400"
+            />
+            <Icon
+              name="uiw:star-on"
+              class="h-3 w-3 text-yellow-400"
+            />
+            <Icon
+              name="uiw:star-on"
+              class="h-3 w-3 text-yellow-400"
+            />
           </div>
           <div class="text-center">
             <BaseHeading
@@ -24,7 +42,10 @@
             >
               John Baxter
             </BaseHeading>
-            <BaseText size="xs" class="text-muted-400">
+            <BaseText
+              size="xs"
+              class="text-muted-400"
+            >
               Software Engineer
             </BaseText>
             <BaseParagraph
@@ -40,7 +61,7 @@
               class="w-full"
               size="sm"
               rounded="md"
-              color="primary"
+              variant="dark"
             >
               Hire Now
             </BaseButton>
@@ -55,18 +76,36 @@
         </BaseCard>
       </div>
       <div class="dark w-full bg-muted-950 p-6 dark:bg-muted-950/60">
-        <BaseCard color="default" class="flex flex-col items-center !border-muted-300 p-6 dark:!border-muted-700">
+        <BaseCard
+          color="default"
+          class="flex flex-col items-center !border-muted-300 p-6 dark:!border-muted-700"
+        >
           <BaseAvatar
-            src="/img/avatars/11.svg"
+            src="/img/people/25.jpg"
             size="xl"
-            badge-src="/img/stacks/react.svg"
+            badge-src="/img/vector/stacks/js.svg"
           />
           <div class="mb-2 mt-4 flex items-center justify-center gap-1">
-            <Icon name="uiw:star-on" class="h-3 w-3 text-yellow-400" />
-            <Icon name="uiw:star-on" class="h-3 w-3 text-yellow-400" />
-            <Icon name="uiw:star-on" class="h-3 w-3 text-yellow-400" />
-            <Icon name="uiw:star-on" class="h-3 w-3 text-yellow-400" />
-            <Icon name="uiw:star-on" class="h-3 w-3 text-yellow-400" />
+            <Icon
+              name="uiw:star-on"
+              class="h-3 w-3 text-yellow-400"
+            />
+            <Icon
+              name="uiw:star-on"
+              class="h-3 w-3 text-yellow-400"
+            />
+            <Icon
+              name="uiw:star-on"
+              class="h-3 w-3 text-yellow-400"
+            />
+            <Icon
+              name="uiw:star-on"
+              class="h-3 w-3 text-yellow-400"
+            />
+            <Icon
+              name="uiw:star-on"
+              class="h-3 w-3 text-yellow-400"
+            />
           </div>
           <div class="text-center">
             <BaseHeading
@@ -77,7 +116,10 @@
             >
               John Baxter
             </BaseHeading>
-            <BaseText size="xs" class="text-muted-400">
+            <BaseText
+              size="xs"
+              class="text-muted-400"
+            >
               Software Engineer
             </BaseText>
             <BaseParagraph
@@ -93,7 +135,7 @@
               class="w-full"
               size="sm"
               rounded="md"
-              color="primary"
+              variant="dark"
             >
               Hire Now
             </BaseButton>

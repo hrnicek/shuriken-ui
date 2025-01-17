@@ -1,8 +1,8 @@
-// import type { MaybeRefOrGetter } from 'vue'
-import { kebabCase, upperFirst } from 'scule'
-import type { ComponentMeta } from 'vue-component-meta'
 // @ts-ignore - might be not defined if documentation is disabled
 import type { NuxtComponentMetaNames } from '#nuxt-component-meta/types'
+import type { ComponentMeta } from 'vue-component-meta'
+// import type { MaybeRefOrGetter } from 'vue'
+import { kebabCase, upperFirst } from 'scule'
 
 // type NuxtComponentMetaNames = any
 // type ComponentMeta = any
@@ -83,7 +83,7 @@ export async function useDocumentationMeta(
         [
           `// this type is generated to show you all possible values`,
           `type ${upperFirst(prop.name)}Data = ${prop.type
-            ?.replace(/{ /g, '{\n ')
+            ?.replace(/\{ /g, '{\n ')
             ?.replace(/; ([a-z])/g, ';\n $1')
             ?.replace(/; /g, ';\n')}\n\nconst ${prop.name} = ref<${upperFirst(
             prop.name,
@@ -137,7 +137,7 @@ export async function useDocumentationMeta(
         [
           `// this type is generated to show you all possible values`,
           `type ${upperFirst(prop.name)}Data = ${prop.type
-            ?.replace(/{ /g, '{\n ')
+            ?.replace(/\{ /g, '{\n ')
             ?.replace(/; ([a-z])/g, ';\n $1')
             ?.replace(/; /g, ';\n')}\n\nconst ${prop.name} = ref<${upperFirst(
             prop.name,
@@ -219,8 +219,7 @@ export async function useDocumentationMeta(
     const code: string[] = []
 
     const handlerName = upperFirst(event.name)?.replace(/:([a-z])/g, v =>
-      v?.replace(':', '')?.toUpperCase(),
-    )
+      v?.replace(':', '')?.toUpperCase())
     const handlerProps = event.type.startsWith('[')
       ? event.type.slice(1, -1)
       : event.type

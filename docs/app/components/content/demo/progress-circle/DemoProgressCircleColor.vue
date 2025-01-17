@@ -5,44 +5,49 @@
         <BaseProgressCircle
           title="Primary circle progress bar"
           :size="55"
-          :value="65"
-          color="primary"
-        />
-        <BaseProgressCircle
-          title="Info circle progress bar"
-          :size="55"
-          :value="65"
-          color="info"
-        />
-        <BaseProgressCircle
-          title="Success circle progress bar"
-          :size="55"
-          :value="65"
-          color="success"
-        />
-        <BaseProgressCircle
-          title="Warning circle progress bar"
-          :size="55"
-          :value="65"
-          color="warning"
-        />
-        <BaseProgressCircle
-          title="Danger circle progress bar"
-          :size="55"
-          :value="65"
-          color="danger"
+          :model-value="65"
+          variant="primary"
         />
         <BaseProgressCircle
           title="Dark circle progress bar"
           :size="55"
-          :value="65"
-          color="dark"
+          :model-value="65"
+          variant="dark"
         />
         <BaseProgressCircle
-          title="Black circle progress bar"
+          title="Custom circle progress bar"
           :size="55"
-          :value="65"
-          color="black"
+          :model-value="65"
+          variant="none"
+          class="text-pink-500 *:first:text-muted-200 *:dark:first:text-muted-900"
+        />
+        <BaseProgressCircle
+          title="Custom circle progress bar"
+          :size="55"
+          :model-value="65"
+          variant="none"
+          class="text-lime-500 *:first:text-muted-200 *:dark:first:text-muted-900"
+        />
+        <BaseProgressCircle
+          title="Custom circle progress bar"
+          :size="55"
+          :model-value="65"
+          variant="none"
+          class="text-blue-500 *:first:text-muted-200 *:dark:first:text-muted-900"
+        />
+        <BaseProgressCircle
+          title="Custom circle progress bar"
+          :size="55"
+          :model-value="65"
+          variant="none"
+          class="text-yellow-500 *:first:text-muted-200 *:dark:first:text-muted-900"
+        />
+        <BaseProgressCircle
+          title="Custom circle progress bar"
+          :size="55"
+          :model-value="65"
+          variant="none"
+          class="text-emerald-500 *:first:text-muted-200 *:dark:first:text-muted-900"
         />
       </div>
     </div>

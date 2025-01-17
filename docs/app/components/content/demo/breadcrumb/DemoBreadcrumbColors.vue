@@ -1,17 +1,3 @@
-<template>
-  <div class="flex flex-col space-y-2 px-4 pt-4">
-    <BaseBreadcrumb :items="breadcrumb" color="primary">
-      /
-    </BaseBreadcrumb>
-    <BaseBreadcrumb :items="breadcrumb" color="dark">
-      /
-    </BaseBreadcrumb>
-    <BaseBreadcrumb :items="breadcrumb" color="black">
-      /
-    </BaseBreadcrumb>
-  </div>
-</template>
-
 <script setup lang="ts">
 const breadcrumb = [
   {
@@ -31,3 +17,20 @@ const breadcrumb = [
   },
 ]
 </script>
+
+<template>
+  <div class="flex flex-col space-y-2 px-4 pt-4">
+    <BaseBreadcrumb
+      :items="breadcrumb"
+      variant="primary"
+    >
+      /
+    </BaseBreadcrumb>
+    <BaseBreadcrumb
+      :items="breadcrumb"
+      variant="dark"
+    >
+      /
+    </BaseBreadcrumb>
+  </div>
+</template>

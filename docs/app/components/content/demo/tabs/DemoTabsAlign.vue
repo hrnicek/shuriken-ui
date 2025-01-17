@@ -1,23 +1,29 @@
 <template>
   <div class="flex items-center p-4">
     <BaseTabs
+      default-value="team"
       justify="center"
-      model-value="team"
+      variant="dark"
       :tabs="[
         { label: 'Team', value: 'team' },
         { label: 'Projects', value: 'projects' },
       ]"
     >
-      <template #tab="{ activeValue }">
-        <p v-if="activeValue === 'team'" class="font-sans text-sm text-muted-500 dark:text-muted-400">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum? Ne discipulum abducam, times.
-        </p>
-
-        <p v-else-if="activeValue === 'projects'" class="font-sans text-sm text-muted-500 dark:text-muted-400">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum? Ne discipulum abducam, times. Quae diligentissime contra
-          Aristonem dicuntur a Chryippo. Duo Reges: constructio interrete.
-        </p>
-      </template>
+      <BaseTabsContent value="team">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
+        iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum?
+        Ne discipulum abducam, times. ...
+      </BaseTabsContent>
+      <BaseTabsContent value="projects">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla malesuada odio sed ante malesuada,
+        quis facilisis erat iaculis. Sed egestas porta fringilla. Ut ultrices, elit eget congue aliquet,
+        risus sem semper lorem, vitae efficitur nunc est eget mi. ...
+      </BaseTabsContent>
+      <BaseTabsContent value="tasks">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris leo ipsum, efficitur eu finibus eu,
+        gravida quis enim. Fusce a elementum nunc. Nunc venenatis a elit quis ornare.
+        Pellentesque quis vehicula ipsum. ...
+      </BaseTabsContent>
     </BaseTabs>
   </div>
 </template>

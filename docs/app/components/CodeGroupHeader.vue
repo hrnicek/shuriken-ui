@@ -10,27 +10,26 @@ const props = defineProps<{
   }[]
 }>()
 
-
-// const activeTabIndex = ref()
-
-// @todo
 const activeTabIndex = defineModel<number>('activeTabIndex', {
   default: 0,
 })
-
+const activeTab = computed(() => props.tabs[activeTabIndex.value])
 const { copy, copied, isSupported } = useClipboard({
   source: () => activeTab.value?.code ?? '',
 })
-const activeTab = computed(() => props.tabs[activeTabIndex.value])
 </script>
 
 <template>
-  <div class="flex gap-2 border-b border-muted-300 bg-white dark:border-muted-800" :class="hasPreview ? 'dark:bg-muted-950' : 'dark:bg-muted-800'">
+  <div
+    class="flex gap-2 border-b border-muted-300 bg-white dark:border-muted-800"
+    :class="hasPreview ? 'dark:bg-muted-950' : 'dark:bg-muted-800'"
+  >
     <button
       v-for="(tab, index) in props.tabs"
       :key="index"
       type="button"
       tabindex="0"
+
       class="group/button text-sm"
       :class="[
         tabs.length > 1 ? 'border-b-2' : 'cursor-default',
@@ -54,9 +53,10 @@ const activeTab = computed(() => props.tabs[activeTabIndex.value])
       class="pointer-events-none absolute z-[2] mt-12 opacity-0 transition-opacity duration-300 group-hover/code:pointer-events-auto group-hover/code:opacity-100"
       :class="hasPreview ? 'end-4' : 'end-2'"
     >
-      <BaseButtonIcon
-        size="sm"
+      <BaseButton
+        size="icon-sm"
         rounded="md"
+        class="cursor-pointer"
         :data-nui-tooltip="copied ? 'Copied!' : 'Copy'"
         data-nui-tooltip-position="start"
         :aria-label="copied ? 'Copied!' : 'Copy'"
@@ -72,10 +72,16 @@ const activeTab = computed(() => props.tabs[activeTabIndex.value])
           name="lucide:check"
           class="h-4 w-4 text-success-500"
         />
-      </BaseButtonIcon>
+      </BaseButton>
     </div>
-    <div class="absolute z-[2] mt-1.5" :class="hasPreview ? 'end-5' : 'end-3'">
-      <span v-if="activeTab?.language" class="text-xs font-medium text-muted-500">
+    <div
+      class="absolute z-[2] mt-1.5"
+      :class="hasPreview ? 'end-5' : 'end-3'"
+    >
+      <span
+        v-if="activeTab?.language"
+        class="text-xs font-medium text-muted-500"
+      >
         {{ activeTab?.language }}
       </span>
     </div>

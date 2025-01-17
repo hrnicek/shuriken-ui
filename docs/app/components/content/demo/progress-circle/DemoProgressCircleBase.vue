@@ -1,10 +1,11 @@
 <template>
   <div class="max-w-sm p-4">
     <BaseProgressCircle
-      title="Default circle progress bar"
+      title="Static progress bar with max value"
       :size="55"
-      :value="85"
-      class="text-primary-500"
+      :model-value="2"
+      :max="3"
+      variant="dark"
     />
   </div>
 </template>

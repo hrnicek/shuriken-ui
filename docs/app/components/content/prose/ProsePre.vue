@@ -1,9 +1,3 @@
-<template>
-  <div>
-    <pre class="relative w-full" :class="$props.class"><slot /></pre>
-  </div>
-</template>
-
 <script setup lang="ts">
 const props = defineProps({
   code: {
@@ -31,13 +25,16 @@ const props = defineProps({
     default: null,
   },
 })
-
-const inCodeGroup = inject('code-group-context', false)
-
-const { copy, copied, isSupported } = useClipboard({
-  source: () => props.code,
-})
 </script>
+
+<template>
+  <div>
+    <pre
+      class="relative w-full"
+      :class="props.class"
+    ><slot /></pre>
+  </div>
+</template>
 
 <style>
 pre code .line {

@@ -1,13 +1,13 @@
+<script setup lang="ts">
+const value = ref(true)
+</script>
+
 <template>
-  <div class="flex items-center p-4">
+  <div class="p-4">
     <BaseCheckbox
       v-model="value"
-      label="Checkbox"
-      rounded="sm"
+      label="Option 1"
+      variant="default"
     />
   </div>
 </template>
-
-<script setup lang="ts">
-const value = ref('')
-</script>

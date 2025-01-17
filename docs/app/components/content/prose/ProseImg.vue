@@ -1,20 +1,6 @@
-<template>
-  <div class="py-6">
-    <NuxtImg
-      loading="lazy"
-      decoding="async"
-      :src="refinedSrc"
-      :alt="alt"
-      :width="width"
-      :height="height"
-      class="w-full rounded-xl border border-muted-300 shadow-xl shadow-muted-300/30 dark:border-muted-800 dark:shadow-muted-800/20"
-    />
-  </div>
-</template>
-
 <script setup lang="ts">
-import { withTrailingSlash, withLeadingSlash, joinURL } from 'ufo'
-import { useRuntimeConfig, computed } from '#imports'
+import { computed, useRuntimeConfig } from '#imports'
+import { joinURL, withLeadingSlash, withTrailingSlash } from 'ufo'
 
 const props = defineProps({
   src: {
@@ -45,3 +31,17 @@ const refinedSrc = computed(() => {
   return props.src
 })
 </script>
+
+<template>
+  <div class="py-6">
+    <NuxtImg
+      loading="lazy"
+      decoding="async"
+      :src="refinedSrc"
+      :alt="alt"
+      :width="width"
+      :height="height"
+      class="w-full rounded-2xl border border-muted-300 shadow-xl shadow-muted-300/30 dark:border-muted-800 dark:shadow-muted-800/20"
+    />
+  </div>
+</template>

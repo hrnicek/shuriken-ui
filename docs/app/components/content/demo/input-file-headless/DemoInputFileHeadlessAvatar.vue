@@ -1,3 +1,9 @@
+<script setup lang="ts">
+// This is the computed value that will be used to display the current avatar
+const currentAvatar = computed(() => '/img/people/29.jpg')
+const inputFile = ref<FileList | null>(null)
+</script>
+
 <template>
   <div class="p-4">
     <form
@@ -29,27 +35,40 @@
             class="h-20 w-20 rounded-full bg-muted-200 object-cover object-center dark:bg-muted-700/60"
           />
 
-          <div v-if="files?.length && files.item(0)" class="absolute bottom-0 end-0 z-20">
-            <BaseButtonIcon
-              size="sm"
+          <div
+            v-if="files?.length && files.item(0)"
+            class="absolute bottom-0 end-0 z-20"
+          >
+            <BaseButton
+              size="icon-sm"
               rounded="full"
-              data-nui-tooltip="Remove image"
               class="scale-90"
               @click="remove(files.item(0)!)"
             >
-              <Icon name="lucide:x" class="h-4 w-4" />
-            </BaseButtonIcon>
+              <Icon
+                name="lucide:x"
+                class="h-4 w-4"
+              />
+            </BaseButton>
           </div>
 
-          <div v-else class="absolute bottom-0 end-0 z-20">
-            <div class="relative" data-nui-tooltip="Upload image">
-              <BaseButtonIcon
-                size="sm"
+          <div
+            v-else
+            class="absolute bottom-0 end-0 z-20"
+          >
+            <div
+              class="relative"
+            >
+              <BaseButton
+                size="icon-sm"
                 rounded="full"
                 @click="open"
               >
-                <Icon name="lucide:plus" class="h-4 w-4" />
-              </BaseButtonIcon>
+                <Icon
+                  name="lucide:plus"
+                  class="h-4 w-4"
+                />
+              </BaseButton>
             </div>
           </div>
         </div>
@@ -57,9 +76,3 @@
     </form>
   </div>
 </template>
-
-<script setup lang="ts">
-// This is the computed value that will be used to display the current avatar
-const currentAvatar = computed(() => '/img/avatars/10.svg')
-const inputFile = ref<FileList | null>(null)
-</script>

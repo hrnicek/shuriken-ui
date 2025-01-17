@@ -7,7 +7,10 @@
   >
     <div class="flex items-center justify-between gap-4">
       <div class="flex items-center space-x-2">
-        <Icon name="logos:paypal" class="h-8 w-auto" />
+        <Icon
+          name="logos:paypal"
+          class="h-8 w-auto"
+        />
         <div>
           <BaseHeading
             as="h3"
@@ -18,7 +21,10 @@
           >
             PayPal
           </BaseHeading>
-          <BaseParagraph size="xs" class="text-muted-400">
+          <BaseParagraph
+            size="xs"
+            class="text-muted-400"
+          >
             Payment Captured
           </BaseParagraph>
         </div>

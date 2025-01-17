@@ -2,6 +2,7 @@
 const props = defineProps<{
   icon?: string
   title?: string
+  invert?: boolean
 }>()
 </script>
 
@@ -9,8 +10,7 @@ const props = defineProps<{
   <div class="py-6">
     <BaseCard
       rounded="md"
-      color="muted-contrast"
-      class="!border-muted-300 p-4 dark:!border-muted-800 md:p-6"
+      class="p-4 md:p-6 bg-muted-50 dark:bg-muted-950"
     >
       <div class="flex gap-3">
         <div v-if="'icon' in $slots || props.icon">
@@ -19,6 +19,7 @@ const props = defineProps<{
               v-if="props.icon"
               :name="props.icon"
               class="h-6 w-6 text-muted-500 dark:text-muted-600"
+              :class="props.invert && 'dark:invert'"
             />
           </slot>
         </div>
@@ -37,7 +38,7 @@ const props = defineProps<{
           <BaseParagraph
             v-if="'default' in $slots"
             size="sm"
-            class="text-muted-500 dark:text-muted-400"
+            class="text-muted-600 dark:text-muted-400"
           >
             <slot />
           </BaseParagraph>

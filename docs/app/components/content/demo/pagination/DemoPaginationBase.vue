@@ -1,23 +1,25 @@
+<script setup lang="ts">
+const route = useRoute()
+const router = useRouter()
+const page = computed({
+  get() {
+    return Number(route.query.page) || 1
+  },
+  set(value: number) {
+    router.replace({ query: { ...route.query, page: value } })
+  },
+})
+</script>
+
 <template>
   <div class="p-4">
     <BasePagination
-      :item-per-page="8"
-      :total-items="512"
-      :current-page="currentPage"
-      :max-links-displayed="5"
-      rounded="sm"
+      v-model:page="page"
+      :items-per-page="8"
+      :total="512"
+      :sibling-count="2"
+      rounded="md"
+      variant="dark"
     />
   </div>
 </template>
-
-<script setup lang="ts">
-const route = useRoute()
-const currentPage = computed(() => {
-  try {
-    return Number.parseInt(route.query.page as string) || 1
-  }
-  catch {
-    return 1
-  }
-})
-</script>

@@ -3,7 +3,7 @@ import { components } from '~/constants/components'
 
 const activeTab = ref('nuxt')
 
-const handleTabs = (tab: string) => {
+function handleTabs(tab: string) {
   activeTab.value = tab
 }
 
@@ -40,8 +40,14 @@ const url = computed(() => {
           :class="activeTab === 'nuxt' ? 'border-muted-900 dark:border-white' : 'border-transparent opacity-60 grayscale'"
           @click="handleTabs('nuxt')"
         >
-          <Icon name="logos:nuxt-icon" class="h-6 w-6" />
-          <BaseText size="sm" weight="medium">
+          <Icon
+            name="logos:nuxt-icon"
+            class="h-6 w-6"
+          />
+          <BaseText
+            size="sm"
+            weight="medium"
+          >
             Nuxt
           </BaseText>
         </button>
@@ -51,8 +57,14 @@ const url = computed(() => {
           :class="activeTab === 'react' ? 'border-muted-900 dark:border-white' : 'border-transparent opacity-60 grayscale'"
           @click="handleTabs('react')"
         >
-          <Icon name="logos:react" class="h-6 w-6" />
-          <BaseText size="sm" weight="medium">
+          <Icon
+            name="logos:react"
+            class="h-6 w-6"
+          />
+          <BaseText
+            size="sm"
+            weight="medium"
+          >
             React
           </BaseText>
         </button>
@@ -62,8 +74,14 @@ const url = computed(() => {
           :class="activeTab === 'tailwind' ? 'border-muted-900 dark:border-white' : 'border-transparent opacity-60 grayscale'"
           @click="handleTabs('tailwind')"
         >
-          <Icon name="logos:tailwindcss-icon" class="h-6 w-6" />
-          <BaseText size="sm" weight="medium">
+          <Icon
+            name="logos:tailwindcss-icon"
+            class="h-6 w-6"
+          />
+          <BaseText
+            size="sm"
+            weight="medium"
+          >
             Tailwind
           </BaseText>
         </button>
@@ -164,9 +182,15 @@ const url = computed(() => {
                   rounded="full"
                   data-nui-tooltip="requires @shuriken-ui/tailwind"
                 >
-                  <Icon name="logos:tailwindcss-icon" class="h-4 w-4" />
+                  <Icon
+                    name="logos:tailwindcss-icon"
+                    class="h-4 w-4"
+                  />
                 </BaseTag>
-                <BaseTag size="sm" rounded="full">
+                <BaseTag
+                  size="sm"
+                  rounded="full"
+                >
                   {{ component.category }}
                 </BaseTag>
               </div>

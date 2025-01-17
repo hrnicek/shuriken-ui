@@ -4,26 +4,42 @@
       <BaseIconBox
         size="md"
         rounded="full"
-        variant="solid"
-        color="primary"
+        variant="default"
       >
-        <Icon name="ph:game-controller-duotone" class="h-5 w-5" />
+        <Icon
+          name="solar:home-smile-angle-linear"
+          class="h-5 w-5"
+        />
       </BaseIconBox>
       <BaseIconBox
         size="md"
         rounded="full"
-        variant="pastel"
-        color="primary"
+        variant="muted"
       >
-        <Icon name="ph:cookie-duotone" class="h-5 w-5" />
+        <Icon
+          name="solar:home-smile-angle-linear"
+          class="h-5 w-5"
+        />
       </BaseIconBox>
       <BaseIconBox
         size="md"
         rounded="full"
-        variant="outline"
-        color="primary"
+        variant="primary"
       >
-        <Icon name="ph:storefront-duotone" class="h-5 w-5" />
+        <Icon
+          name="solar:home-smile-angle-linear"
+          class="h-5 w-5"
+        />
+      </BaseIconBox>
+      <BaseIconBox
+        size="md"
+        rounded="full"
+        variant="dark"
+      >
+        <Icon
+          name="solar:home-smile-angle-linear"
+          class="h-5 w-5"
+        />
       </BaseIconBox>
     </div>
   </div>

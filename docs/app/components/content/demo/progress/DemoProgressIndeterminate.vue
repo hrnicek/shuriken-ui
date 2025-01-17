@@ -3,7 +3,7 @@
     <BaseProgress
       title="Indeterminate progress bar"
       size="sm"
-      color="primary"
+      variant="dark"
     />
   </div>
 </template>

@@ -5,7 +5,7 @@ export const collections = {
     type: 'page',
     source: '**',
     schema: z.object({
-      // 
-    })
-  })
+      //
+    }),
+  }),
 }

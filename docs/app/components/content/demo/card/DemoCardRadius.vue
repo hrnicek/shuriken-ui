@@ -2,7 +2,10 @@
   <div class="flex items-center justify-center px-4 pb-0 pt-4">
     <div class="w-full rounded-xl bg-muted-100 p-4 dark:bg-muted-900 md:p-8">
       <div class="grid max-w-3xl gap-4 md:grid-cols-2">
-        <BaseCard rounded="none" class="p-6">
+        <BaseCard
+          rounded="none"
+          class="p-6"
+        >
           <BaseHeading
             as="h4"
             size="sm"
@@ -22,7 +25,10 @@
           </BaseParagraph>
         </BaseCard>
 
-        <BaseCard rounded="sm" class="p-6">
+        <BaseCard
+          rounded="sm"
+          class="p-6"
+        >
           <BaseHeading
             as="h4"
             size="sm"
@@ -42,7 +48,10 @@
           </BaseParagraph>
         </BaseCard>
 
-        <BaseCard rounded="md" class="p-6">
+        <BaseCard
+          rounded="md"
+          class="p-6"
+        >
           <BaseHeading
             as="h4"
             size="sm"
@@ -62,7 +71,10 @@
           </BaseParagraph>
         </BaseCard>
 
-        <BaseCard rounded="lg" class="p-6">
+        <BaseCard
+          rounded="lg"
+          class="p-6"
+        >
           <BaseHeading
             as="h4"
             size="sm"

@@ -1,10 +1,14 @@
+<script setup lang="ts">
+const progress = ref(25)
+</script>
+
 <template>
   <div class="max-w-sm p-4">
     <BaseProgress
-      title="Default progress bar"
+      v-model="progress"
+      title="Progress bar"
       size="sm"
-      :value="85"
-      color="primary"
+      variant="dark"
     />
   </div>
 </template>

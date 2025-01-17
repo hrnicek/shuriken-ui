@@ -2,7 +2,7 @@
 const appConfig = useAppConfig()
 
 useHead({
-  titleTemplate: (title) => title ? `${title} | Shuriken UI` : 'Shuriken UI',
+  titleTemplate: title => title ? `${title} | Shuriken UI` : 'Shuriken UI',
   htmlAttrs: {
     lang: 'en',
   },
@@ -23,12 +23,11 @@ useSeoMeta({
 </script>
 
 <template>
-  <div>
+  <BaseProviders>
     <NuxtRouteAnnouncer />
-    <NuxtLoadingIndicator color="var(--color-primary-500)" />
+    <NuxtLoadingIndicator color="var(--color-nuxt-loading-indicator)" />
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
-    <ThemeSwitcher />
-  </div>
+  </BaseProviders>
 </template>

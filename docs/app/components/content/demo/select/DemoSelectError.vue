@@ -1,3 +1,7 @@
+<script setup lang="ts">
+const value = ref('')
+</script>
+
 <template>
   <div class="flex items-center justify-center px-4 pb-0 pt-4">
     <div class="w-full rounded-xl bg-muted-100 p-4 dark:bg-muted-900">
@@ -5,38 +9,28 @@
         <div class="flex w-full max-w-xs items-end gap-4">
           <BaseSelect
             v-model="value"
-            rounded="sm"
-            label="Select Hero"
-            error="Please select a hero"
-            :classes="{
-              wrapper: 'w-full',
-            }"
+            rounded="md"
+            placeholder="Select a hero"
+            aria-invalid="true"
           >
-            <option value="">
-              Select a hero
-            </option>
-            <option value="Superman">
+            <BaseSelectItem value="Superman">
               Superman
-            </option>
-            <option value="Batman">
+            </BaseSelectItem>
+            <BaseSelectItem value="Batman">
               Batman
-            </option>
-            <option value="Iron man">
+            </BaseSelectItem>
+            <BaseSelectItem value="Iron man">
               Iron man
-            </option>
-            <option value="Magneto">
+            </BaseSelectItem>
+            <BaseSelectItem value="Magneto">
               Magneto
-            </option>
-            <option value="Cyclops">
+            </BaseSelectItem>
+            <BaseSelectItem value="Cyclops">
               Cyclops
-            </option>
+            </BaseSelectItem>
           </BaseSelect>
         </div>
       </div>
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-const value = ref('')
-</script>

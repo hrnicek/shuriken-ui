@@ -4,58 +4,79 @@
       <BaseIconBox
         size="md"
         rounded="full"
-        variant="solid"
-        color="primary"
+        variant="none"
+        class="bg-indigo-400 text-indigo-50"
       >
-        <Icon name="ph:game-controller-duotone" class="h-5 w-5" />
+        <Icon
+          name="solar:home-smile-angle-bold"
+          class="size-5"
+        />
       </BaseIconBox>
       <BaseIconBox
         size="md"
         rounded="full"
-        variant="solid"
-        color="info"
+        variant="none"
+        class="bg-indigo-500 text-white"
       >
-        <Icon name="ph:cookie-duotone" class="h-5 w-5" />
+        <Icon
+          name="solar:stopwatch-bold"
+          class="size-5"
+        />
       </BaseIconBox>
       <BaseIconBox
         size="md"
         rounded="full"
-        variant="solid"
-        color="success"
+        variant="none"
+        class="bg-indigo-600 text-indigo-50"
       >
-        <Icon name="ph:leaf-duotone" class="h-5 w-5" />
+        <Icon
+          name="solar:pulse-2-bold"
+          class="size-5"
+        />
       </BaseIconBox>
       <BaseIconBox
         size="md"
         rounded="full"
-        variant="solid"
-        color="warning"
+        variant="none"
+        class="bg-indigo-700 text-indigo-50"
       >
-        <Icon name="ph:storefront-duotone" class="h-5 w-5" />
+        <Icon
+          name="solar:stars-minimalistic-bold"
+          class="size-5"
+        />
       </BaseIconBox>
       <BaseIconBox
         size="md"
         rounded="full"
-        variant="solid"
-        color="danger"
+        variant="none"
+        class="bg-indigo-800 text-indigo-50"
       >
-        <Icon name="ph:skull-duotone" class="h-5 w-5" />
+        <Icon
+          name="solar:bolt-bold"
+          class="size-5"
+        />
       </BaseIconBox>
       <BaseIconBox
         size="md"
         rounded="full"
-        variant="solid"
-        color="dark"
+        variant="none"
+        class="bg-indigo-900 text-indigo-50"
       >
-        <Icon name="ph:lightning-duotone" class="h-5 w-5" />
+        <Icon
+          name="solar:widget-6-bold"
+          class="size-5"
+        />
       </BaseIconBox>
       <BaseIconBox
         size="md"
         rounded="full"
-        variant="solid"
-        color="black"
+        variant="none"
+        class="bg-indigo-950 text-indigo-50"
       >
-        <Icon name="ph:gauge-duotone" class="h-5 w-5" />
+        <Icon
+          name="solar:videocamera-bold"
+          class="size-5"
+        />
       </BaseIconBox>
     </div>
   </div>

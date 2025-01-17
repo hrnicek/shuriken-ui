@@ -64,7 +64,7 @@ const team = [
         <div class="mx-auto mt-10 h-72 w-full rounded-xl bg-muted-100 dark:bg-muted-800/40 md:mx-0">
           <div class="flex h-full w-full items-end overflow-hidden px-4 pt-4">
             <div class="relative mx-auto flex h-full w-full max-w-[300px] flex-col">
-              <!--Regular card-->
+              <!-- Regular card -->
               <BaseCard
                 color="default-contrast"
                 rounded="lg"
@@ -75,16 +75,22 @@ const team = [
                   <BaseHeading size="md">
                     Team
                   </BaseHeading>
-                  <Icon name="lucide:more-horizontal" class="h-4 w-4 text-muted-400" />
+                  <Icon
+                    name="lucide:more-horizontal"
+                    class="h-4 w-4 text-muted-400"
+                  />
                 </div>
                 <div class="space-y-6">
-                  <!--Loop-->
+                  <!-- Loop -->
                   <div
                     v-for="member in team"
                     :key="member.name"
                     class="flex items-center gap-2 transition-all duration-300"
                   >
-                    <BaseAvatar :src="member.avatar" size="xs" />
+                    <BaseAvatar
+                      :src="member.avatar"
+                      size="xs"
+                    />
                     <div>
                       <BaseHeading
                         size="sm"
@@ -108,13 +114,16 @@ const team = [
                         rounded="full"
                         class="scale-90"
                       >
-                        <Icon name="lucide:arrow-right" class="h-4 w-4" />
+                        <Icon
+                          name="lucide:arrow-right"
+                          class="h-4 w-4"
+                        />
                       </BaseButtonIcon>
                     </div>
                   </div>
                 </div>
               </BaseCard>
-              <!--Customized card-->
+              <!-- Customized card -->
               <BaseCard
                 color="default-contrast"
                 rounded="lg"
@@ -125,10 +134,13 @@ const team = [
                   <BaseHeading size="md">
                     Team
                   </BaseHeading>
-                  <Icon name="lucide:more-horizontal" class="h-4 w-4 text-muted-400" />
+                  <Icon
+                    name="lucide:more-horizontal"
+                    class="h-4 w-4 text-muted-400"
+                  />
                 </div>
                 <div class="space-y-6">
-                  <!--Loop-->
+                  <!-- Loop -->
                   <div
                     v-for="member in team"
                     :key="member.name"
@@ -163,7 +175,10 @@ const team = [
                         rounded="lg"
                         class="scale-90"
                       >
-                        <Icon name="lucide:arrow-right" class="h-4 w-4" />
+                        <Icon
+                          name="lucide:arrow-right"
+                          class="h-4 w-4"
+                        />
                       </BaseButtonIcon>
                     </div>
                   </div>
@@ -201,7 +216,7 @@ const team = [
         <div class="mx-auto mt-10 h-72 w-full rounded-xl bg-muted-100 dark:bg-muted-800/40 md:mx-0">
           <div class="flex h-full w-full items-end overflow-hidden px-4 pt-4">
             <div class="relative mx-auto flex w-full max-w-[320px] flex-col">
-              <!--Regular card-->
+              <!-- Regular card -->
               <BaseCard
                 color="default-contrast"
                 rounded="lg"
@@ -221,7 +236,10 @@ const team = [
                       color="none"
                       class="bg-muted-100 text-muted-800 transition-colors duration-300 group-hover/ui:!bg-primary-500/10 group-hover/ui:!text-primary-500 dark:bg-muted-900 dark:text-muted-200"
                     >
-                      <Icon name="ph:chat-teardrop-text-duotone" class="h-5 w-5" />
+                      <Icon
+                        name="ph:chat-teardrop-text-duotone"
+                        class="h-5 w-5"
+                      />
                     </BaseIconBox>
                     <div>
                       <BaseHeading
@@ -293,7 +311,7 @@ const team = [
         <div class="mx-auto mt-10 h-72 w-full overflow-hidden rounded-xl bg-muted-100 transition-colors duration-300 group-hover/ui:!bg-muted-900 dark:bg-muted-800/40 dark:group-hover/ui:!bg-muted-100 md:mx-0">
           <div class="flex h-full w-full items-end overflow-hidden px-4 pt-4">
             <div class="relative mx-auto flex w-full max-w-[420px] shrink-0 flex-col lg:start-8 lg:mx-0 ltablet:start-8 ltablet:mx-0">
-              <!--Regular card-->
+              <!-- Regular card -->
               <BaseCard
                 color="default-contrast"
                 rounded="lg"
@@ -301,7 +319,10 @@ const team = [
                 class="-mb-14 space-y-6 p-4 text-start group-hover/ui:!border-muted-800 group-hover/ui:!bg-muted-950 dark:group-hover/ui:!border-muted-300 dark:group-hover/ui:!bg-white md:p-6"
               >
                 <div class="mt-4 flex gap-3">
-                  <BaseAvatar src="/img/photo/avatars/29.jpg" size="xs" />
+                  <BaseAvatar
+                    src="/img/photo/avatars/29.jpg"
+                    size="xs"
+                  />
                   <div class="flex flex-col gap-2">
                     <BaseHeading
                       size="sm"
@@ -329,7 +350,10 @@ const team = [
                   </div>
                 </div>
                 <div class="flex gap-3 ps-10">
-                  <BaseAvatar src="/img/photo/avatars/44.jpg" size="xs" />
+                  <BaseAvatar
+                    src="/img/photo/avatars/44.jpg"
+                    size="xs"
+                  />
                   <div class="flex flex-col gap-2">
                     <BaseHeading
                       size="sm"

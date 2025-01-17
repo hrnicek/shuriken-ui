@@ -1,19 +1,34 @@
 <template>
-  <div class="flex items-center gap-1 p-4">
-    <BaseKbd
-      color="default"
-      size="sm"
-      rounded="md"
-    >
-      Ctrl
-    </BaseKbd>
-    <Icon name="lucide:plus" class="h-3 w-3" />
-    <BaseKbd
-      color="default"
-      size="sm"
-      rounded="md"
-    >
-      k
-    </BaseKbd>
+  <div class="flex items-center gap-8 p-4">
+    <div class="flex items-center gap-1">
+      <BaseKbd
+        variant="default"
+        size="md"
+      >
+        ⌘
+      </BaseKbd>
+      +
+      <BaseKbd
+        variant="default"
+        size="md"
+      >
+        <span class="px-1">k</span>
+      </BaseKbd>
+    </div>
+    <div class="flex items-center gap-1">
+      <BaseKbd
+        variant="muted"
+        size="md"
+      >
+        ⌘
+      </BaseKbd>
+      +
+      <BaseKbd
+        variant="muted"
+        size="md"
+      >
+        <span class="px-1">k</span>
+      </BaseKbd>
+    </div>
   </div>
 </template>

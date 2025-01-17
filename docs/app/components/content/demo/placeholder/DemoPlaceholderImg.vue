@@ -11,18 +11,21 @@
             loading="lazy"
             decoding="async"
             class="dark:invert"
-            src="/img/illustrations/placeholders/placeholder-2.svg"
+            src="/img/vector/placeholders/placeholder-2.svg"
             alt="placeholder-image"
           />
         </template>
 
         <div class="mt-2 flex justify-center gap-2">
-          <BaseButton rounded="lg" class="w-32">
+          <BaseButton
+            rounded="md"
+            class="w-32"
+          >
             Cancel
           </BaseButton>
           <BaseButton
-            color="primary"
-            rounded="lg"
+            variant="dark"
+            rounded="md"
             class="w-32"
           >
             Confirm

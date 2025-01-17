@@ -18,13 +18,18 @@ if (!page.value && import.meta.server) {
 
 useSeoMeta({
   title: page.value?.title,
-  description: page.value?.description
+  description: page.value?.description,
 })
 </script>
 
 <template>
   <div>
-    <ContentRenderer v-if="page" :value="page" />
-    <div v-else>Page not found</div>
+    <ContentRenderer
+      v-if="page"
+      :value="page"
+    />
+    <div v-else>
+      Page not foundz
+    </div>
   </div>
 </template>

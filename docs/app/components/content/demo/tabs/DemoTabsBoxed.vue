@@ -1,47 +1,45 @@
+<script setup lang="ts">
+const selectedTab = ref('team')
+
+const tabsNoIcon = [
+  {
+    label: 'Team',
+    value: 'team',
+  },
+  {
+    label: 'Projects',
+    value: 'projects',
+  },
+  {
+    label: 'Tasks',
+    value: 'tasks',
+  },
+]
+</script>
+
 <template>
   <div class="flex items-center p-4">
     <BaseTabs
+      v-model="selectedTab"
       type="box"
-      model-value="team"
-      :tabs="[
-        {
-          label: 'Team',
-          value: 'team',
-        },
-        {
-          label: 'Projects',
-          value: 'projects',
-        },
-        {
-          label: 'Tasks',
-          value: 'tasks',
-        },
-      ]"
+      variant="dark"
+      :tabs="tabsNoIcon"
     >
-      <template #tab="{ activeValue }">
-        <p v-if="activeValue === 'team'" class="font-sans text-sm text-muted-500 dark:text-muted-400">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid iudicant sensus? Primum quid
-          tu dicis breve? Etiam beatissimum? Ne discipulum abducam, times.
-        </p>
-
-        <p
-          v-else-if="activeValue === 'projects'"
-          class="font-sans text-sm text-muted-500 dark:text-muted-400"
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid iudicant sensus? Primum quid
-          tu dicis breve? Etiam beatissimum? Ne discipulum abducam, times. Quae diligentissime
-          contra Aristonem dicuntur a Chryippo. Duo Reges: constructio interrete.
-        </p>
-
-        <p
-          v-else-if="activeValue === 'tasks'"
-          class="font-sans text-sm text-muted-500 dark:text-muted-400"
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid iudicant sensus? Primum quid
-          tu dicis breve? Etiam beatissimum? Ne discipulum abducam, times. Quae diligentissime
-          contra.
-        </p>
-      </template>
+      <BaseTabsContent value="team">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid
+        iudicant sensus? Primum quid tu dicis breve? Etiam beatissimum?
+        Ne discipulum abducam, times. ...
+      </BaseTabsContent>
+      <BaseTabsContent value="projects">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla malesuada odio sed ante malesuada,
+        quis facilisis erat iaculis. Sed egestas porta fringilla. Ut ultrices, elit eget congue aliquet,
+        risus sem semper lorem, vitae efficitur nunc est eget mi. ...
+      </BaseTabsContent>
+      <BaseTabsContent value="tasks">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris leo ipsum, efficitur eu finibus eu,
+        gravida quis enim. Fusce a elementum nunc. Nunc venenatis a elit quis ornare.
+        Pellentesque quis vehicula ipsum. ...
+      </BaseTabsContent>
     </BaseTabs>
   </div>
 </template>
