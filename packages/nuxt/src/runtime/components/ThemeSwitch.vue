@@ -4,8 +4,8 @@ import { BaseThemeSwitch as theme } from '@shuriken-ui/theme-iga';
 import { useMounted } from '@vueuse/core'
 import { useColorMode } from '#imports'
 import { computed } from 'vue'
-import { useNinjaId } from '../composables/input-id';
-import { useNuiConfig } from '../composables/default-property';
+import { useNuiId } from '../composables/useNuiId';
+import { useNuiConfig } from '../composables/useNuiConfig';
 
 const props = withDefaults(defineProps<BaseThemeSwitchProps>(), {
   id: undefined,
@@ -13,7 +13,7 @@ const props = withDefaults(defineProps<BaseThemeSwitchProps>(), {
   variant: theme.defaults.variant,
 })
 
-const id = useNinjaId(() => props.id)
+const id = useNuiId(() => props.id)
 const iconSun = useNuiConfig('icon', 'sun')
 const iconMoon = useNuiConfig('icon', 'moon')
 

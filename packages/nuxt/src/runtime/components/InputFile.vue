@@ -3,7 +3,7 @@ import type { BaseInputFileProps } from '../types';
 import { BaseInputFile as theme } from '@shuriken-ui/theme-iga';
 import { useAttrs, computed, useTemplateRef } from 'vue'
 
-import { useNinjaId } from '../composables/input-id';
+import { useNuiId } from '../composables/useNuiId';
 import { tm } from '../utils/tw-merge';
 
 
@@ -34,7 +34,7 @@ const [modelValue] = defineModel<FileList | null>()
 
 const attrs = useAttrs()
 
-const id = useNinjaId(() => props.id as string)
+const id = useNuiId(() => props.id as string)
 
 const currentRef = useTemplateRef<HTMLInputElement>('currentRef')
 

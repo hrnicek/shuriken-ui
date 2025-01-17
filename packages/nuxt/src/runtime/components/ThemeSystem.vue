@@ -4,7 +4,7 @@ import { BaseThemeSystem as theme } from '@shuriken-ui/theme-iga';
 import { useMounted } from '@vueuse/core'
 import { computed } from 'vue'
 import { useColorMode } from '#imports'
-import { useNuiConfig } from '../composables/default-property';
+import { useNuiConfig } from '../composables/useNuiConfig';
 
 const props = withDefaults(defineProps<BaseThemeSystemProps>(), {
   id: undefined,

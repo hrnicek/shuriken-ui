@@ -4,7 +4,7 @@ import { BaseAutocompleteItem as theme } from '@shuriken-ui/theme-iga';
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 import { injectBaseAutocompleteContext } from './Autocomplete.vue'
-import { useNuiConfig } from '../composables/default-property';
+import { useNuiConfig } from '../composables/useNuiConfig';
 
 const props = withDefaults(defineProps<BaseAutocompleteItemProps>(), {
   value: undefined,

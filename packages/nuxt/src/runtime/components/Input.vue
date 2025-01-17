@@ -2,7 +2,7 @@
 import type { BaseInputProps } from '../types'
 import { BaseInput as theme } from '@shuriken-ui/theme-iga'
 
-import { useNinjaId } from '../composables/input-id';
+import { useNuiId } from '../composables/useNuiId';
 
 
 const props = withDefaults(defineProps<BaseInputProps>(), {
@@ -25,7 +25,7 @@ const [modelValue, modelModifiers] = defineModel<
   'lazy' | 'trim' | 'number'
 >()
 
-const id = useNinjaId(() => props.id)
+const id = useNuiId(() => props.id)
 
 function updateFromTarget(target: HTMLInputElement) {
   const value = target.value

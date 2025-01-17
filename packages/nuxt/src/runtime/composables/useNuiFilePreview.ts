@@ -3,7 +3,10 @@ import { ref, watchEffect, toValue } from 'vue'
 
 const previewMap = new WeakMap<File, Ref<string | undefined>>()
 
-export function useNinjaFilePreview(
+/**
+ * @deprecated
+ */
+export function useNuiFilePreview(
   _file: MaybeRefOrGetter<File | null | undefined>,
 ) {
   const preview = ref<string>()

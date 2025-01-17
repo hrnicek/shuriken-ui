@@ -12,7 +12,7 @@ import { useForwardProps } from 'reka-ui';
 import { computed, watchEffect } from 'vue'
 import { reactiveOmit } from '@vueuse/core'
 import { useState } from "#app";
-import { useNuiToasts } from '../composables/toasts';
+import { useNuiToasts } from '../composables/useNuiToasts';
 
 const props = withDefaults(defineProps<BaseToastProviderProps>(), {
   max: 3,

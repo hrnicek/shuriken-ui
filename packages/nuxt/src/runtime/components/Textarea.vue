@@ -2,7 +2,7 @@
 import type { Directive } from 'vue'
 import type { BaseTextareaProps } from '../types';
 import { BaseTextarea as theme } from '@shuriken-ui/theme-iga';
-import { useNinjaId } from '../composables/input-id';
+import { useNuiId } from '../composables/useNuiId';
 
 const props = withDefaults(defineProps<BaseTextareaProps>(), {
   id: undefined,
@@ -21,7 +21,7 @@ const props = withDefaults(defineProps<BaseTextareaProps>(), {
 
 const [modelValue, modelModifiers] = defineModel<string, 'lazy' | 'trim'>()
 
-const id = useNinjaId(() => props.id)
+const id = useNuiId(() => props.id)
 
 function updateFromTarget(target: HTMLInputElement) {
   const value = target.value

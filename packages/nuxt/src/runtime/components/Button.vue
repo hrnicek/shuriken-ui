@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { BaseButtonProps, BaseButtonSlots } from '../types'
 import { BaseButton as theme } from '@shuriken-ui/theme-iga'
-import { useNinjaButton } from '../composables/buttons';
-import { useNuiConfig } from '../composables/default-property';
+import { useNuiButton } from '../composables/useNuiButton';
+import { useNuiConfig } from '../composables/useNuiConfig';
 
 const props = withDefaults(defineProps<BaseButtonProps>(), {
   to: undefined,
@@ -19,7 +19,7 @@ const slots = defineSlots<BaseButtonSlots>()
 
 const iconSpiner = useNuiConfig('icon', 'spiner')
 
-const { attributes, is } = useNinjaButton(props)
+const { attributes, is } = useNuiButton(props)
 </script>
 
 <template>

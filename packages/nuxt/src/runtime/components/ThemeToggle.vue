@@ -5,8 +5,8 @@ import { useMounted } from '@vueuse/core'
 import { computed } from 'vue'
 import { useColorMode } from '#imports'
 
-import { useNinjaId } from '../composables/input-id';
-import { useNuiConfig } from '../composables/default-property';
+import { useNuiId } from '../composables/useNuiId';
+import { useNuiConfig } from '../composables/useNuiConfig';
 
 const props = withDefaults(defineProps<BaseThemeToggleProps>(), {
   id: undefined,
@@ -14,7 +14,7 @@ const props = withDefaults(defineProps<BaseThemeToggleProps>(), {
   variant: theme.defaults.variant,
 })
 
-const id = useNinjaId(() => props.id)
+const id = useNuiId(() => props.id)
 // const disableTransitions = useNuiConfig('BaseThemeToggle', 'disableTransitions', () => props.disableTransitions)
 // const variant = useNuiConfig('BaseThemeToggle', 'variant', () => props.variant)
 const iconSun = useNuiConfig('icon', 'sun')
