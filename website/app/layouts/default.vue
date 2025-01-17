@@ -66,7 +66,7 @@ const { data: navigation } = await useAsyncData('navigation', () => queryCollect
               </ul>
             </div>
             <!-- Content -->
-            <div class="grow px-4 md:px-6 xl:px-8">
+            <div class="grow px-4 md:px-6 xl:px-8 overflow-hidden">
               <div class="w-full max-w-3xl mx-auto xl:px-6">
                 <slot />
               </div>

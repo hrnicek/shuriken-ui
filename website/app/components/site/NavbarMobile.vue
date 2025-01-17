@@ -1,5 +1,8 @@
 <script setup lang="ts">
 const { isMobileOpen } = useLayoutDefaultContext()
+const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('content'), {
+  transform: data => data.find(item => item.path === '/docs')?.children || [],
+})
 </script>
 
 <template>
@@ -17,6 +20,107 @@ const { isMobileOpen } = useLayoutDefaultContext()
       :class="[
         isMobileOpen ? 'translate-y-0' : 'translate-y-full',
       ]"
-    />
+    >
+      <div class="relative h-full px-8 py-12 space-y-10 overflow-y-auto nui-slimscroll">
+        <div class="space-y-3">
+          <BaseHeading size="xl" weight="semibold">
+            Menu
+          </BaseHeading>
+          <div>
+            <ul class="font-sans text-lg space-y-2">
+              <li @click="isMobileOpen = false">
+                <NuxtLink
+                  to="/docs"
+                  class="text-muted-600 dark:text-muted-400"
+                  exact-active-class="text-muted-900! dark:text-white!"
+                >
+                  Docs
+                </NuxtLink>
+              </li>
+              <li @click="isMobileOpen = false">
+                <NuxtLink
+                  to="/docs/components"
+                  class="text-muted-600 dark:text-muted-400"
+                  exact-active-class="text-muted-900! dark:text-white!"
+                >
+                  Components
+                </NuxtLink>
+              </li>
+              <li @click="isMobileOpen = false">
+                <NuxtLink
+                  to="/docs/utilities"
+                  class="text-muted-600 dark:text-muted-400"
+                  exact-active-class="text-muted-900! dark:text-white!"
+                >
+                  Utilities
+                </NuxtLink>
+              </li>
+              <li @click="isMobileOpen = false">
+                <NuxtLink
+                  to="/docs/theming/colors"
+                  class="text-muted-600 dark:text-muted-400"
+                  exact-active-class="text-muted-900! dark:text-white!"
+                >
+                  Colors
+                </NuxtLink>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="space-y-3">
+          <BaseHeading size="xl" weight="semibold">
+            Documentation
+          </BaseHeading>
+          <div>
+            <ul class="font-sans text-lg space-y-2">
+              <li
+                v-for="item in navigation"
+                :key="item.path"
+                @click="isMobileOpen = false"
+              >
+                <div v-if="item.children">
+                  <BaseHeading
+                    size="sm"
+                    weight="semibold"
+                    class="uppercase tracking-wide mt-10 mb-4 text-muted-600 dark:text-muted-400"
+                  >
+                    <span>{{ item.title }}</span>
+                  </BaseHeading>
+                  <div>
+                    <ul class="font-sans text-lg space-y-2">
+                      <li
+                        v-for="link in item.children"
+                        :key="link.path"
+                        class="relative mt-1"
+                      >
+                        <NuxtLink
+                          :to="link.path"
+                          class="text-muted-600 dark:text-muted-400 underline-offset-8"
+                          exact-active-class="underline font-medium text-muted-900! dark:text-white!"
+                        >
+                          {{ link.title }}
+                        </NuxtLink>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div
+                  v-else
+                  class="mt-1"
+                >
+                  <NuxtLink
+                    :to="item.path"
+                    class="text-muted-600 dark:text-muted-400 underline-offset-8"
+                    exact-active-class="underline font-medium text-muted-900! dark:text-white!"
+                  >
+                    {{ item.title }}
+                  </NuxtLink>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>

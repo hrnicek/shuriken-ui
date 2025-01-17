@@ -74,7 +74,7 @@ const { isMobileOpen } = createLayoutDefaultContext()
                   size="lg"
                   class="max-w-lg text-muted-700 dark:text-muted-300"
                 >
-                  Shuriken UI is a modern, responsive, and customizable component library for Nuxt and Vue.
+                  Shuriken UI is a modern, accessible, and customizable component library for Nuxt with Tailwind V4.
                 </BaseParagraph>
                 <div class="flex items-center gap-3 mt-4">
                   <BaseButton

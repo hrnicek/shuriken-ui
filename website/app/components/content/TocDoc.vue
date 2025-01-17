@@ -59,7 +59,7 @@ const links = computed(() => page.value?.body?.toc?.links || [])
             rounded="md"
             class="w-full mt-4 font-medium"
           >
-            Schedule a call
+            Get in touch
           </BaseButton>
         </BaseCard>
       </div>

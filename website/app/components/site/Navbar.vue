@@ -81,16 +81,10 @@ const appConfig = useAppConfig()
             Components
           </NuxtLink>
           <NuxtLink
-            to="/"
+            to="/docs/utilities"
             class="text-sm text-muted-900 dark:text-white"
           >
-            Charts
-          </NuxtLink>
-          <NuxtLink
-            to="/"
-            class="text-sm text-muted-900 dark:text-white"
-          >
-            Playground
+            Utilities
           </NuxtLink>
           <NuxtLink
             to="/docs/theming/colors"
