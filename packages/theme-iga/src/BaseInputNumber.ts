@@ -30,7 +30,7 @@ export const radiuses = {
   sm: 'rounded-sm',
   md: 'rounded-md',
   lg: 'rounded-lg',
-  full: 'rounded-xl',
+  full: 'rounded-full',
 } as const satisfies Record<NonNullable<BaseInputNumberProps['rounded']>, string>
 
 export const buttonSizes = {

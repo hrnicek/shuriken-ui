@@ -5,7 +5,7 @@ export const radiuses = {
   sm: 'rounded-sm',
   md: 'rounded-md',
   lg: 'rounded-lg',
-  full: 'rounded-lg',
+  full: 'rounded-xl',
 } as const satisfies Record<NonNullable<BaseDropdownProps['rounded']>, string>
 
 export const variants = {
