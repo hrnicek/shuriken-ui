@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { Directive } from 'vue'
 import type { BaseTextareaProps } from '../types';
 import { BaseTextarea as theme } from '@shuriken-ui/theme-iga';
 import { useNinjaId } from '../composables/input-id';
@@ -9,11 +10,12 @@ const props = withDefaults(defineProps<BaseTextareaProps>(), {
 
   rounded: theme.defaults.rounded,
   variant: theme.defaults.variant,
+  size: theme.defaults.size,
 
   label: undefined,
   placeholder: '',
   error: false,
-  rows: 3,
+  rows: undefined,
   maxHeight: undefined,
 })
 
@@ -31,33 +33,40 @@ function updateFromTarget(target: HTMLInputElement) {
   }
 }
 
-function onInput(event: Event) {
-  if (modelModifiers.lazy) {
-    return
-  }
+// Update textarea internal value without updating the DOM to improve performance 
+const vModelTextarea: Directive = {
+  created(el) {
+    el.addEventListener(modelModifiers.lazy ? 'change' : 'input', (event: InputEvent) => {
+      updateFromTarget(event.target as HTMLInputElement)
+    })
+  },
+  mounted(el, { value }) {
+    el.value = value
+  },
+  beforeUpdate(el, { value }) {
+    const current = el.value
+    if (value === current) {
+      return
+    }
 
-  updateFromTarget(event.target as HTMLInputElement)
-}
-
-function onChange(event: Event) {
-  updateFromTarget(event.target as HTMLInputElement)
+    el.value = value
+  },
 }
 </script>
 
 <template>
   <textarea
     :id
-    class="focus-visible:nui-focus w-full p-2 text-sm disabled:cursor-not-allowed disabled:opacity-50 nui-slimscroll aria-invalid:border-destructive-base!"
+    v-model-textarea="modelValue"
+    class="focus-visible:nui-focus w-full disabled:cursor-not-allowed disabled:opacity-50 nui-slimscroll aria-invalid:border-destructive-base!"
     :class="[
       props.autogrow && 'field-sizing-content',
       props.variant && theme.variants[props.variant],
       props.rounded && theme.radiuses[props.rounded],
+      props.size && theme.sizes[props.size],
       !props.resize && 'resize-none',
     ]"
     :placeholder="props.placeholder"
     :rows="props.rows"
-    :value="modelValue"
-    @input="onInput"
-    @change="onChange"
   />
 </template>
