@@ -44,7 +44,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'bind
             </slot>
           </div>
         </div>
-        <Icon :name="iconChevronRight" />
+        <Icon :name="iconChevronRight" class="shrink-0 rtl:scale-x-[-1]" />
       </div>
     </DropdownMenuSubTrigger>
     <DropdownMenuPortal v-bind="props.bindings?.portal">

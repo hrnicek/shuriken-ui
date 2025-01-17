@@ -19,7 +19,7 @@ const iconFirst = useNuiConfig('icon', 'chevronFirst')
       context.size && theme.heights[context.size],
   ]">
     <slot>
-      <Icon :name="iconFirst" class="text-base" />
+      <Icon :name="iconFirst" class="text-base rtl:scale-x-[-1]" />
     </slot>
   </PaginationFirst>
 </template>

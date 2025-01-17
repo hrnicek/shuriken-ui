@@ -19,7 +19,7 @@ const iconNext = useNuiConfig('icon', 'chevronRight')
       context.size && theme.heights[context.size],
   ]">
     <slot>
-      <Icon :name="iconNext" class="text-base" />
+      <Icon :name="iconNext" class="text-base rtl:scale-x-[-1]" />
     </slot>
   </PaginationNext>
 </template>

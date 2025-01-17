@@ -19,7 +19,7 @@ const iconLast = useNuiConfig('icon', 'chevronLast')
       context.size && theme.heights[context.size],
   ]">
     <slot>
-      <Icon :name="iconLast" class="text-base" />
+      <Icon :name="iconLast" class="text-base rtl:scale-x-[-1]" />
     </slot>
   </PaginationLast>
 </template>

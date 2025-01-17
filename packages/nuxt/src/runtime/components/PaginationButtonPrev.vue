@@ -19,7 +19,7 @@ const iconPrevious = useNuiConfig('icon', 'chevronLeft')
       context.size && theme.heights[context.size],
   ]">
     <slot>
-      <Icon :name="iconPrevious" class="text-base" />
+      <Icon :name="iconPrevious" class="text-base rtl:scale-x-[-1]" />
     </slot>
   </PaginationPrev>
 </template>
