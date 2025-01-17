@@ -20,6 +20,7 @@ const defaultAppConfig = {
     screen: 'nui-icon:screen-duotone',
     spiner: 'nui-icon:spiner',
     required: 'lucide:asterisk',
+    ellipsis: 'lucide:ellipsis',
     alert: 'lucide:alert-octagon',
     close: 'lucide:x',
     check: 'lucide:check',
@@ -28,8 +29,9 @@ const defaultAppConfig = {
     chevronUp: 'lucide:chevron-up',
     chevronDown: 'lucide:chevron-down',
     chevronLeft: 'lucide:chevron-left',
+    chevronFirst: 'lucide:chevron-first',
     chevronRight: 'lucide:chevron-right',
-    empty: '',
+    chevronLast: 'lucide:chevron-last',
   }
 }
 

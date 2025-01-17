@@ -33,7 +33,33 @@ const formatter = new Intl.NumberFormat('en-US', { style: 'decimal' })
           v-model:page="page"
           :sibling-count="2"
           size="sm"
+          class="w-full"
         />
+      </NuiPreview>
+
+      <NuiPreview
+        title="Pagination composition"
+        description="Pagination component composition example"
+      >
+        <BasePagination
+          :items-per-page="8"
+          :total="512"
+          v-model:page="page"
+          :sibling-count="2"
+          size="sm"
+          v-slot="{ items }"
+          class="w-full justify-between"
+        >
+          <div class="flex gap-2">
+            <BasePaginationButtonFirst />
+            <BasePaginationButtonPrev />
+          </div>
+          <BasePaginationItems :items />
+          <div class="flex gap-2">
+            <BasePaginationButtonNext />
+            <BasePaginationButtonLast />
+          </div>
+        </BasePagination>
       </NuiPreview>
 
       <NuiPreview
@@ -110,7 +136,7 @@ const formatter = new Intl.NumberFormat('en-US', { style: 'decimal' })
             {{ formatter.format(page) }}
           </template>
           <template #ellipsis>
-            <Icon name="lucide:ellipsis" />
+            &#8230;
           </template>
         </BasePagination> 
       </NuiPreview>

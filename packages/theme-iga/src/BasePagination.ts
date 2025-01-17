@@ -20,11 +20,6 @@ export const radiuses = {
   full: 'rounded-lg sm:rounded-full',
 } as const satisfies Record<NonNullable<BasePaginationProps['rounded']>, string>
 
-export const variants = {
-  primary: '',
-  dark: ''
-} as const satisfies Record<NonNullable<BasePaginationProps['variant']>, string>
-
 export const itemVariants = {
   primary: 'bg-white focus-visible:data-selected:ring-primary-500 hover:enabled:bg-muted-50 dark:bg-muted-900 dark:hover:enabled:bg-muted-800/80 border-muted-300 dark:border-muted-800 data-selected:!bg-primary-base data-selected:!text-primary-invert',
   dark: 'bg-white focus-visible:data-selected:ring-muted-700 dark:focus-visible:data-selected:ring-muted-300 hover:enabled:bg-muted-50 dark:bg-muted-900 dark:hover:enabled:bg-muted-800/80 border-muted-200 dark:border-muted-700 data-selected:!bg-muted-900 data-selected:!text-white dark:data-selected:!bg-white dark:data-selected:!text-muted-900'
