@@ -45,7 +45,7 @@
     "@shuriken-ui/tailwind": "workspace:*",
     "@shuriken-ui/theme-iga": "workspace:*",
     "tailwindcss": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "5.6.3"
   },
   "devDependencies": {
     "@nuxt/kit": "^3.14.1592",
