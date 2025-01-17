@@ -5,7 +5,7 @@ import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 import { useAttrs } from 'vue'
 
-import { useNinjaId } from '../composables/input-id';
+import { useNuiId } from '../composables/useNuiId';
 import { tm } from '../utils/tw-merge';
 
 defineOptions({
@@ -26,7 +26,7 @@ const emits = defineEmits<BaseRadioEmits>()
 const slots = defineSlots<BaseRadioSlots>()
 
 const attrs = useAttrs()
-const id = useNinjaId(() => props.id)
+const id = useNuiId(() => props.id)
 const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'variant', 'classes']), emits)
 </script>
 

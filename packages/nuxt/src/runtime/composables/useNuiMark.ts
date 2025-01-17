@@ -3,7 +3,7 @@ import { computed, toValue } from 'vue'
 
 import { escapeHtml } from '@vue/shared'
 
-export function useNinjaMark(
+export function useNuiMark(
   _text?: MaybeRefOrGetter<string | undefined>,
   _search?: MaybeRefOrGetter<string | undefined>,
   _classes?: MaybeRefOrGetter<string | undefined>,

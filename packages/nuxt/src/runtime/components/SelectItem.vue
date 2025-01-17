@@ -4,7 +4,7 @@ import { BaseSelectItem as theme } from '@shuriken-ui/theme-iga';
 import { useForwardProps } from 'reka-ui'
 import { injectBaseSelectContext } from './Select.vue'
 
-import { useNuiConfig } from '../composables/default-property';
+import { useNuiConfig } from '../composables/useNuiConfig';
 
 const context = injectBaseSelectContext()
 

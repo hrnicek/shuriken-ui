@@ -6,7 +6,7 @@ import { injectBaseDropdownContext } from './Dropdown.vue'
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 
-import { useNuiConfig } from '../composables/default-property';
+import { useNuiConfig } from '../composables/useNuiConfig';
 
 const props = defineProps<BaseDropdownSubProps>()
 const emits = defineEmits<BaseDropdownSubEmits>()
@@ -44,7 +44,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'bind
             </slot>
           </div>
         </div>
-        <Icon :name="iconChevronRight" />
+        <Icon :name="iconChevronRight" class="shrink-0 rtl:scale-x-[-1]" />
       </div>
     </DropdownMenuSubTrigger>
     <DropdownMenuPortal v-bind="props.bindings?.portal">

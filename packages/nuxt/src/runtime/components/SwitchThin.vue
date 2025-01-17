@@ -4,7 +4,7 @@ import { BaseSwitchThin as theme } from '@shuriken-ui/theme-iga';
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
 import { useAttrs } from 'vue'
-import { useNinjaId } from '../composables/input-id';
+import { useNuiId } from '../composables/useNuiId';
 import { tm } from '../utils/tw-merge';
 
 defineOptions({
@@ -28,7 +28,7 @@ const props = withDefaults(defineProps<BaseSwitchThinProps>(), {
 const emits = defineEmits<BaseSwitchThinEmits>()
 const slots = defineSlots<BaseSwitchThinSlots>()
 
-const id = useNinjaId(() => props.id)
+const id = useNuiId(() => props.id)
 const attrs = useAttrs()
 const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'sublabel', 'variant', 'classes']), emits)
 const { forwardRef } = useForwardExpose()

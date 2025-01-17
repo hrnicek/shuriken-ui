@@ -13,7 +13,7 @@ export interface BaseButtonProperties {
 
 const NuxtLink = defineNuxtLink({})
 
-export function useNinjaButton(properties: BaseButtonProperties, {
+export function useNuiButton(properties: BaseButtonProperties, {
   externalDefaultRelationship = 'noopener noreferrer',
   externalDefaultTarget = '_blank',
 } = {}) {

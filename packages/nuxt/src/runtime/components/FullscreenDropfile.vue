@@ -3,7 +3,7 @@ import type { BaseFullscreenDropfileProps, BaseFullscreenDropfileEmits, BaseFull
 import { BaseFullscreenDropfile as theme } from '@shuriken-ui/theme-iga'
 import { useAttrs, ref, onMounted, onBeforeUnmount } from 'vue'
 
-import { useNinjaId } from '../composables/input-id';
+import { useNuiId } from '../composables/useNuiId';
 
 
 const props = withDefaults(defineProps<BaseFullscreenDropfileProps>(), {
@@ -23,7 +23,7 @@ const slots = defineSlots<BaseFullscreenDropfileSlots>()
 
 const [modelValue] = defineModel<FileList | null>()
 
-const id = useNinjaId(() => props.id)
+const id = useNuiId(() => props.id)
 // const variant = useNuiConfig('BaseFullscreenDropfile', 'variant', () => props.variant)
 
 const inputRef = ref<HTMLInputElement>()

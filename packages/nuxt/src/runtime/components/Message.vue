@@ -2,7 +2,7 @@
 import type { BaseMessageProps, BaseMessageEmits, BaseMessageSlots } from '../types';
 import { BaseMessage as theme } from '@shuriken-ui/theme-iga';
 
-import { useNuiConfig } from '../composables/default-property';
+import { useNuiConfig } from '../composables/useNuiConfig';
 
 const props = withDefaults(defineProps<BaseMessageProps>(), {
   message: '',

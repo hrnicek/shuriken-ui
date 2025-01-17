@@ -88,7 +88,7 @@ const routes = computed(() =>
         <slot />
       </div>
     </div>
-    <div class="fixed top-0 end-0 pr-6 pt-6 z-50">
+    <div class="fixed top-0 end-0 pe-6 pt-6 z-50">
       <BaseThemeSystem disable-transitions />
     </div>
   </div>

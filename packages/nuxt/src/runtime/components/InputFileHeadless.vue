@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { Ref } from 'vue'
 import { ref, provide, reactive } from 'vue'
-import { useNinjaId } from '../composables/input-id';
-import { useNinjaFilePreview } from '../composables/file-preview';
+import { useNuiId } from '../composables/useNuiId';
+import { useNuiFilePreview } from '../composables/useNuiFilePreview';
 
 defineOptions({
   inheritAttrs: false,
@@ -39,7 +39,7 @@ const props = withDefaults(
 const [modelValue] = defineModel<FileList | null>()
 
 const inputRef = ref<HTMLInputElement>()
-const id = useNinjaId(() => props.id)
+const id = useNuiId(() => props.id)
 
 const previewMap = new WeakMap<File, Ref<string | undefined>>()
 
@@ -134,7 +134,7 @@ provide(
     files: modelValue,
     open,
     remove,
-    preview: useNinjaFilePreview,
+    preview: useNuiFilePreview,
     drop,
   }),
 )
@@ -163,7 +163,7 @@ defineExpose({
   /**
    * Returns the preview DataURL of a file.
    */
-  preview: useNinjaFilePreview,
+  preview: useNuiFilePreview,
   /**
    * Handles the drop event.
    */
@@ -179,7 +179,7 @@ defineExpose({
       :files="modelValue"
       :open="open"
       :remove="remove"
-      :preview="useNinjaFilePreview"
+      :preview="useNuiFilePreview"
       :drop="drop"
     />
     <input

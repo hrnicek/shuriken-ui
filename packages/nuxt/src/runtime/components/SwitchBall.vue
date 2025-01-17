@@ -5,8 +5,8 @@ import { reactiveOmit } from '@vueuse/core'
 import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
 import { useAttrs } from 'vue'
 
-import { useNinjaId } from '../composables/input-id';
-import { useNuiConfig } from '../composables/default-property';
+import { useNuiId } from '../composables/useNuiId';
+import { useNuiConfig } from '../composables/useNuiConfig';
 import { tm } from '../utils/tw-merge';
 
 defineOptions({
@@ -30,7 +30,7 @@ const props = withDefaults(defineProps<BaseSwitchBallProps>(), {
 const emits = defineEmits<BaseSwitchBallEmits>()
 const slots = defineSlots<BaseSwitchBallSlots>()
 
-const id = useNinjaId(() => props.id)
+const id = useNuiId(() => props.id)
 const attrs = useAttrs()
 const iconCheck = useNuiConfig('icon', 'check')
 const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'sublabel', 'variant', 'classes']), emits)

@@ -5,8 +5,8 @@ import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 import { useAttrs } from 'vue'
 
-import { useNinjaId } from '../composables/input-id';
-import { useNuiConfig } from '../composables/default-property';
+import { useNuiId } from '../composables/useNuiId';
+import { useNuiConfig } from '../composables/useNuiConfig';
 import { tm } from '../utils/tw-merge';
 
 defineOptions({
@@ -32,7 +32,7 @@ const emits = defineEmits<BaseInputNumberEmits>()
 const slots = defineSlots<BaseInputNumberSlots>()
 
 const attrs = useAttrs()
-const id = useNinjaId(() => props.id)
+const id = useNuiId(() => props.id)
 
 const iconIncrement = useNuiConfig('icon', 'plus')
 const iconDecrement = useNuiConfig('icon', 'minus')

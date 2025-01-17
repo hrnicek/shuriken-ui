@@ -2,8 +2,8 @@
 import type { BaseSelectContext } from '../types';
 import { createContext } from 'reka-ui'
 
-import { useNinjaId } from '../composables/input-id';
-import { useNuiConfig } from '../composables/default-property';
+import { useNuiId } from '../composables/useNuiId';
+import { useNuiConfig } from '../composables/useNuiConfig';
 import { tm } from '../utils/tw-merge';
 
 export const [
@@ -44,7 +44,7 @@ const emits = defineEmits<BaseSelectEmits<T>>()
 const slots = defineSlots<BaseSelectSlots<T>>()
 
 const attrs = useAttrs()
-const id = useNinjaId(() => props.id)
+const id = useNuiId(() => props.id)
 
 const iconChevronDown = useNuiConfig('icon', 'chevronDown')
 const iconChevronUp = useNuiConfig('icon', 'chevronUp')

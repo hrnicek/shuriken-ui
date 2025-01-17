@@ -6,8 +6,8 @@ import { reactiveOmit } from '@vueuse/core'
 import { useAttrs } from 'vue'
 
 import { tm } from '../utils/tw-merge'
-import { useNinjaId } from '../composables/input-id';
-import { useNuiConfig } from '../composables/default-property';
+import { useNuiId } from '../composables/useNuiId';
+import { useNuiConfig } from '../composables/useNuiConfig';
 
 defineOptions({
   inheritAttrs: false,
@@ -30,7 +30,7 @@ const emits = defineEmits<BaseCheckboxEmits>()
 const slots = defineSlots<BaseCheckboxSlots>()
 
 const attrs = useAttrs()
-const id = useNinjaId(() => props.id)
+const id = useNuiId(() => props.id)
 
 const iconCheck = useNuiConfig('icon', 'check')
 const iconIndeterminate = useNuiConfig('icon', 'minus')
