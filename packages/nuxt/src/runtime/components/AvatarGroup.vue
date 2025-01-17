@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { BaseAvatarGroupProps, BaseAvatarGroupSlots } from '../types'
-import { BaseAvatarGroup as theme } from '#build/shuriken-ui/theme'
+import { BaseAvatarGroup as theme } from '@shuriken-ui/theme-iga'
 
 import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'

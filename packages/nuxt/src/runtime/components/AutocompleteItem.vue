@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { BaseAutocompleteItemProps, BaseAutocompleteItemEmits, BaseAutocompleteItemSlots } from '../types';
-import { BaseAutocompleteItem as theme } from '#build/shuriken-ui/theme';
+import { BaseAutocompleteItem as theme } from '@shuriken-ui/theme-iga';
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 import { injectBaseAutocompleteContext } from './Autocomplete.vue'

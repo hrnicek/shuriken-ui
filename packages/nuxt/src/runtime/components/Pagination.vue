@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { BasePaginationProps, BasePaginationEmits, BasePaginationSlots } from '../types';
-import { BasePagination as theme } from '#build/shuriken-ui/theme';
+import { BasePagination as theme } from '@shuriken-ui/theme-iga';
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 

@@ -11,12 +11,6 @@ export interface ModuleOptions {
    * @default `Base`
    */
   prefix?: string
-
-  /**
-   * Theme for the app
-   * @default `@shuriken-ui/theme-iga`
-   */
-  theme?: '@shuriken-ui/theme-iga' | '@shuriken-ui/theme-koga' | ({} & string) 
 }
 
 const defaultAppConfig = {
@@ -49,7 +43,6 @@ export default defineNuxtModule<ModuleOptions>({
   },
   defaults: {
     prefix: 'Base',
-    theme: '@shuriken-ui/theme-iga',
   },
   async setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url)
@@ -88,14 +81,6 @@ export default defineNuxtModule<ModuleOptions>({
     })
 
     addImportsDir(resolve('./runtime/composables'))
-
-    addTemplate({
-      filename: 'shuriken-ui/theme.ts',
-      write: true,
-      getContents: () => {
-        return `export * from '${options.theme}'`
-      }
-    })
 
     // Exclude packages that are available in ESM format
     nuxt.options.vite.optimizeDeps ||= {}

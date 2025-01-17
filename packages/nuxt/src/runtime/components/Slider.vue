@@ -3,7 +3,7 @@ import { useForwardPropsEmits, useForwardExpose } from 'reka-ui';
 import { useAttrs } from 'vue'
 import { reactiveOmit } from '@vueuse/core'
 import type { BaseSliderProps, BaseSliderEmits, BaseSliderSlots } from '../types';
-import { BaseSlider as theme } from '#build/shuriken-ui/theme';
+import { BaseSlider as theme } from '@shuriken-ui/theme-iga';
 import { tm } from '../utils/tw-merge'
 
 defineOptions({

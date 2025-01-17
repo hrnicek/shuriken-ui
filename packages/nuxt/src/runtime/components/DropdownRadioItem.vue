@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { BaseDropdownRadioItemProps, BaseDropdownRadioItemEmits, BaseDropdownRadioItemSlots} from '../types';
-import { BaseDropdownItem as theme } from '#build/shuriken-ui/theme';
+import { BaseDropdownItem as theme } from '@shuriken-ui/theme-iga';
 
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'

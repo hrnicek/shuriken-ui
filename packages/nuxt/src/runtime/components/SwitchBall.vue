@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { BaseSwitchBallEmits, BaseSwitchBallProps, BaseSwitchBallSlots } from '../types';
-import { BaseSwitchBall as theme } from '#build/shuriken-ui/theme';
+import { BaseSwitchBall as theme } from '@shuriken-ui/theme-iga';
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
 import { useAttrs } from 'vue'

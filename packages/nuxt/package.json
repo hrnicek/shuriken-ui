@@ -44,14 +44,8 @@
   "peerDependencies": {
     "@shuriken-ui/tailwind": "workspace:*",
     "@shuriken-ui/theme-iga": "workspace:*",
-    "@shuriken-ui/theme-koga": "workspace:*",
     "tailwindcss": "catalog:",
     "typescript": "catalog:"
-  },
-  "peerDependenciesMeta": {
-    "@shuriken-ui/theme-koga": {
-      "optional": true
-    }
   },
   "devDependencies": {
     "@nuxt/kit": "^3.14.1592",

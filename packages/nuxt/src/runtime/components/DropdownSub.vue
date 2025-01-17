@@ -1,7 +1,7 @@
 
 <script setup lang="ts">
 import type { BaseDropdownSubProps, BaseDropdownSubEmits, BaseDropdownSubSlots } from '../types';
-import { BaseDropdownItem as theme, BaseDropdown as dropdownTheme  } from '#build/shuriken-ui/theme';
+import { BaseDropdownItem as theme, BaseDropdown as dropdownTheme  } from '@shuriken-ui/theme-iga';
 import { injectBaseDropdownContext } from './Dropdown.vue'
 import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'

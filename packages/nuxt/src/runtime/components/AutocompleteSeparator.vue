@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { BaseAutocompleteSeparatorProps } from '../types';
-import { BaseAutocompleteSeparator as theme } from '#build/shuriken-ui/theme';
+import { BaseAutocompleteSeparator as theme } from '@shuriken-ui/theme-iga';
 import { useForwardProps } from 'reka-ui';
 import { injectBaseAutocompleteContext } from './Autocomplete.vue'
 
