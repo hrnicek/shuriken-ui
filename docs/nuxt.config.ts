@@ -31,7 +31,7 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
-  compatibilityDate: '2024-11-25',
+  compatibilityDate: '2025-01-18',
   componentMeta: {
     metaSources: ['@shuriken-ui/nuxt-component-meta'],
     exclude: [
