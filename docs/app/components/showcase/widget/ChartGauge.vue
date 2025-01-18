@@ -28,7 +28,7 @@ function useDemoGauge() {
           size: '40%',
         },
         track: {
-          background: '#e7e7e7',
+          // background: '#e7e7e7',
           strokeWidth: '97%',
           margin: 0, // margin is in pixels
           dropShadow: {
@@ -51,17 +51,17 @@ function useDemoGauge() {
         },
       },
     },
-    fill: {
-      type: 'gradient',
-      gradient: {
-        shade: 'light',
-        shadeIntensity: 0.1,
-        inverseColors: false,
-        opacityFrom: 1,
-        opacityTo: 1,
-        stops: [0, 50, 53, 91],
-      },
-    },
+    // fill: {
+    //   type: 'gradient',
+    //   gradient: {
+    //     shade: 'light',
+    //     shadeIntensity: 0.1,
+    //     inverseColors: false,
+    //     opacityFrom: 1,
+    //     opacityTo: 1,
+    //     stops: [0, 50, 53, 91],
+    //   },
+    // },
     labels: ['Average Results'],
   }
 
