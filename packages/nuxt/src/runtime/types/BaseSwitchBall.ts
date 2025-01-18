@@ -1,6 +1,6 @@
-import type{
-  SwitchRootProps,
+import type {
   SwitchRootEmits,
+  SwitchRootProps,
 } from 'reka-ui'
 
 export interface BaseSwitchBallProps extends SwitchRootProps {
@@ -19,7 +19,7 @@ export interface BaseSwitchBallProps extends SwitchRootProps {
    *
    * @default 'default'
    */
-   variant?: 'default' | 'primary' | 'dark' | 'none'
+  variant?: 'default' | 'primary' | 'dark' | 'none'
 
   /**
    * Optional classes to pass to the inner components.
@@ -33,10 +33,10 @@ export interface BaseSwitchBallProps extends SwitchRootProps {
   }
 }
 export interface BaseSwitchBallEmits extends SwitchRootEmits {}
-export type BaseSwitchBallSlots = {
-  default(): any
-  sublabel(): any
+export interface BaseSwitchBallSlots {
+  default: () => any
+  sublabel: () => any
 }
-export type BaseSwitchBallConfig = {
+export interface BaseSwitchBallConfig {
   variant: NonNullable<BaseSwitchBallProps['variant']>
 }

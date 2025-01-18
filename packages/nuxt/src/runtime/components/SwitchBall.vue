@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import type { BaseSwitchBallEmits, BaseSwitchBallProps, BaseSwitchBallSlots } from '../types';
-import { BaseSwitchBall as theme } from '@shuriken-ui/theme-iga';
+import type { BaseSwitchBallEmits, BaseSwitchBallProps, BaseSwitchBallSlots } from '../types'
+import { BaseSwitchBall as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
 import { useAttrs } from 'vue'
 
-import { useNuiId } from '../composables/useNuiId';
-import { useNuiConfig } from '../composables/useNuiConfig';
-import { tm } from '../utils/tw-merge';
+import { useNuiConfig } from '../composables/useNuiConfig'
+import { useNuiId } from '../composables/useNuiId'
+import { tm } from '../utils/tw-merge'
 
 defineOptions({
   inheritAttrs: false,
@@ -41,13 +41,13 @@ const { forwardRef } = useForwardExpose()
   <span
     :class="tm([
       'flex items-center',
-      props.classes.root
+      props.classes.root,
     ])"
   >
-    <SwitchRoot 
-      :id 
+    <SwitchRoot
+      :id
       :ref="forwardRef"
-      v-bind="{...attrs, ...forward }" 
+      v-bind="{ ...attrs, ...forward }"
       class="group/switch relative focus:nui-focus rounded-full"
     >
       <SwitchThumb
@@ -57,14 +57,14 @@ const { forwardRef } = useForwardExpose()
           props.classes.thumb,
         ])"
       />
-      <span 
+      <span
         :class="tm([
           'block h-6 w-11 rounded-full transition-all duration-300',
           theme.trackVariants[props.variant],
           props.classes.track,
         ])"
       />
-      <Icon 
+      <Icon
         :name="iconCheck"
         :class="tm([
           'peer-data-[state=checked]:-translate-y-1/2 peer-data-[state=checked]:opacity-100 peer-data-[state=checked]:block pointer-events-none absolute start-2 top-1/2 z-10 translate-y-0 fill-current opacity-0 h-2.5 w-2.5 transition-all duration-300',
@@ -78,7 +78,7 @@ const { forwardRef } = useForwardExpose()
       :for="id"
       :class="tm([
         'ms-3 select-none',
-        props.classes.label
+        props.classes.label,
       ])"
     >
       <span class="block cursor-pointer font-sans text-sm text-muted-600 dark:text-white">
@@ -88,12 +88,12 @@ const { forwardRef } = useForwardExpose()
         <slot name="sublabel">{{ props.sublabel }}</slot>
       </span>
     </Label>
-    <Label 
+    <Label
       v-else
       :for="id"
       :class="tm([
         'relative ms-3 cursor-pointer select-none font-sans text-sm text-muted-600 dark:text-white',
-        props.classes.label
+        props.classes.label,
       ])"
     >
       <slot>{{ props.label }}</slot>

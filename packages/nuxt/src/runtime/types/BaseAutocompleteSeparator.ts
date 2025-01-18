@@ -1,5 +1,5 @@
 import type {
   ComboboxSeparatorProps,
-} from 'reka-ui';
+} from 'reka-ui'
 
 export interface BaseAutocompleteSeparatorProps extends ComboboxSeparatorProps {}

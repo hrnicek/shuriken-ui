@@ -1,4 +1,4 @@
-import type { PrimitiveProps } from 'reka-ui';
+import type { PrimitiveProps } from 'reka-ui'
 
 export interface BasePlaceholderPageProps extends PrimitiveProps {
   /**
@@ -18,10 +18,10 @@ export interface BasePlaceholderPageProps extends PrimitiveProps {
    */
   imageSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 }
-export type BasePlaceholderPageSlots = {
-  default(): any
-  image(): any
+export interface BasePlaceholderPageSlots {
+  default: () => any
+  image: () => any
 }
-export type BasePlaceholderPageConfig = {
+export interface BasePlaceholderPageConfig {
   imageSize: NonNullable<BasePlaceholderPageProps['imageSize']>
 }

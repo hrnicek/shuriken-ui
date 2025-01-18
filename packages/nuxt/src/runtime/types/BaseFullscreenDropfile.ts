@@ -8,7 +8,7 @@ export interface BaseFullscreenDropfileProps {
    * Icon to display when file is being dropped.
    */
   icon?: string
-  
+
   /**
    * The form input identifier.
    */
@@ -38,10 +38,10 @@ export interface BaseFullscreenDropfileProps {
 }
 
 export interface BaseFullscreenDropfileEmits {}
-export type BaseFullscreenDropfileSlots = {
-  default(): any
+export interface BaseFullscreenDropfileSlots {
+  default: () => any
 }
 
-export type BaseFullscreenDropfileConfig = {
+export interface BaseFullscreenDropfileConfig {
   variant: NonNullable<BaseFullscreenDropfileProps['variant']>
 }

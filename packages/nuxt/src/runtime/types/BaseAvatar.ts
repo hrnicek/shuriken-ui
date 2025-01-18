@@ -1,8 +1,8 @@
 import type {
-  AvatarRootProps,
-  AvatarImageProps,
   AvatarFallbackProps,
- } from 'reka-ui'
+  AvatarImageProps,
+  AvatarRootProps,
+} from 'reka-ui'
 
 export interface BaseAvatarProps extends AvatarRootProps {
   /**
@@ -52,7 +52,7 @@ export interface BaseAvatarProps extends AvatarRootProps {
     image?: AvatarImageProps
     dark?: AvatarImageProps
     fallback?: AvatarFallbackProps
-  },
+  }
 
   /**
    * Optional classes to pass to the inner components.
@@ -65,11 +65,11 @@ export interface BaseAvatarProps extends AvatarRootProps {
     badge?: string | string[]
   }
 }
-export type BaseAvatarSlots = {
-  default(): any
-  badge(): any
+export interface BaseAvatarSlots {
+  default: () => any
+  badge: () => any
 }
-export type BaseAvatarConfig = {
+export interface BaseAvatarConfig {
   rounded: NonNullable<BaseAvatarProps['rounded']>
   size: NonNullable<BaseAvatarProps['size']>
 }

@@ -1,8 +1,8 @@
 import type {
-  DropdownMenuRadioItemProps,
-  DropdownMenuRadioItemEmits,
   DropdownMenuItemIndicatorProps,
-} from 'reka-ui';
+  DropdownMenuRadioItemEmits,
+  DropdownMenuRadioItemProps,
+} from 'reka-ui'
 
 export interface BaseDropdownRadioItemProps extends DropdownMenuRadioItemProps {
   /**
@@ -37,8 +37,8 @@ export interface BaseDropdownRadioItemProps extends DropdownMenuRadioItemProps {
   }
 }
 export interface BaseDropdownRadioItemEmits extends DropdownMenuRadioItemEmits {}
-export type BaseDropdownRadioItemSlots = {
-  default(): any
-  text(): any
-  end(): any
+export interface BaseDropdownRadioItemSlots {
+  default: () => any
+  text: () => any
+  end: () => any
 }

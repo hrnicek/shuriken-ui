@@ -1,17 +1,10 @@
 <script setup lang="ts">
-import type { BaseInputFileProps } from '../types';
-import { BaseInputFile as theme } from '@shuriken-ui/theme-iga';
-import { useAttrs, computed, useTemplateRef } from 'vue'
+import type { BaseInputFileProps } from '../types'
+import { BaseInputFile as theme } from '@shuriken-ui/theme-iga'
+import { computed, useAttrs, useTemplateRef } from 'vue'
 
-import { useNuiId } from '../composables/useNuiId';
-import { tm } from '../utils/tw-merge';
-
-
-const i18n = {
-  empty: 'No file chosen',
-  invalid: 'Invalid file selected',
-  multiple: '{count} files selected',
-}
+import { useNuiId } from '../composables/useNuiId'
+import { tm } from '../utils/tw-merge'
 
 defineOptions({
   inheritAttrs: false,
@@ -29,6 +22,12 @@ const props = withDefaults(defineProps<BaseInputFileProps>(), {
 
   classes: () => ({}),
 })
+
+const i18n = {
+  empty: 'No file chosen',
+  invalid: 'Invalid file selected',
+  multiple: '{count} files selected',
+}
 
 const [modelValue] = defineModel<FileList | null>()
 
@@ -56,7 +55,6 @@ function defaultTextValue(fileList?: FileList | null) {
 
   return i18n.invalid
 }
-
 
 const textValue = computed(() => {
   if (props.textValue) {
@@ -102,7 +100,7 @@ defineExpose({
       v-if="textValue"
       :class="tm([
         'flex-1 select-none line-clamp-1 text-ellipsis break-all',
-        props.classes.text
+        props.classes.text,
       ])"
     >
       {{ textValue }}
@@ -117,7 +115,7 @@ defineExpose({
     >
       {{ props.placeholder }}
     </span>
-  
+
     <input
       :id="id"
       ref="currentRef"

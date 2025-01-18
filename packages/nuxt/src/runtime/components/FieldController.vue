@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { BaseFieldController } from '../types';
-import { useForwardProps } from 'reka-ui'
+import type { BaseFieldController } from '../types'
 import { reactiveOmit } from '@vueuse/core'
+import { useForwardProps } from 'reka-ui'
 
 import { injectBaseFieldContext } from './Field.vue'
 

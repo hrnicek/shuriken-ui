@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { BaseParagraphProps, BaseParagraphSlots } from '../types';
-import { BaseParagraph as theme } from '@shuriken-ui/theme-iga';
-import { useForwardProps } from 'reka-ui'
+import type { BaseParagraphProps, BaseParagraphSlots } from '../types'
+import { BaseParagraph as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
+import { useForwardProps } from 'reka-ui'
 
 const props = withDefaults(defineProps<BaseParagraphProps>(), {
   as: theme.defaults.as,
@@ -17,7 +17,7 @@ const forward = useForwardProps(reactiveOmit(props, ['size', 'lead', 'weight', '
 </script>
 
 <template>
-  <Primitive 
+  <Primitive
     v-bind="forward"
     class="font-sans"
     :class="[

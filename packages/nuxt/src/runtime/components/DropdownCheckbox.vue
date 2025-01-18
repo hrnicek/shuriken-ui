@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import type { BaseDropdownCheckboxProps, BaseDropdownCheckboxEmits, BaseDropdownCheckboxSlots} from '../types';
-import { BaseDropdownItem as theme } from '@shuriken-ui/theme-iga';
+import type { BaseDropdownCheckboxEmits, BaseDropdownCheckboxProps, BaseDropdownCheckboxSlots } from '../types'
+import { BaseDropdownItem as theme } from '@shuriken-ui/theme-iga'
 
-import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
+import { useForwardPropsEmits } from 'reka-ui'
 
+import { useNuiConfig } from '../composables/useNuiConfig'
 import { injectBaseDropdownContext } from './Dropdown.vue'
-import { useNuiConfig } from '../composables/useNuiConfig';
-
 
 const props = withDefaults(defineProps<BaseDropdownCheckboxProps>(), {
   title: '',
@@ -31,7 +30,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'vari
 </script>
 
 <template>
-  <DropdownMenuCheckboxItem 
+  <DropdownMenuCheckboxItem
     v-bind="forward"
     class="focus-visible:nui-focus flex w-full items-center justify-start gap-2 p-2 cursor-pointer text-start font-sans text-sm transition-colors duration-100 group/menu-checkbox-item"
     :class="[

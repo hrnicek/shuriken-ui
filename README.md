@@ -4,10 +4,8 @@ This is a monorepo for Shuriken UI, a collection of components for building mode
 
 ## Packages
 
-- [@shuriken-ui/tailwind](./packages/tailwind/README.md): Tailwind (v4) utilities for Shuriken UI.
+- [@shuriken-ui/tailwind](./packages/tailwind/README.md): Tailwind (v4) utilities and theme for Shuriken UI.
 - [@shuriken-ui/nuxt](./packages/nuxt/README.md): Nuxt (v4) Layer for Shuriken UI.
-- (WIP) [@shuriken-ui/react](./packages/react/README.md): React components for Shuriken UI.
-- (WIP) [@shuriken-ui/vue](./packages/vue/README.md): Vue components for Shuriken UI.
 
 ## Development
 
@@ -26,7 +24,7 @@ pnpm --filter @shuriken-ui/nuxt dev:prepare
 ### Run a playground
 
 ```bash
-pnpm --filter nuxt-4 dev
+pnpm --filter playground dev
 ```
 
-Available playgrounds: `docs`, `nuxt`, `nuxt-4`, `vite`.
+Available playgrounds: `playground`, `playground-tiny`, `docs`.

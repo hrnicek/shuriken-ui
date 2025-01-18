@@ -1,4 +1,4 @@
-import type { PrimitiveProps } from 'reka-ui';
+import type { PrimitiveProps } from 'reka-ui'
 
 export interface BaseIconBoxProps extends PrimitiveProps {
   /**
@@ -15,7 +15,7 @@ export interface BaseIconBoxProps extends PrimitiveProps {
    */
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
 
-    /**
+  /**
    * The radius of the icon.
    *
    * @default 'sm'
@@ -27,10 +27,10 @@ export interface BaseIconBoxProps extends PrimitiveProps {
    */
   mask?: 'hex' | 'hexed' | 'deca' | 'blob' | 'diamond'
 }
-export type BaseIconBoxSlots = {
-  default(): any
+export interface BaseIconBoxSlots {
+  default: () => any
 }
-export type BaseIconBoxConfig = {
+export interface BaseIconBoxConfig {
   variant: NonNullable<BaseIconBoxProps['variant']>
   size: NonNullable<BaseIconBoxProps['size']>
   rounded: NonNullable<BaseIconBoxProps['rounded']>

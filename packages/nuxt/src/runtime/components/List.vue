@@ -24,9 +24,9 @@ export default defineComponent({
       const children = slots.default?.()
       const hasMedia
         = props.media
-        ?? children?.some((vnode) => {
-          return typeof vnode.type !== 'string'
-        })
+          ?? children?.some((vnode) => {
+            return typeof vnode.type !== 'string'
+          })
 
       return h(
         props.ordered ? 'ol' : 'ul',

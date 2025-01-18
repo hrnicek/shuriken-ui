@@ -1,7 +1,7 @@
-import type { BaseTextProps, BaseTextConfig } from './BaseText'
+import type { BaseTextConfig, BaseTextProps } from './BaseText'
 
 export interface BaseHeadingProps extends BaseTextProps {}
-export type BaseHeadingSlots = {
-  default(): any
+export interface BaseHeadingSlots {
+  default: () => any
 }
 export type BaseHeadingConfig = BaseTextConfig

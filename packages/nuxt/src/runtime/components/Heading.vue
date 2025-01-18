@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { BaseHeadingProps, BaseHeadingSlots } from '../types';
-import { BaseHeading as theme } from '@shuriken-ui/theme-iga';
-import { useForwardProps } from 'reka-ui'
+import type { BaseHeadingProps, BaseHeadingSlots } from '../types'
+import { BaseHeading as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
+import { useForwardProps } from 'reka-ui'
 
 const props = withDefaults(defineProps<BaseHeadingProps>(), {
   as: undefined,
@@ -17,7 +17,7 @@ const forward = useForwardProps(reactiveOmit(props, ['size', 'lead', 'weight', '
 </script>
 
 <template>
-  <Primitive 
+  <Primitive
     v-bind="forward"
     class="font-heading"
     :class="[

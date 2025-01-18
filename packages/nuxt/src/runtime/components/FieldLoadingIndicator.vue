@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { BaseFieldLoadingIndicator } from '../types';
-import { useForwardProps } from 'reka-ui'
+import type { BaseFieldLoadingIndicator } from '../types'
 import { reactiveOmit } from '@vueuse/core'
+import { useForwardProps } from 'reka-ui'
 
-import { useNuiConfig } from '../composables/useNuiConfig';
+import { useNuiConfig } from '../composables/useNuiConfig'
 
 import { injectBaseFieldContext } from './Field.vue'
 

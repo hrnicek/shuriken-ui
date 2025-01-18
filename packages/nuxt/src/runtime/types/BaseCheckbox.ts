@@ -1,6 +1,6 @@
 import type {
-  CheckboxRootProps,
   CheckboxRootEmits,
+  CheckboxRootProps,
 } from 'reka-ui'
 
 export interface BaseCheckboxProps extends CheckboxRootProps {
@@ -26,9 +26,9 @@ export interface BaseCheckboxProps extends CheckboxRootProps {
   }
 }
 export interface BaseCheckboxEmits extends CheckboxRootEmits {}
-export type BaseCheckboxSlots = {
-  default(): any
+export interface BaseCheckboxSlots {
+  default: () => any
 }
-export type BaseCheckboxConfig = {
+export interface BaseCheckboxConfig {
   variant: NonNullable<BaseCheckboxProps['variant']>
 }

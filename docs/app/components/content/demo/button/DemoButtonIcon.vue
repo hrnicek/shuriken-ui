@@ -33,9 +33,10 @@
             />
             <span>Button</span>
           </BaseButton>
-          <BaseButton 
-            variant="none" 
-            class="bg-yellow-400/20 text-yellow-600">
+          <BaseButton
+            variant="none"
+            class="bg-yellow-400/20 text-yellow-600"
+          >
             <Icon
               name="ion:shapes"
               class="-ms-1 size-4"
@@ -43,7 +44,7 @@
             <span>Button</span>
           </BaseButton>
           <BaseButton
-            variant="none" 
+            variant="none"
             class="bg-pink-500/20 text-pink-600"
           >
             <Icon

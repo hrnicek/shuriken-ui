@@ -1,4 +1,4 @@
-import type { PrimitiveProps } from 'reka-ui';
+import type { PrimitiveProps } from 'reka-ui'
 
 export interface BaseMessageProps extends PrimitiveProps {
   /**
@@ -78,12 +78,12 @@ export interface BaseMessageProps extends PrimitiveProps {
 export interface BaseMessageEmits {
   close: []
 }
-export type BaseMessageSlots = {
-  default(): any
-  icon(): any
-  'close-button'(): any
+export interface BaseMessageSlots {
+  'default': () => any
+  'icon': () => any
+  'close-button': () => any
 }
-export type BaseMessageConfig = {
+export interface BaseMessageConfig {
   variant: NonNullable<BaseMessageProps['variant']>
   rounded: NonNullable<BaseMessageProps['rounded']>
 }

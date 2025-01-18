@@ -40,10 +40,10 @@ export interface BaseButtonProps {
    */
   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
 }
-export type BaseButtonSlots = {
-  default(): any
+export interface BaseButtonSlots {
+  default: () => any
 }
-export type BaseButtonConfig = {
+export interface BaseButtonConfig {
   rounded: NonNullable<BaseButtonProps['rounded']>
   size: NonNullable<BaseButtonProps['size']>
   variant: NonNullable<BaseButtonProps['variant']>

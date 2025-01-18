@@ -1,26 +1,14 @@
 <script lang="ts">
 import type {
-  TooltipRootProps,
-  TooltipRootEmits,
-  TooltipTriggerProps,
-  TooltipPortalProps,
-  TooltipContentProps,
   TooltipArrowProps,
+  TooltipContentProps,
+  TooltipPortalProps,
+  TooltipRootEmits,
+  TooltipRootProps,
+  TooltipTriggerProps,
 } from 'reka-ui'
-
-export interface BaseTooltipProps extends TooltipRootProps {
-  variant?: 'default' | 'muted' | 'dark' | 'primary' | 'none'
-  rounded?: 'sm' | 'md' | 'lg' | 'full' | 'none'
-  content?: string
-  bindings?: {
-    trigger?: TooltipTriggerProps
-    portal?: TooltipPortalProps
-    content?: TooltipContentProps
-    arrow?: TooltipArrowProps
-  }
-}
-export interface BaseTooltipEmits extends TooltipRootEmits {
-}
+import { reactiveOmit } from '@vueuse/core'
+import { useForwardPropsEmits } from 'reka-ui'
 
 export const radiuses = {
   none: '',
@@ -48,8 +36,19 @@ export const arrowVariants = {
 </script>
 
 <script setup lang="ts">
-import { useForwardPropsEmits, useForwardExpose } from 'reka-ui'
-import { reactiveOmit } from '@vueuse/core'
+export interface BaseTooltipProps extends TooltipRootProps {
+  variant?: 'default' | 'muted' | 'dark' | 'primary' | 'none'
+  rounded?: 'sm' | 'md' | 'lg' | 'full' | 'none'
+  content?: string
+  bindings?: {
+    trigger?: TooltipTriggerProps
+    portal?: TooltipPortalProps
+    content?: TooltipContentProps
+    arrow?: TooltipArrowProps
+  }
+}
+export interface BaseTooltipEmits extends TooltipRootEmits {
+}
 
 const props = withDefaults(defineProps<BaseTooltipProps>(), {
   variant: 'default',
@@ -63,7 +62,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['content', 'variant', 
 </script>
 
 <template>
-  <TooltipRoot v-bind="forward" v-slot="{ open }">
+  <TooltipRoot v-slot="{ open }" v-bind="forward">
     <TooltipTrigger
       v-bind="{
         asChild: true,
@@ -79,17 +78,17 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['content', 'variant', 
           collisionPadding: 20,
           ...(props.bindings.content || {}),
         }"
-        :class="[
-          'px-2 py-1 text-sm will-change-[opacity] duration-200 transition-opacity transition-discrete [state=delayed-open]:opacity-100 starting:data-[state=delayed-open]:opacity-0 [state=instant-open]:opacity-100 starting:data-[state=instant-open]:opacity-0 max-w-[var(--reka-tooltip-content-available-width)] lg:max-w-[25vw] max-h-[var(--reka-tooltip-content-available-height)] overflow-y-auto nui-slimscroll',
+        class="px-2 py-1 text-sm will-change-[opacity] duration-200 transition-opacity transition-discrete [state=delayed-open]:opacity-100 starting:data-[state=delayed-open]:opacity-0 [state=instant-open]:opacity-100 starting:data-[state=instant-open]:opacity-0 max-w-[var(--reka-tooltip-content-available-width)] lg:max-w-[25vw] max-h-[var(--reka-tooltip-content-available-height)] overflow-y-auto nui-slimscroll" :class="[
           props.variant && variants[props.variant],
           props.rounded && radiuses[props.rounded],
         ]"
       >
-        <slot name="content" v-bind="{ open }">{{ props.content }}</slot>
+        <slot name="content" v-bind="{ open }">
+          {{ props.content }}
+        </slot>
         <TooltipArrow
           v-bind="props.bindings.arrow"
-          :class="[
-            '-translate-[1px]',
+          class="-translate-[1px]" :class="[
             props.variant && arrowVariants[props.variant],
           ]"
         />

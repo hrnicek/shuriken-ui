@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { BaseCardProps, BaseCardSlots } from '../types'
 import { BaseCard as theme } from '@shuriken-ui/theme-iga'
-import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
+import { useForwardProps } from 'reka-ui'
 import { tm } from '../utils/tw-merge'
 
 const props = withDefaults(defineProps<BaseCardProps>(), {
@@ -15,7 +15,7 @@ const forward = useForwardProps(reactiveOmit(props, ['rounded', 'variant']))
 </script>
 
 <template>
-  <Primitive 
+  <Primitive
     v-bind="forward"
     :class="tm([
       props.rounded && theme.radiuses[props.rounded],

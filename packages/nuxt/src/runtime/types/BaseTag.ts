@@ -1,4 +1,3 @@
-
 import type { PrimitiveProps } from 'reka-ui'
 
 export interface BaseTagProps extends PrimitiveProps {
@@ -18,11 +17,11 @@ export interface BaseTagProps extends PrimitiveProps {
   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
 }
 
-export type BaseTagSlots = {
-  default(): any
+export interface BaseTagSlots {
+  default: () => any
 }
 
-export type BaseTagConfig = {
+export interface BaseTagConfig {
   variant: NonNullable<BaseTagProps['variant']>
   size: NonNullable<BaseTagProps['size']>
   rounded: NonNullable<BaseTagProps['rounded']>

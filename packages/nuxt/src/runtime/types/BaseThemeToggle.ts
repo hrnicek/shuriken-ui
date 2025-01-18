@@ -15,8 +15,7 @@ export interface BaseThemeToggleProps {
   variant?: 'default'
 }
 
-export type BaseThemeToggleConfig = {
+export interface BaseThemeToggleConfig {
   variant: NonNullable<BaseThemeToggleProps['variant']>
   transitions: NonNullable<BaseThemeToggleProps['transitions']>
 }
-

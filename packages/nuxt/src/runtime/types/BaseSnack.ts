@@ -33,11 +33,11 @@ export interface BaseSnackProps extends PrimitiveProps {
 export interface BaseSnackEmits {
   delete: []
 }
-export type BaseSnackSlots = {
-  default(): any
-  icon(): any
+export interface BaseSnackSlots {
+  default: () => any
+  icon: () => any
 }
-export type BaseSnackConfig = {
+export interface BaseSnackConfig {
   variant: NonNullable<BaseSnackProps['variant']>
   size: NonNullable<BaseSnackProps['size']>
 }

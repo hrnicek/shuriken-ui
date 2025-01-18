@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { useForwardPropsEmits, useForwardExpose } from 'reka-ui';
-import { useAttrs } from 'vue'
+import type { BaseSliderEmits, BaseSliderProps, BaseSliderSlots } from '../types'
+import { BaseSlider as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
-import type { BaseSliderProps, BaseSliderEmits, BaseSliderSlots } from '../types';
-import { BaseSlider as theme } from '@shuriken-ui/theme-iga';
+import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
+import { useAttrs } from 'vue'
 import { tm } from '../utils/tw-merge'
 
 defineOptions({
@@ -26,8 +26,8 @@ const { forwardRef } = useForwardExpose()
 <template>
   <TooltipProvider :delay-duration="0">
     <SliderRoot
-      v-bind="{ ...attrs, ...forward }"
       v-slot="{ modelValue }"
+      v-bind="{ ...attrs, ...forward }"
       class="relative flex items-center select-none touch-none data-disabled:cursor-not-allowed data-disabled:opacity-50"
       :class="[
         props.orientation === 'vertical' ? 'flex-col w-5 h-full' : 'w-full h-5',
@@ -61,7 +61,7 @@ const { forwardRef } = useForwardExpose()
             :ref="forwardRef"
             :class="tm([
               'block size-5 rounded-full',
-              theme.thumbVariants[props.variant],    
+              theme.thumbVariants[props.variant],
               props.classes.thumb,
             ])"
           />
@@ -79,10 +79,10 @@ const { forwardRef } = useForwardExpose()
               <slot :value>{{ value }}</slot>
             </span>
 
-            <TooltipArrow 
+            <TooltipArrow
               :class="tm([
                 'fill-white dark:fill-muted-700 stroke-muted-900/10',
-                props.classes.tooltipArrow
+                props.classes.tooltipArrow,
               ])"
             />
           </TooltipContent>

@@ -6,6 +6,6 @@ export interface BaseDropdownLabelProps extends DropdownMenuLabelProps {
    */
   label?: string
 }
-export type BaseDropdownLabelSlots = {
-  default(): any
+export interface BaseDropdownLabelSlots {
+  default: () => any
 }

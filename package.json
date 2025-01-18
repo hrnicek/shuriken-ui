@@ -1,8 +1,10 @@
 {
   "name": "@shuriken-ui/monorepo",
+  "type": "module",
   "version": "1.0.0",
   "private": true,
-  "type": "module",
   "packageManager": "pnpm@9.15.0",
-  "dependencies": {}
+  "scripts": {
+    "dev": "pnpm --filter @shuriken-ui/nuxt dev:prepare && pnpm --filter playground dev"
+  }
 }

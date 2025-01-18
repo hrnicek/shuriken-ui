@@ -1,17 +1,16 @@
 <script setup lang="ts">
-import type { BaseFieldDescription } from '../types';
-import { useForwardProps } from 'reka-ui'
+import type { BaseFieldDescription } from '../types'
 import { reactiveOmit } from '@vueuse/core'
+import { useForwardProps } from 'reka-ui'
 
 import { injectBaseFieldContext } from './Field.vue'
 
 const props = withDefaults(defineProps<BaseFieldDescription>(), {})
-const forward = useForwardProps(reactiveOmit(props, []))
 const emits = defineEmits<{
   'field-description': []
 }>()
-
-const { id, idDescription, state } = injectBaseFieldContext()
+const forward = useForwardProps(reactiveOmit(props, []))
+const { id, idDescription } = injectBaseFieldContext()
 </script>
 
 <template>

@@ -34,10 +34,10 @@ export interface BaseTextProps extends PrimitiveProps {
    */
   tracking?: 'tighter' | 'tight' | 'normal' | 'wide' | 'wider' | 'widest'
 }
-export type BaseTextSlots = {
-  default(): any
+export interface BaseTextSlots {
+  default: () => any
 }
-export type BaseTextConfig = {
+export interface BaseTextConfig {
   size: NonNullable<BaseTextProps['size']>
   lead: NonNullable<BaseTextProps['lead']>
   weight: NonNullable<BaseTextProps['weight']>

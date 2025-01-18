@@ -19,7 +19,7 @@ export interface BaseInputProps {
    *
    * @default 'default'
    */
-    variant?: 'default' | 'muted' 
+  variant?: 'default' | 'muted'
 
   /**
    * The radius of the input.
@@ -36,7 +36,7 @@ export interface BaseInputProps {
   size?: 'sm' | 'md' | 'lg' | 'xl'
 }
 
-export type BaseInputConfig = {
+export interface BaseInputConfig {
   variant: NonNullable<BaseInputProps['variant']>
   rounded: NonNullable<BaseInputProps['rounded']>
   size: NonNullable<BaseInputProps['size']>

@@ -1,6 +1,6 @@
 import type {
-  ProgressRootProps,
   ProgressRootEmits,
+  ProgressRootProps,
 } from 'reka-ui'
 
 export interface BaseProgressCircleProps extends ProgressRootProps {
@@ -28,9 +28,9 @@ export interface BaseProgressCircleProps extends ProgressRootProps {
 }
 export interface BaseProgressCircleEmits extends ProgressRootEmits {}
 
-export type BaseProgressCircleSlots = {
-  default(): any
+export interface BaseProgressCircleSlots {
+  default: () => any
 }
-export type BaseProgressCircleConfig = {
-  variant: NonNullable<BaseProgressCircleProps['variant']> 
+export interface BaseProgressCircleConfig {
+  variant: NonNullable<BaseProgressCircleProps['variant']>
 }

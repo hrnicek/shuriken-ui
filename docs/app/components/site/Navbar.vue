@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { joinURL } from 'ufo'
-import packagejson from '../../../package.json'
 
 const { data: versions } = await useFetch('/api/versions')
 
@@ -64,7 +63,9 @@ const appConfig = useAppConfig()
                 isMobileOpen ? 'text-muted-950! dark:text-white!' : '']"
             />
           </NuxtLink>
-          <BaseTag v-if="versions" class="text-muted-700! dark:text-muted-100!">v{{ versions[0]?.version }}</BaseTag>
+          <BaseTag v-if="versions" class="text-muted-700! dark:text-muted-100!">
+            v{{ versions[0]?.version }}
+          </BaseTag>
         </div>
         <!-- Links -->
         <div class="hidden lg:flex items-center gap-x-8">

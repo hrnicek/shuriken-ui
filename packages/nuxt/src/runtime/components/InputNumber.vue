@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import type { BaseInputNumberProps, BaseInputNumberEmits, BaseInputNumberSlots } from '../types';
-import { BaseInputNumber as theme } from '@shuriken-ui/theme-iga';
-import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
+import type { BaseInputNumberEmits, BaseInputNumberProps, BaseInputNumberSlots } from '../types'
+import { BaseInputNumber as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
+import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
 import { useAttrs } from 'vue'
 
-import { useNuiId } from '../composables/useNuiId';
-import { useNuiConfig } from '../composables/useNuiConfig';
-import { tm } from '../utils/tw-merge';
+import { useNuiConfig } from '../composables/useNuiConfig'
+import { useNuiId } from '../composables/useNuiId'
+import { tm } from '../utils/tw-merge'
 
 defineOptions({
   inheritAttrs: false,
@@ -20,7 +20,7 @@ const props = withDefaults(defineProps<BaseInputNumberProps>(), {
   rounded: theme.defaults.rounded,
   size: theme.defaults.size,
   variant: theme.defaults.variant,
-  
+
   defaultValue: undefined,
   formatOptions: undefined,
   modelValue: undefined,
@@ -53,7 +53,7 @@ const { forwardRef } = useForwardExpose()
       props.classes.root,
     ])"
   >
-    <NumberFieldDecrement 
+    <NumberFieldDecrement
       :class="tm([
         'flex items-center justify-center shrink-0 p-1 group/button disabled:cursor-not-allowed cursor-pointer',
         theme.buttonSizes[props.size],
@@ -98,10 +98,10 @@ const { forwardRef } = useForwardExpose()
           theme.radiuses[props.rounded],
           theme.buttonVariants[props.variant],
           props.classes.button,
-        ])"  
+        ])"
       >
         <Icon :name="iconIncrement" />
       </span>
-    </NumberFieldIncrement> 
+    </NumberFieldIncrement>
   </NumberFieldRoot>
 </template>

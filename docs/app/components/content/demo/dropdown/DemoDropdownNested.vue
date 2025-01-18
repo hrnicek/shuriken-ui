@@ -10,27 +10,27 @@ const selection = ref('first')
       <div class="flex items-center">
         <div class="flex w-full justify-start gap-4">
           <BaseDropdown label="Inner Submenus">
-            <BaseDropdownLabel>Label</BaseDropdownLabel> 
+            <BaseDropdownLabel>Label</BaseDropdownLabel>
             <BaseDropdownSub>
               <template #title>
                 Profile
               </template>
-              <BaseDropdownLabel>Label</BaseDropdownLabel> 
-              <BaseDropdownItem>Profile</BaseDropdownItem> 
-              <BaseDropdownItem>General</BaseDropdownItem> 
-              <BaseDropdownItem>Billing</BaseDropdownItem> 
-              <BaseDropdownItem>Support</BaseDropdownItem> 
+              <BaseDropdownLabel>Label</BaseDropdownLabel>
+              <BaseDropdownItem>Profile</BaseDropdownItem>
+              <BaseDropdownItem>General</BaseDropdownItem>
+              <BaseDropdownItem>Billing</BaseDropdownItem>
+              <BaseDropdownItem>Support</BaseDropdownItem>
             </BaseDropdownSub>
-            <BaseDropdownItem>Projects</BaseDropdownItem> 
-            <BaseDropdownItem>Team</BaseDropdownItem> 
+            <BaseDropdownItem>Projects</BaseDropdownItem>
+            <BaseDropdownItem>Team</BaseDropdownItem>
             <BaseDropdownSub>
               <template #title>
                 Settings
               </template>
-              <BaseDropdownLabel>Label</BaseDropdownLabel> 
-              <BaseDropdownItem>General</BaseDropdownItem> 
-              <BaseDropdownItem>Users</BaseDropdownItem> 
-              <BaseDropdownItem>Permissions</BaseDropdownItem> 
+              <BaseDropdownLabel>Label</BaseDropdownLabel>
+              <BaseDropdownItem>General</BaseDropdownItem>
+              <BaseDropdownItem>Users</BaseDropdownItem>
+              <BaseDropdownItem>Permissions</BaseDropdownItem>
               <BaseDropdownItem>Security</BaseDropdownItem>
             </BaseDropdownSub>
           </BaseDropdown>
@@ -41,8 +41,12 @@ const selection = ref('first')
                 First
                 <template #end>
                   <div class="flex gap-0.5">
-                    <BaseKbd variant="default" size="sm">⌘</BaseKbd>
-                    <BaseKbd variant="default" size="sm">1</BaseKbd>
+                    <BaseKbd variant="default" size="sm">
+                      ⌘
+                    </BaseKbd>
+                    <BaseKbd variant="default" size="sm">
+                      1
+                    </BaseKbd>
                   </div>
                 </template>
               </BaseDropdownRadioItem>
@@ -50,8 +54,12 @@ const selection = ref('first')
                 Second
                 <template #end>
                   <div class="flex gap-0.5">
-                    <BaseKbd variant="default" size="sm">⌘</BaseKbd>
-                    <BaseKbd variant="default" size="sm">2</BaseKbd>
+                    <BaseKbd variant="default" size="sm">
+                      ⌘
+                    </BaseKbd>
+                    <BaseKbd variant="default" size="sm">
+                      2
+                    </BaseKbd>
                   </div>
                 </template>
               </BaseDropdownRadioItem>
@@ -59,8 +67,12 @@ const selection = ref('first')
                 Third
                 <template #end>
                   <div class="flex gap-0.5">
-                    <BaseKbd variant="default" size="sm">⌘</BaseKbd>
-                    <BaseKbd variant="default" size="sm">3</BaseKbd>
+                    <BaseKbd variant="default" size="sm">
+                      ⌘
+                    </BaseKbd>
+                    <BaseKbd variant="default" size="sm">
+                      3
+                    </BaseKbd>
                   </div>
                 </template>
               </BaseDropdownRadioItem>

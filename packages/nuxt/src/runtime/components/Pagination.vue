@@ -1,6 +1,9 @@
 <script lang="ts">
-import { createContext } from 'reka-ui'
-import type { BasePaginationContext } from '../types';
+import type { BasePaginationContext, BasePaginationEmits, BasePaginationProps, BasePaginationSlots } from '../types'
+import { BasePagination as theme } from '@shuriken-ui/theme-iga'
+import { reactiveOmit } from '@vueuse/core'
+import { createContext, useForwardPropsEmits } from 'reka-ui'
+import { useAttrs } from 'vue'
 
 export const [
   injectBasePaginationContext,
@@ -9,12 +12,6 @@ export const [
 </script>
 
 <script setup lang="ts">
-import type { BasePaginationProps, BasePaginationEmits, BasePaginationSlots } from '../types';
-import { BasePagination as theme } from '@shuriken-ui/theme-iga';
-import { useForwardPropsEmits } from 'reka-ui'
-import { useAttrs } from 'vue'
-import { reactiveOmit } from '@vueuse/core'
-
 defineOptions({
   inheritAttrs: false,
 })
@@ -42,8 +39,8 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['variant', 'size', 'ro
 <template>
   <PaginationRoot v-bind="forward">
     <PaginationList
-      v-bind="attrs"
       v-slot="{ items }"
+      v-bind="attrs"
       class="inline-flex flex-row gap-2"
       :class="[
         props.rounded && theme.radiuses[props.rounded],

@@ -1,5 +1,5 @@
 import { useEventListener } from '@vueuse/core'
-import { ref, onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 
 export function useNuiWindowScroll() {
   const x = ref(0)

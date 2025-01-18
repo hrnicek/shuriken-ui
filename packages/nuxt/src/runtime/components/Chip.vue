@@ -32,7 +32,7 @@ const slots = defineSlots<BaseChipSlots>()
     >
       <span
         v-if="props.pulse"
-        class="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping" 
+        class="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping"
         :class="[
           theme.pulseColors[props.color],
         ]"

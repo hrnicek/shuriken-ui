@@ -1,7 +1,7 @@
 import type { MaybeRefOrGetter } from 'vue'
-import { computed, toValue } from 'vue'
-
 import { escapeHtml } from '@vue/shared'
+
+import { computed, toValue } from 'vue'
 
 export function useNuiMark(
   _text?: MaybeRefOrGetter<string | undefined>,

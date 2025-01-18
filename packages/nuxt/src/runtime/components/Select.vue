@@ -1,10 +1,15 @@
 <script lang="ts">
-import type { BaseSelectContext } from '../types';
-import { createContext } from 'reka-ui'
+import type { AcceptableValue } from 'reka-ui'
+import type { BaseSelectContext, BaseSelectEmits, BaseSelectProps, BaseSelectSlots } from '../types'
+import { BaseSelect as theme } from '@shuriken-ui/theme-iga'
+import { reactiveOmit } from '@vueuse/core'
+import { defu } from 'defu'
+import { createContext, useForwardExpose, useForwardPropsEmits } from 'reka-ui'
+import { computed, useAttrs } from 'vue'
 
-import { useNuiId } from '../composables/useNuiId';
-import { useNuiConfig } from '../composables/useNuiConfig';
-import { tm } from '../utils/tw-merge';
+import { useNuiConfig } from '../composables/useNuiConfig'
+import { useNuiId } from '../composables/useNuiId'
+import { tm } from '../utils/tw-merge'
 
 export const [
   injectBaseSelectContext,
@@ -13,14 +18,6 @@ export const [
 </script>
 
 <script setup lang="ts" generic="T extends AcceptableValue = AcceptableValue">
-import type { BaseSelectProps, BaseSelectEmits, BaseSelectSlots } from '../types';
-import type { AcceptableValue } from 'reka-ui'
-import { BaseSelect as theme } from '@shuriken-ui/theme-iga';
-import { defu } from 'defu'
-import { reactiveOmit } from '@vueuse/core'
-import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
-import { useAttrs, computed } from 'vue'
-
 const props = withDefaults(defineProps<BaseSelectProps<T>>(), {
   id: undefined,
   placeholder: '',
@@ -29,7 +26,7 @@ const props = withDefaults(defineProps<BaseSelectProps<T>>(), {
   size: theme.defaults.size,
   variant: theme.defaults.variant,
   preset: theme.defaults.preset,
-  
+
   autocomplete: undefined,
   name: undefined,
   by: undefined,
@@ -55,8 +52,8 @@ const bindings = computed(() => {
 
 const forward = useForwardPropsEmits(reactiveOmit(props, [
   'id',
-  'placeholder', 
-  'variant', 
+  'placeholder',
+  'variant',
   'rounded',
   'size',
   'preset',
@@ -85,12 +82,12 @@ provideBaseSelectContext({
       v-bind="{ ...attrs, ...(bindings?.trigger || {}) }"
     >
       <SelectValue
+        v-slot="{ selectedLabel, modelValue }"
         :placeholder="props.placeholder"
         :class="tm([
           'line-clamp-1 leading-tight',
           props.classes.text,
         ])"
-        v-slot="{ selectedLabel, modelValue }"
       >
         <slot name="value" v-bind="{ selectedLabel, modelValue }" />
       </SelectValue>
@@ -130,13 +127,13 @@ provideBaseSelectContext({
           v-bind="bindings?.viewport"
           :class="tm([
             'p-[5px]',
-            props.classes.viewport
+            props.classes.viewport,
           ])"
         >
           <slot name="viewport-start" />
           <slot />
           <slot name="viewport-end" />
-        </SelectViewport> 
+        </SelectViewport>
 
         <SelectScrollDownButton
           :class="tm([

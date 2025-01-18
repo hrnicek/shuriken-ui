@@ -1,6 +1,6 @@
-import type{
-  SwitchRootProps,
+import type {
   SwitchRootEmits,
+  SwitchRootProps,
 } from 'reka-ui'
 
 export interface BaseSwitchThinProps extends SwitchRootProps {
@@ -30,10 +30,10 @@ export interface BaseSwitchThinProps extends SwitchRootProps {
   }
 }
 export interface BaseSwitchThinEmits extends SwitchRootEmits {}
-export type BaseSwitchThinSlots = {
-  default(): any
-  sublabel(): any
+export interface BaseSwitchThinSlots {
+  default: () => any
+  sublabel: () => any
 }
-export type BaseSwitchThinConfig = {
+export interface BaseSwitchThinConfig {
   variant: NonNullable<BaseSwitchThinProps['variant']>
 }

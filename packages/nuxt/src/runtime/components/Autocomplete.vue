@@ -1,8 +1,13 @@
 <script lang="ts">
-import type { BaseAutocompleteContext } from '../types';
-import { createContext } from 'reka-ui'
-import { useNuiConfig } from '../composables/useNuiConfig';
-import { tm } from '../utils/tw-merge';
+import type { AcceptableValue } from 'reka-ui'
+import type { BaseAutocompleteContext, BaseAutocompleteEmits, BaseAutocompleteProps, BaseAutocompleteSlots } from '../types'
+import { BaseAutocomplete as theme } from '@shuriken-ui/theme-iga'
+import { reactiveOmit, useVModel } from '@vueuse/core'
+import { defu } from 'defu'
+import { createContext, useForwardExpose, useForwardPropsEmits } from 'reka-ui'
+import { computed, useAttrs } from 'vue'
+import { useNuiConfig } from '../composables/useNuiConfig'
+import { tm } from '../utils/tw-merge'
 
 export const [
   injectBaseAutocompleteContext,
@@ -11,14 +16,6 @@ export const [
 </script>
 
 <script setup lang="ts" generic="T extends AcceptableValue = AcceptableValue">
-import type { BaseAutocompleteProps, BaseAutocompleteEmits, BaseAutocompleteSlots } from '../types';
-import type { AcceptableValue } from 'reka-ui'
-import { BaseAutocomplete as theme } from '@shuriken-ui/theme-iga';
-import { defu } from 'defu'
-import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
-import { useVModel, reactiveOmit } from '@vueuse/core'
-import { useAttrs, computed } from 'vue'
-
 defineOptions({
   inheritAttrs: false,
 })
@@ -66,12 +63,12 @@ provideBaseAutocompleteContext({
 
 <template>
   <ComboboxRoot
+    v-slot="{ open, modelValue }"
     v-bind="forward"
     :class="tm([
       'w-full relative',
       props.classes.root,
     ])"
-    v-slot="{ open, modelValue }"
   >
     <ComboboxAnchor
       :class="tm([
@@ -89,7 +86,7 @@ provideBaseAutocompleteContext({
         :model-value="props.query"
         :class="tm([
           'h-full w-full outline-none text-ellipsis',
-          theme.inputVariants[props.variant]
+          theme.inputVariants[props.variant],
         ])"
         @update:model-value="(value: string) => {
           query = value
@@ -140,7 +137,7 @@ provideBaseAutocompleteContext({
           v-bind="bindings.viewport"
           :class="tm([
             'p-[5px] nui-slimscroll',
-            props.classes.viewport
+            props.classes.viewport,
           ])"
         >
           <slot name="viewport-start" v-bind="{ open, modelValue, query }" />
@@ -149,7 +146,7 @@ provideBaseAutocompleteContext({
             v-bind="bindings.empty"
             :class="tm([
               'text-muted-500 text-xs font-medium text-center py-2',
-              props.classes.empty
+              props.classes.empty,
             ])"
           >
             <slot name="empty" v-bind="{ open, modelValue, query }" />

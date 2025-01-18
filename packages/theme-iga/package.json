@@ -7,10 +7,10 @@
     "url": "git+https://github.com/shuriken-ui/tailwind.git",
     "directory": "packages/theme-iga"
   },
-  "devDependencies": {
-    "@shuriken-ui/nuxt": "workspace:*"
-  },
   "exports": {
     ".": "./src/index.ts"
+  },
+  "devDependencies": {
+    "@shuriken-ui/nuxt": "workspace:*"
   }
 }

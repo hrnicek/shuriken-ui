@@ -6,7 +6,6 @@
   </picture>
 </p>
 
-
 <p align="center">
   <a href="https://cssninja.io" title="Our official website">by <strong>cssninja.io</strong></a>
 </p>
@@ -35,7 +34,7 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   plugins: [tailwindcss()],
-});
+})
 ```
 
 Reference Shuriken UI in your `tailwind.css` file:

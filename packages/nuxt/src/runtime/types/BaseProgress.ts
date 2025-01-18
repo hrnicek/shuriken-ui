@@ -1,6 +1,6 @@
 import type {
-  ProgressRootProps,
   ProgressRootEmits,
+  ProgressRootProps,
 } from 'reka-ui'
 
 export interface BaseProgressProps extends ProgressRootProps {
@@ -21,11 +21,11 @@ export interface BaseProgressProps extends ProgressRootProps {
 }
 export interface BaseProgressEmits extends ProgressRootEmits {}
 
-export type BaseProgressSlots = {
-  default(): any
+export interface BaseProgressSlots {
+  default: () => any
 }
 
-export type BaseProgressConfig = {
+export interface BaseProgressConfig {
   variant: NonNullable<BaseProgressProps['variant']>
   rounded: NonNullable<BaseProgressProps['rounded']>
   size: NonNullable<BaseProgressProps['size']>

@@ -36,11 +36,11 @@ export interface BaseBreadcrumbProps {
    */
   variant?: 'primary' | 'dark'
 }
-export type BaseBreadcrumbSlots = {
-  default(): any
-  link(props: { item: any, index: number }): any
-  label(props: { item: any, index: number }): any
+export interface BaseBreadcrumbSlots {
+  default: () => any
+  link: (props: { item: any, index: number }) => any
+  label: (props: { item: any, index: number }) => any
 }
-export type BaseBreadcrumbConfig = {
+export interface BaseBreadcrumbConfig {
   variant: NonNullable<BaseBreadcrumbProps['variant']>
 }

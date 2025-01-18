@@ -1,5 +1,5 @@
-import type { Ref } from 'vue';
-import type { PrimitiveProps } from 'reka-ui';
+import type { PrimitiveProps } from 'reka-ui'
+import type { Ref } from 'vue'
 
 export interface BaseFieldContext {
   state: Ref<'idle' | 'loading' | 'success' | 'error'>
@@ -22,6 +22,6 @@ export interface BaseFieldProps extends PrimitiveProps {
   modelValue?: any
 }
 
-export type BaseFieldSlots = {
-  default(): any
+export interface BaseFieldSlots {
+  default: () => any
 }

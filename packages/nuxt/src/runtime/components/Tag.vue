@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { BaseTagProps, BaseTagSlots } from '../types';
-import { BaseTag as theme } from '@shuriken-ui/theme-iga';
-import { useForwardProps } from 'reka-ui'
+import type { BaseTagProps, BaseTagSlots } from '../types'
+import { BaseTag as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
+import { useForwardProps } from 'reka-ui'
 
 const props = withDefaults(defineProps<BaseTagProps>(), {
   as: 'span',
@@ -17,7 +17,7 @@ const forward = useForwardProps(reactiveOmit(props, ['variant', 'rounded', 'size
 
 <template>
   <Primitive
-    v-bind="forward" 
+    v-bind="forward"
     class="flex-none text-xs font-medium"
     :class="[
       props.size && theme.sizes[props.size],

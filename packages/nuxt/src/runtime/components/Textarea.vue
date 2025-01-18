@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { Directive } from 'vue'
-import type { BaseTextareaProps } from '../types';
-import { BaseTextarea as theme } from '@shuriken-ui/theme-iga';
-import { useNuiId } from '../composables/useNuiId';
+import type { BaseTextareaProps } from '../types'
+import { BaseTextarea as theme } from '@shuriken-ui/theme-iga'
+import { useNuiId } from '../composables/useNuiId'
 
 const props = withDefaults(defineProps<BaseTextareaProps>(), {
   id: undefined,
@@ -28,12 +28,13 @@ function updateFromTarget(target: HTMLInputElement) {
 
   if (modelModifiers.trim && typeof value === 'string') {
     modelValue.value = value.trim()
-  } else {
+  }
+  else {
     modelValue.value = value
   }
 }
 
-// Update textarea internal value without updating the DOM to improve performance 
+// Update textarea internal value without updating the DOM to improve performance
 const vModelTextarea: Directive = {
   created(el) {
     el.addEventListener(modelModifiers.lazy ? 'change' : 'input', (event: InputEvent) => {

@@ -1,9 +1,9 @@
 import type {
-  DropdownMenuRootProps,
-  DropdownMenuRootEmits,
   DropdownMenuContentProps,
-  DropdownMenuTriggerProps,
   DropdownMenuPortalProps,
+  DropdownMenuRootEmits,
+  DropdownMenuRootProps,
+  DropdownMenuTriggerProps,
 } from 'reka-ui'
 
 export interface BaseDropdownProps extends DropdownMenuRootProps {
@@ -49,12 +49,12 @@ export interface BaseDropdownContext {
   variant: NonNullable<BaseDropdownProps['variant']>
   rounded: NonNullable<BaseDropdownProps['rounded']>
 }
-export type BaseDropdownSlots = {
-  default(): any
-  button(): any
-  label(): any
+export interface BaseDropdownSlots {
+  default: () => any
+  button: () => any
+  label: () => any
 }
-export type BaseDropdownConfig = {
+export interface BaseDropdownConfig {
   variant: NonNullable<BaseDropdownProps['variant']>
   rounded: NonNullable<BaseDropdownProps['rounded']>
 }

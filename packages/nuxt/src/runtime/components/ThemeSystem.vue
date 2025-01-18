@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { BaseThemeSystemProps } from '../types';
-import { BaseThemeSystem as theme } from '@shuriken-ui/theme-iga';
+import type { BaseThemeSystemProps } from '../types'
+import { useColorMode } from '#imports'
+import { BaseThemeSystem as theme } from '@shuriken-ui/theme-iga'
 import { useMounted } from '@vueuse/core'
 import { computed } from 'vue'
-import { useColorMode } from '#imports'
-import { useNuiConfig } from '../composables/useNuiConfig';
+import { useNuiConfig } from '../composables/useNuiConfig'
 
 const props = withDefaults(defineProps<BaseThemeSystemProps>(), {
   id: undefined,
@@ -85,8 +85,7 @@ const preference = computed({
           preference === 'dark' && 'ml-[66.6%]',
           props.variant && theme.variants[variant],
         ]"
-      >
-      </div>
+      />
     </div>
   </RadioGroupRoot>
 </template>

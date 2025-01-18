@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { BaseAccordionItemProps, BaseAccordionItemSlots } from '../types'
 import { BaseAccordion as theme } from '@shuriken-ui/theme-iga'
-import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
-import { useNuiConfig } from '../composables/useNuiConfig';
+import { useForwardProps } from 'reka-ui'
+import { useNuiConfig } from '../composables/useNuiConfig'
 import { tm } from '../utils/tw-merge'
 
 const props = withDefaults(defineProps<BaseAccordionItemProps>(), {
@@ -39,10 +39,12 @@ const forward = useForwardProps(reactiveOmit(props, ['title', 'content', 'varian
           'flex group/trigger items-center text-sm weight-medium leading-none text-muted-800 dark:text-white justify-between w-full py-3 rounded-md px-4 cursor-pointer focus-visible:nui-focus',
           props.variant === 'default' && 'hover:bg-muted-50 dark:hover:bg-muted-800',
           props.classes.trigger,
-        ])" 
+        ])"
       >
         <div>
-          <slot name="title">{{ props.title }}</slot>
+          <slot name="title">
+            {{ props.title }}
+          </slot>
         </div>
         <slot name="action">
           <div
@@ -73,11 +75,11 @@ const forward = useForwardProps(reactiveOmit(props, ['title', 'content', 'varian
         </slot>
       </AccordionTrigger>
     </AccordionHeader>
-    <AccordionContent 
+    <AccordionContent
       v-bind="props.bindings?.content"
       :class="tm([
         'px-4 mt-3 pb-4 font-sans text-sm text-muted-500 dark:text-muted-400 leading-tight',
-        props.classes.content
+        props.classes.content,
       ])"
     >
       <slot>{{ props.content }}</slot>

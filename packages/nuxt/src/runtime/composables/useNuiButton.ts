@@ -1,6 +1,6 @@
+import type { RouteLocationRaw } from 'vue-router'
 import { defineNuxtLink } from '#imports'
 import { computed } from 'vue'
-import type { RouteLocationRaw } from 'vue-router'
 
 export interface BaseButtonProperties {
   type?: 'button' | 'submit' | 'reset'

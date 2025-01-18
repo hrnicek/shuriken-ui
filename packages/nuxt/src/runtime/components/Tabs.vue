@@ -1,6 +1,8 @@
 <script lang="ts">
-import type { BaseTabsContext } from '../types';
-import { createContext } from 'reka-ui'
+import type { BaseTabsContext, BaseTabsEmits, BaseTabsProps, BaseTabsSlots } from '../types'
+import { BaseTabs as theme } from '@shuriken-ui/theme-iga'
+import { reactiveOmit } from '@vueuse/core'
+import { createContext, useForwardPropsEmits } from 'reka-ui'
 
 export const [
   injectBaseTabsContext,
@@ -9,11 +11,6 @@ export const [
 </script>
 
 <script setup lang="ts">
-import type { BaseTabsProps, BaseTabsEmits, BaseTabsSlots } from '../types';
-import { BaseTabs as theme } from '@shuriken-ui/theme-iga';
-import { useForwardPropsEmits } from 'reka-ui'
-import { reactiveOmit } from '@vueuse/core'
-
 const props = withDefaults(defineProps<BaseTabsProps>(), {
   type: theme.defaults.type,
   justify: theme.defaults.justify,
@@ -64,7 +61,6 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['tabs', 'variant', 'ju
         />
       </slot>
 
-      
       <TabsIndicator
         v-if="props.type === 'tabs'"
         class="absolute rounded-full duration-300"
@@ -87,23 +83,22 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['tabs', 'variant', 'ju
           class="w-full h-full"
           :class="[
             props.rounded && theme.radiuses[props.rounded],
-            theme.boxIndicator[props.variant]
+            theme.boxIndicator[props.variant],
           ]"
         />
       </TabsIndicator>
-
     </TabsList>
 
     <div class="relative block">
       <slot>
-        <BaseTabsContent 
-          v-for="(tab, key) in tabs" 
-          :key="key" 
-          :value="tab.value" 
+        <BaseTabsContent
+          v-for="(tab, key) in tabs"
+          :key="key"
+          :value="tab.value"
         >
           {{ tab.value }}
         </BaseTabsContent>
       </slot>
-    </div> 
+    </div>
   </TabsRoot>
 </template>

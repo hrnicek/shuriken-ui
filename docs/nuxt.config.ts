@@ -1,5 +1,3 @@
-// import exposeColors from './tailwind/plugin-expose-colors'
-
 export default defineNuxtConfig({
   // ssr: false,
   modules: [
@@ -50,6 +48,6 @@ export default defineNuxtConfig({
         'vue3-smooth-dnd',
         'vue3-apexcharts',
       ],
-    }
+    },
   },
 })

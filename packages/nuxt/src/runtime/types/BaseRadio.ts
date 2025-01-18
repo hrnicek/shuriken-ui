@@ -26,13 +26,13 @@ export interface BaseRadioProps extends RadioGroupItemProps {
     labelWrapper?: string | string[]
   }
 }
-export interface BaseRadioEmits /*extends RadioGroupItemEmits*/ {
+export interface BaseRadioEmits /* extends RadioGroupItemEmits */ {
   select: [event: any]
 }
-export type BaseRadioSlots = {
-  default(): any
-  error(): any
+export interface BaseRadioSlots {
+  default: () => any
+  error: () => any
 }
-export type BaseRadioConfig = {
+export interface BaseRadioConfig {
   variant: NonNullable<BaseRadioProps['variant']>
 }

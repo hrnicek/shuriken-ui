@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { BaseButtonProps, BaseButtonSlots } from '../types'
 import { BaseButton as theme } from '@shuriken-ui/theme-iga'
-import { useNuiButton } from '../composables/useNuiButton';
-import { useNuiConfig } from '../composables/useNuiConfig';
+import { useNuiButton } from '../composables/useNuiButton'
+import { useNuiConfig } from '../composables/useNuiConfig'
 
 const props = withDefaults(defineProps<BaseButtonProps>(), {
   to: undefined,

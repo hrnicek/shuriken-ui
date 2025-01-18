@@ -15,10 +15,10 @@ export interface BaseKbdProps extends PrimitiveProps {
    */
   size?: 'sm' | 'md' | 'lg'
 }
-export type BaseKbdSlots = {
-  default(): any
+export interface BaseKbdSlots {
+  default: () => any
 }
-export type BaseKbdConfig = {
+export interface BaseKbdConfig {
   variant: NonNullable<BaseKbdProps['variant']>
   size: NonNullable<BaseKbdProps['size']>
 }

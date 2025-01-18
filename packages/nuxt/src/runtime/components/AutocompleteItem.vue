@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { BaseAutocompleteItemProps, BaseAutocompleteItemEmits, BaseAutocompleteItemSlots } from '../types';
-import { BaseAutocompleteItem as theme } from '@shuriken-ui/theme-iga';
-import { useForwardPropsEmits } from 'reka-ui'
+import type { BaseAutocompleteItemEmits, BaseAutocompleteItemProps, BaseAutocompleteItemSlots } from '../types'
+import { BaseAutocompleteItem as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
+import { useForwardPropsEmits } from 'reka-ui'
+import { useNuiConfig } from '../composables/useNuiConfig'
 import { injectBaseAutocompleteContext } from './Autocomplete.vue'
-import { useNuiConfig } from '../composables/useNuiConfig';
 
 const props = withDefaults(defineProps<BaseAutocompleteItemProps>(), {
   value: undefined,

@@ -1,25 +1,25 @@
 <script lang="ts">
-import type { ToastRootProps, ToastRootEmits } from 'reka-ui'
+import type { ToastRootEmits, ToastRootProps } from 'reka-ui'
 
 import type { BaseButtonProps } from '../types/BaseButton'
+</script>
+
+<script setup lang="ts">
+import { reactiveOmit } from '@vueuse/core'
+import { useForwardPropsEmits } from 'reka-ui'
 
 export interface BaseToastProps extends ToastRootProps {
   title?: string
   description?: string
   icon?: string
   variant?: 'default' | 'primary' | 'destructive'
-  actions?: (BaseButtonProps & { 
+  actions?: (BaseButtonProps & {
     label: string
     icon?: string
     onClick?: (e: Event) => (void | Promise<void>)
   })[]
 }
 export interface BaseToastEmits extends ToastRootEmits {}
-</script>
-
-<script setup lang="ts">
-import { useForwardPropsEmits } from 'reka-ui'
-import { reactiveOmit } from '@vueuse/core'
 
 const props = defineProps<BaseToastProps>()
 const emits = defineEmits<BaseToastEmits>()
@@ -29,11 +29,11 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'description'
 
 <template>
   <ToastRoot
+    v-slot="{ duration, remaining }"
     v-bind="forward"
-    v-slot="{ duration, remaining, open }"
     class="group/toast flex"
   >
-    <div 
+    <div
       class="relative flex rounded-md border bg-white dark:border-muted-800 dark:bg-muted-900 dark:border-muted-800 border-muted-200"
     >
       <div

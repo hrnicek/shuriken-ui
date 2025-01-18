@@ -1,8 +1,8 @@
 import type {
-  DropdownMenuCheckboxItemProps,
   DropdownMenuCheckboxItemEmits,
+  DropdownMenuCheckboxItemProps,
   DropdownMenuItemIndicatorProps,
-} from 'reka-ui';
+} from 'reka-ui'
 
 export interface BaseDropdownCheckboxProps extends DropdownMenuCheckboxItemProps {
   /**
@@ -37,9 +37,9 @@ export interface BaseDropdownCheckboxProps extends DropdownMenuCheckboxItemProps
   }
 }
 export interface BaseDropdownCheckboxEmits extends DropdownMenuCheckboxItemEmits {}
-export type BaseDropdownCheckboxSlots = {
-  default(): any
-  title(): any
-  text(): any
-  end(): any
+export interface BaseDropdownCheckboxSlots {
+  default: () => any
+  title: () => any
+  text: () => any
+  end: () => any
 }

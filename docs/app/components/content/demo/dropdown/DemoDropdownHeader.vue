@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { NuxtLink } from '#components';
+import { NuxtLink } from '#components'
 
 const checkedOne = ref(false)
 const checkedTwo = ref(false)
@@ -15,7 +15,9 @@ const selection = ref('first')
             label="Custom dropdown"
             rounded="md"
           >
-            <BaseDropdownLabel class="w-72">Label</BaseDropdownLabel>  
+            <BaseDropdownLabel class="w-72">
+              Label
+            </BaseDropdownLabel>
             <BaseDropdownItem
               title="Profile"
               text="View your profile"
@@ -36,12 +38,12 @@ const selection = ref('first')
             />
 
             <BaseDropdownSeparator />
-            <BaseDropdownLabel>Label</BaseDropdownLabel>  
+            <BaseDropdownLabel>Label</BaseDropdownLabel>
             <BaseDropdownSub
               title="Checkbox"
               text="View more tools"
             >
-              <BaseDropdownLabel>Label</BaseDropdownLabel>  
+              <BaseDropdownLabel>Label</BaseDropdownLabel>
               <BaseDropdownCheckbox
                 v-model="checkedOne"
                 title="Profile"
@@ -59,14 +61,18 @@ const selection = ref('first')
               title="Radio"
               text="View more tools"
             >
-              <BaseDropdownLabel>Label</BaseDropdownLabel>  
+              <BaseDropdownLabel>Label</BaseDropdownLabel>
               <BaseDropdownRadioGroup v-model="selection">
                 <BaseDropdownRadioItem value="first">
                   First
                   <template #end>
                     <div class="flex gap-0.5">
-                      <BaseKbd variant="default" size="sm">alt</BaseKbd>
-                      <BaseKbd variant="default" size="sm">1</BaseKbd>
+                      <BaseKbd variant="default" size="sm">
+                        alt
+                      </BaseKbd>
+                      <BaseKbd variant="default" size="sm">
+                        1
+                      </BaseKbd>
                     </div>
                   </template>
                 </BaseDropdownRadioItem>
@@ -74,8 +80,12 @@ const selection = ref('first')
                   Second
                   <template #end>
                     <div class="flex gap-0.5">
-                      <BaseKbd variant="default" size="sm">alt</BaseKbd>
-                      <BaseKbd variant="default" size="sm">2</BaseKbd>
+                      <BaseKbd variant="default" size="sm">
+                        alt
+                      </BaseKbd>
+                      <BaseKbd variant="default" size="sm">
+                        2
+                      </BaseKbd>
                     </div>
                   </template>
                 </BaseDropdownRadioItem>
@@ -83,8 +93,12 @@ const selection = ref('first')
                   Third
                   <template #end>
                     <div class="flex gap-0.5">
-                      <BaseKbd variant="default" size="sm">alt</BaseKbd>
-                      <BaseKbd variant="default" size="sm">3</BaseKbd>
+                      <BaseKbd variant="default" size="sm">
+                        alt
+                      </BaseKbd>
+                      <BaseKbd variant="default" size="sm">
+                        3
+                      </BaseKbd>
                     </div>
                   </template>
                 </BaseDropdownRadioItem>
@@ -95,19 +109,25 @@ const selection = ref('first')
             >
               <template #end>
                 <div class="flex gap-0.5">
-                  <BaseKbd variant="default" size="sm">ctrl</BaseKbd>
-                  <BaseKbd variant="default" size="sm">k</BaseKbd>
+                  <BaseKbd variant="default" size="sm">
+                    ctrl
+                  </BaseKbd>
+                  <BaseKbd variant="default" size="sm">
+                    k
+                  </BaseKbd>
                 </div>
               </template>
             </BaseDropdownItem>
           </BaseDropdown>
-          
+
           <BaseDropdown
             label="Scrollable menu"
             contrast="default"
           >
-            <BaseDropdownLabel>Label</BaseDropdownLabel>  
-            <BaseDropdownItem v-for="i in 50">Item {{ i }} ...</BaseDropdownItem> 
+            <BaseDropdownLabel>Label</BaseDropdownLabel>
+            <BaseDropdownItem v-for="i in 50" :key="i">
+              Item {{ i }} ...
+            </BaseDropdownItem>
           </BaseDropdown>
         </div>
       </div>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const people = [
-{
+  {
     src: '/img/people/19.jpg',
   },
   {

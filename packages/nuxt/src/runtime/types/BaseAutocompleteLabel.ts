@@ -6,6 +6,6 @@ export interface BaseAutocompleteLabelProps extends ComboboxLabelProps {
    */
   label?: string
 }
-export type BaseAutocompleteLabelSlots = {
-  default(): any
+export interface BaseAutocompleteLabelSlots {
+  default: () => any
 }

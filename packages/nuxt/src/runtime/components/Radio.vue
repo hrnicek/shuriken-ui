@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import type { BaseRadioProps, BaseRadioEmits, BaseRadioSlots } from '../types';
-import { BaseRadio as theme } from '@shuriken-ui/theme-iga';
-import { useForwardPropsEmits } from 'reka-ui'
+import type { BaseRadioEmits, BaseRadioProps, BaseRadioSlots } from '../types'
+import { BaseRadio as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
+import { useForwardPropsEmits } from 'reka-ui'
 import { useAttrs } from 'vue'
 
-import { useNuiId } from '../composables/useNuiId';
-import { tm } from '../utils/tw-merge';
+import { useNuiId } from '../composables/useNuiId'
+import { tm } from '../utils/tw-merge'
 
 defineOptions({
   inheritAttrs: false,
@@ -47,14 +47,14 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'varian
         :class="tm([
           'pointer-events-none z-10 block group-data-[state=unchecked]/radio:scale-0 roup-data-[state=checked]/radio:scale-100 rounded-full size-1 bg-current dark:bg-current starting:opacity-0 transition-opacity duration-150',
           theme.dotVariants[variant],
-          props.classes.indicator
+          props.classes.indicator,
         ])"
       />
     </RadioGroupItem>
     <div
       :class="tm([
         'inline-flex flex-col grow',
-        props.classes.labelWrapper
+        props.classes.labelWrapper,
       ])"
     >
       <Label
@@ -62,7 +62,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'varian
         :for="id"
         :class="tm([
           'ms-1 cursor-pointer select-none font-sans text-sm text-muted-600 dark:text-muted-400',
-          props.classes.label
+          props.classes.label,
         ])"
       >
         <slot>{{ props.label }}</slot>

@@ -1,6 +1,6 @@
 import type {
-  PaginationRootProps,
   PaginationRootEmits,
+  PaginationRootProps,
 } from 'reka-ui'
 
 export interface BasePaginationProps extends PaginationRootProps {
@@ -20,18 +20,18 @@ export interface BasePaginationProps extends PaginationRootProps {
   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
 }
 export interface BasePaginationEmits extends PaginationRootEmits {}
-export type BasePaginationSlots = {
-  default(props: { items: Array<{ type: 'ellipsis' } | { type: 'page', value: number }> }): any
-  ellipsis(): any
-  page(props: { page: number }): any
+export interface BasePaginationSlots {
+  default: (props: { items: Array<{ type: 'ellipsis' } | { type: 'page', value: number }> }) => any
+  ellipsis: () => any
+  page: (props: { page: number }) => any
 }
-export type BasePaginationConfig = {
+export interface BasePaginationConfig {
   variant: NonNullable<BasePaginationProps['variant']>
   size: NonNullable<BasePaginationProps['size']>
   rounded: NonNullable<BasePaginationProps['rounded']>
 }
 
-export type BasePaginationContext = {
+export interface BasePaginationContext {
   variant: NonNullable<BasePaginationProps['variant']>
   size: NonNullable<BasePaginationProps['size']>
   rounded: NonNullable<BasePaginationProps['rounded']>

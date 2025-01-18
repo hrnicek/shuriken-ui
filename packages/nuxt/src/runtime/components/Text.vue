@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { BaseTextProps, BaseTextSlots } from '../types';
-import { BaseText as theme } from '@shuriken-ui/theme-iga';
-import { useForwardProps } from 'reka-ui'
+import type { BaseTextProps, BaseTextSlots } from '../types'
+import { BaseText as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
+import { useForwardProps } from 'reka-ui'
 
 const props = withDefaults(defineProps<BaseTextProps>(), {
   as: 'span',
@@ -18,7 +18,7 @@ const forward = useForwardProps(reactiveOmit(props, ['size', 'lead', 'weight', '
 </script>
 
 <template>
-  <Primitive 
+  <Primitive
     v-bind="forward"
     :class="[
       props.size && theme.sizes[props.size],

@@ -1,11 +1,11 @@
-import type { 
-  SelectRootProps,
-  SelectRootEmits,
-  SelectTriggerProps,
-  SelectPortalProps,
-  SelectContentProps,
-  SelectViewportProps,
+import type {
   AcceptableValue,
+  SelectContentProps,
+  SelectPortalProps,
+  SelectRootEmits,
+  SelectRootProps,
+  SelectTriggerProps,
+  SelectViewportProps,
 } from 'reka-ui'
 
 export interface BaseSelectProps<T = AcceptableValue> extends SelectRootProps<T> {
@@ -24,7 +24,7 @@ export interface BaseSelectProps<T = AcceptableValue> extends SelectRootProps<T>
    *
    * @default 'default'
    */
-   variant?: 'default' | 'muted' 
+  variant?: 'default' | 'muted'
 
   /**
    * The radius of the select input.
@@ -55,7 +55,7 @@ export interface BaseSelectProps<T = AcceptableValue> extends SelectRootProps<T>
     portal?: SelectPortalProps
     content?: SelectContentProps
     viewport?: SelectViewportProps
-  },
+  }
 
   /**
    * Optional classes to pass to the inner components.
@@ -67,19 +67,19 @@ export interface BaseSelectProps<T = AcceptableValue> extends SelectRootProps<T>
     buttonUp?: string | string[]
     buttonDown?: string | string[]
     viewport?: string | string[]
-  },
+  }
 }
 export interface BaseSelectEmits<T = AcceptableValue> extends SelectRootEmits<T> {}
-export type BaseSelectSlots<T = AcceptableValue> = {
-  default(): any
-  label(): any
-  value(props: { selectedLabel: string[], modelValue: T | T[] }): any
-  'content-start'(): any
-  'content-end'(): any
-  'viewport-start'(): any
-  'viewport-end'(): any
+export interface BaseSelectSlots<T = AcceptableValue> {
+  'default': () => any
+  'label': () => any
+  'value': (props: { selectedLabel: string[], modelValue: T | T[] }) => any
+  'content-start': () => any
+  'content-end': () => any
+  'viewport-start': () => any
+  'viewport-end': () => any
 }
-export type BaseSelectConfig = {
+export interface BaseSelectConfig {
   variant: NonNullable<BaseSelectProps['variant']>
   rounded: NonNullable<BaseSelectProps['rounded']>
   size: NonNullable<BaseSelectProps['size']>

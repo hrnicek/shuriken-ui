@@ -1,20 +1,19 @@
 <script setup lang="ts">
-import type { BaseMessageProps, BaseMessageEmits, BaseMessageSlots } from '../types';
-import { BaseMessage as theme } from '@shuriken-ui/theme-iga';
+import type { BaseMessageEmits, BaseMessageProps, BaseMessageSlots } from '../types'
+import { BaseMessage as theme } from '@shuriken-ui/theme-iga'
 
-import { useNuiConfig } from '../composables/useNuiConfig';
+import { useNuiConfig } from '../composables/useNuiConfig'
 
 const props = withDefaults(defineProps<BaseMessageProps>(), {
   message: '',
   icon: undefined,
   closeIcon: undefined,
-  
+
   variant: theme.defaults.variant,
   rounded: theme.defaults.rounded,
 })
-const slots = defineSlots<BaseMessageSlots>()
 const emits = defineEmits<BaseMessageEmits>()
-
+const slots = defineSlots<BaseMessageSlots>()
 const iconClose = useNuiConfig('icon', 'close', () => props.closeIcon)
 </script>
 

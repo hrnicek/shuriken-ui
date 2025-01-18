@@ -1,5 +1,4 @@
-
-import { createResolver, defineNuxtModule, addComponentsDir, addImportsDir, installModule, hasNuxtModule, addVitePlugin, addTemplate } from '@nuxt/kit'
+import { addComponentsDir, addImportsDir, addVitePlugin, createResolver, defineNuxtModule, hasNuxtModule, installModule } from '@nuxt/kit'
 import tailwindcss from '@tailwindcss/vite'
 import defu from 'defu'
 
@@ -32,7 +31,7 @@ const defaultAppConfig = {
     chevronFirst: 'lucide:chevron-first',
     chevronRight: 'lucide:chevron-right',
     chevronLast: 'lucide:chevron-last',
-  }
+  },
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -40,7 +39,7 @@ export default defineNuxtModule<ModuleOptions>({
     name: 'shuriken-ui',
     configKey: 'nui',
     compatibility: {
-      nuxt: '>=3.14.0'
+      nuxt: '>=3.14.0',
     },
   },
   defaults: {
@@ -52,11 +51,12 @@ export default defineNuxtModule<ModuleOptions>({
     nuxt.options.appConfig.nui = defu(nuxt.options.appConfig.nui || {}, defaultAppConfig)
 
     addVitePlugin(tailwindcss())
-    
+
     async function registerModule(name: string, options: Record<string, any>) {
       if (!hasNuxtModule(name)) {
         await installModule(name, options)
-      } else {
+      }
+      else {
         (nuxt.options as any)[name] = defu((nuxt.options as any)[name], options)
       }
     }
@@ -79,7 +79,7 @@ export default defineNuxtModule<ModuleOptions>({
     addComponentsDir({
       path: resolve('./runtime/components'),
       prefix: options.prefix,
-      pathPrefix: false
+      pathPrefix: false,
     })
 
     addImportsDir(resolve('./runtime/composables'))

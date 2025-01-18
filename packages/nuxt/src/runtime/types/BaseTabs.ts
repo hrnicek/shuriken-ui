@@ -1,6 +1,6 @@
-import type { 
-  TabsRootProps,
+import type {
   TabsRootEmits,
+  TabsRootProps,
 } from 'reka-ui'
 import type { BaseTabsTriggerProps } from './BaseTabsTrigger'
 
@@ -34,7 +34,7 @@ export interface BaseTabsProps extends TabsRootProps {
    *
    * @default 'md'
    */
-   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
+  rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
 
   /**
    * The type of tabs to display..
@@ -44,9 +44,9 @@ export interface BaseTabsProps extends TabsRootProps {
   type?: 'tabs' | 'box'
 }
 export interface BaseTabsEmits extends TabsRootEmits {}
-export type BaseTabsSlots = {
-  default(): any
-  trigger(): any
+export interface BaseTabsSlots {
+  default: () => any
+  trigger: () => any
 }
 export interface BaseTabsContext {
   variant: NonNullable<BaseTabsProps['variant']>

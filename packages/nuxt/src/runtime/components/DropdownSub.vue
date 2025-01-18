@@ -1,12 +1,11 @@
-
 <script setup lang="ts">
-import type { BaseDropdownSubProps, BaseDropdownSubEmits, BaseDropdownSubSlots } from '../types';
-import { BaseDropdownItem as theme, BaseDropdown as dropdownTheme  } from '@shuriken-ui/theme-iga';
-import { injectBaseDropdownContext } from './Dropdown.vue'
-import { useForwardPropsEmits } from 'reka-ui'
+import type { BaseDropdownSubEmits, BaseDropdownSubProps, BaseDropdownSubSlots } from '../types'
+import { BaseDropdown as dropdownTheme, BaseDropdownItem as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
+import { useForwardPropsEmits } from 'reka-ui'
+import { useNuiConfig } from '../composables/useNuiConfig'
 
-import { useNuiConfig } from '../composables/useNuiConfig';
+import { injectBaseDropdownContext } from './Dropdown.vue'
 
 const props = defineProps<BaseDropdownSubProps>()
 const emits = defineEmits<BaseDropdownSubEmits>()

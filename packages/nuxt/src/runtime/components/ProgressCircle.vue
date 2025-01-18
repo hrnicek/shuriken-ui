@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { BaseProgressCircleEmits, BaseProgressCircleProps, BaseProgressCircleSlots } from '../types';
-import { BaseProgressCircle as theme } from '@shuriken-ui/theme-iga';
-import { useForwardPropsEmits } from 'reka-ui'
+import type { BaseProgressCircleEmits, BaseProgressCircleProps, BaseProgressCircleSlots } from '../types'
+import { BaseProgressCircle as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
+import { useForwardPropsEmits } from 'reka-ui'
 
 const props = withDefaults(defineProps<BaseProgressCircleProps>(), {
   size: 60,
@@ -10,7 +10,7 @@ const props = withDefaults(defineProps<BaseProgressCircleProps>(), {
   animation: 2,
 
   variant: theme.defaults.variant,
-  
+
   max: undefined,
   modelValue: undefined,
   getValueLabel: undefined,
@@ -23,8 +23,8 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['variant', 'size', 'th
 
 <template>
   <ProgressRoot
-    v-bind="forward"
     v-slot="{ modelValue }"
+    v-bind="forward"
     as-child
   >
     <svg

@@ -1,18 +1,18 @@
 <script lang="ts">
 import type { ToastProviderProps } from 'reka-ui'
+</script>
+
+<script setup lang="ts">
+import { useState } from '#app'
+import { reactiveOmit } from '@vueuse/core'
+import { useForwardProps } from 'reka-ui'
+import { computed, watchEffect } from 'vue'
+import { useNuiToasts } from '../composables/useNuiToasts'
 
 export interface BaseToastProviderProps extends Omit<ToastProviderProps, 'swipeDirection'> {
   max?: number
   position?: 'top-start' | 'top-center' | 'top-end' | 'bottom-start' | 'bottom-center' | 'bottom-end'
 }
-</script>
-
-<script setup lang="ts">
-import { useForwardProps } from 'reka-ui';
-import { computed, watchEffect } from 'vue'
-import { reactiveOmit } from '@vueuse/core'
-import { useState } from "#app";
-import { useNuiToasts } from '../composables/useNuiToasts';
 
 const props = withDefaults(defineProps<BaseToastProviderProps>(), {
   max: 3,
@@ -20,7 +20,7 @@ const props = withDefaults(defineProps<BaseToastProviderProps>(), {
   swipeDirection: undefined,
 })
 
-const max = useState('nui-toasts-max', () => 3);
+const max = useState('nui-toasts-max', () => 3)
 watchEffect(() => max.value = props.max)
 
 const { toasts, remove } = useNuiToasts()
@@ -45,6 +45,7 @@ const swipeDirection = computed(() => {
       return 'left'
     case 'top-end':
     case 'bottom-end':
+    default:
       return 'right'
   }
 })
@@ -69,8 +70,7 @@ const forward = useForwardProps(reactiveOmit(props, ['position']))
         id: undefined,
       }"
       force-mount
-      :class="[
-        'data-[swipe=move]:duration-0 duration-200 data-[state=closed]:duration-100 data-[swipe=cancel]:ease-out data-[state=closed]:ease-out starting:ease-in starting:opacity-0 transition-discrete',
+      class="data-[swipe=move]:duration-0 duration-200 data-[state=closed]:duration-100 data-[swipe=cancel]:ease-out data-[state=closed]:ease-out starting:ease-in starting:opacity-0 transition-discrete" :class="[
         swipeDirection === 'right' && 'starting:translate-x-full data-[state=closed]:translate-x-full translate-x-0',
         swipeDirection === 'left' && 'starting:-translate-x-full data-[state=closed]:-translate-x-full translate-x-0',
         swipeDirection === 'up' && 'starting:-translate-y-full data-[state=closed]:-translate-y-full translate-y-0',
@@ -81,8 +81,8 @@ const forward = useForwardProps(reactiveOmit(props, ['position']))
       ]"
       @update:open="(value: boolean) => { if (!value) remove(toast.id) }"
     />
-    
-    <ToastViewport 
+
+    <ToastViewport
       class="fixed flex gap-2 max-w-[100vw] z-[2147483647] outline-none"
       :class="[
         positions[position],

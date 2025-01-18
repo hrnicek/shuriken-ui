@@ -1,7 +1,7 @@
 <script lang="ts">
 import type {
-  TooltipProviderProps,
   ConfigProviderProps,
+  TooltipProviderProps,
 } from 'reka-ui'
 
 import type { BaseToastProviderProps } from './ToastProvider.vue'
@@ -30,7 +30,7 @@ const props = withDefaults(defineProps<BaseProviders>(), {
     <TooltipProvider
       v-bind="{
         delayDuration: 350,
-        ...props.tooltip
+        ...props.tooltip,
       }"
     >
       <BaseToastProvider v-bind="props.toast">

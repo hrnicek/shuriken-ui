@@ -1,4 +1,4 @@
-import type { PrimitiveProps } from 'reka-ui';
+import type { PrimitiveProps } from 'reka-ui'
 
 export interface BaseProseProps extends PrimitiveProps {
   /**
@@ -7,10 +7,10 @@ export interface BaseProseProps extends PrimitiveProps {
   rounded?: 'none' | 'sm' | 'md' | 'lg'
 }
 
-export type BaseProseSlots = {
-  default(): any
+export interface BaseProseSlots {
+  default: () => any
 }
 
-export type BaseProseConfig = {
+export interface BaseProseConfig {
   rounded: NonNullable<BaseProseProps['rounded']>
 }

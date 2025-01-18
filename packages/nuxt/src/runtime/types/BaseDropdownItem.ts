@@ -1,7 +1,7 @@
 import type {
-  DropdownMenuItemProps,
   DropdownMenuItemEmits,
-} from 'reka-ui';
+  DropdownMenuItemProps,
+} from 'reka-ui'
 
 export interface BaseDropdownItemProps extends DropdownMenuItemProps {
   /**
@@ -27,16 +27,16 @@ export interface BaseDropdownItemProps extends DropdownMenuItemProps {
 
 export interface BaseDropdownItemEmits extends DropdownMenuItemEmits {}
 
-export type BaseDropdownItemSlots = {
-  default(): any
+export interface BaseDropdownItemSlots {
+  default: () => any
 
-  title(): any
-  text(): any
-  start(): any
-  end(): any
+  title: () => any
+  text: () => any
+  start: () => any
+  end: () => any
 }
 
-export type BaseDropdownItemConfig = {
+export interface BaseDropdownItemConfig {
   variant: NonNullable<BaseDropdownItemProps['variant']>
   rounded: NonNullable<BaseDropdownItemProps['rounded']>
 }

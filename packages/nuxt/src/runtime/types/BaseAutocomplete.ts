@@ -1,14 +1,13 @@
 import type {
-  ComboboxRootProps,
-  ComboboxRootEmits,
-  ComboboxAnchorProps,
-  ComboboxCancelProps,
-  ComboboxTriggerProps,
-  ComboboxPortalProps,
-  ComboboxContentProps,
-  ComboboxViewportProps,
-  ComboboxEmptyProps,
   AcceptableValue,
+  ComboboxAnchorProps,
+  ComboboxContentProps,
+  ComboboxEmptyProps,
+  ComboboxPortalProps,
+  ComboboxRootEmits,
+  ComboboxRootProps,
+  ComboboxTriggerProps,
+  ComboboxViewportProps,
 } from 'reka-ui'
 
 export interface BaseAutocompleteProps<T = AcceptableValue> extends ComboboxRootProps<T> {
@@ -49,9 +48,9 @@ export interface BaseAutocompleteProps<T = AcceptableValue> extends ComboboxRoot
    * @default false
    */
   clearable?: boolean
-  
+
   /**
-   * Bindings presets 
+   * Bindings presets
    *
    * @default 'inline'
    */
@@ -85,35 +84,35 @@ export interface BaseAutocompleteProps<T = AcceptableValue> extends ComboboxRoot
 export interface BaseAutocompleteEmits<T = AcceptableValue> extends ComboboxRootEmits<T> {
   'update:query': [value: string]
 }
-export type BaseAutocompleteSlots<T = AcceptableValue> = {
-  default(): any
-  empty(props: {
+export interface BaseAutocompleteSlots<T = AcceptableValue> {
+  'default': () => any
+  'empty': (props: {
     open: boolean
     query: string
     modelValue: T | T[]
-  }): any
-  'content-start'(props: {
+  }) => any
+  'content-start': (props: {
     open: boolean
     query: string
     modelValue: T | T[]
-  }): any
-  'content-end'(props: {
+  }) => any
+  'content-end': (props: {
     open: boolean
     query: string
     modelValue: T | T[]
-  }): any
-  'viewport-start'(props: {
+  }) => any
+  'viewport-start': (props: {
     open: boolean
     query: string
     modelValue: T | T[]
-  }): any
-  'viewport-end'(props: {
+  }) => any
+  'viewport-end': (props: {
     open: boolean
     query: string
     modelValue: T | T[]
-  }): any
+  }) => any
 }
-export type BaseAutocompleteConfig = {
+export interface BaseAutocompleteConfig {
   variant: NonNullable<BaseAutocompleteProps['variant']>
   rounded: NonNullable<BaseAutocompleteProps['rounded']>
   size: NonNullable<BaseAutocompleteProps['size']>

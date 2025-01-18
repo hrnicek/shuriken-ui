@@ -1,6 +1,6 @@
 <script setup lang="ts" generic="T extends AcceptableValue = AcceptableValue">
-import type { BaseCheckboxGroupProps, BaseCheckboxGroupEmits, BaseCheckboxGroupSlots } from '../types';
 import type { AcceptableValue } from 'reka-ui'
+import type { BaseCheckboxGroupEmits, BaseCheckboxGroupProps, BaseCheckboxGroupSlots } from '../types'
 import { useForwardPropsEmits } from 'reka-ui'
 
 const props = withDefaults(defineProps<BaseCheckboxGroupProps<T>>(), {

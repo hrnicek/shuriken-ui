@@ -1,6 +1,8 @@
 <script lang="ts">
-import { createContext } from 'reka-ui'
-import type { BaseFieldContext } from '../types';
+import type { BaseFieldContext, BaseFieldProps, BaseFieldSlots } from '../types'
+import { reactiveOmit } from '@vueuse/core'
+import { createContext, useForwardProps } from 'reka-ui'
+import { ref, toRef, useId } from 'vue'
 
 export const [
   injectBaseFieldContext,
@@ -9,11 +11,6 @@ export const [
 </script>
 
 <script setup lang="ts">
-import type { BaseFieldProps, BaseFieldSlots } from '../types';
-import { useForwardProps } from 'reka-ui'
-import { reactiveOmit } from '@vueuse/core'
-import { ref, useId, toRef } from 'vue'
-
 const props = withDefaults(defineProps<BaseFieldProps>(), {
   name: undefined,
   required: false,

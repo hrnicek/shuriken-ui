@@ -50,7 +50,7 @@ export interface BaseTextareaProps {
    */
   size?: 'sm' | 'md' | 'lg' | 'xl'
 }
-export type BaseTextareaConfig = {
+export interface BaseTextareaConfig {
   variant: NonNullable<BaseTextareaProps['variant']>
   rounded: NonNullable<BaseTextareaProps['rounded']>
   size: NonNullable<BaseTextareaProps['size']>

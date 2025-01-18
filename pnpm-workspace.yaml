@@ -5,8 +5,8 @@ packages:
   - playgrounds/*
 
 catalog:
-  "@tailwindcss/vite": "4.0.0-beta.9"
-  "tailwindcss": "4.0.0-beta.9"
-  "nuxt": "^3.15.0"
-  "reka-ui": "1.0.0-alpha.8"
-  "typescript": "^5.6.3"
+  '@tailwindcss/vite': 4.0.0-beta.9
+  tailwindcss: 4.0.0-beta.9
+  nuxt: ^3.15.0
+  reka-ui: 1.0.0-alpha.8
+  typescript: ^5.6.3

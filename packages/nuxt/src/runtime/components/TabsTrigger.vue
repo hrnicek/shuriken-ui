@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { BaseTabsTriggerProps, BaseTabsTriggerSlots } from '../types';
-import { BaseTabsTrigger as theme } from '@shuriken-ui/theme-iga';
-import { useForwardProps } from 'reka-ui'
+import type { BaseTabsTriggerProps, BaseTabsTriggerSlots } from '../types'
+import { BaseTabsTrigger as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
+import { useForwardProps } from 'reka-ui'
 import { injectBaseTabsContext } from './Tabs.vue'
 
 const props = withDefaults(defineProps<BaseTabsTriggerProps>(), {
@@ -11,14 +11,15 @@ const props = withDefaults(defineProps<BaseTabsTriggerProps>(), {
   variant: undefined,
 })
 
+const slots = defineSlots<BaseTabsTriggerSlots>()
+
 const context = injectBaseTabsContext()
 
-const slots = defineSlots<BaseTabsTriggerSlots>()
 const forward = useForwardProps(reactiveOmit(props, ['label', 'type', 'variant', 'icon']))
 </script>
 
 <template>
-  <TabsTrigger 
+  <TabsTrigger
     v-bind="forward"
     class="group/trigger focus-visible:nui-focus z-10 relative disabled:pointer-events-none disabled:opacity-50"
     :class="[

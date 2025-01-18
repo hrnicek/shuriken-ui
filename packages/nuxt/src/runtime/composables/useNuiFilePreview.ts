@@ -1,5 +1,5 @@
-import type { Ref, MaybeRefOrGetter } from 'vue'
-import { ref, watchEffect, toValue } from 'vue'
+import type { MaybeRefOrGetter, Ref } from 'vue'
+import { ref, toValue, watchEffect } from 'vue'
 
 const previewMap = new WeakMap<File, Ref<string | undefined>>()
 
@@ -10,7 +10,7 @@ export function useNuiFilePreview(
   _file: MaybeRefOrGetter<File | null | undefined>,
 ) {
   const preview = ref<string>()
-  
+
   watchEffect(() => {
     const file = toValue(_file)
     if (!file) {

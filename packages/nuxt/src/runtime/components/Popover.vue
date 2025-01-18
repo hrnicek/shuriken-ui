@@ -1,15 +1,19 @@
 <script lang="ts">
 import type {
-  PopoverRootProps,
-  PopoverRootEmits,
-  PopoverTriggerProps,
-  PopoverPortalProps,
-  PopoverContentProps,
   PopoverArrowProps,
+  PopoverContentProps,
+  PopoverPortalProps,
+  PopoverRootEmits,
+  PopoverRootProps,
+  PopoverTriggerProps,
 } from 'reka-ui'
+import { reactiveOmit } from '@vueuse/core'
+import { useForwardPropsEmits } from 'reka-ui'
+import { useNuiConfig } from '../composables/useNuiConfig'
+import { tm } from '../utils/tw-merge'
 
 export interface BasePopoverProps extends PopoverRootProps {
-  variant?: 'default' | 'muted' /*| 'dark' | 'primary'*/ | 'none'
+  variant?: 'default' | 'muted' /* | 'dark' | 'primary' */ | 'none'
   rounded?: 'sm' | 'md' | 'lg' | 'full' | 'none'
   content?: string
   classes?: {
@@ -51,11 +55,6 @@ export const arrowVariants = {
 </script>
 
 <script setup lang="ts">
-import { useForwardPropsEmits, useForwardExpose } from 'reka-ui'
-import { reactiveOmit } from '@vueuse/core'
-import { useNuiConfig } from '../composables/useNuiConfig'
-import { tm } from '../utils/tw-merge'
-
 const props = withDefaults(defineProps<BasePopoverProps>(), {
   variant: 'default',
   rounded: 'md',
@@ -70,7 +69,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['content', 'variant', 
 </script>
 
 <template>
-  <PopoverRoot v-bind="forward" v-slot="{ open }">
+  <PopoverRoot v-slot="{ open }" v-bind="forward">
     <PopoverTrigger
       v-bind="{
         asChild: true,
@@ -95,7 +94,9 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['content', 'variant', 
           props.classes.content,
         ])"
       >
-        <slot name="content" v-bind="{ open }">{{ props.content }}</slot>
+        <slot name="content" v-bind="{ open }">
+          {{ props.content }}
+        </slot>
         <PopoverClose
           class="absolute outline-none size-6 top-1 right-1 flex items-center justify-center transition-color duration-150 hover:bg-muted-100 focus-visible:bg-muted-100 dark:hover:bg-muted-800 dark:focus-visible:bg-muted-800"
           :class="[
@@ -110,8 +111,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['content', 'variant', 
 
         <PopoverArrow
           v-bind="props.bindings.arrow"
-          :class="[
-            '-translate-[1px]',
+          class="-translate-[1px]" :class="[
             props.variant && arrowVariants[props.variant],
           ]"
         />

@@ -1,5 +1,5 @@
 import type { MaybeRefOrGetter } from 'vue'
-import { useId, computed, toValue } from 'vue'
+import { computed, toValue, useId } from 'vue'
 
 export function useNuiId(id?: MaybeRefOrGetter<string | undefined>) {
   const uid = useId()

@@ -7,7 +7,7 @@
             :bindings="{
               content: {
                 sideOffset: 0,
-              }
+              },
             }"
           >
             <template #button>
@@ -21,10 +21,10 @@
               </BaseButton>
             </template>
 
-            <BaseDropdownItem>Profile</BaseDropdownItem> 
-            <BaseDropdownItem>Projects</BaseDropdownItem> 
-            <BaseDropdownItem>Team</BaseDropdownItem> 
-            <BaseDropdownItem>Settings</BaseDropdownItem> 
+            <BaseDropdownItem>Profile</BaseDropdownItem>
+            <BaseDropdownItem>Projects</BaseDropdownItem>
+            <BaseDropdownItem>Team</BaseDropdownItem>
+            <BaseDropdownItem>Settings</BaseDropdownItem>
 
             <BaseDropdownArrow :width="16" :height="8" />
           </BaseDropdown>
@@ -33,7 +33,7 @@
             :bindings="{
               content: {
                 sideOffset: 0,
-              }
+              },
             }"
           >
             <template #button>
@@ -45,11 +45,11 @@
                 Dropdown <Icon name="lucide:plus" class="block h-4 w-4 ms-2 transition-transform group-data-[state=open]:rotate-45" />
               </BaseButton>
             </template>
-            
-            <BaseDropdownItem>Profile</BaseDropdownItem> 
-            <BaseDropdownItem>Projects</BaseDropdownItem> 
-            <BaseDropdownItem>Team</BaseDropdownItem> 
-            <BaseDropdownItem>Settings</BaseDropdownItem> 
+
+            <BaseDropdownItem>Profile</BaseDropdownItem>
+            <BaseDropdownItem>Projects</BaseDropdownItem>
+            <BaseDropdownItem>Team</BaseDropdownItem>
+            <BaseDropdownItem>Settings</BaseDropdownItem>
           </BaseDropdown>
         </div>
       </div>

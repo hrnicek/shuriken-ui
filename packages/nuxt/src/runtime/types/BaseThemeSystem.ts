@@ -15,8 +15,7 @@ export interface BaseThemeSystemProps {
   variant?: 'default'
 }
 
-export type BaseThemeSystemConfig = {
+export interface BaseThemeSystemConfig {
   variant: NonNullable<BaseThemeSystemProps['variant']>
   transitions: NonNullable<BaseThemeSystemProps['transitions']>
 }
-

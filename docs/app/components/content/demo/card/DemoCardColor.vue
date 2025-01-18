@@ -2,7 +2,7 @@
   <div class="flex items-center justify-center px-4 pb-0 pt-4">
     <div class="w-full rounded-xl bg-muted-50 p-4 dark:bg-muted-900 md:p-8">
       <div class="grid max-w-3xl gap-4 md:grid-cols-2">
-        <BaseCard  variant="default" rounded="md" class="p-6">
+        <BaseCard variant="default" rounded="md" class="p-6">
           <BaseHeading
             as="h4"
             size="sm"

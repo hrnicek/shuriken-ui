@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { BaseThemeSwitchProps } from '../types';
-import { BaseThemeSwitch as theme } from '@shuriken-ui/theme-iga';
-import { useMounted } from '@vueuse/core'
+import type { BaseThemeSwitchProps } from '../types'
 import { useColorMode } from '#imports'
+import { BaseThemeSwitch as theme } from '@shuriken-ui/theme-iga'
+import { useMounted } from '@vueuse/core'
 import { computed } from 'vue'
-import { useNuiId } from '../composables/useNuiId';
-import { useNuiConfig } from '../composables/useNuiConfig';
+import { useNuiConfig } from '../composables/useNuiConfig'
+import { useNuiId } from '../composables/useNuiId'
 
 const props = withDefaults(defineProps<BaseThemeSwitchProps>(), {
   id: undefined,
@@ -45,10 +45,10 @@ const isDark = computed({
 </script>
 
 <template>
-  <SwitchRoot 
+  <SwitchRoot
     :id
-    v-model="isDark" 
-    class="focus-visible:nui-focus relative block h-6 w-14 scale-[0.8] rounded-full focus-visible:outline-2 ring-2 ring-transparent ring-offset-muted-200 dark:ring-offset-muted-900" 
+    v-model="isDark"
+    class="focus-visible:nui-focus relative block h-6 w-14 scale-[0.8] rounded-full focus-visible:outline-2 ring-2 ring-transparent ring-offset-muted-200 dark:ring-offset-muted-900"
     :class="theme.background[variant]"
   >
     <SwitchThumb

@@ -1,16 +1,15 @@
 <script setup lang="ts">
-import type { BaseFieldError } from '../types';
-import { useForwardProps } from 'reka-ui'
+import type { BaseFieldError } from '../types'
 import { reactiveOmit } from '@vueuse/core'
+import { useForwardProps } from 'reka-ui'
 
 import { injectBaseFieldContext } from './Field.vue'
 
 const props = withDefaults(defineProps<BaseFieldError>(), {})
-const forward = useForwardProps(reactiveOmit(props, []))
 const emits = defineEmits<{
   'field-error': []
 }>()
-
+const forward = useForwardProps(reactiveOmit(props, []))
 const { id, idError, state } = injectBaseFieldContext()
 </script>
 

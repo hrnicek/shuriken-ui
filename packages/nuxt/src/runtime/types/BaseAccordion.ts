@@ -1,11 +1,11 @@
 import type {
-  AccordionRootProps,
   AccordionRootEmits,
+  AccordionRootProps,
 } from 'reka-ui'
 import type { BaseAccordionItemProps } from './BaseAccordionItem'
 
 export interface BaseAccordionProps extends AccordionRootProps {
-  /** 
+  /**
    * The accordion items to display.
    */
   items?: BaseAccordionItemProps[]
@@ -14,7 +14,7 @@ export interface BaseAccordionProps extends AccordionRootProps {
    * The variant of the accordion.
    */
   variant?: BaseAccordionItemProps['variant']
-  
+
   /**
    * Defines the icon used for accordion item toggle action
    */
@@ -23,11 +23,11 @@ export interface BaseAccordionProps extends AccordionRootProps {
 
 export interface BaseAccordionEmits extends AccordionRootEmits {}
 
-export type BaseAccordionSlots = {
-  default(): any
+export interface BaseAccordionSlots {
+  default: () => any
 }
 
-export type BaseAccordionConfig = {
+export interface BaseAccordionConfig {
   variant: NonNullable<BaseAccordionProps['variant']>
   action: NonNullable<BaseAccordionProps['action']>
 }

@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { BaseKbdProps, BaseKbdSlots } from '../types';
-import { BaseKbd as theme } from '@shuriken-ui/theme-iga';
-import { useForwardProps } from 'reka-ui'
+import type { BaseKbdProps, BaseKbdSlots } from '../types'
+import { BaseKbd as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
+import { useForwardProps } from 'reka-ui'
 
 const props = withDefaults(defineProps<BaseKbdProps>(), {
   as: 'kbd',

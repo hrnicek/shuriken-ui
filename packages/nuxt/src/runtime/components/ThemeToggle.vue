@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import type { BaseThemeToggleProps } from '../types';
-import { BaseThemeToggle as theme } from '@shuriken-ui/theme-iga';
+import type { BaseThemeToggleProps } from '../types'
+import { useColorMode } from '#imports'
+import { BaseThemeToggle as theme } from '@shuriken-ui/theme-iga'
 import { useMounted } from '@vueuse/core'
 import { computed } from 'vue'
-import { useColorMode } from '#imports'
 
-import { useNuiId } from '../composables/useNuiId';
-import { useNuiConfig } from '../composables/useNuiConfig';
+import { useNuiConfig } from '../composables/useNuiConfig'
+import { useNuiId } from '../composables/useNuiId'
 
 const props = withDefaults(defineProps<BaseThemeToggleProps>(), {
   id: undefined,
@@ -48,9 +48,9 @@ const isDark = computed({
 </script>
 
 <template>
-  <SwitchRoot 
-    :id 
-    v-model="isDark" 
+  <SwitchRoot
+    :id
+    v-model="isDark"
     class="focus-visible:nui-focus relative block shrink-0 overflow-hidden rounded-full size-9 focus-visible:outline-2 ring-2 ring-transparent ring-offset-muted-200 dark:ring-offset-muted-900 transition-all duration-300"
   >
     <SwitchThumb

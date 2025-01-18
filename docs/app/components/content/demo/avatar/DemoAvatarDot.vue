@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-wrap items-end gap-4 p-4">
-    <BaseChip 
-      placement="top-end" 
-      :offset="0" 
-      color="custom" 
+    <BaseChip
+      placement="top-end"
+      :offset="0"
+      color="custom"
       class="text-yellow-400"
     >
       <BaseAvatar
@@ -13,10 +13,10 @@
         dot="yellow"
       />
     </BaseChip>
-    <BaseChip 
-      placement="top-end" 
-      :offset="0" 
-      color="custom" 
+    <BaseChip
+      placement="top-end"
+      :offset="0"
+      color="custom"
       class="text-green-500"
     >
       <BaseAvatar
@@ -26,8 +26,8 @@
         dot="success"
       />
     </BaseChip>
-    <BaseChip 
-      placement="top-end" 
+    <BaseChip
+      placement="top-end"
     >
       <BaseAvatar
         src="/img/people/29.jpg"
@@ -36,10 +36,10 @@
         dot="info"
       />
     </BaseChip>
-    <BaseChip 
-      placement="top-end" 
-      :offset="1" 
-      color="custom" 
+    <BaseChip
+      placement="top-end"
+      :offset="1"
+      color="custom"
       class="text-pink-300"
     >
       <BaseAvatar
@@ -49,10 +49,10 @@
         dot="warning"
       />
     </BaseChip>
-    <BaseChip 
-      placement="top-end" 
-      :offset="4" 
-      color="custom" 
+    <BaseChip
+      placement="top-end"
+      :offset="4"
+      color="custom"
       class="text-sky-400"
     >
       <BaseAvatar

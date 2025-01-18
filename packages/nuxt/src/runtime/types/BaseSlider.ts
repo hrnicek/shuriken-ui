@@ -1,4 +1,4 @@
-import type { SliderRootProps, SliderRootEmits } from 'reka-ui'
+import type { SliderRootEmits, SliderRootProps } from 'reka-ui'
 
 export interface BaseSliderProps extends SliderRootProps {
   variant?: 'default' | 'primary' | 'dark' | 'none'
@@ -17,10 +17,10 @@ export interface BaseSliderProps extends SliderRootProps {
 
 export interface BaseSliderEmits extends SliderRootEmits {}
 
-export type BaseSliderSlots = {
-  default(props: { value: number }): any
+export interface BaseSliderSlots {
+  default: (props: { value: number }) => any
 }
 
-export type BaseSliderConfig = {
+export interface BaseSliderConfig {
   variant: NonNullable<BaseSliderProps['variant']>
 }

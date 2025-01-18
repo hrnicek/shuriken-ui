@@ -1,18 +1,19 @@
 <script setup lang="ts">
-import type { BaseSelectItemProps, BaseSelectItemSlots } from '../types';
-import { BaseSelectItem as theme } from '@shuriken-ui/theme-iga';
+import type { BaseSelectItemProps, BaseSelectItemSlots } from '../types'
+import { BaseSelectItem as theme } from '@shuriken-ui/theme-iga'
 import { useForwardProps } from 'reka-ui'
+import { useNuiConfig } from '../composables/useNuiConfig'
+
 import { injectBaseSelectContext } from './Select.vue'
-
-import { useNuiConfig } from '../composables/useNuiConfig';
-
-const context = injectBaseSelectContext()
 
 const props = withDefaults(defineProps<BaseSelectItemProps>(), {
   textValue: undefined,
   value: undefined,
 })
+
 const slots = defineSlots<BaseSelectItemSlots>()
+
+const context = injectBaseSelectContext()
 
 const iconCheck = useNuiConfig('icon', 'check')
 const forward = useForwardProps(props)

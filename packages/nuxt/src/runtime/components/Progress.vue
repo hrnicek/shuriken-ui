@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { BaseProgressEmits, BaseProgressProps, BaseProgressSlots } from '../types';
-import { BaseProgress as theme } from '@shuriken-ui/theme-iga';
-import { useForwardPropsEmits } from 'reka-ui'
+import type { BaseProgressEmits, BaseProgressProps, BaseProgressSlots } from '../types'
+import { BaseProgress as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
+import { useForwardPropsEmits } from 'reka-ui'
 
 const props = withDefaults(defineProps<BaseProgressProps>(), {
   size: theme.defaults.size,
@@ -21,8 +21,8 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['variant', 'rounded', 
 
 <template>
   <ProgressRoot
-    v-bind="forward"
     v-slot="{ modelValue }"
+    v-bind="forward"
     class="relative w-full overflow-hidden"
     :class="[
       props.size && theme.sizes[props.size],

@@ -25,6 +25,6 @@ export interface BaseTabsTriggerProps extends TabsTriggerProps {
    */
   type?: 'tabs' | 'box'
 }
-export type BaseTabsTriggerSlots = {
-  default(): any
+export interface BaseTabsTriggerSlots {
+  default: () => any
 }

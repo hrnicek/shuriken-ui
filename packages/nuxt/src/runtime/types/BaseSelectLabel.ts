@@ -6,6 +6,6 @@ export interface BaseSelectLabelProps extends SelectLabelProps {
    */
   label?: string
 }
-export type BaseSelectLabelSlots = {
-  default(): any
+export interface BaseSelectLabelSlots {
+  default: () => any
 }

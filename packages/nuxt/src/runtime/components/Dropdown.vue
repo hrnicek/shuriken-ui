@@ -1,7 +1,11 @@
 <script lang="ts">
-import type { BaseDropdownContext } from '../types';
-import { createContext } from 'reka-ui'
-import { tm } from '../utils/tw-merge';
+import type { BaseDropdownContext, BaseDropdownEmits, BaseDropdownProps, BaseDropdownSlots } from '../types'
+import { BaseDropdown as theme } from '@shuriken-ui/theme-iga'
+import { reactiveOmit } from '@vueuse/core'
+import { createContext, useForwardPropsEmits } from 'reka-ui'
+import { useAttrs } from 'vue'
+import { useNuiConfig } from '../composables/useNuiConfig'
+import { tm } from '../utils/tw-merge'
 
 export const [
   injectBaseDropdownContext,
@@ -10,13 +14,6 @@ export const [
 </script>
 
 <script setup lang="ts">
-import type { BaseDropdownProps, BaseDropdownEmits, BaseDropdownSlots } from '../types';
-import { BaseDropdown as theme } from '@shuriken-ui/theme-iga';
-import { reactiveOmit } from '@vueuse/core'
-import { useForwardPropsEmits } from 'reka-ui'
-import { useNuiConfig } from '../composables/useNuiConfig';
-import { useAttrs } from 'vue'
-
 defineOptions({
   inheritAttrs: false,
 })
@@ -49,7 +46,7 @@ provideBaseDropdownContext({
 
 <template>
   <DropdownMenuRoot v-bind="forward">
-    <DropdownMenuTrigger 
+    <DropdownMenuTrigger
       v-bind="{
         asChild: true,
         disabled: props.disabled,

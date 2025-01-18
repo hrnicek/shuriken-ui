@@ -15,7 +15,7 @@ export interface BaseThemeSwitchProps {
   variant?: 'default'
 }
 
-export type BaseThemeSwitchConfig = {
+export interface BaseThemeSwitchConfig {
   variant: NonNullable<BaseThemeSwitchProps['variant']>
   transitions: NonNullable<BaseThemeSwitchProps['transitions']>
 }

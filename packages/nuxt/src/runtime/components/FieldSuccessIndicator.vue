@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { BaseFieldSuccessIndicator } from '../types';
-import { useForwardProps } from 'reka-ui'
+import type { BaseFieldSuccessIndicator } from '../types'
 import { reactiveOmit } from '@vueuse/core'
+import { useForwardProps } from 'reka-ui'
 
-import { useNuiConfig } from '../composables/useNuiConfig';
+import { useNuiConfig } from '../composables/useNuiConfig'
 
 import { injectBaseFieldContext } from './Field.vue'
 
@@ -18,7 +18,7 @@ const { state } = injectBaseFieldContext()
 </script>
 
 <template>
-  <Primitive v-bind="forward" v-if="state === 'success'" class="pointer-events-none text-success-base dark:text-success-light">
+  <Primitive v-if="state === 'success'" v-bind="forward" class="pointer-events-none text-success-base dark:text-success-light">
     <slot>
       <Icon :name="iconCheck" class="size-4" />
     </slot>

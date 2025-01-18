@@ -1,9 +1,9 @@
-import type { 
-  DropdownMenuSubProps,
-  DropdownMenuSubEmits,
-  DropdownMenuSubTriggerProps,
-  DropdownMenuSubContentProps,
+import type {
   DropdownMenuPortalProps,
+  DropdownMenuSubContentProps,
+  DropdownMenuSubEmits,
+  DropdownMenuSubProps,
+  DropdownMenuSubTriggerProps,
 } from 'reka-ui'
 
 import type { BaseDropdownProps } from './BaseDropdown'
@@ -39,8 +39,8 @@ export interface BaseDropdownSubProps extends DropdownMenuSubProps {
   }
 }
 export interface BaseDropdownSubEmits extends DropdownMenuSubEmits {}
-export type BaseDropdownSubSlots = {
-  default(): any
-  title(): any
-  text(): any
+export interface BaseDropdownSubSlots {
+  default: () => any
+  title: () => any
+  text: () => any
 }

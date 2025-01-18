@@ -1,7 +1,7 @@
-import type { 
-  AccordionItemProps,
-  AccordionHeaderProps,
+import type {
   AccordionContentProps,
+  AccordionHeaderProps,
+  AccordionItemProps,
   AccordionTriggerProps,
 } from 'reka-ui'
 
@@ -24,7 +24,7 @@ export interface BaseAccordionItemProps extends AccordionItemProps {
    * Defines the icon used for accordion item toggle action
    */
   action?: 'dot' | 'chevron' | 'plus'
-  
+
   /**
    * Optional bindings to pass to the inner components.
    */
@@ -44,8 +44,8 @@ export interface BaseAccordionItemProps extends AccordionItemProps {
   }
 }
 
-export type BaseAccordionItemSlots = {
-  default(): any
-  title(): any
-  action(): any
+export interface BaseAccordionItemSlots {
+  default: () => any
+  title: () => any
+  action: () => any
 }

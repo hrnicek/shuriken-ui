@@ -1,6 +1,6 @@
 import type {
-  NumberFieldRootProps,
   NumberFieldRootEmits,
+  NumberFieldRootProps,
 } from 'reka-ui'
 
 export interface BaseInputNumberProps extends NumberFieldRootProps {
@@ -45,9 +45,9 @@ export interface BaseInputNumberProps extends NumberFieldRootProps {
   }
 }
 export interface BaseInputNumberEmits extends NumberFieldRootEmits {}
-export type BaseInputNumberSlots = {}
+export interface BaseInputNumberSlots {}
 
-export type BaseInputNumberConfig = {
+export interface BaseInputNumberConfig {
   variant: NonNullable<BaseInputNumberProps['variant']>
   rounded: NonNullable<BaseInputNumberProps['rounded']>
   size: NonNullable<BaseInputNumberProps['size']>

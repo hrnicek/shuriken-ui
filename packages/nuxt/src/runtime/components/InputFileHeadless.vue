@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { Ref } from 'vue'
-import { ref, provide, reactive } from 'vue'
-import { useNuiId } from '../composables/useNuiId';
-import { useNuiFilePreview } from '../composables/useNuiFilePreview';
+import { provide, reactive, ref } from 'vue'
+import { useNuiFilePreview } from '../composables/useNuiFilePreview'
+import { useNuiId } from '../composables/useNuiId'
 
 defineOptions({
   inheritAttrs: false,

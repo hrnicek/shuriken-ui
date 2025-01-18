@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { BaseSwitchThinEmits, BaseSwitchThinProps, BaseSwitchThinSlots } from '../types';
-import { BaseSwitchThin as theme } from '@shuriken-ui/theme-iga';
+import type { BaseSwitchThinEmits, BaseSwitchThinProps, BaseSwitchThinSlots } from '../types'
+import { BaseSwitchThin as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
 import { useAttrs } from 'vue'
-import { useNuiId } from '../composables/useNuiId';
-import { tm } from '../utils/tw-merge';
+import { useNuiId } from '../composables/useNuiId'
+import { tm } from '../utils/tw-merge'
 
 defineOptions({
   inheritAttrs: false,
@@ -38,13 +38,13 @@ const { forwardRef } = useForwardExpose()
   <span
     :class="tm([
       'flex cursor-pointer items-center',
-      props.classes.root
+      props.classes.root,
     ])"
   >
     <SwitchRoot
       :id
       :ref="forwardRef"
-      v-bind="{...attrs, ...forward }"
+      v-bind="{ ...attrs, ...forward }"
       class="focus:nui-focus relative block h-4 rounded-full cursor-pointer"
     >
       <SwitchThumb
@@ -67,7 +67,7 @@ const { forwardRef } = useForwardExpose()
       :for="id"
       :class="tm([
         'ms-3 select-none',
-        props.classes.label
+        props.classes.label,
       ])"
     >
       <span class="block cursor-pointer font-sans text-sm text-muted-600 dark:text-white">
@@ -77,12 +77,12 @@ const { forwardRef } = useForwardExpose()
         <slot name="sublabel">{{ props.sublabel }}</slot>
       </span>
     </Label>
-    <Label 
+    <Label
       v-else
       :for="id"
       :class="tm([
         'relative ms-3 cursor-pointer select-none font-sans text-sm text-muted-600 dark:text-white',
-        props.classes.label
+        props.classes.label,
       ])"
     >
       <slot>{{ props.label }}</slot>

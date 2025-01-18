@@ -18,11 +18,11 @@ export interface BaseChipProps {
   pulse?: boolean
 }
 
-export type BaseChipSlots = {
-  default(): any
+export interface BaseChipSlots {
+  default: () => any
 }
 
-export type BaseChipConfig = {
+export interface BaseChipConfig {
   color: NonNullable<BaseChipProps['color']>
   position: NonNullable<BaseChipProps['position']>
   placement: NonNullable<BaseChipProps['placement']>

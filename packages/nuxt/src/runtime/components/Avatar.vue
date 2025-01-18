@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { BaseAvatarProps, BaseAvatarSlots } from '../types'
 import { BaseAvatar as theme } from '@shuriken-ui/theme-iga'
-import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
+import { useForwardProps } from 'reka-ui'
 import { computed } from 'vue'
 import { tm } from '../utils/tw-merge'
 

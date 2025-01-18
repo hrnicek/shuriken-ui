@@ -56,7 +56,7 @@ export interface BaseInputFileProps {
     placeholder?: string | string[]
   }
 }
-export type BaseInputFileConfig = {
+export interface BaseInputFileConfig {
   variant: NonNullable<BaseInputFileProps['variant']>
   rounded: NonNullable<BaseInputFileProps['rounded']>
   size: NonNullable<BaseInputFileProps['size']>

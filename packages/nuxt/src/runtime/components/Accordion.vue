@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { BaseAccordionProps, BaseAccordionEmits, BaseAccordionSlots } from '../types'
-import { useForwardPropsEmits } from 'reka-ui'
+import type { BaseAccordionEmits, BaseAccordionProps, BaseAccordionSlots } from '../types'
 import { reactiveOmit } from '@vueuse/core'
+import { useForwardPropsEmits } from 'reka-ui'
 
 const props = withDefaults(defineProps<BaseAccordionProps>(), {
   action: undefined,
@@ -17,8 +17,9 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['items', 'variant', 'a
   <AccordionRoot v-bind="forward">
     <slot>
       <BaseAccordionItem
-        v-for="item in props.items"
+        v-for="(item, key) in props.items"
         v-bind="item"
+        :key
         :variant
         :action
       />

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { BasePagination as theme } from '@shuriken-ui/theme-iga'
+import { useNuiConfig } from '../composables/useNuiConfig'
 import { injectBasePaginationContext } from './Pagination.vue'
-import { useNuiConfig } from '../composables/useNuiConfig';
 
 const props = defineProps<{
   items: any[]

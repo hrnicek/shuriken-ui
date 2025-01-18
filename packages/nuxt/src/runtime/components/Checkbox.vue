@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import type { BaseCheckboxProps, BaseCheckboxEmits, BaseCheckboxSlots } from '../types';
-import { BaseCheckbox as theme } from '@shuriken-ui/theme-iga';
-import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
+import type { BaseCheckboxEmits, BaseCheckboxProps, BaseCheckboxSlots } from '../types'
+import { BaseCheckbox as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
+import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
 import { useAttrs } from 'vue'
 
+import { useNuiConfig } from '../composables/useNuiConfig'
+import { useNuiId } from '../composables/useNuiId'
 import { tm } from '../utils/tw-merge'
-import { useNuiId } from '../composables/useNuiId';
-import { useNuiConfig } from '../composables/useNuiConfig';
 
 defineOptions({
   inheritAttrs: false,
@@ -87,7 +87,7 @@ const { forwardRef } = useForwardExpose()
         :for="id"
         :class="tm([
           'font-sans text-sm ms-1 cursor-pointer select-none text-muted-600 dark:text-muted-400',
-          props.classes.label
+          props.classes.label,
         ])"
       >
         <slot>{{ props.label }}</slot>

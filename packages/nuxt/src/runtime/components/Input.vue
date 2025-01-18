@@ -3,7 +3,7 @@ import type { Directive } from 'vue'
 import type { BaseInputProps } from '../types'
 import { BaseInput as theme } from '@shuriken-ui/theme-iga'
 
-import { useNuiId } from '../composables/useNuiId';
+import { useNuiId } from '../composables/useNuiId'
 
 const props = withDefaults(defineProps<BaseInputProps>(), {
   id: undefined,
@@ -32,14 +32,16 @@ function updateFromTarget(target: HTMLInputElement) {
 
   if (modelModifiers.number) {
     modelValue.value = looseToNumber(value)
-  } else if (modelModifiers.trim && typeof value === 'string') {
+  }
+  else if (modelModifiers.trim && typeof value === 'string') {
     modelValue.value = value.trim()
-  } else {
+  }
+  else {
     modelValue.value = value
   }
 }
 
-// Update input internal value without updating the DOM to improve performance 
+// Update input internal value without updating the DOM to improve performance
 const vModelInput: Directive = {
   created(el) {
     el.addEventListener(modelModifiers.lazy ? 'change' : 'input', (event: InputEvent) => {

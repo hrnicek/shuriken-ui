@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import type { BaseDropdownLabelProps, BaseDropdownLabelSlots } from '../types';
-import { useForwardProps } from 'reka-ui';
+import type { BaseDropdownLabelProps, BaseDropdownLabelSlots } from '../types'
 import { reactiveOmit } from '@vueuse/core'
+import { useForwardProps } from 'reka-ui'
 
 const props = withDefaults(defineProps<BaseDropdownLabelProps>(), {
   label: '',
 })
 const slots = defineSlots<BaseDropdownLabelSlots>()
 
-const forward = useForwardProps(reactiveOmit(props, ['label']));
+const forward = useForwardProps(reactiveOmit(props, ['label']))
 </script>
 
 <template>

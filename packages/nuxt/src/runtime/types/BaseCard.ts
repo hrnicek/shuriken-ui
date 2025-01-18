@@ -1,4 +1,4 @@
-import type { PrimitiveProps } from 'reka-ui';
+import type { PrimitiveProps } from 'reka-ui'
 
 export interface BaseCardProps extends PrimitiveProps {
 
@@ -13,11 +13,11 @@ export interface BaseCardProps extends PrimitiveProps {
   rounded?: 'none' | 'sm' | 'md' | 'lg'
 }
 
-export type BaseCardSlots = {
-  default(): any
+export interface BaseCardSlots {
+  default: () => any
 }
 
-export type BaseCardConfig = {
+export interface BaseCardConfig {
   variant: NonNullable<BaseCardProps['variant']>
   rounded: NonNullable<BaseCardProps['rounded']>
 }

@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import type { BaseFullscreenDropfileProps, BaseFullscreenDropfileEmits, BaseFullscreenDropfileSlots } from '../types'
+import type { BaseFullscreenDropfileEmits, BaseFullscreenDropfileProps, BaseFullscreenDropfileSlots } from '../types'
 import { BaseFullscreenDropfile as theme } from '@shuriken-ui/theme-iga'
-import { useAttrs, ref, onMounted, onBeforeUnmount } from 'vue'
+import { onBeforeUnmount, onMounted, ref, useAttrs } from 'vue'
 
-import { useNuiId } from '../composables/useNuiId';
-
+import { useNuiId } from '../composables/useNuiId'
 
 const props = withDefaults(defineProps<BaseFullscreenDropfileProps>(), {
   label: 'Drop your files',
@@ -17,10 +16,9 @@ const props = withDefaults(defineProps<BaseFullscreenDropfileProps>(), {
   filterFileDropped: () => true,
 })
 
-const attrs = useAttrs()
 const emits = defineEmits<BaseFullscreenDropfileEmits>()
 const slots = defineSlots<BaseFullscreenDropfileSlots>()
-
+const attrs = useAttrs()
 const [modelValue] = defineModel<FileList | null>()
 
 const id = useNuiId(() => props.id)
@@ -33,7 +31,8 @@ const isDropping = ref(false)
 // we need to keep track of how deep the drag is because it raises on each child elements
 let dragCount = 0
 function onDragenter() {
-  if (props.disabled) return
+  if (props.disabled)
+    return
 
   dragCount += 1
   if (dragCount === 1) {
@@ -56,7 +55,8 @@ function onDrop(event: DragEvent) {
   isDropping.value = false
   dragCount = 0
 
-  if (props.disabled) return
+  if (props.disabled)
+    return
   if (!event.dataTransfer) {
     return
   }
@@ -140,20 +140,20 @@ function handleFileChange(event: Event) {
     :multiple="props.multiple"
     :disabled="props.disabled"
     @change="handleFileChange"
-  />
+  >
   <Teleport to="body">
-    <div 
-      v-if="isDropping" 
-      class=" fixed inset-0 z-40 backdrop-blur-xs transition-all hover:backdrop-blur-none" 
+    <div
+      v-if="isDropping"
+      class=" fixed inset-0 z-40 backdrop-blur-xs transition-all hover:backdrop-blur-none"
       :class="theme.overlayVariants[props.variant]"
     />
     <div v-if="isDropping" class="fixed inset-0 z-50 starting:opacity-0 transition-discrete transition-opacity duration-300">
       <div class="flex h-full flex-1 items-center justify-center">
         <slot>
-          <div 
+          <div
             class="h-[230px] w-[500px] mx-auto flex flex-col items-center justify-center gap-6 drop-shadow-xs rounded-md"
             :class="theme.dropVariants[props.variant]"
-          > 
+          >
             <Icon
               v-if="props.icon"
               :name="props.icon"
