@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { BaseCardProps, BaseCardSlots } from '../types'
-import { BaseCard as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardProps } from 'reka-ui'
+import { BaseCard as theme } from '../theme'
 import { tm } from '../utils/tw-merge'
 
 const props = withDefaults(defineProps<BaseCardProps>(), {

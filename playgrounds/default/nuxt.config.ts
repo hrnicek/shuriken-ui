@@ -9,10 +9,6 @@ export default defineNuxtConfig({
   ],
   css: ['~/assets/tailwind.css'],
 
-  nui: {
-    theme: '@shuriken-ui/theme-iga',
-  },
-
   vite: {
     build: {
       cssMinify: false,

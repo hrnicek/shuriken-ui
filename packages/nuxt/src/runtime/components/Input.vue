@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { Directive } from 'vue'
 import type { BaseInputProps } from '../types'
-import { BaseInput as theme } from '@shuriken-ui/theme-iga'
-
 import { useNuiId } from '../composables/useNuiId'
+
+import { BaseInput as theme } from '../theme'
 
 const props = withDefaults(defineProps<BaseInputProps>(), {
   id: undefined,

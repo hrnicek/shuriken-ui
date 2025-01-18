@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { BaseSliderEmits, BaseSliderProps, BaseSliderSlots } from '../types'
-import { BaseSlider as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
 import { useAttrs } from 'vue'
+import { BaseSlider as theme } from '../theme'
 import { tm } from '../utils/tw-merge'
 
 defineOptions({

@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import type { BaseCheckboxEmits, BaseCheckboxProps, BaseCheckboxSlots } from '../types'
-import { BaseCheckbox as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
 import { useAttrs } from 'vue'
-
 import { useNuiConfig } from '../composables/useNuiConfig'
+
 import { useNuiId } from '../composables/useNuiId'
+import { BaseCheckbox as theme } from '../theme'
 import { tm } from '../utils/tw-merge'
 
 defineOptions({

@@ -1,12 +1,12 @@
 <script lang="ts">
 import type { AcceptableValue } from 'reka-ui'
 import type { BaseAutocompleteContext, BaseAutocompleteEmits, BaseAutocompleteProps, BaseAutocompleteSlots } from '../types'
-import { BaseAutocomplete as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit, useVModel } from '@vueuse/core'
 import { defu } from 'defu'
 import { createContext, useForwardExpose, useForwardPropsEmits } from 'reka-ui'
 import { computed, useAttrs } from 'vue'
 import { useNuiConfig } from '../composables/useNuiConfig'
+import { BaseAutocomplete as theme } from '../theme'
 import { tm } from '../utils/tw-merge'
 
 export const [

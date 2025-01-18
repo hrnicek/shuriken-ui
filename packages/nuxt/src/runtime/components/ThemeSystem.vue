@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import type { BaseThemeSystemProps } from '../types'
 import { useColorMode } from '#imports'
-import { BaseThemeSystem as theme } from '@shuriken-ui/theme-iga'
 import { useMounted } from '@vueuse/core'
 import { computed } from 'vue'
 import { useNuiConfig } from '../composables/useNuiConfig'
+import { BaseThemeSystem as theme } from '../theme'
 
 const props = withDefaults(defineProps<BaseThemeSystemProps>(), {
   id: undefined,

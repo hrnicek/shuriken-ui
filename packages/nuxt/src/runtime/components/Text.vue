@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { BaseTextProps, BaseTextSlots } from '../types'
-import { BaseText as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardProps } from 'reka-ui'
+import { BaseText as theme } from '../theme'
 
 const props = withDefaults(defineProps<BaseTextProps>(), {
   as: 'span',

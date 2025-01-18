@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { BaseAutocompleteItemEmits, BaseAutocompleteItemProps, BaseAutocompleteItemSlots } from '../types'
-import { BaseAutocompleteItem as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardPropsEmits } from 'reka-ui'
 import { useNuiConfig } from '../composables/useNuiConfig'
+import { BaseAutocompleteItem as theme } from '../theme'
 import { injectBaseAutocompleteContext } from './Autocomplete.vue'
 
 const props = withDefaults(defineProps<BaseAutocompleteItemProps>(), {

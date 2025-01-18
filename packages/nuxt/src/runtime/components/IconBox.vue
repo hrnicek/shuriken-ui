@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { BaseIconBoxProps, BaseIconBoxSlots } from '../types'
-import { BaseIconBox as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardProps } from 'reka-ui'
+import { BaseIconBox as theme } from '../theme'
 
 const props = withDefaults(defineProps<BaseIconBoxProps>(), {
   mask: undefined,

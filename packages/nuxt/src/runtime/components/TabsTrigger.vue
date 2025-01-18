@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { BaseTabsTriggerProps, BaseTabsTriggerSlots } from '../types'
-import { BaseTabsTrigger as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardProps } from 'reka-ui'
+import { BaseTabsTrigger as theme } from '../theme'
 import { injectBaseTabsContext } from './Tabs.vue'
 
 const props = withDefaults(defineProps<BaseTabsTriggerProps>(), {

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import type { BaseAvatarGroupProps, BaseAvatarGroupSlots } from '../types'
-import { BaseAvatarGroup as theme } from '@shuriken-ui/theme-iga'
-
 import { reactiveOmit } from '@vueuse/core'
+
 import { useForwardProps } from 'reka-ui'
 import { computed } from 'vue'
+import { BaseAvatarGroup as theme } from '../theme'
 
 const props = withDefaults(defineProps<BaseAvatarGroupProps>(), {
   limit: theme.defaults.limit,

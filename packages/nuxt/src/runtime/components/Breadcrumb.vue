@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { BaseBreadcrumbProps, BaseBreadcrumbSlots } from '../types'
 import { useRoute, useRouter } from '#imports'
-import { BaseBreadcrumb as theme } from '@shuriken-ui/theme-iga'
 import { computed } from 'vue'
+import { BaseBreadcrumb as theme } from '../theme'
 
 const props = withDefaults(defineProps<BaseBreadcrumbProps>(), {
   items: undefined,

@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import type { BaseRadioEmits, BaseRadioProps, BaseRadioSlots } from '../types'
-import { BaseRadio as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardPropsEmits } from 'reka-ui'
 import { useAttrs } from 'vue'
-
 import { useNuiId } from '../composables/useNuiId'
+
+import { BaseRadio as theme } from '../theme'
 import { tm } from '../utils/tw-merge'
 
 defineOptions({

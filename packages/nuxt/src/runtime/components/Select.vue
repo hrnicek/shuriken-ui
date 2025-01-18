@@ -1,14 +1,14 @@
 <script lang="ts">
 import type { AcceptableValue } from 'reka-ui'
 import type { BaseSelectContext, BaseSelectEmits, BaseSelectProps, BaseSelectSlots } from '../types'
-import { BaseSelect as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
 import { defu } from 'defu'
 import { createContext, useForwardExpose, useForwardPropsEmits } from 'reka-ui'
 import { computed, useAttrs } from 'vue'
-
 import { useNuiConfig } from '../composables/useNuiConfig'
+
 import { useNuiId } from '../composables/useNuiId'
+import { BaseSelect as theme } from '../theme'
 import { tm } from '../utils/tw-merge'
 
 export const [

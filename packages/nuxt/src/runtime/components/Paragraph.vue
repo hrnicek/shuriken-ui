@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { BaseParagraphProps, BaseParagraphSlots } from '../types'
-import { BaseParagraph as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardProps } from 'reka-ui'
+import { BaseParagraph as theme } from '../theme'
 
 const props = withDefaults(defineProps<BaseParagraphProps>(), {
   as: theme.defaults.as,

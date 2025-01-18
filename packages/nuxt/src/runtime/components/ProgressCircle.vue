@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { BaseProgressCircleEmits, BaseProgressCircleProps, BaseProgressCircleSlots } from '../types'
-import { BaseProgressCircle as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardPropsEmits } from 'reka-ui'
+import { BaseProgressCircle as theme } from '../theme'
 
 const props = withDefaults(defineProps<BaseProgressCircleProps>(), {
   size: 60,

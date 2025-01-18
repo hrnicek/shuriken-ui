@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { BaseInputFileProps } from '../types'
-import { BaseInputFile as theme } from '@shuriken-ui/theme-iga'
 import { computed, useAttrs, useTemplateRef } from 'vue'
-
 import { useNuiId } from '../composables/useNuiId'
+
+import { BaseInputFile as theme } from '../theme'
 import { tm } from '../utils/tw-merge'
 
 defineOptions({

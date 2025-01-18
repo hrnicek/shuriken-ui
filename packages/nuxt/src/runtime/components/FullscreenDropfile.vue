@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { BaseFullscreenDropfileEmits, BaseFullscreenDropfileProps, BaseFullscreenDropfileSlots } from '../types'
-import { BaseFullscreenDropfile as theme } from '@shuriken-ui/theme-iga'
 import { onBeforeUnmount, onMounted, ref, useAttrs } from 'vue'
-
 import { useNuiId } from '../composables/useNuiId'
+
+import { BaseFullscreenDropfile as theme } from '../theme'
 
 const props = withDefaults(defineProps<BaseFullscreenDropfileProps>(), {
   label: 'Drop your files',

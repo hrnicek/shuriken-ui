@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { BasePlaceholderPageProps, BasePlaceholderPageSlots } from '../types'
-import { BasePlaceholderPage as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardProps } from 'reka-ui'
+import { BasePlaceholderPage as theme } from '../theme'
 
 const props = withDefaults(defineProps<BasePlaceholderPageProps>(), {
   subtitle: undefined,

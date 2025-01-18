@@ -1,10 +1,10 @@
 <script lang="ts">
 import type { BaseDropdownContext, BaseDropdownEmits, BaseDropdownProps, BaseDropdownSlots } from '../types'
-import { BaseDropdown as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
 import { createContext, useForwardPropsEmits } from 'reka-ui'
 import { useAttrs } from 'vue'
 import { useNuiConfig } from '../composables/useNuiConfig'
+import { BaseDropdown as theme } from '../theme'
 import { tm } from '../utils/tw-merge'
 
 export const [

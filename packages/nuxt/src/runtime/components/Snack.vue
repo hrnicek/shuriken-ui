@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import type { BaseSnackEmits, BaseSnackProps, BaseSnackSlots } from '../types'
-import { BaseSnack as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardProps } from 'reka-ui'
-
 import { useNuiConfig } from '../composables/useNuiConfig'
+
+import { BaseSnack as theme } from '../theme'
 
 const props = withDefaults(defineProps<BaseSnackProps>(), {
   label: '',

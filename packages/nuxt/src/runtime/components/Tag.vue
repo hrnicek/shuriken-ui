@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { BaseTagProps, BaseTagSlots } from '../types'
-import { BaseTag as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardProps } from 'reka-ui'
+import { BaseTag as theme } from '../theme'
 
 const props = withDefaults(defineProps<BaseTagProps>(), {
   as: 'span',

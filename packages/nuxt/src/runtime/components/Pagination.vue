@@ -1,9 +1,9 @@
 <script lang="ts">
 import type { BasePaginationContext, BasePaginationEmits, BasePaginationProps, BasePaginationSlots } from '../types'
-import { BasePagination as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
 import { createContext, useForwardPropsEmits } from 'reka-ui'
 import { useAttrs } from 'vue'
+import { BasePagination as theme } from '../theme'
 
 export const [
   injectBasePaginationContext,

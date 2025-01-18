@@ -1,8 +1,8 @@
 <script lang="ts">
 import type { BaseTabsContext, BaseTabsEmits, BaseTabsProps, BaseTabsSlots } from '../types'
-import { BaseTabs as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
 import { createContext, useForwardPropsEmits } from 'reka-ui'
+import { BaseTabs as theme } from '../theme'
 
 export const [
   injectBaseTabsContext,

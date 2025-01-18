@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { BaseProseProps, BaseProseSlots } from '../types'
-import { BaseProse as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardProps } from 'reka-ui'
+import { BaseProse as theme } from '../theme'
 
 const props = withDefaults(defineProps<BaseProseProps>(), {
   rounded: theme.defaults.rounded,

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { Directive } from 'vue'
 import type { BaseTextareaProps } from '../types'
-import { BaseTextarea as theme } from '@shuriken-ui/theme-iga'
 import { useNuiId } from '../composables/useNuiId'
+import { BaseTextarea as theme } from '../theme'
 
 const props = withDefaults(defineProps<BaseTextareaProps>(), {
   id: undefined,

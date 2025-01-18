@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { BaseHeadingProps, BaseHeadingSlots } from '../types'
-import { BaseHeading as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardProps } from 'reka-ui'
+import { BaseHeading as theme } from '../theme'
 
 const props = withDefaults(defineProps<BaseHeadingProps>(), {
   as: undefined,

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { BaseAccordionItemProps, BaseAccordionItemSlots } from '../types'
-import { BaseAccordion as theme } from '@shuriken-ui/theme-iga'
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardProps } from 'reka-ui'
 import { useNuiConfig } from '../composables/useNuiConfig'
+import { BaseAccordion as theme } from '../theme'
 import { tm } from '../utils/tw-merge'
 
 const props = withDefaults(defineProps<BaseAccordionItemProps>(), {

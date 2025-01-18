@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import type { BaseThemeSwitchProps } from '../types'
 import { useColorMode } from '#imports'
-import { BaseThemeSwitch as theme } from '@shuriken-ui/theme-iga'
 import { useMounted } from '@vueuse/core'
 import { computed } from 'vue'
 import { useNuiConfig } from '../composables/useNuiConfig'
 import { useNuiId } from '../composables/useNuiId'
+import { BaseThemeSwitch as theme } from '../theme'
 
 const props = withDefaults(defineProps<BaseThemeSwitchProps>(), {
   id: undefined,
