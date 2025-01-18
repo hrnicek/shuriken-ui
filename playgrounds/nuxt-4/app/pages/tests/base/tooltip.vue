@@ -209,16 +209,16 @@ function onSubmit() {
             </template>
           </BasePopover>
 
-          <BasePopover>
+          <BasePopover :classes="{ content: 'focus-within:nui-focus dark:bg-muted-900' }">
             <button type="button" tabindex="0" class="focus-visible:nui-focus cursor-pointer rounded-full">
               <BaseAvatar class="bg-muted-100 dark:bg-muted-800">
-                ?
+                <Icon name="ph:user" class="text-muted-600 dark:text-muted-400" />
               </BaseAvatar>
             </button>
 
             <template #content>
               <div class="pe-2 space-y-2 w-[180px]">
-                <BaseInputFile size="sm" :classes="{ root: 'border-0' }" />
+                <BaseInputFile size="sm" :classes="{ root: 'border-0 [--color-ring:transparent]' }" />
               </div>
             </template>
           </BasePopover>

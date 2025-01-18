@@ -12,6 +12,9 @@ export interface BasePopoverProps extends PopoverRootProps {
   variant?: 'default' | 'muted' /*| 'dark' | 'primary'*/ | 'none'
   rounded?: 'sm' | 'md' | 'lg' | 'full' | 'none'
   content?: string
+  classes?: {
+    content?: string | string[]
+  }
   bindings?: {
     trigger?: PopoverTriggerProps
     portal?: PopoverPortalProps
@@ -50,17 +53,19 @@ export const arrowVariants = {
 <script setup lang="ts">
 import { useForwardPropsEmits, useForwardExpose } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
+import { useNuiConfig } from '../composables/useNuiConfig'
+import { tm } from '../utils/tw-merge'
 
 const props = withDefaults(defineProps<BasePopoverProps>(), {
-  delayDuration: 0,
   variant: 'default',
   rounded: 'md',
   bindings: () => ({}),
+  classes: () => ({}),
 })
 const emits = defineEmits<BasePopoverEmits>()
 const iconClose = useNuiConfig('icon', 'close')
 
-const forward = useForwardPropsEmits(reactiveOmit(props, ['content', 'variant', 'rounded', 'bindings']), emits)
+const forward = useForwardPropsEmits(reactiveOmit(props, ['content', 'variant', 'rounded', 'bindings', 'classes']), emits)
 // const { forwardRef } = useForwardExpose()
 </script>
 
@@ -83,11 +88,12 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['content', 'variant', 
           collisionPadding: 20,
           ...(props.bindings.content || {}),
         }"
-        :class="[
-          'pe-6 text-sm will-change-[opacity] duration-200 transition-opacity transition-discrete [state=instant-open]:opacity-100 starting:data-[state=instant-open]:opacity-0 max-w-[var(--reka-popover-content-available-width)] lg:max-w-[25vw] max-h-[var(--reka-popover-content-available-height)] overflow-y-auto nui-slimscroll',
+        :class="tm([
+          'pe-6 text-sm will-change-[opacity] duration-200 transition-opacity transition-discrete [state=open]:opacity-100 starting:data-[state=open]:opacity-0 max-w-[var(--reka-popover-content-available-width)] lg:max-w-[25vw] max-h-[var(--reka-popover-content-available-height)] overflow-y-auto nui-slimscroll',
           props.variant && variants[props.variant],
           props.rounded && radiuses[props.rounded],
-        ]"
+          props.classes.content,
+        ])"
       >
         <slot name="content" v-bind="{ open }">{{ props.content }}</slot>
         <PopoverClose

@@ -27,7 +27,12 @@ const props = withDefaults(defineProps<BaseProviders>(), {
 
 <template>
   <ConfigProvider v-bind="props.config">
-    <TooltipProvider v-bind="props.tooltip">
+    <TooltipProvider
+      v-bind="{
+        delayDuration: 350,
+        ...props.tooltip
+      }"
+    >
       <BaseToastProvider v-bind="props.toast">
         <slot />
       </BaseToastProvider>
