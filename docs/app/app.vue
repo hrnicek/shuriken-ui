@@ -23,7 +23,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <BaseProviders>
+  <BaseProviders :toast="{ max: 3, position: 'top-center' }">
     <NuxtRouteAnnouncer />
     <NuxtLoadingIndicator color="var(--color-nuxt-loading-indicator)" />
     <NuxtLayout>

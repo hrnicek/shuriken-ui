@@ -50,7 +50,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'description'
           </ToastDescription>
         </div>
       </div>
-      <div class="relative min-h-16 h-full flex shrink-0 ps-2 pe-8 pt-4">
+      <div class="relative min-h-16 h-full flex shrink-0 ps-4 pe-8 pt-4">
         <ToastAction v-for="(action, key) in props.actions" :key :alt-text="action.label" as-child>
           <BaseButton size="sm" class="scale-90" v-bind="{ ...action, label: undefined }">
             {{ action.label }}
