@@ -14,13 +14,23 @@ const page = computed({
 <template>
   <div class="p-4">
     <BasePagination
+      v-slot="{ items }"
       v-model:page="page"
       :items-per-page="8"
       :total="512"
       :sibling-count="2"
-      rounded="lg"
-      variant="primary"
-      class="w-full"
-    />
+      size="sm"
+      class="w-full justify-between"
+    >
+      <div class="flex gap-2">
+        <BasePaginationButtonFirst />
+        <BasePaginationButtonPrev />
+      </div>
+      <BasePaginationItems :items />
+      <div class="flex gap-2">
+        <BasePaginationButtonNext />
+        <BasePaginationButtonLast />
+      </div>
+    </BasePagination>
   </div>
 </template>

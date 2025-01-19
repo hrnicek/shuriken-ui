@@ -21,6 +21,7 @@ const page = computed({
       size="sm"
       rounded="md"
       variant="primary"
+      class="w-full"
     />
   </div>
 </template>
