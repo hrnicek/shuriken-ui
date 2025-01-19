@@ -104,7 +104,7 @@ provideBaseSelectContext({
     <SelectPortal v-bind="bindings?.portal">
       <SelectContent
         :class="tm([
-          'data-[side=bottom]:shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20 z-[100]',
+          'data-[side=bottom]:shadow-lg border shadow-muted-300/30 dark:shadow-muted-800/20 z-[100]',
           theme.portalVariants[props.variant],
           theme.portalRadiuses[props.rounded],
           props.classes.content,
@@ -116,6 +116,7 @@ provideBaseSelectContext({
         <SelectScrollUpButton
           :class="tm([
             'flex items-center justify-center h-[25px] bg-white cursor-default',
+            theme.portalVariants[props.variant],
             theme.portalRadiuses[props.rounded],
             props.classes.buttonUp,
           ])"
@@ -138,6 +139,7 @@ provideBaseSelectContext({
         <SelectScrollDownButton
           :class="tm([
             'flex items-center justify-center h-[25px] bg-white cursor-default',
+            theme.portalVariants[props.variant],
             theme.portalRadiuses[props.rounded],
             props.classes.buttonDown,
           ])"

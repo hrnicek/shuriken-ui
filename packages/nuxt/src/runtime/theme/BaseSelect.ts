@@ -6,8 +6,8 @@ export const variants = {
 } as const satisfies Record<NonNullable<BaseSelectProps['variant']>, string>
 
 export const portalVariants = {
-  default: 'bg-portal-default-bg border border-portal-default-border',
-  muted: 'bg-portal-muted-bg border border-portal-muted-border',
+  default: 'bg-portal-default-bg border-portal-default-border',
+  muted: 'bg-portal-muted-bg border-portal-muted-border',
 } as const satisfies Record<NonNullable<BaseSelectProps['variant']>, string>
 
 export const triggerVariants = {
