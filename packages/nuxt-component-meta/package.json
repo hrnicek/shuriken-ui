@@ -19,7 +19,7 @@
     "component-meta"
   ],
   "scripts": {
-    "prepack": "nuxt-component-meta --no-schema --outputDir='./component-meta' .",
+    "prepack": "nuxt prepare && nuxt-component-meta --no-schema --outputDir='./component-meta' .",
     "nuxt": "nuxt"
   },
   "devDependencies": {
