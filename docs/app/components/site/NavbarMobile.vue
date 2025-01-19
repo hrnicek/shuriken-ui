@@ -57,11 +57,11 @@ const { data: navigation } = await useAsyncData('navigation', () => queryCollect
               </li>
               <li @click="isMobileOpen = false">
                 <NuxtLink
-                  to="/docs/theming/colors"
+                  to="/docs/snippets"
                   class="text-muted-600 dark:text-muted-400"
                   exact-active-class="text-muted-900! dark:text-white!"
                 >
-                  Colors
+                  Snippets
                 </NuxtLink>
               </li>
             </ul>

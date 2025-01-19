@@ -31,7 +31,7 @@ const props = defineProps<{
             weight="medium"
             class="mb-1"
           >
-            <slot name="title">
+            <slot name="title" mdc-unwrap="p">
               {{ props.title }}
             </slot>
           </BaseHeading>
@@ -40,7 +40,7 @@ const props = defineProps<{
             size="sm"
             class="text-muted-600 dark:text-muted-400"
           >
-            <slot />
+            <slot mdc-unwrap="p" />
           </BaseParagraph>
         </div>
       </div>

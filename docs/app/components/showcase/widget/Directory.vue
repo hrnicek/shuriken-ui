@@ -274,7 +274,7 @@ const filteredDirectory = computed(() => {
       </div>
       <!-- Filter -->
       <div class="w-full max-w-[200px]">
-        <BaseField class="w-full">
+        <BasePrimitiveField class="w-full">
           <div class="relative">
             <div class="flex w-full">
               <div class="border-s border-y rounded-s-md border-muted-300 dark:border-muted-800 bg-white dark:bg-muted-900 h-10 ps-3 pe-2 -me-2 flex items-center justify-center">
@@ -284,23 +284,23 @@ const filteredDirectory = computed(() => {
                 />
               </div>
               <div class="grow relative">
-                <BaseFieldController>
+                <BasePrimitiveFieldController>
                   <BaseInput
                     v-model="filter"
                     size="md"
                     class="border-s-0 rounded-s-none"
                     placeholder="Search users..."
                   />
-                </BaseFieldController>
+                </BasePrimitiveFieldController>
               </div>
             </div>
             <div class="absolute z-0 end-4 top-3 pointer-events-none">
-              <BaseFieldLoadingIndicator />
-              <BaseFieldSuccessIndicator />
-              <BaseFieldErrorIndicator />
+              <BasePrimitiveFieldLoadingIndicator />
+              <BasePrimitiveFieldSuccessIndicator />
+              <BasePrimitiveFieldErrorIndicator />
             </div>
           </div>
-        </BaseField>
+        </BasePrimitiveField>
       </div>
     </div>
     <div v-if="Object.keys(filteredDirectory).length === 0">
