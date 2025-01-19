@@ -27,11 +27,11 @@ const { toasts, remove } = useNuiToasts()
 
 const positions = {
   'top-start': 'top-0 start-0 flex-col-reverse',
-  'top-center': 'top-0 start-1/2 -translate-x-1/2 rtl:translate-x-1/2 flex-col-reverse',
-  'top-end': 'top-0 end-0 flex-col-reverse',
+  'top-center': 'top-0 start-1/2 -translate-x-1/2 rtl:translate-x-1/2 flex-col-reverse items-center',
+  'top-end': 'top-0 end-0 flex-col-reverse items-end',
   'bottom-start': 'bottom-0 start-0 flex-col',
-  'bottom-center': 'bottom-0 start-1/2 -translate-x-1/2 rtl:translate-x-1/2 flex-col',
-  'bottom-end': 'bottom-0 end-0 flex-col',
+  'bottom-center': 'bottom-0 start-1/2 -translate-x-1/2 rtl:translate-x-1/2 flex-col items-center',
+  'bottom-end': 'bottom-0 end-0 flex-col items-end',
 } as const
 
 const swipeDirection = computed(() => {
@@ -71,10 +71,18 @@ const forward = useForwardProps(reactiveOmit(props, ['position']))
       }"
       force-mount
       class="data-[swipe=move]:duration-0 duration-200 data-[state=closed]:duration-100 data-[swipe=cancel]:ease-out data-[state=closed]:ease-out starting:ease-in starting:opacity-0 transition-discrete" :class="[
-        swipeDirection === 'right' && 'starting:translate-x-full data-[state=closed]:translate-x-full translate-x-0',
-        swipeDirection === 'left' && 'starting:-translate-x-full data-[state=closed]:-translate-x-full translate-x-0',
-        swipeDirection === 'up' && 'starting:-translate-y-full data-[state=closed]:-translate-y-full translate-y-0',
-        swipeDirection === 'down' && 'starting:translate-y-full data-[state=closed]:translate-y-full translate-y-0',
+        props.position.startsWith('top') && 'starting:-translate-y-full',
+        props.position.startsWith('bottom') && 'starting:translate-y-full',
+
+        // swipeDirection === 'right' && 'starting:translate-x-full data-[state=closed]:translate-x-full translate-x-0',
+        // swipeDirection === 'left' && 'starting:-translate-x-full data-[state=closed]:-translate-x-full translate-x-0',
+        // swipeDirection === 'up' && 'starting:-translate-y-full data-[state=closed]:-translate-y-full translate-y-0',
+        // swipeDirection === 'down' && 'starting:translate-y-full data-[state=closed]:translate-y-full translate-y-0',
+
+        swipeDirection === 'right' && 'data-[state=closed]:translate-x-full translate-x-0',
+        swipeDirection === 'left' && 'data-[state=closed]:-translate-x-full translate-x-0',
+        swipeDirection === 'up' && 'data-[state=closed]:-translate-y-full translate-y-0',
+        swipeDirection === 'down' && 'data-[state=closed]:translate-y-full translate-y-0',
 
         ['right', 'left'].includes(swipeDirection) && 'data-[swipe=move]:translate-x-[var(--reka-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0',
         ['up', 'down'].includes(swipeDirection) && 'data-[swipe=move]:translate-y-[var(--reka-toast-swipe-move-y)] data-[swipe=cancel]:translate-y-0',
@@ -83,10 +91,9 @@ const forward = useForwardProps(reactiveOmit(props, ['position']))
     />
 
     <ToastViewport
-      class="fixed flex gap-2 max-w-[100vw] z-[2147483647] outline-none"
+      class="fixed flex gap-2 max-w-[100vw] w-full md:w-auto z-[2147483647] outline-none p-4"
       :class="[
         positions[position],
-        toasts.length === 0 ? 'p-0' : 'p-4',
       ]"
     />
   </ToastProvider>

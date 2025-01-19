@@ -18,6 +18,7 @@ const log = console.log
         <div class="flex flex-wrap items-end gap-4">
           <BaseButton @click="add({
             title: 'Toast title',
+            description: 'Mensarum enim voragines et varias voluptatum inlecebras, ne longius progrediar',
             duration: 50000,
           })">
             Show toast
@@ -25,7 +26,6 @@ const log = console.log
 
           <BaseButton @click="add({
             title: 'Toast title',
-            description: 'Toast description',
             icon: 'lucide:check',
             onSwipeStart: (e) => log('Swipe start', e),
             onSwipeMove: (e) => log('Swipe move', e),
@@ -41,30 +41,46 @@ const log = console.log
 
           <BaseButton @click="add({
             title: 'Toast title',
-            description: 'Toast description',
+            description: 'Mensarum enim voragines et varias voluptatum inlecebras, ne longius progrediar',
             icon: 'lucide:check',
-            variant: 'destructive',
+            progress: true,
+            duration: 50000,
           })">
             Show toast with icon
           </BaseButton>
 
           <BaseButton @click="add({
             title: 'Toast title',
-            description: 'Toast long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long description',
+            description: 'Mensarum enim voragines et varias voluptatum inlecebras, ne longius progrediar, praetermitto illuc transiturus quod quidam per ampla spatia urbis subversasque ...',
             icon: 'lucide:check',
+            actions: [
+              {
+                label: 'Action',
+                variant: 'primary',
+                onClick: () => {
+                  log('Action clicked')
+                },
+              },
+            ],
           })">
             Show toast with long description
           </BaseButton>
           
           <BaseButton @click="add({
             title: 'Toast title',
-            description: 'Toast description',
+            description: 'Mensarum enim voragines et varias voluptatum inlecebras, ne longius progrediar',
             icon: 'lucide:check',
             actions: [
               {
                 label: 'Action',
-                variant: 'primary',
-                icon: 'lucide:check',
+                // variant: 'primary',
+                onClick: () => {
+                  log('Action clicked')
+                },
+              },
+              {
+                label: 'Bar',
+                variant: 'destructive',
                 onClick: () => {
                   log('Action clicked')
                 },

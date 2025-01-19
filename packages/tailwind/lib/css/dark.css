@@ -63,7 +63,7 @@
     --color-popup-dark-border: var(--color-muted-100);
     --color-popup-dark-text: var(--color-muted-950);
     
-    --color-ring: var(--color-muted-300);
+    --color-ring: var(--color-muted-600);
 
     color-scheme: dark;
   } 

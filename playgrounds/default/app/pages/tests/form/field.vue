@@ -5,943 +5,700 @@ definePageMeta({
   description: 'Field component',
   section: 'form',
 })
-
-const states = ['idle', 'loading', 'success', 'error'] as const
-
-const value0 = ref()
-const value1 = ref('1')
-const value2 = ref('')
-const valueSliderRange = ref([3, 42, 84])
+const disabled = ref(false)
 </script>
 
 <template>
   <div>
     <NuiPreviewContainer title="BaseField">
-      <NuiPreview v-for="alt in ['default', 'disabled', 'full']" :title="`State: ${alt}`" description="Base field component">
+      <BaseCheckbox v-model="disabled" label="Disabled" />
+      
+      <NuiPreview title="BaseInput">
+        <div class="grid grid-cols-2 gap-y-12 gap-x-6 max-w-4xl">
+          <BaseField
+            :disabled
+            label="Non input"
+            hint="Optionel"
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+          >
+            <span>empty</span>
+          </BaseField>
+          
+          <BaseField
+            :disabled
+            id="custom-id"
+            label="Custom input"
+            hint="Optionel"
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+            v-slot="{ inputAttrs, inputRef }"
+          >
+            <input type="text" placeholder="native input" v-bind="inputAttrs" :ref="inputRef" />
+          </BaseField>
+
+          
+          <BaseField
+            :disabled
+            label="Composed"
+            hint="Optionel"
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+            v-slot="{ inputAttrs, inputRef }"
+          >
+            <div class="flex *:first:rounded-e-none *:first:border-e-0 *:last:rounded-s-none">
+              <BaseInput placeholder="main input" v-bind="inputAttrs" :ref="inputRef" />
+              <BaseInput :disabled placeholder="secondary" />
+            </div>
+          </BaseField>
+
+          <BaseField
+            :disabled
+            label="Composed 2"
+            hint="Optionel"
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+            v-slot="{ inputAttrs, inputRef }"
+          >
+            <div class="flex *:rounded-none *:border-e-0 *:first:rounded-s-md *:last:border-e *:last:rounded-e-md">
+              <div 
+              class="px-3 border text-input-default-text/60 bg-input-default-bg border-input-default-border flex items-center justify-center"
+              :class="[disabled ? 'opacity-50' : '']"
+              >
+                <Icon name="lucide:search" class="size-4" />
+              </div>
+              <BaseInput placeholder="main input" v-bind="inputAttrs" :ref="inputRef" />
+              <BaseInput :disabled placeholder="secondary" />
+            </div>
+          </BaseField>
+
+          
+
+          <BaseField
+            :disabled
+            label="Composed 3"
+            hint="Optionel"
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+            v-slot="{ inputAttrs, inputRef }"
+          >
+            <div class="focus-within:nui-focus rounded-md flex *:rounded-none *:border-e-0 *:first:rounded-s-md *:last:border-e *:last:rounded-e-md">
+              <div
+                class="ps-3 border text-input-default-text/60 bg-input-default-bg border-input-default-border flex items-center justify-center"
+                :class="[disabled ? 'opacity-50' : '']"
+              >
+                <Icon name="lucide:search" class="size-4" />
+              </div>
+              <BaseInput placeholder="main input" v-bind="inputAttrs" :ref="inputRef" class="focus-visible:ring-0  border-s-0" />
+            </div>
+          </BaseField>
+
+          
+          <BaseField
+            :disabled
+            label="Composed 4"
+            hint="Optionel"
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+            v-slot="{ inputAttrs, inputRef }"
+          >
+            <div class="focus-within:nui-focus rounded-md flex *:rounded-none *:border-e-0 *:first:rounded-s-md *:last:border-e *:last:rounded-e-md">
+              <div
+                class="ps-3 border text-input-default-text/60 bg-input-default-bg border-input-default-border flex items-center justify-center"
+                :class="[disabled ? 'opacity-50' : '']"
+              >
+                <Icon name="lucide:phone" class="size-4" />
+              </div>
+              <BaseInput placeholder="+33 123456789" v-bind="inputAttrs" :ref="inputRef" class="focus-visible:ring-0 border-s-0" />
+              <BaseSelect class="focus:ring-0 border-s-0 w-32!" placeholder="Select">
+                <BaseSelectItem value="1">FR</BaseSelectItem>
+                <BaseSelectItem value="2">EN</BaseSelectItem>
+                <BaseSelectItem value="3">IT</BaseSelectItem>
+                <BaseSelectItem value="4">ES</BaseSelectItem>
+              </BaseSelect>
+            </div>
+          </BaseField>
+        </div>
+      </NuiPreview>
+
+      <NuiPreview title="BaseInput">
         <div class="grid grid-cols-4 gap-4 max-w-6xl">
-          <!-- BaseInput -->
-          <BaseField v-for="state in states" :key="state" :state="state" :disabled="alt === 'disabled'" :required="alt === 'full'"> 
-            <div v-if="alt === 'full'" class="w-full inline-flex">
-              <BaseFieldLabel class="flex items-center justify-between w-full">
-                <div>
-                  <span>BaseInput</span>
-                  <BaseFieldRequiredIndicator  />
-                </div>
-
-                <div>
-                  <BaseDropdown
-                    :bindings="{
-                      content: {
-                        side: 'top',
-                        align: 'center',
-                      }
-                    }"
-                  >
-                    <template #button>
-                      <Icon name="lucide:circle-help" class="size-4 text-muted-500" />
-                    </template>
-
-                    <BaseDropdownItem>Option 1</BaseDropdownItem>
-                    <BaseDropdownArrow />
-                  </BaseDropdown>
-                </div>
-              </BaseFieldLabel>
-            </div>
-            <div class="relative">
-              <BaseFieldController>
-                <BaseInput placeholder="placeholder" />
-              </BaseFieldController>
-              <div class="absolute z-0 end-4 top-3 pointer-events-none" >
-                <BaseFieldLoadingIndicator/>
-                <BaseFieldSuccessIndicator />
-                <BaseFieldErrorIndicator />
-              </div>
-            </div>
-            <template v-if="alt === 'full'">
-              <div class="mt-2 flex flex-col">
-                <BaseFieldError class="mb-1 block">
-                  The input is invalid because ...
-                </BaseFieldError>
-                <BaseFieldDescription>
-                  Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                  <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
-                </BaseFieldDescription>
-              </div>
-            </template>
+          <BaseField
+            :disabled
+            label="label"
+            hint="Optionel"
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+            v-slot="{ inputAttrs, inputRef }"
+          >
+            <BaseInput v-bind="inputAttrs" :ref="inputRef" />
           </BaseField>
-
-          <!-- BaseInput search -->
-          <BaseField v-for="state in states" :key="state" :state="state" :disabled="alt === 'disabled'" :required="alt === 'full'"> 
-            <div v-if="alt === 'full'" class="w-full inline-flex">
-              <BaseFieldLabel class="flex items-center justify-between w-full">
-                <div>
-                  <span>BaseInput</span>
-                  <BaseFieldRequiredIndicator  />
-                </div>
-
-                <div>
-                  <BaseDropdown
-                    :bindings="{
-                      content: {
-                        side: 'top',
-                        align: 'center',
-                      }
-                    }"
-                  >
-                    <template #button>
-                      <Icon name="lucide:circle-help" class="size-4 text-muted-500" />
-                    </template>
-
-                    <BaseDropdownItem>Option 1</BaseDropdownItem>
-                    <BaseDropdownArrow />
-                  </BaseDropdown>
-                </div>
-              </BaseFieldLabel>
-            </div>
-            <div class="relative">
-              <BaseFieldController>
-                <BaseInput type="search" placeholder="placeholder" />
-              </BaseFieldController>
-              <div class="absolute z-0 end-4 top-3 pointer-events-none" >
-                <BaseFieldLoadingIndicator/>
-                <BaseFieldSuccessIndicator />
-                <BaseFieldErrorIndicator />
-              </div>
-            </div>
-            <template v-if="alt === 'full'">
-              <div class="mt-2 flex flex-col">
-                <BaseFieldError class="mb-1 block">
-                  The input is invalid because ...
-                </BaseFieldError>
-                <BaseFieldDescription>
-                  Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                  <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
-                </BaseFieldDescription>
-              </div>
-            </template>
+          <BaseField
+            :disabled
+            label="Label"
+            hint="Hint"
+            state="success"
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+            v-slot="{ inputAttrs, inputRef }"
+          >
+            <BaseInput v-bind="inputAttrs" :ref="inputRef" />
           </BaseField>
-
-          <!-- BaseInputNumber -->
-          <BaseField v-for="state in states" :key="state" :state="state" :disabled="alt === 'disabled'" :required="alt === 'full'"> 
-            <div v-if="alt === 'full'" class="w-full inline-flex">
-              <BaseFieldLabel class="flex items-center justify-between w-full">
-                <div>
-                  <span>BaseInputNumber</span>
-                  <BaseFieldRequiredIndicator  />
-                </div>
-
-                <div>
-                  <BaseDropdown
-                    :bindings="{
-                      content: {
-                        side: 'top',
-                        align: 'center',
-                      }
-                    }"
-                  >
-                    <template #button>
-                      <Icon name="lucide:circle-help" class="size-4 text-muted-500" />
-                    </template>
-
-                    <BaseDropdownItem>Option 1</BaseDropdownItem>
-                    <BaseDropdownArrow />
-                  </BaseDropdown>
-                </div>
-              </BaseFieldLabel>
-            </div>
-            <div class="relative">
-              <BaseFieldController>
-                <BaseInputNumber placeholder="placeholder" />
-              </BaseFieldController>
-              <div class="absolute z-0 end-12 top-3 pointer-events-none">
-                <BaseFieldLoadingIndicator/>
-                <BaseFieldSuccessIndicator />
-                <BaseFieldErrorIndicator />
-              </div>
-            </div>
-            <template v-if="alt === 'full'">
-              <div class="mt-2 flex flex-col">
-                <BaseFieldError class="mb-1 block">
-                  The input is invalid because ...
-                </BaseFieldError>
-                <BaseFieldDescription>
-                  Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                  <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
-                </BaseFieldDescription>
-              </div>
-              
-            </template>
+          <BaseField
+            :disabled
+            label="Label"
+            hint="Hint"
+            state="loading"
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+            v-slot="{ inputAttrs, inputRef }"
+          >
+            <BaseInput v-bind="inputAttrs" :ref="inputRef" />
           </BaseField>
-
-          <!-- BaseInputFile -->
-          <BaseField v-for="state in states" :key="state" :state="state" :disabled="alt === 'disabled'" :required="alt === 'full'"> 
-            <div v-if="alt === 'full'" class="w-full inline-flex">
-              <BaseFieldLabel class="flex items-center justify-between w-full">
-                <div>
-                  <span>BaseInputFile</span>
-                  <BaseFieldRequiredIndicator  />
-                </div>
-
-                <div>
-                  <BaseDropdown
-                    :bindings="{
-                      content: {
-                        side: 'top',
-                        align: 'center',
-                      }
-                    }"
-                  >
-                    <template #button>
-                      <Icon name="lucide:circle-help" class="size-4 text-muted-500" />
-                    </template>
-
-                    <BaseDropdownItem>Option 1</BaseDropdownItem>
-                    <BaseDropdownArrow />
-                  </BaseDropdown>
-                </div>
-              </BaseFieldLabel>
-            </div>
-            <div class="relative">
-              <BaseFieldController>
-                <BaseInputFile placeholder="placeholder" />
-              </BaseFieldController>
-              <div class="absolute z-0 end-4 top-3 pointer-events-none" >
-                <BaseFieldLoadingIndicator/>
-                <BaseFieldSuccessIndicator />
-                <BaseFieldErrorIndicator />
-              </div>
-            </div>
-            <template v-if="alt === 'full'">
-              <div class="mt-2 flex flex-col">
-                <BaseFieldError class="mb-1 block">
-                  The input is invalid because ...
-                </BaseFieldError>
-                <BaseFieldDescription>
-                  Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                  <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
-                </BaseFieldDescription>
-              </div>
+          <BaseField
+            :disabled
+            label="Label"
+            error="Error message"
+            state="error"
+            required
+          >
+            <template #default="{ inputAttrs, inputRef }">
+              <BaseInput v-bind="inputAttrs" :ref="inputRef" />
             </template>
-          </BaseField>
-          
-          <!-- BaseTextarea -->
-          <BaseField v-for="state in states" :key="state" :state="state" :disabled="alt === 'disabled'" :required="alt === 'full'"> 
-            <div v-if="alt === 'full'" class="w-full inline-flex">
-              <BaseFieldLabel class="flex items-center justify-between w-full">
-                <div>
-                  <span>BaseTextarea</span>
-                  <BaseFieldRequiredIndicator  />
-                </div>
 
-                <div>
-                  <BaseDropdown
-                    :bindings="{
-                      content: {
-                        side: 'top',
-                        align: 'center',
-                      }
-                    }"
-                  >
-                    <template #button>
-                      <Icon name="lucide:circle-help" class="size-4 text-muted-500" />
-                    </template>
-
-                    <BaseDropdownItem>Option 1</BaseDropdownItem>
-                    <BaseDropdownArrow />
-                  </BaseDropdown>
-                </div>
-              </BaseFieldLabel>
-            </div>
-            <div class="relative">
-              <BaseFieldController>
-                <BaseTextarea placeholder="placeholder" />
-              </BaseFieldController>
-              <div class="absolute z-0 end-4 top-3 pointer-events-none" >
-                <BaseFieldLoadingIndicator/>
-                <BaseFieldSuccessIndicator />
-                <BaseFieldErrorIndicator />
-              </div>
-            </div>
-            <template v-if="alt === 'full'">
-              <div class="mt-2 flex flex-col">
-                <BaseFieldError class=" mb-1 block">
-                  The input is invalid because ...
-                </BaseFieldError>
-                <BaseFieldDescription>
-                  Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                  <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
-                </BaseFieldDescription>
-              </div>
+            <template #hint>
+              <BaseTooltip content="Hint">
+                <Icon name="lucide:circle-help" class="size-4 text-muted-500" />
+              </BaseTooltip>
             </template>
-          </BaseField>
 
-          <!-- BaseSelect -->
-          <BaseField v-for="state in states" :key="state" :state="state" :disabled="alt === 'disabled'" :required="alt === 'full'"> 
-            <div v-if="alt === 'full'" class="w-full inline-flex">
-              <BaseFieldLabel class="flex items-center justify-between w-full">
-                <div>
-                  <span>BaseSelect</span>
-                  <BaseFieldRequiredIndicator  />
-                </div>
-
-                <div>
-                  <BaseDropdown
-                    :bindings="{
-                      content: {
-                        side: 'top',
-                        align: 'center',
-                      }
-                    }"
-                  >
-                    <template #button>
-                      <Icon name="lucide:circle-help" class="size-4 text-muted-500" />
-                    </template>
-
-                    <BaseDropdownItem>Option 1</BaseDropdownItem>
-                    <BaseDropdownArrow />
-                  </BaseDropdown>
-                </div>
-              </BaseFieldLabel>
-            </div>
-            <div class="relative">
-              <BaseFieldController>
-                <BaseSelect v-model="value0" placeholder="select placeholder">
-                  <BaseSelectItem value="1">Option 1</BaseSelectItem>
-                  <BaseSelectItem value="2">Option 2</BaseSelectItem>
-                  <BaseSelectItem value="3">Option 3</BaseSelectItem>
-                  <BaseSelectItem value="4">Option 4</BaseSelectItem>
-                </BaseSelect>
-              </BaseFieldController>
-              <div class="absolute z-0 end-10 top-3 pointer-events-none" >
-                <BaseFieldLoadingIndicator/>
-                <BaseFieldSuccessIndicator />
-                <BaseFieldErrorIndicator />
-              </div>
-            </div>
-            <template v-if="alt === 'full'">
-              <div class="mt-2 flex flex-col">
-                <BaseFieldError class="mb-1 block">
-                  The input is invalid because ...
-                </BaseFieldError>
-                <BaseFieldDescription>
-                  Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                  <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
-                </BaseFieldDescription>
-              </div>
-            </template>
-          </BaseField>
-          
-          <!-- BaseAutocomplete -->
-          <BaseField v-for="state in states" :key="state" :state="state" :disabled="alt === 'disabled'" :required="alt === 'full'"> 
-            <div v-if="alt === 'full'" class="w-full inline-flex">
-              <BaseFieldLabel class="flex items-center justify-between w-full">
-                <div>
-                  <span>BaseAutocomplete</span>
-                  <BaseFieldRequiredIndicator  />
-                </div>
-
-                <div>
-                  <BaseDropdown
-                    :bindings="{
-                      content: {
-                        side: 'top',
-                        align: 'center',
-                      }
-                    }"
-                  >
-                    <template #button>
-                      <Icon name="lucide:circle-help" class="size-4 text-muted-500" />
-                    </template>
-
-                    <BaseDropdownItem>Option 1</BaseDropdownItem>
-                    <BaseDropdownArrow />
-                  </BaseDropdown>
-                </div>
-              </BaseFieldLabel>
-            </div>
-            <div class="relative">
-              <BaseFieldController>
-                <BaseAutocomplete
-                  placeholder="autocomplete placeholder"
-                  clearable
-                >
-                  <BaseAutocompleteItem value="1">Option 1</BaseAutocompleteItem>
-                  <BaseAutocompleteItem value="2">Option 2</BaseAutocompleteItem>
-                  <BaseAutocompleteItem value="3">Option 3</BaseAutocompleteItem>
-                  <BaseAutocompleteItem value="4">Option 4</BaseAutocompleteItem>
-                  <BaseAutocompleteItem value="5">Option 5</BaseAutocompleteItem>
-                  <BaseAutocompleteItem value="6">Option 6</BaseAutocompleteItem>
-                </BaseAutocomplete>
-              </BaseFieldController>
-              <div class="absolute z-0 end-10 top-3 pointer-events-none" >
-                <BaseFieldLoadingIndicator/>
-                <BaseFieldSuccessIndicator />
-                <BaseFieldErrorIndicator />
-              </div>
-            </div>
-            <template v-if="alt === 'full'">
-              <div class="mt-2 flex flex-col">
-                <BaseFieldError class="mb-1 block">
-                  The input is invalid because ...
-                </BaseFieldError>
-                <BaseFieldDescription>
-                  Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                  <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
-                </BaseFieldDescription>
-              </div>
+            <template #description>
+              Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
+              <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
             </template>
           </BaseField>
         </div>
       </NuiPreview>
-            
-      <NuiPreview title="Vertical" description="Vertical field component">
-        <div class="grid grid-cols-2 gap-8 max-w-2xl">
-          <BaseField state="loading">
-            <BaseFieldLabel>
-              <span>Loading</span> 
-              <BaseFieldRequiredIndicator  />
-            </BaseFieldLabel>
-            
-            <div class="relative w-full has-focus:nui-focus rounded-md">
-              <div class="flex w-full">
-                <BaseIconBox variant="default" size="sm" class="rounded-e-none border-e-0">
-                  <Icon name="lucide:user" class="size-4 text-muted-500" />
-                </BaseIconBox>
-                <div class="grow">
-                  <BaseFieldController>
-                    <BaseInput class="rounded-s-none! w-full focus:ring-transparent!" />
-                  </BaseFieldController>
-                </div>
-              </div>
-              <div class="absolute z-0 end-4 top-3 pointer-events-none" >
-                <BaseFieldLoadingIndicator/>
-                <BaseFieldSuccessIndicator />
-                <BaseFieldErrorIndicator />
-              </div>
-            </div>
-            <BaseFieldDescription class="inline-block mt-2">
+
+      
+      <NuiPreview title="BaseTextarea">
+        <div class="grid grid-cols-4 gap-4 max-w-6xl">
+          <BaseField
+            :disabled
+            hint="Hint"
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+            v-slot="{ inputAttrs, inputRef }"
+          >
+            <BaseTextarea v-bind="inputAttrs" :ref="inputRef" />
+          </BaseField>
+          <BaseField
+            :disabled
+            label="Label"
+            hint="Hint"
+            state="success"
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+            v-slot="{ inputAttrs, inputRef }"
+          >
+            <BaseTextarea v-bind="inputAttrs" :ref="inputRef" />
+          </BaseField>
+          <BaseField
+            :disabled
+            label="Label"
+            hint="Hint"
+            state="loading"
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+            v-slot="{ inputAttrs, inputRef }"
+          >
+            <BaseTextarea v-bind="inputAttrs" :ref="inputRef" />
+          </BaseField>
+          <BaseField
+            :disabled
+            label="Label"
+            error="Error message"
+            state="error"
+            required
+          >
+            <template #default="{ inputAttrs, inputRef }">
+              <BaseTextarea v-bind="inputAttrs" :ref="inputRef" />
+            </template>
+
+            <template #hint>
+              <BaseTooltip content="Hint">
+                <Icon name="lucide:circle-help" class="size-4 text-muted-500" />
+              </BaseTooltip>
+            </template>
+
+            <template #description>
               Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
               <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
-            </BaseFieldDescription>
+            </template>
           </BaseField>
+        </div>
+      </NuiPreview>
 
-          <BaseField required state="error">
-            <div class="w-full inline-flex">
-              <BaseFieldLabel>
-                <span>Error</span>
-                <BaseFieldRequiredIndicator  />
-              </BaseFieldLabel>
-              
-              <BaseFieldError class="ms-auto">
-                The input is invalid because ...
-              </BaseFieldError>
-            </div>
+      <NuiPreview title="BaseInputNumber">
+        <div class="grid grid-cols-4 gap-4 max-w-6xl">
+          <BaseField
+            :disabled
+            hint="Hint"
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+            v-slot="{ inputAttrs, inputRef }"
+          >
+            <BaseInputNumber v-bind="inputAttrs" :ref="inputRef" />
+          </BaseField>
+          <BaseField
+            :disabled
+            label="Label"
+            hint="Hint"
+            state="success"
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+            v-slot="{ inputAttrs, inputRef }"
+          >
+            <BaseInputNumber v-bind="inputAttrs" :ref="inputRef" />
+          </BaseField>
+          <BaseField
+            :disabled
+            label="Label"
+            hint="Hint"
+            state="loading"
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+            v-slot="{ inputAttrs, inputRef }"
+          >
+            <BaseInputNumber v-bind="inputAttrs" :ref="inputRef" />
+          </BaseField>
+          <BaseField
+            :disabled
+            label="Label"
+            error="Error message"
+            state="error"
+            required
+          >
+            <template #default="{ inputAttrs, inputRef }">
+              <BaseInputNumber v-bind="inputAttrs" :ref="inputRef" />
+            </template>
 
-            <div class="relative">
-              <BaseFieldController>
-                <BaseInput />
-              </BaseFieldController>
-              <div class="absolute z-0 end-4 top-3 pointer-events-none" >
-                <BaseFieldLoadingIndicator/>
-                <BaseFieldSuccessIndicator />
-                <BaseFieldErrorIndicator />
-              </div>
-            </div>
-            <BaseFieldDescription class="inline-block mt-2">
+            <template #hint>
+              <BaseTooltip content="Hint">
+                <Icon name="lucide:circle-help" class="size-4 text-muted-500" />
+              </BaseTooltip>
+            </template>
+
+            <template #description>
               Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
               <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
-            </BaseFieldDescription>
+            </template>
           </BaseField>
+        </div>
+      </NuiPreview>
 
-          <BaseField required state="error">
-            <BaseFieldLabel>
-              <span>Number</span>
-              <BaseFieldRequiredIndicator  />
-            </BaseFieldLabel>
+      
 
-            <div class="relative">
-              <BaseFieldController>
-                <BaseInputNumber />
-              </BaseFieldController>
-              <div class="absolute z-0 end-12 top-3 pointer-events-none">
-                <BaseFieldLoadingIndicator/>
-                <BaseFieldSuccessIndicator />
-                <BaseFieldErrorIndicator />
-              </div>
-            </div>
-            <BaseFieldError>
-              The input is invalid because ...
-            </BaseFieldError>
+      <NuiPreview title="BaseInputFile">
+        <div class="grid grid-cols-4 gap-4 max-w-6xl">
+          <BaseField
+            :disabled
+            hint="Hint"
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+            v-slot="{ inputAttrs, inputRef }"
+          >
+            <BaseInputFile v-bind="inputAttrs" :ref="inputRef" />
           </BaseField>
-
-          <BaseField required state="error">
-            <BaseFieldLabel>
-              <span>Select</span>
-              <BaseFieldRequiredIndicator  />
-            </BaseFieldLabel>
-
-            <div class="relative">
-              <BaseFieldController>
-                <BaseSelect v-model="value1">
-                  <BaseSelectItem value="1">Option 1</BaseSelectItem>
-                  <BaseSelectItem value="2">Option 2</BaseSelectItem>
-                  <BaseSelectItem value="3">Option 3</BaseSelectItem>
-                  <BaseSelectItem value="4">Option 4</BaseSelectItem>
-                </BaseSelect>
-              </BaseFieldController>
-              <div class="absolute z-0 end-10 top-3 pointer-events-none" >
-                <BaseFieldLoadingIndicator/>
-                <BaseFieldSuccessIndicator />
-                <BaseFieldErrorIndicator>
-                  <Icon name="lucide:badge-alert" class="size-4 text-amber-500" />
-                </BaseFieldErrorIndicator>  
-              </div>
-            </div>
-            <BaseFieldError>
-              The input is invalid because ...
-            </BaseFieldError>
+          <BaseField
+            :disabled
+            label="Label"
+            hint="Hint"
+            state="success"
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+            v-slot="{ inputAttrs, inputRef }"
+          >
+            <BaseInputFile v-bind="inputAttrs" :ref="inputRef" />
           </BaseField>
+          <BaseField
+            :disabled
+            label="Label"
+            hint="Hint"
+            state="loading"
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+            v-slot="{ inputAttrs, inputRef }"
+          >
+            <BaseInputFile v-bind="inputAttrs" :ref="inputRef" />
+          </BaseField>
+          <BaseField
+            :disabled
+            label="Label"
+            error="Error message"
+            state="error"
+            required
+          >
+            <template #default="{ inputAttrs, inputRef }">
+              <BaseInputFile v-bind="inputAttrs" :ref="inputRef" />
+            </template>
 
-          <BaseField class="col-span-2" required state="loading">
-            <div class="relative">
-              <BaseFieldLabel>
-                <span>Textarea</span>
-                <BaseFieldRequiredIndicator as-child>
-                  <span class="text-xs ms-1">(Requis)</span>
-                </BaseFieldRequiredIndicator>
-              </BaseFieldLabel>
-              <div class="absolute z-0 end-1 top-0 pointer-events-none" >
-                <BaseFieldLoadingIndicator/>
-                <BaseFieldSuccessIndicator />
-                <BaseFieldErrorIndicator />
-              </div>
-            </div>
+            <template #hint>
+              <BaseTooltip content="Hint">
+                <Icon name="lucide:circle-help" class="size-4 text-muted-500" />
+              </BaseTooltip>
+            </template>
 
-            <div class="relative">
-              <BaseFieldController>
-                <BaseTextarea />
-              </BaseFieldController>
-            </div>
-            <BaseFieldDescription class="inline-block mt-2">
+            <template #description>
               Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
               <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
-            </BaseFieldDescription>
-            <BaseFieldError>
-              The input is invalid because ...
-            </BaseFieldError>
+            </template>
           </BaseField>
-          
-          <BaseField required state="loading">
-            <div class="flex mb-4 relative">
-              <div class="flex flex-col gap-1 w-full">
-                <BaseFieldLabel>
-                  <span>Radio</span> 
-                  <BaseFieldRequiredIndicator  />
-                </BaseFieldLabel>
-                <BaseFieldDescription>
-                  Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                  <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
-                </BaseFieldDescription>
-              </div>
-              <div class="flex items-center justify-center">
-                <BaseFieldLoadingIndicator class="ms-3" />
-                <BaseFieldSuccessIndicator class="ms-3" />
-                <BaseFieldErrorIndicator class="ms-3" />
-              </div>
-            </div>
+        </div>
+      </NuiPreview>
 
-            <BaseFieldController>
-              <BaseRadioGroup class="relative flex flex-col gap-2 mt-2">
+      <NuiPreview title="BaseSlider">
+        <div class="grid grid-cols-4 gap-4 max-w-6xl">
+          <BaseField
+            :disabled
+            hint="Hint"
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+            v-slot="{ inputAttrs }"
+            fieldset
+          >
+            <BaseSlider v-bind="inputAttrs" class="py-4" />
+          </BaseField>
+          <BaseField
+            :disabled
+            label="Label"
+            hint="Hint"
+            state="success"
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+            v-slot="{ inputAttrs }"
+            fieldset
+          >
+            <BaseSlider v-bind="inputAttrs" class="py-4" />
+          </BaseField>
+          <BaseField
+            :disabled
+            label="Label"
+            hint="Hint"
+            state="loading"
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+            v-slot="{ inputAttrs }"
+            fieldset
+          >
+            <BaseSlider v-bind="inputAttrs" class="py-4" />
+          </BaseField>
+          <BaseField
+            :disabled
+            label="Lorem ipsum dolor sit amet consectetur adipiscing elit."
+            error="Error message"
+            state="error"
+            required
+            fieldset
+          >
+            <template #default="{ inputAttrs }">
+              <BaseSlider v-bind="inputAttrs" class="py-4" />
+            </template>
+
+            <template #hint>
+              <BaseTooltip content="Hint">
+                <Icon name="lucide:circle-help" class="size-4 text-muted-500" />
+              </BaseTooltip>
+            </template>
+
+            <template #description>
+              Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
+              <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
+            </template>
+          </BaseField>
+        </div>
+      </NuiPreview>
+
+      
+
+      <NuiPreview title="BaseRadioGroup">
+        <div class="grid grid-cols-4 gap-4 max-w-6xl">
+          <BaseField
+            :disabled
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+            v-slot="{ inputAttrs }"
+            fieldset
+          >
+            <BaseRadioGroup v-bind="inputAttrs" class="relative flex flex-col gap-2 pt-2 pb-4">
+              <BaseRadio value="1">Option 21</BaseRadio>
+              <BaseRadio value="2">Option 2</BaseRadio>
+              <BaseRadio value="3">Option 3</BaseRadio>
+            </BaseRadioGroup>
+          </BaseField>
+          <BaseField
+            :disabled
+            label="Label"
+            hint="Hint"
+            state="success"
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+            v-slot="{ inputAttrs }"
+            fieldset
+          >
+            <BaseRadioGroup v-bind="inputAttrs" class="relative flex flex-col gap-2 pt-2 pb-4">
+              <BaseRadio value="1">Option 21</BaseRadio>
+              <BaseRadio value="2">Option 2</BaseRadio>
+              <BaseRadio value="3">Option 3</BaseRadio>
+            </BaseRadioGroup>
+          </BaseField>
+          <BaseField
+            :disabled
+            label="Label"
+            hint="Hint"
+            state="loading"
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+            v-slot="{ inputAttrs }"
+            fieldset
+          >
+            <BaseRadioGroup v-bind="inputAttrs" class="relative flex flex-col gap-2 pt-2 pb-4">
+              <BaseRadio value="1">Option 21</BaseRadio>
+              <BaseRadio value="2">Option 2</BaseRadio>
+              <BaseRadio value="3">Option 3</BaseRadio>
+            </BaseRadioGroup>
+          </BaseField>
+          <BaseField
+            :disabled
+            label="Label"
+            error="Error message"
+            state="error"
+            required
+            fieldset
+          >
+            <template #default="{ inputAttrs }">
+              <BaseRadioGroup v-bind="inputAttrs" class="relative flex flex-col gap-2 pt-2 pb-4">
                 <BaseRadio value="1">Option 21</BaseRadio>
                 <BaseRadio value="2">Option 2</BaseRadio>
                 <BaseRadio value="3">Option 3</BaseRadio>
               </BaseRadioGroup>
-            </BaseFieldController>
-          </BaseField>
-          
-          <BaseField required state="error">
-            <div class="flex mb-4 relative">
-              <div class="flex flex-col gap-1 w-full">
-                <BaseFieldLabel>
-                  <span>Checkbox</span> 
-                  <BaseFieldRequiredIndicator  />
-                </BaseFieldLabel>
-                <BaseFieldDescription>
-                  Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                  <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
-                </BaseFieldDescription>
-              </div>
-              <div class="flex items-center justify-center">
-                <BaseFieldLoadingIndicator class="ms-3" />
-                <BaseFieldSuccessIndicator class="ms-3" />
-                <BaseFieldErrorIndicator class="ms-3" />
-              </div>
-            </div>
+            </template>
 
-            <BaseFieldController>
-              <BaseCheckboxGroup class="relative flex flex-col gap-2 mt-2">
-                <BaseCheckbox value="1">Option 1</BaseCheckbox>
-                <BaseCheckbox value="2">Option 2</BaseCheckbox>
-                <BaseCheckbox value="3">Option 3</BaseCheckbox>
-              </BaseCheckboxGroup>
-            </BaseFieldController>
+            <template #hint>
+              <BaseTooltip content="Hint">
+                <Icon name="lucide:circle-help" class="size-4 text-muted-500" />
+              </BaseTooltip>
+            </template>
 
-            <BaseFieldError class="mt-12">
-              The input is invalid because ...
-            </BaseFieldError>
+            <template #description>
+              Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
+              <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
+            </template>
           </BaseField>
         </div>
       </NuiPreview>
 
-      <NuiPreview title="Horizontal" description="Horizontal field component">
-        <div class="grid grid-cols-3 gap-8 gap-x-10 max-w-2xl">
-          <BaseField class="col-span-3">
-            <div class="relative">
-              <div class="flex">
-                <BaseInput placeholder="Firstname" class="border-e-transparent! rounded-e-none!" />
-                <BaseInput placeholder="Lastname" class="rounded-s-none!" />
-              </div>
-              <div class="absolute z-0 end-4 top-3 pointer-events-none" >
-                <BaseFieldLoadingIndicator/>
-                <BaseFieldSuccessIndicator />
-                <BaseFieldErrorIndicator />
-              </div>
-            </div>
+      
+
+      <NuiPreview title="BaseCheckboxGroup">
+        <div class="grid grid-cols-4 gap-4 max-w-6xl">
+          <BaseField
+            :disabled
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+            v-slot="{ inputAttrs }"
+            fieldset
+          >
+            <BaseCheckboxGroup v-bind="inputAttrs" class="relative flex flex-col gap-2 pt-2 pb-4">
+              <BaseCheckbox value="1">Option 21</BaseCheckbox>
+              <BaseCheckbox value="2">Option 2</BaseCheckbox>
+              <BaseCheckbox value="3">Option 3</BaseCheckbox>
+            </BaseCheckboxGroup>
           </BaseField>
-
-          <BaseField class="grid grid-cols-subgrid col-span-3" state="loading">
-            <div class="flex flex-col justify-center gap-1 relative">
-              <BaseFieldLabel>
-                <span>Loading</span> 
-                <BaseFieldRequiredIndicator  />
-              </BaseFieldLabel>
-              <BaseFieldDescription>
-                Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
-              </BaseFieldDescription>
-              <div class="absolute z-0 end-0 top-0 pointer-events-none" >
-                <BaseFieldLoadingIndicator/>
-                <BaseFieldSuccessIndicator />
-                <BaseFieldErrorIndicator />
-              </div>
-            </div>
-            
-            <div class="col-span-2">
-              <div class="relative">
-                <BaseFieldController>
-                  <BaseInput v-model="value1" />
-                </BaseFieldController>
-                <div class="absolute z-0 end-4 top-3 pointer-events-none" >
-                  <BaseFieldLoadingIndicator/>
-                  <BaseFieldSuccessIndicator />
-                  <BaseFieldErrorIndicator />
-                </div>
-              </div>
-            </div>
+          <BaseField
+            :disabled
+            label="Label"
+            hint="Hint"
+            state="success"
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+            v-slot="{ inputAttrs }"
+            fieldset
+          >
+            <BaseCheckboxGroup v-bind="inputAttrs" class="relative flex flex-col gap-2 pt-2 pb-4">
+              <BaseCheckbox value="1">Option 21</BaseCheckbox>
+              <BaseCheckbox value="2">Option 2</BaseCheckbox>
+              <BaseCheckbox value="3">Option 3</BaseCheckbox>
+            </BaseCheckboxGroup>
           </BaseField>
-
-          <BaseField class="grid grid-cols-subgrid col-span-3"  required state="error">
-            <div class="flex flex-col justify-center gap-1 relative">
-              <BaseFieldLabel>
-                <span>Error</span> 
-                <BaseFieldRequiredIndicator  />
-              </BaseFieldLabel>
-              <BaseFieldDescription>
-                Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
-              </BaseFieldDescription>
-              <div class="absolute z-0 end-0 top-0 pointer-events-none" >
-                <BaseFieldLoadingIndicator/>
-                <BaseFieldSuccessIndicator />
-                <BaseFieldErrorIndicator />
-              </div>
-            </div>
-
-            <div class="col-span-2">
-              <div class="relative">
-                <BaseFieldController>
-                  <BaseInput v-model="value2" />
-                </BaseFieldController>
-                <BaseFieldLoadingIndicator class="absolute z-0 end-4 top-3 pointer-events-none" />
-              </div>
-              <BaseFieldError>
-                The input is invalid because ...
-              </BaseFieldError>
-            </div>
+          <BaseField
+            :disabled
+            label="Label"
+            hint="Hint"
+            state="loading"
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+            v-slot="{ inputAttrs }"
+            fieldset
+          >
+            <BaseCheckboxGroup v-bind="inputAttrs" class="relative flex flex-col gap-2 pt-2 pb-4">
+              <BaseCheckbox value="1">Option 21</BaseCheckbox>
+              <BaseCheckbox value="2">Option 2</BaseCheckbox>
+              <BaseCheckbox value="3">Option 3</BaseCheckbox>
+            </BaseCheckboxGroup>
           </BaseField>
+          <BaseField
+            :disabled
+            label="Label"
+            error="Error message"
+            state="error"
+            required
+            fieldset
+          >
+            <template #default="{ inputAttrs }">
+              <BaseCheckboxGroup v-bind="inputAttrs" class="relative flex flex-col gap-2 pt-2 pb-4">
+                <BaseCheckbox value="1">Option 21</BaseCheckbox>
+                <BaseCheckbox value="2">Option 2</BaseCheckbox>
+                <BaseCheckbox value="3">Option 3</BaseCheckbox>
+              </BaseCheckboxGroup>
+            </template>
 
-          <BaseField class="col-span-3">
-            <div class="relative">
-              <BaseFieldController>
-                <BaseInput placeholder="Firstname" />
-              </BaseFieldController>
-              <div class="absolute z-0 end-4 top-3 pointer-events-none" >
-                <BaseFieldLoadingIndicator/>
-                <BaseFieldSuccessIndicator />
-                <BaseFieldErrorIndicator />
-              </div>
-            </div>
+            <template #hint>
+              <BaseTooltip content="Hint">
+                <Icon name="lucide:circle-help" class="size-4 text-muted-500" />
+              </BaseTooltip>
+            </template>
+
+            <template #description>
+              Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
+              <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
+            </template>
           </BaseField>
-          
-          <BaseField class="grid grid-cols-subgrid col-span-3"  required state="error">
-            <div class="flex flex-col justify-center gap-1 relative">
-              <BaseFieldLabel>
-                <span>Error</span> 
-                <BaseFieldRequiredIndicator  />
-              </BaseFieldLabel>
-              <BaseFieldDescription>
-                Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
-              </BaseFieldDescription>
-              <div class="absolute z-0 end-0 top-0 pointer-events-none" >
-                <BaseFieldLoadingIndicator/>
-                <BaseFieldSuccessIndicator />
-                <BaseFieldErrorIndicator />
-              </div>
-            </div>
+        </div>
+      </NuiPreview>
 
-            <div class="col-span-2">
-              <div class="relative">
-                <BaseFieldController>
-                  <BaseInput v-model="value2" />
-                </BaseFieldController>
-                <BaseFieldLoadingIndicator class="absolute z-0 end-4 top-3 pointer-events-none" />
-              </div>
-              <BaseFieldError>
-                The input is invalid because ...
-              </BaseFieldError>
-            </div>
+      <NuiPreview title="BaseSelect">
+        <div class="grid grid-cols-4 gap-4 max-w-6xl">
+          <BaseField
+            :disabled
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+            v-slot="{ inputAttrs }"
+            fieldset
+          >
+            <BaseSelect v-bind="inputAttrs">
+              <BaseSelectItem value="1">Option 1</BaseSelectItem>
+              <BaseSelectItem value="2">Option 2</BaseSelectItem>
+              <BaseSelectItem value="3">Option 3</BaseSelectItem>
+              
+            </BaseSelect>
           </BaseField>
-
-          <BaseField class="grid grid-cols-subgrid col-span-3" required state="error">
-            <div class="flex flex-col justify-center gap-1 relative">
-              <BaseFieldLabel>
-                <span>Number</span> 
-                <BaseFieldRequiredIndicator  />
-              </BaseFieldLabel>
-              <BaseFieldDescription>
-                Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
-              </BaseFieldDescription>
-              <div class="absolute z-0 end-0 top-0 pointer-events-none" >
-                <BaseFieldLoadingIndicator/>
-                <BaseFieldSuccessIndicator />
-                <BaseFieldErrorIndicator />
-              </div>
-            </div>
-
-            <div class="col-span-2">
-              <div class="relative">
-                <BaseFieldController>
-                  <BaseInputNumber />
-                </BaseFieldController>
-                <BaseFieldLoadingIndicator class="absolute z-0 end-12 top-3 pointer-events-none" />
-              </div>
-              <BaseFieldError>
-                The input is invalid because ...
-              </BaseFieldError>
-            </div>
+          <BaseField
+            :disabled
+            label="Label"
+            hint="Hint"
+            state="success"
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+            v-slot="{ inputAttrs }"
+            fieldset
+          >
+            <BaseSelect v-bind="inputAttrs">
+              <BaseSelectItem value="1">Option 1</BaseSelectItem>
+              <BaseSelectItem value="2">Option 2</BaseSelectItem>
+              <BaseSelectItem value="3">Option 3</BaseSelectItem>
+              
+            </BaseSelect>
           </BaseField>
-
-          <BaseField class="grid grid-cols-subgrid col-span-3" required state="error">
-            <div class="flex flex-col justify-center gap-1 relative">
-              <BaseFieldLabel>
-                <span>Select</span> 
-                <BaseFieldRequiredIndicator  />
-              </BaseFieldLabel>
-              <BaseFieldDescription>
-                Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
-              </BaseFieldDescription>
-              <div class="absolute z-0 end-0 top-0 pointer-events-none" >
-                <BaseFieldLoadingIndicator/>
-                <BaseFieldSuccessIndicator />
-                <BaseFieldErrorIndicator />
-              </div>
-            </div>
-
-            <div class="col-span-2">
-              <div class="relative">
-                <BaseFieldController>
-                  <BaseSelect v-model="value1">
-                    <BaseSelectItem value="1">Option 1</BaseSelectItem>
-                    <BaseSelectItem value="2">Option 2</BaseSelectItem>
-                    <BaseSelectItem value="3">Option 3</BaseSelectItem>
-                  </BaseSelect>
-                </BaseFieldController>
-                <BaseFieldLoadingIndicator class="absolute z-0 end-20 top-3 pointer-events-none" />
-              </div>
-              <BaseFieldError>
-                The input is invalid because ...
-              </BaseFieldError>
-            </div>
+          <BaseField
+            :disabled
+            label="Label"
+            hint="Hint"
+            state="loading"
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+            v-slot="{ inputAttrs }"
+            fieldset
+          >
+            <BaseSelect v-bind="inputAttrs">
+              <BaseSelectItem value="1">Option 1</BaseSelectItem>
+              <BaseSelectItem value="2">Option 2</BaseSelectItem>
+              <BaseSelectItem value="3">Option 3</BaseSelectItem>
+              
+            </BaseSelect>
           </BaseField>
+          <BaseField
+            :disabled
+            label="Label"
+            error="Error message"
+            state="error"
+            required
+            fieldset
+          >
+            <template #default="{ inputAttrs }">
+              <BaseSelect v-bind="inputAttrs">
+                <BaseSelectItem value="1">Option 1</BaseSelectItem>
+                <BaseSelectItem value="2">Option 2</BaseSelectItem>
+                <BaseSelectItem value="3">Option 3</BaseSelectItem>
+                
+              </BaseSelect>
+            </template>
 
-          <BaseField class="grid grid-cols-subgrid col-span-3" required state="loading">
-            <div class="flex flex-col justify-start mt-2 gap-1 relative">
-              <BaseFieldLabel>
-                <span>Textarea</span> 
-                <BaseFieldRequiredIndicator  />
-              </BaseFieldLabel>
-              <BaseFieldDescription>
-                Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
-              </BaseFieldDescription>
-              <div class="absolute z-0 end-0 top-0 pointer-events-none" >
-                <BaseFieldLoadingIndicator/>
-                <BaseFieldSuccessIndicator />
-                <BaseFieldErrorIndicator />
-              </div>
-            </div>
+            <template #hint>
+              <BaseTooltip content="Hint">
+                <Icon name="lucide:circle-help" class="size-4 text-muted-500" />
+              </BaseTooltip>
+            </template>
 
-            <div class="col-span-2">
-              <div class="relative">
-                <BaseFieldController>
-                  <BaseTextarea />
-                </BaseFieldController>
-              </div>
-              <BaseFieldError>
-                Error
-              </BaseFieldError>
-            </div>
+            <template #description>
+              Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
+              <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
+            </template>
           </BaseField>
-          
-          <BaseField class="grid grid-cols-subgrid col-span-3 mb-4" required state="loading">
-            <div class="flex flex-col gap-1 mb-4 relative">
-              <BaseFieldLabel>
-                <span>Radio</span> 
-                <BaseFieldRequiredIndicator  />
-              </BaseFieldLabel>
-              <BaseFieldDescription>
-                Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
-              </BaseFieldDescription>
-              <div class="absolute z-0 end-0 top-0 pointer-events-none" >
-                <BaseFieldLoadingIndicator/>
-                <BaseFieldSuccessIndicator />
-                <BaseFieldErrorIndicator />
-              </div>
-            </div>
+        </div>
+      </NuiPreview>
 
-            <BaseFieldController>
-              <BaseRadioGroup class="relative flex flex-col gap-2">
-                <BaseRadio value="1">Option 12</BaseRadio>
-                <BaseRadio value="2">Option 2</BaseRadio>
-                <BaseRadio value="3">Option 3</BaseRadio>
-              </BaseRadioGroup>
-            </BaseFieldController>
+      
+      <NuiPreview title="BaseAutocomplete">
+        <div class="grid grid-cols-4 gap-4 max-w-6xl">
+          <BaseField
+            :disabled
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+            v-slot="{ inputAttrs, inputRef }"
+          >
+            <BaseAutocomplete v-bind="inputAttrs" :ref="inputRef" >
+              <BaseAutocompleteItem value="1">Option 1</BaseAutocompleteItem>
+              <BaseAutocompleteItem value="2">Option 2</BaseAutocompleteItem>
+              <BaseAutocompleteItem value="3">Option 3</BaseAutocompleteItem>
+              
+            </BaseAutocomplete>
           </BaseField>
-          
-          <BaseField class="grid grid-cols-subgrid col-span-3 mb-4" required state="error">
-            <div class="relative flex flex-col gap-1 mb-4">
-              <BaseFieldLabel>
-                <span>Checkbox</span> 
-                <BaseFieldRequiredIndicator  />
-              </BaseFieldLabel>
-              <BaseFieldDescription>
-                Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
-              </BaseFieldDescription>
-              <div class="absolute z-0 end-0 top-0 pointer-events-none" >
-                <BaseFieldLoadingIndicator/>
-                <BaseFieldSuccessIndicator />
-                <BaseFieldErrorIndicator />
-              </div>
-            </div>
-
-            <div>
-              <BaseFieldController>
-                <BaseCheckboxGroup class="relative flex flex-col gap-2">
-                  <BaseCheckbox value="1">Option 1</BaseCheckbox>
-                  <BaseCheckbox value="2">Option 2</BaseCheckbox>
-                  <BaseCheckbox value="3">Option 3</BaseCheckbox>
-                </BaseCheckboxGroup>
-              </BaseFieldController>
-              <BaseFieldError>
-                The input is invalid because ...
-              </BaseFieldError>
-            </div>
+          <BaseField
+            :disabled
+            label="Label"
+            hint="Hint"
+            state="success"
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+            v-slot="{ inputAttrs, inputRef }"
+          >
+            <BaseAutocomplete v-bind="inputAttrs" :ref="inputRef">
+              <BaseAutocompleteItem value="1">Option 1</BaseAutocompleteItem>
+              <BaseAutocompleteItem value="2">Option 2</BaseAutocompleteItem>
+              <BaseAutocompleteItem value="3">Option 3</BaseAutocompleteItem>
+              
+            </BaseAutocomplete>
           </BaseField>
-          
-          <BaseField class="grid grid-cols-subgrid col-span-3 mb-4" required state="error">
-            <div class="relative flex flex-col gap-1 mb-4">
-              <BaseFieldLabel>
-                <span>Switch</span> 
-                <BaseFieldRequiredIndicator  />
-              </BaseFieldLabel>
-              <BaseFieldDescription>
-                Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
-              </BaseFieldDescription>
-              <div class="absolute z-0 end-0 top-0 pointer-events-none" >
-                <BaseFieldLoadingIndicator/>
-                <BaseFieldSuccessIndicator />
-                <BaseFieldErrorIndicator />
-              </div>
-            </div>
-
-            <div>
-              <BaseFieldController>
-                <BaseSwitchBall />
-              </BaseFieldController>
-              <BaseFieldError>
-                The input is invalid because ...
-              </BaseFieldError>
-            </div>
+          <BaseField
+            :disabled
+            label="Label"
+            hint="Hint"
+            state="loading"
+            description="Lorem ipsum dolor sit amet consectetur adipiscing elit..."
+            v-slot="{ inputAttrs, inputRef }"
+          >
+            <BaseAutocomplete v-bind="inputAttrs" :ref="inputRef">
+              <BaseAutocompleteItem value="1">Option 1</BaseAutocompleteItem>
+              <BaseAutocompleteItem value="2">Option 2</BaseAutocompleteItem>
+              <BaseAutocompleteItem value="3">Option 3</BaseAutocompleteItem>
+              
+            </BaseAutocomplete>
           </BaseField>
+          <BaseField
+            :disabled
+            label="Label"
+            error="Error message"
+            state="error"
+            required
+          >
+            <template #default="{ inputAttrs, inputRef }">
+              <BaseAutocomplete v-bind="inputAttrs" :ref="inputRef">
+                <BaseAutocompleteItem value="1">Option 1</BaseAutocompleteItem>
+                <BaseAutocompleteItem value="2">Option 2</BaseAutocompleteItem>
+                <BaseAutocompleteItem value="3">Option 3</BaseAutocompleteItem>
+                
+              </BaseAutocomplete>
+            </template>
 
-          <BaseField class="grid grid-cols-subgrid col-span-3 mb-4" required state="error">
-            <div class="relative flex flex-col gap-1 mb-4">
-              <BaseFieldLabel>
-                <span>Slider</span> 
-                <BaseFieldRequiredIndicator  />
-              </BaseFieldLabel>
-              <BaseFieldDescription>
-                Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
-              </BaseFieldDescription>
-              <div class="absolute z-0 end-0 top-0 pointer-events-none" >
-                <BaseFieldLoadingIndicator/>
-                <BaseFieldSuccessIndicator />
-                <BaseFieldErrorIndicator />
-              </div>
-            </div>
+            <template #hint>
+              <BaseTooltip content="Hint">
+                <Icon name="lucide:circle-help" class="size-4 text-muted-500" />
+              </BaseTooltip>
+            </template>
 
-            <div>
-              <BaseFieldController>
-                <BaseSlider />
-              </BaseFieldController>
-              <BaseFieldError>
-                The input is invalid because ...
-              </BaseFieldError>
-            </div>
-          </BaseField>
-
-          <BaseField class="grid grid-cols-subgrid col-span-3 mb-4" required state="error">
-            <div class="relative flex flex-col gap-1 mb-4">
-              <BaseFieldLabel>
-                <span>Slider range</span> 
-                <BaseFieldRequiredIndicator  />
-              </BaseFieldLabel>
-              <BaseFieldDescription>
-                Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
-                <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
-              </BaseFieldDescription>
-              <div class="absolute z-0 end-0 top-0 pointer-events-none" >
-                <BaseFieldLoadingIndicator/>
-                <BaseFieldSuccessIndicator />
-                <BaseFieldErrorIndicator />
-              </div>
-            </div>
-
-            <div>
-              <BaseFieldController>
-                <BaseSlider variant="dark" v-model="valueSliderRange" />
-              </BaseFieldController>
-              <BaseFieldError>
-                The input is invalid because ...
-              </BaseFieldError>
-            </div>
+            <template #description>
+              Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. ...
+              <BaseLink to="#" class="text-primary-600 dark:text-primary-400">Learn more</BaseLink>
+            </template>
           </BaseField>
         </div>
       </NuiPreview>

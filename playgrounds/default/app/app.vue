@@ -15,9 +15,9 @@ useHead(() => ({
 
 <template>
   <BaseProviders
-    :toast="{ max: 3, position: 'bottom-end' }"
+    :toast="{ max: 3, position: 'top-center' }"
   >
-    <NuxtLoadingIndicator />
+    <NuxtLoadingIndicator color="linear-gradient(to right, var(--color-primary-400), var(--color-primary-600))" />
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>

@@ -173,8 +173,7 @@
   --color-popup-dark-border: var(--color-muted-950);
   --color-popup-dark-text: var(--color-white);
 
-  --color-ring: var(--color-muted-200);
-  --opacity-ring: 100;
+  --color-ring: var(--color-muted-800);
   
   /** Animations */
   --animate-nui-placeload: nui-placeload 1s linear infinite forwards;

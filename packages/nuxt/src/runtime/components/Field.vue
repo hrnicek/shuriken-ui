@@ -1,45 +1,68 @@
-<script lang="ts">
-import type { BaseFieldContext, BaseFieldProps, BaseFieldSlots } from '../types'
-import { reactiveOmit } from '@vueuse/core'
-import { createContext, useForwardProps } from 'reka-ui'
-import { ref, toRef, useId } from 'vue'
-
-export const [
-  injectBaseFieldContext,
-  provideBaseFieldContext,
-] = createContext<BaseFieldContext>('BaseFieldContext')
-</script>
-
 <script setup lang="ts">
+import type { BaseFieldProps, BaseFieldSlots } from '../types'
+import { reactiveOmit } from '@vueuse/core'
+
 const props = withDefaults(defineProps<BaseFieldProps>(), {
   name: undefined,
+  label: undefined,
   required: false,
+  fieldset: false,
   state: 'idle',
 })
 const slots = defineSlots<BaseFieldSlots>()
-const id = ref(props.id ? props.id : useId())
-const idLabel = ref(props.id ? `${props.id}-label` : useId())
-const idDescription = ref(props.id ? `${props.id}-desc` : useId())
-const idError = ref(props.id ? `${props.id}-error` : useId())
-const forward = useForwardProps(reactiveOmit(props, ['state', 'name', 'required']))
 
-provideBaseFieldContext({
-  state: toRef(props, 'state'),
-  id,
-  idLabel,
-  idDescription,
-  idError,
-  disabled: toRef(props, 'disabled'),
-  name: toRef(props, 'name'),
-  required: toRef(props, 'required'),
-})
+const forward = reactiveOmit(props, ['label', 'error', 'hint', 'description'])
 </script>
 
 <template>
-  <Primitive
+  <BasePrimitiveField
+    v-slot="{
+      inputRef,
+      inputAttrs,
+    }"
     v-bind="forward"
-    :data-filed-state="state"
   >
-    <slot />
-  </Primitive>
+    <div class="w-full flex">
+      <div class=" flex justify-between w-full min-h-8 pb-2 gap-2">
+        <BasePrimitiveFieldLabel
+          v-if="props.label || 'label' in slots"
+        >
+          <span>
+            <slot name="label">
+              {{ props.label }}
+            </slot>
+          </span>
+          <BasePrimitiveFieldRequiredIndicator />
+        </BasePrimitiveFieldLabel>
+        <span v-else />
+
+        <div class="flex items-center gap-2 pe-0.5">
+          <BasePrimitiveFieldLoadingIndicator />
+          <BasePrimitiveFieldSuccessIndicator />
+          <BasePrimitiveFieldErrorIndicator />
+          <slot name="hint">
+            <span class="text-xs font-medium leading-none text-field-description/90 dark:text-field-description">{{ props.hint }}</span>
+          </slot>
+        </div>
+      </div>
+    </div>
+
+    <slot v-bind="{ inputAttrs, inputRef }" />
+
+    <div
+      v-if="props.error || 'error' in slots || props.description || 'description' in slots"
+      class="mt-2 space-y-1 flex flex-col"
+    >
+      <BasePrimitiveFieldError v-if="props.error || 'error' in slots">
+        <slot name="error">
+          {{ props.error }}
+        </slot>
+      </BasePrimitiveFieldError>
+      <BasePrimitiveFieldDescription v-if="props.description || 'description' in slots">
+        <slot name="description">
+          {{ props.description }}
+        </slot>
+      </BasePrimitiveFieldDescription>
+    </div>
+  </BasePrimitiveField>
 </template>

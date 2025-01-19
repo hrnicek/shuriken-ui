@@ -15,6 +15,24 @@ const fieldsRounded = reactive({
   sixth: '',
 })
 
+
+const fieldsType = reactive({
+  text: undefined,
+  password: undefined,
+  email: undefined,
+  tel: undefined,
+  url: undefined,
+  search: undefined,
+  number: undefined,
+  numberModifier: undefined,
+  color: undefined,
+  date: undefined,
+  month: undefined,
+  time: undefined,
+  week: undefined,
+  datetimeLocal: undefined,
+})
+
 const amount = ref<number | undefined>(undefined)
 const taxes = ref('With taxes')
 </script>
@@ -171,6 +189,58 @@ const taxes = ref('With taxes')
             />
           </div>
         </div>
+      </NuiPreview>
+
+      
+      <NuiPreview title="Type" description="Input component type with validation">
+        <form class="grid grid-cols-4 gap-3 max-w-2xl">
+          <div class="flex-1">
+            <BaseInput type="text" name="text" required placeholder="text" v-model="fieldsType.text" />
+          </div>
+          <div class="flex-1">
+            <BaseInput type="password" name="password" required placeholder="password" v-model="fieldsType.password" />
+          </div>
+          <div class="flex-1">
+            <BaseInput type="email" name="email" required placeholder="email" v-model="fieldsType.email" />
+          </div>
+          <div class="flex-1">
+            <BaseInput type="tel" name="tel" required placeholder="tel" v-model="fieldsType.tel" />
+          </div>
+          <div class="flex-1">
+            <BaseInput type="url" name="url" required placeholder="url" v-model="fieldsType.url" />
+          </div>
+          <div class="flex-1">
+            <BaseInput type="search" name="search" required placeholder="search" v-model="fieldsType.search" />
+          </div>
+          <div class="flex-1">
+            <BaseInput type="number" name="number" required placeholder="number" v-model="fieldsType.number" />
+          </div>
+          <div class="flex-1">
+            <BaseInput type="number" name="number-modifier" required placeholder="number" v-model.number="fieldsType.numberModifier" />
+          </div>
+          <div class="flex-1">
+            <BaseInput type="color" name="color" required placeholder="color" v-model="fieldsType.color" />
+          </div>
+          <div class="flex-1">
+            <BaseInput type="date" name="date" required placeholder="date" v-model="fieldsType.date" />
+          </div>
+          <div class="flex-1">
+            <BaseInput type="month" name="month" required placeholder="month" v-model="fieldsType.month" />
+          </div>
+          <div class="flex-1">
+            <BaseInput type="time" name="time" required placeholder="time" v-model="fieldsType.time" />
+          </div>
+          <div class="flex-1">
+            <BaseInput type="week" name="week" required placeholder="week" v-model="fieldsType.week" />
+          </div>
+          <div class="flex-1">
+            <BaseInput type="datetime-local" name="datetime-local" required placeholder="datetime-local" v-model="fieldsType.datetimeLocal" />
+          </div>
+          <div>
+            <BaseButton type="submit">Submit</BaseButton>
+          </div>
+        </form>
+        <pre>{{ fieldsType }}</pre>
       </NuiPreview>
     </NuiPreviewContainer>
   </div>
