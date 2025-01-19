@@ -27,7 +27,7 @@ const uploadedFiles = ref<FileList | null>(null)
 
           <button
             type="button"
-            class="nui-focus relative flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-muted-200 bg-white text-muted-700 transition-colors duration-300 hover:border-primary-500 hover:text-primary-600 dark:border-muted-700 dark:bg-muted-800 dark:text-muted-200 dark:hover:border-primary-500 dark:hover:text-primary-600"
+            class="focus:nui-focus relative flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-muted-200 bg-white text-muted-700 transition-colors duration-300 hover:border-primary-500 hover:text-primary-600 dark:border-muted-700 dark:bg-muted-800 dark:text-muted-200 dark:hover:border-primary-500 dark:hover:text-primary-600"
             tooltip="Start Upload"
           >
             <Icon
@@ -49,7 +49,7 @@ const uploadedFiles = ref<FileList | null>(null)
         >
           <div
             v-if="!files?.length"
-            class="group nui-focus cursor-pointer rounded-lg border-[3px] border-dashed border-muted-300 p-8 transition-colors duration-300 hover:border-muted-400 focus:border-muted-400 dark:border-muted-700 dark:hover:border-muted-600 dark:focus:border-muted-700"
+            class="group focus:nui-focus cursor-pointer rounded-lg border-[3px] border-dashed border-muted-300 p-8 transition-colors duration-300 hover:border-muted-400 focus:border-muted-400 dark:border-muted-700 dark:hover:border-muted-600 dark:focus:border-muted-700"
             tabindex="0"
             role="button"
             @click="open"
