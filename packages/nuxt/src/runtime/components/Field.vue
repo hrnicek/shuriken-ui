@@ -23,7 +23,7 @@ const forward = reactiveOmit(props, ['label', 'error', 'hint', 'description'])
     v-bind="forward"
   >
     <div class="w-full flex">
-      <div class=" flex justify-between w-full min-h-8 pb-2 gap-2">
+      <div class=" flex justify-between w-full min-h-6 pb-2 gap-2">
         <BasePrimitiveFieldLabel
           v-if="props.label || 'label' in slots"
         >

@@ -7,22 +7,22 @@ const value = ref('')
     <div class="w-full rounded-xl bg-muted-100 p-4 dark:bg-muted-900/40">
       <div class="flex w-full items-center">
         <div class="flex w-full max-w-sm items-end gap-4">
-          <BaseField required class="w-full">
+          <BasePrimitiveField required class="w-full">
             <div class="relative">
-              <BaseFieldController>
+              <BasePrimitiveFieldController>
                 <BaseInput
                   v-model="value"
                   rounded="md"
                   placeholder="Username"
                 />
-              </BaseFieldController>
+              </BasePrimitiveFieldController>
               <div class="absolute z-0 end-4 top-3 pointer-events-none">
-                <BaseFieldLoadingIndicator />
-                <BaseFieldSuccessIndicator />
-                <BaseFieldErrorIndicator />
+                <BasePrimitiveFieldLoadingIndicator />
+                <BasePrimitiveFieldSuccessIndicator />
+                <BasePrimitiveFieldErrorIndicator />
               </div>
             </div>
-          </BaseField>
+          </BasePrimitiveField>
         </div>
       </div>
     </div>

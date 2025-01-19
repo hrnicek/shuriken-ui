@@ -9,6 +9,8 @@ const page = computed({
     router.replace({ query: { ...route.query, page: value } })
   },
 })
+
+const formatter = new Intl.NumberFormat('en-US', { style: 'decimal' })
 </script>
 
 <template>
@@ -16,11 +18,17 @@ const page = computed({
     <BasePagination
       v-model:page="page"
       :items-per-page="8"
-      :total="512"
-      :sibling-count="2"
-      rounded="lg"
-      variant="primary"
-      class="w-full"
-    />
+      :total="1_000_000"
+      :sibling-count="1"
+      rounded="full"
+      variant="dark"
+    >
+      <template #page="{ page }">
+        {{ formatter.format(page) }}
+      </template>
+      <template #ellipsis>
+        &#8230;
+      </template>
+    </BasePagination>
   </div>
 </template>

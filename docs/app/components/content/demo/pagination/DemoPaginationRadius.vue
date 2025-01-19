@@ -20,6 +20,7 @@ const page = computed({
       :sibling-count="2"
       rounded="full"
       variant="dark"
+      class="w-full"
     />
   </div>
 </template>

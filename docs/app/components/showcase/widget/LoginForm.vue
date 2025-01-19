@@ -98,50 +98,22 @@ const checked = ref(false)
           <div>
             <div class="space-y-4">
               <!-- Email -->
-              <BaseField>
-                <div class="w-full inline-flex mb-2">
-                  <BaseFieldLabel class="flex items-center justify-between w-full">
-                    <div>
-                      <span>Email</span>
-                      <BaseFieldRequiredIndicator />
-                    </div>
-                  </BaseFieldLabel>
-                </div>
-                <div class="relative">
-                  <BaseFieldController>
-                    <BaseInput placeholder="Ex: johndoe@mail.com" />
-                  </BaseFieldController>
-                  <div class="absolute z-0 end-4 top-3 pointer-events-none">
-                    <BaseFieldLoadingIndicator />
-                    <BaseFieldSuccessIndicator />
-                    <BaseFieldErrorIndicator />
-                  </div>
-                </div>
+              <BaseField
+                id="email-address"
+                v-slot="{ inputAttrs, inputRef }"
+                label="Email"
+              >
+                <BaseInput :ref="inputRef" v-bind="inputAttrs" placeholder="Ex: johndoe@mail.com" />
               </BaseField>
 
               <!-- Password -->
-              <BaseField>
-                <div class="w-full inline-flex mb-2">
-                  <BaseFieldLabel class="flex items-center justify-between w-full">
-                    <div>
-                      <span>Password</span>
-                      <BaseFieldRequiredIndicator />
-                    </div>
-                  </BaseFieldLabel>
-                </div>
-                <div class="relative">
-                  <BaseFieldController>
-                    <BaseInput
-                      type="password"
-                      placeholder="••••••••••"
-                    />
-                  </BaseFieldController>
-                  <div class="absolute z-0 end-4 top-3 pointer-events-none">
-                    <BaseFieldLoadingIndicator />
-                    <BaseFieldSuccessIndicator />
-                    <BaseFieldErrorIndicator />
-                  </div>
-                </div>
+              <BaseField
+                id="password"
+                v-slot="{ inputAttrs, inputRef }"
+                type="password"
+                label="Password"
+              >
+                <BaseInput :ref="inputRef" v-bind="inputAttrs" placeholder="••••••••••" />
               </BaseField>
             </div>
 
