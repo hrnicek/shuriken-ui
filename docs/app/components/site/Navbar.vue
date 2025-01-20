@@ -88,10 +88,10 @@ const appConfig = useAppConfig()
             Utilities
           </NuxtLink>
           <NuxtLink
-            to="/docs/theming/colors"
+            to="/docs/snippets"
             class="text-sm text-muted-900 dark:text-white"
           >
-            Colors
+            Snippets
           </NuxtLink>
         </div>
         <!-- Actions -->

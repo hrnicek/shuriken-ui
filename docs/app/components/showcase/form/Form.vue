@@ -397,39 +397,39 @@ const form = reactive({
                     <div class="mt-2 sm:col-span-2 sm:mt-0">
                       <div class="grid grid-cols-1 gap-x-4 gap-y-5 sm:grid-cols-2">
                         <!-- First Name -->
-                        <BaseField required>
+                        <BasePrimiriveField required>
                           <div class="relative">
-                            <BaseFieldController>
+                            <BasePrimiriveFieldController>
                               <BaseInput
                                 v-model="form.firstName"
                                 rounded="md"
                                 placeholder="First Name"
                               />
-                            </BaseFieldController>
+                            </BasePrimiriveFieldController>
                             <div class="absolute z-0 end-4 top-3 pointer-events-none">
-                              <BaseFieldLoadingIndicator />
-                              <BaseFieldSuccessIndicator />
-                              <BaseFieldErrorIndicator />
+                              <BasePrimiriveFieldLoadingIndicator />
+                              <BasePrimiriveFieldSuccessIndicator />
+                              <BasePrimiriveFieldErrorIndicator />
                             </div>
                           </div>
-                        </BaseField>
+                        </BasePrimiriveField>
                         <!-- Last Name -->
-                        <BaseField required>
+                        <BasePrimiriveField required>
                           <div class="relative">
-                            <BaseFieldController>
+                            <BasePrimiriveFieldController>
                               <BaseInput
                                 v-model="form.lastName"
                                 rounded="md"
                                 placeholder="Last Name"
                               />
-                            </BaseFieldController>
+                            </BasePrimiriveFieldController>
                             <div class="absolute z-0 end-4 top-3 pointer-events-none">
-                              <BaseFieldLoadingIndicator />
-                              <BaseFieldSuccessIndicator />
-                              <BaseFieldErrorIndicator />
+                              <BasePrimiriveFieldLoadingIndicator />
+                              <BasePrimiriveFieldSuccessIndicator />
+                              <BasePrimiriveFieldErrorIndicator />
                             </div>
                           </div>
-                        </BaseField>
+                        </BasePrimiriveField>
                       </div>
                     </div>
                   </div>
@@ -438,22 +438,22 @@ const form = reactive({
                     <label class="text-muted-900 dark:text-muted-100 block font-sans text-sm font-medium sm:mt-px sm:pt-2"> Email Address </label>
                     <div class="mt-2 sm:col-span-2 sm:mt-0">
                       <!-- Last Name -->
-                      <BaseField required>
+                      <BasePrimiriveField required>
                         <div class="relative">
-                          <BaseFieldController>
+                          <BasePrimiriveFieldController>
                             <BaseInput
                               v-model="form.email"
                               rounded="md"
                               placeholder="Email Address"
                             />
-                          </BaseFieldController>
+                          </BasePrimiriveFieldController>
                           <div class="absolute z-0 end-4 top-3 pointer-events-none">
-                            <BaseFieldLoadingIndicator />
-                            <BaseFieldSuccessIndicator />
-                            <BaseFieldErrorIndicator />
+                            <BasePrimiriveFieldLoadingIndicator />
+                            <BasePrimiriveFieldSuccessIndicator />
+                            <BasePrimiriveFieldErrorIndicator />
                           </div>
                         </div>
-                      </BaseField>
+                      </BasePrimiriveField>
                     </div>
                   </div>
 
@@ -480,7 +480,7 @@ const form = reactive({
                       </BaseParagraph>
                     </div>
                     <div class="mt-2 sm:col-span-2 sm:mt-0">
-                      <BaseField class="w-full">
+                      <BasePrimiriveField class="w-full">
                         <div class="relative">
                           <div class="flex w-full">
                             <BaseButton
@@ -490,29 +490,29 @@ const form = reactive({
                               <span class="text-sm font-medium">users/</span>
                             </BaseButton>
                             <div class="grow relative">
-                              <BaseFieldController>
+                              <BasePrimiriveFieldController>
                                 <BaseInput
                                   v-model="form.username"
                                   class="border-s-none rounded-s-none"
                                   placeholder="Username..."
                                 />
-                              </BaseFieldController>
+                              </BasePrimiriveFieldController>
                             </div>
                           </div>
                           <div class="absolute z-0 end-4 top-3 pointer-events-none">
-                            <BaseFieldLoadingIndicator />
-                            <BaseFieldSuccessIndicator />
-                            <BaseFieldErrorIndicator />
+                            <BasePrimiriveFieldLoadingIndicator />
+                            <BasePrimiriveFieldSuccessIndicator />
+                            <BasePrimiriveFieldErrorIndicator />
                           </div>
                         </div>
-                      </BaseField>
+                      </BasePrimiriveField>
                     </div>
                   </div>
 
                   <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-5">
                     <label class="text-muted-900 dark:text-muted-100 block font-sans text-sm font-medium sm:mt-px sm:pt-2"> Website </label>
                     <div class="mt-2 sm:col-span-2 sm:mt-0">
-                      <BaseField class="w-full">
+                      <BasePrimiriveField class="w-full">
                         <div class="relative">
                           <div class="flex w-full">
                             <BaseButton
@@ -522,22 +522,22 @@ const form = reactive({
                               <span class="text-sm font-medium">https://</span>
                             </BaseButton>
                             <div class="grow relative">
-                              <BaseFieldController>
+                              <BasePrimiriveFieldController>
                                 <BaseInput
                                   v-model="form.website"
                                   class="border-s-none rounded-s-none"
                                   placeholder="Website..."
                                 />
-                              </BaseFieldController>
+                              </BasePrimiriveFieldController>
                             </div>
                           </div>
                           <div class="absolute z-0 end-4 top-3 pointer-events-none">
-                            <BaseFieldLoadingIndicator />
-                            <BaseFieldSuccessIndicator />
-                            <BaseFieldErrorIndicator />
+                            <BasePrimiriveFieldLoadingIndicator />
+                            <BasePrimiriveFieldSuccessIndicator />
+                            <BasePrimiriveFieldErrorIndicator />
                           </div>
                         </div>
-                      </BaseField>
+                      </BasePrimiriveField>
                     </div>
                   </div>
 

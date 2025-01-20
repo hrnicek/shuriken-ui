@@ -19,7 +19,7 @@ const { data: navigation } = await useAsyncData('navigation', () => queryCollect
           <div class="relative z-10 mx-auto w-full max-w-[1536px] grow flex">
             <!-- Start -->
             <div class="relative hidden lg:flex flex-col w-60 shrink-0 bg-white dark:bg-black border-e border-muted-200 dark:border-muted-800">
-              <ul class="fixed top-14 w-60 max-h-[calc(100dvh_-_3.5rem)] pt-10 pb-6 pe-4 overflow-y-auto nui-slimscroll">
+              <ul class="fixed top-14 w-60 max-h-[calc(100dvh_-_3.5rem)] pt-10 pb-16 pe-4 overflow-y-auto nui-slimscroll">
                 <li
                   v-for="item in navigation"
                   :key="item.path"

@@ -108,7 +108,7 @@ const page = computed({
       <div class="flex items-center justify-between">
         <!-- Filter -->
         <div class="w-full max-w-xs">
-          <BaseField class="w-full">
+          <BasePrimitiveField class="w-full">
             <div class="relative">
               <div class="flex w-full">
                 <BaseIconBox
@@ -122,29 +122,29 @@ const page = computed({
                   />
                 </BaseIconBox>
                 <div class="grow relative">
-                  <BaseFieldController>
+                  <BasePrimitiveFieldController>
                     <BaseInput
                       v-model="filter"
                       size="sm"
                       class="border-s-none rounded-s-none"
                       placeholder="Filter suppliers..."
                     />
-                  </BaseFieldController>
+                  </BasePrimitiveFieldController>
                 </div>
               </div>
               <div class="absolute z-0 end-4 top-3 pointer-events-none">
-                <BaseFieldLoadingIndicator />
-                <BaseFieldSuccessIndicator />
-                <BaseFieldErrorIndicator />
+                <BasePrimitiveFieldLoadingIndicator />
+                <BasePrimitiveFieldSuccessIndicator />
+                <BasePrimitiveFieldErrorIndicator />
               </div>
             </div>
-          </BaseField>
+          </BasePrimitiveField>
         </div>
         <!-- Columns -->
         <div>
-          <BaseField>
+          <BasePrimitiveField>
             <div class="relative">
-              <BaseFieldController>
+              <BasePrimitiveFieldController>
                 <BaseSelect
                   v-model="activeColumns"
                   multiple
@@ -159,14 +159,14 @@ const page = computed({
                     {{ column.label }}
                   </BaseSelectItem>
                 </BaseSelect>
-              </BaseFieldController>
+              </BasePrimitiveFieldController>
               <div class="absolute z-0 end-10 top-3 pointer-events-none">
-                <BaseFieldLoadingIndicator />
-                <BaseFieldSuccessIndicator />
-                <BaseFieldErrorIndicator />
+                <BasePrimitiveFieldLoadingIndicator />
+                <BasePrimitiveFieldSuccessIndicator />
+                <BasePrimitiveFieldErrorIndicator />
               </div>
             </div>
-          </BaseField>
+          </BasePrimitiveField>
         </div>
       </div>
       <!-- Table -->

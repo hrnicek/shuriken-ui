@@ -3,12 +3,15 @@ const props = defineProps<{
   to: string
   title?: string
   icon?: string
+  external?: boolean
 }>()
 </script>
 
 <template>
   <NuxtLink
     :to="props.to"
+    :target="props.external ? '_blank' : undefined"
+    rel="noopener noreferrer"
     class="group/link"
   >
     <BaseCard
@@ -17,7 +20,7 @@ const props = defineProps<{
       class="flex gap-3 p-4 group-hover/link:!border-muted-800 group-hover/link:shadow-lg group-hover/link:shadow-muted-300/30 dark:group-hover/link:border-muted-100! dark:group-hover/link:shadow-muted-800/20 transition-colors duration-200"
     >
       <div v-if="'icon' in $slots || props.icon">
-        <slot name="icon">
+        <slot name="icon" mdc-unwrap="p">
           <Icon
             v-if="props.icon"
             :name="props.icon"
@@ -33,7 +36,7 @@ const props = defineProps<{
           weight="medium"
           class="mb-1"
         >
-          <slot name="title">
+          <slot name="title" mdc-unwrap="p">
             {{ props.title }}
           </slot>
         </BaseHeading>
@@ -42,7 +45,7 @@ const props = defineProps<{
           size="sm"
           class="text-muted-500 dark:text-muted-400"
         >
-          <slot />
+          <slot mdc-unwrap="p" />
         </BaseParagraph>
       </div>
     </BaseCard>
