@@ -136,10 +136,9 @@ provideBaseSelectContext({
           <slot name="viewport-start" />
           <slot>
             <BaseSelectItem
-              v-for="item in props.items"
-              :key="(item.value as any)"
-              :text-value="item.textValue"
-              :value="item.value"
+              v-for="(item, key) in props.items"
+              :key
+              v-bind="item"
             >
               {{ item.textValue || item.value }}
             </BaseSelectItem>
