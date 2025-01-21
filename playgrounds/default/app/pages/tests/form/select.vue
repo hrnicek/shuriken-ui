@@ -94,6 +94,10 @@ const heros = [
   'Condiment King'
 ]
 
+const heroItems = heros.map(hero => ({
+  value: hero,
+}))
+
 
 const items = [
   {
@@ -604,6 +608,15 @@ const item = ref(items[0])
         </div>
       </NuiPreview>
 
+      
+      <NuiPreview title="Items" description="items props">
+        <div class="grid gap-6 md:max-w-4xl md:grid-cols-3">
+          <BaseSelect
+            placeholder="Select some heroes"
+            :items="heroItems"
+          />
+        </div>
+      </NuiPreview>
     </NuiPreviewContainer>
   </div>
 </template>

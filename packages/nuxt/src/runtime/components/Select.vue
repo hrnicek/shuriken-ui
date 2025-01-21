@@ -34,6 +34,7 @@ const props = withDefaults(defineProps<BaseSelectProps<T>>(), {
   modelValue: undefined,
   dir: undefined,
 
+  items: () => [],
   bindings: () => ({}),
   classes: () => ({}),
 })
@@ -52,6 +53,7 @@ const bindings = computed(() => {
 
 const forward = useForwardPropsEmits(reactiveOmit(props, [
   'id',
+  'items',
   'placeholder',
   'variant',
   'rounded',
@@ -132,7 +134,16 @@ provideBaseSelectContext({
           ])"
         >
           <slot name="viewport-start" />
-          <slot />
+          <slot>
+            <BaseSelectItem
+              v-for="item in props.items"
+              :key="(item.value as any)"
+              :text-value="item.textValue"
+              :value="item.value"
+            >
+              {{ item.textValue || item.value }}
+            </BaseSelectItem>
+          </slot>
           <slot name="viewport-end" />
         </SelectViewport>
 

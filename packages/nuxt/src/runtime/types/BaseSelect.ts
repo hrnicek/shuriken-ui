@@ -7,6 +7,7 @@ import type {
   SelectTriggerProps,
   SelectViewportProps,
 } from 'reka-ui'
+import type { BaseSelectItemProps } from './BaseSelectItem'
 
 export interface BaseSelectProps<T = AcceptableValue> extends SelectRootProps<T> {
   /**
@@ -18,6 +19,11 @@ export interface BaseSelectProps<T = AcceptableValue> extends SelectRootProps<T>
    * The placeholder to display for the select input.
    */
   placeholder?: string
+
+  /**
+   * The defaults items to display for the select input.
+   */
+  items?: BaseSelectItemProps[]
 
   /**
    * The variant of the select input.

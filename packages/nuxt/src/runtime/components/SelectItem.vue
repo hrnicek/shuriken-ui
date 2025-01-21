@@ -1,4 +1,5 @@
-<script setup lang="ts">
+<script setup lang="ts" generic="T extends AcceptableValue = AcceptableValue">
+import type { AcceptableValue } from 'reka-ui'
 import type { BaseSelectItemProps, BaseSelectItemSlots } from '../types'
 import { useForwardProps } from 'reka-ui'
 import { useNuiConfig } from '../composables/useNuiConfig'
@@ -6,7 +7,7 @@ import { BaseSelectItem as theme } from '../theme'
 
 import { injectBaseSelectContext } from './Select.vue'
 
-const props = withDefaults(defineProps<BaseSelectItemProps>(), {
+const props = withDefaults(defineProps<BaseSelectItemProps<T>>(), {
   textValue: undefined,
   value: undefined,
 })
@@ -16,7 +17,7 @@ const slots = defineSlots<BaseSelectItemSlots>()
 const context = injectBaseSelectContext()
 
 const iconCheck = useNuiConfig('icon', 'check')
-const forward = useForwardProps(props)
+const forward = useForwardProps(props) as any
 </script>
 
 <template>
