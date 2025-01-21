@@ -113,6 +113,7 @@ const hobbies: Hobby[] = [
     icon: 'ph:microphone-stage-duotone',
   },
 ]
+const languagesItems = languages.map((name) => ({ value: name }))
 
 const multipleValue = ref<string[]>(['Nuxt', 'Vue.js'])
 const multiplePerson = ref<Person[]>([persons[1]!])
@@ -682,6 +683,16 @@ const fields = reactive({
               {{ item.name }}
             </BaseAutocompleteItem>
           </BaseAutocomplete>
+        </div>
+      </NuiPreview>
+
+      
+      <NuiPreview title="Items" description="Autocomplete component with items prop">
+        <div class="grid grid-cols-4 gap-4 w-full max-w-5xl">
+          <BaseAutocomplete
+            placeholder="Select a language"
+            :items="languagesItems"
+          />
         </div>
       </NuiPreview>
     </NuiPreviewContainer>

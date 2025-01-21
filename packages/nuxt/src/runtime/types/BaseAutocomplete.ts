@@ -9,6 +9,7 @@ import type {
   ComboboxTriggerProps,
   ComboboxViewportProps,
 } from 'reka-ui'
+import type { BaseAutocompleteItemProps } from './BaseAutocompleteItem'
 
 export interface BaseAutocompleteProps<T = AcceptableValue> extends ComboboxRootProps<T> {
   /**
@@ -20,6 +21,11 @@ export interface BaseAutocompleteProps<T = AcceptableValue> extends ComboboxRoot
    * The default query value when uncontrolled.
    */
   // defaultQuery?: string
+
+  /**
+   * Items to display in the autocomplete list instead of slots.
+   */
+  items?: BaseAutocompleteItemProps<T>[]
 
   /**
    * The variant of the autocomplete

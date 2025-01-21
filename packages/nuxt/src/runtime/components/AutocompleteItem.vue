@@ -1,4 +1,5 @@
-<script setup lang="ts">
+<script setup lang="ts" generic="T extends AcceptableValue = AcceptableValue">
+import type { AcceptableValue } from 'reka-ui'
 import type { BaseAutocompleteItemEmits, BaseAutocompleteItemProps, BaseAutocompleteItemSlots } from '../types'
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardPropsEmits } from 'reka-ui'
@@ -6,11 +7,11 @@ import { useNuiConfig } from '../composables/useNuiConfig'
 import { BaseAutocompleteItem as theme } from '../theme'
 import { injectBaseAutocompleteContext } from './Autocomplete.vue'
 
-const props = withDefaults(defineProps<BaseAutocompleteItemProps>(), {
+const props = withDefaults(defineProps<BaseAutocompleteItemProps<T>>(), {
   value: undefined,
   textValue: undefined,
 })
-const emits = defineEmits<BaseAutocompleteItemEmits>()
+const emits = defineEmits<BaseAutocompleteItemEmits<T>>()
 const slots = defineSlots<BaseAutocompleteItemSlots>()
 
 const iconCheck = useNuiConfig('icon', 'check')

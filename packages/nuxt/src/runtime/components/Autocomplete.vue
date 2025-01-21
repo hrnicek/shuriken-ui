@@ -34,6 +34,7 @@ const props = withDefaults(defineProps<BaseAutocompleteProps<T>>(), {
   name: undefined,
   by: undefined,
 
+  items: () => [],
   bindings: () => ({}),
   classes: () => ({}),
 })
@@ -152,7 +153,15 @@ provideBaseAutocompleteContext({
             <slot name="empty" v-bind="{ open, modelValue, query }" />
           </ComboboxEmpty>
 
-          <slot />
+          <slot>
+            <BaseAutocompleteItem
+              v-for="(item, key) in props.items"
+              :key
+              v-bind="item"
+            >
+              {{ item.textValue ?? item.value }}
+            </BaseAutocompleteItem>
+          </slot>
           <slot name="viewport-end" v-bind="{ open, modelValue, query }" />
         </ComboboxViewport>
         <slot name="content-end" v-bind="{ open, modelValue, query }" />

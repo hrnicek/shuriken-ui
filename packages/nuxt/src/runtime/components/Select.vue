@@ -140,7 +140,7 @@ provideBaseSelectContext({
               :key
               v-bind="item"
             >
-              {{ item.textValue || item.value }}
+              {{ item.textValue ?? item.value }}
             </BaseSelectItem>
           </slot>
           <slot name="viewport-end" />
