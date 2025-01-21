@@ -1,3 +1,4 @@
+
 <script setup lang="ts">
 definePageMeta({
   title: 'BaseCheckbox',
@@ -107,6 +108,23 @@ function reset() {
             value="Option 4"
           />
         </BaseCheckboxGroup>
+      </NuiPreview>
+
+      
+      <NuiPreview
+        title="Value: multiple items"
+        description="Checkbox component multiple values with item prop"
+      >
+        <BaseCheckboxGroup
+          v-model="multipleValue"
+          class="grid grid-cols-2 gap-6 md:max-w-lg md:grid-cols-4"
+          :items="[
+            { label: 'option-1', value: 'Option 1' },
+            { label: 'option-2', value: 'Option 2' },
+            { label: 'option-3', value: 'Option 3' },
+            { label: 'option-4', value: 'Option 4' },
+          ]"
+        />
       </NuiPreview>
 
       <NuiPreview

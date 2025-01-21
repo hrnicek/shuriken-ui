@@ -7,6 +7,7 @@ const props = withDefaults(defineProps<BaseCheckboxGroupProps<T>>(), {
   modelValue: undefined,
   name: undefined,
   orientation: undefined,
+  items: () => [],
 })
 const emits = defineEmits<BaseCheckboxGroupEmits<T>>()
 const slots = defineSlots<BaseCheckboxGroupSlots>()
@@ -16,6 +17,12 @@ const forward = useForwardPropsEmits(props, emits)
 
 <template>
   <CheckboxGroupRoot v-bind="forward">
-    <slot />
+    <slot>
+      <BaseCheckbox
+        v-for="(item, key) in props.items"
+        :key
+        v-bind="item"
+      />
+    </slot>
   </CheckboxGroupRoot>
 </template>
