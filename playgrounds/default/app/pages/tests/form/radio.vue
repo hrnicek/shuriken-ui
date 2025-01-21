@@ -17,6 +17,7 @@ const customValue = ref('pink')
         <BaseRadioGroup v-model="value" name="radio_base" class="grid grid-cols-2 gap-6 md:max-w-lg md:grid-cols-4">
           <BaseRadio
             label="Default"
+            value="default"
             variant="default"
           />
           <BaseRadio
@@ -25,11 +26,25 @@ const customValue = ref('pink')
             variant="primary"
           />
           <BaseRadio
-            value="muted"
+            value="dark"
             label="Dark"
             variant="dark"
           />
         </BaseRadioGroup >
+      </NuiPreview>
+      
+      <NuiPreview title="Items" description="Radio component with items props">
+        <BaseRadioGroup
+          v-model="value"
+          name="radio_base"
+          class="grid grid-cols-2 gap-6 md:max-w-lg md:grid-cols-4"
+          :items="[
+            { label: 'Option 1', value: 'default' },
+            { label: 'Option 2', value: 'primary' },
+            { label: 'Option 3', value: 'dark' },
+            { label: 'Option 4', value: 'light' },
+          ]"
+        />
       </NuiPreview>
 
       <NuiPreview title="Custom" description="Radio component custom colors">
