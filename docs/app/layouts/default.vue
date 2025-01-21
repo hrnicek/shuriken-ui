@@ -4,6 +4,12 @@ const { isMobileOpen } = createLayoutDefaultContext()
 const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('content'), {
   transform: data => data.find(item => item.path === '/docs')?.children || [],
 })
+
+function naturalSort<T extends any[] = any[]>(array: T): T {
+  const copy = [...array]
+  const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' })
+  return copy.sort((a, b) => collator.compare(a.title, b.title)) as T
+}
 </script>
 
 <template>
@@ -35,7 +41,7 @@ const { data: navigation } = await useAsyncData('navigation', () => queryCollect
                     <div>
                       <ul>
                         <li
-                          v-for="link in item.children"
+                          v-for="link in naturalSort(item.children)"
                           :key="link.path"
                           class="relative mt-1"
                         >
