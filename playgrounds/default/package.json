@@ -13,6 +13,6 @@
     "@shuriken-ui/tailwind": "workspace:*",
     "nuxt": "catalog:",
     "tailwindcss": "catalog:",
-    "typescript": "5.7.3"
+    "typescript": "catalog:"
   }
 }

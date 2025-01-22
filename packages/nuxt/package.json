@@ -1,7 +1,7 @@
 {
   "name": "@shuriken-ui/nuxt",
   "type": "module",
-  "version": "4.0.0-alpha.28",
+  "version": "4.0.0-alpha.29",
   "author": "Css Ninja <hello@cssninja.io> (https://cssninja.io)",
   "repository": {
     "type": "git",
@@ -35,7 +35,7 @@
   "peerDependencies": {
     "@shuriken-ui/tailwind": "workspace:*",
     "tailwindcss": "catalog:",
-    "typescript": "5.6.3"
+    "typescript": "catalog:"
   },
   "dependencies": {
     "@nuxt/icon": "^1.9.1",
@@ -54,6 +54,7 @@
     "@nuxt/module-builder": "^0.8.4",
     "eslint": "^9.18.0",
     "nuxt": "catalog:",
+    "typescript": "5.6.3",
     "unbuild": "^3.2.0",
     "vue-tsc": "^2.2.0"
   }
