@@ -1,13 +1,15 @@
 <script setup lang="ts" generic="T extends AcceptableValue = AcceptableValue">
 import type { AcceptableValue } from 'reka-ui'
 import type { BaseSelectItemProps, BaseSelectItemSlots } from '../types'
-import { useForwardProps } from 'reka-ui'
+import { reactiveOmit } from '@vueuse/core'
+import { useForwardProps, VisuallyHidden } from 'reka-ui'
 import { useNuiConfig } from '../composables/useNuiConfig'
 import { BaseSelectItem as theme } from '../theme'
 
 import { injectBaseSelectContext } from './Select.vue'
 
 const props = withDefaults(defineProps<BaseSelectItemProps<T>>(), {
+  rawSlot: false,
   textValue: undefined,
   value: undefined,
 })
@@ -17,7 +19,7 @@ const slots = defineSlots<BaseSelectItemSlots>()
 const context = injectBaseSelectContext()
 
 const iconCheck = useNuiConfig('icon', 'check')
-const forward = useForwardProps(props) as any
+const forward = useForwardProps(reactiveOmit(props, ['rawSlot'])) as any
 </script>
 
 <template>
@@ -33,10 +35,13 @@ const forward = useForwardProps(props) as any
     <SelectItemIndicator class="absolute left-0 w-9 inline-flex items-center justify-center">
       <Icon :name="iconCheck" class="size-4" />
     </SelectItemIndicator>
-    <SelectItemText>
+    <SelectItemText v-if="!props.rawSlot">
       <slot>
         {{ props.textValue }}
       </slot>
     </SelectItemText>
+    <slot v-else>
+      {{ props.textValue }}
+    </slot>
   </SelectItem>
 </template>
