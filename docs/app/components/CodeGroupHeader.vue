@@ -44,36 +44,38 @@ const { copy, copied, isSupported } = useClipboard({
         class="m-1 block rounded-md px-3 py-1"
         :class="[tabs.length > 1 ? 'group-hover/button:bg-muted-100 dark:group-hover/button:bg-muted-900' : '']"
       >
-        {{ tab.filename?.replaceAll('⦋', '[')?.replaceAll('⦌', ']') }}
+        {{ tab.filename }}
       </span>
     </button>
 
-    <div
-      v-if="isSupported"
-      class="pointer-events-none absolute z-[2] mt-12 opacity-0 transition-opacity duration-300 group-hover/code:pointer-events-auto group-hover/code:opacity-100"
-      :class="hasPreview ? 'end-4' : 'end-2'"
-    >
-      <BaseButton
-        size="icon-sm"
-        rounded="md"
-        class="cursor-pointer"
-        :data-nui-tooltip="copied ? 'Copied!' : 'Copy'"
-        data-nui-tooltip-position="start"
-        :aria-label="copied ? 'Copied!' : 'Copy'"
-        @click="() => copy()"
+    <ClientOnly>
+      <div
+        v-if="isSupported"
+        class="pointer-events-none absolute z-[2] mt-12 opacity-0 transition-opacity duration-300 group-hover/code:pointer-events-auto group-hover/code:opacity-100"
+        :class="hasPreview ? 'end-4' : 'end-2'"
       >
-        <Icon
-          v-if="!copied"
-          name="lucide:copy"
-          class="h-4 w-4"
-        />
-        <Icon
-          v-else
-          name="lucide:check"
-          class="h-4 w-4 text-success-500"
-        />
-      </BaseButton>
-    </div>
+        <BaseButton
+          size="icon-sm"
+          rounded="md"
+          class="cursor-pointer"
+          :data-nui-tooltip="copied ? 'Copied!' : 'Copy'"
+          data-nui-tooltip-position="start"
+          :aria-label="copied ? 'Copied!' : 'Copy'"
+          @click="() => copy()"
+        >
+          <Icon
+            v-if="!copied"
+            name="lucide:copy"
+            class="h-4 w-4"
+          />
+          <Icon
+            v-else
+            name="lucide:check"
+            class="h-4 w-4 text-success-500"
+          />
+        </BaseButton>
+      </div>
+    </ClientOnly>
     <div
       class="absolute z-[2] mt-1.5"
       :class="hasPreview ? 'end-5' : 'end-3'"

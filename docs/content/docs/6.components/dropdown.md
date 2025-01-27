@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group{expandable}
 
-```vue [DemoDropdownBase.vue]
+```vue [Comp.vue]
 <template>
   <BaseDropdown variant="default" label="Default dropdown">
     <BaseDropdownItem>Leads</BaseDropdownItem>
@@ -48,7 +48,7 @@ This component has optional sub components that you can use to create your dropd
 
 ::code-group
 
-```vue [BaseDropdown]
+```vue [Comp.vue]
 <template>
   <BaseDropdown>
     <BaseDropdownLabel>
@@ -152,7 +152,7 @@ Use the `variant` prop to control the colors of the dropdown menu.
 
 ::code-group{expandable}
 
-```vue [DemoDropdownVariants.vue]
+```vue [Comp.vue]
 <template>
   <BaseDropdown variant="primary" label="Primary dropdown">
     <BaseDropdownItem>Leads</BaseDropdownItem>
@@ -184,7 +184,7 @@ You can nest other dropdowns inside a dropdown item, as well as checkboxes and r
 
 ::code-group{expandable}
 
-```vue [DemoDropdownNested.vue]
+```vue [Comp.vue]
 <script setup lang="ts">
 const checkedOne = ref(false)
 const checkedTwo = ref(false)
@@ -291,7 +291,7 @@ Use the spacing and arrow options to control the dropdown's position.
 
 ::code-group{expandable}
 
-```vue [DemoDropdownSpacing.vue]
+```vue [Comp.vue]
 <template>
   <BaseDropdown
     label="Default spacing"
@@ -335,7 +335,7 @@ Use the `DropdownLabel ` component to add a label to the dropdown menu. Mix and 
 
 ::code-group{expandable}
 
-```vue [DemoDropdownHeader.vue]
+```vue [Comp.vue]
 <template>
   <BaseDropdown header-label="My Team" variant="button" label="Dropdown" orientation="start">
     <BaseDropdownItem to="#" title="Lana Jensen" text="Software Engineer" color="default" rounded="sm">
@@ -373,7 +373,7 @@ Use the `#button` slot to customize the dropdown button.
 
 ::code-group{expandable}
 
-```vue [DemoDropdownVariant.vue]
+```vue [Comp.vue]
 <template>
   <BaseDropdown
     :bindings="{
@@ -413,7 +413,7 @@ Use the `:bindings` prop to control the dropdown's content alignment.
 
 ::code-group{expandable}
 
-```vue [DemoDropdownAlign.vue]
+```vue [Comp.vue]
 <template>
   <BaseDropdown
     label="End align" :bindings="{
@@ -441,7 +441,7 @@ Use the `:bindings` prop to control the popping `side` of the dropdown menu.
 
 ::code-group{expandable}
 
-```vue [DemoDropdownSide.vue]
+```vue [Comp.vue]
 <template>
   <BaseDropdown
     label="End align" :bindings="{
@@ -469,7 +469,7 @@ Use the `#start` slot to insert an icon inside a dropdown item.
 
 ::code-group{expandable}
 
-```vue [DemoDropdownIcon.vue]
+```vue [Comp.vue]
 <template>
   <BaseDropdown label="Dropdown" rounded="md">
     <BaseDropdownItem
@@ -520,7 +520,7 @@ Use the `#start` slot to insert an avatar inside a dropdown item.
 
 ::code-group{expandable}
 
-```vue [DemoDropdownAvatar.vue]
+```vue [Comp.vue]
 <template>
   <BaseDropdown label="Dropdown" rounded="md">
     <BaseDropdownItem
@@ -582,7 +582,7 @@ By disabling the `portal` mode, the dropdown will be rendered inside the compone
 
 ::code-group{expandable}
 
-```vue [DemoDropdownPortalDisabled.vue]
+```vue [Comp.vue]
 <template>
   <BaseDropdown
     label="Fixed position" :bindings="{

@@ -3,22 +3,16 @@ import type { PrimitiveProps } from 'reka-ui'
 export interface BaseIconBoxProps extends PrimitiveProps {
   /**
    * The variant of the box.
-   *
-   * @default 'default-low'
    */
   variant?: 'default' | 'muted' | 'primary' | 'dark' | 'none'
 
   /**
    * The size of the icon.
-   *
-   * @default 'xs'
    */
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
 
   /**
    * The radius of the icon.
-   *
-   * @default 'sm'
    */
   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
 

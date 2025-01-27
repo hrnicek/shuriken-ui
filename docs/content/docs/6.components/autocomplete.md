@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group{expandable}
 
-```vue [DemoAutocompleteBase.vue]
+```vue [Comp.vue]
 <template>
   <BaseAutocomplete
     v-model="fields.first"
@@ -53,7 +53,7 @@ This component has a default slot that can be used to add items, labels, groups 
 
 ::code-group
 
-```vue [BaseAutocomplete]
+```vue [Comp.vue]
 <template>
   <BaseAutocomplete>
     <BaseAutocompleteItem>
@@ -127,7 +127,7 @@ Use the `size` prop to change the size of the autocomplete.
 
 ::code-group{expandable}
 
-```vue [DemoAutocompleteSize.vue]
+```vue [Comp.vue]
 <template>
   <BaseAutocomplete
     v-model="fields.second"
@@ -165,7 +165,7 @@ Use the `variant` prop to change the contrast of the autocomplete.
 
 ::code-group{expandable}
 
-```vue [DemoAutocompleteVariants.vue]
+```vue [Comp.vue]
 <template>
   <BaseAutocomplete
     v-model="fields.second"
@@ -203,7 +203,7 @@ Use the `BaseAutocompleteGroup` component to group items.
 
 ::code-group{expandable}
 
-```vue [DemoAutocompleteGroups.vue]
+```vue [Comp.vue]
 <template>
   <BaseAutocomplete
     v-model="fields.first"
@@ -273,7 +273,7 @@ Use the available presets to quickly change the autocomplete's visual style.
 
 ::code-group{expandable}
 
-```vue [DemoAutocompletePresets.vue]
+```vue [Comp.vue]
 <template>
   <BaseAutocomplete preset="popper" placeholder="popper">
     <BaseAutocompleteGroup>
@@ -444,7 +444,7 @@ Use the `multiple` prop to be able to select multiple items at once.
 
 ::code-group{expandable}
 
-```vue [DemoAutocompleteMultipleStrings.vue]
+```vue [Comp.vue]
 <template>
   <div class="flex items-center justify-center px-4 pb-0 pt-4">
     <div class="w-full rounded-xl bg-muted-100 p-4 dark:bg-muted-900 md:p-6">
@@ -486,7 +486,7 @@ Use the `multiple` prop to be able to select multiple items at once.
 
 ::code-group{expandable}
 
-```vue [DemoAutocompleteMultipleObjects.vue]
+```vue [Comp.vue]
 <template>
   <div class="flex items-center justify-center px-4 pb-0 pt-4">
     <div class="w-full rounded-xl bg-muted-100 p-4 dark:bg-muted-900 md:p-6">
@@ -555,7 +555,7 @@ Use the `clearable` prop to add a clear button to the autocomplete.
 
 ::code-group{expandable}
 
-```vue [DemoAutocompleteClearablevue]
+```vue [Comp.vue]
 <template>
   <div class="flex items-center justify-center px-4 pb-0 pt-4">
     <div class="w-full rounded-xl bg-muted-100 p-4 dark:bg-muted-900 md:p-6">
@@ -600,7 +600,7 @@ Use the `aria-invalid` prop to indicate that the input has an error.
 
 ::code-group{expandable}
 
-```vue [DemoAutocompleteError.vue]
+```vue [Comp.vue]
 <template>
   <div class="flex items-center justify-center px-4 pb-0 pt-4">
     <div class="w-full rounded-xl bg-muted-100 p-4 dark:bg-muted-900 md:p-6">
@@ -645,7 +645,7 @@ Use the `disabled` prop to disable the autocomplete.
 
 ::code-group{expandable}
 
-```vue [DemoAutocompleteDisabled.vue]
+```vue [Comp.vue]
 <template>
   <div class="flex items-center justify-center px-4 pb-0 pt-4">
     <div class="w-full rounded-xl bg-muted-100 p-4 dark:bg-muted-900 md:p-6">
@@ -690,7 +690,7 @@ This component has multiple slots that you can use to customize how your items r
 
 ::code-group{expandable}
 
-```vue [DemoAutocompleteSlots.vue]
+```vue [Comp.vue]
 <template>
   <div class="flex items-center justify-center px-4 pb-0 pt-4">
     <div class="w-full rounded-xl bg-muted-100 p-4 dark:bg-muted-900 md:p-6">

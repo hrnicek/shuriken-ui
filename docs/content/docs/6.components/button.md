@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group
 
-```vue [DemoButtonBase.vue]
+```vue [Comp.vue]
 <template>
   <BaseButton size="md">
     Button
@@ -34,7 +34,7 @@ This component accepts any content as a child. You can customize the button's vi
 
 ::code-group
 
-```vue [BaseButton]
+```vue [Comp.vue]
 <template>
   <BaseButton>
     <!-- Content goes here -->
@@ -82,7 +82,7 @@ Use the `to` prop to assign an url an turn the button to a link.
 
 ::code-group
 
-```vue [DemoButtonLink.vue]
+```vue [Comp.vue]
 <template>
   <BaseButton to="https://google.com" size="md">
     Google.com
@@ -100,7 +100,7 @@ Use the `size` prop to change the size of the button.
 
 ::code-group
 
-```vue [DemoButtonSize.vue]
+```vue [Comp.vue]
 <template>
   <BaseButton size="sm" rounded="md">
     Button
@@ -127,7 +127,7 @@ Use the `Chip` component to add a badge to the button. You can also use the `pul
 
 ::code-group
 
-```vue [DemoButtonBadge.vue]
+```vue [Comp.vue]
 <template>
   <BaseChip :offset="1" pulse>
     <BaseButton
@@ -152,7 +152,7 @@ Use the `variant` prop to change the color and / or aspect of the button.
 
 ::code-group
 
-```vue [DemoButtonVariant.vue]
+```vue [Comp.vue]
 <template>
   <BaseButton variant="default">
     Button
@@ -188,7 +188,7 @@ Insert an icon inside a button to enhace your interface.
 
 ::code-group
 
-```vue [DemoButtonIcon.vue]
+```vue [Comp.vue]
 <template>
   <BaseButton variant="outline" color="success">
     <Icon name="cib:circleci" class="-ms-1 h-4 w-4" />
@@ -207,7 +207,7 @@ Write the button size as `icon-{size}` to make it an icon button.
 
 ::code-group
 
-```vue [DemoButtonIcons.vue]
+```vue [Comp.vue]
 <template>
   <BaseButton size="icon-sm" rounded="md">
     <Icon name="solar:add-folder-linear" class="size-4" />
@@ -234,7 +234,7 @@ Use the `loading` prop to set the button in loading state.
 
 ::code-group
 
-```vue [DemoButtonLoading.vue]
+```vue [Comp.vue]
 <template>
   <BaseButton size="sm" rounded="md" loading>
     Button
@@ -261,7 +261,7 @@ Use the `disabled` prop to set the button in disabled state.
 
 ::code-group
 
-```vue [DemoButtonDisabled.vue]
+```vue [Comp.vue]
 <template>
   <BaseButton size="sm" rounded="md" disabled>
     Button

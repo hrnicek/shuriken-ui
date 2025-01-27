@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group{expandable}
 
-```vue [DemoAvatarGroupBase.vue]
+```vue [Comp.vue]
 <template>
   <BaseAvatarGroup :avatars="people" />
 </template>
@@ -52,7 +52,7 @@ This component is uncontrolled and accepts an array of avatars as a prop. It als
 
 ::code-group
 
-```vue [BaseAvatarGroup]
+```vue [Comp.vue]
 <template>
   <BaseAvatarGroup />
 </template>
@@ -74,7 +74,7 @@ Use the `size` prop to control the size of the avatars inside the group.
 
 ::code-group{expandable}
 
-```vue [DemoAvatarGroupSize.vue]
+```vue [Comp.vue]
 <template>
   <BaseAvatarGroup size="md" :avatars="people" />
 </template>
@@ -110,7 +110,7 @@ Use the `limit` prop to control how many avatars are shown before a counter is d
 
 ::code-group{expandable}
 
-```vue [DemoAvatarGroupLimit.vue]
+```vue [Comp.vue]
 <template>
   <BaseAvatarGroup :avatars="people" :limit="8" />
 </template>

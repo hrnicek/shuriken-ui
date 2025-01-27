@@ -40,7 +40,7 @@
             <div class="flex shrink-0 justify-start -space-x-4">
               <div class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-muted-900 ring-2 ring-white dark:ring-muted-950 md:h-12 md:w-12 lg:h-14 lg:w-14">
                 <Icon
-                  name="logos:tailwindcss-icon"
+                  name="devicon:tailwindcss"
                   class="h-6 w-6 text-white"
                 />
               </div>

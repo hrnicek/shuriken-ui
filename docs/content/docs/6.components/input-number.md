@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group{expandable}
 
-```vue [DemoInputNumberBase.vue]
+```vue [Comp.vue]
 <template>
   <BaseInputNumber
     v-model="value"
@@ -40,7 +40,7 @@ This component is self closing and can be used to create a number input. You can
 
 ::code-group
 
-```vue [BaseInputNumber]
+```vue [Comp.vue]
 <template>
   <BaseInputNumber />
 </template>
@@ -92,7 +92,7 @@ Use the `size` prop to change the size of the input.
 
 ::code-group{expandable}
 
-```vue [DemoInputNumberSize.vue]
+```vue [Comp.vue]
 <template>
   <BaseInputNumber
     v-model="value"
@@ -115,7 +115,7 @@ const value = ref(0)
 Use the `variant` prop to change the visual style of the input.
 ::code-group{expandable}
 
-```vue [DemoInputNumberVariants.vue]
+```vue [Comp.vue]
 <template>
   <BaseInputNumber
     v-model="value"
@@ -144,7 +144,7 @@ Use the `rounded` prop to change the border radius of the input.
 
 ::code-group{expandable}
 
-```vue [DemoInputNumberRadius.vue]
+```vue [Comp.vue]
 <template>
   <BaseInputNumber
     v-model="value"
@@ -168,7 +168,7 @@ Use the `step` prop to handle the incremental steps of the input.
 
 ::code-group{expandable}
 
-```vue [DemoInputNumberSteps.vue]
+```vue [Comp.vue]
 <template>
   <BaseInputNumber
     v-model="fields.first"
@@ -222,7 +222,7 @@ Use the `disabled` prop to set the input in a disabled state.
 
 ::code-group{expandable}
 
-```vue [DemoInputNumberDisabled.vue]
+```vue [Comp.vue]
 <template>
   <BaseInputNumber
     v-model="value"

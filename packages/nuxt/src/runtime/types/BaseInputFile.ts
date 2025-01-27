@@ -26,23 +26,16 @@ export interface BaseInputFileProps {
 
   /**
    * The variant of the input.
-   *
-   * @default 'default'
    */
   variant?: 'default' | 'muted' | 'primary'
 
   /**
    * The radius of the file input.
-   *
-   * @since 2.0.0
-   * @default 'sm'
    */
   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
 
   /**
    * The size of the input.
-   *
-   * @default 'md'
    */
   size?: 'sm' | 'md' | 'lg' | 'xl'
 

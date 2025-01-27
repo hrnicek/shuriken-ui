@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group
 
-```vue [DemoParagraphBase.vue]
+```vue [Comp.vue]
 <template>
   <BaseParagraph as="p" size="md" weight="normal" lead="normal">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urgent
@@ -36,7 +36,7 @@ This component accepts any content as a child. You can customize the components'
 
 ::code-group
 
-```vue [BaseParagraph]
+```vue [Comp.vue]
 <template>
   <BaseParagraph>
     <!-- Content goes here -->

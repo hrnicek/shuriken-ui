@@ -17,15 +17,11 @@ export interface BaseDropdownCheckboxProps extends DropdownMenuCheckboxItemProps
 
   /**
    * The hover color of the dropdown-item inner elements.
-   *
-   * @default 'default'
    */
   variant?: 'default' | 'muted' | 'primary' | 'none'
 
   /**
    * The radius of the dropdown-item.
-   *
-   * @default 'sm'
    */
   rounded?: 'none' | 'sm' | 'md' | 'lg'
 

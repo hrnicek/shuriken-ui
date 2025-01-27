@@ -31,22 +31,16 @@ export interface BaseTextareaProps {
 
   /**
    * The variant of the textarea.
-   *
-   * @default 'default'
    */
   variant?: 'default' | 'muted'
 
   /**
    * The radius of the textarea.
-   *
-   * @default 'md'
    */
   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
 
   /**
    * The size of the input.
-   *
-   * @default 'md'
    */
   size?: 'sm' | 'md' | 'lg' | 'xl'
 }

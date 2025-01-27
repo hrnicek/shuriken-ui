@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group{expandable}
 
-```vue [demoTooltipBase.vue]
+```vue [Comp.vue]
 <template>
   <BaseTooltip content="Tooltip content">
     <BaseButton>
@@ -36,7 +36,7 @@ This component has a slot that you can use to add your content. You can customiz
 
 ::code-group
 
-```vue [BaseTooltip]
+```vue [Comp.vue]
 <template>
   <BaseTooltip>
     <!-- Your content here -->
@@ -87,7 +87,7 @@ Use the `variant` prop to change color of the tooltip.
 
 ::code-group{expandable}
 
-```vue [DemoTooltipVariants.vue]
+```vue [Comp.vue]
 <template>
   <BaseTooltip content="Tooltip content">
     <BaseButton>
@@ -134,7 +134,7 @@ Use the `content` slot to add custom content to the tooltip. add a `tabindex` to
 
 ::code-group{expandable}
 
-```vue [DemoTooltipInline.vue]
+```vue [Comp.vue]
 <template>
   <BaseTooltip>
     <template #content>
@@ -163,7 +163,7 @@ Use the `disable-closing-trigger` prop to prevent the tooltip from closing when 
 
 ::code-group{expandable}
 
-```vue [DemoTooltipCustom.vue]
+```vue [Comp.vue]
 <template>
   <BaseTooltip>
     <template #content>

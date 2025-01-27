@@ -19,7 +19,7 @@
             class="group flex items-center gap-4 rounded-lg px-4 py-3 transition-colors duration-300 hover:bg-muted-100 dark:hover:bg-muted-800/50"
           >
             <Icon
-              name="logos:tailwindcss-icon"
+              name="devicon:tailwindcss"
               class="h-6 w-6"
             />
             <div class="leading-none">

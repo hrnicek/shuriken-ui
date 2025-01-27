@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group
 
-```vue [DemoCardBase.vue]
+```vue [Comp.vue]
 <template>
   <BaseCard class="p-6">
     <!-- Card content -->
@@ -34,7 +34,7 @@ This component accepts any content as a child. You can customize the card's visu
 
 ::code-group
 
-```vue [BaseCard]
+```vue [Comp.vue]
 <template>
   <BaseCard>
     <!-- Content goes here -->
@@ -78,7 +78,7 @@ Use the `variant` prop to control the colors of the card.
 
 ::code-group{expandable}
 
-```vue [DemoCardColor.vue]
+```vue [Comp.vue]
 <template>
   <BaseCard variant="default" class="p-6">
     <!-- Card content -->
@@ -105,7 +105,7 @@ Use the `rounded` prop to control the border radius of the card.
 
 ::code-group{expandable}
 
-```vue [DemoCardRadius.vue]
+```vue [Comp.vue]
 <template>
   <BaseCard rounded="none" class="p-6">
     <!-- Card content -->

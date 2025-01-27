@@ -12,7 +12,7 @@ layout: 'default'
 ::
 
 ::code-group
-```vue [DemoInputFileBase.vue]
+```vue [Comp.vue]
 <template>
   <BaseInputFile v-model="file" rounded="md" placeholder="Upload a file" />
 </template>
@@ -35,7 +35,7 @@ This component is self closing and can be used to create a file input. You can c
 
 ::code-group
 
-```vue [BaseInputFile]
+```vue [Comp.vue]
 <template>
   <BaseInputFile />
 </template>
@@ -86,7 +86,7 @@ Your can override the component default CSS variables in your `main.css` file.
 Use the `size` prop to set the size of the input.
 
 ::code-group
-```vue [DemoInputFileSize.vue]
+```vue [Comp.vue]
 <template>
   <BaseInputFile v-model="file" size="md" placeholder="Upload a file" />
 </template>
@@ -105,7 +105,7 @@ const file = ref<FileList | null>(null)
 Use the `rounded` prop to set the border radius of the input.
 
 ::code-group
-```vue [DemoInputFileRadius.vue]
+```vue [Comp.vue]
 <template>
   <BaseInputFile v-model="file" rounded="full" placeholder="Upload a file" />
 </template>

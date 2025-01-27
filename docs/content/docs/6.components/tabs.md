@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group{expandable}
 
-```vue [DemoTabsBase.vue]
+```vue [Comp.vue]
 <template>
   <BaseTabs
     default-value="team"
@@ -56,7 +56,7 @@ Use the `<BaseTabs />` component to create a subnavigation component. Nest `<Bas
 
 ::code-group
 
-```vue [BaseTabs]
+```vue [Comp.vue]
 <template>
   <BaseTabs>
     <BaseTabsContent>
@@ -91,7 +91,7 @@ Use the `justify` prop to change alignment of the tabs.
 
 ::code-group{expandable}
 
-```vue [DemoTabsAlign.vue]
+```vue [Comp.vue]
 <template>
   <BaseTabs
     default-value="team"
@@ -131,7 +131,7 @@ Use the `orientation` prop to change orientation of the tabs.
 
 ::code-group{expandable}
 
-```vue [DemoTabsOrientation.vue]
+```vue [Comp.vue]
 <template>
   <BaseTabs
     default-value="team"
@@ -171,7 +171,7 @@ Use the `variant` prop to change the color of the tabs.
 
 ::code-group{expandable}
 
-```vue [DemoTabsVariants.vue]
+```vue [Comp.vue]
 <template>
   <BaseTabs
     default-value="team"
@@ -211,7 +211,7 @@ Include icons in the tabs object to display icons.
 
 ::code-group{expandable}
 
-```vue [DemoTabsIcon.vue]
+```vue [Comp.vue]
 <template>
   <BaseTabs
     default-value="tasks"
@@ -267,7 +267,7 @@ Use the `type` prop to change the style of the tabs.
 
 ::code-group{expandable}
 
-```vue [DemoTabsBoxed.vue]
+```vue [Comp.vue]
 <template>
   <BaseTabs
     v-model="selectedTab"
@@ -322,7 +322,7 @@ Include icons in the tabs object to display icons.
 
 ::code-group{expandable}
 
-```vue [DemoTabsBoxedIcons.vue]
+```vue [Comp.vue]
 <template>
   <BaseTabs
     v-model="selectedTab"
@@ -384,7 +384,7 @@ You can nest tabs within tabs.
 
 ::code-group{expandable}
 
-```vue [DemoTabsNested.vue]
+```vue [Comp.vue]
 <template>
   <BaseTabs
     default-value="team"

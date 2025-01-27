@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group{expandable}
 
-```vue [DemoFieldStandaloneBase.vue]
+```vue [Comp.vue]
 <script setup lang="ts">
 const value = ref('')
 </script>
@@ -42,7 +42,7 @@ This component is the standalone version of the `PrimitiveField` component. It h
 
 ::code-group
 
-```vue [BaseField]
+```vue [Comp.vue]
 <template>
   <BaseField>
     <!-- Your input component here -->
@@ -83,7 +83,7 @@ Fields can be used with any input component. Fields handle all states an input c
 
 ::code-group{expandable}
 
-```vue [DemoFieldStandaloneInput.vue]
+```vue [Comp.vue]
 <script setup lang="ts">
 const value = ref('')
 </script>
@@ -109,7 +109,7 @@ Fields can be used with any input component. Fields handle all states an input c
 
 ::code-group{expandable}
 
-```vue [DemoFieldStandaloneSelect.vue]
+```vue [Comp.vue]
 <script setup lang="ts">
 const value = ref('')
 </script>
@@ -149,7 +149,7 @@ Fields can be used with any input component. Fields handle all states an input c
 
 ::code-group{expandable}
 
-```vue [DemoFieldStandaloneAutocomplete.vue]
+```vue [Comp.vue]
 <template>
   <BaseField
     id="options"
@@ -196,7 +196,7 @@ Fields can be used with any input component. Fields handle all states an input c
 
 ::code-group{expandable}
 
-```vue [DemoFieldStandaloneInputFile.vue]
+```vue [Comp.vue]
 <template>
   <div class="flex items-center justify-center px-4 pb-0 pt-4">
     <div class="w-full rounded-xl bg-muted-100 p-4 dark:bg-muted-900/40">
@@ -227,7 +227,7 @@ Fields can be used with any input component. Fields handle all states an input c
 
 ::code-group{expandable}
 
-```vue [DemoFieldStandaloneInputNumber.vue]
+```vue [Comp.vue]
 <template>
   <BaseField
     id="quantity"
@@ -250,7 +250,7 @@ Fields can be used with any input component. Fields handle all states an input c
 
 ::code-group{expandable}
 
-```vue [DemoFieldStandaloneTextarea.vue]
+```vue [Comp.vue]
 <script setup lang="ts">
 const value = ref('')
 </script>

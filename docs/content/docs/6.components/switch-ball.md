@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group{expandable}
 
-```vue [DemoSwitchBallBase.vue]
+```vue [Comp.vue]
 <template>
   <BaseSwitchBall
     v-model="value"
@@ -39,7 +39,7 @@ This is a self closing component that can be used to display a fancy togglable c
 
 ::code-group
 
-```vue [BaseSwitchBall]
+```vue [Comp.vue]
 <template>
   <BaseSwitchBall />
 </template>
@@ -89,7 +89,7 @@ Use the `variant` prop to change the color of the switch.
 
 ::code-group{expandable}
 
-```vue [DemoSwitchBallVariants.vue]
+```vue [Comp.vue]
 <template>
   <BaseSwitchBall
     v-model="ballValues.one"
@@ -131,7 +131,7 @@ Set the `variant` prop to `none` to remove the default styles and create your ow
 
 ::code-group{expandable}
 
-```vue [DemoSwitchBallColor.vue]
+```vue [Comp.vue]
 <template>
   <BaseSwitchBall
     v-model="ballValues.one"
@@ -183,7 +183,7 @@ Use the `sublabel` prop to add a sublabel to the switch.
 
 ::code-group
 
-```vue [DemoSwitchSublabel.vue]
+```vue [Comp.vue]
 <template>
   <BaseSwitchBall
     v-model="value"

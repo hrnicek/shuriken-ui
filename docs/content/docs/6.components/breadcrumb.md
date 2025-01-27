@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group{expandable}
 
-```vue [DemoBreadcrumbBase.vue]
+```vue [Comp.vue]
 <template>
   <BaseBreadcrumb :items="breadcrumb" />
 </template>
@@ -52,7 +52,7 @@ This component accepts an array of items as a prop. You can customize the separa
 
 ::code-group
 
-```vue [BaseBreadcrumb]
+```vue [Comp.vue]
 <template>
   <BaseBreadcrumb>
     <!-- Separator goes here -->
@@ -76,7 +76,7 @@ Use the `variant` prop to change the hover color of the breadcrumb links.
 
 ::code-group{expandable}
 
-```vue [DemoBreadcrumbColorsvue]
+```vue [Comp.vue]
 <template>
   <BaseBreadcrumb :items="breadcrumb" variant="dark" />
 </template>
@@ -112,7 +112,7 @@ Use the `#default` slot to insert a breadcrumb item separator.
 
 ::code-group{expandable}
 
-```vue [DemoBreadcrumbSlash.vue]
+```vue [Comp.vue]
 <template>
   <BaseBreadcrumb :items="breadcrumb">
     /
@@ -150,7 +150,7 @@ Use the `#default` slot to insert a breadcrumb item separator.
 
 ::code-group{expandable}
 
-```vue [DemoBreadcrumbChevron.vue]
+```vue [Comp.vue]
 <template>
   <BaseBreadcrumb :items="breadcrumb">
     <Icon name="lucide:chevron-right" class="block h-3 w-3" />
@@ -188,7 +188,7 @@ Use the `#default` slot to insert a breadcrumb item separator.
 
 ::code-group{expandable}
 
-```vue [DemoBreadcrumbArrow.vue]
+```vue [Comp.vue]
 <template>
   <BaseBreadcrumb :items="breadcrumb">
     <Icon name="lucide:arrow-right" class="block h-3 w-3" />
@@ -226,7 +226,7 @@ Use the `#default` slot to insert a breadcrumb item separator.
 
 ::code-group{expandable}
 
-```vue [DemoBreadcrumbMarker.vue]
+```vue [Comp.vue]
 <template>
   <BaseBreadcrumb :items="breadcrumb">
     <Icon name="lucide:move-right" class="block h-3 w-3" />

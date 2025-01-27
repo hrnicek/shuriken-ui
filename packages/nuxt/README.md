@@ -32,22 +32,15 @@ Add the Shuriken UI module to your `nuxt.config.ts`:
 ```ts
 export default defineNuxtConfig({
   modules: ['@shuriken-ui/nuxt'],
-  css: ['~/assets/tailwind.css'],
+  css: ['~/assets/css/main.css'],
 })
 ```
 
-Reference Shuriken UI in your `~/assets/tailwind.css` file:
+Reference Shuriken UI in your `~/assets/css/main.css` file:
 
 ```css
 @import 'tailwindcss';
 @import '@shuriken-ui/tailwind';
-
-/* Register the dark mode variant (with .dark class) */
-@variant dark (&:where(.dark, .dark *));
-
-@theme {
-  /* Customize your theme here */
-}
 ```
 
 > See the [theme.css](https://github.com/shuriken-ui/shuriken-ui/blob/main/packages/tailwind/lib/theme.css) file for a complete list of available variables you can customize.

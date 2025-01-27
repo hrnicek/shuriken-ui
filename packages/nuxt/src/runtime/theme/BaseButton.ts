@@ -13,9 +13,9 @@ export const sizes = {
 
 export const radiuses = {
   none: '',
-  sm: 'rounded-md',
-  md: 'rounded-lg',
-  lg: 'rounded-xl',
+  sm: 'rounded-sm',
+  md: 'rounded-md',
+  lg: 'rounded-lg',
   full: 'rounded-full',
 } as const satisfies Record<NonNullable<BaseButtonProps['rounded']>, string>
 

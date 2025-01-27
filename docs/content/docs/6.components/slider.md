@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group
 
-```vue [DemoSliderBase.vue]
+```vue [Comp.vue]
 <template>
   <BaseSlider v-model="range" />
 </template>
@@ -36,7 +36,7 @@ This component is self closing and can be used to create range sliders.
 
 ::code-group
 
-```vue [BaseSlider]
+```vue [Comp.vue]
 <template>
   <BaseSlider />
 </template>
@@ -86,7 +86,7 @@ Use the `variant` prop to change the color of the progress bar. Set it to `none`
 
 ::code-group
 
-```vue [DemoSliderVariants.vue]
+```vue [Comp.vue]
 <template>
   <BaseSlider v-model="range" />
   <BaseSlider v-model="range" variant="primary" />
@@ -117,7 +117,7 @@ Use the `v-model` prop to set the value of the slider. You can also use an array
 
 ::code-group
 
-```vue [DemoSliderOrientation.vue]
+```vue [Comp.vue]
 <template>
   <BaseSlider v-model="range" />
 </template>
@@ -137,7 +137,7 @@ Use the `orientation` prop to change the direction of the slider. Set it to `ver
 
 ::code-group
 
-```vue [DemoSliderOrientation.vue]
+```vue [Comp.vue]
 <template>
   <BaseSlider v-model="range" orientation="vertical" />
 </template>
@@ -157,7 +157,7 @@ Sliders can be controlled by setting the `v-model` prop or uncontrolled by setti
 
 ::code-group
 
-```vue [DemoSliderControl.vue]
+```vue [Comp.vue]
 <template>
   <BaseSlider
     variant="dark"

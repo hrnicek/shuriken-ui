@@ -13,4 +13,11 @@ export default withNuxt(
       'vue/block-order': 'off',
     },
   },
+  {
+    files: ['**/*.md'],
+    rules: {
+      'no-irregular-whitespace': 'off',
+      'style/no-trailing-spaces': 'off',
+    },
+  },
 )

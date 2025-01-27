@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group{expandable}
 
-```vue [demoToastBase.vue]
+```vue [Comp.vue]
 <template>
   <BaseButton
     @click="add({
@@ -44,7 +44,7 @@ This component is provided by the `BaseProviders` component inside your `app.vue
 
 ::code-group
 
-```vue [app.vue]
+```vue [Comp.vue]
 <template>
   <BaseProviders :toast="{ max: 3, position: 'top-center' }">
     <NuxtLayout>
@@ -86,7 +86,7 @@ Use the `icon` prop to add an icon to your toast.
 
 ::code-group{expandable}
 
-```vue [DemoToastIcon.vue]
+```vue [Comp.vue]
 <template>
   <BaseButton
     @click="add({
@@ -115,7 +115,7 @@ Use the `actions` prop to add actions to your toast.
 
 ::code-group{expandable}
 
-```vue [DemoToastIcon.vue]
+```vue [Comp.vue]
 <template>
   <BaseButton
     @click="add({
@@ -153,7 +153,7 @@ Use the `progress` prop to show a timer on your toast.
 
 ::code-group{expandable}
 
-```vue [DemoToastTimer.vue]
+```vue [Comp.vue]
 <template>
   <BaseButton
     @click="add({

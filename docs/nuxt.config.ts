@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     'nuxt-component-meta',
     '@nuxt/eslint',
   ],
-  css: ['~/assets/tailwind.css'],
+  css: ['~/assets/css/main.css'],
   content: {
     build: {
       markdown: {

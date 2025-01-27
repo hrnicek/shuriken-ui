@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group
 
-```vue [DemoPlaceloadBase.vue]
+```vue [Comp.vue]
 <template>
   <BasePlaceload class="h-4 w-full rounded" />
   <BasePlaceload class="h-4 w-3/4 rounded" />
@@ -33,7 +33,7 @@ This component is self closing and can be used to create a loading placeholder.
 
 ::code-group
 
-```vue [BasePlaceload]
+```vue [Comp.vue]
 <template>
   <BasePlaceload />
 </template>
@@ -55,7 +55,7 @@ Use the placeload combined with utility classes to create different shapes.
 
 ::code-group
 
-```vue [DemoPlaceloadShape.vue]
+```vue [Comp.vue]
 <template>
   <BasePlaceload class="h-10 w-10 rounded" />
   <BasePlaceload class="h-12 w-12 rounded-xl" />
@@ -73,7 +73,7 @@ Use the placeload combined with other components to create original compositions
 
 ::code-group
 
-```vue [DemoPlaceloadComposition.vue]
+```vue [Comp.vue]
 <template>
   <BaseCard rounded="md" class="p-4 md:p-6">
     <div class="flex items-center gap-3">

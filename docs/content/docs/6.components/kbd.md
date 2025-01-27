@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group{expandable}
 
-```vue [DemoKbdBase.vue]
+```vue [Comp.vue]
 <template>
   <div class="flex items-center gap-1">
     <BaseKbd
@@ -46,7 +46,7 @@ This component can have any children inside its default slot. You can use the pr
 
 ::code-group
 
-```vue [BaseKbd]
+```vue [Comp.vue]
 <template>
   <BaseKbd>
     <!-- Your custom content here -->

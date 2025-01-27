@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group{expandable}
 
-```vue [DemoInputBase.vue]
+```vue [Comp.vue]
 <template>
   <BaseInput
     v-model="value"
@@ -40,7 +40,7 @@ This component is self closing and can be used to create an input field. You can
 
 ::code-group
 
-```vue [BaseInput]
+```vue [Comp.vue]
 <template>
   <BaseInput />
 </template>
@@ -92,7 +92,7 @@ Use the `size` prop to change the size of the input.
 
 ::code-group{expandable}
 
-```vue [DemoInputSize.vue]
+```vue [Comp.vue]
 <template>
   <BaseInput
     v-model="value"
@@ -116,7 +116,7 @@ Use the `variant` prop to change the contrast of the input.
 
 ::code-group{expandable}
 
-```vue [DemoInputContrast.vue]
+```vue [Comp.vue]
 <template>
   <BaseInput
     v-model="value"
@@ -147,7 +147,7 @@ Use the `rounded` prop to change the border radius of the input.
 
 ::code-group{expandable}
 
-```vue [DemoInputRadius.vue]
+```vue [Comp.vue]
 <template>
   <BaseInput
     v-model="value"
@@ -171,7 +171,7 @@ Use the `aria-invalid="true"` attribute to display an error state.
 
 ::code-group{expandable}
 
-```vue [DemoInputError.vue]
+```vue [Comp.vue]
 <template>
   <BaseInput
     v-model="value"
@@ -204,7 +204,7 @@ Use the `disabled` prop to set the input in a disabled state.
 
 ::code-group{expandable}
 
-```vue [DemoInputDisabled.vue]
+```vue [Comp.vue]
 <template>
   <BaseInput
     v-model="value"

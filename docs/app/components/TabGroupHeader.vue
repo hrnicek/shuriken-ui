@@ -34,7 +34,7 @@ const activeTabIndexRef = ref()
         class="m-1 block rounded-md px-3 py-1"
         :class="[tabs.length > 1 ? 'group-hover/button:bg-muted-100 dark:group-hover/button:bg-muted-900' : '']"
       >
-        {{ tab.filename?.replaceAll('⦋', '[')?.replaceAll('⦌', ']') }}
+        {{ tab.filename }}
       </span>
     </button>
   </div>

@@ -4,7 +4,7 @@
       <div class="mx-auto w-full max-w-md ">
         <BaseCard
           class="p-4 md:p-6"
-          color="default-contrast"
+          color="default"
           rounded="lg"
         >
           <div class="flex flex-col py-2">
@@ -24,7 +24,7 @@
                 Josh M. has invited you to the
                 <BaseLink
                   to="#"
-                  class="hover:text-black! dark:hover:text-muted-100!"
+                  class="text-primary-800"
                 >
                   Banking Solution Website
                 </BaseLink>

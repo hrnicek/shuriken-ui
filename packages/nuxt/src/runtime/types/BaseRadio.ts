@@ -11,8 +11,6 @@ export interface BaseRadioProps extends RadioGroupItemProps {
 
   /**
    * The variant of the radio.
-   *
-   * @default 'default'
    */
   variant?: 'default' | 'primary' | 'dark' | 'none'
 

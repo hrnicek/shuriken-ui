@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group{expandable}
 
-```vue [DemoCheckboxBase.vue]
+```vue [Comp.vue]
 <template>
   <BaseCheckboxGroup v-model="value">
     <BaseCheckbox
@@ -49,7 +49,7 @@ The `Group` component is a container for the `Checkbox` components. The `Checkbo
 
 ::code-group
 
-```vue [BaseCheckbox]
+```vue [Comp.vue]
 <template>
   <BaseCheckboxGroup>
     <BaseCheckbox />
@@ -81,7 +81,7 @@ Use the `variant` prop to change the color of the radio.
 
 ::code-group
 
-```vue [DemoRadioVariantsColor.vue]
+```vue [Comp.vue]
 <template>
   <BaseCheckbox
     v-model="value"
@@ -105,7 +105,7 @@ Set the `variant` prop to `none` and use tailwind classes to customize the radio
 
 ::code-group{expandable}
 
-```vue [DemoRadioColorCustom.vue]
+```vue [Comp.vue]
 <template>
   <BaseCheckbox
     v-model="value"
@@ -130,7 +130,7 @@ Use `BaseCheckboxGroup` to create a group of checkboxes. Bond it to a `v-model` 
 
 ::code-group{expandable}
 
-```vue [DemoCheckboxMultiple.vue]
+```vue [Comp.vue]
 <template>
   <BaseCheckboxGroup v-model="multipleValue" class="p-4 grid grid-cols-2 gap-6 md:max-w-lg md:grid-cols-4">
     <BaseCheckbox
@@ -171,7 +171,7 @@ Use the `disabled` prop to disable the checkbox.
 
 ::code-group{expandable}
 
-```vue [DemoRadioColorCustom.vue]
+```vue [Comp.vue]
 <template>
   <BaseCheckbox
     v-model="value"

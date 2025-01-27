@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group
 
-```vue [DemoLinkBase.vue]
+```vue [Comp.vue]
 <template>
   <BaseLink to="https://www.google.com" target="_blank" rel="noopener">
     Iam a link to Google
@@ -34,7 +34,7 @@ This component accepts any content as a child. You can customize the button's vi
 
 ::code-group
 
-```vue [BaseLink]
+```vue [Comp.vue]
 <template>
   <BaseLink>
     <!-- Content goes here -->

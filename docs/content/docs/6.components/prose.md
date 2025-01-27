@@ -6,14 +6,14 @@ layout: 'default'
 
 # Prose
 
-`<BaseProse />` · A prestyled text content block.
+`<BaseProse />` · A prestyled text content block to render raw HTML content from a CMS or markdown file.
 
 ::component-header{category="components/base" fileName="BaseProse.vue" }
 ::
 
 ::code-group{expandable}
 
-```vue [DemoProseBase.vue]
+```vue [Comp.vue]
 <template>
   <div class="max-w-3xl mx-auto py-6">
     <BaseProse rounded="md" class="prose-md">
@@ -372,7 +372,7 @@ This component accepts any content as a child. You can use it to render a block 
 
 ::code-group
 
-```vue [BaseProse]
+```vue [Comp.vue]
 <template>
   <BaseProse>
     <!-- Content goes here -->

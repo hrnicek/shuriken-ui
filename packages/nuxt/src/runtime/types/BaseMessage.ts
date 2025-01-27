@@ -63,15 +63,11 @@ export interface BaseMessageProps extends PrimitiveProps {
 
   /**
    * The variant of the message.
-   *
-   * @default 'default'
    */
   variant?: 'default' | 'muted' | 'primary' | 'info' | 'success' | 'warning' | 'destructive'
 
   /**
    * The radius of the message.
-   *
-   * @default 'sm'
    */
   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
 }

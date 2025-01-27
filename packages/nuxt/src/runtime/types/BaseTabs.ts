@@ -17,29 +17,21 @@ export interface BaseTabsProps extends TabsRootProps {
 
   /**
    * Defines the color of the active tab
-   *
-   * @default 'default'
    */
   variant?: 'primary' | 'dark' | 'muted'
 
   /**
    * The horizontal alignment of the tabs.
-   *
-   * @default 'start'
    */
   justify?: 'start' | 'center' | 'end'
 
   /**
    * The radius of the boxed tab.
-   *
-   * @default 'md'
    */
   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
 
   /**
    * The type of tabs to display..
-   *
-   * @default 'tabs'
    */
   type?: 'tabs' | 'box'
 }

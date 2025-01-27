@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group
 
-```vue [DemoListBase.vue]
+```vue [Comp.vue]
 <template>
   <BaseList class="ps-4">
     <li>Finish project UX</li>
@@ -37,7 +37,7 @@ This component accepts a `<li/>` or a `BaseListItem` as a child. You can customi
 
 ::code-group
 
-```vue [BaseLink]
+```vue [Comp.vue]
 <template>
   <BaseList>
     <BaseListItem>
@@ -69,7 +69,7 @@ Use the `ordered` prop to set the list component to an ordered list.
 
 ::code-group
 
-```vue [DemoListOrdered.vue]
+```vue [Comp.vue]
 <template>
   <BaseList ordered class="ps-4">
     <li>Finish project UX</li>
@@ -90,7 +90,7 @@ Use the `<ListItem />` component inside the list to add a subtitle.
 
 ::code-group{expandable}
 
-```vue [DemoListSubtitle.vue]
+```vue [Comp.vue]
 <template>
   <BaseList>
     <BaseListItem
@@ -123,7 +123,7 @@ Use the `<ListItem />` component default slot to display an icon.
 
 ::code-group{expandable}
 
-```vue [DemoListIcon.vue]
+```vue [Comp.vue]
 <template>
   <BaseList>
     <BaseListItem
@@ -167,7 +167,7 @@ Use the `<ListItem />` component default slot to display an avatar.
 
 ::code-group{expandable}
 
-```vue [DemoListAvatar.vue]
+```vue [Comp.vue]
 <template>
   <BaseList>
     <BaseListItem

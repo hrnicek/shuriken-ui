@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     '@shuriken-ui/nuxt',
     '@nuxt/fonts',
   ],
-  css: ['~/assets/tailwind.css'],
+  css: ['~/assets/css/main.css'],
 
   vite: {
     build: {

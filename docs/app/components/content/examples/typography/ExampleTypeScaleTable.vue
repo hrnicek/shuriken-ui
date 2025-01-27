@@ -1,79 +1,79 @@
 <script setup lang="ts">
 const scales = [
   {
-    step: 1,
+    step: 'xs',
     size: '0.75rem',
     letterSpacing: '0',
     lineHeight: '1rem',
   },
   {
-    step: 2,
+    step: 'sm',
     size: '0.875rem',
     letterSpacing: '0',
     lineHeight: '1.25rem',
   },
   {
-    step: 3,
+    step: 'md',
     size: '1rem',
     letterSpacing: '0',
     lineHeight: '1.5rem',
   },
   {
-    step: 4,
+    step: 'lg',
     size: '1.125rem',
     letterSpacing: '0',
     lineHeight: '1.75rem',
   },
   {
-    step: 5,
+    step: 'xl',
     size: '1.25rem',
     letterSpacing: '0',
     lineHeight: '1.75rem',
   },
   {
-    step: 6,
+    step: '2xl',
     size: '1.5rem',
     letterSpacing: '0',
     lineHeight: '2rem',
   },
   {
-    step: 7,
+    step: '3xl',
     size: '1.875rem',
     letterSpacing: '0',
     lineHeight: '2.25rem',
   },
   {
-    step: 8,
+    step: '4xl',
     size: '2.25rem',
     letterSpacing: '0',
     lineHeight: '2.5rem',
   },
   {
-    step: 9,
+    step: '5xl',
     size: '3rem',
     letterSpacing: '0',
     lineHeight: '1',
   },
   {
-    step: 10,
+    step: '6xl',
     size: '3.75rem',
     letterSpacing: '0',
     lineHeight: '1',
   },
   {
-    step: 11,
+    step: '7xl',
     size: '4.5rem',
     letterSpacing: '0',
     lineHeight: '1',
   },
   {
-    step: 12,
+    step: '8xl',
     size: '6rem',
     letterSpacing: '0',
     lineHeight: '1',
   },
   {
-    step: 13,
+    step: '9xl',
     size: '8rem',
     letterSpacing: '0',
     lineHeight: '1',
@@ -88,10 +88,10 @@ const scales = [
         <thead>
           <tr>
             <th class="whitespace-nowrap bg-muted-50 px-4 py-3 text-start font-sans text-sm font-medium text-muted-800 dark:bg-muted-900/50 dark:text-muted-100 md:whitespace-normal">
-              Step
+              Size
             </th>
             <th class="whitespace-nowrap bg-muted-50 px-4 py-3 text-start font-sans text-sm font-medium text-muted-800 dark:bg-muted-900/50 dark:text-muted-100 md:whitespace-normal">
-              Size
+              Font size
             </th>
             <th class="whitespace-nowrap bg-muted-50 px-4 py-3 text-start font-sans text-sm font-medium text-muted-800 dark:bg-muted-900/50 dark:text-muted-100 md:whitespace-normal">
               Letter spacing

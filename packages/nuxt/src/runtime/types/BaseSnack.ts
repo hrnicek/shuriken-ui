@@ -18,15 +18,11 @@ export interface BaseSnackProps extends PrimitiveProps {
 
   /**
    * The variant of snack.
-   *
-   * @default 'default'
    */
   variant?: 'default' | 'muted' | 'primary' | 'dark' | 'none'
 
   /**
    * The size of the snack.
-   *
-   * @default 'md'
    */
   size?: 'xs' | 'sm' | 'md'
 }

@@ -3,6 +3,8 @@ import { joinURL } from 'ufo'
 
 const { data: versions } = await useFetch('/api/versions')
 
+const searchOpen = useState('search-open', () => false)
+
 const { isMobileOpen } = useLayoutDefaultContext()
 const { y } = useWindowScroll()
 const appConfig = useAppConfig()
@@ -99,6 +101,7 @@ const appConfig = useAppConfig()
           <div
             role="button"
             class="cursor-pointer h-8 w-48 flex items-center justify-between bg-muted-50 dark:bg-muted-900 text-muted-400 hover:text-muted-600 dark:hover:text-muted-200 hover:ring-muted-300 dark:hover:ring-muted-700 gap-2 ps-3 pe-1 py-1 rounded-md ring-1 ring-muted-200 dark:ring-muted-800 transition-colors duration-300"
+            @click="searchOpen = !searchOpen"
           >
             <div class="pointer-events-none">
               <span class="font-sans text-sm">

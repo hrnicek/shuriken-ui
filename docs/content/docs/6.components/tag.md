@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group
 
-```vue [DemoTagBase.vue]
+```vue [Comp.vue]
 <template>
   <BaseTag>
     Label
@@ -34,7 +34,7 @@ This component can have any content inside it. It is used to display an informat
 
 ::code-group
 
-```vue [BaseTag]
+```vue [Comp.vue]
 <template>
   <BaseTag>
     <!-- Your content here -->
@@ -85,7 +85,7 @@ Use the `size` prop to change the size of the tag.
 
 ::code-group
 
-```vue [DemoTagSize.vue]
+```vue [Comp.vue]
 <template>
   <BaseTag size="sm">
     Label
@@ -109,7 +109,7 @@ Use the `rounded` prop to change the radius of the tag.
 
 ::code-group
 
-```vue [DemoTagRadius.vue]
+```vue [Comp.vue]
 <template>
   <BaseTag variant="default">
     Label
@@ -136,7 +136,7 @@ Use the `variant` prop to change the style of the tag.
 
 ::code-group
 
-```vue [DemoTagVariant.vue]
+```vue [Comp.vue]
 <template>
   <BaseTag variant="solid" color="primary">
     Label
@@ -160,7 +160,7 @@ Set the `variant` prop to `none` to remove the default colors and apply your own
 
 ::code-group
 
-```vue [DemoTagColorsvue]
+```vue [Comp.vue]
 <template>
   <BaseTag
     variant="none"

@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group{expandable}
 
-```vue [DemoSelectBase.vue]
+```vue [Comp.vue]
 <template>
   <BaseSelect v-model="value" rounded="md" placeholder="Select a hero">
     <BaseSelectItem value="Superman">
@@ -52,7 +52,7 @@ This component has a default slot that can be used to add select options. Use th
 
 ::code-group
 
-```vue [BaseSelect]
+```vue [Comp.vue]
 <template>
   <BaseSelect>
     <BaseSelectItem>
@@ -114,7 +114,7 @@ Use the `size` prop to change the size of the select.
 
 ::code-group{expandable}
 
-```vue [DemoSelectSize.vue]
+```vue [Comp.vue]
 <template>
   <BaseSelect v-model="value" size="md" placeholder="Select a hero">
     <BaseSelectItem value="Superman">
@@ -150,7 +150,7 @@ Use the `variant` prop to change the variant of the select.
 
 ::code-group{expandable}
 
-```vue [DemoSelectVariants.vue]
+```vue [Comp.vue]
 <template>
   <BaseSelect v-model="value" variant="muted" placeholder="Select a hero">
     <BaseSelectItem value="Superman">
@@ -186,7 +186,7 @@ Use the `rounded` prop to change the border radius of the select.
 
 ::code-group{expandable}
 
-```vue [DemoSelectRadius.vue]
+```vue [Comp.vue]
 <template>
   <BaseSelect v-model="value" rounded="full" placeholder="Select a hero">
     <BaseSelectItem value="Superman">
@@ -220,7 +220,7 @@ const value = ref('')
 
 ::code-group{expandable}
 
-```vue [DemoSelectPresets.vue]
+```vue [Comp.vue]
 <template>
   <BaseSelect
     v-model="item"
@@ -355,7 +355,7 @@ Use the `position` prop to change the alignment of the select.
 
 ::code-group{expandable}
 
-```vue [DemoSelectPosition.vue]
+```vue [Comp.vue]
 <template>
   <BaseSelect
     v-model="value"
@@ -400,7 +400,7 @@ Compose the select with groups, separators, and labels.
 
 ::code-group{expandable}
 
-```vue [DemoSelectPosition.vue]
+```vue [Comp.vue]
 <template>
   <BaseSelect
     v-model="value"
@@ -456,7 +456,7 @@ Use the `multiple` prop to allow multiple selections.
 
 ::code-group{expandable}
 
-```vue [DemoSelectMultiple.vue]
+```vue [Comp.vue]
 <template>
   <BaseSelect
     v-model="value"
@@ -527,7 +527,7 @@ Use the provided slots to customize the select.
 
 ::code-group{expandable}
 
-```vue [DemoSelectSlots.vue]
+```vue [Comp.vue]
 <template>
   <BaseSelect
     placeholder="Select some heroes"
@@ -665,7 +665,7 @@ Use the `aria-invalid` prop to set the select in an error state.
 
 ::code-group{expandable}
 
-```vue [DemoSelectError.vue]
+```vue [Comp.vue]
 <template>
   <BaseSelect
     v-model="value"
@@ -706,7 +706,7 @@ Use the `disabled` prop to set the select in a disabled state.
 
 ::code-group{expandable}
 
-```vue [DemoSelectDisabled.vue]
+```vue [Comp.vue]
 <template>
   <BaseSelect
     v-model="value"

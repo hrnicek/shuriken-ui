@@ -13,8 +13,6 @@ export interface BasePlaceholderPageProps extends PrimitiveProps {
 
   /**
    * The size of the featured image.
-   *
-   * @default 'xs'
    */
   imageSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 }

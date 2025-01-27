@@ -27,29 +27,21 @@ export interface BaseSelectProps<T = AcceptableValue> extends SelectRootProps<T>
 
   /**
    * The variant of the select input.
-   *
-   * @default 'default'
    */
   variant?: 'default' | 'muted'
 
   /**
    * The radius of the select input.
-   *
-   * @default 'md'
    */
   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
 
   /**
    * The size of the select input.
-   *
-   * @default 'md'
    */
   size?: 'sm' | 'md' | 'lg' | 'xl'
 
   /**
    * Bindings presets
-   *
-   * @default 'aligned'
    */
   preset?: 'aligned' | 'popper'
 

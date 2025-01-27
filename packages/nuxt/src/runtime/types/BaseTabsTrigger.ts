@@ -13,15 +13,11 @@ export interface BaseTabsTriggerProps extends TabsTriggerProps {
 
   /**
    * Defines the color of the active tab
-   *
-   * @default 'default'
    */
   variant?: 'primary' | 'dark' | 'muted'
 
   /**
    * The type of tabs to display..
-   *
-   * @default 'tabs'
    */
   type?: 'tabs' | 'box'
 }

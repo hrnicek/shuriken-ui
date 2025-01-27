@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group{expandable}
 
-```vue [demoPopoverBase.vue]
+```vue [Comp.vue]
 <template>
   <BasePopover>
     <BaseButton>
@@ -52,7 +52,7 @@ This component has a slot that you can use to add your content. You can customiz
 
 ::code-group
 
-```vue [BasePopover]
+```vue [Comp.vue]
 <template>
   <BasePopover>
     <!-- Your content here -->
@@ -103,7 +103,7 @@ Use the `variant` prop to change color of the popover.
 
 ::code-group{expandable}
 
-```vue [DemoPopoverVariants.vue]
+```vue [Comp.vue]
 <template>
   <BasePopover variant="muted">
     <BaseButton>
@@ -139,7 +139,7 @@ Use the `content` slot to render the popover inner content.
 
 ::code-group{expandable}
 
-```vue [DemoPopoverInline.vue]
+```vue [Comp.vue]
 <template>
   <BasePopover>
     <button type="button" tabindex="0" class="focus-visible:nui-focus cursor-pointer rounded-full">

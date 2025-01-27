@@ -29,5 +29,7 @@ useSeoMeta({
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
+
+    <AppSearch />
   </BaseProviders>
 </template>

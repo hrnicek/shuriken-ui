@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group{expandable}
 
-```vue [DemoPlaceholderBase.vue]
+```vue [Comp.vue]
 <template>
   <BasePlaceholderPage
     title="Looks like you are new!"
@@ -45,7 +45,7 @@ This component accepts any content as a child. You can customize the component v
 
 ::code-group
 
-```vue [BasePlaceholderPage]
+```vue [Comp.vue]
 <template>
   <BasePlaceholderPage>
     <template #image>
@@ -74,7 +74,7 @@ Use the `image-size` prop to control the width of the image slot.
 
 ::code-group{expandable}
 
-```vue [DemoPlaceholderImg.vue]
+```vue [Comp.vue]
 <template>
   <BasePlaceholderPage
     title="Starting Soon!"
@@ -110,7 +110,7 @@ Use the `#default` slot to add anything to your placeholder.
 
 ::code-group{expandable}
 
-```vue [DemoPlaceholderSlot.vue]
+```vue [Comp.vue]
 <template>
   <BasePlaceholderPage
     title="Get Notified"

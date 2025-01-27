@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group
 
-```vue [DemoSnackBase.vue]
+```vue [Comp.vue]
 <template>
   <BaseSnack label="Label" />
 </template>
@@ -32,7 +32,7 @@ This is a self closing component that can be used to display a small piece of re
 
 ::code-group
 
-```vue [BaseSnack]
+```vue [Comp.vue]
 <template>
   <BaseSnack />
 </template>
@@ -81,7 +81,7 @@ Use the `size` prop to change size of the snack.
 
 ::code-group
 
-```vue [DemoSnackSize.vue]
+```vue [Comp.vue]
 <template>
   <BaseSnack label="React" color="default" size="xs" />
   <BaseSnack label="Angular" color="default" size="sm" />
@@ -99,7 +99,7 @@ Use the `variant` prop to change color of the snack. Set it to `none` to remove 
 
 ::code-group
 
-```vue [DemoSnackVariants.vue]
+```vue [Comp.vue]
 <template>
   <BaseSnack
     label="Label"
@@ -131,7 +131,7 @@ Use the `icon` prop to display an icon inside the snack.
 
 ::code-group
 
-```vue [DemoSnackIcon.vue]
+```vue [Comp.vue]
 <template>
   <BaseSnack
     label="React"
@@ -151,7 +151,7 @@ Use the `image` prop to display an image inside the snack.
 
 ::code-group
 
-```vue [DemoSnackImage.vue]
+```vue [Comp.vue]
 <template>
   <BaseSnack
     label="Mike"

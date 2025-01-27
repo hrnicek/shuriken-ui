@@ -42,13 +42,6 @@ Reference Shuriken UI in your `tailwind.css` file:
 ```css
 @import 'tailwindcss';
 @import '@shuriken-ui/tailwind';
-
-/* Register the dark mode variant (with .dark class) */
-@variant dark (&:where(.dark, .dark *));
-
-@theme {
-  /* Customize your theme here */
-}
 ```
 
 > See the [theme.css](https://github.com/shuriken-ui/shuriken-ui/blob/main/packages/tailwind/lib/theme.css) file for a complete list of available variables you can customize.

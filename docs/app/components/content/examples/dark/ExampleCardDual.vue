@@ -30,7 +30,7 @@
             />
             <Icon
               name="uiw:star-on"
-              class="h-3 w-3 text-yellow-400"
+              class="h-3 w-3 text-muted-400"
             />
           </div>
           <div class="text-center">
@@ -104,7 +104,7 @@
             />
             <Icon
               name="uiw:star-on"
-              class="h-3 w-3 text-yellow-400"
+              class="h-3 w-3 text-muted-400"
             />
           </div>
           <div class="text-center">

@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group
 
-```vue [DemoProgressBase.vue]
+```vue [Comp.vue]
 <template>
   <BaseProgress
     v-model="progress"
@@ -39,7 +39,7 @@ This component is self closing and can be used to create an animated progress ba
 
 ::code-group
 
-```vue [BaseProgress]
+```vue [Comp.vue]
 <template>
   <BaseProgress />
 </template>
@@ -89,7 +89,7 @@ Use the `value` prop to set the value of the progress bar.
 
 ::code-group
 
-```vue [DemoProgressValue.vue]
+```vue [Comp.vue]
 <template>
   <BaseProgress
     v-model="progress"
@@ -112,7 +112,7 @@ Omit the `value` prop to set the progress bar in an indeterminate state.
 
 ::code-group
 
-```vue [DemoProgressValue.vue]
+```vue [Comp.vue]
 <template>
   <BaseProgress title="Indeterminate progress bar" />
 </template>
@@ -128,7 +128,7 @@ Use the `size` prop to change the size of the progress bar.
 
 ::code-group
 
-```vue [DemoProgressSize.vue]
+```vue [Comp.vue]
 <template>
   <BaseProgress
     v-model="progress"
@@ -152,7 +152,7 @@ Use the `variant` prop to change the color of the progress bar. Set it to `none`
 
 ::code-group
 
-```vue [DemoProgressColor.vue]
+```vue [Comp.vue]
 <template>
   <BaseProgress
     v-model="progress"

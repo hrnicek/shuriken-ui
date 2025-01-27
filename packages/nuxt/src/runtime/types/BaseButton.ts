@@ -21,22 +21,16 @@ export interface BaseButtonProps {
 
   /**
    * The variant of the button..
-   *
-   * @default 'default'
    */
   variant?: 'default' | 'muted' | 'ghost' | 'muted' | 'primary' | 'destructive' | 'dark' | 'link' | 'none'
 
   /**
    * The size of the button
-   *
-   * @default 'md'
    */
   size?: 'sm' | 'icon-sm' | 'md' | 'icon-md' | 'lg' | 'icon-lg' | 'xl' | 'icon-xl'
 
   /**
    * The radius of the button.
-   *
-   * @default 'sm'
    */
   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
 }

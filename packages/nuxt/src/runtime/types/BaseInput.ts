@@ -16,22 +16,16 @@ export interface BaseInputProps {
 
   /**
    * The variant of the input.
-   *
-   * @default 'default'
    */
   variant?: 'default' | 'muted'
 
   /**
    * The radius of the input.
-   *
-   * @default 'md'
    */
   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
 
   /**
    * The size of the input.
-   *
-   * @default 'md'
    */
   size?: 'sm' | 'md' | 'lg' | 'xl'
 }

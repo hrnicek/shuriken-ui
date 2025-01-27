@@ -1,8 +1,6 @@
 @import 'tailwindcss';
 @import '@shuriken-ui/tailwind';
-@source "../../content";
-
-@variant dark (&:where(.dark, .dark *));
+@source '../../../content/';
 
 @theme {
   --font-sans: Inter, sans-serif;
@@ -77,5 +75,23 @@
     border-radius: 12px;
     overflow: hidden !important;
     transform: scale(0.9474747474747475) translate3d(0, calc(env(safe-area-inset-top) + 14px), 0);
+  }
+}
+
+@layer components {
+  .shiki {
+    .diff {
+      @apply relative z-0;
+      @apply after:border-s-2 after:absolute after:inset-y-0 after:-start-3 after:-end-12 after:z-[-1]
+    }
+    .add {
+      @apply after:border-success-300 dark:after:border-success-600;
+      @apply after:bg-success-100 dark:after:bg-success-950 after:text-success-900 dark:after:text-success-200
+    }
+    
+    .remove {
+      @apply after:border-destructive-300 dark:after:border-destructive-600;
+      @apply after:bg-destructive-100 dark:after:bg-destructive-950 after:text-destructive-900 dark:after:text-destructive-200
+    }
   }
 }

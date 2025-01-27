@@ -51,7 +51,7 @@ function wrapExternalLinks(string: string) {
           <table class="w-full">
             <thead>
               <tr>
-                <th class="w-48 bg-muted-50 px-4 py-3 text-start font-sans text-sm font-medium text-muted-800 dark:bg-muted-900/50 dark:text-muted-100">
+                <th class="min-w-3xs w-3xs bg-muted-50 px-4 py-3 text-start font-sans text-sm font-medium text-muted-800 dark:bg-muted-900/50 dark:text-muted-100">
                   Model
                 </th>
                 <th class="bg-muted-50 px-4 py-3 text-start font-sans text-sm font-medium text-muted-800 dark:bg-muted-900/50 dark:text-muted-100">
@@ -61,67 +61,60 @@ function wrapExternalLinks(string: string) {
             </thead>
             <tbody>
               <tr class="border-t border-muted-300 text-sm dark:border-muted-800">
-                <td class="px-4 py-3">
+                <td class="px-4 py-3 align-top">
                   <div class="flex items-center gap-1">
-                    <code class="rounded-sm bg-primary-500/20 px-1 text-[0.8rem] font-medium text-primary-600 dark:text-primary-400">{{ kebabCase(docs.model.name) }}</code>
-                    <div v-if="docs.model.description">
-                      <BaseDropdown
-                        color="default-contrast"
-                        orientation="start"
-                        size="lg"
-                        fixed
-                      >
-                        <template #button>
-                          <button type="button">
-                            <Icon
-                              name="mingcute:information-line"
-                              class="h-4 w-4 text-muted-500"
-                            />
-                          </button>
-                        </template>
-                        <div class="p-1">
-                          <BaseParagraph
-                            size="xs"
-                            class="text-muted-700 dark:text-muted-200"
-                          >
-                            {{ docs.model.description }}
-                          </BaseParagraph>
-                          <BaseParagraph
-                            size="xs"
-                            class="mb-2 text-muted-500 dark:text-muted-400 max-w-[200px]"
-                          >
-                            Additional info and tags like the default configuration value.
-                          </BaseParagraph>
-                          <div
-                            v-for="tag in docs.model.tags"
-                            :key="tag.name"
-                            class="flex gap-1"
-                          >
-                            <BaseParagraph
-                              size="xs"
-                              class="text-muted-700 dark:text-muted-200"
+                    <ProseCode class="bg-primary-500/20 dark:bg-primary-500/20 text-primary-600 dark:text-primary-400 whitespace-nowrap">
+                      {{ kebabCase(docs.model.name) }}
+                    </ProseCode>
+
+                    <div v-if="docs.model.tags?.length">
+                      <BaseTooltip disable-closing-trigger>
+                        <Icon
+                          name="mingcute:information-line"
+                          class="h-4 w-4 text-muted-500 rounded-full focus:nui-focus focus:ring-primary-500/50"
+                        />
+
+                        <template #content>
+                          <div class="p-1">
+                            <div
+                              v-for="tag in docs.model.tags"
+                              :key="tag.name"
+                              class="flex gap-1"
                             >
-                              @{{ tag.name }}:
-                            </BaseParagraph>
-                            <BaseParagraph
-                              v-if="tag.text"
-                              as="span"
-                              size="xs"
-                              class="text-muted-700 dark:text-muted-200"
-                            >
-                              <span v-html="wrapExternalLinks(tag.text)" />
-                            </BaseParagraph>
+                              <BaseParagraph
+                                size="xs"
+                                class="text-muted-700 dark:text-muted-200"
+                              >
+                                @{{ tag.name }}:
+                              </BaseParagraph>
+                              <BaseParagraph
+                                v-if="tag.text"
+                                as="span"
+                                size="xs"
+                                class="text-muted-700 dark:text-muted-200"
+                              >
+                                <span v-html="wrapExternalLinks(tag.text)" />
+                              </BaseParagraph>
+                            </div>
                           </div>
-                        </div>
-                      </BaseDropdown>
+                        </template>
+                      </BaseTooltip>
                     </div>
                   </div>
                 </td>
                 <td class="px-4 py-3">
-                  <div class="flex items-center gap-1 font-mono text-muted-700 dark:text-muted-400">
-                    <ComponentMetaCode>
-                      {{ docs.model.type }}
-                    </ComponentMetaCode>
+                  <div class="flex flex-col items-start gap-1">
+                    <ProseCode class="whitespace-pre">
+                      {{ docs.model.type.replaceAll(' | undefined', '') }}
+                    </ProseCode>
+
+                    <BaseParagraph
+                      v-if="docs.model.description"
+                      size="xs"
+                      class="text-muted-700 dark:text-muted-400 max-w-xs whitespace-pre-wrap"
+                    >
+                      {{ docs.model.description.replaceAll('<br> ', '\n') }}
+                    </BaseParagraph>
                   </div>
                 </td>
               </tr>
@@ -138,14 +131,11 @@ function wrapExternalLinks(string: string) {
           <table class="w-full">
             <thead>
               <tr>
-                <th class="w-48 bg-muted-50 px-4 py-3 text-start font-sans text-sm font-medium text-muted-800 dark:bg-muted-900/50 dark:text-muted-100">
+                <th class="min-w-3xs w-3xs bg-muted-50 px-4 py-3 text-start font-sans text-sm font-medium text-muted-800 dark:bg-muted-900/50 dark:text-muted-100">
                   Prop
                 </th>
                 <th class="bg-muted-50 px-4 py-3 text-start font-sans text-sm font-medium text-muted-800 dark:bg-muted-900/50 dark:text-muted-100">
                   Type
-                </th>
-                <th class="bg-muted-50 px-4 py-3 text-start font-sans text-sm font-medium text-muted-800 dark:bg-muted-900/50 dark:text-muted-100">
-                  Default
                 </th>
               </tr>
             </thead>
@@ -155,91 +145,64 @@ function wrapExternalLinks(string: string) {
                 :key="prop.name"
                 class="border-t border-muted-300 text-sm dark:border-muted-800"
               >
-                <td class="px-4 py-3">
+                <td class="px-4 py-3 align-top">
                   <div class="flex items-center gap-1">
-                    <code class="rounded-sm bg-primary-500/20 px-1 text-[0.8rem] font-medium text-primary-600 dark:text-primary-400">{{ kebabCase(prop.name) }}</code>
-                    <div v-if="prop.description">
-                      <BaseDropdown
-                        color="default-contrast"
-                        orientation="start"
-                        size="md"
-                      >
-                        <template #button>
-                          <button type="button">
-                            <Icon
-                              name="mingcute:information-line"
-                              class="h-4 w-4 text-muted-500"
-                            />
-                          </button>
-                        </template>
-                        <div class="p-1">
-                          <BaseParagraph
-                            size="xs"
-                            class="text-muted-700 dark:text-muted-200 max-w-xs"
-                          >
-                            {{ prop.description }}
-                          </BaseParagraph>
-                        </div>
-                      </BaseDropdown>
-                    </div>
-                  </div>
-                </td>
-                <td class="px-4 py-3 font-mono text-muted-700 dark:text-muted-400">
-                  <div class="flex items-center gap-1">
-                    <ComponentMetaCode>
-                      {{ prop.type }}
-                    </ComponentMetaCode>
-                  </div>
-                </td>
-                <td class="px-4 py-3 font-mono text-muted-700 dark:text-muted-400">
-                  <div class="flex items-center gap-1 text-primary-600 dark:text-primary-400">
-                    <ComponentMetaCode>
-                      {{ !prop.default || prop.default === 'undefined' ? 'undefined' : prop.default }}
-                    </ComponentMetaCode>
+                    <ProseCode class="bg-primary-500/20 dark:bg-primary-500/20 text-primary-600 dark:text-primary-400 whitespace-nowrap">
+                      {{ kebabCase(prop.name) }}
+                    </ProseCode>
                     <div v-if="prop.tags?.length > 0">
-                      <BaseDropdown
-                        color="default-contrast"
-                        orientation="end"
-                        size="md"
-                      >
-                        <template #button>
-                          <button type="button">
-                            <Icon
-                              name="mingcute:information-line"
-                              class="h-4 w-4 text-muted-500"
-                            />
-                          </button>
-                        </template>
-                        <div class="p-1">
-                          <BaseParagraph
-                            size="xs"
-                            class="mb-2 text-muted-500 dark:text-muted-400 max-w-[200px]"
-                          >
-                            Additional info and tags like the default configuration value.
-                          </BaseParagraph>
-                          <div
-                            v-for="tag in prop.tags"
-                            :key="tag.name"
-                            class="flex gap-1"
-                          >
-                            <BaseParagraph
-                              size="xs"
-                              class="text-muted-700 dark:text-muted-200"
+                      <BaseTooltip disable-closing-trigger>
+                        <Icon
+                          name="mingcute:information-line"
+                          class="h-4 w-4 text-muted-500 rounded-full focus:nui-focus focus:ring-primary-500/50"
+                        />
+                        <template #content>
+                          <div class="p-1">
+                            <div
+                              v-for="tag in prop.tags"
+                              :key="tag.name"
+                              class="flex gap-1"
                             >
-                              @{{ tag.name }}:
-                            </BaseParagraph>
-                            <BaseParagraph
-                              v-if="tag.text"
-                              as="span"
-                              size="xs"
-                              class="text-muted-700 dark:text-muted-200"
-                            >
-                              <span v-html="wrapExternalLinks(tag.text)" />
-                            </BaseParagraph>
+                              <BaseParagraph
+                                size="xs"
+                                class="text-muted-700 dark:text-muted-200"
+                              >
+                                @{{ tag.name }}:
+                              </BaseParagraph>
+                              <BaseParagraph
+                                v-if="tag.text"
+                                as="span"
+                                size="xs"
+                                class="text-muted-700 dark:text-muted-200"
+                              >
+                                <span v-html="wrapExternalLinks(tag.text)" />
+                              </BaseParagraph>
+                            </div>
                           </div>
-                        </div>
-                      </BaseDropdown>
+                        </template>
+                      </BaseTooltip>
                     </div>
+                  </div>
+                  <div class="text-xs flex items-center gap-1 mt-2">
+                    <span class="text-muted-600 dark:text-muted-400">default:</span>
+                    <ProseCode>
+                      {{ !prop.default || prop.default === 'undefined' ? '-' : prop.default }}
+                    </ProseCode>
+                  </div>
+                </td>
+                <td class="px-4 py-3">
+                  <div class="flex flex-col items-start gap-1">
+                    <ProseCode class="whitespace-pre">
+                      {{ prop.type.replaceAll(' | undefined', '') }}
+                    </ProseCode>
+
+                    <BaseParagraph
+                      v-if="prop.description"
+                      size="xs"
+                      class="text-muted-700 dark:text-muted-400 max-w-xs whitespace-pre-wrap"
+                    >
+                      {{ prop.description.replaceAll('<br> ', '\n') }}
+                    </BaseParagraph>
                   </div>
                 </td>
               </tr>
@@ -256,7 +219,7 @@ function wrapExternalLinks(string: string) {
           <table class="w-full">
             <thead>
               <tr>
-                <th class="w-48 bg-muted-50 px-4 py-3 text-start font-sans text-sm font-medium text-muted-800 dark:bg-muted-900/50 dark:text-muted-100">
+                <th class="min-w-3xs w-3xs bg-muted-50 px-4 py-3 text-start font-sans text-sm font-medium text-muted-800 dark:bg-muted-900/50 dark:text-muted-100">
                   Event
                 </th>
                 <th class="bg-muted-50 px-4 py-3 text-start font-sans text-sm font-medium text-muted-800 dark:bg-muted-900/50 dark:text-muted-100">
@@ -270,40 +233,26 @@ function wrapExternalLinks(string: string) {
                 :key="event.type"
                 class="border-t border-muted-300 text-sm dark:border-muted-800"
               >
-                <td class="px-4 py-3">
+                <td class="px-4 py-3 align-top">
                   <div class="flex items-center gap-1">
-                    <code class="rounded-sm bg-primary-500/20 px-1 text-[0.8rem] font-medium text-primary-600 dark:text-primary-400">{{ kebabCase(event.name) }}</code>
-                    <div v-if="event.description">
-                      <BaseDropdown
-                        color="default-contrast"
-                        orientation="start"
-                        size="md"
-                      >
-                        <template #button>
-                          <button type="button">
-                            <Icon
-                              name="mingcute:information-line"
-                              class="h-4 w-4 text-muted-500"
-                            />
-                          </button>
-                        </template>
-                        <div class="p-1">
-                          <BaseParagraph
-                            size="xs"
-                            class="text-muted-700 dark:text-muted-200"
-                          >
-                            {{ event.description }}
-                          </BaseParagraph>
-                        </div>
-                      </BaseDropdown>
-                    </div>
+                    <ProseCode class="bg-primary-500/20 dark:bg-primary-500/20 text-primary-600 dark:text-primary-400 whitespace-nowrap">
+                      {{ kebabCase(event.name) }}
+                    </ProseCode>
                   </div>
                 </td>
                 <td class="px-4 py-3">
-                  <div class="flex items-center gap-1">
-                    <ComponentMetaCode>
+                  <div class="flex flex-col items-start gap-1">
+                    <ProseCode class="whitespace-pre">
                       {{ event.type }}
-                    </ComponentMetaCode>
+                    </ProseCode>
+
+                    <BaseParagraph
+                      v-if="event.description"
+                      size="xs"
+                      class="text-muted-700 dark:text-muted-400 max-w-xs whitespace-pre-wrap"
+                    >
+                      {{ event.description.replaceAll('<br> ', '\n') }}
+                    </BaseParagraph>
                   </div>
                 </td>
               </tr>
@@ -320,7 +269,7 @@ function wrapExternalLinks(string: string) {
           <table class="w-full">
             <thead>
               <tr>
-                <th class="w-48 bg-muted-50 px-4 py-3 text-start font-sans text-sm font-medium text-muted-800 dark:bg-muted-900/50 dark:text-muted-100">
+                <th class="min-w-3xs w-3xs bg-muted-50 px-4 py-3 text-start font-sans text-sm font-medium text-muted-800 dark:bg-muted-900/50 dark:text-muted-100">
                   Slot
                 </th>
                 <th class="bg-muted-50 px-4 py-3 text-start font-sans text-sm font-medium text-muted-800 dark:bg-muted-900/50 dark:text-muted-100">
@@ -334,16 +283,26 @@ function wrapExternalLinks(string: string) {
                 :key="slot.name"
                 class="border-t border-muted-300 text-sm dark:border-muted-800"
               >
-                <td class="px-4 py-3">
+                <td class="px-4 py-3 align-top">
                   <div class="flex items-center gap-1">
-                    <code class="rounded-sm bg-primary-500/20 px-1 text-[0.8rem] font-medium text-primary-600 dark:text-primary-400">#{{ slot.name }}</code>
+                    <ProseCode class="bg-primary-500/20 dark:bg-primary-500/20 text-primary-600 dark:text-primary-400 whitespace-nowrap">
+                      #{{ slot.name }}
+                    </ProseCode>
                   </div>
                 </td>
                 <td class="px-4 py-3">
                   <div class="flex items-center gap-1">
-                    <ComponentMetaCode>
+                    <ProseCode class="whitespace-pre">
                       {{ slot.type }}
-                    </ComponentMetaCode>
+                    </ProseCode>
+
+                    <BaseParagraph
+                      v-if="slot.description"
+                      size="xs"
+                      class="text-muted-700 dark:text-muted-400 max-w-xs whitespace-pre-wrap"
+                    >
+                      {{ slot.description.replaceAll('<br> ', '\n') }}
+                    </BaseParagraph>
                   </div>
                 </td>
               </tr>
@@ -359,7 +318,7 @@ function wrapExternalLinks(string: string) {
             <table class="w-full">
               <thead>
                 <tr>
-                  <th class="w-48 bg-muted-50 px-4 py-3 text-start font-sans text-sm font-medium text-muted-800 dark:bg-muted-900/50 dark:text-muted-100">
+                  <th class="min-w-3xs w-3xs bg-muted-50 px-4 py-3 text-start font-sans text-sm font-medium text-muted-800 dark:bg-muted-900/50 dark:text-muted-100">
                     Exposed
                   </th>
                   <th class="bg-muted-50 px-4 py-3 text-start font-sans text-sm font-medium text-muted-800 dark:bg-muted-900/50 dark:text-muted-100">
@@ -373,40 +332,26 @@ function wrapExternalLinks(string: string) {
                   :key="exposed.name"
                   class="border-t border-muted-300 text-sm dark:border-muted-800"
                 >
-                  <td class="px-4 py-3">
+                  <td class="px-4 py-3 align-top">
                     <div class="flex items-center gap-1">
-                      <code class="rounded-sm bg-primary-500/20 px-1 text-[0.8rem] font-medium text-primary-600 dark:text-primary-400">{{ kebabCase(exposed.name) }}</code>
-                      <div v-if="exposed.description">
-                        <BaseDropdown
-                          color="default-contrast"
-                          orientation="start"
-                          size="md"
-                        >
-                          <template #button>
-                            <button type="button">
-                              <Icon
-                                name="mingcute:information-line"
-                                class="h-4 w-4 text-muted-500"
-                              />
-                            </button>
-                          </template>
-                          <div class="p-1">
-                            <BaseParagraph
-                              size="xs"
-                              class="text-muted-700 dark:text-muted-200"
-                            >
-                              {{ exposed.description }}
-                            </BaseParagraph>
-                          </div>
-                        </BaseDropdown>
-                      </div>
+                      <ProseCode class="bg-primary-500/20 dark:bg-primary-500/20 text-primary-600 dark:text-primary-400 whitespace-nowrap">
+                        {{ kebabCase(exposed.name) }}
+                      </ProseCode>
                     </div>
                   </td>
                   <td class="px-4 py-3">
                     <div class="flex items-center gap-1">
-                      <ComponentMetaCode>
+                      <ProseCode class="whitespace-pre">
                         {{ exposed.type }}
-                      </ComponentMetaCode>
+                      </ProseCode>
+
+                      <BaseParagraph
+                        v-if="exposed.description"
+                        size="xs"
+                        class="text-muted-700 dark:text-muted-400 max-w-xs whitespace-pre-wrap"
+                      >
+                        {{ exposed.description.replaceAll('<br> ', '\n') }}
+                      </BaseParagraph>
                     </div>
                   </td>
                 </tr>

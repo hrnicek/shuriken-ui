@@ -29,36 +29,26 @@ export interface BaseAutocompleteProps<T = AcceptableValue> extends ComboboxRoot
 
   /**
    * The variant of the autocomplete
-   *
-   * @default 'default'
    */
   variant?: 'default' | 'muted' | 'none'
 
   /**
    * The radius of the component.
-   *
-   * @default 'sm'
    */
   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
 
   /**
    * The size of the autocomplete component.
-   *
-   * @default 'md'
    */
   size?: 'sm' | 'md' | 'lg' | 'xl'
 
   /**
    * Display the clear button to reset the query.
-   *
-   * @default false
    */
   clearable?: boolean
 
   /**
    * Bindings presets
-   *
-   * @default 'inline'
    */
   preset?: 'inline' | 'popper'
 

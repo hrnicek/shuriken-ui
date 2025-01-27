@@ -16,22 +16,16 @@ export interface BaseInputNumberProps extends NumberFieldRootProps {
 
   /**
    * The contrast of the input.
-   *
-   * @default 'default'
    */
   variant?: 'default' | 'muted'
 
   /**
    * The radius of the input.
-   *
-   * @default 'sm'
    */
   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
 
   /**
    * The size of the input.
-   *
-   * @default 'md'
    */
   size?: 'sm' | 'md' | 'lg' | 'xl'
 

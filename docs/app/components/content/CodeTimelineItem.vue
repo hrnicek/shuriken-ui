@@ -11,7 +11,7 @@ const props = defineProps<{
   >
     <div class="col-span-5 mb-6 md:col-span-2 xl:mb-0">
       <h3 class="mb-2 text-sm font-semibold leading-6 text-muted-900 dark:text-muted-200">
-        <slot name="title" />
+        <slot name="title" mdc-unwrap="p" />
       </h3>
       <div class="text-sm">
         <slot name="description" />

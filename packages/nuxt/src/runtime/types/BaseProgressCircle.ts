@@ -21,8 +21,6 @@ export interface BaseProgressCircleProps extends ProgressRootProps {
 
   /**
    * Defines the variant of the progress circle
-   *
-   * @default 'primary'
    */
   variant?: 'default' | 'primary' | 'dark' | 'none'
 }

@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group
 
-```vue [DemoHeadingBase.vue]
+```vue [Comp.vue]
 <template>
   <BaseHeading as="h1" size="xl" weight="semibold" lead="normal">
     Iam a page heading
@@ -34,7 +34,7 @@ This component accepts any content as a child. You can customize the components'
 
 ::code-group
 
-```vue [BaseHeading]
+```vue [Comp.vue]
 <template>
   <BaseHeading>
     <!-- Content goes here -->

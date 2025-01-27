@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group{expandable}
 
-```vue [DemoFieldBase.vue]
+```vue [Comp.vue]
 <script setup lang="ts">
 const value = ref('')
 </script>
@@ -51,7 +51,7 @@ This component is the atomic version of the `Field` component. It is meant, unli
 
 ::code-group
 
-```vue [BasePrimitiveField]
+```vue [Comp.vue]
 <template>
   <BasePrimitiveField>
     <BasePrimitiveFieldLabel>
@@ -122,7 +122,7 @@ Fields can be used with any input component. Fields handle all states an input c
 
 ::code-group{expandable}
 
-```vue [DemoFieldInput.vue]
+```vue [Comp.vue]
 <script setup lang="ts">
 const states = ['idle', 'loading', 'success', 'error'] as const
 </script>
@@ -172,7 +172,7 @@ Fields can be used with any input component. Fields handle all states an input c
 
 ::code-group{expandable}
 
-```vue [DemoFieldSelect.vue]
+```vue [Comp.vue]
 <script setup lang="ts">
 const states = ['idle', 'loading', 'success', 'error'] as const
 </script>
@@ -224,7 +224,7 @@ Fields can be used with any input component. Fields handle all states an input c
 
 ::code-group{expandable}
 
-```vue [DemoFieldAutocomplete.vue]
+```vue [Comp.vue]
 <script setup lang="ts">
 const states = ['idle', 'loading', 'success', 'error'] as const
 </script>
@@ -285,7 +285,7 @@ Fields can be used with any input component. Fields handle all states an input c
 
 ::code-group{expandable}
 
-```vue [DemoFieldInputFile.vue]
+```vue [Comp.vue]
 <script setup lang="ts">
 const states = ['idle', 'loading', 'success', 'error'] as const
 </script>
@@ -324,7 +324,7 @@ Fields can be used with any input component. Fields handle all states an input c
 
 ::code-group{expandable}
 
-```vue [DemoFieldInputNumber.vue]
+```vue [Comp.vue]
 <script setup lang="ts">
 const states = ['idle', 'loading', 'success', 'error'] as const
 </script>
@@ -374,7 +374,7 @@ Fields can be used with any input component. Fields handle all states an input c
 
 ::code-group{expandable}
 
-```vue [DemoFieldTextarea.vue]
+```vue [Comp.vue]
 <script setup lang="ts">
 const states = ['idle', 'loading', 'success', 'error'] as const
 </script>
@@ -413,7 +413,7 @@ Fields can render in a horizontal orientation. Here is an example using the `Bas
 
 ::code-group{expandable}
 
-```vue [DemoFieldHorizontal.vue]
+```vue [Comp.vue]
 <script setup lang="ts">
 const states = ['idle', 'loading', 'success', 'error'] as const
 </script>

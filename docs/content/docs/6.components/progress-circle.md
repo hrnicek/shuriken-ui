@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group
 
-```vue [DemoProgressCircleBase.vue]
+```vue [Comp.vue]
 <template>
   <BaseProgressCircle
     title="Static progress bar with max value"
@@ -37,7 +37,7 @@ This component is self closing and can be used to create an animated progress ba
 
 ::code-group
 
-```vue [BaseProgressCircle]
+```vue [Comp.vue]
 <template>
   <BaseProgressCircle />
 </template>
@@ -87,7 +87,7 @@ Use the `value` prop to set the value of the progress circle.
 
 ::code-group
 
-```vue [DemoProgressCircleValue.vue]
+```vue [Comp.vue]
 <template>
   <BaseProgressCircle
     v-model:value="value"
@@ -111,7 +111,7 @@ Use the `variant` prop to change the color of the progress circle. Set it to `no
 
 ::code-group
 
-```vue [DemoProgressCircleColor.vue]
+```vue [Comp.vue]
 <template>
   <BaseProgressCircle
     v-model:value="value"
@@ -136,7 +136,7 @@ use the `size` prop to set the size of the progress circle.
 
 ::code-group
 
-```vue [DemoProgressCircleSize.vue]
+```vue [Comp.vue]
 <template>
   <BaseProgressCircle
     v-model:value="value"
@@ -160,7 +160,7 @@ use the `thickness` prop to set the stroke width of the progress circle.
 
 ::code-group
 
-```vue [DemoProgressCircleThickness.vue]
+```vue [Comp.vue]
 <template>
   <BaseProgressCircle
     v-model:value="value"
@@ -184,7 +184,7 @@ Having an `undefined` value on the `:model-value` or the `v-model` will show the
 
 ::code-group
 
-```vue [DemoProgressCircleIndeterminate.vue]
+```vue [Comp.vue]
 <template>
   <BaseProgressCircle
     title="Colored circle progress bar"

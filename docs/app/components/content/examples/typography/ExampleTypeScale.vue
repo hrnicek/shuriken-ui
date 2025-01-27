@@ -6,13 +6,13 @@
           <BaseText
             size="xs"
             weight="semibold"
-            lead="none"
+            class="leading-1.5!"
           >
             Aa
           </BaseText>
         </div>
         <div class="py-3 text-center font-sans text-sm">
-          <span>1</span>
+          <span>xs</span>
         </div>
       </div>
 
@@ -21,13 +21,13 @@
           <BaseText
             size="sm"
             weight="semibold"
-            lead="none"
+            class="leading-2!"
           >
             Aa
           </BaseText>
         </div>
         <div class="py-3 text-center font-sans text-sm">
-          <span>2</span>
+          <span>sm</span>
         </div>
       </div>
 
@@ -36,13 +36,13 @@
           <BaseText
             size="md"
             weight="semibold"
-            lead="none"
+            class="leading-2!"
           >
             Aa
           </BaseText>
         </div>
         <div class="py-3 text-center font-sans text-sm">
-          <span>3</span>
+          <span>md</span>
         </div>
       </div>
 
@@ -51,13 +51,13 @@
           <BaseText
             size="lg"
             weight="semibold"
-            lead="none"
+            class="leading-3!"
           >
             Aa
           </BaseText>
         </div>
         <div class="py-3 text-center font-sans text-sm">
-          <span>4</span>
+          <span>lg</span>
         </div>
       </div>
 
@@ -66,13 +66,13 @@
           <BaseText
             size="xl"
             weight="semibold"
-            lead="none"
+            class="leading-3!"
           >
             Aa
           </BaseText>
         </div>
         <div class="py-3 text-center font-sans text-sm">
-          <span>5</span>
+          <span>xl</span>
         </div>
       </div>
 
@@ -81,13 +81,13 @@
           <BaseText
             size="2xl"
             weight="semibold"
-            lead="none"
+            class="leading-4!"
           >
             Aa
           </BaseText>
         </div>
         <div class="py-3 text-center font-sans text-sm">
-          <span>6</span>
+          <span>2xl</span>
         </div>
       </div>
 
@@ -96,13 +96,13 @@
           <BaseText
             size="3xl"
             weight="semibold"
-            lead="none"
+            class="leading-5!"
           >
             Aa
           </BaseText>
         </div>
         <div class="py-3 text-center font-sans text-sm">
-          <span>7</span>
+          <span>3xl</span>
         </div>
       </div>
 
@@ -111,13 +111,13 @@
           <BaseText
             size="4xl"
             weight="semibold"
-            lead="none"
+            class="leading-6!"
           >
             Aa
           </BaseText>
         </div>
         <div class="py-3 text-center font-sans text-sm">
-          <span>8</span>
+          <span>4xl</span>
         </div>
       </div>
 
@@ -126,13 +126,13 @@
           <BaseText
             size="5xl"
             weight="semibold"
-            lead="none"
+            class="leading-8!"
           >
             Aa
           </BaseText>
         </div>
         <div class="py-3 text-center font-sans text-sm">
-          <span>9</span>
+          <span>5xl</span>
         </div>
       </div>
     </div>
@@ -143,13 +143,13 @@
           <BaseText
             size="6xl"
             weight="semibold"
-            lead="none"
+            class="leading-10!"
           >
             Aa
           </BaseText>
         </div>
         <div class="py-3 text-center font-sans text-sm">
-          <span>10</span>
+          <span>6xl</span>
         </div>
       </div>
 
@@ -158,13 +158,13 @@
           <BaseText
             size="7xl"
             weight="semibold"
-            lead="none"
+            class="leading-12!"
           >
             Aa
           </BaseText>
         </div>
         <div class="py-3 text-center font-sans text-sm">
-          <span>11</span>
+          <span>7xl</span>
         </div>
       </div>
 
@@ -173,13 +173,13 @@
           <BaseText
             size="8xl"
             weight="semibold"
-            lead="none"
+            class="leading-16!"
           >
             Aa
           </BaseText>
         </div>
         <div class="py-3 text-center font-sans text-sm">
-          <span>12</span>
+          <span>8xl</span>
         </div>
       </div>
 
@@ -188,13 +188,13 @@
           <BaseText
             size="9xl"
             weight="semibold"
-            lead="none"
+            class="leading-22!"
           >
             Aa
           </BaseText>
         </div>
         <div class="py-3 text-center font-sans text-sm">
-          <span>13</span>
+          <span>9xl</span>
         </div>
       </div>
     </div>

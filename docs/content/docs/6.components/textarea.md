@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group{expandable}
 
-```vue [DemoTextareaBase.vue]
+```vue [Comp.vue]
 <template>
   <BaseTextarea
     v-model="value"
@@ -39,7 +39,7 @@ This component is self closing and can be used to create a textarea field. You c
 
 ::code-group
 
-```vue [BaseTextarea]
+```vue [Comp.vue]
 <template>
   <BaseTextarea />
 </template>
@@ -91,7 +91,7 @@ Use the `variant` prop to change the color of the textarea.
 
 ::code-group{expandable}
 
-```vue [DemoTextareaVariants.vue]
+```vue [Comp.vue]
 <template>
   <BaseTextarea
     v-model="value"
@@ -116,7 +116,7 @@ Use the `rounded` prop to change the border radius of the textarea.
 
 ::code-group{expandable}
 
-```vue [DemoTextareaRadius.vue]
+```vue [Comp.vue]
 <template>
   <BaseTextarea
     v-model="value"
@@ -140,7 +140,7 @@ Use the `aria-invalid` prop to set the textarea in an error state.
 
 ::code-group{expandable}
 
-```vue [DemoTextareaError.vue]
+```vue [Comp.vue]
 <template>
   <BaseTextarea
     v-model="value"
@@ -164,7 +164,7 @@ Use the `disabled` prop to set the textarea in a disabled state.
 
 ::code-group{expandable}
 
-```vue [DemoTextareaDisabled.vue]
+```vue [Comp.vue]
 <template>
   <BaseTextarea
     v-model="value"

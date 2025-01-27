@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group{expandable}
 
-```vue [DemoRadioBase.vue]
+```vue [Comp.vue]
 <template>
   <BaseRadioGroup v-model="value">
     <BaseRadio
@@ -49,7 +49,7 @@ The `Group` component is a container for the `Radio` components. The `Radio` com
 
 ::code-group
 
-```vue [BaseRadio]
+```vue [Comp.vue]
 <template>
   <BaseRadioGroup>
     <BaseRadio />
@@ -81,7 +81,7 @@ Use the `variant` prop to change the color of the radio.
 
 ::code-group
 
-```vue [DemoRadioVariantsColor.vue]
+```vue [Comp.vue]
 <template>
   <BaseRadioGroup v-model="value">
     <BaseRadio
@@ -107,7 +107,7 @@ Set the `variant` prop to `none` and use tailwind classes to customize the radio
 
 ::code-group
 
-```vue [DemoRadioVariantsCustom.vue]
+```vue [Comp.vue]
 <template>
   <BaseRadioGroup v-model="value">
     <BaseRadio

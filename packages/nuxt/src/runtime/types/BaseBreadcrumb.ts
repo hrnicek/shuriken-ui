@@ -31,8 +31,6 @@ export interface BaseBreadcrumbProps {
 
   /**
    * Defines the hover color of the breadcrumb links
-   *
-   * @default 'primary'
    */
   variant?: 'primary' | 'dark'
 }

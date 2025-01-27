@@ -16,8 +16,6 @@ export interface BaseSwitchBallProps extends SwitchRootProps {
 
   /**
    * Main color of the switch.
-   *
-   * @default 'default'
    */
   variant?: 'default' | 'primary' | 'dark' | 'none'
 

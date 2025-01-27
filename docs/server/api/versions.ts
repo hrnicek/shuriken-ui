@@ -6,12 +6,8 @@ const repos = [
     icon: 'logos:nuxt-icon',
   },
   {
-    name: 'react',
-    icon: 'logos:react',
-  },
-  {
     name: 'tailwind',
-    icon: 'logos:tailwindcss-icon',
+    icon: 'devicon:tailwindcss',
   },
 ]
 
@@ -30,7 +26,7 @@ export default defineCachedEventHandler(async (event) => {
 
     return {
       packageName,
-      version: meta?.['dist-tags']?.latest as string || 'Coming soon',
+      version: meta?.['dist-tags']?.next as string || 'Coming soon',
       repo: joinURL('https://github.com', appConfig.github?.org, repo.name),
       ...repo,
     }

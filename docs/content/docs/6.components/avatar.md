@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group
 
-```vue [DemoAvatarBase.vue]
+```vue [Comp.vue]
 <template>
   <BaseAvatar src="/img/people/29.jpg" />
   <BaseAvatar text="L" class="bg-muted-200 dark:bg-muted-800" />
@@ -33,7 +33,7 @@ This component accepts images and fallback text as props or children. It also ha
 
 ::code-group
 
-```vue [BaseAvatar]
+```vue [Comp.vue]
 <template>
   <BaseAvatar>
     <!-- Image or fallback here -->
@@ -57,7 +57,7 @@ Use the `size` prop to control the size of the avatar.
 
 ::code-group
 
-```vue [DemoAvatarSize.vue]
+```vue [Comp.vue]
 <template>
   <BaseAvatar src="/img/avatars/10.svg" size="lg" />
 </template>
@@ -73,7 +73,7 @@ Use the `text` prop to add a fallback text to the avatar. Use tailwind classes t
 
 ::code-group
 
-```vue [DemoAvatarFallback.vue]
+```vue [Comp.vue]
 <template>
   <BaseAvatar size="md" text="L" class="bg-primary-500/20 text-primary-600" />
 </template>
@@ -89,7 +89,7 @@ Use the `rounded` prop to control the avatar border radius.
 
 ::code-group
 
-```vue [DemoAvatarRadius.vue]
+```vue [Comp.vue]
 <template>
   <BaseAvatar src="/img/avatars/16.svg" rounded="none" />
   <BaseAvatar src="/img/avatars/10.svg" rounded="sm" />
@@ -109,7 +109,7 @@ Use the `badge-src` prop to add a badge to the avatar.
 
 ::code-group
 
-```vue [DemoAvatarBadge.vue]
+```vue [Comp.vue]
 <template>
   <BaseAvatar
     src="/img/people/29.svg"
@@ -129,7 +129,7 @@ Wrap the avatar component with a `Chip` component to add a status indicator. Use
 
 ::code-group
 
-```vue [DemoAvatarDot.vue]
+```vue [Comp.vue]
 <template>
   <BaseChip
     placement="top-end"
@@ -157,7 +157,7 @@ Use the `mask` prop combined with the `none` radius to add an svg mask to the av
 
 ::code-group
 
-```vue [DemoAvatarMask.vue]
+```vue [Comp.vue]
 <template>
   <BaseAvatar src="/img/avatars/2.svg" rounded="none" mask="hex" />
   <BaseAvatar src="/img/avatars/10.svg" rounded="none" mask="hexed" />
@@ -177,7 +177,7 @@ Use the `default` slot to insert a custom image into the avatar.
 
 ::code-group
 
-```vue [DemoAvatarSlot.vue]
+```vue [Comp.vue]
 <template>
   <BaseAvatar
     size="md"

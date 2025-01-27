@@ -17,15 +17,11 @@ export interface BaseDropdownRadioItemProps extends DropdownMenuRadioItemProps {
 
   /**
    * The hover color of the dropdown-item inner elements.
-   *
-   * @default 'default-low'
    */
   variant?: 'default' | 'muted' | 'primary' | 'none'
 
   /**
    * The radius of the dropdown-item.
-   *
-   * @default 'sm'
    */
   rounded?: 'none' | 'sm' | 'md' | 'lg'
 

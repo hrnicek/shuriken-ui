@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group
 
-```vue [DemoMessageBase.vue]
+```vue [Comp.vue]
 <template>
   <BaseMessage
     icon
@@ -37,7 +37,7 @@ This component accepts text content as a child. You can customize the message vi
 
 ::code-group
 
-```vue [BaseMessage]
+```vue [Comp.vue]
 <template>
   <BaseMessage>
     <!-- Content goes here -->
@@ -61,7 +61,7 @@ Use the `variant` prop to control the color of the message.
 
 ::code-group
 
-```vue [DemoMessageType.vue]
+```vue [Comp.vue]
 <template>
   <BaseMessage variant="success">
     A successful message.
@@ -88,7 +88,7 @@ Use the `icon` prop to display an icon inside the message.
 
 ::code-group{expandable}
 
-```vue [DemoMessageIcon.vue]
+```vue [Comp.vue]
 <template>
   <BaseMessage
     color="muted"
@@ -129,7 +129,7 @@ Use the `rounded` prop to control the border radius of the message.
 
 ::code-group
 
-```vue [DemoMessageRadius.vue]
+```vue [Comp.vue]
 <template>
   <BaseMessage color="success" icon rounded="sm">
     A successful message.
@@ -156,7 +156,7 @@ Use the `closable` prop to display a close button on the message.
 
 ::code-group
 
-```vue [DemoMessageClose.vue]
+```vue [Comp.vue]
 <template>
   <BaseMessage color="success" icon rounded="sm">
     A successful message.

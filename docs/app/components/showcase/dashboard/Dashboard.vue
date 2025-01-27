@@ -580,7 +580,7 @@ const expenses = ref(46)
                     </div>
                     <div class="flex items-center gap-3">
                       <Icon
-                        name="logos:tailwindcss-icon"
+                        name="devicon:tailwindcss"
                         class="size-5 grayscale"
                       />
                       <div>

@@ -57,7 +57,7 @@ const url = computed(() => {
           @click="handleTabs('tailwind')"
         >
           <Icon
-            name="logos:tailwindcss-icon"
+            name="devicon:tailwindcss"
             class="h-6 w-6"
           />
           <BaseText
@@ -129,7 +129,7 @@ const url = computed(() => {
                 />
                 <Icon
                   v-else-if="activeTab === 'tailwind'"
-                  name="logos:tailwindcss-icon"
+                  name="devicon:tailwindcss"
                   class="h-4 w-4"
                 />
                 <BaseText
@@ -165,7 +165,7 @@ const url = computed(() => {
                   data-nui-tooltip="requires @shuriken-ui/tailwind"
                 >
                   <Icon
-                    name="logos:tailwindcss-icon"
+                    name="devicon:tailwindcss"
                     class="h-4 w-4"
                   />
                 </BaseTag>

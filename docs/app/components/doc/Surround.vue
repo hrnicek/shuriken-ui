@@ -29,6 +29,8 @@ const editUrl = computed(() => joinURL('https://github.com', appConfig.github.or
           {{ page[0].title }}
         </p>
       </NuxtLink>
+      <span v-else />
+
       <NuxtLink
         v-if="page?.[1]"
         :to="page[1].path"
@@ -42,6 +44,7 @@ const editUrl = computed(() => joinURL('https://github.com', appConfig.github.or
           class="block size-4 group-hover/link:translate-x-1 transition-transform duration-300"
         />
       </NuxtLink>
+      <span v-else />
     </div>
     <hr class="my-8 border-t border-muted-200 dark:border-muted-800">
     <div>

@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group
 
-```vue [DemoTextBase.vue]
+```vue [Comp.vue]
 <template>
   <BaseText size="md" weight="normal" lead="normal">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urgent
@@ -36,7 +36,7 @@ This component accepts any content as a child. You can customize the components'
 
 ::code-group
 
-```vue [BaseText]
+```vue [Comp.vue]
 <template>
   <BaseText>
     <!-- Content goes here -->

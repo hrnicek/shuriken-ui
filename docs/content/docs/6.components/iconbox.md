@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group
 
-```vue [DemoIconBox.vue]
+```vue [Comp.vue]
 <template>
   <BaseIconBox>
     <Icon name="solar:home-smile-angle-linear" class="size-6" />
@@ -34,7 +34,7 @@ This component any content as a child, though it is preferable to use it as an i
 
 ::code-group
 
-```vue [BaseIconBox]
+```vue [Comp.vue]
 <template>
   <BaseIconBox>
     <!-- Icon here -->
@@ -58,7 +58,7 @@ Use the `size` prop to control the size of the icon box.
 
 ::code-group
 
-```vue [DemoIconBoxSize.vue]
+```vue [Comp.vue]
 <template>
   <BaseIconBox
     size="md"
@@ -78,7 +78,7 @@ Use the `rounded` prop to control the border radius of the icon box.
 
 ::code-group
 
-```vue [DemoIconBoxVariant.vue]
+```vue [Comp.vue]
 <template>
   <BaseIconBox
     rounded="md"
@@ -98,7 +98,7 @@ Use the `variant` prop to control the visual style of the icon box.
 
 ::code-group
 
-```vue [DemoIconBoxVariant.vue]
+```vue [Comp.vue]
 <template>
   <BaseIconBox
     variant="default"
@@ -118,7 +118,7 @@ Use the `none` variant to create your own set of solid color icon boxes.
 
 ::code-group
 
-```vue [DemoIconBoxSolid.vue]
+```vue [Comp.vue]
 <template>
   <BaseIconBox
     variant="none"
@@ -139,7 +139,7 @@ Use the `pastel` variant and the `color` prop to change the color of the icon bo
 
 ::code-group
 
-```vue [DemoIconBoxPastel.vue]
+```vue [Comp.vue]
 <template>
   <BaseIconBox
     variant="pastel"
@@ -160,7 +160,7 @@ Use the `outline` variant and the `color` prop to change the color of the icon b
 
 ::code-group
 
-```vue [DemoIconBoxOutline.vue]
+```vue [Comp.vue]
 <template>
   <BaseIconBox
     variant="outline"
@@ -181,7 +181,7 @@ Use the `mask` prop combined to the `rounded` prop set to `none` to display an s
 
 ::code-group
 
-```vue [DemoIconBoxMask.vue]
+```vue [Comp.vue]
 <template>
   <BaseIconBox
     size="md"

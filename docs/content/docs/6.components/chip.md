@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group
 
-```vue [DemoChipBase.vue]
+```vue [Comp.vue]
 <template>
   <BaseChip>
     <BaseButton>
@@ -36,7 +36,7 @@ This component is a simple wrapper that creates a dot with a pulse animation. Yo
 
 ::code-group
 
-```vue [BaseChip]
+```vue [Comp.vue]
 <template>
   <BaseChip>
     <!-- Your content here -->
@@ -60,7 +60,7 @@ Use the `placement` prop to change the chip's placement relative to the element 
 
 ::code-group
 
-```vue [DemoChipPlacement.vue]
+```vue [Comp.vue]
 <template>
   <BaseChip placement="bottom-end">
     <div />
@@ -78,7 +78,7 @@ Use the `offset` prop to move the chip from its default position.
 
 ::code-group
 
-```vue [DemoChipOffset.vue]
+```vue [Comp.vue]
 <template>
   <BaseChip :offset="6">
     <div />
@@ -96,7 +96,7 @@ Use the `color` prop to change the chip's color. Set it to `custom` to use a cus
 
 ::code-group
 
-```vue [DemoChipColors.vue]
+```vue [Comp.vue]
 <template>
   <BaseChip color="primary">
     <div />
@@ -117,7 +117,7 @@ Use the `pulse` prop to add a pulse animation to the chip.
 
 ::code-group
 
-```vue [DemoChipPulse.vue]
+```vue [Comp.vue]
 <template>
   <BaseChip pulse>
     <div />

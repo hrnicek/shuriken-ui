@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group{expandable}
 
-```vue [DemoPaginationBase.vue]
+```vue [Comp.vue]
 <template>
   <BasePagination
     v-model:page="page"
@@ -50,7 +50,7 @@ You can use this component as a self closing one or with its slots to customize 
 
 ::code-group
 
-```vue [BasePagination]
+```vue [Comp.vue]
 <template>
   <BasePagination>
     <div>
@@ -82,7 +82,7 @@ Use the `variant` prop to change the color of the pagination.
 
 ::code-group{expandable}
 
-```vue [DemoPaginationColor.vue]
+```vue [Comp.vue]
 <template>
   <BasePagination
     v-model:page="page"
@@ -118,7 +118,7 @@ Use the `rounded` prop to change the border radius of the pagination.
 
 ::code-group{expandable}
 
-```vue [DemoPaginationRadius.vue]
+```vue [Comp.vue]
 <template>
   <BasePagination
     v-model:page="page"
@@ -153,7 +153,7 @@ Use the `size` prop to change the size of the pagination buttons.
 
 ::code-group{expandable}
 
-```vue [DemoPaginationSize.vue]
+```vue [Comp.vue]
 <template>
   <BasePagination
     v-model:page="page"
@@ -188,7 +188,7 @@ Use the slots to customize the pagination buttons layout. Use the `<PaginationIt
 
 ::code-group{expandable}
 
-```vue [DemoPaginationComposition.vue]
+```vue [Comp.vue]
 <template>
   <BasePagination
     v-slot="{ items }"
@@ -235,7 +235,7 @@ Use the slots to customize the pagination buttons layout. Use the `<page />` slo
 
 ::code-group{expandable}
 
-```vue [DemoPaginationSlots.vue]
+```vue [Comp.vue]
 <template>
   <BasePagination
     v-model:page="page"

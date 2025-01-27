@@ -13,7 +13,7 @@ layout: 'default'
 
 ::code-group
 
-```vue [DemoThemeToggleBase.vue]
+```vue [Comp.vue]
 <template>
   <BaseThemeToggle />
   <BaseThemeSwitch />
@@ -34,7 +34,7 @@ This is a self closing component that can be used to switch between different th
 
 ::code-group
 
-```vue [BaseThemeToggle]
+```vue [Comp.vue]
 <template>
   <BaseThemeToggle />
 </template>

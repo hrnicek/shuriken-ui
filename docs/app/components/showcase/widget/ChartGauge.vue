@@ -86,7 +86,7 @@ const languages = [
   },
   {
     name: 'Tailwind CSS',
-    icon: 'logos:tailwindcss-icon',
+    icon: 'devicon:tailwindcss',
   },
   {
     name: 'Nuxt',
