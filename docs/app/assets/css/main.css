@@ -43,6 +43,10 @@
     --color-nuxt-loading-indicator: var(--color-white);
   }
 
+  [lang*='ar'] {
+    --font-sans: 'Noto Sans Arabic', sans-serif;
+  }
+
   body {
     overflow-y: scroll;
   }

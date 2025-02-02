@@ -23,7 +23,7 @@
     "nuxt": "nuxt"
   },
   "devDependencies": {
-    "@nuxt/kit": "^3.15.0",
+    "@nuxt/kit": "^3.15.3",
     "@shuriken-ui/nuxt": "workspace:*",
     "@shuriken-ui/tailwind": "workspace:*",
     "nuxt": "catalog:",
@@ -31,6 +31,6 @@
     "pathe": "^2.0.2",
     "reka-ui": "1.0.0-alpha.8",
     "tailwindcss": "catalog:",
-    "vite": "^6.0.7"
+    "vite": "^6.0.11"
   }
 }
