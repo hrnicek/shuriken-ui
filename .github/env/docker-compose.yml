@@ -1,0 +1,25 @@
+networks:
+  cssninja-services:
+    external: true
+
+services:
+  nui-docs-v4:
+    image: digisquad/shuriken-ui-docs:v4
+    restart: unless-stopped
+    networks:
+      - cssninja-services
+    labels:
+      traefik.enable: true
+      traefik.docker.network: 'cssninja-services'
+      #gzip
+      traefik.http.middlewares.nui-docs-v4-middleware.compress: true
+      #routers
+      traefik.http.routers.nui-docs-v4.entrypoints: http
+      traefik.http.routers.nui-docs-v4.middlewares: https-redirect@docker
+      traefik.http.routers.nui-docs-v4.rule: 'Host(`v4.shurikenui.com`)'
+      traefik.http.routers.nui-docs-v4-https.rule: 'Host(`v4.shurikenui.com`)'
+      traefik.http.routers.nui-docs-v4-https.tls: true
+      traefik.http.routers.nui-docs-v4-https.entrypoints: https
+      traefik.http.routers.nui-docs-v4-https.tls.certresolver: http
+      traefik.http.routers.nui-docs-v4-https.middlewares: nui-docs-v4-middleware@docker
+      traefik.http.services.nui-docs-v4-https.loadbalancer.server.port: 3000
