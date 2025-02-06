@@ -76,7 +76,7 @@ const { isMobileOpen } = createLayoutDefaultContext()
                 >
                   Shuriken UI is a modern, accessible, and customizable component library for Nuxt with Tailwind V4.
                 </BaseParagraph>
-                <div class="flex items-center gap-3 mt-4">
+                <div class="flex flex-col md:flex-row items-center gap-3 mt-4">
                   <BaseButton
                     rounded="md"
                     variant="dark"
@@ -108,7 +108,7 @@ const { isMobileOpen } = createLayoutDefaultContext()
                     {{ link.title }}
                   </NuxtLink>
                 </div>
-                <div>
+                <div class="pointer-events-none md:pointer-events-auto">
                   <slot />
                 </div>
               </div>

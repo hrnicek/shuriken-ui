@@ -100,7 +100,7 @@ const appConfig = useAppConfig()
         <div class="ms-auto flex items-center justify-end gap-x-3">
           <div
             role="button"
-            class="cursor-pointer h-8 w-48 flex items-center justify-between bg-muted-50 dark:bg-muted-900 text-muted-400 hover:text-muted-600 dark:hover:text-muted-200 hover:ring-muted-300 dark:hover:ring-muted-700 gap-2 ps-3 pe-1 py-1 rounded-md ring-1 ring-muted-200 dark:ring-muted-800 transition-colors duration-300"
+            class="cursor-pointer h-8 w-48 hidden md:flex items-center justify-between bg-muted-50 dark:bg-muted-900 text-muted-400 hover:text-muted-600 dark:hover:text-muted-200 hover:ring-muted-300 dark:hover:ring-muted-700 gap-2 ps-3 pe-1 py-1 rounded-md ring-1 ring-muted-200 dark:ring-muted-800 transition-colors duration-300"
             @click="searchOpen = !searchOpen"
           >
             <div class="pointer-events-none">
@@ -125,6 +125,18 @@ const appConfig = useAppConfig()
               </BaseKbd>
             </div>
           </div>
+          <BaseButton
+            size="icon-sm"
+            variant="ghost"
+            rounded="md"
+            class="md:hidden"
+            @click="searchOpen = !searchOpen"
+          >
+            <Icon
+              name="lucide:search"
+              class="size-4 text-muted-700 dark:text-muted-300"
+            />
+          </BaseButton>
           <BaseButton
             size="icon-sm"
             variant="ghost"

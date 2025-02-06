@@ -16,7 +16,7 @@ const { data: navigation } = await useAsyncData('navigation', () => queryCollect
       @click="isMobileOpen = false"
     />
     <div
-      class="fixed lg:hidden bottom-0 inset-x-0 h-[calc(100dvh_-_40%)] w-full bg-muted-900/80 z-[99] bg-white rounded-t-2xl transition-transform duration-300"
+      class="fixed lg:hidden bottom-0 inset-x-0 h-[calc(100dvh_-_40%)] w-full z-[99] bg-white dark:bg-black rounded-t-2xl transition-transform duration-300"
       :class="[
         isMobileOpen ? 'translate-y-0' : 'translate-y-full',
       ]"
