@@ -65,16 +65,16 @@ const { isMobileOpen } = createLayoutDefaultContext()
                   as="h1"
                   weight="medium"
                   lead="tight"
-                  size="4xl"
-                  class="max-w-lg mb-3 text-muted-900 dark:text-white"
+                  size="2xl"
+                  class="max-w-lg mb-3 text-muted-900 dark:text-white text-center md:text-left md:text-4xl"
                 >
-                  Beautiful, Responsive UI Components
+                  Shuriken UI: Open Source, Modern, Accessible, and Customizable UI Components
                 </BaseHeading>
                 <BaseParagraph
-                  size="lg"
-                  class="max-w-lg text-muted-700 dark:text-muted-300"
+                  size="md"
+                  class="max-w-lg text-muted-700 dark:text-muted-300 text-center md:text-left md:text-lg"
                 >
-                  Shuriken UI is a modern, accessible, and customizable component library for Nuxt with Tailwind V4.
+                  Discover Shuriken UI, an open-source library of modern, responsive, accessible, and customizable components for Nuxt with Tailwind CSS V4.
                 </BaseParagraph>
                 <div class="flex flex-col md:flex-row items-center gap-3 mt-4">
                   <BaseButton
