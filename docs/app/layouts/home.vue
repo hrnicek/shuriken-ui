@@ -68,7 +68,7 @@ const { isMobileOpen } = createLayoutDefaultContext()
                   size="2xl"
                   class="max-w-lg mb-3 text-muted-900 dark:text-white text-center md:text-left md:text-4xl"
                 >
-                  Shuriken UI: Open Source, Modern, Accessible, and Customizable UI Components
+                  Open Source, Modern, Accessible, and Customizable UI Components
                 </BaseHeading>
                 <BaseParagraph
                   size="md"

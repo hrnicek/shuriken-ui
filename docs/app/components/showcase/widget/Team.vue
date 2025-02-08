@@ -10,7 +10,7 @@ const team = [
   {
     id: 2,
     photo: '/img/people/30.jpg',
-    name: 'Alan Smith',
+    name: 'Aria Smith',
     email: 'alansmith@mail.com',
     role: 'member',
   },
