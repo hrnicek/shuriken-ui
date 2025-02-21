@@ -23,20 +23,20 @@ const forward = reactiveOmit(props, ['label', 'error', 'hint', 'description'])
     v-bind="forward"
   >
     <div class="w-full flex">
-      <div class=" flex justify-between w-full min-h-6 pb-2 gap-2">
+      <div
+        v-if="props.label || 'label' in slots || props.hint || 'hint' in slots || props.state !== 'idle'"
+        class="grow flex justify-between items-end w-full min-h-6 pb-2 gap-2"
+      >
         <BasePrimitiveFieldLabel
           v-if="props.label || 'label' in slots"
         >
-          <span>
-            <slot name="label">
-              {{ props.label }}
-            </slot>
-          </span>
+          <slot name="label">
+            <span>{{ props.label }}</span>
+          </slot>
           <BasePrimitiveFieldRequiredIndicator />
         </BasePrimitiveFieldLabel>
-        <span v-else />
 
-        <div class="flex items-center gap-2 pe-0.5">
+        <div v-if="props.hint || 'hint' in slots || props.state !== 'idle'" class="flex items-center gap-2 pe-0.5">
           <BasePrimitiveFieldLoadingIndicator />
           <BasePrimitiveFieldSuccessIndicator />
           <BasePrimitiveFieldErrorIndicator />
