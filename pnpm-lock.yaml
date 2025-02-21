@@ -2157,8 +2157,8 @@ packages:
       magicast:
         optional: true
 
-  c12@2.0.3:
-    resolution: {integrity: sha512-SkP3V1UMWvosz/mOnsNaV6DMKFPzKOpyOZa56IA3ruGePC2HZuXR92K+3csliXXHUjeGFz9gypv6wS0sU6EO5A==}
+  c12@2.0.4:
+    resolution: {integrity: sha512-3DbbhnFt0fKJHxU4tEUPmD1ahWE4PWPMomqfYsTJdrhpmEnRKJi3qSC4rO5U6E6zN1+pjBY7+z8fUmNRMaVKLw==}
     peerDependencies:
       magicast: ^0.3.5
     peerDependenciesMeta:
@@ -6418,7 +6418,7 @@ snapshots:
 
   '@nuxt/cli@3.22.2(magicast@0.3.5)':
     dependencies:
-      c12: 2.0.3(magicast@0.3.5)
+      c12: 2.0.4(magicast@0.3.5)
       chokidar: 4.0.3
       citty: 0.1.6
       clipboardy: 4.0.0
@@ -6452,7 +6452,7 @@ snapshots:
       '@sqlite.org/sqlite-wasm': 3.49.0-build3
       '@webcontainer/env': 1.1.1
       better-sqlite3: 11.8.1
-      c12: 2.0.3(magicast@0.3.5)
+      c12: 2.0.4(magicast@0.3.5)
       chokidar: 4.0.3
       consola: 3.4.0
       db0: 0.2.4(better-sqlite3@11.8.1)
@@ -6798,7 +6798,7 @@ snapshots:
 
   '@nuxt/kit@3.15.4(magicast@0.3.5)':
     dependencies:
-      c12: 2.0.3(magicast@0.3.5)
+      c12: 2.0.4(magicast@0.3.5)
       consola: 3.4.0
       defu: 6.1.4
       destr: 2.0.3
@@ -8232,7 +8232,7 @@ snapshots:
     optionalDependencies:
       magicast: 0.3.5
 
-  c12@2.0.3(magicast@0.3.5):
+  c12@2.0.4(magicast@0.3.5):
     dependencies:
       chokidar: 4.0.3
       confbox: 0.1.8
@@ -10654,7 +10654,7 @@ snapshots:
       '@unhead/vue': 1.11.19(vue@3.5.13(typescript@5.6.3))
       '@vue/shared': 3.5.13
       acorn: 8.14.0
-      c12: 2.0.3(magicast@0.3.5)
+      c12: 2.0.4(magicast@0.3.5)
       chokidar: 4.0.3
       compatx: 0.1.8
       consola: 3.4.0
@@ -10776,7 +10776,7 @@ snapshots:
       '@unhead/vue': 1.11.19(vue@3.5.13(typescript@5.6.3))
       '@vue/shared': 3.5.13
       acorn: 8.14.0
-      c12: 2.0.3(magicast@0.3.5)
+      c12: 2.0.4(magicast@0.3.5)
       chokidar: 4.0.3
       compatx: 0.1.8
       consola: 3.4.0
@@ -10898,7 +10898,7 @@ snapshots:
       '@unhead/vue': 1.11.19(vue@3.5.13(typescript@5.7.3))
       '@vue/shared': 3.5.13
       acorn: 8.14.0
-      c12: 2.0.3(magicast@0.3.5)
+      c12: 2.0.4(magicast@0.3.5)
       chokidar: 4.0.3
       compatx: 0.1.8
       consola: 3.4.0
