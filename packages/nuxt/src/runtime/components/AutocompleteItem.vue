@@ -23,7 +23,7 @@ const context = injectBaseAutocompleteContext()
 <template>
   <ComboboxItem
     v-bind="forward"
-    class="font-sans text-sm leading-none flex items-center h-[25px] pr-[35px] pl-[25px] relative select-none data-[disabled]:opacity-50 data-[disabled]:pointer-events-none data-[highlighted]:outline-none"
+    class="font-sans text-sm leading-none flex items-center min-h-[25px] pr-[35px] pl-[25px] relative select-none data-[disabled]:opacity-50 data-[disabled]:pointer-events-none data-[highlighted]:outline-none"
     :class="[
       context.rounded && theme.radiuses[context.rounded],
       context.variant && theme.variants[context.variant],
