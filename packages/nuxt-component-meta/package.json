@@ -25,12 +25,11 @@
   "devDependencies": {
     "@nuxt/kit": "^3.15.4",
     "@shuriken-ui/nuxt": "workspace:*",
-    "@shuriken-ui/tailwind": "workspace:*",
     "nuxt": "catalog:",
     "nuxt-component-meta": "^0.10.0",
     "pathe": "^2.0.3",
     "reka-ui": "catalog:",
     "tailwindcss": "catalog:",
-    "vite": "^6.1.1"
+    "vite": "^6.2.0"
   }
 }

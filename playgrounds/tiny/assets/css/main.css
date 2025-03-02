@@ -1,4 +1,4 @@
 @import 'tailwindcss';
-@import '@shuriken-ui/tailwind';
+@import '@shuriken-ui/nuxt';
 
 @theme {}

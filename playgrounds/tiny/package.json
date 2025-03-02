@@ -10,7 +10,6 @@
   "devDependencies": {
     "@nuxt/fonts": "^0.10.3",
     "@shuriken-ui/nuxt": "workspace:*",
-    "@shuriken-ui/tailwind": "workspace:*",
     "nuxt": "catalog:",
     "tailwindcss": "catalog:",
     "typescript": "catalog:"

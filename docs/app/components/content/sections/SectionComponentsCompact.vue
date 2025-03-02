@@ -162,7 +162,6 @@ const url = computed(() => {
                   v-if="component.requiresTailwind && activeTab !== 'tailwind'"
                   size="sm"
                   rounded="full"
-                  data-nui-tooltip="requires @shuriken-ui/tailwind"
                 >
                   <Icon
                     name="devicon:tailwindcss"

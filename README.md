@@ -4,8 +4,7 @@ This is a monorepo for Shuriken UI, a collection of components for building mode
 
 ## Packages
 
-- [@shuriken-ui/tailwind](./packages/tailwind/README.md): Tailwind (v4) utilities and theme for Shuriken UI.
-- [@shuriken-ui/nuxt](./packages/nuxt/README.md): Nuxt (v4) Layer for Shuriken UI.
+- [@shuriken-ui/nuxt](./packages/nuxt/README.md): Nuxt Module for Shuriken UI.
 
 ## Development
 

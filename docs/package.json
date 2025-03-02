@@ -37,7 +37,6 @@
     "@nuxtjs/mdc": "^0.13.5",
     "@shuriken-ui/nuxt": "workspace:*",
     "@shuriken-ui/nuxt-component-meta": "workspace:*",
-    "@shuriken-ui/tailwind": "workspace:*",
     "@vueuse/components": "^12.7.0",
     "@vueuse/core": "^12.7.0",
     "@vueuse/nuxt": "^12.7.0",
@@ -50,7 +49,7 @@
     "tailwindcss": "catalog:",
     "typescript": "catalog:",
     "ufo": "^1.5.4",
-    "vue-component-meta": "^2.2.2",
+    "vue-component-meta": "^2.2.8",
     "vue3-apexcharts": "1.8.0",
     "vue3-smooth-dnd": "0.0.6"
   }
