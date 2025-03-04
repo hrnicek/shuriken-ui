@@ -2,27 +2,24 @@
 import type { BaseAvatarProps, BaseAvatarSlots } from '../types'
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardProps } from 'reka-ui'
-import { computed, useAttrs } from 'vue'
+import { computed } from 'vue'
 import { BaseAvatar as theme } from '../theme'
 import { tm } from '../utils/tw-merge'
-
-defineOptions({
-  inheritAttrs: false,
-})
 
 const props = withDefaults(defineProps<BaseAvatarProps>(), {
   src: undefined,
   srcDark: undefined,
+  alt: undefined,
   badgeSrc: undefined,
   text: '?',
   size: theme.defaults.size,
   rounded: theme.defaults.rounded,
   mask: undefined,
+  bindings: () => ({}),
   classes: () => ({}),
 })
 const slots = defineSlots<BaseAvatarSlots>()
 
-const attrs = useAttrs()
 const forward = useForwardProps(reactiveOmit(props, ['src', 'srcDark', 'badgeSrc', 'text', 'size', 'rounded', 'mask', 'bindings', 'classes']))
 
 const badgePosition = computed(() => {
@@ -57,8 +54,9 @@ const badgePosition = computed(() => {
   >
     <AvatarImage
       v-if="props.src"
-      v-bind="{ ...(props.bindings?.image || {}), ...attrs }"
+      v-bind="props.bindings?.image || {}"
       :src="props.src"
+      :alt="props.alt"
       :class="tm([
         'object-cover h-full max-h-full w-full max-w-full shadow-xs',
         props.rounded && theme.radiuses[props.rounded],
@@ -69,8 +67,9 @@ const badgePosition = computed(() => {
 
     <AvatarImage
       v-if="props.src && props.srcDark"
-      v-bind="{ ...(props.bindings?.image || {}), ...attrs }"
+      v-bind="props.bindings?.image || {}"
       :src="props.srcDark"
+      :alt="props.alt"
       :class="tm([
         'object-cover h-full max-h-full w-full max-w-full shadow-xs hidden dark:block',
         props.rounded && theme.radiuses[props.rounded],
