@@ -1,18 +1,10 @@
-<script lang="ts">
-import type { ToastProviderProps } from 'reka-ui'
-</script>
-
 <script setup lang="ts">
+import type { BaseToastProviderProps } from '../types'
 import { useState } from '#app'
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardProps } from 'reka-ui'
 import { computed, watchEffect } from 'vue'
 import { useNuiToasts } from '../composables/useNuiToasts'
-
-export interface BaseToastProviderProps extends Omit<ToastProviderProps, 'swipeDirection'> {
-  max?: number
-  position?: 'top-start' | 'top-center' | 'top-end' | 'bottom-start' | 'bottom-center' | 'bottom-end'
-}
 
 const props = withDefaults(defineProps<BaseToastProviderProps>(), {
   max: 3,

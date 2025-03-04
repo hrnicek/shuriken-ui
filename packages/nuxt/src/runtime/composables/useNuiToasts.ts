@@ -1,4 +1,4 @@
-import type { BaseToastEmits, BaseToastProps } from '../components/Toast.vue'
+import type { BaseToastEmits, BaseToastProps } from '@shuriken-ui/nuxt'
 
 import { useState } from '#app'
 

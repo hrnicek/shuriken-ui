@@ -1,24 +1,10 @@
 <script lang="ts">
-import type { ToastRootEmits, ToastRootProps } from 'reka-ui'
-
-import type { BaseButtonProps } from '../types/BaseButton'
+import type { BaseToastEmits, BaseToastProps } from '../types'
 </script>
 
 <script setup lang="ts">
 import { reactiveOmit } from '@vueuse/core'
 import { useForwardPropsEmits } from 'reka-ui'
-
-export interface BaseToastProps extends ToastRootProps {
-  title?: string
-  description?: string
-  icon?: string
-  progress?: boolean
-  actions?: (BaseButtonProps & {
-    label: string
-    onClick?: (e: Event) => (void | Promise<void>)
-  })[]
-}
-export interface BaseToastEmits extends ToastRootEmits {}
 
 const props = withDefaults(defineProps<BaseToastProps>(), {})
 const emits = defineEmits<BaseToastEmits>()

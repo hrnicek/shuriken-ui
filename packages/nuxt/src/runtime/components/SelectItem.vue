@@ -2,7 +2,7 @@
 import type { AcceptableValue } from 'reka-ui'
 import type { BaseSelectItemProps, BaseSelectItemSlots } from '../types'
 import { reactiveOmit } from '@vueuse/core'
-import { useForwardProps, VisuallyHidden } from 'reka-ui'
+import { useForwardProps } from 'reka-ui'
 import { useNuiConfig } from '../composables/useNuiConfig'
 import { BaseSelectItem as theme } from '../theme'
 
