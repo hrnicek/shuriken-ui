@@ -124,11 +124,12 @@ export function provideNuiField(props: {
 
 interface NuiFieldOptions {
   defaultValue?: NuiFieldContext
+  optional?: boolean
 }
 export function useNuiField(options?: NuiFieldOptions) {
   const context = inject(symbol, options?.defaultValue)
 
-  if (!context) {
+  if (!context && !options?.optional) {
     throw new Error('useNuiField: context not provided')
   }
 
