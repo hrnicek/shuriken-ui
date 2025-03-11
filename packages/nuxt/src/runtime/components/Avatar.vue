@@ -93,7 +93,7 @@ const badgePosition = computed(() => {
     <div
       v-if="'badge' in $slots || props.badgeSrc"
       :class="tm([
-        'absolute z-10 block overflow-hidden rounded-full bg-white dark:bg-muted-800',
+        'absolute z-auto block overflow-hidden rounded-full bg-white dark:bg-muted-800',
         theme.badgeSize[props.size],
         badgePosition,
         props.classes.badge,
