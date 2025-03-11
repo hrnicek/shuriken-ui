@@ -40,12 +40,12 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['id', 'label', 'varian
     <RadioGroupItem
       :id
       v-bind="{ ...forward, ...attrs }"
-      class="group/radio focus-visible:nui-focus relative flex items-center justify-center shrink-0 cursor-pointer overflow-hidden rounded-full size-5 disabled:pointer-events-none disabled:opacity-50"
+      class="focus-visible:nui-focus relative flex items-center justify-center shrink-0 cursor-pointer overflow-hidden rounded-full size-5 disabled:pointer-events-none disabled:opacity-50"
       :class="theme.boxVariants[variant]"
     >
       <RadioGroupIndicator
         :class="tm([
-          'pointer-events-none z-10 block group-data-[state=unchecked]/radio:scale-0 roup-data-[state=checked]/radio:scale-100 rounded-full size-1 bg-current dark:bg-current starting:opacity-0 transition-opacity duration-150',
+          'pointer-events-none z-auto block rounded-full size-1 bg-current dark:bg-current absolute top-1/2 start-1/2 -translate-x-1/2 -translate-y-1/2 starting:scale-0 transition-discrete duration-200',
           theme.dotVariants[variant],
           props.classes.indicator,
         ])"
