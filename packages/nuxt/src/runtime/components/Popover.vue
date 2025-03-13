@@ -88,7 +88,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['content', 'variant', 
           ...(props.bindings.content || {}),
         }"
         :class="tm([
-          'pe-6 text-sm will-change-[opacity] duration-200 transition-opacity transition-discrete [state=open]:opacity-100 starting:data-[state=open]:opacity-0 max-w-[var(--reka-popover-content-available-width)] lg:max-w-[25vw] max-h-[var(--reka-popover-content-available-height)] overflow-y-auto nui-slimscroll',
+          'z-[999999] pe-6 text-sm will-change-[opacity] duration-200 transition-opacity transition-discrete [state=open]:opacity-100 starting:data-[state=open]:opacity-0 max-w-[var(--reka-popover-content-available-width)] lg:max-w-[25vw] max-h-[var(--reka-popover-content-available-height)] overflow-y-auto nui-slimscroll',
           props.variant && variants[props.variant],
           props.rounded && radiuses[props.rounded],
           props.classes.content,

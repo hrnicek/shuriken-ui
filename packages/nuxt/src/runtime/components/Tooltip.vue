@@ -78,7 +78,7 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['content', 'variant', 
           collisionPadding: 20,
           ...(props.bindings.content || {}),
         }"
-        class="px-2 py-1 text-sm will-change-[opacity] duration-200 transition-opacity transition-discrete [state=delayed-open]:opacity-100 starting:data-[state=delayed-open]:opacity-0 [state=instant-open]:opacity-100 starting:data-[state=instant-open]:opacity-0 max-w-[var(--reka-tooltip-content-available-width)] lg:max-w-[25vw] max-h-[var(--reka-tooltip-content-available-height)] overflow-y-auto nui-slimscroll" :class="[
+        class="z-[999999] px-2 py-1 text-sm will-change-[opacity] duration-200 transition-opacity transition-discrete [state=delayed-open]:opacity-100 starting:data-[state=delayed-open]:opacity-0 [state=instant-open]:opacity-100 starting:data-[state=instant-open]:opacity-0 max-w-[var(--reka-tooltip-content-available-width)] lg:max-w-[25vw] max-h-[var(--reka-tooltip-content-available-height)] overflow-y-auto nui-slimscroll" :class="[
           props.variant && variants[props.variant],
           props.rounded && radiuses[props.rounded],
         ]"
