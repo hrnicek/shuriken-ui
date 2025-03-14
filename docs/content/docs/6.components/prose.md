@@ -367,6 +367,26 @@ layout: 'default'
 
 :checklist{:items='["Support all tailwind styling", "Dark mode support"]'}
 
+## Installation
+
+This component requires the `@tailwindcss/typography` plugin to be installed and configured in your project.
+
+::code-group
+```sh [Terminal]
+pnpm add -D @tailwindcss/typography
+```
+::
+
+Don't forget to add the plugin to your main Tailwind CSS configuration file.
+
+::code-group
+```css [main.css]
+@import 'tailwindcss';
+@import '@shuriken-ui/nuxt';
+@import '@tailwindcss/typography'; /* [!code ++] */
+```
+::
+
 ## Anatomy
 This component accepts any content as a child. You can use it to render a block of text content with a predefined style.
 
