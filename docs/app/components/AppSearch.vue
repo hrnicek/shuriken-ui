@@ -2,6 +2,7 @@
 import { onKeyStroke } from '@vueuse/core'
 import MiniSearch from 'minisearch'
 
+const router = useRouter()
 const isMacLike = useIsMacLike()
 const isOpen = useState('search-open', () => false)
 const search = ref('')
@@ -15,10 +16,6 @@ onKeyStroke('k', (event) => {
   }
 })
 const { data } = await useAsyncData('search', () => queryCollectionSearchSections('content'))
-
-function onClick() {
-  isOpen.value = false
-}
 
 const miniSearch = new MiniSearch({
   fields: ['title', 'titles', 'content'],
@@ -37,6 +34,12 @@ watchEffect(() => {
   miniSearch.addAll(data.value)
 })
 const result = computed(() => miniSearch.search(toValue(search)).slice(0, 6))
+
+function handleSelect(ev: CustomEvent) {
+  ev.preventDefault()
+  isOpen.value = false
+  router.push(ev.detail.value?.id)
+}
 </script>
 
 <template>
@@ -66,13 +69,14 @@ const result = computed(() => miniSearch.search(toValue(search)).slice(0, 6))
                 v-model="search"
                 placeholder="Search in docs..."
                 class="bg-transparent w-full pe-4 py-3 outline-none placeholder-muted-400 dark:placeholder-muted-600"
+                auto-focus
                 @keydown.enter.prevent
               />
             </div>
 
             <ComboboxContent @escape-key-down="isOpen = false">
               <ComboboxEmpty v-if="!result?.length" class="text-center text-muted-500 px-4 pb-4">
-                Aucun résultat pour <strong>{{ search }}</strong>
+                No result found for <strong>{{ search }}</strong>
               </ComboboxEmpty>
 
               <!-- <div v-if="status === 'pending'" class="flex items-center w-full justify-center text-muted-500 px-4 pt-8 pb-10">
@@ -84,6 +88,7 @@ const result = computed(() => miniSearch.search(toValue(search)).slice(0, 6))
                   v-for="page in result"
                   :key="page?.slug"
                   :value="page"
+                  @select="handleSelect"
                 >
                   <AppSearchResult
                     :to="page?.id"
@@ -91,7 +96,6 @@ const result = computed(() => miniSearch.search(toValue(search)).slice(0, 6))
                     :title="page?.title"
                     :prefix="page?.titles?.join(' > ') ?? ''"
                     :content="page?.content ?? ''"
-                    @click.passive="onClick"
                   />
                 </ComboboxItem>
               </ComboboxGroup>

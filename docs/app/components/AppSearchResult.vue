@@ -11,26 +11,11 @@ const props = defineProps<{
   search?: string
   navigation?: any[]
 }>()
-// const markedTitle = useNuiMark(
-//   () => props.title,
-//   () => props.search,
-//   'text-muted-950 dark:text-muted-100 group-focus:text-primary-500 underline decoration-muted-500/40 group-focus:decoration-primary-500/40 group-hover:decoration-primary-500/40 group-hover:text-primary-500 dark:group-focus:text-primary-400 dark:group-hover:text-primary-400 bg-transparent',
-// )
-// const markedSubtitle = useNuiMark(
-//   () => props.subtitle,
-//   () => props.search,
-//   'text-muted-950 dark:text-muted-100 bg-transparent underline decoration-muted-500/30',
-// )
-// const markedEnd = useNuiMark(
-//   () => props.end,
-//   () => props.search,
-//   'text-muted-950 dark:text-muted-100 bg-transparent underline decoration-muted-500/30',
-// )
 </script>
 
 <template>
   <NuxtLink
-    class="focus-visible:nui-focus hover:bg-muted-50 focus:bg-muted-50 dark:hover:bg-muted-900 dark:focus:bg-muted-900 group flex items-center rounded p-3 w-full"
+    class="focus-visible:nui-focus in-data-highlighted:nui-focus in-data-highlighted:bg-muted-50 hover:bg-muted-50 focus:bg-muted-50 dark:hover:bg-muted-900 dark:focus:bg-muted-900 group flex items-center rounded p-3 w-full"
     :to="props.to"
   >
     <div class="flex grow flex-col">
