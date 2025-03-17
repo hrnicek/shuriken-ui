@@ -2,17 +2,14 @@
 const breadcrumb = [
   {
     label: 'Home',
-    hideLabel: false,
     to: '#',
   },
   {
     label: 'Products',
-    hideLabel: false,
     to: '#',
   },
   {
     label: 'Laptops',
-    hideLabel: false,
     to: '#',
   },
 ]

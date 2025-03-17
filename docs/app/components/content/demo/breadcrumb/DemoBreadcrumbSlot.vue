@@ -2,18 +2,16 @@
 const breadcrumb = [
   {
     label: 'Home',
-    hideLabel: false,
+    hideLabel: true,
     icon: 'lucide:home',
     to: '#',
   },
   {
     label: 'Products',
-    hideLabel: false,
     to: '#',
   },
   {
     label: 'Laptops',
-    hideLabel: false,
     to: '#',
   },
 ]
@@ -23,7 +21,7 @@ const breadcrumb = [
   <div class="flex items-center px-4 pt-4">
     <BaseBreadcrumb :items="breadcrumb">
       <Icon
-        name="lucide:move-right"
+        name="lucide:arrow-right"
         class="block h-3 w-3"
       />
     </BaseBreadcrumb>

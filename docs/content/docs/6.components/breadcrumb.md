@@ -1,12 +1,11 @@
 ---
-title: 'Breadcrumb'
-description: 'A compact top navigation element.'
-layout: 'default'
+title: Breadcrumb
+description: A navigation that helps users find their place within a website or web application.
 ---
 
 # Breadcrumb
 
-`<BaseBreadcrumb />` · A compact top navigation element.
+`<BaseBreadcrumb />` · A navigation that helps users find their place within a website or web application.
 
 ::component-header{category="components/base" fileName="BaseBreadcrumb.vue" }
 ::
@@ -103,86 +102,10 @@ const breadcrumb = [
 ```
 
 #preview
-:demo-breadcrumb-colors
+:demo-breadcrumb-variants
 ::
 
-### Slash
-
-Use the `#default` slot to insert a breadcrumb item separator.
-
-::code-group{expandable}
-
-```vue [Comp.vue]
-<template>
-  <BaseBreadcrumb :items="breadcrumb">
-    /
-  </BaseBreadcrumb>
-</template>
-
-<script setup lang="ts">
-const breadcrumb = [
-  {
-    label: 'Home',
-    hideLabel: false,
-    to: '#',
-  },
-  {
-    label: 'Products',
-    hideLabel: false,
-    to: '#',
-  },
-  {
-    label: 'Laptops',
-    hideLabel: false,
-    to: '#',
-  },
-]
-</script>
-```
-
-#preview
-:demo-breadcrumb-slash
-::
-
-### Chevron
-
-Use the `#default` slot to insert a breadcrumb item separator.
-
-::code-group{expandable}
-
-```vue [Comp.vue]
-<template>
-  <BaseBreadcrumb :items="breadcrumb">
-    <Icon name="lucide:chevron-right" class="block h-3 w-3" />
-  </BaseBreadcrumb>
-</template>
-
-<script setup lang="ts">
-const breadcrumb = [
-  {
-    label: 'Home',
-    hideLabel: false,
-    to: '#',
-  },
-  {
-    label: 'Products',
-    hideLabel: false,
-    to: '#',
-  },
-  {
-    label: 'Laptops',
-    hideLabel: false,
-    to: '#',
-  },
-]
-</script>
-```
-
-#preview
-:demo-breadcrumb-chevron
-::
-
-### Arrow
+### Custom separator
 
 Use the `#default` slot to insert a breadcrumb item separator.
 
@@ -199,17 +122,15 @@ Use the `#default` slot to insert a breadcrumb item separator.
 const breadcrumb = [
   {
     label: 'Home',
-    hideLabel: false,
+    hideLabel: true,
     to: '#',
   },
   {
     label: 'Products',
-    hideLabel: false,
     to: '#',
   },
   {
     label: 'Laptops',
-    hideLabel: false,
     to: '#',
   },
 ]
@@ -217,43 +138,5 @@ const breadcrumb = [
 ```
 
 #preview
-:demo-breadcrumb-arrow
-::
-
-### Marker
-
-Use the `#default` slot to insert a breadcrumb item separator.
-
-::code-group{expandable}
-
-```vue [Comp.vue]
-<template>
-  <BaseBreadcrumb :items="breadcrumb">
-    <Icon name="lucide:move-right" class="block h-3 w-3" />
-  </BaseBreadcrumb>
-</template>
-
-<script setup lang="ts">
-const breadcrumb = [
-  {
-    label: 'Home',
-    hideLabel: false,
-    to: '#',
-  },
-  {
-    label: 'Products',
-    hideLabel: false,
-    to: '#',
-  },
-  {
-    label: 'Laptops',
-    hideLabel: false,
-    to: '#',
-  },
-]
-</script>
-```
-
-#preview
-:demo-breadcrumb-marker
+:demo-breadcrumb-slot
 ::

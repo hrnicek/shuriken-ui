@@ -19,9 +19,14 @@ export interface BaseBreadcrumbProps {
     label?: string
 
     /**
-     * Whether to hide the label for the item.
+     * Whether to hide the label to user, but still show it to screen readers.
      */
     hideLabel?: boolean
+
+    /**
+     * The icon to display for the item.
+     */
+    icon?: string
 
     /**
      * CSS classes to apply to the icon.
