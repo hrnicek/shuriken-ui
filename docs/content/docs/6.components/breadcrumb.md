@@ -21,17 +21,14 @@ description: A navigation that helps users find their place within a website or 
 const breadcrumb = [
   {
     label: 'Home',
-    hideLabel: false,
     to: '#',
   },
   {
     label: 'Products',
-    hideLabel: false,
     to: '#',
   },
   {
     label: 'Laptops',
-    hideLabel: false,
     to: '#',
   },
 ]
