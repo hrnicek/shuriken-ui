@@ -1,12 +1,43 @@
-<script setup lang="ts">
-import type { BasePlaceholderPageProps, BasePlaceholderPageSlots } from '../types'
-import { reactiveOmit } from '@vueuse/core'
-import { useForwardProps } from 'reka-ui'
-import { BasePlaceholderPage as theme } from '../theme'
+<script lang="ts">
+import type { PrimitiveProps } from 'reka-ui'
 
+import { reactiveOmit } from '@vueuse/core'
+import { Primitive, useForwardProps } from 'reka-ui'
+
+export interface BasePlaceholderPageProps extends PrimitiveProps {
+  /**
+   * The title of the placeholder.
+   */
+  title: string
+
+  /**
+   * The subtitle of the placeholder.
+   */
+  subtitle?: string
+
+  /**
+   * The size of the featured image.
+   */
+  imageSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+}
+export interface BasePlaceholderPageSlots {
+  default: () => any
+  image: () => any
+}
+
+export const sizes = {
+  xs: 'max-w-xs',
+  sm: 'max-w-sm',
+  md: 'max-w-md',
+  lg: 'max-w-lg',
+  xl: 'max-w-xl',
+} as const satisfies Record<NonNullable<BasePlaceholderPageProps['imageSize']>, string>
+</script>
+
+<script setup lang="ts">
 const props = withDefaults(defineProps<BasePlaceholderPageProps>(), {
   subtitle: undefined,
-  imageSize: theme.defaults.imageSize,
+  imageSize: 'xs',
 })
 const slots = defineSlots<BasePlaceholderPageSlots>()
 
@@ -17,7 +48,7 @@ const forward = useForwardProps(reactiveOmit(props, ['title', 'subtitle', 'image
   <Primitive
     v-bind="forward"
     class="flex mx-auto min-h-[400px] items-center justify-center"
-    :class="[props.imageSize && theme.sizes[props.imageSize]]"
+    :class="[props.imageSize && sizes[props.imageSize]]"
   >
     <div class="mx-auto w-full text-center">
       <div

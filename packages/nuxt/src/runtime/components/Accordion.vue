@@ -1,8 +1,38 @@
-<script setup lang="ts">
-import type { BaseAccordionEmits, BaseAccordionProps, BaseAccordionSlots } from '../types'
-import { reactiveOmit } from '@vueuse/core'
-import { useForwardPropsEmits } from 'reka-ui'
+<script lang="ts">
+import type {
+  AccordionRootEmits,
+  AccordionRootProps,
+} from 'reka-ui'
+import type { BaseAccordionItemProps } from './AccordionItem.vue'
 
+import { reactiveOmit } from '@vueuse/core'
+import { AccordionRoot, useForwardPropsEmits } from 'reka-ui'
+
+export interface BaseAccordionProps extends AccordionRootProps {
+  /**
+   * The accordion items to display.
+   */
+  items?: BaseAccordionItemProps[]
+
+  /**
+   * The variant of the accordion.
+   */
+  variant?: BaseAccordionItemProps['variant']
+
+  /**
+   * Defines the icon used for accordion item toggle action
+   */
+  action?: BaseAccordionItemProps['action']
+}
+
+export interface BaseAccordionEmits extends AccordionRootEmits {}
+
+export interface BaseAccordionSlots {
+  default: () => any
+}
+</script>
+
+<script setup lang="ts">
 const props = withDefaults(defineProps<BaseAccordionProps>(), {
   action: undefined,
   variant: undefined,

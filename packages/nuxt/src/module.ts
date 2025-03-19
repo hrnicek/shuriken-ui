@@ -2,7 +2,7 @@ import { addComponentsDir, addImportsDir, addVitePlugin, createResolver, defineN
 import tailwindcss from '@tailwindcss/vite'
 import defu from 'defu'
 
-export * from './runtime/types'
+export type * from './runtime/types'
 
 export interface ModuleOptions {
   /**
@@ -61,8 +61,6 @@ export default defineNuxtModule<ModuleOptions>({
       }
     }
 
-    await registerModule('reka-ui/nuxt', {})
-    await registerModule('@vueuse/nuxt', {})
     await registerModule('@nuxtjs/color-mode', {
       classSuffix: '',
     })

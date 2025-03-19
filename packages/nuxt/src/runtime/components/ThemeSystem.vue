@@ -1,15 +1,41 @@
-<script setup lang="ts">
-import type { BaseThemeSystemProps } from '../types'
+<script lang="ts">
 import { useColorMode } from '#imports'
 import { useMounted } from '@vueuse/core'
+import { RadioGroupItem, RadioGroupRoot } from 'reka-ui'
 import { computed } from 'vue'
 import { useNuiConfig } from '../composables/useNuiConfig'
-import { BaseThemeSystem as theme } from '../theme'
 
+export interface BaseThemeSystemProps {
+  /**
+   * The form input identifier.
+   */
+  id?: string
+
+  /**
+   * Enables transitions when toggling between light and dark mode.
+   */
+  transitions?: boolean
+
+  /**
+   * The variant of the toggle.
+   */
+  variant?: 'default'
+}
+
+export const variants = {
+  default: 'bg-white dark:bg-muted-950 border border-muted-200 dark:border-muted-800',
+} as const satisfies Record<NonNullable<BaseThemeSystemProps['variant']>, string>
+
+export const trackVariants = {
+  default: 'bg-muted-100 dark:bg-muted-800',
+} as const satisfies Record<NonNullable<BaseThemeSystemProps['variant']>, string>
+</script>
+
+<script setup lang="ts">
 const props = withDefaults(defineProps<BaseThemeSystemProps>(), {
   id: undefined,
-  transitions: theme.defaults.transitions,
-  variant: theme.defaults.variant,
+  transitions: false,
+  variant: 'default',
 })
 
 const iconSun = useNuiConfig('icon', 'sun')
@@ -47,7 +73,7 @@ const preference = computed({
   <RadioGroupRoot
     v-model="preference"
     class="relative p-1 rounded-full max-w-[104px]"
-    :class="theme.trackVariants[variant]"
+    :class="trackVariants[variant]"
   >
     <div class="relative flex">
       <RadioGroupItem
@@ -83,7 +109,7 @@ const preference = computed({
           preference === 'system' && 'ml-0',
           preference === 'light' && 'ml-[33.3%]',
           preference === 'dark' && 'ml-[66.6%]',
-          props.variant && theme.variants[variant],
+          props.variant && variants[variant],
         ]"
       />
     </div>

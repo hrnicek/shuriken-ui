@@ -1,7 +1,14 @@
-<script setup lang="ts">
-import type { BaseSelectGroupProps, BaseSelectGroupSlots } from '../types'
-import { useForwardProps } from 'reka-ui'
+<script lang="ts">
+import type { SelectGroupProps } from 'reka-ui'
+import { SelectLabel, useForwardProps } from 'reka-ui'
 
+export interface BaseSelectGroupProps extends SelectGroupProps {}
+export interface BaseSelectGroupSlots {
+  default: () => any
+}
+</script>
+
+<script setup lang="ts">
 const props = withDefaults(defineProps<BaseSelectGroupProps>(), {})
 const slots = defineSlots<BaseSelectGroupSlots>()
 

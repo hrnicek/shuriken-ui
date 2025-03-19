@@ -1,11 +1,88 @@
 <script lang="ts">
-import type { BaseDropdownContext, BaseDropdownEmits, BaseDropdownProps, BaseDropdownSlots } from '../types'
+import type {
+  DropdownMenuContentProps,
+  DropdownMenuPortalProps,
+  DropdownMenuRootEmits,
+  DropdownMenuRootProps,
+  DropdownMenuTriggerProps,
+} from 'reka-ui'
+
 import { reactiveOmit } from '@vueuse/core'
-import { createContext, useForwardPropsEmits } from 'reka-ui'
+import {
+  createContext,
+  DropdownMenuContent,
+  DropdownMenuPortal,
+  DropdownMenuRoot,
+  DropdownMenuTrigger,
+  useForwardPropsEmits,
+} from 'reka-ui'
 import { useAttrs } from 'vue'
 import { useNuiConfig } from '../composables/useNuiConfig'
-import { BaseDropdown as theme } from '../theme'
 import { tm } from '../utils/tw-merge'
+
+export interface BaseDropdownProps extends DropdownMenuRootProps {
+  /**
+   * The label to display for the dropdown.
+   */
+  label?: string
+
+  /**
+   * Disables the dropdown.
+   */
+  disabled?: boolean
+
+  /**
+   * The variant of the dropdown content
+   */
+  variant?: 'default' | 'muted' | 'primary' | 'none'
+
+  /**
+   * The radius of the dropdown button.
+   */
+  rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
+
+  /**
+   * Optional bindings to pass to the inner components.
+   */
+  bindings?: {
+    content?: DropdownMenuContentProps
+    trigger?: DropdownMenuTriggerProps
+    portal?: DropdownMenuPortalProps
+  }
+
+  /**
+   * Optional classes to pass to the inner components.
+   */
+  classes?: {
+    content?: string | string[]
+  }
+}
+export interface BaseDropdownEmits extends DropdownMenuRootEmits {}
+
+export interface BaseDropdownContext {
+  variant: NonNullable<BaseDropdownProps['variant']>
+  rounded: NonNullable<BaseDropdownProps['rounded']>
+}
+export interface BaseDropdownSlots {
+  default: () => any
+  button: () => any
+  label: () => any
+}
+
+export const radiuses = {
+  none: '',
+  sm: 'rounded-sm',
+  md: 'rounded-md',
+  lg: 'rounded-lg',
+  full: 'rounded-xl',
+} as const satisfies Record<NonNullable<BaseDropdownProps['rounded']>, string>
+
+export const variants = {
+  default: 'bg-portal-default-bg border border-portal-default-border',
+  muted: 'bg-portal-muted-bg border border-portal-muted-border',
+  primary: 'bg-portal-default-bg border border-portal-default-border',
+  none: '',
+} as const satisfies Record<NonNullable<BaseDropdownProps['variant']>, string>
 
 export const [
   injectBaseDropdownContext,
@@ -24,8 +101,8 @@ const props = withDefaults(defineProps<BaseDropdownProps>(), {
   open: undefined,
   defaultOpen: undefined,
 
-  variant: theme.defaults.variant,
-  rounded: theme.defaults.rounded,
+  variant: 'default',
+  rounded: 'md',
 
   bindings: () => ({}),
   classes: () => ({}),
@@ -80,8 +157,8 @@ provideBaseDropdownContext({
         }"
         :class="tm([
           'min-w-52 focus:outline-none shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20 will-change-[opacity] duration-100 transition-opacity transition-discrete data-[state=open]:opacity-100 starting:data-[state=open]:opacity-0 p-2 space-y-1 max-h-[var(--reka-popper-available-height)] overflow-y-auto nui-slimscroll',
-          props.rounded && theme.radiuses[props.rounded],
-          props.variant && theme.variants[props.variant],
+          props.rounded && radiuses[props.rounded],
+          props.variant && variants[props.variant],
           props.classes.content,
         ])"
       >

@@ -1,18 +1,69 @@
-<script setup lang="ts">
+<script lang="ts">
 import type { Directive } from 'vue'
-import type { BaseInputProps } from '../types'
 import { useNuiId } from '../composables/useNuiId'
 
-import { BaseInput as theme } from '../theme'
+export interface BaseInputProps {
+  /**
+   * The form input identifier.
+   */
+  id?: string
 
+  /**
+   * The type of input.
+   */
+  type?: string
+
+  /**
+   * The placeholder to display for the input.
+   */
+  placeholder?: string
+
+  /**
+   * The variant of the input.
+   */
+  variant?: 'default' | 'muted'
+
+  /**
+   * The radius of the input.
+   */
+  rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
+
+  /**
+   * The size of the input.
+   */
+  size?: 'sm' | 'md' | 'lg' | 'xl'
+}
+
+export const variants = {
+  default: 'bg-input-default-bg border-input-default-border border text-input-default-text placeholder:text-input-default-placeholder',
+  muted: 'bg-input-muted-bg border-input-muted-border border text-input-muted-text placeholder:text-input-muted-placeholder',
+} as const satisfies Record<NonNullable<BaseInputProps['variant']>, string>
+
+export const sizes = {
+  sm: 'h-8 text-xs px-2',
+  md: 'h-10 text-sm px-3',
+  lg: 'h-12 text-sm px-4',
+  xl: 'h-14 text-base px-4',
+} as const satisfies Record<NonNullable<BaseInputProps['size']>, string>
+
+export const radiuses = {
+  none: '',
+  sm: 'rounded-sm',
+  md: 'rounded-md',
+  lg: 'rounded-lg',
+  full: 'rounded-full',
+} as const satisfies Record<NonNullable<BaseInputProps['rounded']>, string>
+</script>
+
+<script setup lang="ts">
 const props = withDefaults(defineProps<BaseInputProps>(), {
   id: undefined,
   type: 'text',
   placeholder: undefined,
 
-  rounded: theme.defaults.rounded,
-  size: theme.defaults.size,
-  variant: theme.defaults.variant,
+  rounded: 'md',
+  size: 'md',
+  variant: 'default',
 })
 
 function looseToNumber(val: any) {
@@ -69,9 +120,9 @@ const vModelInput: Directive = {
     :type="props.type"
     class="focus-visible:nui-focus w-full text-ellipsis font-sans disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive-base! aria-invalid:ring-destructive-base!"
     :class="[
-      props.variant && theme.variants[props.variant],
-      props.size && theme.sizes[props.size],
-      props.rounded && theme.radiuses[props.rounded],
+      props.variant && variants[props.variant],
+      props.size && sizes[props.size],
+      props.rounded && radiuses[props.rounded],
     ]"
     :placeholder="props.placeholder"
   >

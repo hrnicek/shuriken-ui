@@ -8,7 +8,14 @@ import type {
   TooltipTriggerProps,
 } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
-import { useForwardPropsEmits } from 'reka-ui'
+import {
+  TooltipArrow,
+  TooltipContent,
+  TooltipPortal,
+  TooltipRoot,
+  TooltipTrigger,
+  useForwardPropsEmits,
+} from 'reka-ui'
 
 export const radiuses = {
   none: '',

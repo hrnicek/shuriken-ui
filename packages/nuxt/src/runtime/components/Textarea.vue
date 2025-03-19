@@ -1,16 +1,83 @@
-<script setup lang="ts">
+<script lang="ts">
 import type { Directive } from 'vue'
-import type { BaseTextareaProps } from '../types'
 import { useNuiId } from '../composables/useNuiId'
-import { BaseTextarea as theme } from '../theme'
 
+export interface BaseTextareaProps {
+  /**
+   * The form input identifier.
+   */
+  id?: string
+
+  /**
+   * The placeholder text for the textarea.
+   */
+  placeholder?: string
+
+  /**
+   * The number of rows to display in the textarea.
+   */
+  rows?: number | string
+
+  /**
+   * Whether to allow the user to resize the textarea.
+   */
+  resize?: boolean
+
+  /**
+   * Whether to automatically grow the textarea as text is entered.
+   */
+  autogrow?: boolean
+
+  /**
+   * The maximum height of the textarea when autogrow is enabled.
+   */
+  maxHeight?: number
+
+  /**
+   * The variant of the textarea.
+   */
+  variant?: 'default' | 'muted'
+
+  /**
+   * The radius of the textarea.
+   */
+  rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
+
+  /**
+   * The size of the input.
+   */
+  size?: 'sm' | 'md' | 'lg' | 'xl'
+}
+
+export const radiuses = {
+  none: '',
+  sm: 'rounded-sm',
+  md: 'rounded-md',
+  lg: 'rounded-lg',
+  full: 'rounded-xl',
+} as const satisfies Record<NonNullable<BaseTextareaProps['rounded']>, string>
+
+export const sizes = {
+  sm: 'min-h-8 text-xs px-2 py-2',
+  md: 'min-h-10 text-sm px-3 py-2',
+  lg: 'min-h-12 text-sm px-4 py-[calc(var(--spacing)*3.25)]',
+  xl: 'min-h-14 text-base px-4 py-[calc(var(--spacing)*3.75)]',
+} as const satisfies Record<NonNullable<BaseTextareaProps['size']>, string>
+
+export const variants = {
+  default: 'bg-input-default-bg border-input-default-border border text-input-default-text placeholder:text-input-default-placeholder',
+  muted: 'bg-input-muted-bg border-input-muted-border border text-input-muted-text placeholder:text-input-muted-placeholder',
+} as const satisfies Record<NonNullable<BaseTextareaProps['variant']>, string>
+</script>
+
+<script setup lang="ts">
 const props = withDefaults(defineProps<BaseTextareaProps>(), {
   id: undefined,
   name: undefined,
 
-  rounded: theme.defaults.rounded,
-  variant: theme.defaults.variant,
-  size: theme.defaults.size,
+  rounded: 'md',
+  variant: 'default',
+  size: 'md',
 
   label: undefined,
   placeholder: '',
@@ -62,9 +129,9 @@ const vModelTextarea: Directive = {
     class="focus-visible:nui-focus w-full disabled:cursor-not-allowed disabled:opacity-50 nui-slimscroll aria-invalid:border-destructive-base! aria-invalid:ring-destructive-base!"
     :class="[
       props.autogrow && 'field-sizing-content',
-      props.variant && theme.variants[props.variant],
-      props.rounded && theme.radiuses[props.rounded],
-      props.size && theme.sizes[props.size],
+      props.variant && variants[props.variant],
+      props.rounded && radiuses[props.rounded],
+      props.size && sizes[props.size],
       !props.resize && 'resize-none',
     ]"
     :placeholder="props.placeholder"

@@ -1,17 +1,74 @@
-<script setup lang="ts">
-import type { BaseSliderEmits, BaseSliderProps, BaseSliderSlots } from '../types'
+<script lang="ts">
+import type { SliderRootEmits, SliderRootProps } from 'reka-ui'
+
 import { reactiveOmit } from '@vueuse/core'
-import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
+import {
+  SliderRange,
+  SliderRoot,
+  SliderThumb,
+  SliderTrack,
+  TooltipArrow,
+  TooltipContent,
+  TooltipPortal,
+  TooltipProvider,
+  TooltipRoot,
+  TooltipTrigger,
+  useForwardExpose,
+  useForwardPropsEmits,
+} from 'reka-ui'
 import { useAttrs } from 'vue'
-import { BaseSlider as theme } from '../theme'
 import { tm } from '../utils/tw-merge'
 
+export interface BaseSliderProps extends SliderRootProps {
+  variant?: 'default' | 'primary' | 'dark' | 'none'
+
+  /**
+   * Optional classes to pass to the inner components.
+   */
+  classes?: {
+    track?: string | string[]
+    range?: string | string[]
+    thumb?: string | string[]
+    tooltip?: string | string[]
+    tooltipArrow?: string | string[]
+  }
+}
+
+export interface BaseSliderEmits extends SliderRootEmits {}
+
+export interface BaseSliderSlots {
+  default: (props: { value: number }) => any
+}
+
+export const trackVariants = {
+  default: 'bg-track-default-bg',
+  primary: 'bg-track-default-bg',
+  dark: 'bg-track-dark-bg',
+  none: 'bg-track-dark-bg',
+} as const satisfies Record<NonNullable<BaseSliderProps['variant']>, string>
+
+export const rangeVariants = {
+  default: 'bg-track-default-bg-active',
+  primary: 'bg-primary-base',
+  dark: 'bg-track-dark-bg-active',
+  none: 'bg-current',
+} as const satisfies Record<NonNullable<BaseSliderProps['variant']>, string>
+
+export const thumbVariants = {
+  default: 'bg-track-default-handle-bg ring-1 ring-track-default-handle-border shadow-sm focus:outline-none focus:ring-track-default-handle-ring',
+  primary: 'bg-track-default-handle-bg ring-1 ring-track-default-handle-border shadow-sm focus:outline-none focus:ring-primary-base',
+  dark: 'bg-track-dark-handle-bg ring-1 ring-track-dark-handle-border shadow-sm focus:outline-none focus:ring-track-dark-handle-ring',
+  none: 'bg-track-default-handle-bg ring-1 ring-track-default-handle-border shadow-sm focus:outline-none focus:ring-current',
+} as const satisfies Record<NonNullable<BaseSliderProps['variant']>, string>
+</script>
+
+<script setup lang="ts">
 defineOptions({
   inheritAttrs: false,
 })
 
 const props = withDefaults(defineProps<BaseSliderProps>(), {
-  variant: theme.defaults.variant,
+  variant: 'default',
 
   classes: () => ({}),
 })
@@ -37,7 +94,7 @@ const { forwardRef } = useForwardExpose()
         :class="tm([
           'relative grow rounded-full h-2',
           props.orientation === 'vertical' ? 'w-2' : 'h-2',
-          theme.trackVariants[props.variant],
+          trackVariants[props.variant],
           props.classes.track,
         ])"
       >
@@ -45,7 +102,7 @@ const { forwardRef } = useForwardExpose()
           :class="tm([
             'absolute rounded-full',
             props.orientation === 'vertical' ? 'w-full' : 'h-full',
-            theme.rangeVariants[props.variant],
+            rangeVariants[props.variant],
             props.classes.range,
           ])"
         />
@@ -61,7 +118,7 @@ const { forwardRef } = useForwardExpose()
             :ref="forwardRef"
             :class="tm([
               'block size-5 rounded-full',
-              theme.thumbVariants[props.variant],
+              thumbVariants[props.variant],
               props.classes.thumb,
             ])"
           />

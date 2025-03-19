@@ -1,7 +1,18 @@
-<script setup lang="ts">
-import type { BaseDropdownRadioGroupEmits, BaseDropdownRadioGroupProps, BaseDropdownRadioGroupSlots } from '../types'
-import { useForwardPropsEmits } from 'reka-ui'
+<script lang="ts">
+import type {
+  DropdownMenuRadioGroupEmits,
+  DropdownMenuRadioGroupProps,
+} from 'reka-ui'
+import { DropdownMenuRadioGroup, useForwardPropsEmits } from 'reka-ui'
 
+export interface BaseDropdownRadioGroupProps extends DropdownMenuRadioGroupProps {}
+export interface BaseDropdownRadioGroupEmits extends DropdownMenuRadioGroupEmits {}
+export interface BaseDropdownRadioGroupSlots {
+  default: () => any
+}
+</script>
+
+<script setup lang="ts">
 const props = withDefaults(defineProps<BaseDropdownRadioGroupProps>(), {
   modelValue: undefined,
 })

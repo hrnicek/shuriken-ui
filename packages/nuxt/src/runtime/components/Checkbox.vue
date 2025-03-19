@@ -1,21 +1,60 @@
-<script setup lang="ts">
-import type { BaseCheckboxEmits, BaseCheckboxProps, BaseCheckboxSlots } from '../types'
+<script lang="ts">
+import type {
+  CheckboxRootEmits,
+  CheckboxRootProps,
+} from 'reka-ui'
+
 import { reactiveOmit } from '@vueuse/core'
-import { useForwardExpose, useForwardPropsEmits } from 'reka-ui'
+import { CheckboxIndicator, CheckboxRoot, Label, useForwardExpose, useForwardPropsEmits } from 'reka-ui'
 import { useAttrs } from 'vue'
 import { useNuiConfig } from '../composables/useNuiConfig'
 
 import { useNuiId } from '../composables/useNuiId'
-import { BaseCheckbox as theme } from '../theme'
 import { tm } from '../utils/tw-merge'
 
+export interface BaseCheckboxProps extends CheckboxRootProps {
+  /**
+   * The label to display for the checkbox.
+   */
+  label?: string
+
+  /**
+   * The variant of the checkbox.
+   */
+  variant?: 'default' | 'primary' | 'dark' | 'none'
+
+  /**
+   * Optional classes to pass to the inner components.
+   */
+  classes?: {
+    root?: string | string[]
+    icon?: string | string[]
+    indicator?: string | string[]
+    label?: string | string[]
+    labelWrapper?: string | string[]
+  }
+}
+export interface BaseCheckboxEmits extends CheckboxRootEmits {}
+export interface BaseCheckboxSlots {
+  default: () => any
+}
+
+export const variants = {
+  default: 'bg-white dark:bg-muted-950 border-1 border-muted-300 dark:border-muted-700 text-muted-700 dark:text-muted-100',
+  primary: 'bg-primary-500/10 dark:bg-primary-500/20 border-1 border-muted-300 dark:border-muted-700 text-primary-base dark:text-primary-light',
+  dark: 'bg-muted-900/10 dark:bg-white/10 border-1 border-muted-300 dark:border-muted-700 text-muted-900 dark:text-white',
+  none: '',
+} as const satisfies Record<NonNullable<BaseCheckboxProps['variant']>, string>
+</script>
+
+<script setup lang="ts">
 defineOptions({
   inheritAttrs: false,
 })
 
 const props = withDefaults(defineProps<BaseCheckboxProps>(), {
   label: undefined,
-  variant: theme.defaults.variant,
+  variant: 'default',
 
   id: undefined,
   disabled: undefined,
@@ -56,7 +95,7 @@ const { forwardRef } = useForwardExpose()
         force-mount
         :class="tm([
           'absolute start-0 top-0 z-0 flex items-center justify-center h-full w-full rounded-md group',
-          props.variant && theme.variants[props.variant],
+          props.variant && variants[props.variant],
           props.classes.indicator,
         ])"
       >

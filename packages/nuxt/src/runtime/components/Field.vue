@@ -1,7 +1,27 @@
-<script setup lang="ts">
-import type { BaseFieldProps, BaseFieldSlots } from '../types'
+<script lang="ts">
+import type { BasePrimitiveFieldProps } from './PrimitiveField.vue'
 import { reactiveOmit } from '@vueuse/core'
 
+export interface BaseFieldProps extends BasePrimitiveFieldProps {
+  label?: string
+  description?: string
+  hint?: string
+  error?: string
+}
+
+export interface BaseFieldSlots {
+  default: (props: {
+    inputRef: (el: any) => void
+    inputAttrs: Record<string, any>
+  }) => any
+  label: () => any
+  description: () => any
+  hint: () => any
+  error: () => any
+}
+</script>
+
+<script setup lang="ts">
 const props = withDefaults(defineProps<BaseFieldProps>(), {
   name: undefined,
   label: undefined,

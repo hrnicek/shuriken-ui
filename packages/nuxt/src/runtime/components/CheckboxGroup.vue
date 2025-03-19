@@ -1,8 +1,22 @@
-<script setup lang="ts" generic="T extends AcceptableValue = AcceptableValue">
-import type { AcceptableValue } from 'reka-ui'
-import type { BaseCheckboxGroupEmits, BaseCheckboxGroupProps, BaseCheckboxGroupSlots } from '../types'
-import { useForwardPropsEmits } from 'reka-ui'
+<script lang="ts">
+import type {
+  AcceptableValue,
+  CheckboxGroupRootEmits,
+  CheckboxGroupRootProps,
+} from 'reka-ui'
+import type { BaseCheckboxProps } from './Checkbox.vue'
+import { CheckboxGroupRoot, useForwardPropsEmits } from 'reka-ui'
 
+export interface BaseCheckboxGroupProps<T = AcceptableValue> extends CheckboxGroupRootProps<T> {
+  items?: BaseCheckboxProps[]
+}
+export interface BaseCheckboxGroupEmits<T = AcceptableValue> extends CheckboxGroupRootEmits<T> {}
+export interface BaseCheckboxGroupSlots {
+  default: () => any
+}
+</script>
+
+<script setup lang="ts" generic="T extends AcceptableValue = AcceptableValue">
 const props = withDefaults(defineProps<BaseCheckboxGroupProps<T>>(), {
   modelValue: undefined,
   name: undefined,

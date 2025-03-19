@@ -1,13 +1,55 @@
-<script setup lang="ts">
-import type { BaseDropdownCheckboxEmits, BaseDropdownCheckboxProps, BaseDropdownCheckboxSlots } from '../types'
+<script lang="ts">
+import type {
+  DropdownMenuCheckboxItemEmits,
+  DropdownMenuCheckboxItemProps,
+  DropdownMenuItemIndicatorProps,
+} from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 
-import { useForwardPropsEmits } from 'reka-ui'
+import { DropdownMenuCheckboxItem, DropdownMenuItemIndicator, useForwardPropsEmits } from 'reka-ui'
 import { useNuiConfig } from '../composables/useNuiConfig'
 
-import { BaseDropdownItem as theme } from '../theme'
-import { injectBaseDropdownContext } from './Dropdown.vue'
+import { injectBaseDropdownContext, radiuses } from './Dropdown.vue'
+import { variants } from './DropdownItem.vue'
 
+export interface BaseDropdownCheckboxProps extends DropdownMenuCheckboxItemProps {
+  /**
+   * The title to display for the dropdown item.
+   */
+  title?: string
+
+  /**
+   * The text to display for the dropdown item.
+   */
+  text?: string
+
+  /**
+   * The hover color of the dropdown-item inner elements.
+   */
+  variant?: 'default' | 'muted' | 'primary' | 'none'
+
+  /**
+   * The radius of the dropdown-item.
+   */
+  rounded?: 'none' | 'sm' | 'md' | 'lg'
+
+  /**
+   * Optional bindings to pass to the inner components.
+   */
+  bindings?: {
+    indicator?: DropdownMenuItemIndicatorProps
+  }
+}
+export interface BaseDropdownCheckboxEmits extends DropdownMenuCheckboxItemEmits {}
+export interface BaseDropdownCheckboxSlots {
+  default: () => any
+  title: () => any
+  text: () => any
+  end: () => any
+}
+</script>
+
+<script setup lang="ts">
 const props = withDefaults(defineProps<BaseDropdownCheckboxProps>(), {
   title: '',
   text: '',
@@ -34,8 +76,8 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'vari
     v-bind="forward"
     class="focus-visible:nui-focus flex w-full items-center justify-start gap-2 p-2 cursor-pointer text-start font-sans text-sm transition-colors duration-100 group/menu-checkbox-item"
     :class="[
-      theme.radiuses[props.rounded || context.rounded],
-      theme.variants[props.variant || context.variant],
+      radiuses[props.rounded || context.rounded],
+      variants[props.variant || context.variant],
       props.disabled && 'opacity-50 pointer-events-none',
     ]"
   >

@@ -1,14 +1,72 @@
-<script setup lang="ts">
-import type { BaseAccordionItemProps, BaseAccordionItemSlots } from '../types'
+<script lang="ts">
+import type {
+  AccordionContentProps,
+  AccordionHeaderProps,
+  AccordionItemProps,
+  AccordionTriggerProps,
+} from 'reka-ui'
+
 import { reactiveOmit } from '@vueuse/core'
-import { useForwardProps } from 'reka-ui'
+import {
+  AccordionContent,
+  AccordionHeader,
+  AccordionItem,
+  AccordionTrigger,
+  useForwardProps,
+} from 'reka-ui'
 import { useNuiConfig } from '../composables/useNuiConfig'
-import { BaseAccordion as theme } from '../theme'
 import { tm } from '../utils/tw-merge'
 
+export interface BaseAccordionItemProps extends AccordionItemProps {
+  /**
+   * The title of the accordion item.
+   */
+  title?: string
+  /**
+   * The content of the accordion item.
+   */
+  content?: string
+
+  /**
+   * The variant of the accordion.
+   */
+  variant?: 'default'
+
+  /**
+   * Defines the icon used for accordion item toggle action
+   */
+  action?: 'dot' | 'chevron' | 'plus'
+
+  /**
+   * Optional bindings to pass to the inner components.
+   */
+  bindings?: {
+    header?: AccordionHeaderProps
+    content?: AccordionContentProps
+    trigger?: AccordionTriggerProps
+  }
+
+  /**
+   * Optional classes to pass to the inner components.
+   */
+  classes?: {
+    header?: string | string[]
+    content?: string | string[]
+    trigger?: string | string[]
+  }
+}
+
+export interface BaseAccordionItemSlots {
+  default: () => any
+  title: () => any
+  action: () => any
+}
+</script>
+
+<script setup lang="ts">
 const props = withDefaults(defineProps<BaseAccordionItemProps>(), {
-  action: theme.defaults.action,
-  variant: theme.defaults.variant,
+  action: 'dot',
+  variant: 'default',
   bindings: () => ({}),
   classes: () => ({}),
 })

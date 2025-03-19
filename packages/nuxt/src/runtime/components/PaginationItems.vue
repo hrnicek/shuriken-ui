@@ -1,10 +1,14 @@
 <script setup lang="ts">
+import type { PaginationListItemProps } from 'reka-ui'
+import { PaginationEllipsis, PaginationListItem } from 'reka-ui'
 import { useNuiConfig } from '../composables/useNuiConfig'
-import { BasePagination as theme } from '../theme'
-import { injectBasePaginationContext } from './Pagination.vue'
+import { heights, injectBasePaginationContext, itemVariants, radiuses, sizes } from './Pagination.vue'
 
 const props = defineProps<{
-  items: any[]
+  items: {
+    type: 'page' | 'ellipsis'
+    value: PaginationListItemProps['value']
+  }[]
 }>()
 
 const context = injectBasePaginationContext()
@@ -20,9 +24,9 @@ const iconEllipsis = useNuiConfig('icon', 'ellipsis')
         :value="page.value"
         class="focus-visible:nui-focus flex items-center justify-center mb-0 inline-flex flex-wrap gap-2 md:gap-1 font-sans text-sm border enabled:cursor-pointer"
         :class="[
-          context.variant && theme.itemVariants[context.variant],
-          context.rounded && theme.radiuses[context.rounded],
-          context.size && theme.heights[context.size],
+          context.variant && itemVariants[context.variant],
+          context.rounded && radiuses[context.rounded],
+          context.size && heights[context.size],
         ]"
       >
         <slot name="page" :page="page.value">
@@ -35,8 +39,8 @@ const iconEllipsis = useNuiConfig('icon', 'ellipsis')
         :index="index"
         class="select-none flex items-center justify-center font-sans text-sm"
         :class="[
-          context.rounded && theme.radiuses[context.rounded],
-          context.size && theme.sizes[context.size],
+          context.rounded && radiuses[context.rounded],
+          context.size && sizes[context.size],
         ]"
       >
         <slot name="ellipsis">

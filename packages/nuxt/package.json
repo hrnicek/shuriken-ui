@@ -44,7 +44,6 @@
     "@tailwindcss/vite": "catalog:",
     "@vue/shared": "^3.5.13",
     "@vueuse/core": "^12.7.0",
-    "@vueuse/nuxt": "^12.7.0",
     "defu": "^6.1.4",
     "reka-ui": "catalog:",
     "tailwind-merge": "^3.0.2"

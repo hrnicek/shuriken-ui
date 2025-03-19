@@ -1,8 +1,20 @@
-<script setup lang="ts">
-import type { BaseAutocompleteLabelProps, BaseAutocompleteLabelSlots } from '../types'
+<script lang="ts">
+import type { ComboboxLabelProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
-import { useForwardProps } from 'reka-ui'
+import { ComboboxLabel, useForwardProps } from 'reka-ui'
 
+export interface BaseAutocompleteLabelProps extends ComboboxLabelProps {
+  /**
+   * The label to display for the Autocomplete.
+   */
+  label?: string
+}
+export interface BaseAutocompleteLabelSlots {
+  default: () => any
+}
+</script>
+
+<script setup lang="ts">
 const props = withDefaults(defineProps<BaseAutocompleteLabelProps>(), {
   label: '',
 })

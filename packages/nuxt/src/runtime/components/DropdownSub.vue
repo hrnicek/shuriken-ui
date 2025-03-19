@@ -1,12 +1,66 @@
-<script setup lang="ts">
-import type { BaseDropdownSubEmits, BaseDropdownSubProps, BaseDropdownSubSlots } from '../types'
+<script lang="ts">
+import type {
+  DropdownMenuPortalProps,
+  DropdownMenuSubContentProps,
+  DropdownMenuSubEmits,
+  DropdownMenuSubProps,
+  DropdownMenuSubTriggerProps,
+} from 'reka-ui'
+
+import type { BaseDropdownProps } from './Dropdown.vue'
 import { reactiveOmit } from '@vueuse/core'
-import { useForwardPropsEmits } from 'reka-ui'
+import {
+  DropdownMenuPortal,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  useForwardPropsEmits,
+} from 'reka-ui'
 import { useNuiConfig } from '../composables/useNuiConfig'
-import { BaseDropdown as dropdownTheme, BaseDropdownItem as theme } from '../theme'
+// import { BaseDropdown as dropdownTheme, BaseDropdownItem as theme } from '../theme'
 
-import { injectBaseDropdownContext } from './Dropdown.vue'
+import { radiuses as dropdownRadiuses, variants as dropdownVariants, injectBaseDropdownContext } from './Dropdown.vue'
+import { variants as itemVariants } from './DropdownItem.vue'
 
+export interface BaseDropdownSubProps extends DropdownMenuSubProps {
+  /**
+   * The title to display for the dropdown item.
+   */
+  title?: string
+
+  /**
+   * The text to display for the dropdown item.
+   */
+  text?: string
+
+  /**
+   * The variant of the dropdown content
+   */
+  variant?: BaseDropdownProps['variant']
+
+  /**
+   * The radius of the dropdown button.
+   */
+  rounded?: BaseDropdownProps['rounded']
+
+  /**
+   * Optional bindings to pass to the inner components.
+   */
+  bindings?: {
+    trigger?: DropdownMenuSubTriggerProps
+    content?: DropdownMenuSubContentProps
+    portal?: DropdownMenuPortalProps
+  }
+}
+export interface BaseDropdownSubEmits extends DropdownMenuSubEmits {}
+export interface BaseDropdownSubSlots {
+  default: () => any
+  title: () => any
+  text: () => any
+}
+</script>
+
+<script setup lang="ts">
 const props = defineProps<BaseDropdownSubProps>()
 const emits = defineEmits<BaseDropdownSubEmits>()
 const slots = defineSlots<BaseDropdownSubSlots>()
@@ -23,8 +77,8 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'bind
       v-bind="props.bindings?.trigger"
       class="focus-visible:nui-focus flex w-full items-center justify-start gap-2 p-2 cursor-pointer text-start font-sans text-sm transition-colors duration-100"
       :class="[
-        theme.radiuses[context.rounded],
-        theme.variants[context.variant],
+        dropdownRadiuses[context.rounded],
+        itemVariants[context.variant],
       ]"
     >
       <div class="flex items-center justify-between w-full">
@@ -50,8 +104,8 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'bind
       <DropdownMenuSubContent
         class="mt-2 min-w-52 focus:outline-none shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20"
         :class="[
-          dropdownTheme.radiuses[props.rounded || context.rounded],
-          dropdownTheme.variants[props.variant || context.variant],
+          dropdownRadiuses[props.rounded || context.rounded],
+          dropdownVariants[props.variant || context.variant],
         ]"
         v-bind="{
           sideOffset: 2,

@@ -1,8 +1,15 @@
-<script setup lang="ts">
-import type { BaseTabsContentProps, BaseTabsContentSlots } from '../types'
+<script lang="ts">
+import type { TabsContentProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
-import { useForwardProps } from 'reka-ui'
+import { TabsContent, useForwardProps } from 'reka-ui'
 
+export interface BaseTabsContentProps extends TabsContentProps {}
+export interface BaseTabsContentSlots {
+  default: () => any
+}
+</script>
+
+<script setup lang="ts">
 const props = withDefaults(defineProps<BaseTabsContentProps>(), {
   value: undefined,
 })

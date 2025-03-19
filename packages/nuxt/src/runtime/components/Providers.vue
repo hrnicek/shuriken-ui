@@ -1,6 +1,22 @@
-<script setup lang="ts">
-import type { BaseProviders } from '../types'
+<script lang="ts">
+import type {
+  ConfigProviderProps,
+  TooltipProviderProps,
+} from 'reka-ui'
+import type { BaseToastProviderProps } from './ToastProvider.vue'
+import {
+  ConfigProvider,
+  TooltipProvider,
+} from 'reka-ui'
 
+export interface BaseProviders {
+  config?: ConfigProviderProps
+  tooltip?: TooltipProviderProps
+  toast?: BaseToastProviderProps
+}
+</script>
+
+<script setup lang="ts">
 defineOptions({
   inheritAttrs: false,
 })

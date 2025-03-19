@@ -8,7 +8,15 @@ import type {
   PopoverTriggerProps,
 } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
-import { useForwardPropsEmits } from 'reka-ui'
+import {
+  PopoverArrow,
+  PopoverClose,
+  PopoverContent,
+  PopoverPortal,
+  PopoverRoot,
+  PopoverTrigger,
+  useForwardPropsEmits,
+} from 'reka-ui'
 import { useNuiConfig } from '../composables/useNuiConfig'
 import { tm } from '../utils/tw-merge'
 

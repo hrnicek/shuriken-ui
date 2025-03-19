@@ -1,15 +1,22 @@
-<script setup lang="ts">
-import type { BaseHeadingProps, BaseHeadingSlots } from '../types'
+<script lang="ts">
+import type { BaseTextProps } from './Text.vue'
 import { reactiveOmit } from '@vueuse/core'
-import { useForwardProps } from 'reka-ui'
-import { BaseHeading as theme } from '../theme'
+import { Primitive, useForwardProps } from 'reka-ui'
+import { leads, sizes, trackings, weights } from './Text.vue'
 
+export interface BaseHeadingProps extends BaseTextProps {}
+export interface BaseHeadingSlots {
+  default: () => any
+}
+</script>
+
+<script setup lang="ts">
 const props = withDefaults(defineProps<BaseHeadingProps>(), {
   as: undefined,
-  size: theme.defaults.size,
-  lead: theme.defaults.lead,
-  weight: theme.defaults.weight,
-  tracking: theme.defaults.tracking,
+  size: 'md',
+  lead: 'normal',
+  weight: 'normal',
+  tracking: 'normal',
 })
 const slots = defineSlots<BaseHeadingSlots>()
 
@@ -21,10 +28,10 @@ const forward = useForwardProps(reactiveOmit(props, ['size', 'lead', 'weight', '
     v-bind="forward"
     class="font-heading"
     :class="[
-      props.size && theme.sizes[props.size],
-      props.lead && theme.leads[props.lead],
-      props.weight && theme.weights[props.weight],
-      props.tracking && theme.trackings[props.tracking],
+      props.size && sizes[props.size],
+      props.lead && leads[props.lead],
+      props.weight && weights[props.weight],
+      props.tracking && trackings[props.tracking],
     ]"
   >
     <slot />

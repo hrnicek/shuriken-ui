@@ -1,10 +1,55 @@
-<script setup lang="ts">
-import type { BaseDropdownItemEmits, BaseDropdownItemProps, BaseDropdownItemSlots } from '../types'
+<script lang="ts">
+import type {
+  DropdownMenuItemEmits,
+  DropdownMenuItemProps,
+} from 'reka-ui'
+import type { BaseDropdownContext } from './Dropdown.vue'
 import { reactiveOmit } from '@vueuse/core'
-import { useForwardPropsEmits } from 'reka-ui'
-import { BaseDropdownItem as theme } from '../theme'
-import { injectBaseDropdownContext } from './Dropdown.vue'
+import { DropdownMenuItem, useForwardPropsEmits } from 'reka-ui'
+import { injectBaseDropdownContext, radiuses } from './Dropdown.vue'
 
+export interface BaseDropdownItemProps extends DropdownMenuItemProps {
+  /**
+   * The title to display for the dropdown item.
+   */
+  title?: string
+
+  /**
+   * The text to display for the dropdown item.
+   */
+  text?: string
+
+  /**
+   * The hover color of the dropdown-item inner elements.
+   */
+  variant?: 'default' | 'muted' | 'primary' | 'none'
+
+  /**
+   * The radius of the dropdown-item.
+   */
+  rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
+}
+
+export interface BaseDropdownItemEmits extends DropdownMenuItemEmits {}
+
+export interface BaseDropdownItemSlots {
+  default: () => any
+
+  title: () => any
+  text: () => any
+  start: () => any
+  end: () => any
+}
+
+export const variants = {
+  default: 'hover:bg-portal-default-item-bg-active',
+  muted: 'hover:bg-portal-muted-item-bg-active',
+  primary: 'hover:bg-primary-base/10 dark:hover:bg-primary-base/20',
+  none: '',
+} as const satisfies Record<NonNullable<BaseDropdownContext['variant']>, string>
+</script>
+
+<script setup lang="ts">
 const props = withDefaults(defineProps<BaseDropdownItemProps>(), {
   title: '',
   text: '',
@@ -26,8 +71,8 @@ const forward = useForwardPropsEmits(reactiveOmit(props, ['title', 'text', 'vari
     v-bind="forward"
     class="focus-visible:nui-focus flex w-full items-center justify-start gap-2 p-2 cursor-pointer text-start font-sans text-sm transition-colors duration-100"
     :class="[
-      theme.radiuses[props.rounded || context.rounded],
-      theme.variants[props.variant || context.variant],
+      radiuses[props.rounded || context.rounded],
+      variants[props.variant || context.variant],
       props.disabled && 'opacity-50 pointer-events-none',
     ]"
   >

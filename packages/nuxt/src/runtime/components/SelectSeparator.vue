@@ -1,7 +1,13 @@
-<script setup lang="ts">
-import type { BaseSelectSeparatorProps } from '../types'
-import { useForwardProps } from 'reka-ui'
+<script lang="ts">
+import type {
+  SelectSeparatorProps,
+} from 'reka-ui'
+import { SelectSeparator, useForwardProps } from 'reka-ui'
 
+export interface BaseSelectSeparatorProps extends SelectSeparatorProps {}
+</script>
+
+<script setup lang="ts">
 const props = withDefaults(defineProps<BaseSelectSeparatorProps>(), {})
 const forward = useForwardProps(props)
 </script>
