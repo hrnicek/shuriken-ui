@@ -1,14 +1,10 @@
 <script setup lang="ts">
-import type { PaginationListItemProps } from 'reka-ui'
 import { PaginationEllipsis, PaginationListItem } from 'reka-ui'
 import { useNuiConfig } from '../composables/useNuiConfig'
 import { heights, injectBasePaginationContext, itemVariants, radiuses, sizes } from './Pagination.vue'
 
 const props = defineProps<{
-  items: {
-    type: 'page' | 'ellipsis'
-    value: PaginationListItemProps['value']
-  }[]
+  items: Array<{ type: 'ellipsis' } | { type: 'page', value: number }>
 }>()
 
 const context = injectBasePaginationContext()
