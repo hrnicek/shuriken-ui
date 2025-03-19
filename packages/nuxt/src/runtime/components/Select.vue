@@ -238,7 +238,7 @@ provideBaseSelectContext({
           props.classes.text,
         ])"
       >
-        <slot name="value" v-bind="{ selectedLabel, modelValue }" />
+        <slot name="value" v-bind="({ selectedLabel, modelValue } as any)" />
       </SelectValue>
       <Icon
         :name="iconChevronDown"
