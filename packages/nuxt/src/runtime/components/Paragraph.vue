@@ -1,7 +1,7 @@
 <script lang="ts">
 import type { BaseTextConfig, BaseTextProps } from './Text.vue'
 import { reactiveOmit } from '@vueuse/core'
-import { useForwardProps } from 'reka-ui'
+import { Primitive, useForwardProps } from 'reka-ui'
 import { leads, sizes, trackings, weights } from './Text.vue'
 
 export interface BaseParagraphProps extends BaseTextProps {}
