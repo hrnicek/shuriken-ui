@@ -17,13 +17,9 @@
     },
     "./runtime/*": "./dist/runtime/*"
   },
-  "imports": {
-    "#build/shuriken-ui/*": "./.nuxt/shuriken-ui/*.ts"
-  },
   "main": "./dist/module.cjs",
   "types": "./dist/types.d.ts",
   "files": [
-    ".nuxt/shuriken-ui",
     "dist"
   ],
   "scripts": {
