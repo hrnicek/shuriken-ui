@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     'nuxt-component-meta',
     '@nuxt/eslint',
+    'nuxt-llms',
   ],
   css: ['~/assets/css/main.css'],
   content: {
@@ -26,6 +27,11 @@ export default defineNuxtConfig({
     renderer: {
       anchorLinks: true,
     },
+  },
+  llms: {
+    domain: 'https://shurikenui.com',
+    title: 'Shuriken UI Documentation',
+    description: 'Shuriken UI is a modern, responsive, and accessible UI library for Nuxt.js, built with Tailwind CSS and Reka UI.',
   },
   future: {
     compatibilityVersion: 4,
