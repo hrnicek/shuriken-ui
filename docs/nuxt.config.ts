@@ -32,11 +32,15 @@ export default defineNuxtConfig({
     domain: 'https://v4.shurikenui.com',
     title: 'Shuriken UI Documentation',
     description: 'Shuriken UI is a modern, responsive, and accessible UI library for Nuxt.js, built with Tailwind CSS and Reka UI.',
+    full: {
+      title: 'Shuriken UI Complete Documentation',
+      description: 'Full documentation for Shuriken UI written in Markdown (MDC syntax).',
+    },
   },
   future: {
     compatibilityVersion: 4,
   },
-  compatibilityDate: '2025-01-18',
+  compatibilityDate: '2025-04-01',
   componentMeta: {
     metaSources: ['@shuriken-ui/nuxt-component-meta'],
     exclude: [
