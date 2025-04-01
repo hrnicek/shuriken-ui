@@ -51,6 +51,7 @@
     "tailwindcss": "catalog:",
     "typescript": "catalog:",
     "ufo": "^1.5.4",
+    "unist-util-visit": "^5.0.0",
     "vue-component-meta": "^2.2.8",
     "vue3-apexcharts": "1.8.0",
     "vue3-smooth-dnd": "0.0.6"
