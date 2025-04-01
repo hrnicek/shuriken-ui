@@ -29,7 +29,7 @@ export default defineNuxtConfig({
     },
   },
   llms: {
-    domain: 'https://shurikenui.com',
+    domain: 'https://v4.shurikenui.com',
     title: 'Shuriken UI Documentation',
     description: 'Shuriken UI is a modern, responsive, and accessible UI library for Nuxt.js, built with Tailwind CSS and Reka UI.',
   },
