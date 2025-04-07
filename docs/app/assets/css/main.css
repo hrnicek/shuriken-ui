@@ -1,10 +1,10 @@
 @import 'tailwindcss';
 @import '@shuriken-ui/nuxt';
 
-// Parse markdown content
+/* Parse markdown content */
 @source '../../../content/';
 
-// Load legacy typography plugin using @plugin
+/* Load legacy typography plugin using @plugin */
 @plugin '@tailwindcss/typography';
 
 @theme {
