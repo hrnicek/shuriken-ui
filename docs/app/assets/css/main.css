@@ -1,6 +1,11 @@
 @import 'tailwindcss';
 @import '@shuriken-ui/nuxt';
+
+// Parse markdown content
 @source '../../../content/';
+
+// Load legacy typography plugin using @plugin
+@plugin '@tailwindcss/typography';
 
 @theme {
   --font-sans: Inter, sans-serif;

@@ -30,6 +30,6 @@
     "pathe": "^2.0.3",
     "reka-ui": "catalog:",
     "tailwindcss": "catalog:",
-    "vite": "^6.2.4"
+    "vite": "^6.2.5"
   }
 }

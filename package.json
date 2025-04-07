@@ -3,8 +3,9 @@
   "type": "module",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "pnpm@9.15.4",
+  "packageManager": "pnpm@10.8.0",
   "scripts": {
-    "dev": "pnpm --filter @shuriken-ui/nuxt dev:prepare && pnpm --filter playground dev"
+    "dev": "pnpm --filter docs dev",
+    "dev:prepare": "pnpm --filter @shuriken-ui/nuxt dev:prepare"
   }
 }
