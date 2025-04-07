@@ -26,4 +26,4 @@ pnpm --filter @shuriken-ui/nuxt dev:prepare
 pnpm --filter playground dev
 ```
 
-Available playgrounds: `playground`, `playground-tiny`, `docs`.
+Available playgrounds: `playground`, `playground-tiny`, `@shuriken-ui/docs`.

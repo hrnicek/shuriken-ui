@@ -1,7 +1,16 @@
 {
-  "name": "docs",
+  "name": "@shuriken-ui/docs",
   "type": "module",
-  "private": true,
+  "version": "4.0.0-beta.1",
+  "author": "Css Ninja <hello@cssninja.io> (https://cssninja.io)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shuriken-ui/shuriken-ui.git",
+    "directory": "docs"
+  },
+  "files": [
+    "content"
+  ],
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
