@@ -56,7 +56,7 @@ const forward = reactiveOmit(props, ['label', 'error', 'hint', 'description'])
           <BasePrimitiveFieldRequiredIndicator />
         </BasePrimitiveFieldLabel>
 
-        <div v-if="props.hint || 'hint' in slots || props.state !== 'idle'" class="flex items-center gap-2 pe-0.5">
+        <div v-if="props.hint || 'hint' in slots || props.state !== 'idle'" class="flex items-center justify-end gap-2">
           <BasePrimitiveFieldLoadingIndicator />
           <BasePrimitiveFieldSuccessIndicator />
           <BasePrimitiveFieldErrorIndicator />

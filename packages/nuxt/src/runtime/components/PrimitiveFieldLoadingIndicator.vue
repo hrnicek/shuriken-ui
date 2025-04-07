@@ -8,7 +8,7 @@ const iconSpiner = useNuiConfig('icon', 'spiner')
 </script>
 
 <template>
-  <div v-if="state === 'loading'" class="pointer-events-none text-field-loading">
+  <div v-if="state === 'loading'" class="flex pointer-events-none text-field-loading">
     <slot>
       <Icon :name="iconSpiner" class="size-4" />
     </slot>

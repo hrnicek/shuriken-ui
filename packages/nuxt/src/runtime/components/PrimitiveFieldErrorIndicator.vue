@@ -8,7 +8,7 @@ const iconAlert = useNuiConfig('icon', 'alert')
 </script>
 
 <template>
-  <div v-if="state === 'error'" class="pointer-events-none text-destructive-base dark:text-destructive-light">
+  <div v-if="state === 'error'" class="flex pointer-events-none text-destructive-base dark:text-destructive-light">
     <slot>
       <Icon :name="iconAlert" class="size-4" />
     </slot>
