@@ -327,7 +327,7 @@ provideBaseAutocompleteContext({
           props.classes.content,
         ])"
       >
-        <slot name="content-start" v-bind="{ open, modelValue, query }" />
+        <slot name="content-start" v-bind="{ open, modelValue: modelValue as T | T[], query }" />
 
         <ComboboxViewport
           v-bind="bindings.viewport"
@@ -336,7 +336,7 @@ provideBaseAutocompleteContext({
             props.classes.viewport,
           ])"
         >
-          <slot name="viewport-start" v-bind="{ open, modelValue, query }" />
+          <slot name="viewport-start" v-bind="{ open, modelValue: modelValue as T | T[], query }" />
 
           <ComboboxEmpty
             v-bind="bindings.empty"
@@ -345,7 +345,7 @@ provideBaseAutocompleteContext({
               props.classes.empty,
             ])"
           >
-            <slot name="empty" v-bind="{ open, modelValue, query }" />
+            <slot name="empty" v-bind="{ open, modelValue: modelValue as T | T[], query }" />
           </ComboboxEmpty>
 
           <slot>
@@ -357,9 +357,9 @@ provideBaseAutocompleteContext({
               {{ item.textValue ?? item.value }}
             </BaseAutocompleteItem>
           </slot>
-          <slot name="viewport-end" v-bind="{ open, modelValue, query }" />
+          <slot name="viewport-end" v-bind="{ open, modelValue: modelValue as T | T[], query }" />
         </ComboboxViewport>
-        <slot name="content-end" v-bind="{ open, modelValue, query }" />
+        <slot name="content-end" v-bind="{ open, modelValue: modelValue as T | T[], query }" />
       </ComboboxContent>
     </ComboboxPortal>
   </ComboboxRoot>

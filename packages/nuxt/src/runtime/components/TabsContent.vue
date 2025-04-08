@@ -14,7 +14,7 @@ const props = withDefaults(defineProps<BaseTabsContentProps>(), {
   value: undefined,
 })
 const slots = defineSlots<BaseTabsContentSlots>()
-const forward = useForwardProps(reactiveOmit(props, []))
+const forward = useForwardProps(reactiveOmit(props, [])) as unknown as BaseTabsContentProps
 </script>
 
 <template>

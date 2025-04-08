@@ -29,7 +29,7 @@ const emits = defineEmits<BaseAutocompleteItemEmits<T>>()
 const slots = defineSlots<BaseAutocompleteItemSlots>()
 
 const iconCheck = useNuiConfig('icon', 'check')
-const forward = useForwardPropsEmits(reactiveOmit(props, []), emits)
+const forward = useForwardPropsEmits(reactiveOmit(props, []), emits) as BaseAutocompleteItemProps<T>
 
 const context = injectBaseAutocompleteContext()
 </script>
