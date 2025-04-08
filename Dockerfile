@@ -15,11 +15,10 @@ FROM install AS build-docs
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm run --filter @shuriken-ui/nuxt dev:prepare
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm run --filter @shuriken-ui/nuxt-component-meta prepack
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store NODE_OPTIONS=--max-old-space-size=8192 pnpm run --filter @shuriken-ui/docs build
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm deploy --legacy --filter @shuriken-ui/docs --prod  /deploy/docs
 
 FROM base AS docs
 ENV NODE_ENV=production
-COPY --from=build-docs /deploy/docs/.output /prod/docs/.output
+COPY --from=build-docs /build/docs/.output /prod/docs/.output
 WORKDIR /prod/docs
 EXPOSE 3000
 CMD ["node",  ".output/server/index.mjs"]
