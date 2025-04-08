@@ -1,4 +1,4 @@
-import type { BaseToastEmits, BaseToastProps } from '../types'
+import type { BaseToastEmits, BaseToastProps } from '@shuriken-ui/nuxt'
 
 import { useState } from '#app'
 
