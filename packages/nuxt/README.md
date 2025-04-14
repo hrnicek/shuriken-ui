@@ -24,7 +24,7 @@ This repository contains Shuriken UI components (form inputs, buttons, cards, et
 Install dependencies:
 
 ```bash
-pnpm install -D @shuriken-ui/nuxt@next tailwindcss@next
+pnpm install -D @shuriken-ui/nuxt tailwindcss
 ```
 
 Add the Shuriken UI module to your `nuxt.config.ts`:
