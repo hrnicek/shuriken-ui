@@ -4,6 +4,7 @@ import type {
   ComboboxItemEmits,
   ComboboxItemProps,
 } from 'reka-ui'
+import type { BaseAutocompleteContext } from './Autocomplete.vue'
 import { reactiveOmit } from '@vueuse/core'
 import {
   ComboboxItem,
@@ -11,13 +12,19 @@ import {
   useForwardPropsEmits,
 } from 'reka-ui'
 import { useNuiConfig } from '../composables/useNuiConfig'
-import { injectBaseAutocompleteContext, radiuses, variants } from './Autocomplete.vue'
+import { injectBaseAutocompleteContext, radiuses } from './Autocomplete.vue'
 
 export interface BaseAutocompleteItemProps<T = AcceptableValue> extends ComboboxItemProps<T> {}
 export interface BaseAutocompleteItemEmits<T = AcceptableValue> extends ComboboxItemEmits<T> {}
 export interface BaseAutocompleteItemSlots {
   default: () => any
 }
+
+export const variants = {
+  default: 'data-[highlighted]:bg-portal-default-item-bg-active text-portal-default-item-text data-[highlighted]:text-portal-default-item-text-active',
+  muted: 'data-[highlighted]:bg-portal-muted-item-bg-active text-portal-muted-item-text data-[highlighted]:text-portal-muted-item-text-active',
+  none: '',
+} as const satisfies Record<BaseAutocompleteContext['variant'], string>
 </script>
 
 <script setup lang="ts" generic="T extends AcceptableValue = AcceptableValue">
