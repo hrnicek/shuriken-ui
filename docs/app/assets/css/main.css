@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-@import '@shuriken-ui/nuxt';
+@import '@shuriken-ui/vue';
 
 /* Parse markdown content */
 @source '../../../content/';

@@ -11,7 +11,7 @@ WORKDIR /build
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 
 FROM install AS build-docs
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm run --filter @shuriken-ui/nuxt dev:prepare
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm run --filter @shuriken-ui/vue dev:prepare
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm run --filter @shuriken-ui/nuxt-component-meta prepack
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store NODE_OPTIONS=--max-old-space-size=8192 pnpm run --filter @shuriken-ui/docs build
 

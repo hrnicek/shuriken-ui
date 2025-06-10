@@ -1,0 +1,58 @@
+{
+  "name": "@shuriken-ui/vue",
+  "type": "module",
+  "version": "4.0.0-beta.4",
+  "author": "Css Ninja <hello@cssninja.io> (https://cssninja.io)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shuriken-ui/shuriken-ui.git",
+    "directory": "packages/vue"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "style": "./dist/index.css",
+      "import": "./dist/index.mjs"
+    },
+    "./components/*": "./dist/components/*",
+    "./composables/*": "./dist/composables/*"
+  },
+  "main": "./dist/index.mjs",
+  "typesVersions": {
+    "*": {
+      ".": [
+        "./dist/module.d.mts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "prepack": "pnpm build",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test:types": "vue-tsc --noEmit"
+  },
+  "peerDependencies": {
+    "typescript": "catalog:"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "catalog:",
+    "@vue/shared": "^3.5.13",
+    "@vueuse/core": "^13.0.0",
+    "defu": "^6.1.4",
+    "reka-ui": "catalog:",
+    "tailwind-merge": "^3.2.0",
+    "tailwindcss": "catalog:",
+    "@inertiajs/vue3": "^2.0.12"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.12.0",
+    "eslint": "^9.24.0",
+    "unbuild": "^3.5.0",
+    "vue": "^3.5.13",
+    "vue-tsc": "^2.2.8"
+  }
+}

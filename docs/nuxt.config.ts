@@ -2,7 +2,7 @@ export default defineNuxtConfig({
   // ssr: false,
   modules: [
     'reka-ui/nuxt',
-    '@shuriken-ui/nuxt',
+    '@shuriken-ui/vue',
     '@nuxt/content',
     '@nuxt/image',
     '@nuxt/fonts',

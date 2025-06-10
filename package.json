@@ -6,6 +6,6 @@
   "packageManager": "pnpm@10.8.0",
   "scripts": {
     "dev": "pnpm --filter @shuriken-ui/docs dev",
-    "dev:prepare": "pnpm --filter @shuriken-ui/nuxt dev:prepare"
+    "dev:prepare": "pnpm --filter @shuriken-ui/vue dev:prepare"
   }
 }
