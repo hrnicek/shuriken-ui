@@ -1,5 +1,5 @@
 {
-  "name": "@shuriken-ui/nuxt",
+  "name": "@shuriken-ui/vue",
   "type": "module",
   "version": "4.0.0-beta.4",
   "author": "Css Ninja <hello@cssninja.io> (https://cssninja.io)",
@@ -10,15 +10,15 @@
   },
   "exports": {
     ".": {
-      "types": "./dist/module.d.mts",
+      "types": "./dist/index.d.mts",
       "style": "./dist/runtime/index.css",
-      "import": "./dist/module.mjs"
+      "import": "./dist/index.mjs"
     },
     "./runtime/*": "./dist/runtime/*",
     "./components/*": "./dist/runtime/components/*",
     "./composables/*": "./dist/runtime/composables/*"
   },
-  "main": "./dist/module.mjs",
+  "main": "./dist/index.mjs",
   "typesVersions": {
     "*": {
       ".": [
@@ -30,9 +30,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "nuxt-module-build build",
+    "build": "unbuild",
     "prepack": "pnpm build",
-    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test:types": "vue-tsc --noEmit"
@@ -41,22 +40,18 @@
     "typescript": "catalog:"
   },
   "dependencies": {
-    "@nuxt/icon": "^1.12.0",
-    "@nuxt/kit": "^3.16.2",
-    "@nuxtjs/color-mode": "^3.5.2",
     "@tailwindcss/vite": "catalog:",
     "@vue/shared": "^3.5.13",
     "@vueuse/core": "^13.0.0",
     "defu": "^6.1.4",
     "reka-ui": "catalog:",
     "tailwind-merge": "^3.2.0",
-    "tailwindcss": "catalog:"
+    "tailwindcss": "catalog:",
+    "@inertiajs/vue3": "^2.0.12"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.12.0",
-    "@nuxt/module-builder": "^1.0.1",
     "eslint": "^9.24.0",
-    "nuxt": "catalog:",
     "unbuild": "^3.5.0",
     "vue": "^3.5.13",
     "vue-tsc": "^2.2.8"

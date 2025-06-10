@@ -1,46 +1,39 @@
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/shuriken-ui/.github/assets/86636408/278e3026-1997-4e01-9457-20772adbce31">
-    <source media="(prefers-color-scheme: light)" srcset="https://github.com/shuriken-ui/.github/assets/86636408/06f9d8e2-38aa-45b2-b91e-1c891a20e271">
-    <img alt="Shuriken UI logo" src="https://github.com/shuriken-ui/.github/assets/86636408/06f9d8e2-38aa-45b2-b91e-1c891a20e271">
-  </picture>
-</p>
-
-<p align="center">
-  <a href="https://shurikenui.com" title="Shuriken UI website"><strong>shurikenui.com</strong></a> |
-  by <a href="https://cssninja.io" title="Our official website"><strong>cssninja.io</strong></a>
-</p>
-
----
-
-## Shuriken UI - Nuxt
+# Shuriken UI - Vue
 
 Shuriken UI is a free and open-source Tailwind CSS UI Kit. It is a collection of components and templates that you can use to build your next Tailwind CSS project.
 
-This repository contains Shuriken UI components (form inputs, buttons, cards, etc.) that you can use to build your project.
+This package provides Shuriken UI components for Vue 3 applications. It works great with Inertia.js.
 
 ## Installation
 
 Install dependencies:
 
 ```bash
-pnpm install -D @shuriken-ui/nuxt tailwindcss
+pnpm install -D @shuriken-ui/vue tailwindcss @inertiajs/vue3
 ```
 
-Add the Shuriken UI module to your `nuxt.config.ts`:
+Register the plugin in your Vue app:
 
 ```ts
-export default defineNuxtConfig({
-  modules: ['@shuriken-ui/nuxt'],
-  css: ['~/assets/css/main.css'],
+import { createApp } from 'vue'
+import { createInertiaApp } from '@inertiajs/vue3'
+import ShurikenUI from '@shuriken-ui/vue'
+
+createInertiaApp({
+  // ...
+  setup({ el, App, props }) {
+    createApp({ render: () => h(App, props) })
+      .use(ShurikenUI())
+      .mount(el)
+  },
 })
 ```
 
-Reference Shuriken UI in your `~/assets/css/main.css` file:
+Reference Shuriken UI in your Tailwind CSS file:
 
 ```css
 @import 'tailwindcss';
-@import '@shuriken-ui/nuxt';
+@import '@shuriken-ui/vue';
 ```
 
 > See the [theme.css](https://github.com/shuriken-ui/shuriken-ui/blob/main/packages/tailwind/lib/theme.css) file for a complete list of available variables you can customize.

@@ -1,62 +1,44 @@
-import type { RouteLocationRaw } from 'vue-router'
-import { defineNuxtLink } from '#imports'
-import { computed } from 'vue'
-
 export interface BaseButtonProperties {
   type?: 'button' | 'submit' | 'reset'
-  to?: RouteLocationRaw
+  to?: string | Record<string, any>
   href?: string
   disabled?: boolean
   rel?: string
   target?: string
 }
 
-const NuxtLink = defineNuxtLink({})
+import { computed } from 'vue'
+import Link from '@inertiajs/vue3'
 
 export function useNuiButton(properties: BaseButtonProperties, {
   externalDefaultRelationship = 'noopener noreferrer',
   externalDefaultTarget = '_blank',
 } = {}) {
   const is = computed(() =>
-    properties.to ? NuxtLink : properties.href ? 'a' : 'button',
+    properties.to || properties.href ? Link : 'button',
   )
   const type = computed(() => {
-    if (is.value === 'button') {
+    if (is.value === 'button')
       return properties.type || 'button'
-    }
   })
   const external = computed(() => {
-    if (typeof properties.to === 'string' && properties.to.startsWith('http')) {
-      return true
-    }
-    else if (
-      typeof properties.to === 'object'
-      && 'path' in properties.to
-      && properties.to.path?.startsWith('http')
-    ) {
-      return true
-    }
-
+    const href = typeof properties.to === 'string' ? properties.to : properties.href
+    if (typeof href === 'string')
+      return href.startsWith('http')
     return false
   })
   const relationship = computed(() => {
-    if (!external.value) {
+    if (!external.value)
       return properties.rel
-    }
-
     return properties.rel ?? externalDefaultRelationship
   })
   const target = computed(() => {
-    if (!external.value) {
+    if (!external.value)
       return properties.target
-    }
-
     return properties.target ?? externalDefaultTarget
   })
-
   const attributes = computed(() => ({
-    to: properties.disabled ? undefined : properties.to,
-    href: properties.disabled ? undefined : properties.href,
+    href: properties.disabled ? undefined : (properties.href || properties.to as any),
     disabled: properties.disabled,
     type: type.value,
     rel: relationship.value,

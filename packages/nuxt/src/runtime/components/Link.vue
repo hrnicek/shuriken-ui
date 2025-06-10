@@ -1,24 +1,15 @@
 <script setup lang="ts">
-import type { NuxtLinkProps } from 'nuxt/app'
-import { defineNuxtLink } from '#imports'
+import type { InertiaLinkProps } from '@inertiajs/vue3'
+import Link from '@inertiajs/vue3'
 
-const props = withDefaults(defineProps<NuxtLinkProps>(), {
-  to: undefined,
+const props = withDefaults(defineProps<InertiaLinkProps>(), {
   href: undefined,
-  target: undefined,
-  rel: undefined,
-  prefetch: undefined,
-  noPrefetch: undefined,
-  activeClass: undefined,
-  exactActiveClass: undefined,
-  ariaCurrentValue: undefined,
 })
-const NuxtLink = defineNuxtLink({})
 </script>
 
 <template>
   <component
-    :is="NuxtLink"
+    :is="Link"
     v-bind="props"
     class="underline-offset-4 hover:underline focus:underline hover:text-link dark:hover:text-link focus:text-link dark:focus:text-link"
   >

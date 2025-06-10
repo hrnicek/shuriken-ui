@@ -1,46 +1,21 @@
 <script lang="ts">
-import type { RouteLocationRaw } from '#vue-router'
 import { useNuiButton } from '../composables/useNuiButton'
 import { useNuiConfig } from '../composables/useNuiConfig'
 
 export interface BaseButtonProps {
-  /** The location to which the button should navigate when clicked. This is only applicable if the button is a link. */
-  to?: RouteLocationRaw
-
-  /** Using href instead of to result in a native anchor with no router functionality. */
   href?: string
-
-  /** The value of the 'rel' attribute of the button. This attribute is used to specify the relationship of the linked document with the current document. */
+  to?: string | Record<string, any>
   rel?: string
-
-  /** The value of the 'target' attribute of the button. This attribute is used to specify where to open the linked document. */
   target?: string
-
-  /** The type of the button. */
   type?: 'button' | 'submit' | 'reset'
-
-  /** Whether the button is in a loading state. */
   loading?: boolean
-
-  /**
-   * The variant of the button..
-   */
   variant?: 'default' | 'muted' | 'ghost' | 'muted' | 'primary' | 'destructive' | 'dark' | 'link' | 'none'
-
-  /**
-   * The size of the button
-   */
   size?: 'sm' | 'icon-sm' | 'md' | 'icon-md' | 'lg' | 'icon-lg' | 'xl' | 'icon-xl'
-
-  /**
-   * The radius of the button.
-   */
   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full'
 }
 export interface BaseButtonSlots {
   default: () => any
 }
-
 export const sizes = {
   'sm': 'h-8 px-3 py-1 text-sm',
   'md': 'h-10 px-4 py-2 text-sm',
@@ -51,7 +26,6 @@ export const sizes = {
   'icon-lg': 'size-12 text-base',
   'icon-xl': 'size-14 text-base',
 } as const satisfies Record<NonNullable<BaseButtonProps['size']>, string>
-
 export const radiuses = {
   none: '',
   sm: 'rounded-sm',
@@ -59,7 +33,6 @@ export const radiuses = {
   lg: 'rounded-lg',
   full: 'rounded-full',
 } as const satisfies Record<NonNullable<BaseButtonProps['rounded']>, string>
-
 export const variants = {
   default: 'border border-muted-300 dark:border-muted-800 hover:not-disabled:border-muted-200 dark:hover:not-disabled:border-muted-700 text-muted-800 dark:text-muted-100 bg-white dark:bg-muted-950 hover:not-disabled:bg-muted-50 dark:hover:not-disabled:bg-muted-900 active:not-disabled:bg-white dark:active:not-disabled:bg-muted-950 focus-visible:bg-muted-50 dark:focus-visible:bg-muted-900',
   muted: 'border border-muted-100 dark:border-muted-800 text-muted-500 dark:text-muted-100 bg-muted-100 dark:bg-muted-800 hover:not-disabled:bg-muted-50 dark:hover:not-disabled:bg-muted-700 active:not-disabled:bg-muted-100 dark:active:not-disabled:bg-muted-600 focus-visible:bg-muted-50 dark:focus-visible:bg-muted-700',
@@ -79,21 +52,18 @@ const props = withDefaults(defineProps<BaseButtonProps>(), {
   rel: '',
   target: '',
   type: undefined,
-
   variant: 'default',
   size: 'md',
   rounded: 'md',
 })
 const slots = defineSlots<BaseButtonSlots>()
-
 const iconSpiner = useNuiConfig('icon', 'spiner')
-
 const { attributes, is } = useNuiButton(props)
 </script>
 
 <template>
   <component
-    :is
+    :is="is"
     v-bind="attributes"
     class="focus-visible:nui-focus enabled:cursor-pointer relative inline-flex justify-center items-center space-x-1 font-sans font-normal leading-5 no-underline transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed hover:shadow-none"
     :class="[
