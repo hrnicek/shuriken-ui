@@ -1,6 +1,6 @@
 import type { ComputedRef, MaybeRefOrGetter } from 'vue'
 import { inject, computed, toValue } from 'vue'
-import { nuiConfigSymbol, defaultConfig } from '../../index'
+import { nuiConfigSymbol, defaultConfig } from '../index'
 
 type NuiConfig = typeof defaultConfig
 
