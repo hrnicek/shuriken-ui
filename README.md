@@ -4,7 +4,7 @@ This is a monorepo for Shuriken UI, a collection of components for building mode
 
 ## Packages
 
-- [@shuriken-ui/nuxt](./packages/nuxt/README.md): Nuxt Module for Shuriken UI.
+- [@shuriken-ui/vue](./packages/nuxt/README.md): Vue 3 plugin for Shuriken UI.
 
 ## Development
 
@@ -14,10 +14,10 @@ This is a monorepo for Shuriken UI, a collection of components for building mode
 pnpm install
 ```
 
-### Prepare the development environment
+### Build packages
 
 ```bash
-pnpm --filter @shuriken-ui/nuxt dev:prepare
+pnpm --filter @shuriken-ui/vue build
 ```
 
 ### Run a playground

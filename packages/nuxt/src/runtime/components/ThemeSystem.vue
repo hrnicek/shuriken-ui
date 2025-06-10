@@ -1,31 +1,18 @@
 <script lang="ts">
-import { useColorMode } from '#imports'
 import { useMounted } from '@vueuse/core'
 import { RadioGroupItem, RadioGroupRoot } from 'reka-ui'
 import { computed } from 'vue'
 import { useNuiConfig } from '../composables/useNuiConfig'
+import { useColorMode } from '../composables/useColorMode'
 
 export interface BaseThemeSystemProps {
-  /**
-   * The form input identifier.
-   */
   id?: string
-
-  /**
-   * Enables transitions when toggling between light and dark mode.
-   */
   transitions?: boolean
-
-  /**
-   * The variant of the toggle.
-   */
   variant?: 'default'
 }
-
 export const variants = {
   default: 'bg-white dark:bg-muted-950 border border-muted-200 dark:border-muted-800',
 } as const satisfies Record<NonNullable<BaseThemeSystemProps['variant']>, string>
-
 export const trackVariants = {
   default: 'bg-muted-100 dark:bg-muted-800',
 } as const satisfies Record<NonNullable<BaseThemeSystemProps['variant']>, string>
@@ -46,20 +33,14 @@ const isMounted = useMounted()
 const colorMode = useColorMode()
 const preference = computed({
   get() {
-    if (!isMounted.value) {
+    if (!isMounted.value)
       return 'system'
-    }
-    return colorMode.preference
+    return colorMode.preference.value
   },
   set(value) {
-    // disable transitions
-    if (import.meta.browser && props.transitions === false) {
+    if (import.meta.browser && props.transitions === false)
       document.documentElement.classList.add('nui-no-transition')
-    }
-
-    colorMode.preference = value
-
-    // re-enable transitions
+    colorMode.preference.value = value
     if (import.meta.browser && props.transitions === false) {
       setTimeout(() => {
         document.documentElement.classList.remove('nui-no-transition')

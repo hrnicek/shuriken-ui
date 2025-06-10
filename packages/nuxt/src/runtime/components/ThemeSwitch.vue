@@ -1,32 +1,19 @@
 <script lang="ts">
-import { useColorMode } from '#imports'
 import { useMounted } from '@vueuse/core'
 import { SwitchRoot, SwitchThumb } from 'reka-ui'
 import { computed } from 'vue'
 import { useNuiConfig } from '../composables/useNuiConfig'
+import { useColorMode } from '../composables/useColorMode'
 import { useNuiId } from '../composables/useNuiId'
 
 export interface BaseThemeSwitchProps {
-  /**
-   * The form input identifier.
-   */
   id?: string
-
-  /**
-   * Enables transitions when toggling between light and dark mode.
-   */
   transitions?: boolean
-
-  /**
-   * The variant of the Switch.
-   */
   variant?: 'default'
 }
-
 export const variants = {
   default: 'bg-white dark:bg-muted-950 border border-muted-300 dark:border-muted-800',
 } as const satisfies Record<NonNullable<BaseThemeSwitchProps['variant']>, string>
-
 export const background = {
   default: 'bg-muted-200 dark:bg-muted-800',
 } as const satisfies Record<NonNullable<BaseThemeSwitchProps['variant']>, string>
@@ -47,20 +34,14 @@ const colorMode = useColorMode()
 const isMounted = useMounted()
 const isDark = computed({
   get() {
-    if (!isMounted.value) {
+    if (!isMounted.value)
       return false
-    }
-    return colorMode.value === 'dark'
+    return colorMode.value.value === 'dark'
   },
   set(value) {
-    // disable transitions
-    if (import.meta.browser && props.transitions === false) {
+    if (import.meta.browser && props.transitions === false)
       document.documentElement.classList.add('nui-no-transition')
-    }
-
-    colorMode.preference = value ? 'dark' : 'light'
-
-    // re-enable transitions
+    colorMode.preference.value = value ? 'dark' : 'light'
     if (import.meta.browser && props.transitions === false) {
       setTimeout(() => {
         document.documentElement.classList.remove('nui-no-transition')
@@ -72,7 +53,7 @@ const isDark = computed({
 
 <template>
   <SwitchRoot
-    :id
+    :id="id"
     v-model="isDark"
     class="focus-visible:nui-focus relative block h-6 w-14 scale-[0.8] rounded-full focus-visible:outline-2 ring-2 ring-transparent ring-offset-muted-200 dark:ring-offset-muted-900"
     :class="background[variant]"
