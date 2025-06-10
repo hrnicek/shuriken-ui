@@ -15,7 +15,10 @@
       "import": "./dist/index.mjs"
     },
     "./components/*": "./dist/components/*",
-    "./composables/*": "./dist/composables/*"
+    "./composables/*": "./dist/composables/*",
+    "./create": "./dist/create.mjs",
+    "./preset": "./dist/preset.mjs",
+    "./version": "./dist/version.mjs"
   },
   "main": "./dist/index.mjs",
   "typesVersions": {
