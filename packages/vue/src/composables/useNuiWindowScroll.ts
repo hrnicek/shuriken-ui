@@ -5,7 +5,7 @@ export function useNuiWindowScroll() {
   const x = ref(0)
   const y = ref(0)
 
-  if (import.meta.browser) {
+  if (typeof window !== 'undefined') {
     useEventListener(
       window,
       'scroll',

@@ -1,9 +1,9 @@
-import { computed, watchEffect } from 'vue'
+import { computed, watchEffect, type Ref } from 'vue'
 import { usePreferredDark, useStorage } from '@vueuse/core'
 
 export interface ColorMode {
-  value: ReturnType<typeof computed>
-  preference: ReturnType<typeof useStorage>
+  value: Readonly<Ref<'light' | 'dark'>>
+  preference: Ref<'system' | 'light' | 'dark'>
 }
 
 export function useColorMode(): ColorMode {

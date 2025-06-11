@@ -1,7 +1,7 @@
 <script lang="ts">
 export interface BaseBreadcrumbProps {
-  items?: {
-    href?: string
+    items?: {
+      href?: string | { url: string; method?: string }
     label?: string
     hideLabel?: boolean
     icon?: string
@@ -20,7 +20,7 @@ export interface BaseBreadcrumbConfig {
 </script>
 
 <script setup lang="ts">
-import Link from '@inertiajs/vue3'
+import { Link } from '@inertiajs/vue3'
 const props = withDefaults(defineProps<BaseBreadcrumbProps>(), {
   items: () => [],
   color: undefined,
@@ -38,11 +38,12 @@ const slots = defineSlots<BaseBreadcrumbSlots>()
         class="flex last:text-muted-500 dark:last:text-muted-400"
       >
         <Link
-          :href="item.href"
+          v-if="item.href"
+          :href="item.href as any"
           class="focus-visible:nui-focus hover:underline underline-offset-4 text-[0.85rem] flex items-center gap-x-1 text-muted-500 dark:text-muted-400 transition-colors duration-100"
           :class="[
-            item.href && props.variant === 'primary' && 'hover:text-primary-heavy focus:text-primary-heavy dark:hover:text-primary-light dark:focus:text-primary-light',
-            item.href && props.variant === 'dark' && 'hover:text-muted-900 focus:text-muted-900 dark:hover:text-muted-100 dark:focus:text-muted-100',
+            props.variant === 'primary' && 'hover:text-primary-heavy focus:text-primary-heavy dark:hover:text-primary-light dark:focus:text-primary-light',
+            props.variant === 'dark' && 'hover:text-muted-900 focus:text-muted-900 dark:hover:text-muted-100 dark:focus:text-muted-100',
           ]"
         >
           <Icon v-if="item.icon" :name="item.icon" />
@@ -50,6 +51,15 @@ const slots = defineSlots<BaseBreadcrumbSlots>()
             {{ item.label }}
           </span>
         </Link>
+        <span
+          v-else
+          class="focus-visible:nui-focus text-[0.85rem] flex items-center gap-x-1 text-muted-500 dark:text-muted-400 transition-colors duration-100"
+        >
+          <Icon v-if="item.icon" :name="item.icon" />
+          <span :class="[item.hideLabel && 'sr-only']">
+            {{ item.label }}
+          </span>
+        </span>
         <div
           v-if="index < items.length - 1"
           class="text-[0.85rem] flex items-center gap-x-1 text-muted-500 dark:text-muted-400 transition-colors duration-300"

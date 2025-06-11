@@ -39,10 +39,10 @@ const isDark = computed({
     return colorMode.value.value === 'dark'
   },
   set(value) {
-    if (import.meta.browser && props.transitions === false)
+    if (typeof window !== 'undefined' && props.transitions === false)
       document.documentElement.classList.add('nui-no-transition')
     colorMode.preference.value = value ? 'dark' : 'light'
-    if (import.meta.browser && props.transitions === false) {
+    if (typeof window !== 'undefined' && props.transitions === false) {
       setTimeout(() => {
         document.documentElement.classList.remove('nui-no-transition')
       }, 0)
