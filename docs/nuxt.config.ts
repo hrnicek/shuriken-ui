@@ -42,7 +42,7 @@ export default defineNuxtConfig({
   },
   compatibilityDate: '2025-04-01',
   componentMeta: {
-    metaSources: ['@shuriken-ui/nuxt-component-meta'],
+    // Use default component metadata without custom sources
     exclude: [
       // Disable parsing components in the project, only use static ones.
       () => true,
