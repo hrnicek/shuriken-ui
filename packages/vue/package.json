@@ -39,16 +39,16 @@
     "test:types": "vue-tsc --noEmit"
   },
   "peerDependencies": {
-    "typescript": "catalog:"
+    "typescript": "^5.8.3"
   },
   "dependencies": {
-    "@tailwindcss/vite": "catalog:",
+    "@tailwindcss/vite": "4.1.3",
     "@vue/shared": "^3.5.13",
     "@vueuse/core": "^13.0.0",
     "defu": "^6.1.4",
-    "reka-ui": "catalog:",
+    "reka-ui": "2.2.0",
     "tailwind-merge": "^3.2.0",
-    "tailwindcss": "catalog:",
+    "tailwindcss": "4.1.3",
     "@inertiajs/vue3": "^2.0.12"
   },
   "devDependencies": {
